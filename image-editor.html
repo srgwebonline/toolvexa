@@ -1,0 +1,2371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Editor | Edit Images Online | Toolvexa</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Free online image editor tool. Edit, filter, and enhance images with professional tools. Adjust brightness, contrast, apply filters, crop, rotate and more. 100% secure browser-based editing.">
+    <meta name="keywords" content="image editor, edit images, photo editor, online image editor, photo editing, image filter, crop image, rotate image, brightness adjustment, contrast adjustment">
+    <meta name="author" content="Toolvexa">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Image Editor | Edit Images Online | Toolvexa">
+    <meta property="og:description" content="Free online image editor tool. Edit, filter, and enhance images with professional tools. Adjust brightness, contrast, apply filters, crop, rotate and more.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://toolvexa.com/image-editor">
+    <meta property="og:image" content="https://toolvexa.com/images/image-editor-og.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://toolvexa.com/image-editor">
+    
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Image Editor",
+        "url": "https://toolvexa.com/image-editor",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Any",
+        "description": "Free online tool to edit images with professional features",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "creator": {
+            "@type": "Organization",
+            "name": "Toolvexa",
+            "url": "https://toolvexa.com"
+        }
+    }
+    </script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Reset & Base Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --primary: #4A6FA5;
+            --primary-light: #6B8CBC;
+            --secondary: #FF7E5F;
+            --success: #28a745;
+            --danger: #dc3545;
+            --warning: #ffc107;
+            --light: #f8f9fa;
+            --dark: #343a40;
+            --border: #dee2e6;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* Navigation Bar */
+        .tool-navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 15px 0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            border-bottom: 3px solid #4A6FA5;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: #4A6FA5;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .nav-brand i {
+            font-size: 1.8rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: #343a40;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            background: #4A6FA5;
+            color: white;
+        }
+        
+        .back-to-home {
+            background: #4A6FA5;
+            color: white !important;
+            padding: 8px 20px !important;
+            border-radius: 25px;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #343a40;
+            cursor: pointer;
+        }
+        
+        /* Adjust body padding for fixed navbar */
+        body {
+            padding-top: 80px;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            margin: 20px auto 30px;
+            font-size: 0.9rem;
+            color: #6c757d;
+            max-width: 1000px;
+            padding: 0 20px;
+        }
+        
+        .breadcrumb a {
+            color: #4A6FA5;
+            text-decoration: none;
+        }
+        
+        .breadcrumb span {
+            margin: 0 5px;
+        }
+
+        /* Tool Header */
+        .tool-header {
+            max-width: 1000px;
+            margin: 0 auto 40px;
+            padding: 30px 20px;
+            text-align: center;
+            background: white;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+        }
+
+        .tool-logo {
+            font-size: 3.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .tool-header h1 {
+            color: var(--primary);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 800;
+        }
+
+        .tool-subtitle {
+            color: #666;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 20px;
+        }
+
+        .tool-features {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .tool-feature {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+            color: var(--dark);
+            background: var(--light);
+            padding: 8px 15px;
+            border-radius: 50px;
+        }
+
+        .tool-feature i {
+            color: var(--success);
+        }
+
+        /* Main Tool Container */
+        .main-container {
+            max-width: 1000px;
+            margin: 0 auto 40px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .editor-header {
+            background: var(--primary);
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .editor-header h2 {
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+
+        .editor-subtitle {
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+
+        /* Main Content */
+        .main-content {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px;
+            gap: 20px;
+        }
+
+        .editor-panel {
+            flex: 2;
+            min-width: 300px;
+        }
+
+        .controls-panel {
+            flex: 1;
+            min-width: 280px;
+            background: var(--light);
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        /* Upload Area */
+        .upload-area {
+            border: 3px dashed var(--primary);
+            border-radius: 12px;
+            padding: 30px 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-bottom: 20px;
+            background: rgba(74, 111, 165, 0.05);
+        }
+
+        .upload-area:hover {
+            background: rgba(74, 111, 165, 0.1);
+            border-color: var(--primary-light);
+        }
+
+        .upload-area.dragover {
+            background: rgba(74, 111, 165, 0.15);
+            transform: scale(1.02);
+        }
+
+        #imageInput {
+            display: none;
+        }
+
+        .upload-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .upload-text {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .file-name {
+            color: var(--primary);
+            font-weight: 600;
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+
+        /* Preview Container */
+        .preview-container {
+            width: 100%;
+            height: 400px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            overflow: hidden;
+            background: #f8f9fa;
+            position: relative;
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #previewCanvas {
+            max-width: 100%;
+            max-height: 100%;
+            transition: transform 0.3s;
+        }
+
+        .no-image {
+            text-align: center;
+            color: #6c757d;
+            padding: 20px;
+        }
+
+        .no-image i {
+            font-size: 4rem;
+            margin-bottom: 15px;
+            display: block;
+            color: #adb5bd;
+        }
+
+        /* Zoom Controls */
+        .zoom-controls {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            background: white;
+            border-radius: 8px;
+            padding: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            display: flex;
+            gap: 5px;
+            z-index: 10;
+        }
+
+        .zoom-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: none;
+            background: var(--primary);
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .zoom-btn:hover {
+            background: var(--primary-light);
+            transform: scale(1.1);
+        }
+
+        /* Controls Styling */
+        .section-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 20px 0 15px 0;
+            color: var(--dark);
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-title i {
+            color: var(--primary);
+        }
+
+        .tool-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .tool-btn {
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            background: white;
+            color: var(--dark);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .tool-btn:hover:not(:disabled) {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .tool-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .tool-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        /* Sliders */
+        .slider-container {
+            margin: 15px 0;
+        }
+
+        .slider-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+
+        .slider-value {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .slider {
+            width: 100%;
+            height: 6px;
+            border-radius: 3px;
+            background: #ddd;
+            outline: none;
+            -webkit-appearance: none;
+        }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--primary);
+            cursor: pointer;
+            border: 2px solid white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .slider:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Filters */
+        .filter-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .filter-btn {
+            padding: 10px;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 0.85rem;
+        }
+
+        .filter-btn:hover:not(:disabled) {
+            background: var(--light);
+            border-color: var(--primary);
+        }
+
+        .filter-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .filter-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 25px;
+        }
+
+        .action-btn {
+            flex: 1;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .action-btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .action-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .download-btn {
+            background: var(--success);
+        }
+
+        .download-btn:hover:not(:disabled) {
+            background: #218838;
+        }
+
+        .reset-btn {
+            background: var(--danger);
+        }
+
+        .reset-btn:hover:not(:disabled) {
+            background: #c82333;
+        }
+
+        /* Tabs */
+        .tab-navigation {
+            display: flex;
+            border-bottom: 2px solid var(--border);
+            margin-bottom: 20px;
+        }
+
+        .tab-btn {
+            padding: 12px 20px;
+            background: none;
+            border: none;
+            border-bottom: 3px solid transparent;
+            font-weight: 600;
+            color: var(--dark);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .tab-btn:hover {
+            color: var(--primary);
+        }
+
+        .tab-btn.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Status Bar */
+        .status-bar {
+            padding: 15px 25px;
+            background: var(--light);
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+        }
+
+        .dimensions {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .history-info {
+            display: flex;
+            gap: 15px;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+        }
+
+        .faq-title {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .faq-container {
+            background: var(--light);
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border);
+            padding: 20px 0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            color: var(--dark);
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .faq-question i {
+            color: var(--primary);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            color: #666;
+            line-height: 1.6;
+            padding-right: 20px;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            margin-top: 15px;
+        }
+
+        /* Related Tools Section */
+        .related-tools-section {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+        }
+
+        .related-tools-title {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .tool-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 25px rgba(74, 111, 165, 0.15);
+        }
+
+        .related-tool-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .tool-card h3 {
+            color: var(--dark);
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .tool-card p {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .tool-link {
+            display: inline-block;
+            background: rgba(74, 111, 165, 0.1);
+            color: var(--primary);
+            padding: 10px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .tool-link:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* SEO Pages Styles */
+        .seo-section {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            display: none;
+            color: #343a40;
+            border: 1px solid #dee2e6;
+            position: relative;
+        }
+        
+        .seo-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .seo-section h1 {
+            color: #4A6FA5;
+            margin-bottom: 20px;
+            font-size: 2.2rem;
+        }
+        
+        .seo-section h2 {
+            color: #343a40;
+            margin: 25px 0 15px;
+            font-size: 1.5rem;
+        }
+        
+        .seo-section h3 {
+            color: #495057;
+            margin: 20px 0 10px;
+            font-size: 1.2rem;
+        }
+        
+        .seo-content {
+            line-height: 1.8;
+            color: #495057;
+        }
+        
+        .seo-content p {
+            margin-bottom: 15px;
+        }
+        
+        .seo-content ul, .seo-content ol {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .seo-content li {
+            margin-bottom: 10px;
+            color: #495057;
+        }
+        
+        .close-seo {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #4A6FA5;
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            z-index: 10;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Footer */
+        .tool-footer {
+            max-width: 1000px;
+            margin: 40px auto 20px;
+            text-align: center;
+            color: #6c757d;
+            padding: 30px 20px;
+            border-top: 1px solid #dee2e6;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: #4A6FA5;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        
+        .footer-links a:hover {
+            color: #FF7E5F;
+            text-decoration: underline;
+        }
+
+        .copyright {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-container {
+                flex-wrap: wrap;
+            }
+            
+            .main-content {
+                flex-direction: column;
+            }
+            
+            .preview-container {
+                height: 300px;
+            }
+            
+            .tool-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .filter-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+            }
+            
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .seo-section,
+            .faq-section,
+            .related-tools-section {
+                padding: 20px;
+                margin: 20px;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .tool-header h1 {
+                font-size: 2rem;
+            }
+            
+            .editor-header h2 {
+                font-size: 1.5rem;
+            }
+            
+            .tool-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .filter-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .status-bar {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav class="tool-navbar">
+    <div class="nav-container">
+        <a href="index.html" class="nav-brand">
+            <i class="fas fa-tools"></i> Toolvexa
+        </a>
+        
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <i class="fas fa-bars"></i>
+        </button>
+        
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="index.html#tools">All Tools</a></li>
+            <li><a href="index.html#image-tools">Image Tools</a></li>
+            <li><a href="#privacy-policy" onclick="showSeoPage('privacy')">Privacy Policy</a></li>
+            <li><a href="#terms-of-service" onclick="showSeoPage('terms')">Terms of Service</a></li>
+            <li><a href="#about-tool" onclick="showSeoPage('about')">About This Tool</a></li>
+            <li><a href="index.html" class="back-to-home">Back to Home</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Breadcrumb -->
+<div class="breadcrumb">
+    <a href="index.html">Home</a> 
+    <span>></span>
+    <a href="index.html#image-tools">Image Tools</a>
+    <span>></span>
+    <span>Image Editor</span>
+</div>
+
+<!-- Tool Header -->
+<div class="tool-header">
+    <div class="tool-logo">
+        <i class="fas fa-edit"></i>
+    </div>
+    <h1>Image Editor</h1>
+    <p class="tool-subtitle">Edit, filter, and enhance your images with professional tools. 100% secure - all processing happens in your browser.</p>
+    <div class="tool-features">
+        <div class="tool-feature">
+            <i class="fas fa-shield-alt"></i>
+            <span>Secure & Private</span>
+        </div>
+        <div class="tool-feature">
+            <i class="fas fa-bolt"></i>
+            <span>Fast Processing</span>
+        </div>
+        <div class="tool-feature">
+            <i class="fas fa-infinity"></i>
+            <span>No Limits</span>
+        </div>
+        <div class="tool-feature">
+            <i class="fas fa-desktop"></i>
+            <span>No Uploads Required</span>
+        </div>
+    </div>
+</div>
+
+<!-- Main Tool Container -->
+<div class="main-container">
+    <div class="editor-header">
+        <h2><i class="fas fa-image"></i> Image Editor</h2>
+        <p class="editor-subtitle">Filter your beautiful image to make more beautiful</p>
+    </div>
+    
+    <div class="main-content">
+        <div class="editor-panel">
+            <div class="upload-area" id="uploadArea">
+                <i class="fas fa-cloud-upload-alt upload-icon"></i>
+                <p class="upload-text">Click to upload or drag & drop image</p>
+                <p class="file-name" id="fileName">JPEG, PNG, GIF up to 5MB</p>
+                <input type="file" id="imageInput" accept="image/*">
+            </div>
+            
+            <div class="preview-container">
+                <canvas id="previewCanvas"></canvas>
+                
+                <div class="no-image" id="noImageMessage">
+                    <i class="fas fa-image"></i>
+                    <h3>Upload an Image</h3>
+                    <p>Your image will appear here</p>
+                </div>
+                
+                <div class="zoom-controls">
+                    <button class="zoom-btn" id="zoomOutBtn" title="Zoom Out">
+                        <i class="fas fa-search-minus"></i>
+                    </button>
+                    <button class="zoom-btn" id="zoomInBtn" title="Zoom In">
+                        <i class="fas fa-search-plus"></i>
+                    </button>
+                    <button class="zoom-btn" id="resetZoomBtn" title="Reset Zoom">
+                        <i class="fas fa-sync-alt"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="controls-panel">
+            <div class="tab-navigation">
+                <button class="tab-btn active" data-tab="transform">
+                    <i class="fas fa-sync-alt"></i> Transform
+                </button>
+                <button class="tab-btn" data-tab="adjust">
+                    <i class="fas fa-sliders-h"></i> Adjust
+                </button>
+                <button class="tab-btn" data-tab="filters">
+                    <i class="fas fa-palette"></i> Filters
+                </button>
+            </div>
+            
+            <!-- Transform Tab -->
+            <div id="transformTab" class="tab-content active">
+                <div class="section-title">
+                    <i class="fas fa-arrows-alt"></i> Transform Tools
+                </div>
+                
+                <div class="tool-grid">
+                    <button class="tool-btn" id="rotateLeftBtn" title="Rotate 90° Left">
+                        <i class="fas fa-undo"></i> Rotate Left
+                    </button>
+                    <button class="tool-btn" id="rotateRightBtn" title="Rotate 90° Right">
+                        <i class="fas fa-redo"></i> Rotate Right
+                    </button>
+                    <button class="tool-btn" id="flipHorizontalBtn" title="Flip Horizontal">
+                        <i class="fas fa-arrows-alt-h"></i> Flip H
+                    </button>
+                    <button class="tool-btn" id="flipVerticalBtn" title="Flip Vertical">
+                        <i class="fas fa-arrows-alt-v"></i> Flip V
+                    </button>
+                </div>
+                
+                <div class="section-title">
+                    <i class="fas fa-history"></i> History
+                </div>
+                
+                <div class="tool-grid">
+                    <button class="tool-btn" id="undoBtn" disabled>
+                        <i class="fas fa-undo"></i> Undo
+                    </button>
+                    <button class="tool-btn" id="redoBtn" disabled>
+                        <i class="fas fa-redo"></i> Redo
+                    </button>
+                    <button class="tool-btn" id="resetAllBtn" disabled>
+                        <i class="fas fa-times-circle"></i> Reset All
+                    </button>
+                    <button class="tool-btn" id="cropBtn" disabled>
+                        <i class="fas fa-crop"></i> Crop
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Adjust Tab -->
+            <div id="adjustTab" class="tab-content">
+                <div class="section-title">
+                    <i class="fas fa-adjust"></i> Adjustments
+                </div>
+                
+                <div class="slider-container">
+                    <div class="slider-label">
+                        <span>Brightness</span>
+                        <span class="slider-value" id="brightnessValue">100%</span>
+                    </div>
+                    <input type="range" min="0" max="200" value="100" class="slider" id="brightnessSlider">
+                </div>
+                
+                <div class="slider-container">
+                    <div class="slider-label">
+                        <span>Contrast</span>
+                        <span class="slider-value" id="contrastValue">100%</span>
+                    </div>
+                    <input type="range" min="0" max="200" value="100" class="slider" id="contrastSlider">
+                </div>
+                
+                <div class="slider-container">
+                    <div class="slider-label">
+                        <span>Saturation</span>
+                        <span class="slider-value" id="saturationValue">100%</span>
+                    </div>
+                    <input type="range" min="0" max="200" value="100" class="slider" id="saturationSlider">
+                </div>
+                
+                <div class="section-title" style="margin-top: 25px;">
+                    <i class="fas fa-droplet"></i> Color Effects
+                </div>
+                
+                <div class="slider-container">
+                    <div class="slider-label">
+                        <span>Blur</span>
+                        <span class="slider-value" id="blurValue">0px</span>
+                    </div>
+                    <input type="range" min="0" max="20" value="0" class="slider" id="blurSlider">
+                </div>
+            </div>
+            
+            <!-- Filters Tab -->
+            <div id="filtersTab" class="tab-content">
+                <div class="section-title">
+                    <i class="fas fa-filter"></i> Quick Filters
+                </div>
+                
+                <div class="filter-grid">
+                    <button class="filter-btn active" data-filter="none">None</button>
+                    <button class="filter-btn" data-filter="grayscale">Grayscale</button>
+                    <button class="filter-btn" data-filter="sepia">Sepia</button>
+                    <button class="filter-btn" data-filter="invert">Invert</button>
+                    <button class="filter-btn" data-filter="vintage">Vintage</button>
+                    <button class="filter-btn" data-filter="cool">Cool</button>
+                    <button class="filter-btn" data-filter="warm">Warm</button>
+                    <button class="filter-btn" data-filter="bright">Bright</button>
+                    <button class="filter-btn" data-filter="dark">Dark</button>
+                </div>
+            </div>
+            
+            <div class="action-buttons">
+                <button class="action-btn download-btn" id="downloadBtn" disabled>
+                    <i class="fas fa-download"></i> Download
+                </button>
+                <button class="action-btn reset-btn" id="resetBtn" disabled>
+                    <i class="fas fa-redo"></i> Reset
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Status Bar -->
+    <div class="status-bar">
+        <div class="dimensions" id="dimensionsInfo">No image loaded</div>
+        <div class="history-info">
+            <span>History: <span id="historyIndex">0</span>/<span id="historySize">0</span></span>
+        </div>
+    </div>
+</div>
+
+<!-- FAQ Section -->
+<div class="faq-section">
+    <h2 class="faq-title">Frequently Asked Questions</h2>
+    <div class="faq-container">
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>Is the Image Editor really free to use?</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                <p>Yes, our Image Editor is 100% free with no hidden costs, watermarks, or limitations. You can edit as many images as you need without any restrictions.</p>
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>Are my images safe and private?</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                <p>Absolutely! All image processing happens locally in your browser. Your images never leave your device or get uploaded to any server. This ensures complete privacy and security.</p>
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>What image formats do you support?</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                <p>We support all popular image formats including JPG, PNG, GIF, WebP, BMP, and TIFF. The edited images can be downloaded in PNG format for optimal quality.</p>
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>How many undo/redo levels are available?</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                <p>You have up to 10 levels of undo/redo functionality. This allows you to experiment freely and revert changes if needed.</p>
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>Can I edit multiple images at once?</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                <p>Currently, the editor processes one image at a time to ensure optimal performance and editing precision. You can edit multiple images sequentially.</p>
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>Which browsers are supported?</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                <p>All modern browsers including Chrome, Firefox, Safari, Edge, and Opera are supported. For best performance, we recommend using the latest version of your browser.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Related Tools Section -->
+<div class="related-tools-section">
+    <h2 class="related-tools-title">Other Useful Image Tools</h2>
+    <div class="tools-grid">
+        <div class="tool-card">
+            <div class="related-tool-icon">
+                <i class="fas fa-compress-alt"></i>
+            </div>
+            <h3>Image Compressor</h3>
+            <p>Reduce image file size while maintaining quality. Compress JPG, PNG, GIF, WebP images quickly.</p>
+            <a href="image-compressor.html" class="tool-link">Use Tool</a>
+        </div>
+        
+        <div class="tool-card">
+            <div class="related-tool-icon">
+                <i class="fas fa-exchange-alt"></i>
+            </div>
+            <h3>Image Converter</h3>
+            <p>Convert images between different formats like JPG, PNG, GIF, WebP, and more. Preserve quality while changing formats.</p>
+            <a href="image-converter.html" class="tool-link">Use Tool</a>
+        </div>
+        
+        <div class="tool-card">
+            <div class="related-tool-icon">
+                <i class="fas fa-crop-alt"></i>
+            </div>
+            <h3>Image Cropper</h3>
+            <p>Crop images to remove unwanted areas or focus on specific parts. Adjust aspect ratios for social media.</p>
+            <a href="image-cropper.html" class="tool-link">Use Tool</a>
+        </div>
+        
+        <div class="tool-card">
+            <div class="related-tool-icon">
+                <i class="fas fa-eraser"></i>
+            </div>
+            <h3>Background Remover</h3>
+            <p>Remove backgrounds from images instantly. Create transparent PNGs for product photos, logos, and more.</p>
+            <a href="image-background-remover.html" class="tool-link">Use Tool</a>
+        </div>
+        
+        <div class="tool-card">
+            <div class="related-tool-icon">
+                <i class="fas fa-expand-alt"></i>
+            </div>
+            <h3>Image Resizer</h3>
+            <p>Resize images to specific dimensions or percentages. Maintain aspect ratio or customize as needed.</p>
+            <a href="image-resizer.html" class="tool-link">Use Tool</a>
+        </div>
+        
+        <div class="tool-card">
+            <div class="related-tool-icon">
+                <i class="fas fa-file-image"></i>
+            </div>
+            <h3>Image to Text (OCR)</h3>
+            <p>Extract text from images using advanced OCR technology. Convert screenshots and photos to editable text.</p>
+            <a href="image-to-text.html" class="tool-link">Use Tool</a>
+        </div>
+    </div>
+</div>
+
+<!-- SEO Pages Section -->
+<div class="seo-section" id="privacy-policy">
+    <button class="close-seo" onclick="hideSeoPage()">×</button>
+    <h1>Privacy Policy</h1>
+    <div class="seo-content">
+        <p><strong>Last Updated: January 2024</strong></p>
+        
+        <h2>1. Introduction</h2>
+        <p>Welcome to Toolvexa Image Editor. Your privacy is critically important to us. This privacy policy document outlines the types of personal information that is received and collected by our tool and how it is used.</p>
+        
+        <h2>2. Information We Collect</h2>
+        <h3>2.1 No Personal Data Collection</h3>
+        <p>Our Image Editor tool operates entirely in your browser. We do not:</p>
+        <ul>
+            <li>Collect any personal information</li>
+            <li>Upload your images to our servers</li>
+            <li>Store any information about your usage</li>
+            <li>Use cookies for tracking purposes</li>
+        </ul>
+        
+        <h3>2.2 Local Processing</h3>
+        <p>All image editing happens locally on your device using JavaScript. Your images never leave your computer or mobile device.</p>
+        
+        <h2>3. How We Use Information</h2>
+        <p>Since we don't collect any personal data, there's no information to use or share. The tool functions completely offline once loaded in your browser.</p>
+        
+        <h2>4. Third-Party Services</h2>
+        <p>We only use Font Awesome for icons. No other third-party services are involved in the image processing.</p>
+        
+        <h2>5. Security</h2>
+        <p>Your security is guaranteed because:</p>
+        <ul>
+            <li>No data transmission occurs</li>
+            <li>All processing is done client-side</li>
+            <li>No server-side storage exists</li>
+        </ul>
+        
+        <h2>6. Changes to This Policy</h2>
+        <p>We may update this privacy policy from time to time. We will notify you of any changes by posting the new privacy policy on this page.</p>
+        
+        <h2>7. Contact Us</h2>
+        <p>If you have any questions about this Privacy Policy, please contact us at: privacy@toolvexa.com</p>
+    </div>
+</div>
+
+<div class="seo-section" id="terms-of-service">
+    <button class="close-seo" onclick="hideSeoPage()">×</button>
+    <h1>Terms of Service</h1>
+    <div class="seo-content">
+        <p><strong>Last Updated: January 2024</strong></p>
+        
+        <h2>1. Acceptance of Terms</h2>
+        <p>By accessing and using the Toolvexa Image Editor tool, you accept and agree to be bound by the terms and provision of this agreement.</p>
+        
+        <h2>2. Description of Service</h2>
+        <p>Toolvexa Image Editor provides a free online tool for editing image files. The service includes:</p>
+        <ul>
+            <li>Image transformation (rotate, flip, crop)</li>
+            <li>Color adjustments (brightness, contrast, saturation)</li>
+            <li>Filter application (grayscale, sepia, vintage, etc.)</li>
+            <li>Local processing (no server uploads)</li>
+            <li>Undo/redo functionality</li>
+            <li>Zoom controls</li>
+        </ul>
+        
+        <h2>3. User Responsibilities</h2>
+        <p>You agree to:</p>
+        <ul>
+            <li>Use the tool only for lawful purposes</li>
+            <li>Not upload any malicious or harmful content</li>
+            <li>Respect copyright and intellectual property rights</li>
+            <li>Not attempt to reverse engineer or hack the tool</li>
+        </ul>
+        
+        <h2>4. Service Limitations</h2>
+        <p>The service is provided "as is" without warranties of any kind. We do not guarantee:</p>
+        <ul>
+            <li>Uninterrupted service availability</li>
+            <li>Specific editing results</li>
+            <li>Compatibility with all browsers or devices</li>
+            <li>Image quality preservation in all cases</li>
+        </ul>
+        
+        <h2>5. Intellectual Property</h2>
+        <p>All images you upload remain your property. We do not claim any rights over your original or edited images.</p>
+        
+        <h2>6. Limitation of Liability</h2>
+        <p>Toolvexa shall not be liable for any indirect, incidental, special, consequential or punitive damages resulting from your use of the tool.</p>
+        
+        <h2>7. Changes to Terms</h2>
+        <p>We reserve the right to modify these terms at any time. Continued use of the tool constitutes acceptance of modified terms.</p>
+        
+        <h2>8. Contact Information</h2>
+        <p>For any questions regarding these Terms of Service, please contact: legal@toolvexa.com</p>
+    </div>
+</div>
+
+<div class="seo-section" id="about-tool">
+    <button class="close-seo" onclick="hideSeoPage()">×</button>
+    <h1>About Image Editor Tool</h1>
+    <div class="seo-content">
+        <h2>What is Toolvexa Image Editor?</h2>
+        <p>Toolvexa Image Editor is a free online tool that helps you edit and enhance images with professional-grade features. It's perfect for photographers, designers, social media managers, and anyone who needs to edit images quickly and easily without installing software.</p>
+        
+        <h2>Key Features</h2>
+        <ul>
+            <li><strong>Browser-Based Processing:</strong> All editing happens locally in your browser</li>
+            <li><strong>Comprehensive Tools:</strong> Transform, adjust, and filter your images</li>
+            <li><strong>Real-time Preview:</strong> See changes instantly as you make them</li>
+            <li><strong>Undo/Redo:</strong> Multiple levels of undo and redo</li>
+            <li><strong>Privacy Guaranteed:</strong> Your images never leave your device</li>
+            <li><strong>No Limits:</strong> Edit as many images as you need</li>
+        </ul>
+        
+        <h2>Editing Tools</h2>
+        <h3>Transform Tools</h3>
+        <ul>
+            <li><strong>Rotate:</strong> Rotate images 90° left or right</li>
+            <li><strong>Flip:</strong> Flip images horizontally or vertically</li>
+            <li><strong>Crop:</strong> Crop images to remove unwanted areas</li>
+            <li><strong>Zoom:</strong> Zoom in and out for detailed editing</li>
+        </ul>
+        
+        <h3>Adjustment Tools</h3>
+        <ul>
+            <li><strong>Brightness:</strong> Adjust image brightness (0-200%)</li>
+            <li><strong>Contrast:</strong> Modify image contrast (0-200%)</li>
+            <li><strong>Saturation:</strong> Change color saturation (0-200%)</li>
+            <li><strong>Blur:</strong> Apply blur effects (0-20px)</li>
+        </ul>
+        
+        <h3>Filters</h3>
+        <ul>
+            <li><strong>Grayscale:</strong> Convert images to black and white</li>
+            <li><strong>Sepia:</strong> Apply classic sepia tone</li>
+            <li><strong>Invert:</strong> Invert colors for negative effect</li>
+            <li><strong>Vintage:</strong> Apply vintage film look</li>
+            <li><strong>Cool/Warm:</strong> Adjust color temperature</li>
+            <li><strong>Bright/Dark:</strong> Quick brightness adjustments</li>
+        </ul>
+        
+        <h2>How It Works</h2>
+        <p>The editing process is simple and secure:</p>
+        <ol>
+            <li>Upload your image (drag & drop or browse)</li>
+            <li>Use the transform tools to rotate, flip, or crop</li>
+            <li>Adjust brightness, contrast, and saturation</li>
+            <li>Apply filters to enhance your image</li>
+            <li>Download your edited image</li>
+        </ol>
+        
+        <h2>Use Cases</h2>
+        <ul>
+            <li><strong>Social Media:</strong> Prepare images for Instagram, Facebook, etc.</li>
+            <li><strong>Web Design:</strong> Edit images for websites and blogs</li>
+            <li><strong>Photography:</strong> Basic photo editing and enhancement</li>
+            <li><strong>Marketing:</strong> Create eye-catching images for campaigns</li>
+            <li><strong>Personal Use:</strong> Edit personal photos for sharing or printing</li>
+            <li><strong>Education:</strong> Teach image editing concepts</li>
+        </ul>
+        
+        <h2>Technical Information</h2>
+        <p>The tool uses modern web technologies including:</p>
+        <ul>
+            <li>Canvas API for image manipulation</li>
+            <li>FileReader API for local file access</li>
+            <li>CSS filters for real-time effects</li>
+            <li>History stack for undo/redo functionality</li>
+            <li>Blob API for file creation and download</li>
+        </ul>
+        
+        <h2>Supported Image Formats</h2>
+        <ul>
+            <li>JPEG/JPG (most common format)</li>
+            <li>PNG (supports transparency)</li>
+            <li>GIF (animated and static)</li>
+            <li>BMP (bitmap images)</li>
+            <li>WebP (modern web format)</li>
+        </ul>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="tool-footer">
+    <p><i class="fas fa-user-shield"></i> Your images are processed locally and never touch our servers.</p>
+    <div class="footer-links">
+        <a href="#privacy-policy" onclick="showSeoPage('privacy')">Privacy Policy</a>
+        <a href="#terms-of-service" onclick="showSeoPage('terms')">Terms of Service</a>
+        <a href="#about-tool" onclick="showSeoPage('about')">About This Tool</a>
+        <a href="index.html">All Tools</a>
+        <a href="index.html#image-tools">Image Tools</a>
+        <a href="index.html#contact">Contact Us</a>
+    </div>
+    <div class="copyright">
+        <p>© 2024 Image Editor Tool | Toolvexa</p>
+        <p style="margin-top: 10px;">Made with <i class="fas fa-heart" style="color: #dc3545;"></i> for everyone</p>
+    </div>
+</footer>
+
+<script>
+    // Navigation functionality
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.getElementById('navLinks');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+    });
+    
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+            navLinks.classList.remove('active');
+        }
+    });
+    
+    // SEO pages functionality
+    function showSeoPage(page) {
+        // Hide all seo sections first
+        document.querySelectorAll('.seo-section').forEach(section => {
+            section.classList.remove('active');
+        });
+        
+        // Show the requested section
+        let sectionId = '';
+        switch(page) {
+            case 'privacy':
+                sectionId = 'privacy-policy';
+                break;
+            case 'terms':
+                sectionId = 'terms-of-service';
+                break;
+            case 'about':
+                sectionId = 'about-tool';
+                break;
+        }
+        
+        document.getElementById(sectionId).classList.add('active');
+        
+        // Close mobile menu if open
+        navLinks.classList.remove('active');
+        
+        // Scroll to the section
+        setTimeout(() => {
+            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+    }
+    
+    function hideSeoPage() {
+        document.querySelectorAll('.seo-section').forEach(section => {
+            section.classList.remove('active');
+        });
+    }
+    
+    // Close SEO section when clicking outside
+    document.addEventListener('click', (e) => {
+        if (e.target.classList.contains('seo-section')) {
+            hideSeoPage();
+        }
+    });
+
+    // FAQ functionality
+    document.querySelectorAll('.faq-question').forEach(question => {
+        question.addEventListener('click', () => {
+            const item = question.parentElement;
+            item.classList.toggle('active');
+        });
+    });
+
+    // Original Tool JavaScript (preserving all existing functionality)
+    // DOM Elements
+    const imageInput = document.getElementById('imageInput');
+    const uploadArea = document.getElementById('uploadArea');
+    const fileName = document.getElementById('fileName');
+    const previewCanvas = document.getElementById('previewCanvas');
+    const ctx = previewCanvas.getContext('2d');
+    const noImageMessage = document.getElementById('noImageMessage');
+    
+    // Tab elements
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+    
+    // Tool buttons
+    const rotateLeftBtn = document.getElementById('rotateLeftBtn');
+    const rotateRightBtn = document.getElementById('rotateRightBtn');
+    const flipHorizontalBtn = document.getElementById('flipHorizontalBtn');
+    const flipVerticalBtn = document.getElementById('flipVerticalBtn');
+    const cropBtn = document.getElementById('cropBtn');
+    
+    // Action buttons
+    const downloadBtn = document.getElementById('downloadBtn');
+    const resetBtn = document.getElementById('resetBtn');
+    const resetAllBtn = document.getElementById('resetAllBtn');
+    
+    // History buttons
+    const undoBtn = document.getElementById('undoBtn');
+    const redoBtn = document.getElementById('redoBtn');
+    
+    // Zoom controls
+    const zoomOutBtn = document.getElementById('zoomOutBtn');
+    const zoomInBtn = document.getElementById('zoomInBtn');
+    const resetZoomBtn = document.getElementById('resetZoomBtn');
+    
+    // Sliders
+    const brightnessSlider = document.getElementById('brightnessSlider');
+    const contrastSlider = document.getElementById('contrastSlider');
+    const saturationSlider = document.getElementById('saturationSlider');
+    const blurSlider = document.getElementById('blurSlider');
+    
+    // Slider value displays
+    const brightnessValue = document.getElementById('brightnessValue');
+    const contrastValue = document.getElementById('contrastValue');
+    const saturationValue = document.getElementById('saturationValue');
+    const blurValue = document.getElementById('blurValue');
+    
+    // Filter buttons
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    
+    // Status elements
+    const dimensionsInfo = document.getElementById('dimensionsInfo');
+    const historyIndex = document.getElementById('historyIndex');
+    const historySize = document.getElementById('historySize');
+    
+    // State variables
+    let originalImage = null;
+    let currentImage = null;
+    let imageHistory = [];
+    let currentHistoryIndex = -1;
+    let isImageLoaded = false;
+    
+    // Transformation state
+    let rotation = 0;
+    let scaleX = 1;
+    let scaleY = 1;
+    let zoom = 1;
+    
+    // Adjustment state
+    let brightness = 100;
+    let contrast = 100;
+    let saturation = 100;
+    let blur = 0;
+    let currentFilter = 'none';
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', init);
+
+    function init() {
+        console.log('Initializing image editor...');
+        setupEventListeners();
+        updateUI();
+    }
+    
+    // Setup event listeners
+    function setupEventListeners() {
+        console.log('Setting up event listeners...');
+        
+        // Upload area events
+        uploadArea.addEventListener('click', () => {
+            console.log('Upload area clicked');
+            imageInput.click();
+        });
+        
+        uploadArea.addEventListener('dragover', handleDragOver);
+        uploadArea.addEventListener('dragleave', handleDragLeave);
+        uploadArea.addEventListener('drop', handleDrop);
+        
+        // Image input event
+        imageInput.addEventListener('input', handleImageInput);
+        imageInput.addEventListener('change', handleImageInput);
+        
+        // Tab navigation
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const tabId = btn.dataset.tab;
+                
+                // Update active tab button
+                tabBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                // Show active tab content
+                tabContents.forEach(content => {
+                    content.classList.remove('active');
+                    if (content.id === tabId + 'Tab') {
+                        content.classList.add('active');
+                    }
+                });
+            });
+        });
+        
+        // Transform buttons
+        rotateLeftBtn.addEventListener('click', () => rotateImage(-90));
+        rotateRightBtn.addEventListener('click', () => rotateImage(90));
+        flipHorizontalBtn.addEventListener('click', () => flipImage('horizontal'));
+        flipVerticalBtn.addEventListener('click', () => flipImage('vertical'));
+        cropBtn.addEventListener('click', toggleCrop);
+        
+        // Action buttons
+        downloadBtn.addEventListener('click', downloadImage);
+        resetBtn.addEventListener('click', resetAdjustments);
+        resetAllBtn.addEventListener('click', resetEverything);
+        
+        // History buttons
+        undoBtn.addEventListener('click', undo);
+        redoBtn.addEventListener('click', redo);
+        
+        // Zoom controls
+        zoomOutBtn.addEventListener('click', () => adjustZoom(0.9));
+        zoomInBtn.addEventListener('click', () => adjustZoom(1.1));
+        resetZoomBtn.addEventListener('click', resetZoom);
+        
+        // Slider events
+        brightnessSlider.addEventListener('input', updateBrightness);
+        contrastSlider.addEventListener('input', updateContrast);
+        saturationSlider.addEventListener('input', updateSaturation);
+        blurSlider.addEventListener('input', updateBlur);
+        
+        // Filter buttons
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => applyFilter(btn.dataset.filter));
+        });
+        
+        console.log('Event listeners setup complete');
+    }
+    
+    // Handle drag over
+    function handleDragOver(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        uploadArea.classList.add('dragover');
+        console.log('Drag over upload area');
+    }
+    
+    // Handle drag leave
+    function handleDragLeave(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        uploadArea.classList.remove('dragover');
+        console.log('Drag leave upload area');
+    }
+    
+    // Handle drop
+    function handleDrop(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        uploadArea.classList.remove('dragover');
+        console.log('File dropped');
+        
+        if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+            console.log('Files dropped:', e.dataTransfer.files);
+            const file = e.dataTransfer.files[0];
+            processImageFile(file);
+        }
+    }
+    
+    // Handle image input
+    function handleImageInput(e) {
+        console.log('Image input event triggered', e.type);
+        
+        // Get the file from the input
+        const file = imageInput.files[0];
+        if (!file) {
+            console.log('No file selected');
+            return;
+        }
+        
+        console.log('File selected:', file.name, file.type, file.size);
+        processImageFile(file);
+    }
+    
+    // Process image file
+    function processImageFile(file) {
+        console.log('Processing image file:', file.name);
+        
+        // Validate file type
+        if (!file.type.match('image.*')) {
+            alert('Please select a valid image file (JPEG, PNG, GIF, etc.)');
+            console.log('Invalid file type:', file.type);
+            return;
+        }
+        
+        console.log('File is valid, creating FileReader...');
+        
+        const reader = new FileReader();
+        
+        reader.onloadstart = function() {
+            console.log('FileReader started loading...');
+            fileName.textContent = 'Loading image...';
+        };
+        
+        reader.onload = function(e) {
+            console.log('FileReader loaded successfully');
+            
+            const img = new Image();
+            
+            img.onload = function() {
+                console.log('Image loaded successfully, dimensions:', img.width, 'x', img.height);
+                
+                originalImage = img;
+                currentImage = img;
+                
+                // Reset all transformations
+                resetEverything();
+                
+                // Initialize history
+                imageHistory = [getImageData()];
+                currentHistoryIndex = 0;
+                
+                // Update UI
+                isImageLoaded = true;
+                fileName.textContent = `${file.name} (${formatFileSize(file.size)})`;
+                noImageMessage.style.display = 'none';
+                
+                // Update dimensions
+                dimensionsInfo.textContent = `${img.width} × ${img.height} pixels`;
+                
+                // Draw image
+                drawImage();
+                updateUI();
+                
+                // Save initial state to history
+                saveToHistory();
+                
+                console.log('Image processing complete');
+            };
+            
+            img.onerror = function() {
+                console.error('Failed to load image');
+                alert('Failed to load the image. Please try another file.');
+                fileName.textContent = 'Failed to load image';
+            };
+            
+            console.log('Setting image source...');
+            img.src = e.target.result;
+        };
+        
+        reader.onerror = function() {
+            console.error('FileReader error');
+            alert('Error reading the file. Please try again.');
+            fileName.textContent = 'Error reading file';
+        };
+        
+        reader.onabort = function() {
+            console.log('FileReader aborted');
+            fileName.textContent = 'File upload cancelled';
+        };
+        
+        console.log('Starting FileReader readAsDataURL...');
+        reader.readAsDataURL(file);
+    }
+    
+    // Format file size
+    function formatFileSize(bytes) {
+        if (bytes < 1024) return bytes + ' bytes';
+        else if (bytes < 1048576) return (bytes / 1024).toFixed(1) + ' KB';
+        else return (bytes / 1048576).toFixed(1) + ' MB';
+    }
+    
+    // Rotate image
+    function rotateImage(degrees) {
+        rotation = (rotation + degrees) % 360;
+        drawImage();
+        saveToHistory();
+    }
+    
+    // Flip image
+    function flipImage(direction) {
+        if (direction === 'horizontal') {
+            scaleX *= -1;
+        } else {
+            scaleY *= -1;
+        }
+        drawImage();
+        saveToHistory();
+    }
+    
+    // Toggle crop (simplified - just applies a centered crop)
+    function toggleCrop() {
+        if (!currentImage) return;
+        
+        // Simple centered crop (crops 20% from each side)
+        const cropWidth = currentImage.width * 0.6;
+        const cropHeight = currentImage.height * 0.6;
+        const cropX = (currentImage.width - cropWidth) / 2;
+        const cropY = (currentImage.height - cropHeight) / 2;
+        
+        // Create temporary canvas for cropping
+        const tempCanvas = document.createElement('canvas');
+        const tempCtx = tempCanvas.getContext('2d');
+        
+        tempCanvas.width = cropWidth;
+        tempCanvas.height = cropHeight;
+        
+        // Draw cropped portion
+        tempCtx.drawImage(
+            currentImage,
+            cropX, cropY, cropWidth, cropHeight,
+            0, 0, cropWidth, cropHeight
+        );
+        
+        // Create new image from cropped canvas
+        const croppedImage = new Image();
+        croppedImage.onload = function() {
+            currentImage = croppedImage;
+            drawImage();
+            saveToHistory();
+            updateDimensions();
+        };
+        croppedImage.src = tempCanvas.toDataURL();
+    }
+    
+    // Adjust zoom
+    function adjustZoom(factor) {
+        zoom *= factor;
+        zoom = Math.max(0.1, Math.min(5, zoom)); // Limit zoom range
+        drawImage();
+    }
+    
+    // Reset zoom
+    function resetZoom() {
+        zoom = 1;
+        drawImage();
+    }
+    
+    // Update brightness
+    function updateBrightness() {
+        brightness = parseInt(brightnessSlider.value);
+        brightnessValue.textContent = `${brightness}%`;
+        drawImage();
+    }
+    
+    // Update contrast
+    function updateContrast() {
+        contrast = parseInt(contrastSlider.value);
+        contrastValue.textContent = `${contrast}%`;
+        drawImage();
+    }
+    
+    // Update saturation
+    function updateSaturation() {
+        saturation = parseInt(saturationSlider.value);
+        saturationValue.textContent = `${saturation}%`;
+        drawImage();
+    }
+    
+    // Update blur
+    function updateBlur() {
+        blur = parseInt(blurSlider.value);
+        blurValue.textContent = `${blur}px`;
+        drawImage();
+    }
+    
+    // Apply filter
+    function applyFilter(filterName) {
+        currentFilter = filterName;
+        
+        // Update active filter button
+        filterBtns.forEach(btn => btn.classList.remove('active'));
+        document.querySelector(`.filter-btn[data-filter="${filterName}"]`).classList.add('active');
+        
+        drawImage();
+        saveToHistory();
+    }
+    
+    // Draw image with all transformations
+    function drawImage() {
+        if (!currentImage) {
+            console.log('No image to draw');
+            return;
+        }
+        
+        console.log('Drawing image with transformations');
+        
+        // Clear canvas
+        ctx.clearRect(0, 0, previewCanvas.width, previewCanvas.height);
+        
+        // Set canvas dimensions based on zoom
+        const displayWidth = currentImage.width * zoom;
+        const displayHeight = currentImage.height * zoom;
+        
+        previewCanvas.width = displayWidth;
+        previewCanvas.height = displayHeight;
+        
+        // Save context state
+        ctx.save();
+        
+        // Apply transformations
+        ctx.translate(displayWidth / 2, displayHeight / 2);
+        ctx.rotate(rotation * Math.PI / 180);
+        ctx.scale(scaleX, scaleY);
+        
+        // Build filter string
+        let filterString = '';
+        
+        // Apply adjustments
+        if (brightness !== 100 || contrast !== 100 || saturation !== 100 || blur > 0) {
+            filterString += `brightness(${brightness}%) contrast(${contrast}%) saturate(${saturation}%)`;
+            if (blur > 0) filterString += ` blur(${blur}px)`;
+        }
+        
+        // Apply selected filter
+        switch (currentFilter) {
+            case 'grayscale':
+                filterString += ' grayscale(100%)';
+                break;
+            case 'sepia':
+                filterString += ' sepia(100%)';
+                break;
+            case 'invert':
+                filterString += ' invert(100%)';
+                break;
+            case 'vintage':
+                filterString += ' sepia(70%) brightness(90%) contrast(110%)';
+                break;
+            case 'cool':
+                filterString += ' brightness(110%) saturate(130%) hue-rotate(-20deg)';
+                break;
+            case 'warm':
+                filterString += ' brightness(110%) saturate(130%) hue-rotate(20deg)';
+                break;
+            case 'bright':
+                filterString += ' brightness(130%) saturate(120%)';
+                break;
+            case 'dark':
+                filterString += ' brightness(70%) contrast(120%)';
+                break;
+        }
+        
+        if (filterString) {
+            ctx.filter = filterString.trim();
+            console.log('Applying filter:', filterString);
+        }
+        
+        // Draw image
+        ctx.drawImage(
+            currentImage,
+            -currentImage.width / 2,
+            -currentImage.height / 2,
+            currentImage.width,
+            currentImage.height
+        );
+        
+        // Restore context
+        ctx.restore();
+        
+        console.log('Image drawn successfully');
+    }
+    
+    // Get current image data for history
+    function getImageData() {
+        if (!currentImage) return '';
+        
+        const tempCanvas = document.createElement('canvas');
+        const tempCtx = tempCanvas.getContext('2d');
+        
+        tempCanvas.width = currentImage.width;
+        tempCanvas.height = currentImage.height;
+        
+        // Apply all filters and transformations
+        tempCtx.save();
+        tempCtx.translate(currentImage.width / 2, currentImage.height / 2);
+        tempCtx.rotate(rotation * Math.PI / 180);
+        tempCtx.scale(scaleX, scaleY);
+        
+        // Build filter string
+        let filterString = '';
+        if (brightness !== 100 || contrast !== 100 || saturation !== 100 || blur > 0) {
+            filterString += `brightness(${brightness}%) contrast(${contrast}%) saturate(${saturation}%)`;
+            if (blur > 0) filterString += ` blur(${blur}px)`;
+        }
+        
+        // Apply selected filter
+        switch (currentFilter) {
+            case 'grayscale': filterString += ' grayscale(100%)'; break;
+            case 'sepia': filterString += ' sepia(100%)'; break;
+            case 'invert': filterString += ' invert(100%)'; break;
+            case 'vintage': filterString += ' sepia(70%) brightness(90%) contrast(110%)'; break;
+            case 'cool': filterString += ' brightness(110%) saturate(130%) hue-rotate(-20deg)'; break;
+            case 'warm': filterString += ' brightness(110%) saturate(130%) hue-rotate(20deg)'; break;
+            case 'bright': filterString += ' brightness(130%) saturate(120%)'; break;
+            case 'dark': filterString += ' brightness(70%) contrast(120%)'; break;
+        }
+        
+        if (filterString) {
+            tempCtx.filter = filterString.trim();
+        }
+        
+        tempCtx.drawImage(
+            currentImage,
+            -currentImage.width / 2,
+            -currentImage.height / 2,
+            currentImage.width,
+            currentImage.height
+        );
+        
+        tempCtx.restore();
+        
+        return tempCanvas.toDataURL();
+    }
+    
+    // Save current state to history
+    function saveToHistory() {
+        if (!currentImage) return;
+        
+        // Remove any future history if we're not at the end
+        if (currentHistoryIndex < imageHistory.length - 1) {
+            imageHistory = imageHistory.slice(0, currentHistoryIndex + 1);
+        }
+        
+        // Add current state to history
+        imageHistory.push(getImageData());
+        currentHistoryIndex++;
+        
+        // Limit history size
+        if (imageHistory.length > 10) {
+            imageHistory.shift();
+            currentHistoryIndex--;
+        }
+        
+        updateHistoryUI();
+        updateUI();
+    }
+    
+    // Undo
+    function undo() {
+        if (currentHistoryIndex > 0) {
+            currentHistoryIndex--;
+            loadHistoryState();
+            updateHistoryUI();
+            updateUI();
+        }
+    }
+    
+    // Redo
+    function redo() {
+        if (currentHistoryIndex < imageHistory.length - 1) {
+            currentHistoryIndex++;
+            loadHistoryState();
+            updateHistoryUI();
+            updateUI();
+        }
+    }
+    
+    // Load history state
+    function loadHistoryState() {
+        if (imageHistory.length === 0 || currentHistoryIndex < 0) return;
+        
+        const img = new Image();
+        img.onload = function() {
+            currentImage = img;
+            drawImage();
+            updateDimensions();
+        };
+        img.src = imageHistory[currentHistoryIndex];
+    }
+    
+    // Update history UI
+    function updateHistoryUI() {
+        historyIndex.textContent = currentHistoryIndex;
+        historySize.textContent = imageHistory.length - 1;
+        
+        undoBtn.disabled = currentHistoryIndex <= 0;
+        redoBtn.disabled = currentHistoryIndex >= imageHistory.length - 1;
+    }
+    
+    // Reset adjustments only (not transformations)
+    function resetAdjustments() {
+        brightness = 100;
+        contrast = 100;
+        saturation = 100;
+        blur = 0;
+        currentFilter = 'none';
+        
+        // Reset sliders
+        brightnessSlider.value = brightness;
+        contrastSlider.value = contrast;
+        saturationSlider.value = saturation;
+        blurSlider.value = blur;
+        
+        // Reset filter buttons
+        filterBtns.forEach(btn => btn.classList.remove('active'));
+        document.querySelector('.filter-btn[data-filter="none"]').classList.add('active');
+        
+        // Update slider displays
+        updateSliderDisplays();
+        
+        drawImage();
+        saveToHistory();
+    }
+    
+    // Reset everything to original
+    function resetEverything() {
+        if (!originalImage) return;
+        
+        currentImage = originalImage;
+        
+        // Reset all transformations
+        rotation = 0;
+        scaleX = 1;
+        scaleY = 1;
+        zoom = 1;
+        
+        // Reset adjustments
+        brightness = 100;
+        contrast = 100;
+        saturation = 100;
+        blur = 0;
+        currentFilter = 'none';
+        
+        // Reset sliders
+        brightnessSlider.value = brightness;
+        contrastSlider.value = contrast;
+        saturationSlider.value = saturation;
+        blurSlider.value = blur;
+        
+        // Reset filter buttons
+        filterBtns.forEach(btn => btn.classList.remove('active'));
+        document.querySelector('.filter-btn[data-filter="none"]').classList.add('active');
+        
+        // Update slider displays
+        updateSliderDisplays();
+        
+        drawImage();
+        saveToHistory();
+        updateDimensions();
+    }
+    
+    // Update slider displays
+    function updateSliderDisplays() {
+        brightnessValue.textContent = `${brightness}%`;
+        contrastValue.textContent = `${contrast}%`;
+        saturationValue.textContent = `${saturation}%`;
+        blurValue.textContent = `${blur}px`;
+    }
+    
+    // Update dimensions display
+    function updateDimensions() {
+        if (currentImage) {
+            dimensionsInfo.textContent = `${currentImage.width} × ${currentImage.height} pixels`;
+        }
+    }
+    
+    // Download image
+    function downloadImage() {
+        if (!currentImage) return;
+        
+        // Create a temporary canvas for download (full quality)
+        const downloadCanvas = document.createElement('canvas');
+        const downloadCtx = downloadCanvas.getContext('2d');
+        
+        downloadCanvas.width = currentImage.width;
+        downloadCanvas.height = currentImage.height;
+        
+        // Apply all transformations and filters
+        downloadCtx.save();
+        downloadCtx.translate(currentImage.width / 2, currentImage.height / 2);
+        downloadCtx.rotate(rotation * Math.PI / 180);
+        downloadCtx.scale(scaleX, scaleY);
+        
+        // Build filter string
+        let filterString = '';
+        if (brightness !== 100 || contrast !== 100 || saturation !== 100 || blur > 0) {
+            filterString += `brightness(${brightness}%) contrast(${contrast}%) saturate(${saturation}%)`;
+            if (blur > 0) filterString += ` blur(${blur}px)`;
+        }
+        
+        // Apply selected filter
+        switch (currentFilter) {
+            case 'grayscale': filterString += ' grayscale(100%)'; break;
+            case 'sepia': filterString += ' sepia(100%)'; break;
+            case 'invert': filterString += ' invert(100%)'; break;
+            case 'vintage': filterString += ' sepia(70%) brightness(90%) contrast(110%)'; break;
+            case 'cool': filterString += ' brightness(110%) saturate(130%) hue-rotate(-20deg)'; break;
+            case 'warm': filterString += ' brightness(110%) saturate(130%) hue-rotate(20deg)'; break;
+            case 'bright': filterString += ' brightness(130%) saturate(120%)'; break;
+            case 'dark': filterString += ' brightness(70%) contrast(120%)'; break;
+        }
+        
+        if (filterString) {
+            downloadCtx.filter = filterString.trim();
+        }
+        
+        downloadCtx.drawImage(
+            currentImage,
+            -currentImage.width / 2,
+            -currentImage.height / 2,
+            currentImage.width,
+            currentImage.height
+        );
+        
+        downloadCtx.restore();
+        
+        // Trigger download
+        const link = document.createElement('a');
+        link.download = `edited-image-${Date.now()}.png`;
+        link.href = downloadCanvas.toDataURL('image/png');
+        link.click();
+        
+        // Visual feedback
+        const originalText = downloadBtn.innerHTML;
+        downloadBtn.innerHTML = '<i class="fas fa-check"></i> Done!';
+        downloadBtn.style.background = '#218838';
+        
+        setTimeout(() => {
+            downloadBtn.innerHTML = '<i class="fas fa-download"></i> Download';
+            downloadBtn.style.background = '';
+        }, 1500);
+    }
+    
+    // Update UI state
+    function updateUI() {
+        const hasImage = isImageLoaded && currentImage !== null;
+        
+        console.log('Updating UI, hasImage:', hasImage);
+        
+        // Enable/disable buttons
+        rotateLeftBtn.disabled = !hasImage;
+        rotateRightBtn.disabled = !hasImage;
+        flipHorizontalBtn.disabled = !hasImage;
+        flipVerticalBtn.disabled = !hasImage;
+        cropBtn.disabled = !hasImage;
+        resetBtn.disabled = !hasImage;
+        resetAllBtn.disabled = !hasImage;
+        downloadBtn.disabled = !hasImage;
+        
+        // Enable/disable sliders
+        brightnessSlider.disabled = !hasImage;
+        contrastSlider.disabled = !hasImage;
+        saturationSlider.disabled = !hasImage;
+        blurSlider.disabled = !hasImage;
+        
+        // Enable/disable filter buttons (except "None")
+        filterBtns.forEach(btn => {
+            if (btn.dataset.filter !== 'none') {
+                btn.disabled = !hasImage;
+            }
+        });
+        
+        // Enable/disable zoom buttons
+        zoomOutBtn.disabled = !hasImage;
+        zoomInBtn.disabled = !hasImage;
+        resetZoomBtn.disabled = !hasImage;
+    }
+</script>
+</body>
+</html>
