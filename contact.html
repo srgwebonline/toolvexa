@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Us | Toolvexa - Smart Online Tools for Everyday Use</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Contact Toolvexa - Get in touch with our support team for questions, feedback, or assistance with our free online tools.">
+    <meta name="keywords" content="contact Toolvexa, support, help, feedback, online tools support">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Contact Us | Toolvexa">
+    <meta property="og:description" content="Get in touch with Toolvexa support team for assistance with our free online tools.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        :root {
+            --primary-color: #4f46e5;
+            --primary-dark: #3730a3;
+            --secondary-color: #10b981;
+            --accent-color: #ec4899;
+            --light-color: #f8fafc;
+            --dark-color: #111827;
+            --gray-color: #6b7280;
+            --light-gray: #e5e7eb;
+            --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --transition: all 0.3s ease;
+            --border-radius: 12px;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            padding-top: 70px;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: white;
+        }
+        
+        .logo:hover {
+            color: var(--secondary-color);
+            transition: var(--transition);
+        }
+        
+        /* Back to Home Button */
+        .back-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 500;
+            margin-top: 2rem;
+            transition: var(--transition);
+        }
+        
+        .back-home:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: var(--card-shadow);
+        }
+        
+        /* Contact Container */
+        .contact-container {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 3rem;
+            margin: 3rem 0;
+            box-shadow: var(--card-shadow);
+            animation: fadeIn 1s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .contact-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+        
+        .contact-header h1 {
+            font-size: 2.5rem;
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+        }
+        
+        .contact-header p {
+            color: var(--gray-color);
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Contact Layout */
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin: 2rem 0;
+        }
+        
+        @media (max-width: 992px) {
+            .contact-layout {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+        
+        /* Contact Info Section */
+        .contact-info-section {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        
+        .contact-card {
+            background-color: #f8fafc;
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            border: 1px solid var(--light-gray);
+            transition: var(--transition);
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--card-shadow);
+            border-color: var(--primary-color);
+        }
+        
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background-color: rgba(79, 70, 229, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+        }
+        
+        .contact-card h3 {
+            font-size: 1.5rem;
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+        }
+        
+        .contact-card p {
+            color: var(--gray-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 0.8rem 0;
+            color: var(--gray-color);
+        }
+        
+        .contact-detail i {
+            color: var(--primary-color);
+            width: 20px;
+        }
+        
+        /* Social Links */
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background-color: rgba(79, 70, 229, 0.1);
+            border-radius: 50%;
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 1.2rem;
+        }
+        
+        .social-link:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        /* Contact Form */
+        .contact-form-section {
+            background-color: #f8fafc;
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            border: 1px solid var(--light-gray);
+        }
+        
+        .contact-form-section h2 {
+            font-size: 1.8rem;
+            color: var(--dark-color);
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--dark-color);
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid var(--light-gray);
+            border-radius: var(--border-radius);
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: var(--border-radius);
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .submit-btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: var(--card-shadow);
+        }
+        
+        /* FAQ Section */
+        .faq-section {
+            margin-top: 3rem;
+        }
+        
+        .faq-section h2 {
+            font-size: 1.8rem;
+            color: var(--dark-color);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .faq-item {
+            background-color: #f8fafc;
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid var(--light-gray);
+        }
+        
+        .faq-question {
+            font-size: 1.2rem;
+            color: var(--dark-color);
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .faq-question i {
+            color: var(--primary-color);
+        }
+        
+        .faq-answer {
+            color: var(--gray-color);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: #9ca3af;
+            padding: 3rem 0 2rem;
+            margin-top: 4rem;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #374151;
+            font-size: 0.9rem;
+        }
+        
+        .footer-bottom a {
+            color: #9ca3af;
+            margin: 0 10px;
+            transition: var(--transition);
+        }
+        
+        .footer-bottom a:hover {
+            color: var(--primary-color);
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            body {
+                padding-top: 60px;
+            }
+            
+            .contact-container {
+                padding: 2rem;
+                margin: 2rem 0;
+            }
+            
+            .contact-header h1 {
+                font-size: 2rem;
+            }
+            
+            .contact-layout {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .contact-card {
+                padding: 1.5rem;
+            }
+            
+            .contact-form-section {
+                padding: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .contact-container {
+                padding: 1.5rem;
+                margin: 1.5rem 0;
+            }
+            
+            .contact-header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .back-home {
+                width: 100%;
+                justify-content: center;
+                padding: 0.8rem 1rem;
+            }
+            
+            .logo {
+                font-size: 1.5rem;
+            }
+            
+            .social-links {
+                justify-content: center;
+            }
+        }
+        
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Text selection */
+        ::selection {
+            background-color: rgba(79, 70, 229, 0.3);
+            color: var(--dark-color);
+        }
+        
+        /* Success Message */
+        .success-message {
+            background-color: rgba(16, 185, 129, 0.1);
+            border-left: 4px solid var(--secondary-color);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+            display: none;
+        }
+        
+        .success-message.show {
+            display: block;
+            animation: fadeIn 0.5s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-tools"></i>
+                Toolvexa
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Back to Home Button -->
+        <a href="index.html" class="back-home">
+            <i class="fas fa-arrow-left"></i>
+            Back to Home
+        </a>
+        
+        <!-- Contact Container -->
+        <div class="contact-container">
+            <div class="contact-header">
+                <h1>Contact Toolvexa</h1>
+                <p>We're here to help! Reach out to us for questions, feedback, or assistance with our online tools. Our support team typically responds within 24 hours.</p>
+            </div>
+            
+            <div class="success-message" id="successMessage">
+                <h3><i class="fas fa-check-circle"></i> Message Sent Successfully!</h3>
+                <p>Thank you for contacting us. We've received your message and will get back to you within 24 hours.</p>
+            </div>
+            
+            <div class="contact-layout">
+                <!-- Contact Information -->
+                <div class="contact-info-section">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3>Email Support</h3>
+                        <p>For general inquiries and support:</p>
+                        <div class="contact-detail">
+                            <i class="fas fa-envelope"></i>
+                            <span>support@toolvexa.com</span>
+                        </div>
+                        <div class="contact-detail">
+                            <i class="fas fa-clock"></i>
+                            <span>Response time: Within 24 hours</span>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h3>Technical Support</h3>
+                        <p>For technical issues with our tools:</p>
+                        <div class="contact-detail">
+                            <i class="fas fa-envelope"></i>
+                            <span>tech@toolvexa.com</span>
+                        </div>
+                        <div class="contact-detail">
+                            <i class="fas fa-bug"></i>
+                            <span>Bug reports & technical issues</span>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h3>Feedback & Suggestions</h3>
+                        <p>We value your feedback to improve our tools:</p>
+                        <div class="contact-detail">
+                            <i class="fas fa-envelope"></i>
+                            <span>feedback@toolvexa.com</span>
+                        </div>
+                        <div class="contact-detail">
+                            <i class="fas fa-lightbulb"></i>
+                            <span>New tool suggestions welcome</span>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-share-alt"></i>
+                        </div>
+                        <h3>Connect With Us</h3>
+                        <p>Follow us on social media for updates and tips:</p>
+                        <div class="social-links">
+                            <a href="#" class="social-link" title="Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="social-link" title="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="social-link" title="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="social-link" title="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="social-link" title="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="contact-form-section">
+                    <h2>Send Us a Message</h2>
+                    <p>Fill out the form below and we'll get back to you as soon as possible.</p>
+                    
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" class="form-control" placeholder="Your full name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" class="form-control" placeholder="Your email address" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subject *</label>
+                            <select id="subject" class="form-control" required>
+                                <option value="" disabled selected>Select a subject</option>
+                                <option value="general">General Inquiry</option>
+                                <option value="technical">Technical Support</option>
+                                <option value="feedback">Feedback & Suggestions</option>
+                                <option value="business">Business Inquiry</option>
+                                <option value="bug">Bug Report</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" class="form-control" placeholder="Please describe your inquiry in detail..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-paper-plane"></i>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- FAQ Section -->
+            <div class="faq-section">
+                <h2>Frequently Asked Questions</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i class="fas fa-question-circle"></i>
+                        Are Toolvexa tools really free?
+                    </div>
+                    <div class="faq-answer">
+                        Yes! All tools on Toolvexa are completely free to use with no hidden charges or subscription fees. We may display ads to support the platform, but the tools themselves are free.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i class="fas fa-question-circle"></i>
+                        Do you store or access my uploaded files?
+                    </div>
+                    <div class="faq-answer">
+                        Most Toolvexa tools process files locally in your browser, meaning your files never leave your computer. For tools that require server processing, files are temporarily stored, processed, and automatically deleted. We do not access or view your file contents.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i class="fas fa-question-circle"></i>
+                        How can I suggest a new tool?
+                    </div>
+                    <div class="faq-answer">
+                        We welcome suggestions for new tools! Please email us at feedback@toolvexa.com with your idea, or use the contact form above and select "Feedback & Suggestions" as the subject.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i class="fas fa-question-circle"></i>
+                        Can I use Toolvexa for commercial purposes?
+                    </div>
+                    <div class="faq-answer">
+                        Yes, you can use our tools for commercial purposes. However, we don't provide warranties about the accuracy or reliability of the tools. For critical business operations, always verify the results independently.
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Back to Home Button at Bottom -->
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="index.html" class="back-home">
+                    <i class="fas fa-arrow-left"></i>
+                    Back to Home
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-bottom">
+                <p>
+                    <a href="index.html">Home</a> |
+                    <a href="privacy-policy.html">Privacy Policy</a> |
+                    <a href="terms-of-service.html">Terms of Service</a> |
+                    <a href="disclaimer.html">Disclaimer</a> |
+                    <a href="contact.html">Contact</a>
+                </p>
+                <p>© 2026 Toolvexa. All Rights Reserved. | Smart Online Tools for Everyday Use</p>
+                <p style="margin-top: 10px; font-size: 0.8rem;">Toolvexa provides free online tools for image processing, PDF manipulation, SEO, calculations, AI utilities, and text formatting.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple script for form submission and animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add active class to contact link in footer
+            const currentPage = window.location.pathname.split('/').pop();
+            if (currentPage === 'contact.html') {
+                const contactLinks = document.querySelectorAll('a[href="contact.html"]');
+                contactLinks.forEach(link => {
+                    link.style.color = 'var(--primary-color)';
+                    link.style.fontWeight = '600';
+                });
+            }
+            
+            // Back to home button animation
+            const backHomeBtns = document.querySelectorAll('.back-home');
+            backHomeBtns.forEach(btn => {
+                btn.addEventListener('mouseenter', function() {
+                    this.querySelector('i').style.transform = 'translateX(-5px)';
+                    this.querySelector('i').style.transition = 'transform 0.3s ease';
+                });
+                
+                btn.addEventListener('mouseleave', function() {
+                    this.querySelector('i').style.transform = 'translateX(0)';
+                });
+            });
+            
+            // Contact form submission
+            const contactForm = document.getElementById('contactForm');
+            const successMessage = document.getElementById('successMessage');
+            
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Get form values
+                    const name = document.getElementById('name').value;
+                    const email = document.getElementById('email').value;
+                    const subject = document.getElementById('subject').value;
+                    const message = document.getElementById('message').value;
+                    
+                    // Simple validation
+                    if (!name || !email || !subject || !message) {
+                        alert('Please fill in all required fields.');
+                        return;
+                    }
+                    
+                    // In a real application, you would send this data to a server
+                    // For this demo, we'll just show a success message
+                    
+                    // Show success message
+                    successMessage.classList.add('show');
+                    
+                    // Reset form
+                    contactForm.reset();
+                    
+                    // Scroll to success message
+                    successMessage.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    
+                    // Hide success message after 8 seconds
+                    setTimeout(() => {
+                        successMessage.classList.remove('show');
+                    }, 8000);
+                    
+                    // Log the form data (for demo purposes)
+                    console.log('Contact Form Submitted:');
+                    console.log('Name:', name);
+                    console.log('Email:', email);
+                    console.log('Subject:', subject);
+                    console.log('Message:', message);
+                });
+            }
+            
+            // FAQ item toggle (optional enhancement)
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', function() {
+                    const answer = this.nextElementSibling;
+                    const icon = this.querySelector('i');
+                    
+                    // Toggle answer visibility
+                    if (answer.style.display === 'block') {
+                        answer.style.display = 'none';
+                        icon.className = 'fas fa-question-circle';
+                    } else {
+                        answer.style.display = 'block';
+                        icon.className = 'fas fa-chevron-down';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
