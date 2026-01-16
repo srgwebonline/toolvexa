@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us - Toolvexa | Smart Online Tools Platform</title>
+
+  <!-- SEO Meta -->
+  <meta name="description" content="Learn about Toolvexa - our mission to provide free, accessible online tools for everyday productivity. Discover our story, values, and team." />
+  <meta name="keywords" content="about toolvexa, online tools platform, mission, vision, values, team" />
+  <meta name="author" content="Toolvexa" />
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #4f46e5;
+      --primary-dark: #4338ca;
+      --secondary: #10b981;
+      --accent: #f59e0b;
+      --light: #f8fafc;
+      --dark: #1f2933;
+      --gray: #6b7280;
+      --light-gray: #f3f4f6;
+      --card-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+      --hover-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+    }
+
+    /* Navigation */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      padding: 20px 0;
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
+    }
+
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+    }
+
+    .nav-logo {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--primary);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--dark);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+      position: relative;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: width 0.3s;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* Header */
+    .about-header {
+      background: linear-gradient(135deg, #4f46e5, #6366f1, #8b5cf6);
+      color: white;
+      padding: 180px 20px 100px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      margin-top: 70px;
+    }
+
+    .about-header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+      opacity: 0.3;
+    }
+
+    .header-content {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .about-title {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      display: inline-block;
+      background: linear-gradient(90deg, #fff, #c7d2fe);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .about-subtitle {
+      font-size: 1.4rem;
+      margin-bottom: 2rem;
+      opacity: 0.95;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.8;
+    }
+
+    /* Breadcrumb */
+    .breadcrumb {
+      background: var(--light-gray);
+      padding: 20px;
+      margin-top: 0;
+    }
+
+    .breadcrumb-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.95rem;
+    }
+
+    .breadcrumb a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .breadcrumb span {
+      color: var(--gray);
+    }
+
+    /* Section Styles */
+    .section {
+      padding: 100px 20px;
+      max-width: 1400px;
+      margin: auto;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+      color: var(--dark);
+      position: relative;
+      display: inline-block;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      border-radius: 2px;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      font-size: 1.2rem;
+      color: var(--gray);
+      max-width: 700px;
+      margin: 0 auto 60px;
+    }
+
+    /* Content Styles */
+    .content-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .about-content {
+      background: white;
+      padding: 60px;
+      border-radius: 20px;
+      box-shadow: var(--card-shadow);
+      margin-bottom: 60px;
+    }
+
+    .about-content h2 {
+      color: var(--primary);
+      margin: 40px 0 20px;
+      font-size: 2.2rem;
+    }
+
+    .about-content h3 {
+      color: var(--dark);
+      margin: 30px 0 15px;
+      font-size: 1.6rem;
+    }
+
+    .about-content p {
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--gray);
+    }
+
+    .highlight-box {
+      background: linear-gradient(135deg, rgba(79, 70, 229, 0.05), rgba(16, 185, 129, 0.05));
+      border-left: 4px solid var(--primary);
+      padding: 30px;
+      margin: 30px 0;
+      border-radius: 10px;
+    }
+
+    .highlight-box p {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: var(--dark);
+      margin: 0;
+    }
+
+    /* Values Section */
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
+
+    .value-card {
+      background: white;
+      padding: 40px 30px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: var(--card-shadow);
+      transition: all 0.3s ease;
+      border-top: 4px solid var(--primary);
+    }
+
+    .value-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--hover-shadow);
+    }
+
+    .value-icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 25px;
+      color: white;
+      font-size: 2rem;
+    }
+
+    .value-card h3 {
+      color: var(--dark);
+      margin-bottom: 15px;
+      font-size: 1.6rem;
+    }
+
+    .value-card p {
+      color: var(--gray);
+      line-height: 1.7;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+      color: white;
+      padding: 80px 20px;
+      text-align: center;
+      border-radius: 20px;
+      margin-top: 60px;
+    }
+
+    .cta-section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .cta-section p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      opacity: 0.9;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 16px 40px;
+      background: white;
+      color: #d97706;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 1.1rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      transition: all 0.3s ease;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+      background: #f8fafc;
+    }
+
+    /* Footer */
+    footer {
+      background: linear-gradient(135deg, #111827, #1f2937);
+      color: #9ca3af;
+      padding: 60px 20px 30px;
+      margin-top: 100px;
+      position: relative;
+    }
+
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+    }
+
+    .footer-logo {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: white;
+      margin-bottom: 20px;
+      display: inline-block;
+      background: linear-gradient(90deg, #fff, #c7d2fe);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .footer-description {
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 25px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .social-link:hover {
+      background: var(--primary);
+      transform: translateY(-5px);
+    }
+
+    .footer-links h4 {
+      color: white;
+      font-size: 1.3rem;
+      margin-bottom: 25px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    .footer-links h4::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 40px;
+      height: 3px;
+      background: var(--primary);
+    }
+
+    .footer-links ul {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+
+    .footer-links a {
+      color: #9ca3af;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+
+    .footer-links a:hover {
+      color: white;
+      transform: translateX(5px);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 60px;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.9rem;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-fade-in-up {
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+
+    .delay-1 { animation-delay: 0.2s; }
+    .delay-2 { animation-delay: 0.4s; }
+    .delay-3 { animation-delay: 0.6s; }
+    .delay-4 { animation-delay: 0.8s; }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .section {
+        padding: 60px 20px;
+      }
+      
+      .section-title {
+        font-size: 2.2rem;
+      }
+      
+      .about-title {
+        font-size: 2.8rem;
+      }
+      
+      .about-subtitle {
+        font-size: 1.2rem;
+      }
+      
+      .about-content {
+        padding: 40px 20px;
+      }
+      
+      .values-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .about-title {
+        font-size: 2.2rem;
+      }
+      
+      .section-title {
+        font-size: 1.8rem;
+      }
+      
+      .about-content h2 {
+        font-size: 1.8rem;
+      }
+      
+      .about-content h3 {
+        font-size: 1.4rem;
+      }
+      
+      .cta-section h2 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <i class="fas fa-tools"></i> Toolvexa
+      </a>
+      
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#tools">Tools</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="index.html#blog">Blog</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header class="about-header">
+    <div class="header-content animate__animated animate__fadeIn">
+      <h1 class="about-title">About Toolvexa</h1>
+      <p class="about-subtitle">Empowering productivity through smart, accessible online tools. Discover our journey, mission, and commitment to making complex tasks simple for everyone.</p>
+    </div>
+  </header>
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <div class="breadcrumb-container">
+      <a href="index.html">Home</a>
+      <i class="fas fa-chevron-right"></i>
+      <span>About Us</span>
+    </div>
+  </div>
+
+  <!-- Our Story Section -->
+  <section class="section" id="about">
+    <div class="content-container">
+      <div class="about-content animate-fade-in-up">
+        <h2>Our Story</h2>
+        <p>Toolvexa was born from a simple observation: in today's digital world, people and businesses face countless small but important tasks that require specialized software or technical knowledge. From converting file formats and optimizing images to calculating complex financial metrics, these tasks often interrupt workflow and reduce productivity.</p>
+        
+        <p>Founded in 2023 by a team of developers and productivity enthusiasts, Toolvexa started as a small collection of essential tools designed to solve common problems. What began as a personal project quickly grew into a comprehensive platform serving millions of users worldwide.</p>
+        
+        <div class="highlight-box">
+          <p>Our vision is simple: to create a world where anyone can accomplish technical tasks without technical expertise, where productivity tools are accessible to all, and where work flows seamlessly from one task to the next.</p>
+        </div>
+        
+        <p>Today, Toolvexa stands as a testament to that vision, offering over 50 specialized tools across multiple categories, all completely free and accessible from any device with an internet connection.</p>
+        
+        <h2>Our Mission</h2>
+        <p>We believe that technology should empower, not intimidate. Our mission is to democratize access to powerful productivity tools by:</p>
+        
+        <h3>1. Simplifying Complexity</h3>
+        <p>We take complex technical processes and present them in intuitive, user-friendly interfaces. Whether you're converting a PDF to Word or optimizing images for the web, our tools guide you through the process step by step.</p>
+        
+        <h3>2. Ensuring Accessibility</h3>
+        <p>All our tools are completely free with no hidden costs, registration requirements, or usage limits. We're committed to keeping it that way, supported by sustainable business practices that don't compromise user experience.</p>
+        
+        <h3>3. Protecting Privacy</h3>
+        <p>We process most files locally in your browser whenever possible. When server processing is necessary, we implement strict security measures and automatic file deletion policies to protect your data.</p>
+        
+        <h3>4. Driving Innovation</h3>
+        <p>We continuously update our tools with the latest technology, from AI-powered content generation to advanced image processing algorithms, ensuring our users always have access to cutting-edge solutions.</p>
+      </div>
+
+      <!-- Our Values -->
+      <h2 class="section-title">Our Core Values</h2>
+      <p class="section-subtitle">The principles that guide everything we do at Toolvexa</p>
+      
+      <div class="values-grid">
+        <div class="value-card animate-fade-in-up">
+          <div class="value-icon">
+            <i class="fas fa-universal-access"></i>
+          </div>
+          <h3>Accessibility</h3>
+          <p>We believe powerful tools should be available to everyone, regardless of technical skill or financial resources. That's why all our tools are free and designed with simplicity in mind.</p>
+        </div>
+        
+        <div class="value-card animate-fade-in-up delay-1">
+          <div class="value-icon">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h3>Security & Privacy</h3>
+          <p>Your data's security is our priority. We implement industry-leading security practices and process files locally whenever possible to ensure your information remains private.</p>
+        </div>
+        
+        <div class="value-card animate-fade-in-up delay-2">
+          <div class="value-icon">
+            <i class="fas fa-rocket"></i>
+          </div>
+          <h3>Innovation</h3>
+          <p>We're constantly exploring new technologies and methodologies to improve our tools. From AI integration to advanced algorithms, we stay at the forefront of tool development.</p>
+        </div>
+        
+        <div class="value-card animate-fade-in-up delay-3">
+          <div class="value-icon">
+            <i class="fas fa-heart"></i>
+          </div>
+          <h3>User-Centric Design</h3>
+          <p>Every tool is designed with the end-user in mind. We obsess over user experience, ensuring our tools are intuitive, efficient, and solve real-world problems effectively.</p>
+        </div>
+        
+        <div class="value-card animate-fade-in-up">
+          <div class="value-icon">
+            <i class="fas fa-handshake"></i>
+          </div>
+          <h3>Transparency</h3>
+          <p>We believe in being open about how our tools work, what data we collect, and how we operate. No hidden terms, no surprise fees—just straightforward, honest service.</p>
+        </div>
+        
+        <div class="value-card animate-fade-in-up delay-1">
+          <div class="value-icon">
+            <i class="fas fa-globe"></i>
+          </div>
+          <h3>Global Impact</h3>
+          <p>We're building tools that serve users worldwide, supporting multiple languages and currencies, and addressing diverse needs across different regions and industries.</p>
+        </div>
+      </div>
+
+      <!-- CTA Section -->
+      <div class="cta-section animate-fade-in-up">
+        <h2>Ready to Boost Your Productivity?</h2>
+        <p>Join millions of users worldwide who trust Toolvexa for their daily productivity needs. Explore our comprehensive suite of tools today.</p>
+        <a href="index.html#tools" class="cta-button">Explore Our Tools <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-about">
+        <h3 class="footer-logo">Toolvexa</h3>
+        <p class="footer-description">Toolvexa provides smart online tools for everyday productivity. Our tools are fast, free, and easy to use, helping you accomplish tasks efficiently.</p>
+        <div class="social-links">
+          <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#tools">Tools</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="index.html#blog">Blog</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Tool Categories</h4>
+        <ul>
+          <li><a href="index.html#image-tools">Image Tools</a></li>
+          <li><a href="index.html#pdf-tools">PDF Tools</a></li>
+          <li><a href="index.html#seo-tools">SEO Tools</a></li>
+          <li><a href="index.html#calculators">Calculators</a></li>
+          <li><a href="index.html#ai-tools">AI Tools</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="index.html#privacy-policy">Privacy Policy</a></li>
+          <li><a href="index.html#terms-of-service">Terms of Service</a></li>
+          <li><a href="index.html#disclaimer">Disclaimer</a></li>
+          <li><a href="index.html#cookie-policy">Cookie Policy</a></li>
+          <li><a href="index.html#contact">Help Center</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2026 Toolvexa. All rights reserved. | Designed with <i class="fas fa-heart" style="color: #ef4444;"></i> for productivity</p>
+    </div>
+  </footer>
+
+  <script>
+    // Add smooth scrolling to all links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if(targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if(targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+    
+    // Add scroll animation for elements
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) {
+          entry.target.classList.add('animate-fade-in-up');
+        }
+      });
+    }, observerOptions);
+    
+    // Observe all cards for animation
+    document.querySelectorAll('.value-card, .cta-section').forEach((el) => {
+      observer.observe(el);
+    });
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        navbar.style.padding = '15px 0';
+        navbar.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
+      } else {
+        navbar.style.padding = '20px 0';
+        navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.08)';
+      }
+    });
+
+    // Add hover effect to value cards
+    document.querySelectorAll('.value-card').forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        card.style.transform = 'translateY(-10px)';
+      });
+      
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'translateY(0)';
+      });
+    });
+  </script>
+</body>
+</html>
