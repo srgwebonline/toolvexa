@@ -1,0 +1,2119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meta Tag Generator - Create SEO Meta Tags | Toolvexa</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Free meta tag generator tool. Create optimized meta tags for SEO including title, description, keywords, Open Graph, and Twitter Cards. Boost your website's search visibility.">
+    <meta name="keywords" content="meta tag generator, SEO meta tags, meta description generator, Open Graph tags, Twitter cards, HTML meta tags, search engine optimization">
+    <meta name="author" content="Toolvexa">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Meta Tag Generator - Create SEO Meta Tags | Toolvexa">
+    <meta property="og:description" content="Free meta tag generator tool. Create optimized meta tags for SEO including title, description, keywords, Open Graph, and Twitter Cards.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://toolvexa.com/meta-tag-generator">
+    <meta property="og:image" content="https://toolvexa.com/images/meta-tag-generator-og.jpg">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Meta Tag Generator - Create SEO Meta Tags | Toolvexa">
+    <meta name="twitter:description" content="Free meta tag generator tool. Create optimized meta tags for SEO including title, description, keywords, Open Graph, and Twitter Cards.">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://toolvexa.com/meta-tag-generator">
+    
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Meta Tag Generator",
+        "url": "https://toolvexa.com/meta-tag-generator",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Any",
+        "description": "Free online tool to generate SEO meta tags including Open Graph and Twitter Cards",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "creator": {
+            "@type": "Organization",
+            "name": "Toolvexa",
+            "url": "https://toolvexa.com"
+        }
+    }
+    </script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+
+        :root {
+            --primary: #4a6fa5;
+            --primary-light: #e8f0fe;
+            --secondary: #9c89b8;
+            --success: #38b000;
+            --danger: #e63946;
+            --warning: #ff9e00;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --border: #dee2e6;
+            --shadow: rgba(0, 0, 0, 0.1);
+            --radius: 12px;
+            --code-bg: #1e1e1e;
+            --code-color: #d4d4d4;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            min-height: 100vh;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation Bar */
+        .tool-navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 15px 0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            border-bottom: 3px solid var(--primary);
+        }
+        
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--primary);
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .nav-brand i {
+            font-size: 1.8rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .back-to-home {
+            background: var(--primary);
+            color: white !important;
+            padding: 8px 20px !important;
+            border-radius: 25px;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #333;
+            cursor: pointer;
+        }
+        
+        /* Adjust body padding for fixed navbar */
+        body {
+            padding-top: 80px;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            margin: 20px 0 30px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .breadcrumb a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .breadcrumb span {
+            margin: 0 5px;
+        }
+
+        /* Tool Header */
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px 20px;
+            background: white;
+            border-radius: var(--radius);
+            box-shadow: 0 5px 20px var(--shadow);
+        }
+
+        .logo {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        header h1 {
+            color: var(--primary);
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        header p {
+            color: #666;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 20px;
+        }
+
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+            color: var(--dark);
+            background: var(--light);
+            padding: 8px 15px;
+            border-radius: 50px;
+        }
+
+        .feature i {
+            color: var(--success);
+        }
+
+        /* Main Tool Section */
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 1100px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .form-section, .preview-section {
+            background: white;
+            border-radius: var(--radius);
+            padding: 30px;
+            box-shadow: 0 5px 20px var(--shadow);
+        }
+
+        .form-section h2, .preview-section h2 {
+            color: var(--primary);
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .form-section h2 i, .preview-section h2 i {
+            font-size: 1.5rem;
+        }
+
+        /* Form Styles */
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark);
+            font-size: 1rem;
+        }
+
+        .form-group .label-info {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .form-group .label-info i {
+            color: var(--primary);
+            font-size: 0.9rem;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="url"],
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 14px;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .form-group input[type="text"]:focus,
+        .form-group input[type="url"]:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(74, 111, 165, 0.1);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+            font-family: monospace;
+            font-size: 0.95rem;
+        }
+
+        .char-counter {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 8px;
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        .char-counter .good {
+            color: var(--success);
+            font-weight: 600;
+        }
+
+        .char-counter .warning {
+            color: var(--warning);
+            font-weight: 600;
+        }
+
+        .char-counter .danger {
+            color: var(--danger);
+            font-weight: 600;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        .checkbox-group label {
+            margin: 0;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        /* Tabs for Meta Tag Types */
+        .meta-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 12px 24px;
+            background: var(--light);
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            color: #666;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .tab-btn:hover {
+            background: #e9ecef;
+            color: var(--primary);
+        }
+
+        .tab-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .action-btn {
+            flex: 1;
+            min-width: 150px;
+            padding: 16px 20px;
+            border: none;
+            border-radius: var(--radius);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .action-btn i {
+            font-size: 1.2rem;
+        }
+
+        .generate-btn {
+            background: var(--primary);
+            color: white;
+        }
+
+        .generate-btn:hover {
+            background: #3a5d8a;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(74, 111, 165, 0.3);
+        }
+
+        .copy-btn {
+            background: var(--success);
+            color: white;
+        }
+
+        .copy-btn:hover {
+            background: #2f9400;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(56, 176, 0, 0.3);
+        }
+
+        .reset-btn {
+            background: var(--danger);
+            color: white;
+        }
+
+        .reset-btn:hover {
+            background: #d32f3a;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(230, 57, 70, 0.3);
+        }
+
+        /* Preview Section */
+        .preview-container {
+            background: var(--code-bg);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 25px;
+            max-height: 500px;
+            overflow-y: auto;
+        }
+
+        .preview-container pre {
+            color: var(--code-color);
+            font-family: 'Courier New', monospace;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .meta-preview {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 3px 10px var(--shadow);
+        }
+
+        .meta-preview h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .preview-item {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .preview-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .preview-label {
+            font-weight: 600;
+            color: #555;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
+
+        .preview-value {
+            color: #333;
+            line-height: 1.5;
+        }
+
+        .empty-preview {
+            text-align: center;
+            padding: 40px 20px;
+            color: #888;
+        }
+
+        .empty-preview i {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: #ddd;
+        }
+
+        /* Code Styling */
+        .code-keyword {
+            color: #569cd6;
+        }
+
+        .code-string {
+            color: #ce9178;
+        }
+
+        .code-attribute {
+            color: #9cdcfe;
+        }
+
+        .code-comment {
+            color: #6a9955;
+        }
+
+        /* SEO Preview Card */
+        .seo-preview {
+            background: white;
+            border: 1px solid #dfe1e5;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 25px;
+            max-width: 600px;
+            box-shadow: 0 1px 6px rgba(32, 33, 36, 0.1);
+        }
+
+        .seo-preview h3 {
+            color: #1a0dab;
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            font-weight: normal;
+            line-height: 1.3;
+        }
+
+        .seo-preview .url {
+            color: #006621;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+
+        .seo-preview .description {
+            color: #545454;
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+
+        /* Related Tools Section */
+        .related-tools-section {
+            margin: 60px 0 40px;
+        }
+
+        .related-tools-section h2 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .tool-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 5px 15px var(--shadow);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 25px rgba(74, 111, 165, 0.15);
+        }
+
+        .tool-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .tool-card h3 {
+            color: var(--dark);
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .tool-card p {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .tool-link {
+            display: inline-block;
+            background: var(--primary-light);
+            color: var(--primary);
+            padding: 10px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .tool-link:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            margin: 60px 0 40px;
+        }
+
+        .faq-section h2 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .faq-container {
+            background: white;
+            border-radius: var(--radius);
+            padding: 30px;
+            box-shadow: 0 5px 20px var(--shadow);
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border);
+            padding: 20px 0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            color: var(--dark);
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .faq-question i {
+            color: var(--primary);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            color: #666;
+            line-height: 1.6;
+            padding-right: 40px;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            margin-top: 15px;
+        }
+
+        /* SEO Pages Styles */
+        .seo-section {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            display: none;
+            position: relative;
+        }
+        
+        .seo-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .seo-section h1 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 2.2rem;
+        }
+        
+        .seo-section h2 {
+            color: #333;
+            margin: 25px 0 15px;
+            font-size: 1.5rem;
+        }
+        
+        .seo-section h3 {
+            color: #555;
+            margin: 20px 0 10px;
+            font-size: 1.2rem;
+        }
+        
+        .seo-content {
+            line-height: 1.8;
+            color: #444;
+        }
+        
+        .seo-content p {
+            margin-bottom: 15px;
+        }
+        
+        .seo-content ul, .seo-content ol {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .seo-content li {
+            margin-bottom: 10px;
+        }
+        
+        .close-seo {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            z-index: 10;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 30px 20px;
+            color: #666;
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border);
+            background: white;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+            text-decoration: underline;
+        }
+
+        .copyright {
+            margin-top: 20px;
+            color: #888;
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--success);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 1001;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .toast i {
+            font-size: 1.2rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-container {
+                flex-wrap: wrap;
+            }
+            
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+            }
+            
+            .action-btn {
+                min-width: 100%;
+            }
+            
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .seo-section {
+                padding: 20px;
+                margin: 20px;
+            }
+            
+            .faq-container {
+                padding: 20px;
+            }
+            
+            .faq-answer {
+                padding-right: 20px;
+            }
+            
+            .meta-tabs {
+                flex-direction: column;
+            }
+            
+            .tab-btn {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .form-section, .preview-section {
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .features {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .tool-card {
+                padding: 20px;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="tool-navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">
+                <i class="fas fa-tools"></i> Toolvexa
+            </a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#tools">All Tools</a></li>
+                <li><a href="index.html#seo-tools">SEO Tools</a></li>
+                <li><a href="#privacy-policy" onclick="showSeoPage('privacy')">Privacy Policy</a></li>
+                <li><a href="#terms-of-service" onclick="showSeoPage('terms')">Terms of Service</a></li>
+                <li><a href="#about-tool" onclick="showSeoPage('about')">About This Tool</a></li>
+                <li><a href="index.html" class="back-to-home">Back to Home</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Breadcrumb -->
+        <div class="breadcrumb">
+            <a href="index.html">Home</a> 
+            <span>></span>
+            <a href="index.html#seo-tools">SEO Tools</a>
+            <span>></span>
+            <span>Meta Tag Generator</span>
+        </div>
+
+        <!-- Tool Header -->
+        <header>
+            <div class="logo">
+                <i class="fas fa-code"></i>
+            </div>
+            <h1>Meta Tag Generator</h1>
+            <p>Generate optimized meta tags for better SEO. Create meta descriptions, Open Graph tags, Twitter Cards, and more to improve your website's search visibility.</p>
+            <div class="features">
+                <div class="feature">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>No Data Stored</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-bolt"></i>
+                    <span>Instant Generation</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-search"></i>
+                    <span>SEO Optimized</span>
+                </div>
+                <div class="fas fa-mobile-alt"></i>
+                    <span>Mobile Friendly</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Tool Section -->
+        <div class="main-content">
+            <!-- Form Section -->
+            <div class="form-section">
+                <h2><i class="fas fa-edit"></i> Generate Meta Tags</h2>
+                
+                <!-- Tabs -->
+                <div class="meta-tabs">
+                    <button class="tab-btn active" data-tab="basic">
+                        <i class="fas fa-cog"></i> Basic Tags
+                    </button>
+                    <button class="tab-btn" data-tab="open-graph">
+                        <i class="fab fa-facebook-f"></i> Open Graph
+                    </button>
+                    <button class="tab-btn" data-tab="twitter">
+                        <i class="fab fa-twitter"></i> Twitter Cards
+                    </button>
+                    <button class="tab-btn" data-tab="advanced">
+                        <i class="fas fa-sliders-h"></i> Advanced
+                    </button>
+                </div>
+
+                <!-- Basic Tags Tab -->
+                <div class="tab-content active" id="basic-tab">
+                    <div class="form-group">
+                        <div class="label-info">
+                            <i class="fas fa-heading"></i>
+                            <label for="pageTitle">Page Title</label>
+                        </div>
+                        <input type="text" id="pageTitle" placeholder="e.g., Best Online Tools for Productivity - Toolvexa" maxlength="60">
+                        <div class="char-counter">
+                            <span>Recommended: 50-60 characters</span>
+                            <span id="titleCount">0/60</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="label-info">
+                            <i class="fas fa-align-left"></i>
+                            <label for="metaDescription">Meta Description</label>
+                        </div>
+                        <textarea id="metaDescription" placeholder="Brief description of your page content for search results..." maxlength="160"></textarea>
+                        <div class="char-counter">
+                            <span>Recommended: 120-160 characters</span>
+                            <span id="descCount">0/160</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="label-info">
+                            <i class="fas fa-key"></i>
+                            <label for="metaKeywords">Meta Keywords</label>
+                        </div>
+                        <input type="text" id="metaKeywords" placeholder="seo tools, online tools, productivity, meta tags" maxlength="255">
+                        <div class="char-counter">
+                            <span>Comma separated keywords</span>
+                            <span id="keywordsCount">0/255</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="label-info">
+                            <i class="fas fa-user"></i>
+                            <label for="author">Author</label>
+                        </div>
+                        <input type="text" id="author" placeholder="Your Name or Company" maxlength="100">
+                    </div>
+
+                    <div class="form-group">
+                        <div class="label-info">
+                            <i class="fas fa-robot"></i>
+                            <label for="robots">Robots Meta Tag</label>
+                        </div>
+                        <select id="robots">
+                            <option value="index, follow">index, follow</option>
+                            <option value="index, nofollow">index, nofollow</option>
+                            <option value="noindex, follow">noindex, follow</option>
+                            <option value="noindex, nofollow">noindex, nofollow</option>
+                            <option value="noarchive">noarchive</option>
+                            <option value="nosnippet">nosnippet</option>
+                            <option value="max-snippet:50, max-image-preview:large">max-snippet:50, max-image-preview:large</option>
+                        </select>
+                    </div>
+
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="viewport" checked>
+                        <label for="viewport">Add responsive viewport meta tag</label>
+                    </div>
+
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="charset" checked>
+                        <label for="charset">Add UTF-8 charset meta tag</label>
+                    </div>
+                </div>
+
+                <!-- Open Graph Tab -->
+                <div class="tab-content" id="open-graph-tab">
+                    <div class="form-group">
+                        <div class="label-info">
+                            <i class="fab fa-facebook-f"></i>
+                            <label for="ogTitle">Open Graph Title</label>
+                        </div>
+                        <input type="text" id="ogTitle" placeholder="Title for social media sharing" maxlength="60">
+                        <div class="char-counter">
+                            <span>Optimal: 60 characters</span>
+                            <span id="ogTitleCount">0/60</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="label-info">
+                            <i class="fas fa-align-left"></i>
+                            <label for="ogDescription">Open Graph Description</label>
+                        </div>
+                        <textarea id="ogDescription" placeholder="Description for social media sharing" maxlength="200"></textarea>
+                        <div class="char-counter">
+                            <span>Optimal: 200 characters</span>
+                            <span id="ogDescCount">0/200</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="label-info">
+                            <i class="fas fa-image"></i>
+                            <label for="ogImage">Open Graph Image URL</label>
+                        </div>
+                        <input type="url" id="ogImage" placeholder="https://example.com/image.jpg">
+                    </div>
+
+                    <div class="form-group">
+                        <div class="label-info">
+                            <i class="fas fa-link"></i>
+                            <label for="ogUrl">Open Graph URL</label>
+                        </div>
+                        <input type="url" id="ogUrl" placeholder="https://example.com/page-url">
+                    </div>
+
+                    <div class="form-group">
+                        <div class="label-info">
+                            <i class="fas fa-globe"></i>
+                            <label for="ogLocale">Locale</label>
+                        </div>
+                        <select id="ogLocale">
+                            <option value="en_US">English (US)</option>
+                            <option value="en_GB">English (UK)</option>
+                            <option value="es_ES">Spanish</option>
+                            <option value="fr_FR">French</option>
+                            <option value="de_DE">German</option>
+                            <option value="ja_JP">Japanese</option>
+                            <option value="ko_KR">Korean</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="label-info">
+                            <i class="fas fa-tag"></i>
+                            <label for="ogType">Open Graph Type</label>
+                        </div>
+                        <select id="ogType">
+                            <option value="website">website</option>
+                            <option value="article">article</option>
+                            <option value="blog">blog</option>
+                            <option value="product">product</option>
+                            <option value="video">video</option>
+                            <option value="music">music</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Twitter Cards Tab -->
+                <div class="tab-content" id="twitter-tab">
+                    <div class="form-group">
+                        <div class="label-info">
+                            <i class="fab fa-twitter"></i>
+                            <label for="twitterCard">Twitter Card Type</label>
+                        </div>
+                        <select id="twitterCard">
+                            <option value="summary">summary</option>
+                            <option value="summary_large_image">summary_large_image</option>
+                            <option value="app">app</option>
+                            <option value="player">player</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="label-info">
+                            <i class="fab fa-twitter"></i>
+                            <label for="twitterTitle">Twitter Title</label>
+                        </div>
+                        <input type="text" id="twitterTitle" placeholder="Title for Twitter cards" maxlength="70">
+                        <div class="char-counter">
+                            <span>Optimal: 70 characters</span>
+                            <span id="twitterTitleCount">0/70</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="label-info">
+                            <i class="fas fa-align-left"></i>
+                            <label for="twitterDescription">Twitter Description</label>
+                        </div>
+                        <textarea id="twitterDescription" placeholder="Description for Twitter cards" maxlength="200"></textarea>
+                        <div class="char-counter">
+                            <span>Optimal: 200 characters</span>
+                            <span id="twitterDescCount">0/200</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="label-info">
+                            <i class="fas fa-image"></i>
+                            <label for="twitterImage">Twitter Image URL</label>
+                        </div>
+                        <input type="url" id="twitterImage" placeholder="https://example.com/twitter-image.jpg">
+                    </div>
+
+                    <div class="form-group">
+                        <div class="label-info">
+                            <i class="fas fa-at"></i>
+                            <label for="twitterSite">Twitter Site Handle</label>
+                        </div>
+                        <input type="text" id="twitterSite" placeholder="@username" maxlength="20">
+                    </div>
+
+                    <div class="form-group">
+                        <div class="label-info">
+                            <i class="fas fa-user"></i>
+                            <label for="twitterCreator">Twitter Creator Handle</label>
+                        </div>
+                        <input type="text" id="twitterCreator" placeholder="@username" maxlength="20">
+                    </div>
+                </div>
+
+                <!-- Advanced Tab -->
+                <div class="tab-content" id="advanced-tab">
+                    <div class="form-group">
+                        <div class="label-info">
+                            <i class="fas fa-chart-line"></i>
+                            <label for="canonicalUrl">Canonical URL</label>
+                        </div>
+                        <input type="url" id="canonicalUrl" placeholder="https://example.com/canonical-url">
+                    </div>
+
+                    <div class="form-group">
+                        <div class="label-info">
+                            <i class="fas fa-language"></i>
+                            <label for="contentLanguage">Content Language</label>
+                        </div>
+                        <select id="contentLanguage">
+                            <option value="en">English</option>
+                            <option value="es">Spanish</option>
+                            <option value="fr">French</option>
+                            <option value="de">German</option>
+                            <option value="ja">Japanese</option>
+                            <option value="ko">Korean</option>
+                            <option value="zh">Chinese</option>
+                            <option value="ru">Russian</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="label-info">
+                            <i class="fas fa-cogs"></i>
+                            <label for="themeColor">Theme Color</label>
+                        </div>
+                        <input type="text" id="themeColor" placeholder="#4a6fa5" value="#4a6fa5">
+                    </div>
+
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="generatorMeta">
+                        <label for="generatorMeta">Add generator meta tag</label>
+                    </div>
+
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="ratingMeta">
+                        <label for="ratingMeta">Add content rating meta tag</label>
+                    </div>
+
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="referrerMeta" checked>
+                        <label for="referrerMeta">Add referrer policy meta tag</label>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="label-info">
+                            <i class="fas fa-code"></i>
+                            <label for="customMeta">Custom Meta Tags</label>
+                        </div>
+                        <textarea id="customMeta" placeholder="Add custom meta tags here (one per line)" rows="4"></textarea>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="action-buttons">
+                    <button class="action-btn generate-btn" id="generateBtn">
+                        <i class="fas fa-code"></i> Generate Meta Tags
+                    </button>
+                    <button class="action-btn copy-btn" id="copyBtn" disabled>
+                        <i class="fas fa-copy"></i> Copy to Clipboard
+                    </button>
+                    <button class="action-btn reset-btn" id="resetBtn">
+                        <i class="fas fa-redo"></i> Reset Form
+                    </button>
+                </div>
+            </div>
+
+            <!-- Preview Section -->
+            <div class="preview-section">
+                <h2><i class="fas fa-eye"></i> Preview & Code</h2>
+                
+                <!-- SEO Preview Card -->
+                <div class="seo-preview" id="seoPreview">
+                    <h3 id="previewTitle">Your page title will appear here</h3>
+                    <div class="url" id="previewUrl">https://example.com/page-url</div>
+                    <div class="description" id="previewDescription">Your meta description will appear here in search results. Make sure it's compelling and includes relevant keywords.</div>
+                </div>
+
+                <!-- Meta Tags Preview -->
+                <div class="meta-preview" id="metaPreview">
+                    <h3>Generated Meta Tags</h3>
+                    <div class="preview-item">
+                        <div class="preview-label">Title Tag:</div>
+                        <div class="preview-value" id="previewTitleTag">Not generated yet</div>
+                    </div>
+                    <div class="preview-item">
+                        <div class="preview-label">Meta Description:</div>
+                        <div class="preview-value" id="previewMetaDesc">Not generated yet</div>
+                    </div>
+                    <div class="preview-item">
+                        <div class="preview-label">Meta Keywords:</div>
+                        <div class="preview-value" id="previewKeywords">Not generated yet</div>
+                    </div>
+                </div>
+
+                <!-- Code Output -->
+                <div class="preview-container" id="codeOutput">
+                    <pre id="generatedCode">
+<!-- Generated Meta Tags will appear here -->
+&lt;!-- Basic Meta Tags --&gt;
+&lt;title&gt;Page Title Here&lt;/title&gt;
+&lt;meta name="description" content="Your meta description here"&gt;
+&lt;meta name="keywords" content="keywords, here"&gt;
+&lt;meta name="author" content="Author Name"&gt;
+&lt;meta name="robots" content="index, follow"&gt;
+
+&lt;!-- Open Graph Tags --&gt;
+&lt;meta property="og:title" content="Open Graph Title"&gt;
+&lt;meta property="og:description" content="Open Graph Description"&gt;
+&lt;meta property="og:image" content="https://example.com/image.jpg"&gt;
+&lt;meta property="og:url" content="https://example.com"&gt;
+&lt;meta property="og:type" content="website"&gt;
+
+&lt;!-- Twitter Cards --&gt;
+&lt;meta name="twitter:card" content="summary"&gt;
+&lt;meta name="twitter:title" content="Twitter Title"&gt;
+&lt;meta name="twitter:description" content="Twitter Description"&gt;
+&lt;meta name="twitter:image" content="https://example.com/twitter-image.jpg"&gt;
+                    </pre>
+                </div>
+
+                <!-- Empty State -->
+                <div class="empty-preview" id="emptyPreview">
+                    <i class="fas fa-code"></i>
+                    <h3>No Meta Tags Generated</h3>
+                    <p>Fill out the form and click "Generate Meta Tags" to see your code here</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Why are meta tags important for SEO?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Meta tags help search engines understand your page content, which can improve your search rankings. Title tags and meta descriptions are displayed in search results and influence click-through rates. Open Graph and Twitter Cards control how your content appears when shared on social media.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What's the ideal length for meta tags?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p><strong>Title Tag:</strong> 50-60 characters (Google typically displays 50-60 characters)<br>
+                           <strong>Meta Description:</strong> 120-160 characters (Google may truncate after 160)<br>
+                           <strong>Open Graph Title:</strong> 60 characters optimal<br>
+                           <strong>Open Graph Description:</strong> 200 characters optimal</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Do I need both Open Graph and Twitter Cards?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, it's recommended to include both. Facebook, LinkedIn, and other platforms use Open Graph tags, while Twitter uses Twitter Card tags. Including both ensures your content displays optimally across all social media platforms.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Are meta keywords still important for SEO?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Major search engines like Google no longer use meta keywords for ranking. However, some smaller search engines might still consider them. It's generally safe to include them, but focus your efforts on title tags, meta descriptions, and quality content instead.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How do I add these meta tags to my website?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Copy the generated code from this tool and paste it into the <code>&lt;head&gt;</code> section of your HTML document, typically between the opening <code>&lt;head&gt;</code> and closing <code>&lt;/head&gt;</code> tags. If you're using a CMS like WordPress, you can use SEO plugins like Yoast SEO or Rank Math that provide fields for these meta tags.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Related Tools Section -->
+        <div class="related-tools-section">
+            <h2>Other Useful SEO Tools</h2>
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Keyword Research</h3>
+                    <p>Find profitable keywords with search volume and competition data to target in your content strategy.</p>
+                    <a href="keyword-research.html" class="tool-link">Use Tool</a>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3>SEO Analyzer</h3>
+                    <p>Analyze any website's SEO performance and get actionable improvement suggestions to boost rankings.</p>
+                    <a href="seo-analyzer.html" class="tool-link">Use Tool</a>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-sitemap"></i>
+                    </div>
+                    <h3>Sitemap Generator</h3>
+                    <p>Create XML sitemaps for search engines to crawl your website efficiently and index your pages.</p>
+                    <a href="sitemap-generator.html" class="tool-link">Use Tool</a>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>Robots.txt Generator</h3>
+                    <p>Generate robots.txt files to control search engine crawlers and specify which pages to index or ignore.</p>
+                    <a href="robots-txt-generator.html" class="tool-link">Use Tool</a>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-compress-alt"></i>
+                    </div>
+                    <h3>Image Compressor</h3>
+                    <p>Compress images to reduce file size and improve page loading speed for better SEO performance.</p>
+                    <a href="image-compressor.html" class="tool-link">Use Tool</a>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3>Rich Snippet Generator</h3>
+                    <p>Create structured data markup for rich snippets to enhance your search results with extra information.</p>
+                    <a href="rich-snippet-generator.html" class="tool-link">Use Tool</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- SEO Pages Section -->
+        <div class="seo-section" id="privacy-policy">
+            <button class="close-seo" onclick="hideSeoPage()">×</button>
+            <h1>Privacy Policy</h1>
+            <div class="seo-content">
+                <p><strong>Last Updated: January 2024</strong></p>
+                
+                <h2>1. Introduction</h2>
+                <p>Welcome to Toolvexa Meta Tag Generator. Your privacy is critically important to us. This privacy policy document outlines the types of personal information that is received and collected by our tool and how it is used.</p>
+                
+                <h2>2. Information We Collect</h2>
+                <h3>2.1 No Personal Data Collection</h3>
+                <p>Our Meta Tag Generator tool operates entirely in your browser. We do not:</p>
+                <ul>
+                    <li>Collect any personal information</li>
+                    <li>Store any information about your usage</li>
+                    <li>Use cookies for tracking purposes</li>
+                    <li>Track your meta tag generation activities</li>
+                </ul>
+                
+                <h3>2.2 Local Processing</h3>
+                <p>All meta tag generation happens locally on your device using JavaScript. Your data never leaves your computer or mobile device.</p>
+                
+                <h2>3. How We Use Information</h2>
+                <p>Since we don't collect any personal data, there's no information to use or share. The tool functions completely offline once loaded in your browser.</p>
+                
+                <h2>4. Third-Party Services</h2>
+                <p>We only use Font Awesome for icons. This service may collect limited data as per their own privacy policy.</p>
+                
+                <h2>5. Security</h2>
+                <p>Your security is guaranteed because:</p>
+                <ul>
+                    <li>No data transmission occurs</li>
+                    <li>All processing is done client-side</li>
+                    <li>No server-side storage exists</li>
+                </ul>
+                
+                <h2>6. Changes to This Policy</h2>
+                <p>We may update this privacy policy from time to time. We will notify you of any changes by posting the new privacy policy on this page.</p>
+                
+                <h2>7. Contact Us</h2>
+                <p>If you have any questions about this Privacy Policy, please contact us at: privacy@toolvexa.com</p>
+            </div>
+        </div>
+
+        <div class="seo-section" id="terms-of-service">
+            <button class="close-seo" onclick="hideSeoPage()">×</button>
+            <h1>Terms of Service</h1>
+            <div class="seo-content">
+                <p><strong>Last Updated: January 2024</strong></p>
+                
+                <h2>1. Acceptance of Terms</h2>
+                <p>By accessing and using the Toolvexa Meta Tag Generator tool, you accept and agree to be bound by the terms and provision of this agreement.</p>
+                
+                <h2>2. Description of Service</h2>
+                <p>Toolvexa Meta Tag Generator provides a free online tool for generating SEO meta tags. The service includes:</p>
+                <ul>
+                    <li>Meta tag generation and optimization</li>
+                    <li>Local processing (no server uploads)</li>
+                    <li>Multiple tag type support (Basic, Open Graph, Twitter)</li>
+                    <li>Real-time preview and character counting</li>
+                    <li>Copy to clipboard functionality</li>
+                </ul>
+                
+                <h2>3. User Responsibilities</h2>
+                <p>You agree to:</p>
+                <ul>
+                    <li>Use the tool only for lawful purposes</li>
+                    <li>Not attempt to reverse engineer or hack the tool</li>
+                    <li>Acknowledge that generated meta tags are suggestions</li>
+                </ul>
+                
+                <h2>4. Service Limitations</h2>
+                <p>The service is provided "as is" without warranties of any kind. We do not guarantee:</p>
+                <ul>
+                    <li>Uninterrupted service availability</li>
+                    <li>Specific SEO results from generated tags</li>
+                    <li>Compatibility with all browsers or devices</li>
+                </ul>
+                
+                <h2>5. Intellectual Property</h2>
+                <p>All meta tags you generate using this tool belong to you. The tool interface and code are property of Toolvexa.</p>
+                
+                <h2>6. Limitation of Liability</h2>
+                <p>Toolvexa shall not be liable for any indirect, incidental, special, consequential or punitive damages resulting from your use of the tool.</p>
+                
+                <h2>7. Changes to Terms</h2>
+                <p>We reserve the right to modify these terms at any time. Continued use of the tool constitutes acceptance of modified terms.</p>
+                
+                <h2>8. Contact Information</h2>
+                <p>For any questions regarding these Terms of Service, please contact: legal@toolvexa.com</p>
+            </div>
+        </div>
+
+        <div class="seo-section" id="about-tool">
+            <button class="close-seo" onclick="hideSeoPage()">×</button>
+            <h1>About Meta Tag Generator Tool</h1>
+            <div class="seo-content">
+                <h2>What is Toolvexa Meta Tag Generator?</h2>
+                <p>Toolvexa Meta Tag Generator is a free online tool that helps you create optimized meta tags for your website. It's perfect for web developers, SEO specialists, bloggers, and anyone who wants to improve their website's search engine visibility.</p>
+                
+                <h2>Key Features</h2>
+                <ul>
+                    <li><strong>Browser-Based Processing:</strong> All generation happens locally in your browser</li>
+                    <li><strong>Comprehensive Tag Types:</strong> Supports Basic, Open Graph, and Twitter Card tags</li>
+                    <li><strong>Real-time Character Count:</strong> Optimize length for search engines</li>
+                    <li><strong>Instant Preview:</strong> See how your tags will look in search results</li>
+                    <li><strong>Copy Functionality:</strong> Easy copy to clipboard with one click</li>
+                    <li><strong>Privacy Guaranteed:</strong> Your data never leaves your device</li>
+                </ul>
+                
+                <h2>How It Works</h2>
+                <p>Our tool uses advanced algorithms to generate SEO-optimized meta tags. The process is simple:</p>
+                <ol>
+                    <li>Fill out the form with your page information</li>
+                    <li>Switch between tabs to configure different tag types</li>
+                    <li>Click generate to create your meta tags</li>
+                    <li>Preview the results and copy the code</li>
+                </ol>
+                
+                <h2>Use Cases</h2>
+                <ul>
+                    <li><strong>Website Development:</strong> Generate meta tags for new websites</li>
+                    <li><strong>SEO Optimization:</strong> Improve existing website meta tags</li>
+                    <li><strong>Blog Posts:</strong> Create optimized meta tags for blog articles</li>
+                    <li><strong>E-commerce:</strong> Generate product page meta tags</li>
+                    <li><strong>Social Media:</strong> Create Open Graph and Twitter Cards for sharing</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-links">
+                <a href="#privacy-policy" onclick="showSeoPage('privacy')">Privacy Policy</a>
+                <a href="#terms-of-service" onclick="showSeoPage('terms')">Terms of Service</a>
+                <a href="#about-tool" onclick="showSeoPage('about')">About This Tool</a>
+                <a href="index.html">All Tools</a>
+                <a href="index.html#seo-tools">SEO Tools</a>
+                <a href="index.html#contact">Contact Us</a>
+            </div>
+            <div class="copyright">
+                <p>© 2024 Meta Tag Generator Tool | Toolvexa | All generation happens locally in your browser. No data is uploaded to any server.</p>
+                <p style="margin-top: 10px;">Made with <i class="fas fa-heart" style="color: #e63946;"></i> for better SEO</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span id="toastMessage">Copied to clipboard!</span>
+    </div>
+
+    <script>
+        // Navigation functionality
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                navLinks.classList.remove('active');
+            }
+        });
+        
+        // SEO pages functionality
+        function showSeoPage(page) {
+            // Hide all seo sections first
+            document.querySelectorAll('.seo-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show the requested section
+            let sectionId = '';
+            switch(page) {
+                case 'privacy':
+                    sectionId = 'privacy-policy';
+                    break;
+                case 'terms':
+                    sectionId = 'terms-of-service';
+                    break;
+                case 'about':
+                    sectionId = 'about-tool';
+                    break;
+            }
+            
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Close mobile menu if open
+            navLinks.classList.remove('active');
+            
+            // Scroll to the section
+            setTimeout(() => {
+                document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+            }, 100);
+        }
+        
+        function hideSeoPage() {
+            document.querySelectorAll('.seo-section').forEach(section => {
+                section.classList.remove('active');
+            });
+        }
+        
+        // Close SEO section when clicking outside
+        document.addEventListener('click', (e) => {
+            if (e.target.classList.contains('seo-section')) {
+                hideSeoPage();
+            }
+        });
+
+        // FAQ functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                item.classList.toggle('active');
+            });
+        });
+
+        // Tab functionality
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const tabId = button.getAttribute('data-tab');
+                
+                // Remove active class from all buttons and contents
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+                
+                // Add active class to clicked button and corresponding content
+                button.classList.add('active');
+                document.getElementById(`${tabId}-tab`).classList.add('active');
+            });
+        });
+
+        // Character counters
+        const titleInput = document.getElementById('pageTitle');
+        const descInput = document.getElementById('metaDescription');
+        const keywordsInput = document.getElementById('metaKeywords');
+        const ogTitleInput = document.getElementById('ogTitle');
+        const ogDescInput = document.getElementById('ogDescription');
+        const twitterTitleInput = document.getElementById('twitterTitle');
+        const twitterDescInput = document.getElementById('twitterDescription');
+
+        // Update character counters
+        function updateCharCounter(input, counterId, maxChars) {
+            const counter = document.getElementById(counterId);
+            const length = input.value.length;
+            counter.textContent = `${length}/${maxChars}`;
+            
+            // Update color based on length
+            if (length === 0) {
+                counter.className = '';
+            } else if (length <= maxChars * 0.8) {
+                counter.className = 'good';
+            } else if (length <= maxChars) {
+                counter.className = 'warning';
+            } else {
+                counter.className = 'danger';
+            }
+        }
+
+        // Add event listeners for character counters
+        titleInput.addEventListener('input', () => updateCharCounter(titleInput, 'titleCount', 60));
+        descInput.addEventListener('input', () => updateCharCounter(descInput, 'descCount', 160));
+        keywordsInput.addEventListener('input', () => updateCharCounter(keywordsInput, 'keywordsCount', 255));
+        ogTitleInput.addEventListener('input', () => updateCharCounter(ogTitleInput, 'ogTitleCount', 60));
+        ogDescInput.addEventListener('input', () => updateCharCounter(ogDescInput, 'ogDescCount', 200));
+        twitterTitleInput.addEventListener('input', () => updateCharCounter(twitterTitleInput, 'twitterTitleCount', 70));
+        twitterDescInput.addEventListener('input', () => updateCharCounter(twitterDescInput, 'twitterDescCount', 200));
+
+        // Initialize character counters
+        updateCharCounter(titleInput, 'titleCount', 60);
+        updateCharCounter(descInput, 'descCount', 160);
+        updateCharCounter(keywordsInput, 'keywordsCount', 255);
+        updateCharCounter(ogTitleInput, 'ogTitleCount', 60);
+        updateCharCounter(ogDescInput, 'ogDescCount', 200);
+        updateCharCounter(twitterTitleInput, 'twitterTitleCount', 70);
+        updateCharCounter(twitterDescInput, 'twitterDescCount', 200);
+
+        // Tool functionality
+        const generateBtn = document.getElementById('generateBtn');
+        const copyBtn = document.getElementById('copyBtn');
+        const resetBtn = document.getElementById('resetBtn');
+        const codeOutput = document.getElementById('generatedCode');
+        const emptyPreview = document.getElementById('emptyPreview');
+        const seoPreview = document.getElementById('seoPreview');
+        const metaPreview = document.getElementById('metaPreview');
+
+        // Generate meta tags
+        generateBtn.addEventListener('click', generateMetaTags);
+
+        // Reset form
+        resetBtn.addEventListener('click', resetForm);
+
+        // Copy to clipboard
+        copyBtn.addEventListener('click', copyToClipboard);
+
+        // Toast notification
+        const toast = document.getElementById('toast');
+        const toastMessage = document.getElementById('toastMessage');
+
+        function showToast(message) {
+            toastMessage.textContent = message;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // Generate meta tags function
+        function generateMetaTags() {
+            // Get form values
+            const pageTitle = document.getElementById('pageTitle').value || 'Your Page Title';
+            const metaDescription = document.getElementById('metaDescription').value || 'Your meta description goes here';
+            const metaKeywords = document.getElementById('metaKeywords').value || 'keyword1, keyword2, keyword3';
+            const author = document.getElementById('author').value || 'Your Name';
+            const robots = document.getElementById('robots').value;
+            const viewport = document.getElementById('viewport').checked;
+            const charset = document.getElementById('charset').checked;
+            
+            // Open Graph values
+            const ogTitle = document.getElementById('ogTitle').value || pageTitle;
+            const ogDescription = document.getElementById('ogDescription').value || metaDescription;
+            const ogImage = document.getElementById('ogImage').value || 'https://example.com/image.jpg';
+            const ogUrl = document.getElementById('ogUrl').value || 'https://example.com';
+            const ogLocale = document.getElementById('ogLocale').value;
+            const ogType = document.getElementById('ogType').value;
+            
+            // Twitter values
+            const twitterCard = document.getElementById('twitterCard').value;
+            const twitterTitle = document.getElementById('twitterTitle').value || ogTitle;
+            const twitterDescription = document.getElementById('twitterDescription').value || ogDescription;
+            const twitterImage = document.getElementById('twitterImage').value || ogImage;
+            const twitterSite = document.getElementById('twitterSite').value || '@username';
+            const twitterCreator = document.getElementById('twitterCreator').value || '@username';
+            
+            // Advanced values
+            const canonicalUrl = document.getElementById('canonicalUrl').value || ogUrl;
+            const contentLanguage = document.getElementById('contentLanguage').value;
+            const themeColor = document.getElementById('themeColor').value;
+            const generatorMeta = document.getElementById('generatorMeta').checked;
+            const ratingMeta = document.getElementById('ratingMeta').checked;
+            const referrerMeta = document.getElementById('referrerMeta').checked;
+            const customMeta = document.getElementById('customMeta').value;
+            
+            // Update preview
+            document.getElementById('previewTitle').textContent = pageTitle;
+            document.getElementById('previewUrl').textContent = ogUrl;
+            document.getElementById('previewDescription').textContent = metaDescription;
+            
+            document.getElementById('previewTitleTag').textContent = pageTitle;
+            document.getElementById('previewMetaDesc').textContent = metaDescription;
+            document.getElementById('previewKeywords').textContent = metaKeywords;
+            
+            // Show preview and hide empty state
+            emptyPreview.style.display = 'none';
+            seoPreview.style.display = 'block';
+            metaPreview.style.display = 'block';
+            codeOutput.style.display = 'block';
+            
+            // Generate the code
+            let generatedCode = '<!-- Generated by Toolvexa Meta Tag Generator -->\n';
+            generatedCode += '<!-- https://toolvexa.com/meta-tag-generator -->\n\n';
+            
+            // Basic meta tags
+            generatedCode += '<!-- Basic Meta Tags -->\n';
+            generatedCode += `<title>${escapeHtml(pageTitle)}</title>\n`;
+            
+            if (charset) {
+                generatedCode += `<meta charset="UTF-8">\n`;
+            }
+            
+            if (viewport) {
+                generatedCode += `<meta name="viewport" content="width=device-width, initial-scale=1.0">\n`;
+            }
+            
+            generatedCode += `<meta name="description" content="${escapeHtml(metaDescription)}">\n`;
+            
+            if (metaKeywords.trim()) {
+                generatedCode += `<meta name="keywords" content="${escapeHtml(metaKeywords)}">\n`;
+            }
+            
+            if (author.trim()) {
+                generatedCode += `<meta name="author" content="${escapeHtml(author)}">\n`;
+            }
+            
+            generatedCode += `<meta name="robots" content="${robots}">\n`;
+            
+            // Open Graph tags
+            generatedCode += '\n<!-- Open Graph Tags -->\n';
+            generatedCode += `<meta property="og:title" content="${escapeHtml(ogTitle)}">\n`;
+            generatedCode += `<meta property="og:description" content="${escapeHtml(ogDescription)}">\n`;
+            
+            if (ogImage.trim()) {
+                generatedCode += `<meta property="og:image" content="${ogImage}">\n`;
+            }
+            
+            if (ogUrl.trim()) {
+                generatedCode += `<meta property="og:url" content="${ogUrl}">\n`;
+            }
+            
+            generatedCode += `<meta property="og:type" content="${ogType}">\n`;
+            generatedCode += `<meta property="og:locale" content="${ogLocale}">\n`;
+            
+            // Twitter Cards
+            generatedCode += '\n<!-- Twitter Cards -->\n';
+            generatedCode += `<meta name="twitter:card" content="${twitterCard}">\n`;
+            generatedCode += `<meta name="twitter:title" content="${escapeHtml(twitterTitle)}">\n`;
+            generatedCode += `<meta name="twitter:description" content="${escapeHtml(twitterDescription)}">\n`;
+            
+            if (twitterImage.trim()) {
+                generatedCode += `<meta name="twitter:image" content="${twitterImage}">\n`;
+            }
+            
+            if (twitterSite.trim()) {
+                generatedCode += `<meta name="twitter:site" content="${twitterSite}">\n`;
+            }
+            
+            if (twitterCreator.trim()) {
+                generatedCode += `<meta name="twitter:creator" content="${twitterCreator}">\n`;
+            }
+            
+            // Advanced tags
+            generatedCode += '\n<!-- Advanced Meta Tags -->\n';
+            
+            if (canonicalUrl.trim()) {
+                generatedCode += `<link rel="canonical" href="${canonicalUrl}">\n`;
+            }
+            
+            generatedCode += `<meta name="language" content="${contentLanguage}">\n`;
+            
+            if (themeColor.trim()) {
+                generatedCode += `<meta name="theme-color" content="${themeColor}">\n`;
+            }
+            
+            if (generatorMeta) {
+                generatedCode += `<meta name="generator" content="Toolvexa Meta Tag Generator">\n`;
+            }
+            
+            if (ratingMeta) {
+                generatedCode += `<meta name="rating" content="general">\n`;
+            }
+            
+            if (referrerMeta) {
+                generatedCode += `<meta name="referrer" content="strict-origin-when-cross-origin">\n`;
+            }
+            
+            // Custom meta tags
+            if (customMeta.trim()) {
+                const customTags = customMeta.split('\n').filter(tag => tag.trim());
+                if (customTags.length > 0) {
+                    generatedCode += '\n<!-- Custom Meta Tags -->\n';
+                    customTags.forEach(tag => {
+                        generatedCode += `${tag}\n`;
+                    });
+                }
+            }
+            
+            // Format the code with syntax highlighting
+            const formattedCode = formatCodeWithSyntaxHighlighting(generatedCode);
+            document.getElementById('generatedCode').innerHTML = formattedCode;
+            
+            // Enable copy button
+            copyBtn.disabled = false;
+            
+            showToast('Meta tags generated successfully!');
+        }
+
+        // Reset form function
+        function resetForm() {
+            if (confirm('Are you sure you want to reset the form? All entered data will be lost.')) {
+                // Reset all form fields
+                document.getElementById('pageTitle').value = '';
+                document.getElementById('metaDescription').value = '';
+                document.getElementById('metaKeywords').value = '';
+                document.getElementById('author').value = '';
+                document.getElementById('robots').value = 'index, follow';
+                document.getElementById('viewport').checked = true;
+                document.getElementById('charset').checked = true;
+                
+                document.getElementById('ogTitle').value = '';
+                document.getElementById('ogDescription').value = '';
+                document.getElementById('ogImage').value = '';
+                document.getElementById('ogUrl').value = '';
+                document.getElementById('ogLocale').value = 'en_US';
+                document.getElementById('ogType').value = 'website';
+                
+                document.getElementById('twitterCard').value = 'summary';
+                document.getElementById('twitterTitle').value = '';
+                document.getElementById('twitterDescription').value = '';
+                document.getElementById('twitterImage').value = '';
+                document.getElementById('twitterSite').value = '';
+                document.getElementById('twitterCreator').value = '';
+                
+                document.getElementById('canonicalUrl').value = '';
+                document.getElementById('contentLanguage').value = 'en';
+                document.getElementById('themeColor').value = '#4a6fa5';
+                document.getElementById('generatorMeta').checked = false;
+                document.getElementById('ratingMeta').checked = false;
+                document.getElementById('referrerMeta').checked = true;
+                document.getElementById('customMeta').value = '';
+                
+                // Reset character counters
+                updateCharCounter(titleInput, 'titleCount', 60);
+                updateCharCounter(descInput, 'descCount', 160);
+                updateCharCounter(keywordsInput, 'keywordsCount', 255);
+                updateCharCounter(ogTitleInput, 'ogTitleCount', 60);
+                updateCharCounter(ogDescInput, 'ogDescCount', 200);
+                updateCharCounter(twitterTitleInput, 'twitterTitleCount', 70);
+                updateCharCounter(twitterDescInput, 'twitterDescCount', 200);
+                
+                // Reset preview
+                emptyPreview.style.display = 'block';
+                seoPreview.style.display = 'none';
+                metaPreview.style.display = 'none';
+                codeOutput.style.display = 'none';
+                
+                // Disable copy button
+                copyBtn.disabled = true;
+                
+                showToast('Form reset successfully!');
+            }
+        }
+
+        // Copy to clipboard function
+        function copyToClipboard() {
+            const codeElement = document.getElementById('generatedCode');
+            const textToCopy = codeElement.textContent;
+            
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                showToast('Meta tags copied to clipboard!');
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+                showToast('Failed to copy. Please try again.');
+            });
+        }
+
+        // Utility function to escape HTML
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        // Syntax highlighting for the code
+        function formatCodeWithSyntaxHighlighting(code) {
+            // Replace HTML entities
+            let formatted = code
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#039;');
+            
+            // Add syntax highlighting
+            formatted = formatted
+                .replace(/&lt;!--(.*?)--&gt;/g, '<span class="code-comment">&lt;!--$1--&gt;</span>')
+                .replace(/&lt;(title|meta|link)(.*?)&gt;/g, '&lt;<span class="code-keyword">$1</span>$2&gt;')
+                .replace(/(property|name|content|charset|href|rel)=/g, '<span class="code-attribute">$1</span>=')
+                .replace(/&quot;(.*?)&quot;/g, '&quot;<span class="code-string">$1</span>&quot;');
+            
+            return formatted;
+        }
+
+        // Auto-populate some fields for better UX
+        document.getElementById('ogTitle').addEventListener('blur', function() {
+            if (!document.getElementById('twitterTitle').value) {
+                document.getElementById('twitterTitle').value = this.value;
+                updateCharCounter(twitterTitleInput, 'twitterTitleCount', 70);
+            }
+        });
+
+        document.getElementById('ogDescription').addEventListener('blur', function() {
+            if (!document.getElementById('twitterDescription').value) {
+                document.getElementById('twitterDescription').value = this.value;
+                updateCharCounter(twitterDescInput, 'twitterDescCount', 200);
+            }
+        });
+
+        document.getElementById('ogImage').addEventListener('blur', function() {
+            if (!document.getElementById('twitterImage').value && this.value) {
+                document.getElementById('twitterImage').value = this.value;
+            }
+        });
+
+        document.getElementById('ogUrl').addEventListener('blur', function() {
+            if (!document.getElementById('canonicalUrl').value && this.value) {
+                document.getElementById('canonicalUrl').value = this.value;
+            }
+        });
+
+        // Auto-generate on page load with sample data
+        window.addEventListener('load', function() {
+            // Set some sample data for demo
+            document.getElementById('pageTitle').value = 'Best SEO Tools Online - Boost Your Website Rankings';
+            document.getElementById('metaDescription').value = 'Discover the best free SEO tools to analyze, optimize and improve your website search rankings. Meta tag generator, keyword research, and more.';
+            document.getElementById('metaKeywords').value = 'seo tools, meta tag generator, keyword research, website optimization';
+            document.getElementById('author').value = 'Toolvexa Team';
+            document.getElementById('ogUrl').value = 'https://toolvexa.com/meta-tag-generator';
+            document.getElementById('twitterSite').value = '@toolvexa';
+            document.getElementById('twitterCreator').value = '@toolvexa';
+            
+            // Update character counters
+            updateCharCounter(titleInput, 'titleCount', 60);
+            updateCharCounter(descInput, 'descCount', 160);
+            updateCharCounter(keywordsInput, 'keywordsCount', 255);
+            
+            // Generate meta tags automatically
+            setTimeout(() => {
+                generateMetaTags();
+            }, 500);
+        });
+    </script>
+</body>
+</html>
