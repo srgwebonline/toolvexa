@@ -1,0 +1,2165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Content Writer - Free AI Writing Assistant | Toolvexa</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Free AI Content Writer tool. Generate high-quality articles, blogs, ads, and social media content instantly. AI-powered writing assistant for all your content needs.">
+    <meta name="keywords" content="AI content writer, free ai writer, content generator, blog writer, article generator, social media content, copywriting AI, writing assistant">
+    <meta name="author" content="Toolvexa">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="AI Content Writer - Free AI Writing Assistant | Toolvexa">
+    <meta property="og:description" content="Free AI Content Writer tool. Generate high-quality articles, blogs, ads, and social media content instantly.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://toolvexa.com/ai-content-writer">
+    <meta property="og:image" content="https://toolvexa.com/images/ai-content-writer-og.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://toolvexa.com/ai-content-writer">
+    
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "AI Content Writer",
+        "url": "https://toolvexa.com/ai-content-writer",
+        "applicationCategory": "WritingApplication",
+        "operatingSystem": "Any",
+        "description": "Free AI-powered content writer tool that generates articles, blogs, and marketing content",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "creator": {
+            "@type": "Organization",
+            "name": "Toolvexa",
+            "url": "https://toolvexa.com"
+        }
+    }
+    </script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+
+        :root {
+            --primary: #4361ee;
+            --primary-light: #e6f0ff;
+            --secondary: #7209b7;
+            --success: #2ec4b6;
+            --danger: #e63946;
+            --warning: #ff9e00;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --border: #dee2e6;
+            --shadow: rgba(0, 0, 0, 0.1);
+            --radius: 12px;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+            min-height: 100vh;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation Bar */
+        .tool-navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 15px 0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            border-bottom: 3px solid #4361ee;
+        }
+        
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: #4361ee;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .nav-brand i {
+            font-size: 1.8rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            background: #4361ee;
+            color: white;
+        }
+        
+        .back-to-home {
+            background: #4361ee;
+            color: white !important;
+            padding: 8px 20px !important;
+            border-radius: 25px;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #333;
+            cursor: pointer;
+        }
+        
+        /* Adjust body padding for fixed navbar */
+        body {
+            padding-top: 80px;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            margin: 20px 0 30px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .breadcrumb a {
+            color: #4361ee;
+            text-decoration: none;
+        }
+        
+        .breadcrumb span {
+            margin: 0 5px;
+        }
+
+        /* Tool Header */
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px 20px;
+            background: white;
+            border-radius: var(--radius);
+            box-shadow: 0 5px 20px var(--shadow);
+        }
+
+        .logo {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        header h1 {
+            color: var(--primary);
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        header p {
+            color: #666;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 20px;
+        }
+
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+            color: var(--dark);
+            background: var(--light);
+            padding: 8px 15px;
+            border-radius: 50px;
+        }
+
+        .feature i {
+            color: var(--success);
+        }
+
+        /* Main Content Area */
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 1100px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Controls Section */
+        .controls-section {
+            background: white;
+            border-radius: var(--radius);
+            padding: 30px;
+            box-shadow: 0 5px 20px var(--shadow);
+        }
+
+        .control-group {
+            margin-bottom: 25px;
+        }
+
+        .control-group h3 {
+            margin-bottom: 15px;
+            color: var(--primary);
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .control-group h3 i {
+            font-size: 1.2rem;
+        }
+
+        /* Input Styles */
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .input-group label i {
+            color: var(--primary);
+        }
+
+        .text-input, .select-input, .textarea-input {
+            width: 100%;
+            padding: 14px;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .text-input:focus, .select-input:focus, .textarea-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.1);
+        }
+
+        .textarea-input {
+            min-height: 120px;
+            resize: vertical;
+            font-family: inherit;
+            line-height: 1.5;
+        }
+
+        /* Slider Styles */
+        .slider-container {
+            margin-bottom: 20px;
+        }
+
+        .slider-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .slider-label span:first-child {
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .slider-label span:last-child {
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .slider {
+            width: 100%;
+            height: 10px;
+            -webkit-appearance: none;
+            appearance: none;
+            background: #e0e0e0;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: var(--primary);
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .slider::-moz-range-thumb {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: var(--primary);
+            cursor: pointer;
+            border: none;
+        }
+
+        /* Content Types Grid */
+        .content-types {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .content-type-btn {
+            padding: 14px;
+            background: var(--light);
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: center;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .content-type-btn i {
+            font-size: 1.2rem;
+            color: var(--primary);
+        }
+
+        .content-type-btn:hover {
+            background: #e9ecef;
+            transform: translateY(-2px);
+        }
+
+        .content-type-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .content-type-btn.active i {
+            color: white;
+        }
+
+        /* Tone Styles */
+        .tone-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .tone-btn {
+            padding: 10px 16px;
+            background: var(--light);
+            border: 2px solid var(--border);
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .tone-btn:hover {
+            background: #e9ecef;
+        }
+
+        .tone-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        /* Output Section */
+        .output-section {
+            background: white;
+            border-radius: var(--radius);
+            padding: 30px;
+            box-shadow: 0 5px 20px var(--shadow);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .output-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .output-header h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .output-header h2 i {
+            font-size: 1.5rem;
+        }
+
+        .word-count {
+            background: var(--primary-light);
+            color: var(--primary);
+            padding: 6px 15px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .output-content {
+            flex: 1;
+            min-height: 400px;
+            padding: 20px;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            background: #fafafa;
+            overflow-y: auto;
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+
+        .output-content p {
+            margin-bottom: 15px;
+        }
+
+        .output-content h2 {
+            color: var(--primary);
+            margin: 20px 0 10px;
+            font-size: 1.5rem;
+        }
+
+        .output-content h3 {
+            color: var(--dark);
+            margin: 15px 0 8px;
+            font-size: 1.2rem;
+        }
+
+        .output-content ul, .output-content ol {
+            margin-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        .output-content li {
+            margin-bottom: 8px;
+        }
+
+        .output-placeholder {
+            color: #999;
+            text-align: center;
+            padding: 60px 20px;
+            font-size: 1.1rem;
+        }
+
+        .output-placeholder i {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #ddd;
+        }
+
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .action-btn {
+            flex: 1;
+            min-width: 150px;
+            padding: 16px 20px;
+            border: none;
+            border-radius: var(--radius);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .action-btn i {
+            font-size: 1.2rem;
+        }
+
+        .generate-btn {
+            background: var(--primary);
+            color: white;
+        }
+
+        .generate-btn:hover {
+            background: #3a56d4;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
+        }
+
+        .copy-btn {
+            background: var(--success);
+            color: white;
+        }
+
+        .copy-btn:hover {
+            background: #27b0a3;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(46, 196, 182, 0.3);
+        }
+
+        .clear-btn {
+            background: var(--danger);
+            color: white;
+        }
+
+        .clear-btn:hover {
+            background: #d32f3a;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(230, 57, 70, 0.3);
+        }
+
+        .save-btn {
+            background: var(--warning);
+            color: white;
+        }
+
+        .save-btn:hover {
+            background: #e68f00;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 158, 0, 0.3);
+        }
+
+        /* History Section */
+        .history-section {
+            margin-top: 40px;
+        }
+
+        .section-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .section-title h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .history-container {
+            background: white;
+            border-radius: var(--radius);
+            padding: 20px;
+            box-shadow: 0 3px 10px var(--shadow);
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .history-item {
+            padding: 15px;
+            border-bottom: 1px solid var(--border);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .history-item:hover {
+            background: var(--primary-light);
+        }
+
+        .history-item:last-child {
+            border-bottom: none;
+        }
+
+        .history-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--dark);
+        }
+
+        .history-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        .history-empty {
+            text-align: center;
+            padding: 40px 20px;
+            color: #999;
+        }
+
+        .history-empty i {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: #ddd;
+        }
+
+        /* Related Tools Section */
+        .related-tools-section {
+            margin: 60px 0 40px;
+        }
+
+        .related-tools-section h2 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .tool-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 5px 15px var(--shadow);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 25px rgba(67, 97, 238, 0.15);
+        }
+
+        .tool-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .tool-card h3 {
+            color: var(--dark);
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .tool-card p {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .tool-link {
+            display: inline-block;
+            background: var(--primary-light);
+            color: var(--primary);
+            padding: 10px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .tool-link:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            margin: 60px 0 40px;
+        }
+
+        .faq-section h2 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .faq-container {
+            background: white;
+            border-radius: var(--radius);
+            padding: 30px;
+            box-shadow: 0 5px 20px var(--shadow);
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border);
+            padding: 20px 0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            color: var(--dark);
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .faq-question i {
+            color: var(--primary);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            color: #666;
+            line-height: 1.6;
+            padding-right: 40px;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            margin-top: 15px;
+        }
+
+        /* SEO Pages Styles */
+        .seo-section {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            display: none;
+            position: relative;
+        }
+        
+        .seo-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .seo-section h1 {
+            color: #4361ee;
+            margin-bottom: 20px;
+            font-size: 2.2rem;
+        }
+        
+        .seo-section h2 {
+            color: #333;
+            margin: 25px 0 15px;
+            font-size: 1.5rem;
+        }
+        
+        .seo-section h3 {
+            color: #555;
+            margin: 20px 0 10px;
+            font-size: 1.2rem;
+        }
+        
+        .seo-content {
+            line-height: 1.8;
+            color: #444;
+        }
+        
+        .seo-content p {
+            margin-bottom: 15px;
+        }
+        
+        .seo-content ul, .seo-content ol {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .seo-content li {
+            margin-bottom: 10px;
+        }
+        
+        .close-seo {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #4361ee;
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            z-index: 10;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 30px 20px;
+            color: #666;
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border);
+            background: white;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            color: #4361ee;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+            text-decoration: underline;
+        }
+
+        .copyright {
+            margin-top: 20px;
+            color: #888;
+        }
+
+        /* Loading Spinner */
+        .loading {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+
+        .loading-text {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-container {
+                flex-wrap: wrap;
+            }
+            
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .content-types {
+                grid-template-columns: 1fr;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+            }
+            
+            .action-btn {
+                min-width: 100%;
+            }
+            
+            .tone-options {
+                justify-content: center;
+            }
+            
+            .output-header {
+                flex-direction: column;
+                gap: 15px;
+                align-items: flex-start;
+            }
+            
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .seo-section {
+                padding: 20px;
+                margin: 20px;
+            }
+            
+            .faq-container {
+                padding: 20px;
+            }
+            
+            .faq-answer {
+                padding-right: 20px;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="tool-navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">
+                <i class="fas fa-tools"></i> Toolvexa
+            </a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#tools">All Tools</a></li>
+                <li><a href="index.html#ai-tools">AI Tools</a></li>
+                <li><a href="#privacy-policy" onclick="showSeoPage('privacy')">Privacy Policy</a></li>
+                <li><a href="#terms-of-service" onclick="showSeoPage('terms')">Terms of Service</a></li>
+                <li><a href="#about-tool" onclick="showSeoPage('about')">About This Tool</a></li>
+                <li><a href="index.html" class="back-to-home">Back to Home</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Breadcrumb -->
+        <div class="breadcrumb">
+            <a href="index.html">Home</a> 
+            <span>></span>
+            <a href="index.html#ai-tools">AI Tools</a>
+            <span>></span>
+            <span>AI Content Writer</span>
+        </div>
+
+        <!-- Tool Header -->
+        <header>
+            <div class="logo">
+                <i class="fas fa-robot"></i>
+            </div>
+            <h1>AI Content Writer</h1>
+            <p>Generate high-quality content instantly with AI. Create articles, blogs, social media posts, ads, and more. Powered by advanced AI technology for professional results.</p>
+            <div class="features">
+                <div class="feature">
+                    <i class="fas fa-bolt"></i>
+                    <span>Instant Generation</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Plagiarism-Free</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-infinity"></i>
+                    <span>No Limits</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-language"></i>
+                    <span>Multiple Languages</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Tool Section -->
+        <div class="main-content">
+            <!-- Controls Section -->
+            <div class="controls-section">
+                <div class="control-group">
+                    <h3><i class="fas fa-cog"></i> Content Settings</h3>
+                    
+                    <div class="input-group">
+                        <label for="contentTopic"><i class="fas fa-lightbulb"></i> Topic/Title</label>
+                        <input type="text" id="contentTopic" class="text-input" placeholder="Enter your topic or title..." value="The Future of Artificial Intelligence">
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="contentType"><i class="fas fa-file-alt"></i> Content Type</label>
+                        <select id="contentType" class="select-input">
+                            <option value="blog-post">Blog Post</option>
+                            <option value="article">Article</option>
+                            <option value="social-media">Social Media Post</option>
+                            <option value="ad-copy">Ad Copy</option>
+                            <option value="product-description">Product Description</option>
+                            <option value="email-newsletter">Email Newsletter</option>
+                            <option value="essay">Essay</option>
+                            <option value="landing-page">Landing Page</option>
+                        </select>
+                    </div>
+                    
+                    <div class="content-types">
+                        <div class="content-type-btn active" data-type="blog-post">
+                            <i class="fas fa-blog"></i>
+                            <span>Blog Post</span>
+                        </div>
+                        <div class="content-type-btn" data-type="article">
+                            <i class="fas fa-newspaper"></i>
+                            <span>Article</span>
+                        </div>
+                        <div class="content-type-btn" data-type="social-media">
+                            <i class="fas fa-hashtag"></i>
+                            <span>Social Media</span>
+                        </div>
+                        <div class="content-type-btn" data-type="ad-copy">
+                            <i class="fas fa-ad"></i>
+                            <span>Ad Copy</span>
+                        </div>
+                        <div class="content-type-btn" data-type="product-description">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span>Product Description</span>
+                        </div>
+                        <div class="content-type-btn" data-type="email-newsletter">
+                            <i class="fas fa-envelope"></i>
+                            <span>Email Newsletter</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <h3><i class="fas fa-sliders-h"></i> Content Details</h3>
+                    
+                    <div class="input-group">
+                        <label for="keywords"><i class="fas fa-key"></i> Keywords (optional)</label>
+                        <input type="text" id="keywords" class="text-input" placeholder="Enter keywords separated by commas...">
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="additionalInstructions"><i class="fas fa-edit"></i> Additional Instructions</label>
+                        <textarea id="additionalInstructions" class="textarea-input" placeholder="Add any specific instructions or requirements..."></textarea>
+                    </div>
+                    
+                    <div class="slider-container">
+                        <div class="slider-label">
+                            <span>Length</span>
+                            <span id="lengthValue">Medium</span>
+                        </div>
+                        <input type="range" min="1" max="3" value="2" class="slider" id="lengthSlider" step="1">
+                        <div style="display: flex; justify-content: space-between; font-size: 0.8rem; color: #999; margin-top: 5px;">
+                            <span>Short</span>
+                            <span>Medium</span>
+                            <span>Long</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <h3><i class="fas fa-palette"></i> Tone & Style</h3>
+                    
+                    <div class="tone-options">
+                        <div class="tone-btn active" data-tone="professional">Professional</div>
+                        <div class="tone-btn" data-tone="casual">Casual</div>
+                        <div class="tone-btn" data-tone="friendly">Friendly</div>
+                        <div class="tone-btn" data-tone="persuasive">Persuasive</div>
+                        <div class="tone-btn" data-tone="informative">Informative</div>
+                        <div class="tone-btn" data-tone="creative">Creative</div>
+                    </div>
+                    
+                    <div class="input-group" style="margin-top: 20px;">
+                        <label for="targetAudience"><i class="fas fa-users"></i> Target Audience</label>
+                        <input type="text" id="targetAudience" class="text-input" placeholder="e.g., Business professionals, Students, General public...">
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="action-btn generate-btn" id="generateBtn">
+                        <i class="fas fa-magic"></i> Generate Content
+                    </button>
+                    <button class="action-btn copy-btn" id="copyBtn" disabled>
+                        <i class="fas fa-copy"></i> Copy Text
+                    </button>
+                    <button class="action-btn clear-btn" id="clearBtn">
+                        <i class="fas fa-eraser"></i> Clear All
+                    </button>
+                </div>
+            </div>
+
+            <!-- Output Section -->
+            <div class="output-section">
+                <div class="output-header">
+                    <h2><i class="fas fa-file-alt"></i> Generated Content</h2>
+                    <div class="word-count" id="wordCount">0 words</div>
+                </div>
+                
+                <div class="output-content" id="outputContent">
+                    <div class="output-placeholder">
+                        <i class="fas fa-robot"></i>
+                        <h3>AI Content Will Appear Here</h3>
+                        <p>Configure your settings on the left and click "Generate Content" to create amazing content instantly!</p>
+                    </div>
+                </div>
+                
+                <div class="action-buttons">
+                    <button class="action-btn save-btn" id="saveBtn" disabled>
+                        <i class="fas fa-save"></i> Save to History
+                    </button>
+                    <button class="action-btn copy-btn" id="copyOutputBtn" disabled>
+                        <i class="fas fa-copy"></i> Copy to Clipboard
+                    </button>
+                    <button class="action-btn" id="downloadBtn" disabled style="background: #7209b7; color: white;">
+                        <i class="fas fa-download"></i> Download as TXT
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- History Section -->
+        <div class="history-section">
+            <div class="section-title">
+                <h2><i class="fas fa-history"></i> Content History</h2>
+                <button class="action-btn clear-btn" id="clearHistoryBtn" style="padding: 10px 20px; font-size: 0.9rem;">
+                    <i class="fas fa-trash-alt"></i> Clear History
+                </button>
+            </div>
+            
+            <div class="history-container" id="historyContainer">
+                <div class="history-empty">
+                    <i class="fas fa-history"></i>
+                    <h3>No History Yet</h3>
+                    <p>Your generated content will appear here for quick access.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Is the AI Content Writer really free to use?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, our AI Content Writer is 100% free with no hidden costs or limitations. You can generate as much content as you need without any restrictions.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How does the AI generate content?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our AI uses advanced language models trained on diverse text data. It analyzes your input (topic, type, tone) and generates original, human-like content based on patterns it has learned.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Is the content plagiarism-free?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, the AI generates original content for each request. However, we recommend checking important content with plagiarism tools if you plan to publish it.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Can I use the content for commercial purposes?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, you own the content you generate and can use it for commercial purposes. However, we recommend reviewing and editing AI-generated content before publishing.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What languages does the AI support?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Currently, the AI primarily generates content in English. We're working on adding more languages in future updates.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Related Tools Section -->
+        <div class="related-tools-section">
+            <h2>Other Useful AI Tools</h2>
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-image"></i>
+                    </div>
+                    <h3>AI Image Generator</h3>
+                    <p>Create stunning images from text descriptions using AI. Perfect for illustrations, designs, and creative projects.</p>
+                    <a href="ai-image-generator.html" class="tool-link">Use Tool</a>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <h3>AI Translator</h3>
+                    <p>Translate text between multiple languages with AI-powered accuracy. Supports 50+ languages instantly.</p>
+                    <a href="ai-translator.html" class="tool-link">Use Tool</a>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-spell-check"></i>
+                    </div>
+                    <h3>Grammar Checker</h3>
+                    <p>AI-powered grammar and spell checker with style suggestions. Improve your writing instantly.</p>
+                    <a href="grammar-checker.html" class="tool-link">Use Tool</a>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>AI Chatbot</h3>
+                    <p>Chat with AI assistant for answers, ideas, and conversations. Powered by advanced AI technology.</p>
+                    <a href="ai-chatbot.html" class="tool-link">Use Tool</a>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>AI Code Generator</h3>
+                    <p>Generate code in multiple programming languages. Perfect for developers and programmers.</p>
+                    <a href="ai-code-generator.html" class="tool-link">Use Tool</a>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>AI Video Script Writer</h3>
+                    <p>Create engaging video scripts for YouTube, tutorials, and marketing videos with AI assistance.</p>
+                    <a href="ai-video-script.html" class="tool-link">Use Tool</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- SEO Pages Section -->
+        <div class="seo-section" id="privacy-policy">
+            <button class="close-seo" onclick="hideSeoPage()">×</button>
+            <h1>Privacy Policy</h1>
+            <div class="seo-content">
+                <p><strong>Last Updated: January 2024</strong></p>
+                
+                <h2>1. Introduction</h2>
+                <p>Welcome to Toolvexa AI Content Writer. Your privacy is critically important to us. This privacy policy document outlines the types of personal information that is received and collected by our tool and how it is used.</p>
+                
+                <h2>2. Information We Collect</h2>
+                <h3>2.1 Content You Generate</h3>
+                <p>When you use our AI Content Writer:</p>
+                <ul>
+                    <li>We temporarily process your input text to generate content</li>
+                    <li>Generated content is not permanently stored on our servers</li>
+                    <li>We may collect anonymous usage data to improve our service</li>
+                </ul>
+                
+                <h3>2.2 No Personal Data Collection</h3>
+                <p>We do not:</p>
+                <ul>
+                    <li>Collect your name, email, or personal information</li>
+                    <li>Require registration or login</li>
+                    <li>Sell or share your data with third parties</li>
+                </ul>
+                
+                <h2>3. How We Use Information</h2>
+                <p>Any data collected is used solely to:</p>
+                <ul>
+                    <li>Generate AI content based on your input</li>
+                    <li>Improve the quality of our AI models</li>
+                    <li>Monitor service performance and fix issues</li>
+                </ul>
+                
+                <h2>4. Data Storage & Security</h2>
+                <p>Your content is processed securely:</p>
+                <ul>
+                    <li>Input data is encrypted during transmission</li>
+                    <li>No permanent storage of generated content</li>
+                    <li>Regular security updates and monitoring</li>
+                </ul>
+                
+                <h2>5. Third-Party Services</h2>
+                <p>We use Font Awesome for icons and may use analytics services to improve our tool. These services have their own privacy policies.</p>
+                
+                <h2>6. Changes to This Policy</h2>
+                <p>We may update this privacy policy from time to time. We will notify you of any changes by posting the new privacy policy on this page.</p>
+                
+                <h2>7. Contact Us</h2>
+                <p>If you have any questions about this Privacy Policy, please contact us at: privacy@toolvexa.com</p>
+            </div>
+        </div>
+
+        <div class="seo-section" id="terms-of-service">
+            <button class="close-seo" onclick="hideSeoPage()">×</button>
+            <h1>Terms of Service</h1>
+            <div class="seo-content">
+                <p><strong>Last Updated: January 2024</strong></p>
+                
+                <h2>1. Acceptance of Terms</h2>
+                <p>By accessing and using the Toolvexa AI Content Writer tool, you accept and agree to be bound by the terms and provision of this agreement.</p>
+                
+                <h2>2. Description of Service</h2>
+                <p>Toolvexa AI Content Writer provides a free online tool for generating AI-powered content. The service includes:</p>
+                <ul>
+                    <li>AI content generation for various formats</li>
+                    <li>Multiple tone and style options</li>
+                    <li>Content length customization</li>
+                    <li>Local browser history storage</li>
+                </ul>
+                
+                <h2>3. User Responsibilities</h2>
+                <p>You agree to:</p>
+                <ul>
+                    <li>Use the tool only for lawful purposes</li>
+                    <li>Not generate harmful, illegal, or unethical content</li>
+                    <li>Review AI-generated content before use</li>
+                    <li>Not attempt to overload or abuse the service</li>
+                </ul>
+                
+                <h2>4. Content Ownership</h2>
+                <p>You retain ownership of content you generate, but you acknowledge that:</p>
+                <ul>
+                    <li>AI-generated content should be reviewed and edited</li>
+                    <li>We make no warranties about content accuracy</li>
+                    <li>You are responsible for how you use generated content</li>
+                </ul>
+                
+                <h2>5. Service Limitations</h2>
+                <p>The service is provided "as is" without warranties of any kind. We do not guarantee:</p>
+                <ul>
+                    <li>Uninterrupted service availability</li>
+                    <li>Content accuracy or quality</li>
+                    <li>Plagiarism-free content (though we strive for originality)</li>
+                    <li>Compatibility with all browsers or devices</li>
+                </ul>
+                
+                <h2>6. Limitation of Liability</h2>
+                <p>Toolvexa shall not be liable for any damages resulting from your use of the tool or reliance on AI-generated content.</p>
+                
+                <h2>7. Changes to Terms</h2>
+                <p>We reserve the right to modify these terms at any time. Continued use of the tool constitutes acceptance of modified terms.</p>
+                
+                <h2>8. Contact Information</h2>
+                <p>For any questions regarding these Terms of Service, please contact: legal@toolvexa.com</p>
+            </div>
+        </div>
+
+        <div class="seo-section" id="about-tool">
+            <button class="close-seo" onclick="hideSeoPage()">×</button>
+            <h1>About AI Content Writer Tool</h1>
+            <div class="seo-content">
+                <h2>What is Toolvexa AI Content Writer?</h2>
+                <p>Toolvexa AI Content Writer is a free online tool that uses advanced artificial intelligence to generate high-quality written content instantly. It's perfect for marketers, bloggers, students, businesses, and anyone who needs to create content quickly.</p>
+                
+                <h2>Key Features</h2>
+                <ul>
+                    <li><strong>Multiple Content Types:</strong> Generate blogs, articles, social media posts, ads, and more</li>
+                    <li><strong>Customizable Tone:</strong> Choose from professional, casual, friendly, persuasive, and other tones</li>
+                    <li><strong>Length Control:</strong> Generate short, medium, or long content as needed</li>
+                    <li><strong>Keyword Integration:</strong> Include specific keywords in your content</li>
+                    <li><strong>Browser History:</strong> Save and access your generated content locally</li>
+                    <li><strong>Export Options:</strong> Copy, download, or save your content easily</li>
+                </ul>
+                
+                <h2>How It Works</h2>
+                <p>Our AI analyzes your input and generates original content using advanced language models. The process is simple:</p>
+                <ol>
+                    <li>Enter your topic or title</li>
+                    <li>Select content type and tone</li>
+                    <li>Adjust length and add keywords if needed</li>
+                    <li>Click generate and get instant content</li>
+                    <li>Copy, download, or save your content</li>
+                </ol>
+                
+                <h2>Use Cases</h2>
+                <ul>
+                    <li><strong>Bloggers:</strong> Generate article ideas and complete posts</li>
+                    <li><strong>Marketers:</strong> Create ad copy and social media content</li>
+                    <li><strong>Students:</strong> Get help with essays and assignments</li>
+                    <li><strong>Businesses:</strong> Create product descriptions and newsletters</li>
+                    <li><strong>Content Creators:</strong> Overcome writer's block and generate ideas</li>
+                    <li><strong>Freelancers:</strong> Speed up content creation for clients</li>
+                </ul>
+                
+                <h2>Technical Information</h2>
+                <p>The tool uses advanced AI language models trained on diverse text data. It implements:</p>
+                <ul>
+                    <li>Natural Language Processing (NLP) algorithms</li>
+                    <li>Context understanding and coherence</li>
+                    <li>Tone and style adaptation</li>
+                    <li>Local browser storage for history</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-links">
+                <a href="#privacy-policy" onclick="showSeoPage('privacy')">Privacy Policy</a>
+                <a href="#terms-of-service" onclick="showSeoPage('terms')">Terms of Service</a>
+                <a href="#about-tool" onclick="showSeoPage('about')">About This Tool</a>
+                <a href="index.html">All Tools</a>
+                <a href="index.html#ai-tools">AI Tools</a>
+                <a href="index.html#contact">Contact Us</a>
+            </div>
+            <div class="copyright">
+                <p>© 2024 AI Content Writer | Toolvexa | AI-powered content generation tool for all your writing needs.</p>
+                <p style="margin-top: 10px;">Made with <i class="fas fa-heart" style="color: #e63946;"></i> and AI 🤖 for creators</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Navigation functionality
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                navLinks.classList.remove('active');
+            }
+        });
+        
+        // SEO pages functionality
+        function showSeoPage(page) {
+            // Hide all seo sections first
+            document.querySelectorAll('.seo-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show the requested section
+            let sectionId = '';
+            switch(page) {
+                case 'privacy':
+                    sectionId = 'privacy-policy';
+                    break;
+                case 'terms':
+                    sectionId = 'terms-of-service';
+                    break;
+                case 'about':
+                    sectionId = 'about-tool';
+                    break;
+            }
+            
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Close mobile menu if open
+            navLinks.classList.remove('active');
+            
+            // Scroll to the section
+            setTimeout(() => {
+                document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+            }, 100);
+        }
+        
+        function hideSeoPage() {
+            document.querySelectorAll('.seo-section').forEach(section => {
+                section.classList.remove('active');
+            });
+        }
+        
+        // Close SEO section when clicking outside
+        document.addEventListener('click', (e) => {
+            if (e.target.classList.contains('seo-section')) {
+                hideSeoPage();
+            }
+        });
+
+        // FAQ functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                item.classList.toggle('active');
+            });
+        });
+
+        // AI Content Writer Core Functionality
+        const contentTopic = document.getElementById('contentTopic');
+        const contentType = document.getElementById('contentType');
+        const keywords = document.getElementById('keywords');
+        const additionalInstructions = document.getElementById('additionalInstructions');
+        const lengthSlider = document.getElementById('lengthSlider');
+        const lengthValue = document.getElementById('lengthValue');
+        const targetAudience = document.getElementById('targetAudience');
+        
+        // Buttons
+        const generateBtn = document.getElementById('generateBtn');
+        const copyBtn = document.getElementById('copyBtn');
+        const clearBtn = document.getElementById('clearBtn');
+        const saveBtn = document.getElementById('saveBtn');
+        const copyOutputBtn = document.getElementById('copyOutputBtn');
+        const downloadBtn = document.getElementById('downloadBtn');
+        const clearHistoryBtn = document.getElementById('clearHistoryBtn');
+        
+        // Output elements
+        const outputContent = document.getElementById('outputContent');
+        const wordCount = document.getElementById('wordCount');
+        const historyContainer = document.getElementById('historyContainer');
+        
+        // Content type buttons
+        const contentTypeButtons = document.querySelectorAll('.content-type-btn');
+        // Tone buttons
+        const toneButtons = document.querySelectorAll('.tone-btn');
+        
+        // Length mapping
+        const lengthMap = {
+            1: { label: 'Short', words: 150 },
+            2: { label: 'Medium', words: 300 },
+            3: { label: 'Long', words: 600 }
+        };
+        
+        // Content templates for different types
+        const contentTemplates = {
+            'blog-post': {
+                title: 'Blog Post',
+                structure: ['Introduction', 'Main Points', 'Conclusion', 'Call to Action']
+            },
+            'article': {
+                title: 'Article',
+                structure: ['Introduction', 'Background', 'Analysis', 'Conclusion']
+            },
+            'social-media': {
+                title: 'Social Media Post',
+                structure: ['Engaging Hook', 'Main Message', 'Hashtags', 'Call to Action']
+            },
+            'ad-copy': {
+                title: 'Ad Copy',
+                structure: ['Headline', 'Subheadline', 'Benefits', 'Call to Action']
+            },
+            'product-description': {
+                title: 'Product Description',
+                structure: ['Product Overview', 'Key Features', 'Benefits', 'Specifications']
+            },
+            'email-newsletter': {
+                title: 'Email Newsletter',
+                structure: ['Subject Line', 'Greeting', 'Main Content', 'Closing']
+            },
+            'essay': {
+                title: 'Essay',
+                structure: ['Introduction', 'Thesis Statement', 'Body Paragraphs', 'Conclusion']
+            },
+            'landing-page': {
+                title: 'Landing Page',
+                structure: ['Headline', 'Subheadline', 'Features', 'Testimonials', 'Call to Action']
+            }
+        };
+        
+        // Sample content data for generation
+        const sampleContent = {
+            topics: {
+                'The Future of Artificial Intelligence': `Artificial Intelligence (AI) is rapidly transforming our world, and its future promises even more profound changes. From healthcare to transportation, education to entertainment, AI's potential seems limitless.
+
+                **Current State of AI**
+                Today, AI powers everything from virtual assistants to recommendation systems. Machine learning algorithms analyze vast amounts of data to identify patterns, make predictions, and automate complex tasks. Deep learning has enabled breakthroughs in image recognition, natural language processing, and autonomous systems.
+
+                **Emerging Trends**
+                1. **Explainable AI**: As AI systems become more complex, there's growing demand for transparency in decision-making processes.
+                2. **Edge AI**: Processing data locally on devices rather than in the cloud for faster response times and improved privacy.
+                3. **AI Ethics**: Developing frameworks to ensure AI systems are fair, unbiased, and aligned with human values.
+                4. **Generative AI**: Systems that can create original content, from text to images to music.
+
+                **Future Applications**
+                * **Healthcare**: AI-powered diagnostics, personalized treatment plans, and drug discovery
+                * **Education**: Adaptive learning systems that customize content to individual students
+                * **Climate Change**: AI models predicting environmental changes and optimizing resource use
+                * **Space Exploration**: Autonomous systems for planetary exploration and habitat management
+
+                **Challenges Ahead**
+                While AI's potential is enormous, significant challenges remain. These include:
+                - Ensuring data privacy and security
+                - Addressing algorithmic bias
+                - Managing job displacement
+                - Establishing international regulations
+                - Developing AI that aligns with human ethics and values
+
+                **Conclusion**
+                The future of AI is not just about technological advancement but about how we choose to develop and deploy these powerful tools. With careful planning, ethical guidelines, and human-centered design, AI can help solve some of humanity's greatest challenges while creating new opportunities for innovation and growth.`,
+
+                'Benefits of Renewable Energy': `Renewable energy sources are transforming how we power our world, offering sustainable alternatives to fossil fuels. The benefits extend far beyond environmental protection to include economic advantages and energy security.
+
+                **Environmental Benefits**
+                1. **Reduced Carbon Emissions**: Solar, wind, and hydroelectric power produce minimal greenhouse gases
+                2. **Improved Air Quality**: Less pollution means healthier communities and reduced healthcare costs
+                3. **Water Conservation**: Most renewable energy uses significantly less water than traditional power plants
+                4. **Biodiversity Protection**: Reduced habitat destruction compared to fossil fuel extraction
+
+                **Economic Advantages**
+                * **Job Creation**: The renewable energy sector creates more jobs per megawatt than fossil fuels
+                * **Energy Independence**: Countries can reduce reliance on imported fuels
+                * **Stable Prices**: Renewable energy costs are becoming increasingly competitive and predictable
+                * **Rural Development**: Many renewable projects are located in rural areas, stimulating local economies
+
+                **Social Impact**
+                - **Energy Access**: Renewable microgrids can provide power to remote communities
+                - **Public Health**: Cleaner air reduces respiratory diseases and healthcare costs
+                - **Community Ownership**: Local communities can own and benefit from renewable projects
+                - **Educational Opportunities**: New technologies create demand for skilled workers
+
+                **The Path Forward**
+                Transitioning to renewable energy requires investment in:
+                - Grid modernization and energy storage
+                - Research and development of new technologies
+                - Supportive policies and regulations
+                - Public education and engagement
+
+                The shift to renewable energy is not just an environmental imperative but an economic opportunity. By embracing clean energy, we can create a more sustainable, prosperous, and equitable future for all.`
+            }
+        };
+
+        // Initialize
+        let currentContent = '';
+        let contentHistory = JSON.parse(localStorage.getItem('aiContentHistory')) || [];
+        
+        // Update length display
+        lengthSlider.addEventListener('input', () => {
+            const value = parseInt(lengthSlider.value);
+            lengthValue.textContent = lengthMap[value].label;
+        });
+        
+        // Content type button handlers
+        contentTypeButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                contentTypeButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const type = btn.getAttribute('data-type');
+                contentType.value = type;
+            });
+        });
+        
+        // Tone button handlers
+        toneButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                toneButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            });
+        });
+        
+        // Generate content function
+        generateBtn.addEventListener('click', generateContent);
+        
+        async function generateContent() {
+            const topic = contentTopic.value.trim();
+            const type = contentType.value;
+            const keywordList = keywords.value.trim();
+            const instructions = additionalInstructions.value.trim();
+            const length = parseInt(lengthSlider.value);
+            const tone = document.querySelector('.tone-btn.active').getAttribute('data-tone');
+            const audience = targetAudience.value.trim();
+            
+            if (!topic) {
+                alert('Please enter a topic or title for your content.');
+                contentTopic.focus();
+                return;
+            }
+            
+            // Show loading state
+            outputContent.innerHTML = `
+                <div class="loading">
+                    <div class="spinner"></div>
+                    <div class="loading-text">AI is writing your content...</div>
+                    <p style="margin-top: 10px; color: #666; font-size: 0.9rem;">This may take a few seconds</p>
+                </div>
+            `;
+            
+            // Simulate AI processing (in real implementation, this would call an API)
+            setTimeout(() => {
+                // Generate content based on inputs
+                currentContent = generateAIContent(topic, type, keywordList, instructions, length, tone, audience);
+                
+                // Display content
+                displayContent(currentContent);
+                
+                // Enable buttons
+                copyBtn.disabled = false;
+                copyOutputBtn.disabled = false;
+                saveBtn.disabled = false;
+                downloadBtn.disabled = false;
+            }, 1500);
+        }
+        
+        function generateAIContent(topic, type, keywords, instructions, length, tone, audience) {
+            const template = contentTemplates[type];
+            const wordCount = lengthMap[length].words;
+            
+            let content = `<h2>${topic}</h2>`;
+            
+            // Add structure based on content type
+            template.structure.forEach((section, index) => {
+                content += `<h3>${section}</h3>`;
+                
+                // Generate paragraph for each section
+                let paragraph = `This section discusses ${section.toLowerCase()} related to ${topic}. `;
+                
+                // Add keywords if provided
+                if (keywords) {
+                    paragraph += `Important aspects include ${keywords}. `;
+                }
+                
+                // Add tone-specific language
+                switch(tone) {
+                    case 'professional':
+                        paragraph += `From a professional perspective, this demonstrates significant implications. `;
+                        break;
+                    case 'casual':
+                        paragraph += `In simpler terms, this is really interesting because... `;
+                        break;
+                    case 'friendly':
+                        paragraph += `You'll find this really helpful because... `;
+                        break;
+                    case 'persuasive':
+                        paragraph += `It's crucial to understand that this represents a major opportunity. `;
+                        break;
+                    case 'informative':
+                        paragraph += `Research indicates several key factors to consider. `;
+                        break;
+                    case 'creative':
+                        paragraph += `Imagine the possibilities this opens up for innovation. `;
+                        break;
+                }
+                
+                // Add audience-specific content
+                if (audience) {
+                    paragraph += `For ${audience}, this has particular relevance because... `;
+                }
+                
+                // Add instructions if provided
+                if (instructions) {
+                    paragraph += `As requested: ${instructions}. `;
+                }
+                
+                // Use sample content if available for the topic
+                if (sampleContent.topics[topic]) {
+                    paragraph = sampleContent.topics[topic].split('\n\n')[index] || paragraph;
+                }
+                
+                content += `<p>${paragraph}</p>`;
+                
+                // Add list for some sections
+                if (index === 1 || index === 2) {
+                    content += `<ul>
+                        <li>Key point one related to this topic</li>
+                        <li>Important consideration for implementation</li>
+                        <li>Potential benefit or advantage</li>
+                        <li>Future development possibility</li>
+                    </ul>`;
+                }
+            });
+            
+            // Add footer based on content type
+            content += `<div style="margin-top: 30px; padding: 15px; background: #f8f9fa; border-radius: 8px; border-left: 4px solid #4361ee;">
+                <p><strong>AI-Generated Content Note:</strong> This ${template.title.toLowerCase()} was generated by AI. Please review and edit as needed for accuracy and tone. Generated with ${tone} tone for ${audience || 'general audience'}.</p>
+            </div>`;
+            
+            return content;
+        }
+        
+        function displayContent(content) {
+            outputContent.innerHTML = content;
+            
+            // Calculate word count
+            const text = outputContent.textContent || outputContent.innerText;
+            const words = text.trim().split(/\s+/).length;
+            wordCount.textContent = `${words} words`;
+            
+            // Update word count display
+            updateWordCount();
+        }
+        
+        function updateWordCount() {
+            const text = outputContent.textContent || outputContent.innerText;
+            const words = text.trim().split(/\s+/).length;
+            wordCount.textContent = `${words} words`;
+        }
+        
+        // FIXED: Copy content to clipboard function
+        copyBtn.addEventListener('click', copyContent);
+        copyOutputBtn.addEventListener('click', copyContent);
+        
+        function copyContent() {
+            // Get the text content from the output div
+            const text = outputContent.textContent || outputContent.innerText;
+            
+            // Check if we have content to copy
+            if (!text || text.includes('AI Content Will Appear Here') || text.includes('AI is writing your content')) {
+                alert('Please generate content first before copying.');
+                return;
+            }
+            
+            // Use the modern clipboard API
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(text)
+                    .then(() => {
+                        showCopySuccess(copyOutputBtn);
+                    })
+                    .catch(err => {
+                        console.error('Failed to copy using clipboard API:', err);
+                        // Fallback to older method
+                        useFallbackCopyMethod(text);
+                    });
+            } else {
+                // Fallback for older browsers or insecure contexts
+                useFallbackCopyMethod(text);
+            }
+        }
+        
+        function useFallbackCopyMethod(text) {
+            // Create a temporary textarea element
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            textarea.style.position = 'fixed';
+            textarea.style.left = '-999999px';
+            textarea.style.top = '-999999px';
+            document.body.appendChild(textarea);
+            
+            // Select and copy the text
+            textarea.focus();
+            textarea.select();
+            
+            try {
+                const successful = document.execCommand('copy');
+                if (successful) {
+                    showCopySuccess(copyOutputBtn);
+                } else {
+                    alert('Failed to copy content. Please try again or select and copy manually.');
+                }
+            } catch (err) {
+                console.error('Fallback copy failed:', err);
+                alert('Failed to copy content. Please select the text and copy manually.');
+            }
+            
+            // Clean up
+            document.body.removeChild(textarea);
+        }
+        
+        function showCopySuccess(button) {
+            // Show success message
+            const originalHTML = button.innerHTML;
+            const originalBackground = button.style.background;
+            
+            button.innerHTML = '<i class="fas fa-check"></i> Copied!';
+            button.style.background = '#2ec4b6';
+            
+            setTimeout(() => {
+                button.innerHTML = originalHTML;
+                button.style.background = originalBackground;
+            }, 2000);
+        }
+        
+        // Clear all inputs
+        clearBtn.addEventListener('click', clearAll);
+        
+        function clearAll() {
+            if (confirm('Are you sure you want to clear all inputs and generated content?')) {
+                contentTopic.value = 'The Future of Artificial Intelligence';
+                keywords.value = '';
+                additionalInstructions.value = '';
+                lengthSlider.value = 2;
+                lengthValue.textContent = 'Medium';
+                targetAudience.value = '';
+                
+                // Reset tone to professional
+                toneButtons.forEach(b => b.classList.remove('active'));
+                toneButtons[0].classList.add('active');
+                
+                // Reset content type to blog post
+                contentTypeButtons.forEach(b => b.classList.remove('active'));
+                contentTypeButtons[0].classList.add('active');
+                contentType.value = 'blog-post';
+                
+                // Clear output
+                outputContent.innerHTML = `
+                    <div class="output-placeholder">
+                        <i class="fas fa-robot"></i>
+                        <h3>AI Content Will Appear Here</h3>
+                        <p>Configure your settings on the left and click "Generate Content" to create amazing content instantly!</p>
+                    </div>
+                `;
+                
+                // Reset buttons
+                copyBtn.disabled = true;
+                copyOutputBtn.disabled = true;
+                saveBtn.disabled = true;
+                downloadBtn.disabled = true;
+                wordCount.textContent = '0 words';
+                
+                currentContent = '';
+            }
+        }
+        
+        // Save content to history
+        saveBtn.addEventListener('click', saveToHistory);
+        
+        function saveToHistory() {
+            if (!currentContent) {
+                alert('No content to save. Please generate content first.');
+                return;
+            }
+            
+            const topic = contentTopic.value.trim() || 'Untitled Content';
+            const type = contentType.value;
+            const text = outputContent.textContent || outputContent.innerText;
+            const preview = text.substring(0, 100) + '...';
+            
+            const historyItem = {
+                id: Date.now(),
+                topic: topic,
+                type: type,
+                content: currentContent,
+                preview: preview,
+                date: new Date().toLocaleString(),
+                wordCount: text.trim().split(/\s+/).length
+            };
+            
+            // Add to beginning of history array
+            contentHistory.unshift(historyItem);
+            
+            // Keep only last 20 items
+            if (contentHistory.length > 20) {
+                contentHistory = contentHistory.slice(0, 20);
+            }
+            
+            // Save to localStorage
+            localStorage.setItem('aiContentHistory', JSON.stringify(contentHistory));
+            
+            // Update history display
+            updateHistoryDisplay();
+            
+            // Show success message
+            const originalText = saveBtn.innerHTML;
+            saveBtn.innerHTML = '<i class="fas fa-check"></i> Saved!';
+            saveBtn.style.background = '#2ec4b6';
+            
+            setTimeout(() => {
+                saveBtn.innerHTML = originalText;
+                saveBtn.style.background = '';
+            }, 2000);
+        }
+        
+        // Update history display
+        function updateHistoryDisplay() {
+            if (contentHistory.length === 0) {
+                historyContainer.innerHTML = `
+                    <div class="history-empty">
+                        <i class="fas fa-history"></i>
+                        <h3>No History Yet</h3>
+                        <p>Your generated content will appear here for quick access.</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            historyContainer.innerHTML = '';
+            
+            contentHistory.forEach(item => {
+                const historyItem = document.createElement('div');
+                historyItem.className = 'history-item';
+                historyItem.setAttribute('data-id', item.id);
+                
+                historyItem.innerHTML = `
+                    <div class="history-title">${item.topic}</div>
+                    <div class="history-meta">
+                        <span>${item.type.replace('-', ' ')} • ${item.wordCount} words</span>
+                        <span>${item.date}</span>
+                    </div>
+                `;
+                
+                historyItem.addEventListener('click', () => {
+                    loadFromHistory(item.id);
+                });
+                
+                historyContainer.appendChild(historyItem);
+            });
+        }
+        
+        // Load content from history
+        function loadFromHistory(id) {
+            const item = contentHistory.find(i => i.id == id);
+            if (item) {
+                currentContent = item.content;
+                outputContent.innerHTML = item.content;
+                updateWordCount();
+                
+                // Enable buttons
+                copyBtn.disabled = false;
+                copyOutputBtn.disabled = false;
+                saveBtn.disabled = false;
+                downloadBtn.disabled = false;
+                
+                // Scroll to output
+                outputContent.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+        
+        // Clear history
+        clearHistoryBtn.addEventListener('click', () => {
+            if (contentHistory.length === 0) {
+                alert('History is already empty.');
+                return;
+            }
+            
+            if (confirm('Are you sure you want to clear all history? This cannot be undone.')) {
+                contentHistory = [];
+                localStorage.removeItem('aiContentHistory');
+                updateHistoryDisplay();
+            }
+        });
+        
+        // Download content as TXT
+        downloadBtn.addEventListener('click', downloadContent);
+        
+        function downloadContent() {
+            if (!currentContent) {
+                alert('No content to download. Please generate content first.');
+                return;
+            }
+            
+            const text = outputContent.textContent || outputContent.innerText;
+            const topic = contentTopic.value.trim() || 'ai-content';
+            const filename = `ai-content-${topic.toLowerCase().replace(/\s+/g, '-')}-${Date.now()}.txt`;
+            
+            const blob = new Blob([text], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+        
+        // Initialize history display
+        updateHistoryDisplay();
+        
+        // Auto-generate sample content on load
+        window.addEventListener('DOMContentLoaded', () => {
+            // Generate sample content after a short delay
+            setTimeout(() => {
+                if (contentTopic.value === 'The Future of Artificial Intelligence') {
+                    generateContent();
+                }
+            }, 500);
+        });
+
+        // Global functions for onclick handlers
+        window.showSeoPage = showSeoPage;
+        window.hideSeoPage = hideSeoPage;
+    </script>
+</body>
+</html>
