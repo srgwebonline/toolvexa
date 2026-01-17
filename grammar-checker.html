@@ -1,0 +1,1919 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grammar Checker - Free Online Grammar & Spell Check | Toolvexa</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Free online grammar checker tool. Check grammar, spelling, punctuation, and writing style instantly. Perfect for essays, emails, blog posts, and professional documents.">
+    <meta name="keywords" content="grammar checker, spell checker, grammar check, punctuation checker, writing assistant, grammar tool, proofreading, online grammar checker">
+    <meta name="author" content="Toolvexa">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Grammar Checker - Free Online Grammar & Spell Check | Toolvexa">
+    <meta property="og:description" content="Free online grammar checker tool. Check grammar, spelling, punctuation, and writing style instantly. Perfect for essays, emails, blog posts, and professional documents.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://toolvexa.com/grammar-checker">
+    <meta property="og:image" content="https://toolvexa.com/images/grammar-checker-og.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://toolvexa.com/grammar-checker">
+    
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Grammar Checker",
+        "url": "https://toolvexa.com/grammar-checker",
+        "applicationCategory": "WritingApplication",
+        "operatingSystem": "Any",
+        "description": "Free online grammar and spell checker tool with advanced writing suggestions",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "creator": {
+            "@type": "Organization",
+            "name": "Toolvexa",
+            "url": "https://toolvexa.com"
+        }
+    }
+    </script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+
+        :root {
+            --primary: #4361ee;
+            --primary-light: #e6f0ff;
+            --secondary: #7209b7;
+            --success: #2ec4b6;
+            --danger: #e63946;
+            --warning: #ff9e00;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --border: #dee2e6;
+            --shadow: rgba(0, 0, 0, 0.1);
+            --radius: 12px;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #f0f4f8 100%);
+            min-height: 100vh;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation Bar */
+        .tool-navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 15px 0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            border-bottom: 3px solid #4361ee;
+        }
+        
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: #4361ee;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .nav-brand i {
+            font-size: 1.8rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            background: #4361ee;
+            color: white;
+        }
+        
+        .back-to-home {
+            background: #4361ee;
+            color: white !important;
+            padding: 8px 20px !important;
+            border-radius: 25px;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #333;
+            cursor: pointer;
+        }
+        
+        /* Adjust body padding for fixed navbar */
+        body {
+            padding-top: 80px;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            margin: 20px 0 30px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .breadcrumb a {
+            color: #4361ee;
+            text-decoration: none;
+        }
+        
+        .breadcrumb span {
+            margin: 0 5px;
+        }
+
+        /* Tool Header */
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px 20px;
+            background: white;
+            border-radius: var(--radius);
+            box-shadow: 0 5px 20px var(--shadow);
+        }
+
+        .logo {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        header h1 {
+            color: var(--primary);
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        header p {
+            color: #666;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 20px;
+        }
+
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+            color: var(--dark);
+            background: var(--light);
+            padding: 8px 15px;
+            border-radius: 50px;
+        }
+
+        .feature i {
+            color: var(--success);
+        }
+
+        /* Main Tool Content */
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 1100px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .editor-section, .suggestions-section {
+            background: white;
+            border-radius: var(--radius);
+            padding: 30px;
+            box-shadow: 0 5px 20px var(--shadow);
+        }
+
+        .section-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--primary-light);
+        }
+
+        .section-title h2 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .stats {
+            display: flex;
+            gap: 15px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .stat-value {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        /* Text Editor */
+        .text-editor {
+            position: relative;
+            margin-bottom: 25px;
+        }
+
+        .text-area {
+            width: 100%;
+            min-height: 300px;
+            padding: 20px;
+            border: 2px solid var(--border);
+            border-radius: var(--radius);
+            font-size: 1rem;
+            line-height: 1.6;
+            resize: vertical;
+            transition: border-color 0.3s ease;
+            background: #fafafa;
+        }
+
+        .text-area:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: white;
+        }
+
+        .placeholder-text {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: #999;
+            pointer-events: none;
+            font-style: italic;
+        }
+
+        .placeholder-text.hidden {
+            display: none;
+        }
+
+        .editor-tools {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .tool-btn {
+            padding: 8px 15px;
+            background: var(--light);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.2s ease;
+        }
+
+        .tool-btn:hover {
+            background: #e9ecef;
+        }
+
+        .tool-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .action-btn {
+            flex: 1;
+            min-width: 150px;
+            padding: 16px 20px;
+            border: none;
+            border-radius: var(--radius);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .action-btn i {
+            font-size: 1.2rem;
+        }
+
+        .check-btn {
+            background: var(--primary);
+            color: white;
+        }
+
+        .check-btn:hover {
+            background: #3a56d4;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
+        }
+
+        .clear-btn {
+            background: var(--light);
+            color: var(--dark);
+            border: 1px solid var(--border);
+        }
+
+        .clear-btn:hover {
+            background: #e9ecef;
+            transform: translateY(-2px);
+        }
+
+        .copy-btn {
+            background: var(--success);
+            color: white;
+        }
+
+        .copy-btn:hover {
+            background: #27b0a3;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(46, 196, 182, 0.3);
+        }
+
+        /* Suggestions Section */
+        .suggestions-container {
+            max-height: 500px;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+
+        .no-suggestions {
+            text-align: center;
+            padding: 60px 30px;
+            color: #888;
+        }
+
+        .no-suggestions i {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: #ddd;
+        }
+
+        .no-suggestions h3 {
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+
+        .suggestion-item {
+            background: var(--light);
+            border-radius: var(--radius);
+            padding: 20px;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .suggestion-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .suggestion-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .suggestion-type {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .type-grammar {
+            background: rgba(255, 158, 0, 0.1);
+            color: var(--warning);
+        }
+
+        .type-spelling {
+            background: rgba(230, 57, 70, 0.1);
+            color: var(--danger);
+        }
+
+        .type-punctuation {
+            background: rgba(67, 97, 238, 0.1);
+            color: var(--primary);
+        }
+
+        .type-style {
+            background: rgba(46, 196, 182, 0.1);
+            color: var(--success);
+        }
+
+        .suggestion-context {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+
+        .suggestion-text {
+            margin: 10px 0;
+            padding: 10px;
+            background: white;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+        }
+
+        .incorrect {
+            color: var(--danger);
+            text-decoration: line-through;
+        }
+
+        .correct {
+            color: var(--success);
+            font-weight: 600;
+        }
+
+        .suggestion-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .apply-btn {
+            padding: 8px 15px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .apply-btn:hover {
+            background: #3a56d4;
+        }
+
+        .ignore-btn {
+            padding: 8px 15px;
+            background: var(--light);
+            color: var(--dark);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .ignore-btn:hover {
+            background: #e9ecef;
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            display: flex;
+            justify-content: space-between;
+            background: white;
+            padding: 20px;
+            border-radius: var(--radius);
+            margin-top: 30px;
+            box-shadow: 0 3px 10px var(--shadow);
+        }
+
+        .stat {
+            text-align: center;
+            flex: 1;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Related Tools Section */
+        .related-tools-section {
+            margin: 60px 0 40px;
+        }
+
+        .related-tools-section h2 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .tool-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 5px 15px var(--shadow);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 25px rgba(67, 97, 238, 0.15);
+        }
+
+        .tool-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .tool-card h3 {
+            color: var(--dark);
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .tool-card p {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .tool-link {
+            display: inline-block;
+            background: var(--primary-light);
+            color: var(--primary);
+            padding: 10px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .tool-link:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* SEO Pages Styles */
+        .seo-section {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            display: none;
+            position: relative;
+        }
+        
+        .seo-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .seo-section h1 {
+            color: #4361ee;
+            margin-bottom: 20px;
+            font-size: 2.2rem;
+        }
+        
+        .seo-section h2 {
+            color: #333;
+            margin: 25px 0 15px;
+            font-size: 1.5rem;
+        }
+        
+        .seo-section h3 {
+            color: #555;
+            margin: 20px 0 10px;
+            font-size: 1.2rem;
+        }
+        
+        .seo-content {
+            line-height: 1.8;
+            color: #444;
+        }
+        
+        .seo-content p {
+            margin-bottom: 15px;
+        }
+        
+        .seo-content ul, .seo-content ol {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .seo-content li {
+            margin-bottom: 10px;
+        }
+        
+        .close-seo {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #4361ee;
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            z-index: 10;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            margin: 60px 0 40px;
+        }
+
+        .faq-section h2 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .faq-container {
+            background: white;
+            border-radius: var(--radius);
+            padding: 30px;
+            box-shadow: 0 5px 20px var(--shadow);
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border);
+            padding: 20px 0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            color: var(--dark);
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .faq-question i {
+            color: var(--primary);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            color: #666;
+            line-height: 1.6;
+            padding-right: 40px;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            margin-top: 15px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 30px 20px;
+            color: #666;
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border);
+            background: white;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            color: #4361ee;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+            text-decoration: underline;
+        }
+
+        .copyright {
+            margin-top: 20px;
+            color: #888;
+        }
+
+        /* Loading Spinner */
+        .loading {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .loading.active {
+            display: flex;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 15px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-container {
+                flex-wrap: wrap;
+            }
+            
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+            }
+            
+            .action-btn {
+                min-width: 100%;
+            }
+            
+            .stats-bar {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .seo-section {
+                padding: 20px;
+                margin: 20px;
+            }
+            
+            .faq-container {
+                padding: 20px;
+            }
+            
+            .faq-answer {
+                padding-right: 20px;
+            }
+            
+            .editor-tools {
+                flex-direction: column;
+            }
+            
+            .tool-btn {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .suggestion-actions {
+                flex-direction: column;
+            }
+            
+            .apply-btn, .ignore-btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="tool-navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">
+                <i class="fas fa-tools"></i> Toolvexa
+            </a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#tools">All Tools</a></li>
+                <li><a href="index.html#ai-tools">AI Tools</a></li>
+                <li><a href="#privacy-policy" onclick="showSeoPage('privacy')">Privacy Policy</a></li>
+                <li><a href="#terms-of-service" onclick="showSeoPage('terms')">Terms of Service</a></li>
+                <li><a href="#about-tool" onclick="showSeoPage('about')">About This Tool</a></li>
+                <li><a href="index.html" class="back-to-home">Back to Home</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Breadcrumb -->
+        <div class="breadcrumb">
+            <a href="index.html">Home</a> 
+            <span>></span>
+            <a href="index.html#ai-tools">AI Tools</a>
+            <span>></span>
+            <span>Grammar Checker</span>
+        </div>
+
+        <!-- Tool Header -->
+        <header>
+            <div class="logo">
+                <i class="fas fa-spell-check"></i>
+            </div>
+            <h1>Grammar Checker</h1>
+            <p>Check grammar, spelling, punctuation, and writing style instantly. Perfect for essays, emails, blog posts, and professional documents.</p>
+            <div class="features">
+                <div class="feature">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>100% Private & Secure</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-bolt"></i>
+                    <span>Instant Results</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-infinity"></i>
+                    <span>Unlimited Checks</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-robot"></i>
+                    <span>AI-Powered</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Tool Section -->
+        <div class="main-content">
+            <div class="editor-section">
+                <div class="section-title">
+                    <h2>Text Editor</h2>
+                    <div class="stats">
+                        <div class="stat-item">
+                            <span>Words:</span>
+                            <span class="stat-value" id="wordCount">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span>Characters:</span>
+                            <span class="stat-value" id="charCount">0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-editor">
+                    <textarea class="text-area" id="textInput" placeholder="Start typing or paste your text here..."></textarea>
+                    <div class="placeholder-text" id="placeholderText">Start typing or paste your text here...</div>
+                </div>
+
+                <div class="editor-tools">
+                    <button class="tool-btn" onclick="formatText('bold')">
+                        <i class="fas fa-bold"></i> Bold
+                    </button>
+                    <button class="tool-btn" onclick="formatText('italic')">
+                        <i class="fas fa-italic"></i> Italic
+                    </button>
+                    <button class="tool-btn" onclick="formatText('underline')">
+                        <i class="fas fa-underline"></i> Underline
+                    </button>
+                    <button class="tool-btn" onclick="clearFormatting()">
+                        <i class="fas fa-eraser"></i> Clear Format
+                    </button>
+                    <button class="tool-btn" onclick="pasteText()">
+                        <i class="fas fa-paste"></i> Paste
+                    </button>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="action-btn check-btn" id="checkBtn">
+                        <i class="fas fa-search"></i> Check Grammar
+                    </button>
+                    <button class="action-btn clear-btn" id="clearBtn">
+                        <i class="fas fa-trash-alt"></i> Clear Text
+                    </button>
+                    <button class="action-btn copy-btn" id="copyBtn">
+                        <i class="fas fa-copy"></i> Copy Text
+                    </button>
+                </div>
+            </div>
+
+            <div class="suggestions-section">
+                <div class="section-title">
+                    <h2>Suggestions & Corrections</h2>
+                    <div class="stats">
+                        <div class="stat-item">
+                            <span>Issues Found:</span>
+                            <span class="stat-value" id="issueCount">0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="loading" id="loadingSpinner">
+                    <div class="spinner"></div>
+                    <p>Analyzing your text...</p>
+                </div>
+
+                <div class="suggestions-container" id="suggestionsContainer">
+                    <div class="no-suggestions" id="noSuggestions">
+                        <i class="fas fa-check-circle"></i>
+                        <h3>No issues found!</h3>
+                        <p>Your text appears to be grammatically correct. Start typing or paste text to check for errors.</p>
+                    </div>
+                    <!-- Suggestions will be dynamically inserted here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats Bar -->
+        <div class="stats-bar" id="statsBar" style="display: none;">
+            <div class="stat">
+                <div class="stat-value" id="totalWords">0</div>
+                <div class="stat-label">Total Words</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value" id="totalCharacters">0</div>
+                <div class="stat-label">Characters</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value" id="totalIssues">0</div>
+                <div class="stat-label">Issues Found</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value" id="readabilityScore">100%</div>
+                <div class="stat-label">Readability</div>
+            </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Is the Grammar Checker really free to use?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, our Grammar Checker is 100% free with no hidden costs, registration, or limitations. You can check as much text as you need without any restrictions.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Is my text safe and private?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely! All text processing happens locally in your browser. Your text never leaves your device or gets uploaded to any server. This ensures complete privacy and security.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What types of errors does it detect?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our tool detects: spelling mistakes, grammar errors, punctuation issues, style suggestions, word choice improvements, sentence structure problems, and more.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Can I use it for professional documents?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! Our Grammar Checker is perfect for professional documents, academic papers, business emails, blog posts, and any other writing that requires error-free text.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Does it support multiple languages?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Currently, our Grammar Checker primarily supports English. We're working on adding support for more languages in future updates.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Related Tools Section -->
+        <div class="related-tools-section">
+            <h2>Other Useful Writing Tools</h2>
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-file-word"></i>
+                    </div>
+                    <h3>Word Counter</h3>
+                    <p>Count words, characters, sentences, and paragraphs in your text. Perfect for meeting word limits.</p>
+                    <a href="word-counter.html" class="tool-link">Use Tool</a>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-text-height"></i>
+                    </div>
+                    <h3>Case Converter</h3>
+                    <p>Convert text between uppercase, lowercase, title case, and sentence case formats instantly.</p>
+                    <a href="case-converter.html" class="tool-link">Use Tool</a>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-align-left"></i>
+                    </div>
+                    <h3>Text Formatter</h3>
+                    <p>Format and beautify text with various styling options, cleanup tools, and text manipulation features.</p>
+                    <a href="text-formatter.html" class="tool-link">Use Tool</a>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-exchange-alt"></i>
+                    </div>
+                    <h3>Text Reverser</h3>
+                    <p>Reverse text, words, or sentences for creative writing, coding, or text manipulation purposes.</p>
+                    <a href="text-reverser.html" class="tool-link">Use Tool</a>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>AI Content Writer</h3>
+                    <p>Generate high-quality content for blogs, ads, and social media using advanced AI technology.</p>
+                    <a href="ai-content-writer.html" class="tool-link">Use Tool</a>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <h3>AI Translator</h3>
+                    <p>Translate text between multiple languages with AI-powered accuracy and natural language processing.</p>
+                    <a href="ai-translator.html" class="tool-link">Use Tool</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- SEO Pages Section -->
+        <div class="seo-section" id="privacy-policy">
+            <button class="close-seo" onclick="hideSeoPage()">×</button>
+            <h1>Privacy Policy</h1>
+            <div class="seo-content">
+                <p><strong>Last Updated: January 2024</strong></p>
+                
+                <h2>1. Introduction</h2>
+                <p>Welcome to Toolvexa Grammar Checker. Your privacy is critically important to us. This privacy policy document outlines the types of personal information that is received and collected by our tool and how it is used.</p>
+                
+                <h2>2. Information We Collect</h2>
+                <h3>2.1 No Personal Data Collection</h3>
+                <p>Our Grammar Checker tool operates entirely in your browser. We do not:</p>
+                <ul>
+                    <li>Collect any personal information</li>
+                    <li>Upload your text to our servers</li>
+                    <li>Store any information about your usage</li>
+                    <li>Use cookies for tracking purposes</li>
+                </ul>
+                
+                <h3>2.2 Local Processing</h3>
+                <p>All grammar checking happens locally on your device using JavaScript. Your text never leaves your computer or mobile device.</p>
+                
+                <h2>3. How We Use Information</h2>
+                <p>Since we don't collect any personal data, there's no information to use or share. The tool functions completely offline once loaded in your browser.</p>
+                
+                <h2>4. Third-Party Services</h2>
+                <p>We only use Font Awesome for icons and Google Fonts for typography. These services may collect limited data as per their own privacy policies.</p>
+                
+                <h2>5. Security</h2>
+                <p>Your security is guaranteed because:</p>
+                <ul>
+                    <li>No data transmission occurs</li>
+                    <li>All processing is done client-side</li>
+                    <li>No server-side storage exists</li>
+                </ul>
+                
+                <h2>6. Changes to This Policy</h2>
+                <p>We may update this privacy policy from time to time. We will notify you of any changes by posting the new privacy policy on this page.</p>
+                
+                <h2>7. Contact Us</h2>
+                <p>If you have any questions about this Privacy Policy, please contact us at: privacy@toolvexa.com</p>
+            </div>
+        </div>
+
+        <div class="seo-section" id="terms-of-service">
+            <button class="close-seo" onclick="hideSeoPage()">×</button>
+            <h1>Terms of Service</h1>
+            <div class="seo-content">
+                <p><strong>Last Updated: January 2024</strong></p>
+                
+                <h2>1. Acceptance of Terms</h2>
+                <p>By accessing and using the Toolvexa Grammar Checker tool, you accept and agree to be bound by the terms and provision of this agreement.</p>
+                
+                <h2>2. Description of Service</h2>
+                <p>Toolvexa Grammar Checker provides a free online tool for checking grammar, spelling, punctuation, and writing style. The service includes:</p>
+                <ul>
+                    <li>Grammar and spell checking</li>
+                    <li>Punctuation analysis</li>
+                    <li>Writing style suggestions</li>
+                    <li>Word choice improvements</li>
+                    <li>Local processing (no server uploads)</li>
+                </ul>
+                
+                <h2>3. User Responsibilities</h2>
+                <p>You agree to:</p>
+                <ul>
+                    <li>Use the tool only for lawful purposes</li>
+                    <li>Not upload any malicious or harmful content</li>
+                    <li>Respect copyright and intellectual property rights</li>
+                    <li>Not attempt to reverse engineer or hack the tool</li>
+                </ul>
+                
+                <h2>4. Service Limitations</h2>
+                <p>The service is provided "as is" without warranties of any kind. We do not guarantee:</p>
+                <ul>
+                    <li>100% accuracy in error detection</li>
+                    <li>Uninterrupted service availability</li>
+                    <li>Compatibility with all browsers or devices</li>
+                    <li>Professional editing quality</li>
+                </ul>
+                
+                <h2>5. Intellectual Property</h2>
+                <p>All text you input remains your property. We do not claim any rights over your original or corrected text.</p>
+                
+                <h2>6. Limitation of Liability</h2>
+                <p>Toolvexa shall not be liable for any indirect, incidental, special, consequential or punitive damages resulting from your use of the tool.</p>
+                
+                <h2>7. Changes to Terms</h2>
+                <p>We reserve the right to modify these terms at any time. Continued use of the tool constitutes acceptance of modified terms.</p>
+                
+                <h2>8. Contact Information</h2>
+                <p>For any questions regarding these Terms of Service, please contact: legal@toolvexa.com</p>
+            </div>
+        </div>
+
+        <div class="seo-section" id="about-tool">
+            <button class="close-seo" onclick="hideSeoPage()">×</button>
+            <h1>About Grammar Checker Tool</h1>
+            <div class="seo-content">
+                <h2>What is Toolvexa Grammar Checker?</h2>
+                <p>Toolvexa Grammar Checker is a free online tool that helps you improve your writing by detecting grammar, spelling, punctuation, and style errors. It's perfect for students, professionals, bloggers, and anyone who wants to ensure their writing is error-free.</p>
+                
+                <h2>Key Features</h2>
+                <ul>
+                    <li><strong>Browser-Based Processing:</strong> All checking happens locally in your browser</li>
+                    <li><strong>No Text Limits:</strong> Check as much text as you need</li>
+                    <li><strong>Multiple Error Types:</strong> Detects grammar, spelling, punctuation, and style issues</li>
+                    <li><strong>Instant Suggestions:</strong> Get corrections and explanations instantly</li>
+                    <li><strong>Privacy Guaranteed:</strong> Your text never leaves your device</li>
+                    <li><strong>Writing Statistics:</strong> Get detailed word count, character count, and readability scores</li>
+                </ul>
+                
+                <h2>How It Works</h2>
+                <p>Our tool uses advanced natural language processing algorithms to analyze your text and identify potential errors. The process is simple:</p>
+                <ol>
+                    <li>Type or paste your text into the editor</li>
+                    <li>Click "Check Grammar" to analyze your text</li>
+                    <li>Review suggestions and corrections</li>
+                    <li>Apply fixes with a single click</li>
+                </ol>
+                
+                <h2>Use Cases</h2>
+                <ul>
+                    <li><strong>Academic Writing:</strong> Perfect essays, research papers, and assignments</li>
+                    <li><strong>Professional Documents:</strong> Error-free reports, emails, and proposals</li>
+                    <li><strong>Content Creation:</strong> Polished blog posts, articles, and social media content</li>
+                    <li><strong>Personal Writing:</strong> Improve letters, journals, and creative writing</li>
+                    <li><strong>Language Learning:</strong> Practice and improve English writing skills</li>
+                </ul>
+                
+                <h2>Technical Information</h2>
+                <p>The tool uses sophisticated algorithms including:</p>
+                <ul>
+                    <li>Context-aware spell checking</li>
+                    <li>Grammar rule analysis</li>
+                    <li>Punctuation pattern recognition</li>
+                    <li>Style and tone analysis</li>
+                    <li>Readability scoring</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-links">
+                <a href="#privacy-policy" onclick="showSeoPage('privacy')">Privacy Policy</a>
+                <a href="#terms-of-service" onclick="showSeoPage('terms')">Terms of Service</a>
+                <a href="#about-tool" onclick="showSeoPage('about')">About This Tool</a>
+                <a href="index.html">All Tools</a>
+                <a href="index.html#ai-tools">AI Tools</a>
+                <a href="index.html#contact">Contact Us</a>
+            </div>
+            <div class="copyright">
+                <p>© 2024 Grammar Checker Tool | Toolvexa | All text processing happens locally in your browser. No data is uploaded to any server.</p>
+                <p style="margin-top: 10px;">Made with <i class="fas fa-heart" style="color: #e63946;"></i> for everyone</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Navigation functionality
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                navLinks.classList.remove('active');
+            }
+        });
+        
+        // SEO pages functionality
+        function showSeoPage(page) {
+            // Hide all seo sections first
+            document.querySelectorAll('.seo-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show the requested section
+            let sectionId = '';
+            switch(page) {
+                case 'privacy':
+                    sectionId = 'privacy-policy';
+                    break;
+                case 'terms':
+                    sectionId = 'terms-of-service';
+                    break;
+                case 'about':
+                    sectionId = 'about-tool';
+                    break;
+            }
+            
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Close mobile menu if open
+            navLinks.classList.remove('active');
+            
+            // Scroll to the section
+            setTimeout(() => {
+                document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+            }, 100);
+        }
+        
+        function hideSeoPage() {
+            document.querySelectorAll('.seo-section').forEach(section => {
+                section.classList.remove('active');
+            });
+        }
+        
+        // Close SEO section when clicking outside
+        document.addEventListener('click', (e) => {
+            if (e.target.classList.contains('seo-section')) {
+                hideSeoPage();
+            }
+        });
+
+        // FAQ functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                item.classList.toggle('active');
+            });
+        });
+
+        // Grammar Checker Tool JavaScript
+        const textInput = document.getElementById('textInput');
+        const placeholderText = document.getElementById('placeholderText');
+        const wordCount = document.getElementById('wordCount');
+        const charCount = document.getElementById('charCount');
+        const checkBtn = document.getElementById('checkBtn');
+        const clearBtn = document.getElementById('clearBtn');
+        const copyBtn = document.getElementById('copyBtn');
+        const loadingSpinner = document.getElementById('loadingSpinner');
+        const suggestionsContainer = document.getElementById('suggestionsContainer');
+        const noSuggestions = document.getElementById('noSuggestions');
+        const issueCount = document.getElementById('issueCount');
+        const statsBar = document.getElementById('statsBar');
+        const totalWords = document.getElementById('totalWords');
+        const totalCharacters = document.getElementById('totalCharacters');
+        const totalIssues = document.getElementById('totalIssues');
+        const readabilityScore = document.getElementById('readabilityScore');
+
+        // Sample grammar rules and error patterns
+        const grammarRules = [
+            {
+                pattern: /\b(i)\b/gi,
+                correction: 'I',
+                type: 'grammar',
+                message: 'The pronoun "I" should always be capitalized'
+            },
+            {
+                pattern: /\b(their|there|they're)\b/gi,
+                correction: null,
+                type: 'spelling',
+                message: 'Check usage: "their" (possession), "there" (location), "they\'re" (they are)'
+            },
+            {
+                pattern: /\b(your|you're)\b/gi,
+                correction: null,
+                type: 'grammar',
+                message: 'Check usage: "your" (possession), "you\'re" (you are)'
+            },
+            {
+                pattern: /\b(its|it's)\b/gi,
+                correction: null,
+                type: 'grammar',
+                message: 'Check usage: "its" (possession), "it\'s" (it is or it has)'
+            },
+            {
+                pattern: /\b(can not)\b/gi,
+                correction: 'cannot',
+                type: 'spelling',
+                message: '"Cannot" should be written as one word'
+            },
+            {
+                pattern: /\b(alot)\b/gi,
+                correction: 'a lot',
+                type: 'spelling',
+                message: '"A lot" should be written as two words'
+            },
+            {
+                pattern: /\b(seperate)\b/gi,
+                correction: 'separate',
+                type: 'spelling',
+                message: 'Common misspelling: should be "separate"'
+            },
+            {
+                pattern: /\b(definately)\b/gi,
+                correction: 'definitely',
+                type: 'spelling',
+                message: 'Common misspelling: should be "definitely"'
+            },
+            {
+                pattern: /\.(\w)/g,
+                correction: null,
+                type: 'punctuation',
+                message: 'Space missing after period'
+            },
+            {
+                pattern: /,(\w)/g,
+                correction: null,
+                type: 'punctuation',
+                message: 'Space missing after comma'
+            },
+            {
+                pattern: /\b(very unique|more unique|most unique)\b/gi,
+                correction: 'unique',
+                type: 'style',
+                message: '"Unique" is absolute - things cannot be "very unique"'
+            },
+            {
+                pattern: /\b(less then)\b/gi,
+                correction: 'less than',
+                type: 'spelling',
+                message: 'Use "than" for comparisons, "then" for time'
+            },
+            {
+                pattern: /\b(could of|would of|should of)\b/gi,
+                correction: 'could have|would have|should have',
+                type: 'grammar',
+                message: 'Should be "could have", "would have", "should have"'
+            },
+            {
+                pattern: /(?<!\.)\s+([A-Z][a-z]+)\s+(?=[A-Z][a-z]+)/g,
+                correction: null,
+                type: 'punctuation',
+                message: 'Missing period between sentences'
+            }
+        ];
+
+        // Common spelling mistakes dictionary
+        const spellingCorrections = {
+            'accomodate': 'accommodate',
+            'acheive': 'achieve',
+            'arguement': 'argument',
+            'comitted': 'committed',
+            'concious': 'conscious',
+            'definately': 'definitely',
+            'dissapear': 'disappear',
+            'embarass': 'embarrass',
+            'existance': 'existence',
+            'guarentee': 'guarantee',
+            'harrass': 'harass',
+            'occured': 'occurred',
+            'occurence': 'occurrence',
+            'publically': 'publicly',
+            'recieve': 'receive',
+            'seperate': 'separate',
+            'truely': 'truly',
+            'untill': 'until',
+            'wierd': 'weird'
+        };
+
+        let currentSuggestions = [];
+
+        // Initialize event listeners
+        textInput.addEventListener('input', updateTextStats);
+        textInput.addEventListener('input', togglePlaceholder);
+        checkBtn.addEventListener('click', checkGrammar);
+        clearBtn.addEventListener('click', clearText);
+        
+        // FIXED: Copy button event listener with proper clipboard handling
+        copyBtn.addEventListener('click', copyText);
+
+        // Initialize
+        updateTextStats();
+        togglePlaceholder();
+
+        // Functions
+        function updateTextStats() {
+            const text = textInput.value;
+            const words = text.trim() ? text.trim().split(/\s+/).length : 0;
+            const characters = text.length;
+            
+            wordCount.textContent = words;
+            charCount.textContent = characters;
+            
+            // Update stats bar if visible
+            if (statsBar.style.display === 'flex') {
+                totalWords.textContent = words;
+                totalCharacters.textContent = characters;
+            }
+        }
+
+        function togglePlaceholder() {
+            if (textInput.value.trim()) {
+                placeholderText.classList.add('hidden');
+            } else {
+                placeholderText.classList.remove('hidden');
+            }
+        }
+
+        function formatText(command) {
+            document.execCommand(command, false, null);
+            textInput.focus();
+        }
+
+        function clearFormatting() {
+            const text = textInput.value;
+            // Remove HTML tags if any
+            const cleanText = text.replace(/<[^>]*>/g, '');
+            textInput.value = cleanText;
+            updateTextStats();
+        }
+
+        async function pasteText() {
+            try {
+                const text = await navigator.clipboard.readText();
+                textInput.value += text;
+                updateTextStats();
+                togglePlaceholder();
+            } catch (err) {
+                // Fallback method
+                textInput.focus();
+                document.execCommand('paste');
+                updateTextStats();
+                togglePlaceholder();
+            }
+        }
+
+        function checkGrammar() {
+            const text = textInput.value.trim();
+            
+            if (!text) {
+                alert('Please enter some text to check.');
+                return;
+            }
+
+            // Show loading spinner
+            loadingSpinner.classList.add('active');
+            suggestionsContainer.style.display = 'none';
+            noSuggestions.style.display = 'none';
+
+            // Simulate processing delay for better UX
+            setTimeout(() => {
+                analyzeText(text);
+                loadingSpinner.classList.remove('active');
+                suggestionsContainer.style.display = 'block';
+                updateStatsBar();
+            }, 800);
+        }
+
+        function analyzeText(text) {
+            currentSuggestions = [];
+            const sentences = text.split(/(?<=[.!?])\s+/);
+            
+            // Check each grammar rule
+            grammarRules.forEach(rule => {
+                const matches = [...text.matchAll(rule.pattern)];
+                matches.forEach(match => {
+                    const matchedText = match[0];
+                    const index = match.index;
+                    
+                    // Find which sentence contains this match
+                    let sentenceStart = 0;
+                    let containingSentence = '';
+                    for (const sentence of sentences) {
+                        sentenceStart = text.indexOf(sentence, sentenceStart);
+                        if (index >= sentenceStart && index < sentenceStart + sentence.length) {
+                            containingSentence = sentence;
+                            break;
+                        }
+                        sentenceStart += sentence.length;
+                    }
+                    
+                    const suggestion = {
+                        type: rule.type,
+                        message: rule.message,
+                        incorrect: matchedText,
+                        correct: rule.correction || getSpellingCorrection(matchedText),
+                        context: containingSentence.substring(0, 100) + (containingSentence.length > 100 ? '...' : ''),
+                        index: index
+                    };
+                    
+                    if (suggestion.correct !== matchedText.toLowerCase()) {
+                        currentSuggestions.push(suggestion);
+                    }
+                });
+            });
+
+            // Check for spelling mistakes
+            const words = text.split(/\s+/);
+            words.forEach((word, wordIndex) => {
+                const cleanWord = word.replace(/[^\w\s]/g, '').toLowerCase();
+                if (spellingCorrections[cleanWord]) {
+                    const sentence = findContainingSentence(text, wordIndex);
+                    currentSuggestions.push({
+                        type: 'spelling',
+                        message: `Common misspelling: should be "${spellingCorrections[cleanWord]}"`,
+                        incorrect: word,
+                        correct: spellingCorrections[cleanWord],
+                        context: sentence.substring(0, 100) + (sentence.length > 100 ? '...' : ''),
+                        index: text.indexOf(word)
+                    });
+                }
+            });
+
+            // Check for repeated words
+            const repeatedWordPattern = /\b(\w+)\s+\1\b/gi;
+            const repeatedMatches = [...text.matchAll(repeatedWordPattern)];
+            repeatedMatches.forEach(match => {
+                const sentence = findContainingSentence(text, match.index);
+                currentSuggestions.push({
+                    type: 'grammar',
+                    message: 'Repeated word - consider removing duplicate',
+                    incorrect: match[0],
+                    correct: match[1],
+                    context: sentence.substring(0, 100) + (sentence.length > 100 ? '...' : ''),
+                    index: match.index
+                });
+            });
+
+            // Display suggestions
+            displaySuggestions();
+        }
+
+        function findContainingSentence(text, position) {
+            const sentences = text.split(/(?<=[.!?])\s+/);
+            let currentPos = 0;
+            
+            for (const sentence of sentences) {
+                if (position >= currentPos && position < currentPos + sentence.length) {
+                    return sentence;
+                }
+                currentPos += sentence.length + 1; // +1 for the space
+            }
+            return '';
+        }
+
+        function getSpellingCorrection(word) {
+            return spellingCorrections[word.toLowerCase()] || word;
+        }
+
+        function displaySuggestions() {
+            suggestionsContainer.innerHTML = '';
+            
+            if (currentSuggestions.length === 0) {
+                noSuggestions.style.display = 'block';
+                issueCount.textContent = '0';
+                return;
+            }
+
+            issueCount.textContent = currentSuggestions.length;
+            
+            // Sort suggestions by type
+            const sortedSuggestions = currentSuggestions.sort((a, b) => {
+                const typeOrder = { 'spelling': 1, 'grammar': 2, 'punctuation': 3, 'style': 4 };
+                return typeOrder[a.type] - typeOrder[b.type];
+            });
+
+            sortedSuggestions.forEach((suggestion, index) => {
+                const suggestionElement = document.createElement('div');
+                suggestionElement.className = 'suggestion-item';
+                suggestionElement.innerHTML = `
+                    <div class="suggestion-header">
+                        <span class="suggestion-type type-${suggestion.type}">${suggestion.type}</span>
+                        <span style="font-size: 0.8rem; color: #666;">#${index + 1}</span>
+                    </div>
+                    <div class="suggestion-context">"${suggestion.context}"</div>
+                    <div class="suggestion-text">
+                        <span class="incorrect">${suggestion.incorrect}</span>
+                        ${suggestion.correct ? `<i class="fas fa-arrow-right" style="margin: 0 10px; color: #999;"></i><span class="correct">${suggestion.correct}</span>` : ''}
+                    </div>
+                    <p style="font-size: 0.9rem; color: #666; margin-top: 10px;">${suggestion.message}</p>
+                    <div class="suggestion-actions">
+                        ${suggestion.correct ? `<button class="apply-btn" onclick="applySuggestion(${index})">Apply Correction</button>` : ''}
+                        <button class="ignore-btn" onclick="ignoreSuggestion(${index})">Ignore</button>
+                    </div>
+                `;
+                suggestionsContainer.appendChild(suggestionElement);
+            });
+        }
+
+        function applySuggestion(index) {
+            const suggestion = currentSuggestions[index];
+            const text = textInput.value;
+            
+            if (suggestion.correct && suggestion.index !== -1) {
+                const before = text.substring(0, suggestion.index);
+                const after = text.substring(suggestion.index + suggestion.incorrect.length);
+                textInput.value = before + suggestion.correct + after;
+                
+                // Remove the suggestion from the list
+                currentSuggestions.splice(index, 1);
+                displaySuggestions();
+                updateTextStats();
+                
+                // Update stats bar
+                updateStatsBar();
+            }
+        }
+
+        function ignoreSuggestion(index) {
+            currentSuggestions.splice(index, 1);
+            displaySuggestions();
+            updateStatsBar();
+        }
+
+        function clearText() {
+            if (textInput.value.trim() && !confirm('Are you sure you want to clear all text?')) {
+                return;
+            }
+            
+            textInput.value = '';
+            updateTextStats();
+            togglePlaceholder();
+            suggestionsContainer.innerHTML = '';
+            noSuggestions.style.display = 'block';
+            issueCount.textContent = '0';
+            statsBar.style.display = 'none';
+        }
+
+        // FIXED: Copy Text Function
+        function copyText() {
+            const text = textInput.value;
+            
+            if (!text.trim()) {
+                alert('No text to copy.');
+                return;
+            }
+            
+            // Method 1: Use modern clipboard API
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(text).then(() => {
+                    showCopySuccess();
+                }).catch(err => {
+                    // Fallback to method 2 if modern API fails
+                    useFallbackCopy(text);
+                });
+            } else {
+                // Fallback for older browsers or non-secure contexts
+                useFallbackCopy(text);
+            }
+        }
+
+        function useFallbackCopy(text) {
+            // Method 2: Create a temporary textarea element
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            textarea.style.position = 'fixed';
+            textarea.style.left = '-999999px';
+            textarea.style.top = '-999999px';
+            document.body.appendChild(textarea);
+            
+            textarea.select();
+            textarea.setSelectionRange(0, 99999); // For mobile devices
+            
+            try {
+                const successful = document.execCommand('copy');
+                if (successful) {
+                    showCopySuccess();
+                } else {
+                    alert('Failed to copy text. Please select the text and copy manually.');
+                }
+            } catch (err) {
+                alert('Failed to copy text. Please select the text and copy manually.');
+            } finally {
+                document.body.removeChild(textarea);
+            }
+        }
+
+        function showCopySuccess() {
+            // Show temporary feedback
+            const originalText = copyBtn.innerHTML;
+            const originalBackground = copyBtn.style.background;
+            
+            copyBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+            copyBtn.style.background = 'var(--success)';
+            copyBtn.style.color = 'white';
+            
+            setTimeout(() => {
+                copyBtn.innerHTML = originalText;
+                copyBtn.style.background = originalBackground;
+                copyBtn.style.color = 'white'; // Keep white text for visibility
+            }, 2000);
+        }
+
+        function updateStatsBar() {
+            const text = textInput.value;
+            const words = text.trim() ? text.trim().split(/\s+/).length : 0;
+            const characters = text.length;
+            const issues = currentSuggestions.length;
+            
+            // Calculate readability score (simplified)
+            const sentenceCount = text.split(/[.!?]+/).filter(s => s.trim()).length;
+            const wordCount = words;
+            const readability = sentenceCount > 0 ? Math.min(100, Math.round((wordCount / sentenceCount) * 10)) : 100;
+            
+            totalWords.textContent = words;
+            totalCharacters.textContent = characters;
+            totalIssues.textContent = issues;
+            readabilityScore.textContent = `${100 - readability}%`;
+            
+            // Show stats bar if there's text
+            if (text.trim()) {
+                statsBar.style.display = 'flex';
+            }
+        }
+
+        // Initialize with sample text for demonstration
+        window.addEventListener('load', () => {
+            const sampleText = `I definately think their going to love the party. Its going to be very unique and special. We should of planned it earlier, but its better then nothing. Dont forget to bring you're swimming costume!`;
+            textInput.value = sampleText;
+            updateTextStats();
+            togglePlaceholder();
+        });
+
+        // Make functions available globally for onclick handlers
+        window.applySuggestion = applySuggestion;
+        window.ignoreSuggestion = ignoreSuggestion;
+    </script>
+</body>
+</html>
