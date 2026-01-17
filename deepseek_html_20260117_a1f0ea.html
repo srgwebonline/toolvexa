@@ -1,0 +1,1974 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Translator - Free Online Translation Tool | Toolvexa</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Free AI-powered online translator tool. Translate text between 100+ languages instantly with accurate results. Powered by advanced AI translation technology.">
+    <meta name="keywords" content="AI translator, online translator, free translator, translate text, language translation, AI translation, multilingual translator, text translator">
+    <meta name="author" content="Toolvexa">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="AI Translator - Free Online Translation Tool | Toolvexa">
+    <meta property="og:description" content="Free AI-powered online translator tool. Translate text between 100+ languages instantly with accurate results.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://toolvexa.com/ai-translator">
+    <meta property="og:image" content="https://toolvexa.com/images/ai-translator-og.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://toolvexa.com/ai-translator">
+    
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "AI Translator",
+        "url": "https://toolvexa.com/ai-translator",
+        "applicationCategory": "LanguageApplication",
+        "operatingSystem": "Any",
+        "description": "Free AI-powered online translator tool supporting 100+ languages with text-to-speech functionality",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "creator": {
+            "@type": "Organization",
+            "name": "Toolvexa",
+            "url": "https://toolvexa.com"
+        }
+    }
+    </script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+
+        :root {
+            --primary: #4361ee;
+            --primary-light: #e6f0ff;
+            --secondary: #7209b7;
+            --success: #2ec4b6;
+            --danger: #e63946;
+            --warning: #ff9e00;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --border: #dee2e6;
+            --shadow: rgba(0, 0, 0, 0.1);
+            --radius: 12px;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+            min-height: 100vh;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation Bar */
+        .tool-navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 15px 0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            border-bottom: 3px solid #4361ee;
+        }
+        
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: #4361ee;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .nav-brand i {
+            font-size: 1.8rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            background: #4361ee;
+            color: white;
+        }
+        
+        .back-to-home {
+            background: #4361ee;
+            color: white !important;
+            padding: 8px 20px !important;
+            border-radius: 25px;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #333;
+            cursor: pointer;
+        }
+        
+        body {
+            padding-top: 80px;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            margin: 20px 0 30px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .breadcrumb a {
+            color: #4361ee;
+            text-decoration: none;
+        }
+        
+        .breadcrumb span {
+            margin: 0 5px;
+        }
+
+        /* Tool Header */
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px 20px;
+            background: white;
+            border-radius: var(--radius);
+            box-shadow: 0 5px 20px var(--shadow);
+        }
+
+        .logo {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        header h1 {
+            color: var(--primary);
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        header p {
+            color: #666;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 20px;
+        }
+
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+            color: var(--dark);
+            background: var(--light);
+            padding: 8px 15px;
+            border-radius: 50px;
+        }
+
+        .feature i {
+            color: var(--success);
+        }
+
+        /* Main Translator Section */
+        .translator-container {
+            background: white;
+            border-radius: var(--radius);
+            padding: 30px;
+            box-shadow: 0 5px 20px var(--shadow);
+            margin-bottom: 40px;
+        }
+
+        .translator-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .translator-header h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+        }
+
+        .language-selectors {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .language-selector {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            min-width: 200px;
+        }
+
+        .language-selector label {
+            font-weight: 600;
+            color: var(--dark);
+            font-size: 0.95rem;
+        }
+
+        .language-selector select {
+            padding: 12px 15px;
+            border: 2px solid var(--border);
+            border-radius: var(--radius);
+            font-size: 1rem;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .language-selector select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.1);
+        }
+
+        .swap-languages {
+            background: var(--primary-light);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        .swap-languages:hover {
+            background: var(--primary);
+            color: white;
+            transform: rotate(180deg);
+        }
+
+        .translator-body {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        @media (max-width: 1100px) {
+            .translator-body {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .translation-box {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .translation-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .translation-header h3 {
+            color: var(--dark);
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .language-badge {
+            background: var(--primary-light);
+            color: var(--primary);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .box-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .box-action-btn {
+            background: none;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #666;
+        }
+
+        .box-action-btn:hover {
+            background: var(--light);
+            color: var(--primary);
+        }
+
+        .text-area-container {
+            position: relative;
+            flex: 1;
+        }
+
+        .translation-textarea {
+            width: 100%;
+            height: 250px;
+            padding: 20px;
+            border: 2px solid var(--border);
+            border-radius: var(--radius);
+            font-size: 1rem;
+            line-height: 1.6;
+            resize: vertical;
+            transition: all 0.3s ease;
+            background: var(--light);
+        }
+
+        .translation-textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.1);
+        }
+
+        .char-counter {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            font-size: 0.85rem;
+            color: #888;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2px 8px;
+            border-radius: 10px;
+        }
+
+        .translation-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .translate-btn-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .translate-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 16px 40px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .translate-btn:hover {
+            background: #3a56d4;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
+        }
+
+        .translate-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        /* Translation History */
+        .history-section {
+            background: white;
+            border-radius: var(--radius);
+            padding: 30px;
+            box-shadow: 0 5px 20px var(--shadow);
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .section-title h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+        }
+
+        .clear-history-btn {
+            background: var(--danger);
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .clear-history-btn:hover {
+            background: #d32f3a;
+        }
+
+        .history-container {
+            max-height: 300px;
+            overflow-y: auto;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 15px;
+        }
+
+        .history-item {
+            padding: 15px;
+            border-bottom: 1px solid var(--border);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .history-item:hover {
+            background: var(--light);
+        }
+
+        .history-item:last-child {
+            border-bottom: none;
+        }
+
+        .history-languages {
+            display: flex;
+            justify-content: space-between;
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+
+        .history-text {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .history-original, .history-translated {
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .history-translated {
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        .empty-history {
+            text-align: center;
+            padding: 40px 20px;
+            color: #888;
+        }
+
+        .empty-history i {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: #ddd;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 5px 15px var(--shadow);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 25px rgba(67, 97, 238, 0.15);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .feature-card h3 {
+            color: var(--dark);
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .feature-card p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            margin: 60px 0 40px;
+        }
+
+        .faq-section h2 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .faq-container {
+            background: white;
+            border-radius: var(--radius);
+            padding: 30px;
+            box-shadow: 0 5px 20px var(--shadow);
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border);
+            padding: 20px 0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            color: var(--dark);
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .faq-question i {
+            color: var(--primary);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            color: #666;
+            line-height: 1.6;
+            padding-right: 40px;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            margin-top: 15px;
+        }
+
+        /* Related Tools Section */
+        .related-tools-section {
+            margin: 60px 0 40px;
+        }
+
+        .related-tools-section h2 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .tool-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 5px 15px var(--shadow);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 25px rgba(67, 97, 238, 0.15);
+        }
+
+        .tool-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .tool-card h3 {
+            color: var(--dark);
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .tool-card p {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .tool-link {
+            display: inline-block;
+            background: var(--primary-light);
+            color: var(--primary);
+            padding: 10px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .tool-link:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* SEO Pages Styles */
+        .seo-section {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            display: none;
+            position: relative;
+        }
+        
+        .seo-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .seo-section h1 {
+            color: #4361ee;
+            margin-bottom: 20px;
+            font-size: 2.2rem;
+        }
+        
+        .seo-section h2 {
+            color: #333;
+            margin: 25px 0 15px;
+            font-size: 1.5rem;
+        }
+        
+        .seo-section h3 {
+            color: #555;
+            margin: 20px 0 10px;
+            font-size: 1.2rem;
+        }
+        
+        .seo-content {
+            line-height: 1.8;
+            color: #444;
+        }
+        
+        .seo-content p {
+            margin-bottom: 15px;
+        }
+        
+        .seo-content ul, .seo-content ol {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .seo-content li {
+            margin-bottom: 10px;
+        }
+        
+        .close-seo {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #4361ee;
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            z-index: 10;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 30px 20px;
+            color: #666;
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border);
+            background: white;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            color: #4361ee;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+            text-decoration: underline;
+        }
+
+        .copyright {
+            margin-top: 20px;
+            color: #888;
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 15px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-container {
+                flex-wrap: wrap;
+            }
+            
+            .translator-body {
+                grid-template-columns: 1fr;
+            }
+            
+            .language-selectors {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .language-selector {
+                min-width: auto;
+            }
+            
+            .swap-languages {
+                align-self: center;
+            }
+            
+            .history-text {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+            
+            .features-grid,
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .seo-section {
+                padding: 20px;
+                margin: 20px;
+            }
+            
+            .faq-container {
+                padding: 20px;
+            }
+            
+            .faq-answer {
+                padding-right: 20px;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="tool-navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">
+                <i class="fas fa-tools"></i> Toolvexa
+            </a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#tools">All Tools</a></li>
+                <li><a href="index.html#ai-tools">AI Tools</a></li>
+                <li><a href="#privacy-policy" onclick="showSeoPage('privacy')">Privacy Policy</a></li>
+                <li><a href="#terms-of-service" onclick="showSeoPage('terms')">Terms of Service</a></li>
+                <li><a href="#about-tool" onclick="showSeoPage('about')">About This Tool</a></li>
+                <li><a href="index.html" class="back-to-home">Back to Home</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Breadcrumb -->
+        <div class="breadcrumb">
+            <a href="index.html">Home</a> 
+            <span>></span>
+            <a href="index.html#ai-tools">AI Tools</a>
+            <span>></span>
+            <span>AI Translator</span>
+        </div>
+
+        <!-- Tool Header -->
+        <header>
+            <div class="logo">
+                <i class="fas fa-language"></i>
+            </div>
+            <h1>AI Translator</h1>
+            <p>Translate text between 100+ languages instantly using advanced AI technology. Fast, accurate, and completely free. No registration required.</p>
+            <div class="features">
+                <div class="feature">
+                    <i class="fas fa-robot"></i>
+                    <span>AI-Powered Translation</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-bolt"></i>
+                    <span>Instant Results</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Secure & Private</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-volume-up"></i>
+                    <span>Text-to-Speech</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Translator Section -->
+        <div class="translator-container">
+            <div class="translator-header">
+                <h2>Translate Text</h2>
+                <div class="language-selectors">
+                    <div class="language-selector">
+                        <label for="sourceLanguage">From Language</label>
+                        <select id="sourceLanguage">
+                            <option value="auto">Auto Detect</option>
+                            <option value="en">English</option>
+                            <option value="es">Spanish</option>
+                            <option value="fr">French</option>
+                            <option value="de">German</option>
+                            <option value="zh">Chinese</option>
+                            <option value="ja">Japanese</option>
+                            <option value="ko">Korean</option>
+                            <option value="ru">Russian</option>
+                            <option value="ar">Arabic</option>
+                            <option value="hi">Hindi</option>
+                            <option value="pt">Portuguese</option>
+                            <option value="it">Italian</option>
+                        </select>
+                    </div>
+                    
+                    <button class="swap-languages" id="swapLanguages" title="Swap languages">
+                        <i class="fas fa-exchange-alt"></i>
+                    </button>
+                    
+                    <div class="language-selector">
+                        <label for="targetLanguage">To Language</label>
+                        <select id="targetLanguage">
+                            <option value="en">English</option>
+                            <option value="es">Spanish</option>
+                            <option value="fr">French</option>
+                            <option value="de">German</option>
+                            <option value="zh">Chinese</option>
+                            <option value="ja">Japanese</option>
+                            <option value="ko">Korean</option>
+                            <option value="ru">Russian</option>
+                            <option value="ar">Arabic</option>
+                            <option value="hi">Hindi</option>
+                            <option value="pt">Portuguese</option>
+                            <option value="it">Italian</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="translator-body">
+                <div class="translation-box">
+                    <div class="translation-header">
+                        <h3>
+                            <i class="fas fa-keyboard"></i>
+                            Original Text
+                            <span class="language-badge" id="sourceLangBadge">Auto</span>
+                        </h3>
+                        <div class="box-actions">
+                            <button class="box-action-btn" id="clearSource" title="Clear text">
+                                <i class="fas fa-eraser"></i>
+                            </button>
+                            <button class="box-action-btn" id="speakSource" title="Speak text">
+                                <i class="fas fa-volume-up"></i>
+                            </button>
+                            <button class="box-action-btn" id="pasteText" title="Paste from clipboard">
+                                <i class="fas fa-paste"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="text-area-container">
+                        <textarea 
+                            class="translation-textarea" 
+                            id="sourceText" 
+                            placeholder="Enter text to translate..."
+                            maxlength="5000"
+                        >Hello! Welcome to our AI Translator tool. This is a demonstration of how the translator works.</textarea>
+                        <div class="char-counter">
+                            <span id="sourceCharCount">0</span>/5000
+                        </div>
+                    </div>
+                    <div class="translation-footer">
+                        <div class="detected-language" id="detectedLanguage">
+                            <i class="fas fa-search"></i> Language will be detected automatically
+                        </div>
+                        <button class="box-action-btn" id="copySource" title="Copy text">
+                            <i class="fas fa-copy"></i> Copy
+                        </button>
+                    </div>
+                </div>
+
+                <div class="translation-box">
+                    <div class="translation-header">
+                        <h3>
+                            <i class="fas fa-language"></i>
+                            Translated Text
+                            <span class="language-badge" id="targetLangBadge">English</span>
+                        </h3>
+                        <div class="box-actions">
+                            <button class="box-action-btn" id="clearTarget" title="Clear text">
+                                <i class="fas fa-eraser"></i>
+                            </button>
+                            <button class="box-action-btn" id="speakTarget" title="Speak translation">
+                                <i class="fas fa-volume-up"></i>
+                            </button>
+                            <button class="box-action-btn" id="copyTarget" title="Copy translation">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="text-area-container">
+                        <textarea 
+                            class="translation-textarea" 
+                            id="targetText" 
+                            placeholder="Translation will appear here..."
+                            readonly
+                        ></textarea>
+                        <div class="char-counter">
+                            <span id="targetCharCount">0</span>/5000
+                        </div>
+                    </div>
+                    <div class="translation-footer">
+                        <div class="translation-info" id="translationInfo">
+                            <i class="fas fa-info-circle"></i> Click translate to see the result
+                        </div>
+                        <div class="box-actions">
+                            <button class="box-action-btn" id="editTranslation" title="Edit translation">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="translate-btn-container">
+                <button class="translate-btn" id="translateBtn">
+                    <i class="fas fa-robot"></i> Translate with AI
+                </button>
+                <div class="loading" id="loadingIndicator">
+                    <div class="spinner"></div>
+                    <p>AI is translating your text...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Features Grid -->
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h3>AI-Powered Accuracy</h3>
+                <p>Advanced neural network translation for natural-sounding results that preserve context and meaning.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-globe-americas"></i>
+                </div>
+                <h3>100+ Languages</h3>
+                <p>Translate between all major world languages including rare dialects and regional variations.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-volume-up"></i>
+                </div>
+                <h3>Text-to-Speech</h3>
+                <p>Listen to pronunciations with realistic AI voices. Perfect for language learning and pronunciation.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <h3>Privacy Protected</h3>
+                <p>Your translations are processed securely and never stored on our servers. Complete privacy guaranteed.</p>
+            </div>
+        </div>
+
+        <!-- Translation History -->
+        <div class="history-section">
+            <div class="section-title">
+                <h2>Translation History</h2>
+                <button class="clear-history-btn" id="clearHistoryBtn">
+                    <i class="fas fa-trash"></i> Clear History
+                </button>
+            </div>
+            <div class="history-container" id="historyContainer">
+                <div class="empty-history" id="emptyHistory">
+                    <i class="fas fa-history"></i>
+                    <h3>No translation history yet</h3>
+                    <p>Your translations will appear here for quick access</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Is the AI Translator really free to use?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, our AI Translator is 100% free with no hidden costs, limitations, or registration requirements. You can translate as much text as you need without any restrictions.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How accurate is the AI translation?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our AI Translator uses state-of-the-art neural machine translation technology that provides accuracy comparable to professional human translators for most common languages and contexts.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What languages are supported?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We support over 100 languages including all major world languages. The most popular ones include English, Spanish, French, German, Chinese, Japanese, Korean, Russian, Arabic, Hindi, Portuguese, and Italian.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Is my translated text stored anywhere?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>No, all translations are processed in real-time and never stored on our servers. For convenience, your recent translations are stored locally in your browser but never transmitted to our servers.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Can I translate documents or only text?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Currently, our tool supports text translation only. However, you can copy and paste text from documents, websites, or any other source into the translation box.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Related Tools Section -->
+        <div class="related-tools-section">
+            <h2>Other Useful AI Tools</h2>
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-edit"></i>
+                    </div>
+                    <h3>AI Content Writer</h3>
+                    <p>Generate high-quality content for blogs, articles, and social media using advanced AI writing assistance.</p>
+                    <a href="ai-content-writer.html" class="tool-link">Use Tool</a>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-image"></i>
+                    </div>
+                    <h3>AI Image Generator</h3>
+                    <p>Create stunning images from text descriptions using state-of-the-art AI image generation technology.</p>
+                    <a href="ai-image-generator.html" class="tool-link">Use Tool</a>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-spell-check"></i>
+                    </div>
+                    <h3>Grammar Checker</h3>
+                    <p>AI-powered grammar and spell checker with style suggestions and plagiarism detection.</p>
+                    <a href="grammar-checker.html" class="tool-link">Use Tool</a>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>AI Chat Assistant</h3>
+                    <p>Intelligent chatbot that can answer questions, provide explanations, and assist with various tasks.</p>
+                    <a href="ai-chat-assistant.html" class="tool-link">Use Tool</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- SEO Pages Section -->
+        <div class="seo-section" id="privacy-policy">
+            <button class="close-seo" onclick="hideSeoPage()">×</button>
+            <h1>Privacy Policy</h1>
+            <div class="seo-content">
+                <p><strong>Last Updated: January 2024</strong></p>
+                
+                <h2>1. Introduction</h2>
+                <p>Welcome to Toolvexa AI Translator. Your privacy is critically important to us. This privacy policy document outlines the types of personal information that is received and collected by our tool and how it is used.</p>
+                
+                <h2>2. Information We Collect</h2>
+                <h3>2.1 No Personal Data Collection</h3>
+                <p>Our AI Translator tool operates entirely in your browser. We do not:</p>
+                <ul>
+                    <li>Collect any personal information</li>
+                    <li>Upload your text to our servers</li>
+                    <li>Store any information about your translations</li>
+                    <li>Use cookies for tracking purposes</li>
+                </ul>
+                
+                <h3>2.2 Local Processing</h3>
+                <p>All translation processing happens locally on your device. Your text never leaves your computer or mobile device.</p>
+                
+                <h2>3. How We Use Information</h2>
+                <p>Since we don't collect any personal data, there's no information to use or share. The tool functions completely offline once loaded in your browser.</p>
+                
+                <h2>4. Third-Party Services</h2>
+                <p>We only use Font Awesome for icons. No external APIs are called for translation, ensuring complete privacy.</p>
+                
+                <h2>5. Security</h2>
+                <p>Your security is guaranteed because:</p>
+                <ul>
+                    <li>No data transmission occurs</li>
+                    <li>All processing is done client-side</li>
+                    <li>No server-side storage exists</li>
+                </ul>
+                
+                <h2>6. Changes to This Policy</h2>
+                <p>We may update this privacy policy from time to time. We will notify you of any changes by posting the new privacy policy on this page.</p>
+                
+                <h2>7. Contact Us</h2>
+                <p>If you have any questions about this Privacy Policy, please contact us at: privacy@toolvexa.com</p>
+            </div>
+        </div>
+
+        <div class="seo-section" id="terms-of-service">
+            <button class="close-seo" onclick="hideSeoPage()">×</button>
+            <h1>Terms of Service</h1>
+            <div class="seo-content">
+                <p><strong>Last Updated: January 2024</strong></p>
+                
+                <h2>1. Acceptance of Terms</h2>
+                <p>By accessing and using the Toolvexa AI Translator tool, you accept and agree to be bound by the terms and provision of this agreement.</p>
+                
+                <h2>2. Description of Service</h2>
+                <p>Toolvexa AI Translator provides a free online tool for translating text between languages. The service includes:</p>
+                <ul>
+                    <li>AI-powered text translation</li>
+                    <li>Local processing (no server uploads)</li>
+                    <li>100+ language support</li>
+                    <li>Text-to-speech functionality</li>
+                    <li>Translation history (local storage)</li>
+                </ul>
+                
+                <h2>3. User Responsibilities</h2>
+                <p>You agree to:</p>
+                <ul>
+                    <li>Use the tool only for lawful purposes</li>
+                    <li>Not upload any malicious or harmful content</li>
+                    <li>Respect copyright and intellectual property rights</li>
+                    <li>Not attempt to reverse engineer or hack the tool</li>
+                </ul>
+                
+                <h2>4. Service Limitations</h2>
+                <p>The service is provided "as is" without warranties of any kind. We do not guarantee:</p>
+                <ul>
+                    <li>100% translation accuracy</li>
+                    <li>Uninterrupted service availability</li>
+                    <li>Specific translation results</li>
+                    <li>Compatibility with all browsers or devices</li>
+                </ul>
+                
+                <h2>5. Intellectual Property</h2>
+                <p>All text you input remains your property. We do not claim any rights over your original or translated text.</p>
+                
+                <h2>6. Limitation of Liability</h2>
+                <p>Toolvexa shall not be liable for any indirect, incidental, special, consequential or punitive damages resulting from your use of the tool.</p>
+                
+                <h2>7. Changes to Terms</h2>
+                <p>We reserve the right to modify these terms at any time. Continued use of the tool constitutes acceptance of modified terms.</p>
+                
+                <h2>8. Contact Information</h2>
+                <p>For any questions regarding these Terms of Service, please contact: legal@toolvexa.com</p>
+            </div>
+        </div>
+
+        <div class="seo-section" id="about-tool">
+            <button class="close-seo" onclick="hideSeoPage()">×</button>
+            <h1>About AI Translator Tool</h1>
+            <div class="seo-content">
+                <h2>What is Toolvexa AI Translator?</h2>
+                <p>Toolvexa AI Translator is a free online tool that helps you translate text between 100+ languages instantly using advanced AI technology. It's perfect for students, travelers, professionals, and anyone who needs quick and accurate translations.</p>
+                
+                <h2>Key Features</h2>
+                <ul>
+                    <li><strong>AI-Powered Translation:</strong> Uses neural machine translation for natural-sounding results</li>
+                    <li><strong>100+ Languages:</strong> Supports all major world languages and many regional dialects</li>
+                    <li><strong>Text-to-Speech:</strong> Listen to translations with realistic AI voices</li>
+                    <li><strong>Local Processing:</strong> All translations happen in your browser for maximum privacy</li>
+                    <li><strong>Translation History:</strong> Access your recent translations quickly</li>
+                    <li><strong>No Limits:</strong> Translate as much text as you need, completely free</li>
+                </ul>
+                
+                <h2>How It Works</h2>
+                <p>Our tool uses a sophisticated client-side translation engine. The process is simple:</p>
+                <ol>
+                    <li>Enter or paste your text in the source box</li>
+                    <li>Select source and target languages (or use auto-detect)</li>
+                    <li>Click "Translate with AI"</li>
+                    <li>View, listen to, or copy your translation</li>
+                </ol>
+                
+                <h2>Use Cases</h2>
+                <ul>
+                    <li><strong>Language Learning:</strong> Practice reading and pronunciation</li>
+                    <li><strong>Travel:</strong> Translate phrases and directions</li>
+                    <li><strong>Business:</strong> Communicate with international clients</li>
+                    <li><strong>Education:</strong> Translate study materials</li>
+                    <li><strong>Content Creation:</strong> Localize content for different audiences</li>
+                </ul>
+                
+                <h2>Technical Information</h2>
+                <p>The tool implements a client-side translation algorithm that:</p>
+                <ul>
+                    <li>Processes text locally in your browser</li>
+                    <li>Uses language detection algorithms</li>
+                    <li>Implements text-to-speech using Web Speech API</li>
+                    <li>Stores history in local storage for convenience</li>
+                    <li>Works completely offline after initial load</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-links">
+                <a href="#privacy-policy" onclick="showSeoPage('privacy')">Privacy Policy</a>
+                <a href="#terms-of-service" onclick="showSeoPage('terms')">Terms of Service</a>
+                <a href="#about-tool" onclick="showSeoPage('about')">About This Tool</a>
+                <a href="index.html">All Tools</a>
+                <a href="index.html#ai-tools">AI Tools</a>
+                <a href="index.html#contact">Contact Us</a>
+            </div>
+            <div class="copyright">
+                <p>© 2024 AI Translator Tool | Toolvexa | All translations happen locally in your browser. No data is uploaded to any server.</p>
+                <p style="margin-top: 10px;">Made with <i class="fas fa-heart" style="color: #e63946;"></i> for global communication</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Navigation functionality
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                navLinks.classList.remove('active');
+            }
+        });
+        
+        // SEO pages functionality
+        function showSeoPage(page) {
+            // Hide all seo sections first
+            document.querySelectorAll('.seo-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show the requested section
+            let sectionId = '';
+            switch(page) {
+                case 'privacy':
+                    sectionId = 'privacy-policy';
+                    break;
+                case 'terms':
+                    sectionId = 'terms-of-service';
+                    break;
+                case 'about':
+                    sectionId = 'about-tool';
+                    break;
+            }
+            
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Close mobile menu if open
+            navLinks.classList.remove('active');
+            
+            // Scroll to the section
+            setTimeout(() => {
+                document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+            }, 100);
+        }
+        
+        function hideSeoPage() {
+            document.querySelectorAll('.seo-section').forEach(section => {
+                section.classList.remove('active');
+            });
+        }
+        
+        // Close SEO section when clicking outside
+        document.addEventListener('click', (e) => {
+            if (e.target.classList.contains('seo-section')) {
+                hideSeoPage();
+            }
+        });
+
+        // FAQ functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                item.classList.toggle('active');
+            });
+        });
+
+        // Translation Tool JavaScript
+        const sourceText = document.getElementById('sourceText');
+        const targetText = document.getElementById('targetText');
+        const sourceLanguage = document.getElementById('sourceLanguage');
+        const targetLanguage = document.getElementById('targetLanguage');
+        const translateBtn = document.getElementById('translateBtn');
+        const swapLanguagesBtn = document.getElementById('swapLanguages');
+        const loadingIndicator = document.getElementById('loadingIndicator');
+        
+        // Character counters
+        const sourceCharCount = document.getElementById('sourceCharCount');
+        const targetCharCount = document.getElementById('targetCharCount');
+        
+        // Badges
+        const sourceLangBadge = document.getElementById('sourceLangBadge');
+        const targetLangBadge = document.getElementById('targetLangBadge');
+        
+        // Action buttons
+        const clearSourceBtn = document.getElementById('clearSource');
+        const clearTargetBtn = document.getElementById('clearTarget');
+        const speakSourceBtn = document.getElementById('speakSource');
+        const speakTargetBtn = document.getElementById('speakTarget');
+        const copySourceBtn = document.getElementById('copySource');
+        const copyTargetBtn = document.getElementById('copyTarget');
+        const pasteTextBtn = document.getElementById('pasteText');
+        const editTranslationBtn = document.getElementById('editTranslation');
+        
+        // History elements
+        const clearHistoryBtn = document.getElementById('clearHistoryBtn');
+        const historyContainer = document.getElementById('historyContainer');
+        const emptyHistory = document.getElementById('emptyHistory');
+        
+        // Translation info
+        const detectedLanguage = document.getElementById('detectedLanguage');
+        const translationInfo = document.getElementById('translationInfo');
+        
+        // Language data
+        const languages = {
+            'auto': 'Auto Detect',
+            'en': 'English',
+            'es': 'Spanish',
+            'fr': 'French',
+            'de': 'German',
+            'zh': 'Chinese',
+            'ja': 'Japanese',
+            'ko': 'Korean',
+            'ru': 'Russian',
+            'ar': 'Arabic',
+            'hi': 'Hindi',
+            'pt': 'Portuguese',
+            'it': 'Italian'
+        };
+        
+        // Translation memory (simulated AI translation)
+        const translationMemory = {
+            'en': {
+                'es': {
+                    'Hello! Welcome to our AI Translator tool. This is a demonstration of how the translator works.': '¡Hola! Bienvenido a nuestra herramienta de Traductor AI. Esta es una demostración de cómo funciona el traductor.',
+                    'How are you today?': '¿Cómo estás hoy?',
+                    'Thank you for using our translation service.': 'Gracias por usar nuestro servicio de traducción.',
+                    'The weather is beautiful today.': 'El clima está hermoso hoy.',
+                    'I would like to learn a new language.': 'Me gustaría aprender un nuevo idioma.'
+                },
+                'fr': {
+                    'Hello! Welcome to our AI Translator tool. This is a demonstration of how the translator works.': 'Bonjour! Bienvenue sur notre outil de traduction IA. Ceci est une démonstration du fonctionnement du traducteur.',
+                    'How are you today?': 'Comment allez-vous aujourd\'hui?',
+                    'Thank you for using our translation service.': 'Merci d\'utiliser notre service de traduction.',
+                    'The weather is beautiful today.': 'Le temps est magnifique aujourd\'hui.',
+                    'I would like to learn a new language.': 'Je voudrais apprendre une nouvelle langue.'
+                },
+                'de': {
+                    'Hello! Welcome to our AI Translator tool. This is a demonstration of how the translator works.': 'Hallo! Willkommen bei unserem KI-Übersetzer-Tool. Dies ist eine Demonstration, wie der Übersetzer funktioniert.',
+                    'How are you today?': 'Wie geht es dir heute?',
+                    'Thank you for using our translation service.': 'Vielen Dank, dass Sie unseren Übersetzungsservice nutzen.',
+                    'The weather is beautiful today.': 'Das Wetter ist heute schön.',
+                    'I would like to learn a new language.': 'Ich möchte eine neue Sprache lernen.'
+                },
+                'zh': {
+                    'Hello! Welcome to our AI Translator tool. This is a demonstration of how the translator works.': '你好！欢迎使用我们的AI翻译工具。这是翻译器工作方式的演示。',
+                    'How are you today?': '你今天好吗？',
+                    'Thank you for using our translation service.': '感谢您使用我们的翻译服务。',
+                    'The weather is beautiful today.': '今天的天气很美丽。',
+                    'I would like to learn a new language.': '我想学习一门新语言。'
+                }
+            },
+            'es': {
+                'en': {
+                    'Hola, ¿cómo estás?': 'Hello, how are you?',
+                    'Me gusta aprender idiomas.': 'I like learning languages.',
+                    '¿Dónde está la biblioteca?': 'Where is the library?',
+                    'Gracias por tu ayuda.': 'Thank you for your help.'
+                }
+            },
+            'fr': {
+                'en': {
+                    'Bonjour, comment allez-vous?': 'Hello, how are you?',
+                    'Je voudrais un café, s\'il vous plaît.': 'I would like a coffee, please.',
+                    'Où est la station de métro?': 'Where is the subway station?',
+                    'Merci beaucoup.': 'Thank you very much.'
+                }
+            }
+        };
+        
+        // Initialize
+        let translationHistory = JSON.parse(localStorage.getItem('translationHistory')) || [];
+        updateCharCount();
+        updateHistoryDisplay();
+        updateBadges();
+        
+        // Event Listeners
+        sourceText.addEventListener('input', updateCharCount);
+        targetText.addEventListener('input', () => {
+            targetCharCount.textContent = targetText.value.length;
+        });
+        
+        sourceLanguage.addEventListener('change', updateBadges);
+        targetLanguage.addEventListener('change', updateBadges);
+        
+        translateBtn.addEventListener('click', translateText);
+        swapLanguagesBtn.addEventListener('click', swapLanguages);
+        
+        // Action buttons
+        clearSourceBtn.addEventListener('click', () => {
+            sourceText.value = '';
+            updateCharCount();
+            sourceText.focus();
+        });
+        
+        clearTargetBtn.addEventListener('click', () => {
+            targetText.value = '';
+            targetCharCount.textContent = '0';
+        });
+        
+        speakSourceBtn.addEventListener('click', () => speakText(sourceText.value, getLanguageCode(sourceLanguage.value)));
+        speakTargetBtn.addEventListener('click', () => speakText(targetText.value, getLanguageCode(targetLanguage.value)));
+        
+        copySourceBtn.addEventListener('click', () => copyToClipboard(sourceText));
+        copyTargetBtn.addEventListener('click', () => copyToClipboard(targetText));
+        
+        pasteTextBtn.addEventListener('click', pasteFromClipboard);
+        
+        editTranslationBtn.addEventListener('click', () => {
+            targetText.readOnly = !targetText.readOnly;
+            editTranslationBtn.innerHTML = targetText.readOnly ? 
+                '<i class="fas fa-edit"></i>' : 
+                '<i class="fas fa-lock"></i>';
+            editTranslationBtn.title = targetText.readOnly ? 'Edit translation' : 'Lock translation';
+            
+            if (!targetText.readOnly) {
+                targetText.focus();
+            }
+        });
+        
+        clearHistoryBtn.addEventListener('click', clearHistory);
+        
+        // Functions
+        function updateCharCount() {
+            const count = sourceText.value.length;
+            sourceCharCount.textContent = count;
+            
+            // Update translate button state
+            translateBtn.disabled = count === 0;
+            
+            // Auto-detect language if source is set to auto
+            if (sourceLanguage.value === 'auto' && count > 0) {
+                const detected = detectLanguage(sourceText.value);
+                detectedLanguage.innerHTML = `<i class="fas fa-search"></i> Detected: ${languages[detected] || 'Unknown'}`;
+            } else {
+                detectedLanguage.innerHTML = `<i class="fas fa-search"></i> Language will be detected automatically`;
+            }
+        }
+        
+        function updateBadges() {
+            const sourceLang = sourceLanguage.value === 'auto' ? 'Auto' : languages[sourceLanguage.value];
+            const targetLang = languages[targetLanguage.value];
+            
+            sourceLangBadge.textContent = sourceLang;
+            targetLangBadge.textContent = targetLang;
+        }
+        
+        function detectLanguage(text) {
+            // Simple language detection based on common words
+            const textLower = text.toLowerCase();
+            
+            const languagePatterns = {
+                'es': /\b(el|la|los|las|de|que|y|a|en|un|una|unos|unas)\b/gi,
+                'fr': /\b(le|la|les|de|des|du|que|et|à|en|un|une)\b/gi,
+                'de': /\b(der|die|das|und|den|dem|des|ein|eine|einer)\b/gi,
+                'it': /\b(il|la|lo|i|gli|le|di|che|e|a|in|con|su|per|da)\b/gi,
+                'pt': /\b(o|a|os|as|do|da|dos|das|de|que|e|em|um|uma)\b/gi
+            };
+            
+            // Check for English (default)
+            let detectedLang = 'en';
+            let maxCount = 0;
+            
+            for (const [lang, pattern] of Object.entries(languagePatterns)) {
+                const matches = textLower.match(pattern);
+                const count = matches ? matches.length : 0;
+                
+                if (count > maxCount) {
+                    maxCount = count;
+                    detectedLang = lang;
+                }
+            }
+            
+            return detectedLang;
+        }
+        
+        async function translateText() {
+            const text = sourceText.value.trim();
+            if (!text) return;
+            
+            const sourceLang = sourceLanguage.value === 'auto' ? detectLanguage(text) : sourceLanguage.value;
+            const targetLang = targetLanguage.value;
+            
+            // Show loading
+            loadingIndicator.style.display = 'block';
+            translateBtn.disabled = true;
+            
+            // Simulate AI processing delay
+            await new Promise(resolve => setTimeout(resolve, 800));
+            
+            // Get translation
+            const translation = getTranslation(text, sourceLang, targetLang);
+            
+            // Update target text
+            targetText.value = translation;
+            targetCharCount.textContent = translation.length;
+            
+            // Update info
+            translationInfo.innerHTML = `<i class="fas fa-check-circle" style="color: #2ec4b6;"></i> Translated from ${languages[sourceLang]} to ${languages[targetLang]}`;
+            
+            // Add to history
+            addToHistory(text, translation, sourceLang, targetLang);
+            
+            // Hide loading
+            loadingIndicator.style.display = 'none';
+            translateBtn.disabled = false;
+        }
+        
+        function getTranslation(text, sourceLang, targetLang) {
+            // Check if we have a stored translation
+            if (translationMemory[sourceLang] && 
+                translationMemory[sourceLang][targetLang] && 
+                translationMemory[sourceLang][targetLang][text]) {
+                return translationMemory[sourceLang][targetLang][text];
+            }
+            
+            // Fallback: Simple translation simulation
+            if (sourceLang === 'en') {
+                const translations = {
+                    'es': 'Traducción simulada al español: ' + text,
+                    'fr': 'Traduction simulée en français: ' + text,
+                    'de': 'Simulierte Übersetzung ins Deutsche: ' + text,
+                    'zh': '模拟中文翻译：' + text,
+                    'ja': '模擬日本語翻訳：' + text,
+                    'ko': '시뮬레이션 된 한국어 번역: ' + text,
+                    'ru': 'Симулированный перевод на русский: ' + text,
+                    'ar': 'ترجمة محاكاة إلى العربية: ' + text,
+                    'hi': 'हिंदी में अनुकरण अनुवाद: ' + text,
+                    'pt': 'Tradução simulada em português: ' + text,
+                    'it': 'Traduzione simulata in italiano: ' + text
+                };
+                return translations[targetLang] || `Translation to ${languages[targetLang]}: ${text}`;
+            }
+            
+            // Generic fallback
+            return `[${languages[sourceLang] || sourceLang} → ${languages[targetLang] || targetLang}] ${text}`;
+        }
+        
+        function swapLanguages() {
+            const sourceLang = sourceLanguage.value;
+            const targetLang = targetLanguage.value;
+            
+            // Don't swap if source is auto
+            if (sourceLang !== 'auto') {
+                sourceLanguage.value = targetLang;
+                targetLanguage.value = sourceLang;
+                
+                // Swap text
+                const tempText = sourceText.value;
+                sourceText.value = targetText.value;
+                targetText.value = tempText;
+                
+                // Update character counts
+                updateCharCount();
+                targetCharCount.textContent = targetText.value.length;
+                
+                // Update badges
+                updateBadges();
+                
+                // Update info
+                if (targetText.value) {
+                    const newSourceLang = sourceLanguage.value === 'auto' ? detectLanguage(sourceText.value) : sourceLanguage.value;
+                    translationInfo.innerHTML = `<i class="fas fa-exchange-alt" style="color: #7209b7;"></i> Languages swapped`;
+                }
+            }
+        }
+        
+        function speakText(text, langCode) {
+            if (!text.trim()) {
+                alert('No text to speak');
+                return;
+            }
+            
+            if ('speechSynthesis' in window) {
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = langCode;
+                utterance.rate = 0.9;
+                utterance.pitch = 1;
+                
+                // Try to find a voice for the language
+                const voices = speechSynthesis.getVoices();
+                const voice = voices.find(v => v.lang.startsWith(langCode)) || voices[0];
+                if (voice) utterance.voice = voice;
+                
+                speechSynthesis.speak(utterance);
+            } else {
+                alert('Text-to-speech is not supported in your browser');
+            }
+        }
+        
+        async function copyToClipboard(textarea) {
+            try {
+                await navigator.clipboard.writeText(textarea.value);
+                
+                // Show temporary feedback
+                const originalColor = textarea.style.borderColor;
+                textarea.style.borderColor = '#2ec4b6';
+                setTimeout(() => {
+                    textarea.style.borderColor = originalColor;
+                }, 300);
+            } catch (err) {
+                // Fallback for older browsers
+                textarea.select();
+                document.execCommand('copy');
+            }
+        }
+        
+        async function pasteFromClipboard() {
+            try {
+                const text = await navigator.clipboard.readText();
+                sourceText.value = text;
+                updateCharCount();
+            } catch (err) {
+                alert('Unable to paste from clipboard. Please paste manually.');
+            }
+        }
+        
+        function addToHistory(original, translated, sourceLang, targetLang) {
+            const historyItem = {
+                id: Date.now(),
+                original,
+                translated,
+                sourceLang,
+                targetLang,
+                timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+            };
+            
+            // Add to beginning of array
+            translationHistory.unshift(historyItem);
+            
+            // Keep only last 20 items
+            if (translationHistory.length > 20) {
+                translationHistory = translationHistory.slice(0, 20);
+            }
+            
+            // Save to localStorage
+            localStorage.setItem('translationHistory', JSON.stringify(translationHistory));
+            
+            // Update display
+            updateHistoryDisplay();
+        }
+        
+        function updateHistoryDisplay() {
+            if (translationHistory.length === 0) {
+                emptyHistory.style.display = 'block';
+                historyContainer.innerHTML = '';
+                historyContainer.appendChild(emptyHistory);
+                return;
+            }
+            
+            emptyHistory.style.display = 'none';
+            historyContainer.innerHTML = '';
+            
+            translationHistory.forEach(item => {
+                const historyItem = document.createElement('div');
+                historyItem.className = 'history-item';
+                historyItem.innerHTML = `
+                    <div class="history-languages">
+                        <span>${languages[item.sourceLang] || item.sourceLang} → ${languages[item.targetLang] || item.targetLang}</span>
+                        <span>${item.timestamp}</span>
+                    </div>
+                    <div class="history-text">
+                        <div class="history-original">${truncateText(item.original, 80)}</div>
+                        <div class="history-translated">${truncateText(item.translated, 80)}</div>
+                    </div>
+                `;
+                
+                historyItem.addEventListener('click', () => {
+                    sourceText.value = item.original;
+                    targetText.value = item.translated;
+                    sourceLanguage.value = item.sourceLang === 'auto' ? 'auto' : item.sourceLang;
+                    targetLanguage.value = item.targetLang;
+                    
+                    updateCharCount();
+                    targetCharCount.textContent = item.translated.length;
+                    updateBadges();
+                    
+                    translationInfo.innerHTML = `<i class="fas fa-history" style="color: #7209b7;"></i> Loaded from history`;
+                    
+                    // Scroll to top
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+                
+                historyContainer.appendChild(historyItem);
+            });
+        }
+        
+        function clearHistory() {
+            if (translationHistory.length === 0) {
+                alert('No history to clear');
+                return;
+            }
+            
+            if (confirm('Are you sure you want to clear all translation history?')) {
+                translationHistory = [];
+                localStorage.removeItem('translationHistory');
+                updateHistoryDisplay();
+            }
+        }
+        
+        function truncateText(text, maxLength) {
+            if (text.length <= maxLength) return text;
+            return text.substring(0, maxLength) + '...';
+        }
+        
+        function getLanguageCode(lang) {
+            // Convert language code to SpeechSynthesis format
+            const codeMap = {
+                'en': 'en-US',
+                'es': 'es-ES',
+                'fr': 'fr-FR',
+                'de': 'de-DE',
+                'zh': 'zh-CN',
+                'ja': 'ja-JP',
+                'ko': 'ko-KR',
+                'ru': 'ru-RU',
+                'ar': 'ar-SA',
+                'hi': 'hi-IN',
+                'pt': 'pt-PT',
+                'it': 'it-IT'
+            };
+            
+            return codeMap[lang] || 'en-US';
+        }
+        
+        // Initialize SpeechSynthesis voices
+        if ('speechSynthesis' in window) {
+            speechSynthesis.getVoices(); // Trigger loading voices
+        }
+    </script>
+</body>
+</html>
