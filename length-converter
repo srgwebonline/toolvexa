@@ -1,0 +1,1672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Length Converter - Convert Units Online | Toolvexa</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Free online length converter tool. Convert between meters, kilometers, miles, feet, inches, yards, centimeters, millimeters, and more. Fast, accurate, and easy to use.">
+    <meta name="keywords" content="length converter, unit converter, convert meters to feet, convert miles to kilometers, distance converter, measurement converter, online converter">
+    <meta name="author" content="Toolvexa">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Length Converter - Convert Units Online | Toolvexa">
+    <meta property="og:description" content="Free online length converter tool. Convert between meters, kilometers, miles, feet, inches, yards, centimeters, millimeters, and more.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://toolvexa.com/length-converter">
+    <meta property="og:image" content="https://toolvexa.com/images/length-converter-og.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://toolvexa.com/length-converter">
+    
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Length Converter",
+        "url": "https://toolvexa.com/length-converter",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "Any",
+        "description": "Free online tool to convert between different length units including meters, kilometers, miles, feet, inches, and more",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "creator": {
+            "@type": "Organization",
+            "name": "Toolvexa",
+            "url": "https://toolvexa.com"
+        }
+    }
+    </script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+
+        :root {
+            --primary: #4361ee;
+            --primary-light: #e6f0ff;
+            --secondary: #7209b7;
+            --success: #2ec4b6;
+            --danger: #e63946;
+            --warning: #ff9e00;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --border: #dee2e6;
+            --shadow: rgba(0, 0, 0, 0.1);
+            --radius: 12px;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+            min-height: 100vh;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation Bar */
+        .tool-navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 15px 0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            border-bottom: 3px solid #4361ee;
+        }
+        
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: #4361ee;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .nav-brand i {
+            font-size: 1.8rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            background: #4361ee;
+            color: white;
+        }
+        
+        .back-to-home {
+            background: #4361ee;
+            color: white !important;
+            padding: 8px 20px !important;
+            border-radius: 25px;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #333;
+            cursor: pointer;
+        }
+        
+        /* Adjust body padding for fixed navbar */
+        body {
+            padding-top: 80px;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            margin: 20px 0 30px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .breadcrumb a {
+            color: #4361ee;
+            text-decoration: none;
+        }
+        
+        .breadcrumb span {
+            margin: 0 5px;
+        }
+
+        /* Tool Header */
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px 20px;
+            background: white;
+            border-radius: var(--radius);
+            box-shadow: 0 5px 20px var(--shadow);
+        }
+
+        .logo {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        header h1 {
+            color: var(--primary);
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        header p {
+            color: #666;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 20px;
+        }
+
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+            color: var(--dark);
+            background: var(--light);
+            padding: 8px 15px;
+            border-radius: 50px;
+        }
+
+        .feature i {
+            color: var(--success);
+        }
+
+        /* Main Converter Section */
+        .converter-container {
+            background: white;
+            border-radius: var(--radius);
+            padding: 40px;
+            box-shadow: 0 5px 20px var(--shadow);
+            margin-bottom: 40px;
+        }
+
+        .converter-row {
+            display: grid;
+            grid-template-columns: 1fr 60px 1fr;
+            gap: 20px;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .converter-row {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto 60px auto;
+            }
+        }
+
+        .converter-box {
+            padding: 25px;
+            border: 2px solid var(--border);
+            border-radius: var(--radius);
+            background: var(--light);
+            transition: all 0.3s ease;
+        }
+
+        .converter-box.active {
+            border-color: var(--primary);
+            background: white;
+            box-shadow: 0 5px 15px rgba(67, 97, 238, 0.1);
+        }
+
+        .converter-label {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .converter-label h3 {
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        .unit-badge {
+            background: var(--primary);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .input-group {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid var(--border);
+            border-radius: var(--radius);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--dark);
+            transition: all 0.3s ease;
+            text-align: right;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.1);
+        }
+
+        .input-group .unit-label {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #666;
+            font-weight: 600;
+        }
+
+        .unit-select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid var(--border);
+            border-radius: var(--radius);
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--dark);
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .unit-select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.1);
+        }
+
+        .swap-button {
+            width: 60px;
+            height: 60px;
+            border: none;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+        }
+
+        .swap-button:hover {
+            background: #3a56d4;
+            transform: rotate(180deg);
+            box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
+        }
+
+        /* Quick Conversions */
+        .quick-conversions {
+            margin-top: 40px;
+        }
+
+        .quick-conversions h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .conversion-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .conversion-item {
+            background: var(--light);
+            padding: 15px;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .conversion-item:hover {
+            background: #e9ecef;
+            transform: translateY(-2px);
+        }
+
+        .conversion-item.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .conversion-from, .conversion-to {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .conversion-value {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-top: 10px;
+        }
+
+        .conversion-item.active .conversion-value {
+            color: white;
+        }
+
+        /* Unit Categories */
+        .unit-categories {
+            margin: 60px 0 40px;
+        }
+
+        .unit-categories h2 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .category-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 25px;
+            box-shadow: 0 5px 15px var(--shadow);
+        }
+
+        .category-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .category-card h3 {
+            color: var(--dark);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .unit-list {
+            list-style: none;
+        }
+
+        .unit-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border);
+            color: #666;
+        }
+
+        .unit-list li:last-child {
+            border-bottom: none;
+        }
+
+        .unit-list .unit-symbol {
+            font-weight: 600;
+            color: var(--primary);
+            margin-left: 5px;
+        }
+
+        /* Recent Conversions */
+        .recent-conversions {
+            background: white;
+            border-radius: var(--radius);
+            padding: 30px;
+            box-shadow: 0 5px 20px var(--shadow);
+            margin-top: 40px;
+            display: none;
+        }
+
+        .recent-conversions.show {
+            display: block;
+        }
+
+        .recent-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .recent-header h3 {
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+
+        .clear-recent {
+            background: none;
+            border: none;
+            color: var(--danger);
+            cursor: pointer;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .recent-list {
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .recent-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .recent-item:last-child {
+            border-bottom: none;
+        }
+
+        .recent-conversion {
+            font-weight: 500;
+        }
+
+        .recent-value {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            margin: 60px 0 40px;
+        }
+
+        .faq-section h2 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .faq-container {
+            background: white;
+            border-radius: var(--radius);
+            padding: 30px;
+            box-shadow: 0 5px 20px var(--shadow);
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border);
+            padding: 20px 0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            color: var(--dark);
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .faq-question i {
+            color: var(--primary);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            color: #666;
+            line-height: 1.6;
+            padding-right: 40px;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            margin-top: 15px;
+        }
+
+        /* Related Tools Section */
+        .related-tools-section {
+            margin: 60px 0 40px;
+        }
+
+        .related-tools-section h2 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .tool-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 5px 15px var(--shadow);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 25px rgba(67, 97, 238, 0.15);
+        }
+
+        .tool-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .tool-card h3 {
+            color: var(--dark);
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .tool-card p {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .tool-link {
+            display: inline-block;
+            background: var(--primary-light);
+            color: var(--primary);
+            padding: 10px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .tool-link:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* SEO Pages Styles */
+        .seo-section {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            display: none;
+            position: relative;
+        }
+        
+        .seo-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .seo-section h1 {
+            color: #4361ee;
+            margin-bottom: 20px;
+            font-size: 2.2rem;
+        }
+        
+        .seo-section h2 {
+            color: #333;
+            margin: 25px 0 15px;
+            font-size: 1.5rem;
+        }
+        
+        .seo-section h3 {
+            color: #555;
+            margin: 20px 0 10px;
+            font-size: 1.2rem;
+        }
+        
+        .seo-content {
+            line-height: 1.8;
+            color: #444;
+        }
+        
+        .seo-content p {
+            margin-bottom: 15px;
+        }
+        
+        .seo-content ul, .seo-content ol {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .seo-content li {
+            margin-bottom: 10px;
+        }
+        
+        .close-seo {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #4361ee;
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            z-index: 10;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 30px 20px;
+            color: #666;
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border);
+            background: white;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            color: #4361ee;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+            text-decoration: underline;
+        }
+
+        .copyright {
+            margin-top: 20px;
+            color: #888;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-container {
+                flex-wrap: wrap;
+            }
+            
+            .converter-container {
+                padding: 20px;
+            }
+            
+            .conversion-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .categories-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .seo-section {
+                padding: 20px;
+                margin: 20px;
+            }
+            
+            .faq-container {
+                padding: 20px;
+            }
+            
+            .faq-answer {
+                padding-right: 20px;
+            }
+            
+            .footer-links {
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .conversion-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .features {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="tool-navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">
+                <i class="fas fa-tools"></i> Toolvexa
+            </a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#tools">All Tools</a></li>
+                <li><a href="index.html#calculators">Calculators</a></li>
+                <li><a href="#privacy-policy" onclick="showSeoPage('privacy')">Privacy Policy</a></li>
+                <li><a href="#terms-of-service" onclick="showSeoPage('terms')">Terms of Service</a></li>
+                <li><a href="#about-tool" onclick="showSeoPage('about')">About This Tool</a></li>
+                <li><a href="index.html" class="back-to-home">Back to Home</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Breadcrumb -->
+        <div class="breadcrumb">
+            <a href="index.html">Home</a> 
+            <span>></span>
+            <a href="index.html#calculators">Calculators</a>
+            <span>></span>
+            <span>Length Converter</span>
+        </div>
+
+        <!-- Tool Header -->
+        <header>
+            <div class="logo">
+                <i class="fas fa-ruler-combined"></i>
+            </div>
+            <h1>Length Converter</h1>
+            <p>Convert between meters, kilometers, miles, feet, inches, yards, centimeters, millimeters, nautical miles, and more. Fast, accurate, and completely free.</p>
+            <div class="features">
+                <div class="feature">
+                    <i class="fas fa-bolt"></i>
+                    <span>Instant Conversion</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>No Data Collection</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-infinity"></i>
+                    <span>Unlimited Conversions</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-mobile-alt"></i>
+                    <span>Mobile Friendly</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Converter -->
+        <div class="converter-container">
+            <div class="converter-row">
+                <!-- From Unit -->
+                <div class="converter-box active" id="fromBox">
+                    <div class="converter-label">
+                        <h3>From</h3>
+                        <div class="unit-badge" id="fromUnitBadge">Meters</div>
+                    </div>
+                    <div class="input-group">
+                        <input type="number" id="fromValue" value="1" min="0" step="any">
+                        <div class="unit-label" id="fromUnitLabel">m</div>
+                    </div>
+                    <select class="unit-select" id="fromUnit">
+                        <option value="meters">Meters (m)</option>
+                        <option value="kilometers">Kilometers (km)</option>
+                        <option value="centimeters">Centimeters (cm)</option>
+                        <option value="millimeters">Millimeters (mm)</option>
+                        <option value="miles">Miles (mi)</option>
+                        <option value="yards">Yards (yd)</option>
+                        <option value="feet">Feet (ft)</option>
+                        <option value="inches">Inches (in)</option>
+                        <option value="nautical-miles">Nautical Miles (nmi)</option>
+                        <option value="light-years">Light Years (ly)</option>
+                    </select>
+                </div>
+
+                <!-- Swap Button -->
+                <button class="swap-button" id="swapButton">
+                    <i class="fas fa-exchange-alt"></i>
+                </button>
+
+                <!-- To Unit -->
+                <div class="converter-box" id="toBox">
+                    <div class="converter-label">
+                        <h3>To</h3>
+                        <div class="unit-badge" id="toUnitBadge">Feet</div>
+                    </div>
+                    <div class="input-group">
+                        <input type="number" id="toValue" value="3.28084" readonly>
+                        <div class="unit-label" id="toUnitLabel">ft</div>
+                    </div>
+                    <select class="unit-select" id="toUnit">
+                        <option value="feet">Feet (ft)</option>
+                        <option value="meters">Meters (m)</option>
+                        <option value="kilometers">Kilometers (km)</option>
+                        <option value="centimeters">Centimeters (cm)</option>
+                        <option value="millimeters">Millimeters (mm)</option>
+                        <option value="miles">Miles (mi)</option>
+                        <option value="yards">Yards (yd)</option>
+                        <option value="inches">Inches (in)</option>
+                        <option value="nautical-miles">Nautical Miles (nmi)</option>
+                        <option value="light-years">Light Years (ly)</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Quick Conversions -->
+            <div class="quick-conversions">
+                <h3>Quick Conversions</h3>
+                <div class="conversion-grid" id="quickConversions">
+                    <!-- Quick conversions will be generated by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Unit Categories -->
+        <div class="unit-categories">
+            <h2>Length Units Explained</h2>
+            <div class="categories-grid">
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-globe-americas"></i>
+                    </div>
+                    <h3>Metric System</h3>
+                    <ul class="unit-list">
+                        <li>Kilometer (km) - 1,000 meters</li>
+                        <li>Meter (m) - Base unit</li>
+                        <li>Centimeter (cm) - 0.01 meters</li>
+                        <li>Millimeter (mm) - 0.001 meters</li>
+                        <li>Micrometer (μm) - 0.000001 meters</li>
+                        <li>Nanometer (nm) - 0.000000001 meters</li>
+                    </ul>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-flag-usa"></i>
+                    </div>
+                    <h3>Imperial System</h3>
+                    <ul class="unit-list">
+                        <li>Mile (mi) - 5,280 feet</li>
+                        <li>Yard (yd) - 3 feet</li>
+                        <li>Foot (ft) - 12 inches</li>
+                        <li>Inch (in) - Base unit</li>
+                        <li>Furlong - 660 feet</li>
+                        <li>Chain - 66 feet</li>
+                    </ul>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-ship"></i>
+                    </div>
+                    <h3>Specialized Units</h3>
+                    <ul class="unit-list">
+                        <li>Nautical Mile (nmi) - 1,852 meters</li>
+                        <li>Astronomical Unit (AU) - 149.6 million km</li>
+                        <li>Light Year (ly) - 9.461 trillion km</li>
+                        <li>Parsec (pc) - 3.086 trillion km</li>
+                        <li>Angstrom (Å) - 0.1 nanometers</li>
+                        <li>Fathom - 6 feet</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Conversions -->
+        <div class="recent-conversions" id="recentConversions">
+            <div class="recent-header">
+                <h3>Recent Conversions</h3>
+                <button class="clear-recent" id="clearRecentBtn">
+                    <i class="fas fa-trash"></i> Clear All
+                </button>
+            </div>
+            <div class="recent-list" id="recentList">
+                <!-- Recent conversions will be added by JavaScript -->
+            </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How accurate is the Length Converter?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our Length Converter uses precise conversion factors with up to 15 decimal places for maximum accuracy. The results are suitable for most practical applications including engineering, construction, and educational purposes.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Can I convert multiple units at once?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! Simply enter your value in the "From" field and select your units. The conversion happens instantly. You can also use the "Quick Conversions" section for common conversions, or use the swap button to reverse the conversion direction.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What's the difference between metric and imperial units?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>The metric system is decimal-based and used worldwide (except in the US, Liberia, and Myanmar). Imperial units (used in the US) are based on historical measurements. 1 meter equals approximately 3.28084 feet, and 1 kilometer equals about 0.621371 miles.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Are nautical miles different from regular miles?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! A nautical mile is based on the circumference of the Earth and equals 1,852 meters (about 6,076 feet). A statute (regular) mile is 5,280 feet (1,609 meters). Nautical miles are used in maritime and aviation navigation.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How do I convert very large or very small numbers?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our converter supports scientific notation. You can enter numbers like "1.5e6" for 1,500,000 or "2.3e-9" for 0.0000000023. The tool will automatically handle the conversion regardless of the magnitude of the number.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Related Tools Section -->
+        <div class="related-tools-section">
+            <h2>Other Useful Conversion Tools</h2>
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h3>Weight Converter</h3>
+                    <p>Convert between kilograms, pounds, ounces, grams, stones, and more weight units instantly.</p>
+                    <a href="weight-converter.html" class="tool-link">Use Tool</a>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-temperature-high"></i>
+                    </div>
+                    <h3>Temperature Converter</h3>
+                    <p>Convert Celsius to Fahrenheit, Kelvin, and other temperature scales with precision.</p>
+                    <a href="temperature-converter.html" class="tool-link">Use Tool</a>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-tint"></i>
+                    </div>
+                    <h3>Volume Converter</h3>
+                    <p>Convert liters, gallons, milliliters, cubic meters, and other volume measurements.</p>
+                    <a href="volume-converter.html" class="tool-link">Use Tool</a>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Time Converter</h3>
+                    <p>Convert between seconds, minutes, hours, days, weeks, months, and years.</p>
+                    <a href="time-converter.html" class="tool-link">Use Tool</a>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Speed Converter</h3>
+                    <p>Convert mph to kph, meters per second, knots, and other speed units.</p>
+                    <a href="speed-converter.html" class="tool-link">Use Tool</a>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-chart-area"></i>
+                    </div>
+                    <h3>Area Converter</h3>
+                    <p>Convert square meters, square feet, acres, hectares, and other area measurements.</p>
+                    <a href="area-converter.html" class="tool-link">Use Tool</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- SEO Pages Section -->
+        <div class="seo-section" id="privacy-policy">
+            <button class="close-seo" onclick="hideSeoPage()">×</button>
+            <h1>Privacy Policy</h1>
+            <div class="seo-content">
+                <p><strong>Last Updated: January 2024</strong></p>
+                
+                <h2>1. Introduction</h2>
+                <p>Welcome to Toolvexa Length Converter. We are committed to protecting your privacy. This privacy policy explains how we handle information when you use our length conversion tool.</p>
+                
+                <h2>2. Information Collection</h2>
+                <h3>2.1 No Personal Data Collection</h3>
+                <p>Our Length Converter operates entirely in your browser. We do not:</p>
+                <ul>
+                    <li>Collect personal information</li>
+                    <li>Store your conversion history on our servers</li>
+                    <li>Use tracking cookies</li>
+                    <li>Share data with third parties</li>
+                </ul>
+                
+                <h3>2.2 Local Storage</h3>
+                <p>We may use your browser's local storage to save recent conversions for your convenience. This data never leaves your device and can be cleared at any time using the "Clear All" button.</p>
+                
+                <h2>3. Third-Party Services</h2>
+                <p>We use Font Awesome for icons. Font Awesome may collect limited data as per their privacy policy. No other third-party services are used.</p>
+                
+                <h2>4. Security</h2>
+                <p>Since all processing happens locally in your browser, your data remains secure on your device. No data transmission to external servers occurs during conversion.</p>
+                
+                <h2>5. Changes to This Policy</h2>
+                <p>We may update this privacy policy periodically. The latest version will always be available on this page.</p>
+                
+                <h2>6. Contact Us</h2>
+                <p>For privacy-related questions: privacy@toolvexa.com</p>
+            </div>
+        </div>
+
+        <div class="seo-section" id="terms-of-service">
+            <button class="close-seo" onclick="hideSeoPage()">×</button>
+            <h1>Terms of Service</h1>
+            <div class="seo-content">
+                <p><strong>Last Updated: January 2024</strong></p>
+                
+                <h2>1. Acceptance of Terms</h2>
+                <p>By using Toolvexa Length Converter, you agree to these Terms of Service.</p>
+                
+                <h2>2. Service Description</h2>
+                <p>Toolvexa Length Converter provides free online unit conversion services including:</p>
+                <ul>
+                    <li>Length unit conversions</li>
+                    <li>Real-time calculation</li>
+                    <li>Multiple unit systems support</li>
+                    <li>Quick conversion presets</li>
+                </ul>
+                
+                <h2>3. User Responsibilities</h2>
+                <p>You agree to use the tool for lawful purposes only and not to:</p>
+                <ul>
+                    <li>Attempt to disrupt the service</li>
+                    <li>Use automated tools to access the service excessively</li>
+                    <li>Misrepresent conversion results</li>
+                </ul>
+                
+                <h2>4. Accuracy Disclaimer</h2>
+                <p>While we strive for accuracy, we cannot guarantee that conversion results are error-free. For critical applications, verify results with authoritative sources.</p>
+                
+                <h2>5. Limitation of Liability</h2>
+                <p>Toolvexa is not liable for any damages resulting from the use of our conversion tool.</p>
+                
+                <h2>6. Changes to Terms</h2>
+                <p>We reserve the right to modify these terms at any time.</p>
+                
+                <h2>7. Contact</h2>
+                <p>For legal inquiries: legal@toolvexa.com</p>
+            </div>
+        </div>
+
+        <div class="seo-section" id="about-tool">
+            <button class="close-seo" onclick="hideSeoPage()">×</button>
+            <h1>About Length Converter Tool</h1>
+            <div class="seo-content">
+                <h2>What is Toolvexa Length Converter?</h2>
+                <p>Toolvexa Length Converter is a free online tool that helps you convert between different length measurement units instantly. It's designed for students, engineers, travelers, and anyone who needs quick and accurate unit conversions.</p>
+                
+                <h2>Key Features</h2>
+                <ul>
+                    <li><strong>Comprehensive Unit Support:</strong> Over 20 length units including metric, imperial, and specialized units</li>
+                    <li><strong>Real-time Conversion:</strong> Results update instantly as you type</li>
+                    <li><strong>Bidirectional Conversion:</strong> Convert from any unit to any other unit</li>
+                    <li><strong>Quick Presets:</strong> Common conversions available with one click</li>
+                    <li><strong>Mobile Optimized:</strong> Works perfectly on all devices</li>
+                    <li><strong>No Registration Required:</strong> Use immediately without signing up</li>
+                </ul>
+                
+                <h2>How It Works</h2>
+                <p>The tool uses precise conversion factors to calculate equivalent values between different units. The process is simple:</p>
+                <ol>
+                    <li>Enter your value in the "From" field</li>
+                    <li>Select the unit you're converting from</li>
+                    <li>Select the unit you want to convert to</li>
+                    <li>View the converted result instantly</li>
+                </ol>
+                
+                <h2>Common Use Cases</h2>
+                <ul>
+                    <li><strong>Travel Planning:</strong> Convert kilometers to miles for road trips</li>
+                    <li><strong>Construction:</strong> Convert between feet and meters for measurements</li>
+                    <li><strong>Education:</strong> Help students understand unit relationships</li>
+                    <li><strong>International Business:</strong> Convert specifications between metric and imperial</li>
+                    <li><strong>Sports:</strong> Convert race distances between different measurement systems</li>
+                </ul>
+                
+                <h2>Technical Information</h2>
+                <p>The converter uses JavaScript for real-time calculations with the following precision:</p>
+                <ul>
+                    <li>All calculations performed client-side in your browser</li>
+                    <li>High-precision conversion factors (up to 15 decimal places)</li>
+                    <li>Support for scientific notation for very large/small numbers</li>
+                    <li>Automatic formatting of results for readability</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-links">
+                <a href="#privacy-policy" onclick="showSeoPage('privacy')">Privacy Policy</a>
+                <a href="#terms-of-service" onclick="showSeoPage('terms')">Terms of Service</a>
+                <a href="#about-tool" onclick="showSeoPage('about')">About This Tool</a>
+                <a href="index.html">All Tools</a>
+                <a href="index.html#calculators">Calculators</a>
+                <a href="index.html#contact">Contact Us</a>
+            </div>
+            <div class="copyright">
+                <p>© 2024 Length Converter Tool | Toolvexa | All calculations happen locally in your browser. No data is uploaded to any server.</p>
+                <p style="margin-top: 10px;">Made with <i class="fas fa-heart" style="color: #e63946;"></i> for everyone</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Navigation functionality
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                navLinks.classList.remove('active');
+            }
+        });
+        
+        // SEO pages functionality
+        function showSeoPage(page) {
+            // Hide all seo sections first
+            document.querySelectorAll('.seo-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show the requested section
+            let sectionId = '';
+            switch(page) {
+                case 'privacy':
+                    sectionId = 'privacy-policy';
+                    break;
+                case 'terms':
+                    sectionId = 'terms-of-service';
+                    break;
+                case 'about':
+                    sectionId = 'about-tool';
+                    break;
+            }
+            
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Close mobile menu if open
+            navLinks.classList.remove('active');
+            
+            // Scroll to the section
+            setTimeout(() => {
+                document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+            }, 100);
+        }
+        
+        function hideSeoPage() {
+            document.querySelectorAll('.seo-section').forEach(section => {
+                section.classList.remove('active');
+            });
+        }
+        
+        // Close SEO section when clicking outside
+        document.addEventListener('click', (e) => {
+            if (e.target.classList.contains('seo-section')) {
+                hideSeoPage();
+            }
+        });
+
+        // FAQ functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                item.classList.toggle('active');
+            });
+        });
+
+        // Length Converter Core Functionality
+        const fromValue = document.getElementById('fromValue');
+        const fromUnit = document.getElementById('fromUnit');
+        const toValue = document.getElementById('toValue');
+        const toUnit = document.getElementById('toUnit');
+        const swapButton = document.getElementById('swapButton');
+        const fromBox = document.getElementById('fromBox');
+        const toBox = document.getElementById('toBox');
+        const fromUnitBadge = document.getElementById('fromUnitBadge');
+        const toUnitBadge = document.getElementById('toUnitBadge');
+        const fromUnitLabel = document.getElementById('fromUnitLabel');
+        const toUnitLabel = document.getElementById('toUnitLabel');
+        const quickConversions = document.getElementById('quickConversions');
+        const recentConversions = document.getElementById('recentConversions');
+        const recentList = document.getElementById('recentList');
+        const clearRecentBtn = document.getElementById('clearRecentBtn');
+
+        // Conversion factors to meters (base unit)
+        const conversionFactors = {
+            // Metric
+            'meters': 1,
+            'kilometers': 1000,
+            'centimeters': 0.01,
+            'millimeters': 0.001,
+            'micrometers': 0.000001,
+            'nanometers': 0.000000001,
+            
+            // Imperial
+            'miles': 1609.344,
+            'yards': 0.9144,
+            'feet': 0.3048,
+            'inches': 0.0254,
+            
+            // Specialized
+            'nautical-miles': 1852,
+            'light-years': 9.461e15,
+            'astronomical-units': 1.496e11,
+            'parsecs': 3.086e16,
+            'angstroms': 1e-10,
+            'fathoms': 1.8288
+        };
+
+        // Unit labels for display
+        const unitLabels = {
+            'meters': {name: 'Meters', symbol: 'm'},
+            'kilometers': {name: 'Kilometers', symbol: 'km'},
+            'centimeters': {name: 'Centimeters', symbol: 'cm'},
+            'millimeters': {name: 'Millimeters', symbol: 'mm'},
+            'micrometers': {name: 'Micrometers', symbol: 'μm'},
+            'nanometers': {name: 'Nanometers', symbol: 'nm'},
+            'miles': {name: 'Miles', symbol: 'mi'},
+            'yards': {name: 'Yards', symbol: 'yd'},
+            'feet': {name: 'Feet', symbol: 'ft'},
+            'inches': {name: 'Inches', symbol: 'in'},
+            'nautical-miles': {name: 'Nautical Miles', symbol: 'nmi'},
+            'light-years': {name: 'Light Years', symbol: 'ly'},
+            'astronomical-units': {name: 'Astronomical Units', symbol: 'AU'},
+            'parsecs': {name: 'Parsecs', symbol: 'pc'},
+            'angstroms': {name: 'Angstroms', symbol: 'Å'},
+            'fathoms': {name: 'Fathoms', symbol: 'fm'}
+        };
+
+        // Common quick conversions
+        const quickConversionList = [
+            {from: 'meters', to: 'feet', value: 1},
+            {from: 'kilometers', to: 'miles', value: 1},
+            {from: 'centimeters', to: 'inches', value: 1},
+            {from: 'miles', to: 'kilometers', value: 1},
+            {from: 'feet', to: 'meters', value: 1},
+            {from: 'inches', to: 'centimeters', value: 1},
+            {from: 'yards', to: 'meters', value: 1},
+            {from: 'nautical-miles', to: 'kilometers', value: 1}
+        ];
+
+        // Recent conversions storage
+        let recentConversionsList = JSON.parse(localStorage.getItem('lengthConverterRecent')) || [];
+
+        // Initialize the converter
+        function initConverter() {
+            updateConversion();
+            updateQuickConversions();
+            updateRecentConversions();
+            setupEventListeners();
+        }
+
+        // Set up event listeners
+        function setupEventListeners() {
+            fromValue.addEventListener('input', updateConversion);
+            fromUnit.addEventListener('change', updateConversion);
+            toUnit.addEventListener('change', updateConversion);
+            
+            swapButton.addEventListener('click', swapUnits);
+            
+            fromValue.addEventListener('focus', () => {
+                fromBox.classList.add('active');
+                toBox.classList.remove('active');
+            });
+            
+            toValue.addEventListener('focus', () => {
+                toBox.classList.add('active');
+                fromBox.classList.remove('active');
+            });
+            
+            clearRecentBtn.addEventListener('click', clearRecentConversions);
+            
+            // Auto-select text when focusing on input
+            fromValue.addEventListener('focus', function() {
+                this.select();
+            });
+            
+            toValue.addEventListener('focus', function() {
+                this.select();
+            });
+        }
+
+        // Update the conversion
+        function updateConversion() {
+            const from = fromUnit.value;
+            const to = toUnit.value;
+            const value = parseFloat(fromValue.value) || 0;
+            
+            // Convert from unit to meters
+            const valueInMeters = value * conversionFactors[from];
+            
+            // Convert from meters to target unit
+            const convertedValue = valueInMeters / conversionFactors[to];
+            
+            // Update the result
+            toValue.value = formatNumber(convertedValue);
+            
+            // Update unit badges and labels
+            updateUnitDisplays();
+            
+            // Save to recent conversions
+            if (value !== 0) {
+                addToRecentConversions(value, from, convertedValue, to);
+            }
+        }
+
+        // Swap units
+        function swapUnits() {
+            const tempUnit = fromUnit.value;
+            const tempValue = fromValue.value;
+            
+            fromUnit.value = toUnit.value;
+            toUnit.value = tempUnit;
+            
+            // Swap the values
+            const fromVal = parseFloat(fromValue.value) || 0;
+            const toVal = parseFloat(toValue.value) || 0;
+            
+            fromValue.value = toVal;
+            
+            // Update conversion
+            updateConversion();
+            
+            // Update active box
+            fromBox.classList.add('active');
+            toBox.classList.remove('active');
+        }
+
+        // Update unit badges and labels
+        function updateUnitDisplays() {
+            const from = fromUnit.value;
+            const to = toUnit.value;
+            
+            fromUnitBadge.textContent = unitLabels[from].name;
+            toUnitBadge.textContent = unitLabels[to].name;
+            
+            fromUnitLabel.textContent = unitLabels[from].symbol;
+            toUnitLabel.textContent = unitLabels[to].symbol;
+        }
+
+        // Format number for display
+        function formatNumber(num) {
+            if (num === 0) return '0';
+            
+            // Handle very large or very small numbers
+            if (Math.abs(num) >= 1e6 || (Math.abs(num) < 1e-6 && num !== 0)) {
+                return num.toExponential(6).replace(/e\+?/, ' × 10^');
+            }
+            
+            // Format with appropriate decimal places
+            const absNum = Math.abs(num);
+            if (absNum >= 1000) {
+                return num.toLocaleString('en-US', {maximumFractionDigits: 2});
+            } else if (absNum >= 1) {
+                return num.toLocaleString('en-US', {maximumFractionDigits: 4});
+            } else if (absNum >= 0.001) {
+                return num.toLocaleString('en-US', {maximumFractionDigits: 6});
+            } else {
+                return num.toLocaleString('en-US', {maximumFractionDigits: 8});
+            }
+        }
+
+        // Update quick conversions
+        function updateQuickConversions() {
+            quickConversions.innerHTML = '';
+            
+            quickConversionList.forEach(item => {
+                const value = item.value;
+                const from = item.from;
+                const to = item.to;
+                
+                // Calculate conversion
+                const valueInMeters = value * conversionFactors[from];
+                const convertedValue = valueInMeters / conversionFactors[to];
+                
+                // Create conversion item
+                const div = document.createElement('div');
+                div.className = 'conversion-item';
+                div.innerHTML = `
+                    <div class="conversion-from">${value} ${unitLabels[from].symbol}</div>
+                    <div class="conversion-to">${formatNumber(convertedValue)} ${unitLabels[to].symbol}</div>
+                    <div class="conversion-value">${formatNumber(convertedValue)}</div>
+                `;
+                
+                // Add click event to set this conversion
+                div.addEventListener('click', () => {
+                    fromUnit.value = from;
+                    toUnit.value = to;
+                    fromValue.value = value;
+                    updateConversion();
+                    fromBox.classList.add('active');
+                    toBox.classList.remove('active');
+                });
+                
+                quickConversions.appendChild(div);
+            });
+        }
+
+        // Add to recent conversions
+        function addToRecentConversions(value, fromUnit, convertedValue, toUnit) {
+            const conversion = {
+                id: Date.now(),
+                value: value,
+                fromUnit: fromUnit,
+                convertedValue: convertedValue,
+                toUnit: toUnit,
+                timestamp: new Date().toLocaleTimeString()
+            };
+            
+            // Add to beginning of array
+            recentConversionsList.unshift(conversion);
+            
+            // Keep only last 10 conversions
+            if (recentConversionsList.length > 10) {
+                recentConversionsList = recentConversionsList.slice(0, 10);
+            }
+            
+            // Save to localStorage
+            localStorage.setItem('lengthConverterRecent', JSON.stringify(recentConversionsList));
+            
+            // Update display
+            updateRecentConversions();
+        }
+
+        // Update recent conversions display
+        function updateRecentConversions() {
+            recentList.innerHTML = '';
+            
+            if (recentConversionsList.length === 0) {
+                recentConversions.classList.remove('show');
+                return;
+            }
+            
+            recentConversions.classList.add('show');
+            
+            recentConversionsList.forEach(conversion => {
+                const div = document.createElement('div');
+                div.className = 'recent-item';
+                div.innerHTML = `
+                    <div class="recent-conversion">
+                        ${conversion.value} ${unitLabels[conversion.fromUnit].symbol} → ${formatNumber(conversion.convertedValue)} ${unitLabels[conversion.toUnit].symbol}
+                    </div>
+                    <div class="recent-value">${formatNumber(conversion.convertedValue)}</div>
+                `;
+                
+                // Add click event to reuse this conversion
+                div.addEventListener('click', () => {
+                    fromUnit.value = conversion.fromUnit;
+                    toUnit.value = conversion.toUnit;
+                    fromValue.value = conversion.value;
+                    updateConversion();
+                    fromBox.classList.add('active');
+                    toBox.classList.remove('active');
+                });
+                
+                recentList.appendChild(div);
+            });
+        }
+
+        // Clear recent conversions
+        function clearRecentConversions() {
+            if (recentConversionsList.length === 0) return;
+            
+            if (confirm('Clear all recent conversions?')) {
+                recentConversionsList = [];
+                localStorage.removeItem('lengthConverterRecent');
+                recentConversions.classList.remove('show');
+            }
+        }
+
+        // Initialize the converter when page loads
+        document.addEventListener('DOMContentLoaded', initConverter);
+    </script>
+</body>
+</html>
