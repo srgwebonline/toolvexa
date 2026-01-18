@@ -1,0 +1,1534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discount Calculator - Calculate Sale Price & Savings | Toolvexa</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Free online discount calculator. Calculate sale price, savings amount, and final price after discount. Perfect for shopping, business, and financial calculations.">
+    <meta name="keywords" content="discount calculator, sale price calculator, percentage off calculator, savings calculator, shopping discount calculator, price after discount">
+    <meta name="author" content="Toolvexa">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Discount Calculator - Calculate Sale Price & Savings | Toolvexa">
+    <meta property="og:description" content="Free online discount calculator. Calculate sale price, savings amount, and final price after discount.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://toolvexa.com/discount-calculator">
+    <meta property="og:image" content="https://toolvexa.com/images/discount-calculator-og.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://toolvexa.com/discount-calculator">
+    
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Discount Calculator",
+        "url": "https://toolvexa.com/discount-calculator",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Any",
+        "description": "Free online tool to calculate discounts, sale prices, and savings amounts",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "creator": {
+            "@type": "Organization",
+            "name": "Toolvexa",
+            "url": "https://toolvexa.com"
+        }
+    }
+    </script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+
+        :root {
+            --primary: #4361ee;
+            --primary-light: #e6f0ff;
+            --secondary: #7209b7;
+            --success: #2ec4b6;
+            --danger: #e63946;
+            --warning: #ff9e00;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --border: #dee2e6;
+            --shadow: rgba(0, 0, 0, 0.1);
+            --radius: 12px;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+            min-height: 100vh;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation Bar */
+        .tool-navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 15px 0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            border-bottom: 3px solid #4361ee;
+        }
+        
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: #4361ee;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .nav-brand i {
+            font-size: 1.8rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            background: #4361ee;
+            color: white;
+        }
+        
+        .back-to-home {
+            background: #4361ee;
+            color: white !important;
+            padding: 8px 20px !important;
+            border-radius: 25px;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #333;
+            cursor: pointer;
+        }
+        
+        /* Adjust body padding for fixed navbar */
+        body {
+            padding-top: 80px;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            margin: 20px 0 30px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .breadcrumb a {
+            color: #4361ee;
+            text-decoration: none;
+        }
+        
+        .breadcrumb span {
+            margin: 0 5px;
+        }
+
+        /* Tool Header */
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px 20px;
+            background: white;
+            border-radius: var(--radius);
+            box-shadow: 0 5px 20px var(--shadow);
+        }
+
+        .logo {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        header h1 {
+            color: var(--primary);
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        header p {
+            color: #666;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 20px;
+        }
+
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+            color: var(--dark);
+            background: var(--light);
+            padding: 8px 15px;
+            border-radius: 50px;
+        }
+
+        .feature i {
+            color: var(--success);
+        }
+
+        /* Main Calculator Section */
+        .calculator-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 1100px) {
+            .calculator-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .input-section, .results-section {
+            background: white;
+            border-radius: var(--radius);
+            padding: 30px;
+            box-shadow: 0 5px 20px var(--shadow);
+        }
+
+        .input-section h2, .results-section h2 {
+            color: var(--primary);
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+        }
+
+        /* Input Form Styles */
+        .input-group {
+            margin-bottom: 25px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .input-with-icon {
+            position: relative;
+        }
+
+        .input-with-icon input {
+            width: 100%;
+            padding: 15px 20px 15px 50px;
+            border: 2px solid var(--border);
+            border-radius: var(--radius);
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .input-with-icon input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.1);
+        }
+
+        .input-icon {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        .currency-symbol {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-weight: 600;
+            color: #666;
+        }
+
+        .percentage-symbol {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-weight: 600;
+            color: #666;
+        }
+
+        /* Toggle Switch for Tax */
+        .toggle-group {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 25px;
+            padding: 15px;
+            background: var(--light);
+            border-radius: var(--radius);
+        }
+
+        .toggle-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+        }
+
+        .toggle-switch {
+            position: relative;
+            width: 60px;
+            height: 30px;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .toggle-slider:before {
+            position: absolute;
+            content: "";
+            height: 22px;
+            width: 22px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .toggle-slider {
+            background-color: var(--success);
+        }
+
+        input:checked + .toggle-slider:before {
+            transform: translateX(30px);
+        }
+
+        /* Preset Discount Buttons */
+        .preset-discounts {
+            margin-top: 30px;
+        }
+
+        .preset-discounts h3 {
+            margin-bottom: 15px;
+            color: var(--dark);
+            font-size: 1.2rem;
+        }
+
+        .preset-buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        .preset-btn {
+            padding: 12px;
+            background: var(--light);
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: center;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .preset-btn:hover {
+            background: #e9ecef;
+        }
+
+        .preset-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        /* Calculate Button */
+        .calculate-btn {
+            width: 100%;
+            padding: 18px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: var(--radius);
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .calculate-btn:hover {
+            background: #3a56d4;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
+        }
+
+        .calculate-btn i {
+            font-size: 1.2rem;
+        }
+
+        /* Results Section */
+        .results-section {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .result-card {
+            background: var(--light);
+            border-radius: var(--radius);
+            padding: 25px;
+            margin-bottom: 20px;
+            border-left: 5px solid var(--primary);
+        }
+
+        .result-card.highlight {
+            background: linear-gradient(135deg, #4361ee 0%, #3a56d4 100%);
+            color: white;
+            border-left-color: var(--secondary);
+        }
+
+        .result-label {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .result-card.highlight .result-label {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .result-value {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .result-card.highlight .result-value {
+            color: white;
+        }
+
+        .result-subtitle {
+            font-size: 0.9rem;
+            color: #888;
+            margin-top: 5px;
+        }
+
+        .result-card.highlight .result-subtitle {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Savings Breakdown */
+        .savings-breakdown {
+            margin-top: 30px;
+        }
+
+        .breakdown-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .breakdown-item:last-child {
+            border-bottom: none;
+        }
+
+        .breakdown-label {
+            color: #666;
+        }
+
+        .breakdown-value {
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .savings-value {
+            color: var(--success);
+        }
+
+        /* Reset Button */
+        .reset-btn {
+            margin-top: auto;
+            padding: 15px;
+            background: var(--light);
+            color: var(--dark);
+            border: 2px solid var(--border);
+            border-radius: var(--radius);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .reset-btn:hover {
+            background: #e9ecef;
+            transform: translateY(-2px);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            margin: 60px 0 40px;
+        }
+
+        .faq-section h2 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .faq-container {
+            background: white;
+            border-radius: var(--radius);
+            padding: 30px;
+            box-shadow: 0 5px 20px var(--shadow);
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border);
+            padding: 20px 0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            color: var(--dark);
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .faq-question i {
+            color: var(--primary);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            color: #666;
+            line-height: 1.6;
+            padding-right: 40px;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            margin-top: 15px;
+        }
+
+        /* Related Tools Section */
+        .related-tools-section {
+            margin: 60px 0 40px;
+        }
+
+        .related-tools-section h2 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .tool-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 5px 15px var(--shadow);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 25px rgba(67, 97, 238, 0.15);
+        }
+
+        .tool-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .tool-card h3 {
+            color: var(--dark);
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .tool-card p {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .tool-link {
+            display: inline-block;
+            background: var(--primary-light);
+            color: var(--primary);
+            padding: 10px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .tool-link:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* SEO Pages Styles */
+        .seo-section {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            display: none;
+            position: relative;
+        }
+        
+        .seo-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .seo-section h1 {
+            color: #4361ee;
+            margin-bottom: 20px;
+            font-size: 2.2rem;
+        }
+        
+        .seo-section h2 {
+            color: #333;
+            margin: 25px 0 15px;
+            font-size: 1.5rem;
+        }
+        
+        .seo-section h3 {
+            color: #555;
+            margin: 20px 0 10px;
+            font-size: 1.2rem;
+        }
+        
+        .seo-content {
+            line-height: 1.8;
+            color: #444;
+        }
+        
+        .seo-content p {
+            margin-bottom: 15px;
+        }
+        
+        .seo-content ul, .seo-content ol {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .seo-content li {
+            margin-bottom: 10px;
+        }
+        
+        .close-seo {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #4361ee;
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            z-index: 10;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 30px 20px;
+            color: #666;
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border);
+            background: white;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            color: #4361ee;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+            text-decoration: underline;
+        }
+
+        .copyright {
+            margin-top: 20px;
+            color: #888;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-container {
+                flex-wrap: wrap;
+            }
+            
+            .calculator-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .preset-buttons {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .seo-section {
+                padding: 20px;
+                margin: 20px;
+            }
+            
+            .faq-container {
+                padding: 20px;
+            }
+            
+            .faq-answer {
+                padding-right: 20px;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .result-value {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .preset-buttons {
+                grid-template-columns: 1fr;
+            }
+            
+            header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .features {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="tool-navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">
+                <i class="fas fa-tools"></i> Toolvexa
+            </a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#tools">All Tools</a></li>
+                <li><a href="index.html#calculators">Calculators</a></li>
+                <li><a href="#privacy-policy" onclick="showSeoPage('privacy')">Privacy Policy</a></li>
+                <li><a href="#terms-of-service" onclick="showSeoPage('terms')">Terms of Service</a></li>
+                <li><a href="#about-tool" onclick="showSeoPage('about')">About This Tool</a></li>
+                <li><a href="index.html" class="back-to-home">Back to Home</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Breadcrumb -->
+        <div class="breadcrumb">
+            <a href="index.html">Home</a> 
+            <span>></span>
+            <a href="index.html#calculators">Calculators</a>
+            <span>></span>
+            <span>Discount Calculator</span>
+        </div>
+
+        <!-- Tool Header -->
+        <header>
+            <div class="logo">
+                <i class="fas fa-percentage"></i>
+            </div>
+            <h1>Discount Calculator</h1>
+            <p>Calculate sale prices, savings amounts, and final prices after discount. Perfect for shopping, business pricing, and financial planning.</p>
+            <div class="features">
+                <div class="feature">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Free & Secure</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-bolt"></i>
+                    <span>Instant Results</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-calculator"></i>
+                    <span>Multiple Calculations</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-mobile-alt"></i>
+                    <span>Mobile Friendly</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Calculator Section -->
+        <div class="calculator-container">
+            <!-- Input Section -->
+            <div class="input-section">
+                <h2>Enter Your Values</h2>
+                
+                <div class="input-group">
+                    <label for="originalPrice">Original Price ($)</label>
+                    <div class="input-with-icon">
+                        <span class="currency-symbol">$</span>
+                        <input type="number" id="originalPrice" placeholder="0.00" min="0" step="0.01" value="100.00">
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <label for="discountPercentage">Discount Percentage (%)</label>
+                    <div class="input-with-icon">
+                        <input type="number" id="discountPercentage" placeholder="0" min="0" max="100" step="0.1" value="20">
+                        <span class="percentage-symbol">%</span>
+                    </div>
+                </div>
+                
+                <!-- Preset Discount Buttons -->
+                <div class="preset-discounts">
+                    <h3>Quick Discount Presets</h3>
+                    <div class="preset-buttons">
+                        <div class="preset-btn" data-discount="10">10% OFF</div>
+                        <div class="preset-btn" data-discount="15">15% OFF</div>
+                        <div class="preset-btn" data-discount="20">20% OFF</div>
+                        <div class="preset-btn" data-discount="25">25% OFF</div>
+                        <div class="preset-btn" data-discount="30">30% OFF</div>
+                        <div class="preset-btn" data-discount="40">40% OFF</div>
+                        <div class="preset-btn" data-discount="50">50% OFF</div>
+                        <div class="preset-btn" data-discount="75">75% OFF</div>
+                    </div>
+                </div>
+                
+                <!-- Tax Toggle -->
+                <div class="toggle-group">
+                    <div class="toggle-label">
+                        <i class="fas fa-receipt"></i>
+                        <span>Include Sales Tax</span>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="taxToggle">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+                
+                <!-- Tax Input (Hidden by Default) -->
+                <div class="input-group" id="taxInputGroup" style="display: none;">
+                    <label for="taxPercentage">Sales Tax Percentage (%)</label>
+                    <div class="input-with-icon">
+                        <input type="number" id="taxPercentage" placeholder="0" min="0" step="0.1" value="8.25">
+                        <span class="percentage-symbol">%</span>
+                    </div>
+                </div>
+                
+                <!-- Calculate Button -->
+                <button class="calculate-btn" id="calculateBtn">
+                    <i class="fas fa-calculator"></i> Calculate Discount
+                </button>
+            </div>
+            
+            <!-- Results Section -->
+            <div class="results-section">
+                <h2>Your Results</h2>
+                
+                <div class="result-card highlight">
+                    <div class="result-label">FINAL PRICE AFTER DISCOUNT</div>
+                    <div class="result-value" id="finalPrice">$80.00</div>
+                    <div class="result-subtitle">What you actually pay</div>
+                </div>
+                
+                <div class="result-card">
+                    <div class="result-label">YOU SAVE</div>
+                    <div class="result-value" id="savingsAmount">$20.00</div>
+                    <div class="result-subtitle">Total discount amount</div>
+                </div>
+                
+                <!-- Savings Breakdown -->
+                <div class="savings-breakdown">
+                    <h3 style="margin-bottom: 15px; color: var(--dark);">Breakdown</h3>
+                    
+                    <div class="breakdown-item">
+                        <span class="breakdown-label">Original Price</span>
+                        <span class="breakdown-value" id="breakdownOriginal">$100.00</span>
+                    </div>
+                    
+                    <div class="breakdown-item">
+                        <span class="breakdown-label">Discount Amount</span>
+                        <span class="breakdown-value savings-value" id="breakdownDiscount">$20.00</span>
+                    </div>
+                    
+                    <div class="breakdown-item" id="taxBreakdownItem" style="display: none;">
+                        <span class="breakdown-label">Sales Tax</span>
+                        <span class="breakdown-value" id="breakdownTax">$6.60</span>
+                    </div>
+                    
+                    <div class="breakdown-item">
+                        <span class="breakdown-label">Final Price</span>
+                        <span class="breakdown-value" style="color: var(--primary); font-weight: 700;" id="breakdownFinal">$80.00</span>
+                    </div>
+                </div>
+                
+                <!-- Reset Button -->
+                <button class="reset-btn" id="resetBtn">
+                    <i class="fas fa-redo"></i> Reset Calculator
+                </button>
+            </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How do I calculate discount percentage?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Discount percentage is calculated as: (Discount Amount ÷ Original Price) × 100. For example, if a $100 item is discounted by $20, the discount percentage is (20 ÷ 100) × 100 = 20%.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How do I calculate final price after discount?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Final price = Original Price × (1 - Discount Percentage/100). For a $100 item with 20% discount: $100 × (1 - 0.20) = $80. Add sales tax if applicable.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What's the difference between discount amount and discount percentage?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Discount amount is the actual dollar value subtracted (e.g., $20 off). Discount percentage is the proportion of the original price (e.g., 20% off). Our calculator handles both automatically.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How do I add sales tax to the discounted price?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Enable the "Include Sales Tax" toggle in the calculator. Enter your local tax rate, and we'll automatically calculate the tax on the discounted price and show you the total amount to pay.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Can I use this for bulk or multiple discounts?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! For multiple discounts (like 20% off, then additional 10% off), calculate them sequentially. First apply 20% to get a new price, then apply 10% to that new price.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Related Tools Section -->
+        <div class="related-tools-section">
+            <h2>Other Useful Calculators</h2>
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <h3>GST Calculator</h3>
+                    <p>Calculate Goods and Services Tax for your invoices and purchases. Add or remove GST easily.</p>
+                    <a href="gst-calculator.html" class="tool-link">Use Tool</a>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>EMI Calculator</h3>
+                    <p>Calculate Equated Monthly Installments for loans with interest rates. Plan your loan repayments.</p>
+                    <a href="emi-calculator.html" class="tool-link">Use Tool</a>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-birthday-cake"></i>
+                    </div>
+                    <h3>Age Calculator</h3>
+                    <p>Calculate exact age in years, months, and days from birth date. Perfect for age verification.</p>
+                    <a href="age-calculator.html" class="tool-link">Use Tool</a>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Percentage Calculator</h3>
+                    <p>Calculate percentages, discounts, percentage changes, and percentage differences easily.</p>
+                    <a href="percentage-calculator.html" class="tool-link">Use Tool</a>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-exchange-alt"></i>
+                    </div>
+                    <h3>Currency Converter</h3>
+                    <p>Convert between different currencies with real-time exchange rates. Perfect for travelers.</p>
+                    <a href="currency-converter.html" class="tool-link">Use Tool</a>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-weight"></i>
+                    </div>
+                    <h3>Tip Calculator</h3>
+                    <p>Calculate tips for restaurants and services. Split bills among multiple people easily.</p>
+                    <a href="tip-calculator.html" class="tool-link">Use Tool</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- SEO Pages Section -->
+        <div class="seo-section" id="privacy-policy">
+            <button class="close-seo" onclick="hideSeoPage()">×</button>
+            <h1>Privacy Policy</h1>
+            <div class="seo-content">
+                <p><strong>Last Updated: January 2024</strong></p>
+                
+                <h2>1. Introduction</h2>
+                <p>Welcome to Toolvexa Discount Calculator. Your privacy is critically important to us. This privacy policy document outlines how we handle your data when you use our discount calculator tool.</p>
+                
+                <h2>2. Information We Collect</h2>
+                <h3>2.1 No Personal Data Collection</h3>
+                <p>Our Discount Calculator tool operates entirely in your browser. We do not:</p>
+                <ul>
+                    <li>Collect any personal information</li>
+                    <li>Store your calculation history</li>
+                    <li>Use cookies for tracking purposes</li>
+                    <li>Share data with third parties</li>
+                </ul>
+                
+                <h3>2.2 Local Processing Only</h3>
+                <p>All calculations happen locally on your device using JavaScript. Your financial data never leaves your computer or mobile device.</p>
+                
+                <h2>3. How We Use Information</h2>
+                <p>Since we don't collect any personal data, there's no information to use or share. The tool functions completely offline once loaded in your browser.</p>
+                
+                <h2>4. Third-Party Services</h2>
+                <p>We use Font Awesome for icons and Google Fonts for typography. These services may collect limited data as per their own privacy policies.</p>
+                
+                <h2>5. Security</h2>
+                <p>Your security is guaranteed because:</p>
+                <ul>
+                    <li>No data transmission occurs</li>
+                    <li>All calculations are done client-side</li>
+                    <li>No server-side storage exists</li>
+                </ul>
+                
+                <h2>6. Changes to This Policy</h2>
+                <p>We may update this privacy policy from time to time. We will notify you of any changes by posting the new privacy policy on this page.</p>
+                
+                <h2>7. Contact Us</h2>
+                <p>If you have any questions about this Privacy Policy, please contact us at: privacy@toolvexa.com</p>
+            </div>
+        </div>
+
+        <div class="seo-section" id="terms-of-service">
+            <button class="close-seo" onclick="hideSeoPage()">×</button>
+            <h1>Terms of Service</h1>
+            <div class="seo-content">
+                <p><strong>Last Updated: January 2024</strong></p>
+                
+                <h2>1. Acceptance of Terms</h2>
+                <p>By accessing and using the Toolvexa Discount Calculator tool, you accept and agree to be bound by the terms and provision of this agreement.</p>
+                
+                <h2>2. Description of Service</h2>
+                <p>Toolvexa Discount Calculator provides a free online tool for calculating discounts, sale prices, and savings amounts. The service includes:</p>
+                <ul>
+                    <li>Discount percentage calculations</li>
+                    <li>Sale price calculations</li>
+                    <li>Savings amount calculations</li>
+                    <li>Tax-inclusive pricing options</li>
+                    <li>Quick preset discount buttons</li>
+                </ul>
+                
+                <h2>3. User Responsibilities</h2>
+                <p>You agree to:</p>
+                <ul>
+                    <li>Use the tool only for lawful purposes</li>
+                    <li>Verify calculation results for important financial decisions</li>
+                    <li>Not misuse the tool for fraudulent activities</li>
+                    <li>Not attempt to reverse engineer or hack the tool</li>
+                </ul>
+                
+                <h2>4. Service Limitations</h2>
+                <p>The service is provided "as is" without warranties of any kind. We do not guarantee:</p>
+                <ul>
+                    <li>100% calculation accuracy for all scenarios</li>
+                    <li>Uninterrupted service availability</li>
+                    <li>Compatibility with all browsers or devices</li>
+                    <li>Financial advice or recommendations</li>
+                </ul>
+                
+                <h2>5. Financial Disclaimer</h2>
+                <p>This tool is for informational purposes only. Always verify calculations for important financial transactions. We are not responsible for financial decisions made based on this tool's results.</p>
+                
+                <h2>6. Limitation of Liability</h2>
+                <p>Toolvexa shall not be liable for any financial losses or damages resulting from your use of the tool.</p>
+                
+                <h2>7. Changes to Terms</h2>
+                <p>We reserve the right to modify these terms at any time. Continued use of the tool constitutes acceptance of modified terms.</p>
+                
+                <h2>8. Contact Information</h2>
+                <p>For any questions regarding these Terms of Service, please contact: legal@toolvexa.com</p>
+            </div>
+        </div>
+
+        <div class="seo-section" id="about-tool">
+            <button class="close-seo" onclick="hideSeoPage()">×</button>
+            <h1>About Discount Calculator Tool</h1>
+            <div class="seo-content">
+                <h2>What is Toolvexa Discount Calculator?</h2>
+                <p>Toolvexa Discount Calculator is a free online tool that helps you calculate sale prices, discount amounts, and final prices after applying discounts. It's perfect for shoppers, business owners, students, and anyone who needs to calculate discounts quickly and accurately.</p>
+                
+                <h2>Key Features</h2>
+                <ul>
+                    <li><strong>Instant Calculations:</strong> Get results immediately as you type</li>
+                    <li><strong>Tax Inclusion:</strong> Optional sales tax calculation</li>
+                    <li><strong>Quick Presets:</strong> Common discount percentages with one click</li>
+                    <li><strong>Detailed Breakdown:</strong> See exactly how your final price is calculated</li>
+                    <li><strong>Mobile Optimized:</strong> Works perfectly on all devices</li>
+                    <li><strong>Privacy Focused:</strong> All calculations happen in your browser</li>
+                </ul>
+                
+                <h2>How It Works</h2>
+                <p>Our tool uses simple mathematical formulas to calculate discounts:</p>
+                <ol>
+                    <li><strong>Discount Amount:</strong> Original Price × (Discount Percentage ÷ 100)</li>
+                    <li><strong>Sale Price:</strong> Original Price - Discount Amount</li>
+                    <li><strong>Tax Amount:</strong> Sale Price × (Tax Percentage ÷ 100)</li>
+                    <li><strong>Final Price:</strong> Sale Price + Tax Amount</li>
+                </ol>
+                
+                <h2>Use Cases</h2>
+                <ul>
+                    <li><strong>Shopping:</strong> Calculate final prices during sales</li>
+                    <li><strong>Business:</strong> Set sale prices and calculate profit margins</li>
+                    <li><strong>Education:</strong> Learn percentage calculations</li>
+                    <li><strong>Personal Finance:</strong> Budget for purchases during discounts</li>
+                    <li><strong>E-commerce:</strong> Set up discount pricing for online stores</li>
+                </ul>
+                
+                <h2>Common Discount Scenarios</h2>
+                <ul>
+                    <li><strong>Seasonal Sales:</strong> Black Friday, Christmas, Summer sales</li>
+                    <li><strong>Clearance Events:</strong> End-of-season clearance discounts</li>
+                    <li><strong>Member Discounts:</strong> Loyalty program savings</li>
+                    <li><strong>Bulk Purchases:</strong> Quantity-based discounts</li>
+                    <li><strong>Promotional Offers:</strong> Limited-time special offers</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-links">
+                <a href="#privacy-policy" onclick="showSeoPage('privacy')">Privacy Policy</a>
+                <a href="#terms-of-service" onclick="showSeoPage('terms')">Terms of Service</a>
+                <a href="#about-tool" onclick="showSeoPage('about')">About This Tool</a>
+                <a href="index.html">All Tools</a>
+                <a href="index.html#calculators">Calculators</a>
+                <a href="index.html#contact">Contact Us</a>
+            </div>
+            <div class="copyright">
+                <p>© 2024 Discount Calculator | Toolvexa | All calculations happen locally in your browser. No data is uploaded to any server.</p>
+                <p style="margin-top: 10px;">Made with <i class="fas fa-heart" style="color: #e63946;"></i> for everyone</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Navigation functionality
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                navLinks.classList.remove('active');
+            }
+        });
+        
+        // SEO pages functionality
+        function showSeoPage(page) {
+            // Hide all seo sections first
+            document.querySelectorAll('.seo-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show the requested section
+            let sectionId = '';
+            switch(page) {
+                case 'privacy':
+                    sectionId = 'privacy-policy';
+                    break;
+                case 'terms':
+                    sectionId = 'terms-of-service';
+                    break;
+                case 'about':
+                    sectionId = 'about-tool';
+                    break;
+            }
+            
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Close mobile menu if open
+            navLinks.classList.remove('active');
+            
+            // Scroll to the section
+            setTimeout(() => {
+                document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+            }, 100);
+        }
+        
+        function hideSeoPage() {
+            document.querySelectorAll('.seo-section').forEach(section => {
+                section.classList.remove('active');
+            });
+        }
+        
+        // Close SEO section when clicking outside
+        document.addEventListener('click', (e) => {
+            if (e.target.classList.contains('seo-section')) {
+                hideSeoPage();
+            }
+        });
+
+        // FAQ functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                item.classList.toggle('active');
+            });
+        });
+
+        // Discount Calculator JavaScript
+        const originalPriceInput = document.getElementById('originalPrice');
+        const discountPercentageInput = document.getElementById('discountPercentage');
+        const taxToggle = document.getElementById('taxToggle');
+        const taxInputGroup = document.getElementById('taxInputGroup');
+        const taxPercentageInput = document.getElementById('taxPercentage');
+        const calculateBtn = document.getElementById('calculateBtn');
+        const resetBtn = document.getElementById('resetBtn');
+        const presetButtons = document.querySelectorAll('.preset-btn');
+        
+        // Result elements
+        const finalPriceElement = document.getElementById('finalPrice');
+        const savingsAmountElement = document.getElementById('savingsAmount');
+        const breakdownOriginal = document.getElementById('breakdownOriginal');
+        const breakdownDiscount = document.getElementById('breakdownDiscount');
+        const taxBreakdownItem = document.getElementById('taxBreakdownItem');
+        const breakdownTax = document.getElementById('breakdownTax');
+        const breakdownFinal = document.getElementById('breakdownFinal');
+
+        // Format currency
+        function formatCurrency(amount) {
+            return new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD',
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            }).format(amount);
+        }
+
+        // Format percentage
+        function formatPercentage(amount) {
+            return `${amount.toFixed(1)}%`;
+        }
+
+        // Calculate discount
+        function calculateDiscount() {
+            // Get input values
+            const originalPrice = parseFloat(originalPriceInput.value) || 0;
+            const discountPercentage = parseFloat(discountPercentageInput.value) || 0;
+            const includeTax = taxToggle.checked;
+            const taxPercentage = includeTax ? parseFloat(taxPercentageInput.value) || 0 : 0;
+            
+            // Validate inputs
+            if (originalPrice <= 0) {
+                alert('Please enter a valid original price greater than 0.');
+                return;
+            }
+            
+            if (discountPercentage < 0 || discountPercentage > 100) {
+                alert('Discount percentage must be between 0 and 100.');
+                return;
+            }
+            
+            // Calculate discount amount
+            const discountAmount = originalPrice * (discountPercentage / 100);
+            
+            // Calculate sale price (after discount, before tax)
+            const salePrice = originalPrice - discountAmount;
+            
+            // Calculate tax amount (if applicable)
+            const taxAmount = includeTax ? salePrice * (taxPercentage / 100) : 0;
+            
+            // Calculate final price
+            const finalPrice = salePrice + taxAmount;
+            
+            // Update results
+            finalPriceElement.textContent = formatCurrency(finalPrice);
+            savingsAmountElement.textContent = formatCurrency(discountAmount);
+            
+            // Update breakdown
+            breakdownOriginal.textContent = formatCurrency(originalPrice);
+            breakdownDiscount.textContent = formatCurrency(discountAmount);
+            breakdownFinal.textContent = formatCurrency(finalPrice);
+            
+            // Update tax breakdown if applicable
+            if (includeTax) {
+                taxBreakdownItem.style.display = 'flex';
+                breakdownTax.textContent = formatCurrency(taxAmount);
+            } else {
+                taxBreakdownItem.style.display = 'none';
+            }
+        }
+
+        // Reset calculator
+        function resetCalculator() {
+            originalPriceInput.value = '100.00';
+            discountPercentageInput.value = '20';
+            taxToggle.checked = false;
+            taxPercentageInput.value = '8.25';
+            taxInputGroup.style.display = 'none';
+            
+            // Reset preset buttons
+            presetButtons.forEach(btn => btn.classList.remove('active'));
+            
+            // Reset to default calculation
+            calculateDiscount();
+        }
+
+        // Initialize with default calculation
+        calculateDiscount();
+
+        // Event Listeners
+        calculateBtn.addEventListener('click', calculateDiscount);
+        resetBtn.addEventListener('click', resetCalculator);
+
+        // Tax toggle functionality
+        taxToggle.addEventListener('change', function() {
+            if (this.checked) {
+                taxInputGroup.style.display = 'block';
+            } else {
+                taxInputGroup.style.display = 'none';
+            }
+            calculateDiscount();
+        });
+
+        // Preset discount buttons
+        presetButtons.forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Remove active class from all buttons
+                presetButtons.forEach(b => b.classList.remove('active'));
+                
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                // Set discount percentage
+                const discount = this.getAttribute('data-discount');
+                discountPercentageInput.value = discount;
+                
+                // Recalculate
+                calculateDiscount();
+            });
+        });
+
+        // Auto-calculate when inputs change
+        [originalPriceInput, discountPercentageInput, taxPercentageInput].forEach(input => {
+            input.addEventListener('input', calculateDiscount);
+        });
+
+        // Auto-calculate when tax percentage changes
+        taxPercentageInput.addEventListener('input', calculateDiscount);
+
+        // Make functions available globally for onclick handlers
+        window.calculateDiscount = calculateDiscount;
+        window.resetCalculator = resetCalculator;
+    </script>
+</body>
+</html>
