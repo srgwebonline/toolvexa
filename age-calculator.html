@@ -1076,7 +1076,7 @@
                 <h2>Age Results</h2>
                 
                 <div class="age-display" id="ageDisplay">
-                    <div class="main-age" id="mainAge">0</div>
+                    <div class="main-age" id="mainAge">34</div>
                     <div class="main-age-label" id="mainAgeLabel">Years</div>
                 </div>
 
@@ -1084,7 +1084,7 @@
                     <h3>Age Breakdown</h3>
                     <div class="breakdown-grid">
                         <div class="breakdown-item">
-                            <div class="breakdown-value" id="ageYears">0</div>
+                            <div class="breakdown-value" id="ageYears">34</div>
                             <div class="breakdown-label">Years</div>
                         </div>
                         <div class="breakdown-item">
@@ -1092,11 +1092,11 @@
                             <div class="breakdown-label">Months</div>
                         </div>
                         <div class="breakdown-item">
-                            <div class="breakdown-value" id="ageDays">0</div>
+                            <div class="breakdown-value" id="ageDays">1</div>
                             <div class="breakdown-label">Days</div>
                         </div>
                         <div class="breakdown-item">
-                            <div class="breakdown-value" id="ageWeeks">0</div>
+                            <div class="breakdown-value" id="ageWeeks">1773</div>
                             <div class="breakdown-label">Weeks</div>
                         </div>
                     </div>
@@ -1107,27 +1107,27 @@
                     <div class="results-grid">
                         <div class="result-item">
                             <span class="result-label">Total Days:</span>
-                            <span class="result-value" id="totalDays">0</span>
+                            <span class="result-value" id="totalDays">12,416</span>
                         </div>
                         <div class="result-item">
                             <span class="result-label">Total Weeks:</span>
-                            <span class="result-value" id="totalWeeks">0</span>
+                            <span class="result-value" id="totalWeeks">1,773</span>
                         </div>
                         <div class="result-item">
                             <span class="result-label">Total Months:</span>
-                            <span class="result-value" id="totalMonths">0</span>
+                            <span class="result-value" id="totalMonths">408</span>
                         </div>
                         <div class="result-item">
                             <span class="result-label">Total Hours:</span>
-                            <span class="result-value" id="totalHours">0</span>
+                            <span class="result-value" id="totalHours">297,984</span>
                         </div>
                         <div class="result-item">
                             <span class="result-label">Next Birthday:</span>
-                            <span class="result-value" id="nextBirthday">-</span>
+                            <span class="result-value" id="nextBirthday">January 1, 2025 (in 0 days)</span>
                         </div>
                         <div class="result-item">
                             <span class="result-label">Birth Day:</span>
-                            <span class="result-value" id="birthDayName">-</span>
+                            <span class="result-value" id="birthDayName">Monday</span>
                         </div>
                     </div>
                 </div>
@@ -1136,10 +1136,10 @@
                 <div class="zodiac-section" id="zodiacSection">
                     <h3>Zodiac Sign</h3>
                     <div class="zodiac-info">
-                        <div class="zodiac-sign" id="zodiacSymbol">♈</div>
+                        <div class="zodiac-sign" id="zodiacSymbol">♑</div>
                         <div class="zodiac-details">
-                            <div class="zodiac-name" id="zodiacName">Aries</div>
-                            <div class="zodiac-dates" id="zodiacDates">Mar 21 - Apr 19</div>
+                            <div class="zodiac-name" id="zodiacName">Capricorn</div>
+                            <div class="zodiac-dates" id="zodiacDates">Dec 22 - Jan 19</div>
                         </div>
                     </div>
                 </div>
@@ -1147,7 +1147,7 @@
                 <!-- Fun Facts -->
                 <div class="fun-facts" id="funFacts">
                     <h3><i class="fas fa-lightbulb"></i> Fun Facts</h3>
-                    <p id="funFactText">Enter your birth date to see fun facts about your age!</p>
+                    <p id="funFactText">You're 34 years, 0 months, and 1 day old! 🎂 That's 12,416 total days lived! 📅 You've been alive for approximately 298k hours! ⏰ You've been an adult for 16 years! 🚗 Legal drinking age for 13 years! 🍷</p>
                 </div>
             </div>
         </div>
@@ -1432,23 +1432,24 @@
         let birthDate = null;
         let currentDate = null;
         let ageCalculated = false;
+        let isInitialLoad = true;
 
         // ========== NAVIGATION FUNCTIONALITY ==========
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const navLinks = document.getElementById('navLinks');
-        
+
         mobileMenuBtn.addEventListener('click', (e) => {
             e.stopPropagation();
             navLinks.classList.toggle('active');
         });
-        
+
         // Close mobile menu when clicking outside
         document.addEventListener('click', (e) => {
             if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
                 navLinks.classList.remove('active');
             }
         });
-        
+
         // Close mobile menu when clicking a link
         navLinks.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
@@ -1482,13 +1483,13 @@
             // Close mobile menu if open
             navLinks.classList.remove('active');
         }
-        
+
         function hideSeoPage() {
             document.querySelectorAll('.seo-section').forEach(section => {
                 section.classList.remove('active');
             });
         }
-        
+
         // Close SEO section when clicking outside
         document.addEventListener('click', (e) => {
             if (e.target.classList.contains('seo-section')) {
@@ -1510,7 +1511,9 @@
             setupEventListeners();
             setToday();
             setDefaultBirthDate();
-            calculateAge();
+            
+            // Display initial results without loading animation
+            displayInitialResults();
         });
 
         function initializeDateSelectors() {
@@ -1563,11 +1566,18 @@
         function setupEventListeners() {
             // Add change listeners to all date selects
             ['birthDay', 'birthMonth', 'birthYear', 'currentDay', 'currentMonth', 'currentYear'].forEach(id => {
-                document.getElementById(id).addEventListener('change', calculateAge);
+                document.getElementById(id).addEventListener('change', () => {
+                    if (!isInitialLoad) {
+                        calculateAge();
+                    }
+                });
             });
 
             // Add click listener to calculate button
-            document.getElementById('calculateBtn').addEventListener('click', calculateAge);
+            document.getElementById('calculateBtn').addEventListener('click', () => {
+                isInitialLoad = false;
+                calculateAge();
+            });
         }
 
         function setDefaultBirthDate() {
@@ -1582,6 +1592,31 @@
             document.getElementById('currentYear').value = today.getFullYear();
         }
 
+        function displayInitialResults() {
+            // Display initial results without loading animation
+            const birthDate = getDateFromSelectors('birth');
+            const currentDate = getDateFromSelectors('current');
+            
+            if (!birthDate || !currentDate) {
+                return;
+            }
+
+            if (birthDate > currentDate) {
+                return;
+            }
+
+            // Calculate age difference without loading overlay
+            const age = calculateAgeDifference(birthDate, currentDate);
+            
+            // Update UI with results
+            updateAgeDisplay(age);
+            updateZodiacSign(birthDate);
+            updateFunFacts(age, birthDate, currentDate);
+            
+            ageCalculated = true;
+            isInitialLoad = false;
+        }
+
         function showLoading() {
             document.getElementById('loadingOverlay').classList.add('active');
         }
@@ -1592,42 +1627,49 @@
 
         // ========== AGE CALCULATION FUNCTIONS ==========
         function calculateAge() {
-            showLoading();
-            
-            // Delay slightly to show loading animation (for better UX)
-            setTimeout(() => {
-                try {
-                    const birthDate = getDateFromSelectors('birth');
-                    const currentDate = getDateFromSelectors('current');
-                    
-                    if (!birthDate || !currentDate) {
-                        alert('Please select valid dates for both birth date and current date.');
-                        hideLoading();
-                        return;
-                    }
-
-                    if (birthDate > currentDate) {
-                        alert('Birth date cannot be in the future!');
-                        hideLoading();
-                        return;
-                    }
-
-                    // Calculate age difference
-                    const age = calculateAgeDifference(birthDate, currentDate);
-                    
-                    // Update UI with results
-                    updateAgeDisplay(age);
-                    updateZodiacSign(birthDate);
-                    updateFunFacts(age, birthDate, currentDate);
-                    
-                    ageCalculated = true;
-                } catch (error) {
-                    console.error('Error calculating age:', error);
-                    alert('An error occurred while calculating age. Please check your dates and try again.');
-                } finally {
+            if (isInitialLoad) {
+                isInitialLoad = false;
+                // Don't show loading on initial calculation
+                performAgeCalculation();
+            } else {
+                showLoading();
+                
+                // Delay slightly to show loading animation (for better UX)
+                setTimeout(() => {
+                    performAgeCalculation();
                     hideLoading();
+                }, 100);
+            }
+        }
+
+        function performAgeCalculation() {
+            try {
+                const birthDate = getDateFromSelectors('birth');
+                const currentDate = getDateFromSelectors('current');
+                
+                if (!birthDate || !currentDate) {
+                    alert('Please select valid dates for both birth date and current date.');
+                    return;
                 }
-            }, 300);
+
+                if (birthDate > currentDate) {
+                    alert('Birth date cannot be in the future!');
+                    return;
+                }
+
+                // Calculate age difference
+                const age = calculateAgeDifference(birthDate, currentDate);
+                
+                // Update UI with results
+                updateAgeDisplay(age);
+                updateZodiacSign(birthDate);
+                updateFunFacts(age, birthDate, currentDate);
+                
+                ageCalculated = true;
+            } catch (error) {
+                console.error('Error calculating age:', error);
+                alert('An error occurred while calculating age. Please check your dates and try again.');
+            }
         }
 
         function getDateFromSelectors(type) {
@@ -1741,34 +1783,32 @@
             const month = date.getMonth() + 1; // 1-12
             const day = date.getDate();
             
-            // Zodiac dates
-            const zodiacs = [
-                { name: "Capricorn", symbol: "♑", start: [12, 22], end: [1, 19] },
-                { name: "Aquarius", symbol: "♒", start: [1, 20], end: [2, 18] },
-                { name: "Pisces", symbol: "♓", start: [2, 19], end: [3, 20] },
-                { name: "Aries", symbol: "♈", start: [3, 21], end: [4, 19] },
-                { name: "Taurus", symbol: "♉", start: [4, 20], end: [5, 20] },
-                { name: "Gemini", symbol: "♊", start: [5, 21], end: [6, 20] },
-                { name: "Cancer", symbol: "♋", start: [6, 21], end: [7, 22] },
-                { name: "Leo", symbol: "♌", start: [7, 23], end: [8, 22] },
-                { name: "Virgo", symbol: "♍", start: [8, 23], end: [9, 22] },
-                { name: "Libra", symbol: "♎", start: [9, 23], end: [10, 22] },
-                { name: "Scorpio", symbol: "♏", start: [10, 23], end: [11, 21] },
-                { name: "Sagittarius", symbol: "♐", start: [11, 22], end: [12, 21] }
-            ];
-            
-            for (const zodiac of zodiacs) {
-                const [startMonth, startDay] = zodiac.start;
-                const [endMonth, endDay] = zodiac.end;
-                
-                if ((month === startMonth && day >= startDay) ||
-                    (month === endMonth && day <= endDay) ||
-                    (startMonth > endMonth && (month > startMonth || month < endMonth))) {
-                    return zodiac;
-                }
+            // Zodiac dates (simplified for performance)
+            if ((month === 1 && day >= 20) || (month === 2 && day <= 18)) {
+                return { name: "Aquarius", symbol: "♒", dates: "Jan 20 - Feb 18" };
+            } else if ((month === 2 && day >= 19) || (month === 3 && day <= 20)) {
+                return { name: "Pisces", symbol: "♓", dates: "Feb 19 - Mar 20" };
+            } else if ((month === 3 && day >= 21) || (month === 4 && day <= 19)) {
+                return { name: "Aries", symbol: "♈", dates: "Mar 21 - Apr 19" };
+            } else if ((month === 4 && day >= 20) || (month === 5 && day <= 20)) {
+                return { name: "Taurus", symbol: "♉", dates: "Apr 20 - May 20" };
+            } else if ((month === 5 && day >= 21) || (month === 6 && day <= 20)) {
+                return { name: "Gemini", symbol: "♊", dates: "May 21 - Jun 20" };
+            } else if ((month === 6 && day >= 21) || (month === 7 && day <= 22)) {
+                return { name: "Cancer", symbol: "♋", dates: "Jun 21 - Jul 22" };
+            } else if ((month === 7 && day >= 23) || (month === 8 && day <= 22)) {
+                return { name: "Leo", symbol: "♌", dates: "Jul 23 - Aug 22" };
+            } else if ((month === 8 && day >= 23) || (month === 9 && day <= 22)) {
+                return { name: "Virgo", symbol: "♍", dates: "Aug 23 - Sep 22" };
+            } else if ((month === 9 && day >= 23) || (month === 10 && day <= 22)) {
+                return { name: "Libra", symbol: "♎", dates: "Sep 23 - Oct 22" };
+            } else if ((month === 10 && day >= 23) || (month === 11 && day <= 21)) {
+                return { name: "Scorpio", symbol: "♏", dates: "Oct 23 - Nov 21" };
+            } else if ((month === 11 && day >= 22) || (month === 12 && day <= 21)) {
+                return { name: "Sagittarius", symbol: "♐", dates: "Nov 22 - Dec 21" };
+            } else {
+                return { name: "Capricorn", symbol: "♑", dates: "Dec 22 - Jan 19" };
             }
-            
-            return { name: "Capricorn", symbol: "♑", start: [12, 22], end: [1, 19] };
         }
 
         // ========== FUN FACTS FUNCTIONS ==========
@@ -1824,7 +1864,9 @@
             document.getElementById('currentDay').value = today.getDate();
             document.getElementById('currentMonth').value = today.getMonth();
             document.getElementById('currentYear').value = today.getFullYear();
-            calculateAge();
+            if (!isInitialLoad) {
+                calculateAge();
+            }
         }
 
         function setTomorrow() {
@@ -1833,7 +1875,9 @@
             document.getElementById('currentDay').value = tomorrow.getDate();
             document.getElementById('currentMonth').value = tomorrow.getMonth();
             document.getElementById('currentYear').value = tomorrow.getFullYear();
-            calculateAge();
+            if (!isInitialLoad) {
+                calculateAge();
+            }
         }
 
         function setNextBirthday() {
@@ -1857,7 +1901,9 @@
             document.getElementById('currentDay').value = nextBirthday.getDate();
             document.getElementById('currentMonth').value = nextBirthday.getMonth();
             document.getElementById('currentYear').value = nextBirthday.getFullYear();
-            calculateAge();
+            if (!isInitialLoad) {
+                calculateAge();
+            }
         }
 
         function clearAll() {
@@ -1895,20 +1941,6 @@
             document.getElementById('funFactText').textContent = 'Enter your birth date to see fun facts about your age!';
             
             ageCalculated = false;
-        }
-
-        // ========== VALIDATION FUNCTIONS ==========
-        function validateDate(day, month, year) {
-            // Check if all values are provided
-            if (!day || !month || !year) {
-                return false;
-            }
-            
-            // Check if date is valid
-            const date = new Date(year, month, day);
-            return date.getDate() === parseInt(day) && 
-                   date.getMonth() === parseInt(month) && 
-                   date.getFullYear() === parseInt(year);
         }
 
         // ========== EXPORT FUNCTIONS TO GLOBAL SCOPE ==========
