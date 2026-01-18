@@ -2,15 +2,55 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sitemap | Toolvexa - Complete Directory of All Tools and Pages</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Complete sitemap of Toolvexa website. Browse all online tools, categories, blog posts, and informational pages.">
-    <meta name="keywords" content="website sitemap, page directory, Toolvexa pages, online tools directory, site structure">
+    <meta name="description" content="Complete sitemap of Toolvexa website. Browse all 50+ online tools, categories, blog posts, and informational pages. Find every tool easily.">
+    <meta name="keywords" content="website sitemap, page directory, Toolvexa pages, online tools directory, site structure, XML sitemap, SEO sitemap">
+    <meta name="author" content="Toolvexa">
     <meta name="robots" content="index, follow">
-    <meta property="og:title" content="Sitemap | Toolvexa">
-    <meta property="og:description" content="Complete directory of all pages and tools on Toolvexa website.">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Sitemap | Toolvexa - Complete Directory of All Tools and Pages">
+    <meta property="og:description" content="Complete directory of all pages and tools on Toolvexa website. Browse 50+ free online tools.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://toolvexa.com/sitemap">
+    <meta property="og:image" content="https://toolvexa.com/images/sitemap-og.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://toolvexa.com/sitemap">
+    
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "Toolvexa Website Sitemap",
+        "description": "Complete directory of all tools, categories, and pages on Toolvexa",
+        "numberOfItems": "50",
+        "itemListElement": [
+            {
+                "@type": "SiteNavigationElement",
+                "name": "Image Tools",
+                "url": "https://toolvexa.com/image-tools",
+                "description": "Image editing and processing tools"
+            },
+            {
+                "@type": "SiteNavigationElement",
+                "name": "PDF Tools",
+                "url": "https://toolvexa.com/pdf-tools",
+                "description": "PDF processing and conversion tools"
+            },
+            {
+                "@type": "SiteNavigationElement",
+                "name": "SEO Tools",
+                "url": "https://toolvexa.com/seo-tools",
+                "description": "Search engine optimization tools"
+            }
+        ]
+    }
+    </script>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,107 +58,140 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     
     <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
+        /* Reset & Base Styles */
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
         }
-        
+
         :root {
-            --primary-color: #4f46e5;
-            --primary-dark: #3730a3;
-            --secondary-color: #fbbf24;
-            --accent-color: #ec4899;
-            --light-color: #f8fafc;
-            --dark-color: #111827;
-            --gray-color: #6b7280;
-            --light-gray: #e5e7eb;
-            --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            --transition: all 0.3s ease;
-            --border-radius: 12px;
+            --primary: #4361ee;
+            --primary-light: #e6f0ff;
+            --secondary: #7209b7;
+            --success: #2ec4b6;
+            --danger: #e63946;
+            --warning: #ff9e00;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --border: #dee2e6;
+            --shadow: rgba(0, 0, 0, 0.1);
+            --radius: 12px;
         }
-        
+
         body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--light-color);
-            color: var(--dark-color);
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+            min-height: 100vh;
+            color: var(--dark);
             line-height: 1.6;
-            overflow-x: hidden;
-            padding-top: 70px;
+            padding-top: 80px; /* For fixed navbar */
         }
-        
-        h1, h2, h3, h4 {
-            font-family: 'Playfair Display', serif;
-            font-weight: 600;
-            line-height: 1.3;
-        }
-        
+
         .container {
-            width: 100%;
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 0 20px;
         }
-        
-        /* Header */
-        header {
-            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
-            color: white;
-            padding: 1rem 0;
+
+        /* Navigation Bar */
+        .tool-navbar {
             position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
             z-index: 1000;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            border-bottom: 3px solid #4361ee;
         }
         
         .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 0 20px;
         }
         
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            font-weight: 700;
+        .nav-brand {
             display: flex;
             align-items: center;
             gap: 10px;
             text-decoration: none;
-            color: white;
+            color: #4361ee;
+            font-size: 1.5rem;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
         }
         
-        .logo:hover {
-            color: var(--secondary-color);
-            transition: var(--transition);
+        .nav-brand i {
+            font-size: 1.8rem;
         }
         
-        /* Back to Home Button */
-        .back-home {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background-color: var(--primary-color);
-            color: white;
-            padding: 0.8rem 1.5rem;
-            border-radius: var(--border-radius);
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: #333;
             text-decoration: none;
             font-weight: 500;
-            margin: 2rem 0;
-            transition: var(--transition);
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
         }
         
-        .back-home:hover {
-            background-color: var(--primary-dark);
-            transform: translateY(-3px);
-            box-shadow: var(--card-shadow);
+        .nav-links a:hover {
+            background: #4361ee;
+            color: white;
         }
         
+        .nav-links a.active {
+            background: #4361ee;
+            color: white;
+        }
+        
+        .back-to-home {
+            background: #4361ee;
+            color: white !important;
+            padding: 8px 20px !important;
+            border-radius: 25px;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #333;
+            cursor: pointer;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            margin: 20px 0 30px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .breadcrumb a {
+            color: #4361ee;
+            text-decoration: none;
+        }
+        
+        .breadcrumb span {
+            margin: 0 5px;
+        }
+
         /* Sitemap Content */
         .sitemap-container {
             animation: fadeIn 1s ease-out;
@@ -132,19 +205,24 @@
         .sitemap-header {
             text-align: center;
             margin-bottom: 3rem;
-            padding: 2rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: var(--radius);
+            box-shadow: 0 5px 20px var(--shadow);
         }
         
         .sitemap-header h1 {
             font-size: 2.5rem;
-            color: var(--dark-color);
+            color: var(--primary);
             margin-bottom: 1rem;
+            font-family: 'Playfair Display', serif;
         }
         
         .sitemap-header p {
-            color: var(--gray-color);
+            color: #666;
             max-width: 700px;
             margin: 0 auto;
+            font-size: 1.1rem;
         }
         
         .sitemap-grid {
@@ -156,23 +234,24 @@
         
         .sitemap-category {
             background: white;
-            border-radius: var(--border-radius);
+            border-radius: var(--radius);
             padding: 1.5rem;
-            box-shadow: var(--card-shadow);
-            transition: var(--transition);
+            box-shadow: 0 5px 20px var(--shadow);
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--primary);
         }
         
         .sitemap-category:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+            box-shadow: 0 10px 25px rgba(67, 97, 238, 0.15);
         }
         
         .category-title {
-            color: var(--primary-color);
+            color: var(--primary);
             font-size: 1.3rem;
             margin-bottom: 1rem;
             padding-bottom: 0.5rem;
-            border-bottom: 2px solid rgba(79, 70, 229, 0.2);
+            border-bottom: 2px solid rgba(67, 97, 238, 0.2);
             display: flex;
             align-items: center;
             gap: 10px;
@@ -194,20 +273,23 @@
         
         .page-list li:before {
             content: "→";
-            color: var(--accent-color);
+            color: var(--primary);
             position: absolute;
             left: 0;
             font-weight: bold;
         }
         
         .page-list a {
-            color: var(--gray-color);
+            color: #666;
             text-decoration: none;
-            transition: var(--transition);
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
         }
         
         .page-list a:hover {
-            color: var(--primary-color);
+            color: var(--primary);
             padding-left: 5px;
         }
         
@@ -220,21 +302,21 @@
             font-weight: bold;
         }
         
-        .high-priority { background: #10b981; color: white; }
-        .medium-priority { background: #fbbf24; color: var(--dark-color); }
+        .high-priority { background: var(--success); color: white; }
+        .medium-priority { background: var(--warning); color: var(--dark); }
         .low-priority { background: #6b7280; color: white; }
         
         /* Statistics Box */
         .statistics-box {
             background: white;
-            border-radius: var(--border-radius);
+            border-radius: var(--radius);
             padding: 2rem;
             margin-bottom: 2rem;
-            box-shadow: var(--card-shadow);
+            box-shadow: 0 5px 20px var(--shadow);
         }
         
         .statistics-box h2 {
-            color: var(--primary-color);
+            color: var(--primary);
             margin-bottom: 1.5rem;
             display: flex;
             align-items: center;
@@ -250,34 +332,34 @@
         .stat-item {
             text-align: center;
             padding: 1.5rem;
-            background: #f8fafc;
-            border-radius: var(--border-radius);
-            transition: var(--transition);
+            background: var(--light);
+            border-radius: var(--radius);
+            transition: all 0.3s ease;
         }
         
         .stat-item:hover {
             transform: translateY(-5px);
-            background: linear-gradient(135deg, rgba(79, 70, 229, 0.05), rgba(236, 72, 153, 0.05));
+            background: var(--primary-light);
         }
         
         .stat-number {
             font-size: 2.5rem;
             font-weight: bold;
-            color: var(--primary-color);
+            color: var(--primary);
             margin-bottom: 0.5rem;
         }
         
         /* Recommendations Box */
         .recommendations-box {
-            background: linear-gradient(135deg, rgba(79, 70, 229, 0.05), rgba(251, 191, 36, 0.05));
-            border-radius: var(--border-radius);
+            background: linear-gradient(135deg, rgba(67, 97, 238, 0.05), rgba(114, 9, 183, 0.05));
+            border-radius: var(--radius);
             padding: 2rem;
             margin-bottom: 2rem;
-            border-left: 4px solid var(--primary-color);
+            border-left: 4px solid var(--primary);
         }
         
         .recommendations-box h2 {
-            color: var(--primary-color);
+            color: var(--primary);
             margin-bottom: 1rem;
             display: flex;
             align-items: center;
@@ -296,40 +378,70 @@
         }
         
         .recommendations-box li i {
-            color: var(--secondary-color);
+            color: var(--warning);
             position: absolute;
             left: 0;
         }
         
         /* Footer */
         footer {
-            background-color: var(--dark-color);
-            color: #9ca3af;
-            padding: 3rem 0 2rem;
-            margin-top: 4rem;
-        }
-        
-        .footer-bottom {
             text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid #374151;
+            margin-top: 50px;
+            padding: 30px 20px;
+            color: #666;
             font-size: 0.9rem;
+            border-top: 1px solid var(--border);
+            background: white;
         }
-        
-        .footer-bottom a {
-            color: #9ca3af;
-            margin: 0 10px;
-            transition: var(--transition);
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
         }
-        
-        .footer-bottom a:hover {
-            color: var(--primary-color);
+
+        .footer-links a {
+            color: #4361ee;
+            text-decoration: none;
+            transition: all 0.3s ease;
         }
-        
-        /* Mobile Responsive */
+
+        .footer-links a:hover {
+            color: var(--secondary);
+            text-decoration: underline;
+        }
+
+        .copyright {
+            margin-top: 20px;
+            color: #888;
+        }
+
+        /* Responsive Design */
         @media (max-width: 768px) {
-            body {
-                padding-top: 60px;
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-container {
+                flex-wrap: wrap;
             }
             
             .sitemap-header h1 {
@@ -349,14 +461,9 @@
                 font-size: 2rem;
             }
             
-            .back-home {
-                width: 100%;
-                justify-content: center;
-                padding: 0.8rem 1rem;
-            }
-            
-            .logo {
-                font-size: 1.5rem;
+            .footer-links {
+                flex-direction: column;
+                gap: 15px;
             }
         }
         
@@ -381,28 +488,44 @@
         
         /* Text selection */
         ::selection {
-            background-color: rgba(79, 70, 229, 0.3);
-            color: var(--dark-color);
+            background-color: rgba(67, 97, 238, 0.3);
+            color: var(--dark);
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container nav-container">
+    <!-- Navigation Bar -->
+    <nav class="tool-navbar">
+        <div class="nav-container">
             <a href="index.html" class="nav-brand">
                 <i class="fas fa-tools"></i> Toolvexa
             </a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#tools">All Tools</a></li>
+                <li><a href="index.html#image-tools">Image Tools</a></li>
+                <li><a href="index.html#calculators">Calculators</a></li>
+                <li><a href="#privacy-policy" onclick="showSeoPage('privacy')">Privacy Policy</a></li>
+                <li><a href="#terms-of-service" onclick="showSeoPage('terms')">Terms of Service</a></li>
+                <li><a href="sitemap.html" class="active">Sitemap</a></li>
+                <li><a href="index.html" class="back-to-home">Back to Home</a></li>
+            </ul>
         </div>
-    </header>
+    </nav>
 
     <!-- Main Content -->
     <main class="container">
-        <!-- Back to Home Button -->
-        <a href="https://imagediter.github.io/toolsedito/" class="back-home">
-            <i class="fas fa-arrow-left"></i>
-            Back to Home
-        </a>
+        <!-- Breadcrumb -->
+        <div class="breadcrumb">
+            <a href="index.html">Home</a> 
+            <span>></span>
+            <span>Sitemap</span>
+        </div>
         
         <!-- Sitemap Content -->
         <div class="sitemap-container">
@@ -420,10 +543,10 @@
                     </h2>
                     <ul class="page-list">
                         <li><a href="https://imagediter.github.io/toolsedito/">Homepage <span class="priority-badge high-priority">High</span></a></li>
-                        <li><a href="#tool-categories">Tool Categories <span class="priority-badge high-priority">High</span></a></li>
-                        <li><a href="#about">About Toolvexa <span class="priority-badge medium-priority">Medium</span></a></li>
-                        <li><a href="#blog">Blog Posts <span class="priority-badge medium-priority">Medium</span></a></li>
-                        <li><a href="#contact">Contact Us <span class="priority-badge medium-priority">Medium</span></a></li>
+                        <li><a href="index.html#tool-categories">Tool Categories <span class="priority-badge high-priority">High</span></a></li>
+                        <li><a href="index.html#about">About Toolvexa <span class="priority-badge medium-priority">Medium</span></a></li>
+                        <li><a href="index.html#blog">Blog Posts <span class="priority-badge medium-priority">Medium</span></a></li>
+                        <li><a href="index.html#contact">Contact Us <span class="priority-badge medium-priority">Medium</span></a></li>
                     </ul>
                 </div>
                 
@@ -434,14 +557,14 @@
                         Image Tools
                     </h2>
                     <ul class="page-list">
-                        <li><a href="#">Image Converter <span class="priority-badge high-priority">High</span></a></li>
-                        <li><a href="#">Image Compressor <span class="priority-badge high-priority">High</span></a></li>
-                        <li><a href="#">Image Resizer <span class="priority-badge high-priority">High</span></a></li>
-                        <li><a href="#">Image Cropper <span class="priority-badge high-priority">High</span></a></li>
-                        <li><a href="#">Background Remover <span class="priority-badge medium-priority">Medium</span></a></li>
-                        <li><a href="#">Image to Text (OCR) <span class="priority-badge medium-priority">Medium</span></a></li>
-                        <li><a href="#">Image Rotator <span class="priority-badge medium-priority">Medium</span></a></li>
-                        <li><a href="#">Image Editor <span class="priority-badge medium-priority">Medium</span></a></li>
+                        <li><a href="image-converter.html">Image Converter <span class="priority-badge high-priority">High</span></a></li>
+                        <li><a href="image-compressor.html">Image Compressor <span class="priority-badge high-priority">High</span></a></li>
+                        <li><a href="image-resizer.html">Image Resizer <span class="priority-badge high-priority">High</span></a></li>
+                        <li><a href="image-cropper.html">Image Cropper <span class="priority-badge high-priority">High</span></a></li>
+                        <li><a href="background-remover.html">Background Remover <span class="priority-badge medium-priority">Medium</span></a></li>
+                        <li><a href="image-to-text.html">Image to Text (OCR) <span class="priority-badge medium-priority">Medium</span></a></li>
+                        <li><a href="image-rotator.html">Image Rotator <span class="priority-badge medium-priority">Medium</span></a></li>
+                        <li><a href="image-editor.html">Image Editor <span class="priority-badge medium-priority">Medium</span></a></li>
                     </ul>
                 </div>
                 
@@ -452,11 +575,11 @@
                         PDF Tools
                     </h2>
                     <ul class="page-list">
-                        <li><a href="#">PDF to Word <span class="priority-badge high-priority">High</span></a></li>
-                        <li><a href="#">PDF Compressor <span class="priority-badge high-priority">High</span></a></li>
-                        <li><a href="#">PDF Merger & Splitter <span class="priority-badge high-priority">High</span></a></li>
-                        <li><a href="#">Document Converter <span class="priority-badge medium-priority">Medium</span></a></li>
-                        <li><a href="#">PDF Protect <span class="priority-badge medium-priority">Medium</span></a></li>
+                        <li><a href="pdf-to-word.html">PDF to Word <span class="priority-badge high-priority">High</span></a></li>
+                        <li><a href="pdf-compressor.html">PDF Compressor <span class="priority-badge high-priority">High</span></a></li>
+                        <li><a href="pdf-merger.html">PDF Merger & Splitter <span class="priority-badge high-priority">High</span></a></li>
+                        <li><a href="document-converter.html">Document Converter <span class="priority-badge medium-priority">Medium</span></a></li>
+                        <li><a href="pdf-protect.html">PDF Protect <span class="priority-badge medium-priority">Medium</span></a></li>
                     </ul>
                 </div>
                 
@@ -467,10 +590,10 @@
                         SEO Tools
                     </h2>
                     <ul class="page-list">
-                        <li><a href="#">Keyword Research <span class="priority-badge high-priority">High</span></a></li>
-                        <li><a href="#">Meta Tag Generator <span class="priority-badge high-priority">High</span></a></li>
-                        <li><a href="#">SEO Analyzer <span class="priority-badge medium-priority">Medium</span></a></li>
-                        <li><a href="#">Sitemap Generator <span class="priority-badge medium-priority">Medium</span></a></li>
+                        <li><a href="keyword-research.html">Keyword Research <span class="priority-badge high-priority">High</span></a></li>
+                        <li><a href="meta-tag-generator.html">Meta Tag Generator <span class="priority-badge high-priority">High</span></a></li>
+                        <li><a href="seo-analyzer.html">SEO Analyzer <span class="priority-badge medium-priority">Medium</span></a></li>
+                        <li><a href="sitemap-generator.html">Sitemap Generator <span class="priority-badge medium-priority">Medium</span></a></li>
                     </ul>
                 </div>
                 
@@ -481,10 +604,13 @@
                         Calculators
                     </h2>
                     <ul class="page-list">
-                        <li><a href="#">GST Calculator <span class="priority-badge medium-priority">Medium</span></a></li>
-                        <li><a href="#">EMI Calculator <span class="priority-badge medium-priority">Medium</span></a></li>
-                        <li><a href="#">Age Calculator <span class="priority-badge medium-priority">Medium</span></a></li>
-                        <li><a href="#">Percentage Calculator <span class="priority-badge medium-priority">Medium</span></a></li>
+                        <li><a href="gst-calculator.html">GST Calculator <span class="priority-badge medium-priority">Medium</span></a></li>
+                        <li><a href="emi-calculator.html">EMI Calculator <span class="priority-badge medium-priority">Medium</span></a></li>
+                        <li><a href="age-calculator.html">Age Calculator <span class="priority-badge medium-priority">Medium</span></a></li>
+                        <li><a href="percentage-calculator.html">Percentage Calculator <span class="priority-badge medium-priority">Medium</span></a></li>
+                        <li><a href="discount-calculator.html">Discount Calculator <span class="priority-badge high-priority">High</span></a></li>
+                        <li><a href="currency-converter.html">Currency Converter <span class="priority-badge medium-priority">Medium</span></a></li>
+                        <li><a href="tip-calculator.html">Tip Calculator <span class="priority-badge low-priority">Low</span></a></li>
                     </ul>
                 </div>
                 
@@ -495,10 +621,10 @@
                         AI Tools
                     </h2>
                     <ul class="page-list">
-                        <li><a href="#">AI Content Writer <span class="priority-badge high-priority">High</span></a></li>
-                        <li><a href="#">AI Image Generator <span class="priority-badge high-priority">High</span></a></li>
-                        <li><a href="#">AI Translator <span class="priority-badge medium-priority">Medium</span></a></li>
-                        <li><a href="#">Grammar Checker <span class="priority-badge medium-priority">Medium</span></a></li>
+                        <li><a href="ai-content-writer.html">AI Content Writer <span class="priority-badge high-priority">High</span></a></li>
+                        <li><a href="ai-image-generator.html">AI Image Generator <span class="priority-badge high-priority">High</span></a></li>
+                        <li><a href="ai-translator.html">AI Translator <span class="priority-badge medium-priority">Medium</span></a></li>
+                        <li><a href="grammar-checker.html">Grammar Checker <span class="priority-badge medium-priority">Medium</span></a></li>
                     </ul>
                 </div>
                 
@@ -509,10 +635,10 @@
                         Text Tools
                     </h2>
                     <ul class="page-list">
-                        <li><a href="#">Word Counter <span class="priority-badge medium-priority">Medium</span></a></li>
-                        <li><a href="#">Case Converter <span class="priority-badge medium-priority">Medium</span></a></li>
-                        <li><a href="#">Text Formatter <span class="priority-badge medium-priority">Medium</span></a></li>
-                        <li><a href="#">Text Reverser <span class="priority-badge low-priority">Low</span></a></li>
+                        <li><a href="word-counter.html">Word Counter <span class="priority-badge medium-priority">Medium</span></a></li>
+                        <li><a href="case-converter.html">Case Converter <span class="priority-badge medium-priority">Medium</span></a></li>
+                        <li><a href="text-formatter.html">Text Formatter <span class="priority-badge medium-priority">Medium</span></a></li>
+                        <li><a href="text-reverser.html">Text Reverser <span class="priority-badge low-priority">Low</span></a></li>
                     </ul>
                 </div>
                 
@@ -523,12 +649,13 @@
                         Content & Information
                     </h2>
                     <ul class="page-list">
-                        <li><a href="#about">About Toolvexa <span class="priority-badge medium-priority">Medium</span></a></li>
-                        <li><a href="#blog">Blog Posts <span class="priority-badge medium-priority">Medium</span></a></li>
+                        <li><a href="index.html#about">About Toolvexa <span class="priority-badge medium-priority">Medium</span></a></li>
+                        <li><a href="index.html#blog">Blog Posts <span class="priority-badge medium-priority">Medium</span></a></li>
                         <li><a href="contact.html">Contact Us <span class="priority-badge medium-priority">Medium</span></a></li>
                         <li><a href="privacy-policy.html">Privacy Policy <span class="priority-badge low-priority">Low</span></a></li>
-                        <li><a href="term-condition.html">Terms of Service <span class="priority-badge low-priority">Low</span></a></li>
-                        <li><a href="#">FAQ <span class="priority-badge low-priority">Low</span></a></li>
+                        <li><a href="terms-of-service.html">Terms of Service <span class="priority-badge low-priority">Low</span></a></li>
+                        <li><a href="faq.html">FAQ <span class="priority-badge low-priority">Low</span></a></li>
+                        <li><a href="sitemap.html">Sitemap <span class="priority-badge low-priority">Low</span></a></li>
                     </ul>
                 </div>
                 
@@ -539,9 +666,11 @@
                         Blog Posts
                     </h2>
                     <ul class="page-list">
-                        <li><a href="#">Image Optimization Guide <span class="priority-badge medium-priority">Medium</span></a></li>
-                        <li><a href="#">PDF Security Best Practices <span class="priority-badge medium-priority">Medium</span></a></li>
-                        <li><a href="#">AI Tools Revolution <span class="priority-badge medium-priority">Medium</span></a></li>
+                        <li><a href="blog/image-optimization-guide.html">Image Optimization Guide <span class="priority-badge medium-priority">Medium</span></a></li>
+                        <li><a href="blog/pdf-security-best-practices.html">PDF Security Best Practices <span class="priority-badge medium-priority">Medium</span></a></li>
+                        <li><a href="blog/ai-tools-revolution.html">AI Tools Revolution <span class="priority-badge medium-priority">Medium</span></a></li>
+                        <li><a href="blog/seo-tools-for-beginners.html">SEO Tools for Beginners <span class="priority-badge medium-priority">Medium</span></a></li>
+                        <li><a href="blog/free-online-tools-2024.html">Free Online Tools 2024 <span class="priority-badge medium-priority">Medium</span></a></li>
                     </ul>
                 </div>
             </div>
@@ -563,8 +692,8 @@
                         <div>High Priority Pages</div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-number" style="color: var(--secondary-color);">Updated</div>
-                        <div>January 2026</div>
+                        <div class="stat-number" style="color: var(--success);">Updated</div>
+                        <div id="currentMonthYear"></div>
                     </div>
                 </div>
             </div>
@@ -583,7 +712,7 @@
             
             <!-- Second Back to Home Button -->
             <div style="text-align: center; margin: 2rem 0;">
-                <a href="https://imagediter.github.io/toolsedito/" class="back-home">
+                <a href="index.html" class="back-home" style="display: inline-flex; align-items: center; gap: 8px; background: var(--primary); color: white; padding: 12px 24px; border-radius: 25px; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
                     <i class="fas fa-arrow-left"></i>
                     Back to Toolvexa Home
                 </a>
@@ -593,99 +722,215 @@
 
     <!-- Footer -->
     <footer>
-        <div class="container">
-            <div class="footer-bottom">
-                <p>
-                    <a href="https://imagediter.github.io/toolsedito/">Home</a> |
-                    <a href="#">Privacy Policy</a> |
-                    <a href="sitemap.html">Sitemap</a> |
-                    <a href="#">Terms of Service</a> |
-                    <a href="#contact">Contact</a>
-                </p>
-                <p>© 2026 Toolvexa. All Rights Reserved. | The Ultimate Online Toolkit for Professionals</p>
-                <p style="margin-top: 10px; font-size: 0.8rem;">All tools are completely free to use, with no registration required.</p>
-            </div>
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="sitemap.html">Sitemap</a>
+            <a href="terms-of-service.html">Terms of Service</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="copyright">
+            <p>© <span id="currentYear"></span> Toolvexa. All Rights Reserved. | The Ultimate Online Toolkit for Professionals</p>
+            <p style="margin-top: 10px; font-size: 0.8rem;">All tools are completely free to use, with no registration required.</p>
         </div>
     </footer>
 
+    <!-- SEO Pages Section -->
+    <div class="seo-section" id="privacy-policy" style="display: none; max-width: 1000px; margin: 40px auto; padding: 30px; background: white; border-radius: 15px; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); position: relative;">
+        <button class="close-seo" onclick="hideSeoPage()" style="position: absolute; top: 20px; right: 20px; background: #4361ee; color: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.2rem;">×</button>
+        <h1 style="color: #4361ee; margin-bottom: 20px; font-size: 2.2rem;">Privacy Policy</h1>
+        <div class="seo-content" style="line-height: 1.8; color: #444;">
+            <p><strong>Last Updated: <span id="privacyUpdateDate"></span></strong></p>
+            
+            <h2 style="color: #333; margin: 25px 0 15px; font-size: 1.5rem;">1. Introduction</h2>
+            <p>Welcome to Toolvexa. Your privacy is critically important to us. This privacy policy document outlines the types of personal information that is received and collected by our website and how it is used.</p>
+            
+            <h2 style="color: #333; margin: 25px 0 15px; font-size: 1.5rem;">2. Information We Collect</h2>
+            <h3 style="color: #555; margin: 20px 0 10px; font-size: 1.2rem;">2.1 No Personal Data Collection</h3>
+            <p>Our tools operate entirely in your browser. We do not:</p>
+            <ul style="margin-left: 20px; margin-bottom: 20px;">
+                <li>Collect any personal information</li>
+                <li>Upload your files to our servers</li>
+                <li>Store any information about your usage</li>
+                <li>Use cookies for tracking purposes</li>
+            </ul>
+            
+            <h2 style="color: #333; margin: 25px 0 15px; font-size: 1.5rem;">3. How We Use Information</h2>
+            <p>Since we don't collect any personal data, there's no information to use or share. All tools function completely offline once loaded in your browser.</p>
+            
+            <h2 style="color: #333; margin: 25px 0 15px; font-size: 1.5rem;">4. Third-Party Services</h2>
+            <p>We only use Font Awesome for icons and Google Fonts for typography. These services may collect limited data as per their own privacy policies.</p>
+            
+            <h2 style="color: #333; margin: 25px 0 15px; font-size: 1.5rem;">5. Security</h2>
+            <p>Your security is guaranteed because:</p>
+            <ul style="margin-left: 20px; margin-bottom: 20px;">
+                <li>No data transmission occurs</li>
+                <li>All processing is done client-side</li>
+                <li>No server-side storage exists</li>
+            </ul>
+            
+            <h2 style="color: #333; margin: 25px 0 15px; font-size: 1.5rem;">6. Changes to This Policy</h2>
+            <p>We may update this privacy policy from time to time. We will notify you of any changes by posting the new privacy policy on this page.</p>
+            
+            <h2 style="color: #333; margin: 25px 0 15px; font-size: 1.5rem;">7. Contact Us</h2>
+            <p>If you have any questions about this Privacy Policy, please contact us at: privacy@toolvexa.com</p>
+        </div>
+    </div>
+
+    <div class="seo-section" id="terms-of-service" style="display: none; max-width: 1000px; margin: 40px auto; padding: 30px; background: white; border-radius: 15px; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); position: relative;">
+        <button class="close-seo" onclick="hideSeoPage()" style="position: absolute; top: 20px; right: 20px; background: #4361ee; color: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.2rem;">×</button>
+        <h1 style="color: #4361ee; margin-bottom: 20px; font-size: 2.2rem;">Terms of Service</h1>
+        <div class="seo-content" style="line-height: 1.8; color: #444;">
+            <p><strong>Last Updated: <span id="termsUpdateDate"></span></strong></p>
+            
+            <h2 style="color: #333; margin: 25px 0 15px; font-size: 1.5rem;">1. Acceptance of Terms</h2>
+            <p>By accessing and using Toolvexa tools, you accept and agree to be bound by the terms and provision of this agreement.</p>
+            
+            <h2 style="color: #333; margin: 25px 0 15px; font-size: 1.5rem;">2. Description of Service</h2>
+            <p>Toolvexa provides free online tools for various purposes including image processing, PDF manipulation, SEO optimization, calculations, and text formatting.</p>
+            
+            <h2 style="color: #333; margin: 25px 0 15px; font-size: 1.5rem;">3. User Responsibilities</h2>
+            <p>You agree to:</p>
+            <ul style="margin-left: 20px; margin-bottom: 20px;">
+                <li>Use the tools only for lawful purposes</li>
+                <li>Not upload any malicious or harmful content</li>
+                <li>Respect copyright and intellectual property rights</li>
+                <li>Not attempt to reverse engineer or hack the tools</li>
+            </ul>
+            
+            <h2 style="color: #333; margin: 25px 0 15px; font-size: 1.5rem;">4. Service Limitations</h2>
+            <p>The services are provided "as is" without warranties of any kind. We do not guarantee:</p>
+            <ul style="margin-left: 20px; margin-bottom: 20px;">
+                <li>Uninterrupted service availability</li>
+                <li>Specific results from any tool</li>
+                <li>Compatibility with all browsers or devices</li>
+            </ul>
+            
+            <h2 style="color: #333; margin: 25px 0 15px; font-size: 1.5rem;">5. Intellectual Property</h2>
+            <p>All content you upload remains your property. We do not claim any rights over your original or processed files.</p>
+            
+            <h2 style="color: #333; margin: 25px 0 15px; font-size: 1.5rem;">6. Limitation of Liability</h2>
+            <p>Toolvexa shall not be liable for any indirect, incidental, special, consequential or punitive damages resulting from your use of the tools.</p>
+            
+            <h2 style="color: #333; margin: 25px 0 15px; font-size: 1.5rem;">7. Changes to Terms</h2>
+            <p>We reserve the right to modify these terms at any time. Continued use of the tools constitutes acceptance of modified terms.</p>
+            
+            <h2 style="color: #333; margin: 25px 0 15px; font-size: 1.5rem;">8. Contact Information</h2>
+            <p>For any questions regarding these Terms of Service, please contact: legal@toolvexa.com</p>
+        </div>
+    </div>
+
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Back to home button animation
-            const backHomeBtns = document.querySelectorAll('.back-home');
-            backHomeBtns.forEach(btn => {
-                btn.addEventListener('mouseenter', function() {
-                    this.querySelector('i').style.transform = 'translateX(-5px)';
-                    this.querySelector('i').style.transition = 'transform 0.3s ease';
-                });
+        // Navigation functionality
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                navLinks.classList.remove('active');
+            }
+        });
+        
+        // SEO pages functionality
+        function showSeoPage(page) {
+            // Hide all seo sections first
+            document.querySelectorAll('.seo-section').forEach(section => {
+                section.style.display = 'none';
+            });
+            
+            // Show the requested section
+            let sectionId = '';
+            switch(page) {
+                case 'privacy':
+                    sectionId = 'privacy-policy';
+                    break;
+                case 'terms':
+                    sectionId = 'terms-of-service';
+                    break;
+            }
+            
+            document.getElementById(sectionId).style.display = 'block';
+            
+            // Close mobile menu if open
+            navLinks.classList.remove('active');
+            
+            // Scroll to the section
+            setTimeout(() => {
+                document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+            }, 100);
+        }
+        
+        function hideSeoPage() {
+            document.querySelectorAll('.seo-section').forEach(section => {
+                section.style.display = 'none';
+            });
+        }
+        
+        // Update current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        // Update current month and year
+        const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+        const currentDate = new Date();
+        document.getElementById('currentMonthYear').textContent = `${months[currentDate.getMonth()]} ${currentDate.getFullYear()}`;
+        
+        // Update privacy and terms dates
+        document.getElementById('privacyUpdateDate').textContent = `${months[currentDate.getMonth()]} ${currentDate.getFullYear()}`;
+        document.getElementById('termsUpdateDate').textContent = `${months[currentDate.getMonth()]} ${currentDate.getFullYear()}`;
+        
+        // Update total tools count
+        const toolCategories = document.querySelectorAll('.sitemap-category:not(:first-child):not(:nth-last-child(2)):not(:last-child)');
+        let totalTools = 0;
+        
+        toolCategories.forEach(category => {
+            const toolCount = category.querySelectorAll('.page-list li').length;
+            totalTools += toolCount;
+        });
+        
+        // Update total tools count
+        const totalToolsElement = document.querySelector('.stat-item:nth-child(1) .stat-number');
+        if (totalToolsElement && totalTools > 0) {
+            totalToolsElement.textContent = totalTools;
+        }
+        
+        // Update high priority pages count
+        const highPriorityElements = document.querySelectorAll('.high-priority');
+        const highPriorityCount = highPriorityElements.length;
+        const highPriorityElement = document.querySelector('.stat-item:nth-child(3) .stat-number');
+        if (highPriorityElement && highPriorityCount > 0) {
+            highPriorityElement.textContent = highPriorityCount;
+        }
+        
+        // Highlight current page in navigation
+        const currentPage = window.location.pathname.split('/').pop();
+        if (currentPage === 'sitemap.html') {
+            const navLinks = document.querySelectorAll('.nav-links a');
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === 'sitemap.html') {
+                    link.classList.add('active');
+                }
+            });
+        }
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('.page-list a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href === '#' || href === '#!') return;
                 
-                btn.addEventListener('mouseleave', function() {
-                    this.querySelector('i').style.transform = 'translateX(0)';
-                });
+                e.preventDefault();
+                const targetElement = document.querySelector(href);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
             });
-            
-            // Update year in footer
-            const currentYear = new Date().getFullYear();
-            const yearElement = document.querySelector('footer .footer-bottom p:nth-child(2)');
-            if (yearElement) {
-                yearElement.innerHTML = yearElement.innerHTML.replace('2026', currentYear);
-            }
-            
-            // Update last updated date
-            const lastUpdated = document.querySelector('.stat-item:nth-child(4) div:nth-child(2)');
-            if (lastUpdated) {
-                const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-                const currentDate = new Date();
-                lastUpdated.textContent = `${months[currentDate.getMonth()]} ${currentDate.getFullYear()}`;
-            }
-            
-            // Highlight current page in footer
-            const currentPage = window.location.pathname.split('/').pop();
-            if (currentPage === 'sitemap.html') {
-                const sitemapLinks = document.querySelectorAll('a[href="sitemap.html"]');
-                sitemapLinks.forEach(link => {
-                    link.style.color = 'var(--primary-color)';
-                    link.style.fontWeight = '600';
-                });
-            }
-            
-            // Smooth scroll for anchor links
-            document.querySelectorAll('.page-list a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    const href = this.getAttribute('href');
-                    if (href === '#' || href === '#!') return;
-                    
-                    e.preventDefault();
-                    const targetElement = document.querySelector(href);
-                    if (targetElement) {
-                        targetElement.scrollIntoView({
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
-            
-            // Add tool counts dynamically
-            const toolCategories = document.querySelectorAll('.sitemap-category:not(:first-child):not(:nth-last-child(2)):not(:last-child)');
-            let totalTools = 0;
-            
-            toolCategories.forEach(category => {
-                const toolCount = category.querySelectorAll('.page-list li').length;
-                totalTools += toolCount;
-            });
-            
-            // Update total tools count
-            const totalToolsElement = document.querySelector('.stat-item:nth-child(1) .stat-number');
-            if (totalToolsElement && totalTools > 0) {
-                totalToolsElement.textContent = totalTools;
-            }
-            
-            // Update high priority pages count
-            const highPriorityElements = document.querySelectorAll('.high-priority');
-            const highPriorityCount = highPriorityElements.length;
-            const highPriorityElement = document.querySelector('.stat-item:nth-child(3) .stat-number');
-            if (highPriorityElement && highPriorityCount > 0) {
-                highPriorityElement.textContent = highPriorityCount;
-            }
         });
     </script>
 </body>
