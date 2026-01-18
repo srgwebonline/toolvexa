@@ -1,0 +1,1823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speed Converter - Convert Speed Units Online | Toolvexa</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Free online speed converter tool. Convert between km/h, mph, m/s, knots, and more. Instant calculations with accurate results for all speed units.">
+    <meta name="keywords" content="speed converter, km/h to mph, mph to km/h, knots to km/h, m/s to km/h, speed conversion, velocity converter, unit converter">
+    <meta name="author" content="Toolvexa">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Speed Converter - Convert Speed Units Online | Toolvexa">
+    <meta property="og:description" content="Free online speed converter tool. Convert between km/h, mph, m/s, knots, and more. Instant calculations with accurate results.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://toolvexa.com/speed-converter">
+    <meta property="og:image" content="https://toolvexa.com/images/speed-converter-og.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://toolvexa.com/speed-converter">
+    
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Speed Converter",
+        "url": "https://toolvexa.com/speed-converter",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "Any",
+        "description": "Free online tool to convert between different speed units including km/h, mph, m/s, knots, ft/s, and more",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "creator": {
+            "@type": "Organization",
+            "name": "Toolvexa",
+            "url": "https://toolvexa.com"
+        }
+    }
+    </script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+
+        :root {
+            --primary: #1a73e8;
+            --primary-light: #e8f0fe;
+            --secondary: #34a853;
+            --success: #0f9d58;
+            --danger: #ea4335;
+            --warning: #fbbc04;
+            --light: #f8f9fa;
+            --dark: #202124;
+            --border: #dadce0;
+            --shadow: rgba(0, 0, 0, 0.1);
+            --radius: 12px;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f8fafc 0%, #e8f0fe 100%);
+            min-height: 100vh;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation Bar */
+        .tool-navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 15px 0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            border-bottom: 3px solid var(--primary);
+        }
+        
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--primary);
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .nav-brand i {
+            font-size: 1.8rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .back-to-home {
+            background: var(--primary);
+            color: white !important;
+            padding: 8px 20px !important;
+            border-radius: 25px;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #333;
+            cursor: pointer;
+        }
+        
+        /* Adjust body padding for fixed navbar */
+        body {
+            padding-top: 80px;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            margin: 20px 0 30px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .breadcrumb a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .breadcrumb span {
+            margin: 0 5px;
+        }
+
+        /* Tool Header */
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px 20px;
+            background: white;
+            border-radius: var(--radius);
+            box-shadow: 0 5px 20px var(--shadow);
+        }
+
+        .logo {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        header h1 {
+            color: var(--primary);
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        header p {
+            color: #666;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 20px;
+        }
+
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+            color: var(--dark);
+            background: var(--light);
+            padding: 8px 15px;
+            border-radius: 50px;
+        }
+
+        .feature i {
+            color: var(--success);
+        }
+
+        /* Converter Container */
+        .converter-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 1100px) {
+            .converter-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .input-section, .results-section {
+            background: white;
+            border-radius: var(--radius);
+            padding: 30px;
+            box-shadow: 0 5px 20px var(--shadow);
+        }
+
+        /* Input Section Styles */
+        .converter-input-group {
+            margin-bottom: 30px;
+        }
+
+        .converter-input-group h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .converter-input-group h3 i {
+            font-size: 1.2rem;
+        }
+
+        .input-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .input-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .input-field {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .input-field label {
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark);
+            font-size: 0.95rem;
+        }
+
+        .input-field select,
+        .input-field input {
+            padding: 14px;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            background: white;
+            width: 100%;
+        }
+
+        .input-field input {
+            font-weight: 600;
+        }
+
+        .input-field select:focus,
+        .input-field input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.1);
+        }
+
+        /* Preset Speeds */
+        .preset-speeds {
+            margin: 25px 0;
+        }
+
+        .preset-speeds h4 {
+            margin-bottom: 15px;
+            color: var(--dark);
+            font-size: 1.1rem;
+        }
+
+        .speed-presets {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+
+        @media (max-width: 768px) {
+            .speed-presets {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .speed-preset {
+            padding: 12px;
+            background: var(--primary-light);
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: center;
+            font-weight: 500;
+            color: var(--primary);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .speed-preset:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .speed-preset .speed-value {
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .speed-preset .speed-label {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
+        /* Convert Button */
+        .convert-btn {
+            width: 100%;
+            padding: 18px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: var(--radius);
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .convert-btn:hover {
+            background: #0d62d9;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(26, 115, 232, 0.3);
+        }
+
+        .convert-btn:active {
+            transform: translateY(0);
+        }
+
+        /* Results Section Styles */
+        .results-section h2 {
+            color: var(--primary);
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+            text-align: center;
+        }
+
+        /* Speed Display */
+        .speed-display {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, var(--primary) 0%, #0d62d9 100%);
+            border-radius: var(--radius);
+            color: white;
+        }
+
+        .main-speed {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            line-height: 1;
+        }
+
+        .main-speed-unit {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* Results Grid */
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .result-card {
+            background: var(--light);
+            padding: 20px;
+            border-radius: var(--radius);
+            text-align: center;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .result-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px var(--shadow);
+        }
+
+        .result-card.active {
+            background: var(--primary-light);
+            border-color: var(--primary);
+        }
+
+        .result-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 5px;
+            line-height: 1;
+        }
+
+        .result-unit {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* Comparison Section */
+        .comparison-section {
+            margin-top: 30px;
+            padding: 25px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: var(--radius);
+            border: 2px solid var(--border);
+        }
+
+        .comparison-section h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            text-align: center;
+        }
+
+        .comparison-items {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .comparison-items {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .comparison-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .comparison-icon {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .comparison-label {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .comparison-value {
+            font-weight: 700;
+            color: var(--dark);
+            font-size: 1.1rem;
+        }
+
+        /* Speed Context */
+        .speed-context {
+            margin-top: 30px;
+            padding: 25px;
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            border-radius: var(--radius);
+            border: 2px solid #81c784;
+        }
+
+        .speed-context h3 {
+            color: #2e7d32;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .context-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px dashed #a5d6a7;
+        }
+
+        .context-item:last-child {
+            border-bottom: none;
+        }
+
+        .context-label {
+            font-weight: 600;
+            color: #2e7d32;
+        }
+
+        .context-value {
+            font-weight: 700;
+            color: #1b5e20;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            margin: 60px 0 40px;
+        }
+
+        .faq-section h2 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .faq-container {
+            background: white;
+            border-radius: var(--radius);
+            padding: 30px;
+            box-shadow: 0 5px 20px var(--shadow);
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border);
+            padding: 20px 0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            color: var(--dark);
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .faq-question i {
+            color: var(--primary);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            color: #666;
+            line-height: 1.6;
+            padding-right: 40px;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            margin-top: 15px;
+        }
+
+        /* Related Tools Section */
+        .related-tools-section {
+            margin: 60px 0 40px;
+        }
+
+        .related-tools-section h2 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .tool-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 5px 15px var(--shadow);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 25px rgba(26, 115, 232, 0.15);
+        }
+
+        .tool-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .tool-card h3 {
+            color: var(--dark);
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .tool-card p {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .tool-link {
+            display: inline-block;
+            background: var(--primary-light);
+            color: var(--primary);
+            padding: 10px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .tool-link:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* SEO Pages Styles */
+        .seo-section {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            display: none;
+            position: relative;
+        }
+        
+        .seo-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .seo-section h1 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 2.2rem;
+        }
+        
+        .seo-section h2 {
+            color: #333;
+            margin: 25px 0 15px;
+            font-size: 1.5rem;
+        }
+        
+        .seo-section h3 {
+            color: #555;
+            margin: 20px 0 10px;
+            font-size: 1.2rem;
+        }
+        
+        .seo-content {
+            line-height: 1.8;
+            color: #444;
+        }
+        
+        .seo-content p {
+            margin-bottom: 15px;
+        }
+        
+        .seo-content ul, .seo-content ol {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .seo-content li {
+            margin-bottom: 10px;
+        }
+        
+        .close-seo {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            z-index: 10;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 30px 20px;
+            color: #666;
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border);
+            background: white;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--danger);
+            text-decoration: underline;
+        }
+
+        .copyright {
+            margin-top: 20px;
+            color: #888;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .converter-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .input-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .speed-presets {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .comparison-items {
+                grid-template-columns: 1fr;
+            }
+            
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .seo-section {
+                padding: 20px;
+                margin: 20px;
+            }
+            
+            .faq-container {
+                padding: 20px;
+            }
+            
+            .faq-answer {
+                padding-right: 20px;
+            }
+            
+            .main-speed {
+                font-size: 2.5rem;
+            }
+            
+            .result-value {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .loading.active {
+            display: flex;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Copy Button */
+        .copy-btn {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            background: var(--primary-light);
+            color: var(--primary);
+            border: none;
+            border-radius: 4px;
+            padding: 5px 10px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+        }
+
+        .copy-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .result-card {
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Loading Overlay -->
+    <div class="loading" id="loadingOverlay">
+        <div class="spinner"></div>
+        <p>Converting Speed...</p>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="tool-navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">
+                <i class="fas fa-tools"></i> Toolvexa
+            </a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#tools">All Tools</a></li>
+                <li><a href="index.html#converters">Converters</a></li>
+                <li><a href="#privacy-policy" onclick="showSeoPage('privacy')">Privacy Policy</a></li>
+                <li><a href="#terms-of-service" onclick="showSeoPage('terms')">Terms of Service</a></li>
+                <li><a href="#about-tool" onclick="showSeoPage('about')">About This Tool</a></li>
+                <li><a href="index.html" class="back-to-home">Back to Home</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Breadcrumb -->
+        <div class="breadcrumb">
+            <a href="index.html">Home</a> 
+            <span>></span>
+            <a href="index.html#converters">Converters</a>
+            <span>></span>
+            <span>Speed Converter</span>
+        </div>
+
+        <!-- Tool Header -->
+        <header>
+            <div class="logo">
+                <i class="fas fa-tachometer-alt"></i>
+            </div>
+            <h1>Speed Converter</h1>
+            <p>Convert between different speed units instantly. Supports km/h, mph, m/s, knots, ft/s, and more. Accurate calculations for all your speed conversion needs.</p>
+            <div class="features">
+                <div class="feature">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>100% Private</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-bolt"></i>
+                    <span>Instant Results</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-globe"></i>
+                    <span>All Units</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-mobile-alt"></i>
+                    <span>Mobile Friendly</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Converter Container -->
+        <div class="converter-container">
+            <!-- Input Section -->
+            <div class="input-section">
+                <div class="converter-input-group">
+                    <h3><i class="fas fa-edit"></i> Enter Speed Value</h3>
+                    <div class="input-row">
+                        <div class="input-field">
+                            <label for="speedValue">Speed Value</label>
+                            <input type="number" id="speedValue" placeholder="Enter speed" value="100" step="0.01">
+                        </div>
+                        <div class="input-field">
+                            <label for="fromUnit">From Unit</label>
+                            <select id="fromUnit">
+                                <option value="kmh">Kilometers per hour (km/h)</option>
+                                <option value="mph">Miles per hour (mph)</option>
+                                <option value="ms">Meters per second (m/s)</option>
+                                <option value="knots">Knots (kn)</option>
+                                <option value="fts">Feet per second (ft/s)</option>
+                                <option value="mach">Mach number</option>
+                                <option value="c">Speed of light (c)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Preset Speeds -->
+                <div class="preset-speeds">
+                    <h4>Common Speed Presets:</h4>
+                    <div class="speed-presets">
+                        <div class="speed-preset" data-value="50" data-unit="kmh">
+                            <span class="speed-value">50 km/h</span>
+                            <span class="speed-label">City Driving</span>
+                        </div>
+                        <div class="speed-preset" data-value="100" data-unit="kmh">
+                            <span class="speed-value">100 km/h</span>
+                            <span class="speed-label">Highway Speed</span>
+                        </div>
+                        <div class="speed-preset" data-value="120" data-unit="kmh">
+                            <span class="speed-value">120 km/h</span>
+                            <span class="speed-label">Freeway Limit</span>
+                        </div>
+                        <div class="speed-preset" data-value="340" data-unit="ms">
+                            <span class="speed-value">340 m/s</span>
+                            <span class="speed-label">Speed of Sound</span>
+                        </div>
+                        <div class="speed-preset" data-value="299792" data-unit="kmh">
+                            <span class="speed-value">1.08B km/h</span>
+                            <span class="speed-label">Speed of Light</span>
+                        </div>
+                        <div class="speed-preset" data-value="45" data-unit="mph">
+                            <span class="speed-value">45 mph</span>
+                            <span class="speed-label">US City Speed</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Convert Button -->
+                <button class="convert-btn" id="convertBtn" onclick="convertSpeed()">
+                    <i class="fas fa-sync-alt"></i> Convert Speed
+                </button>
+            </div>
+
+            <!-- Results Section -->
+            <div class="results-section">
+                <h2>Converted Results</h2>
+                
+                <div class="speed-display" id="speedDisplay">
+                    <div class="main-speed" id="mainSpeed">100</div>
+                    <div class="main-speed-unit" id="mainSpeedUnit">km/h</div>
+                </div>
+
+                <div class="results-grid" id="resultsGrid">
+                    <!-- Results will be populated by JavaScript -->
+                </div>
+
+                <!-- Comparison Section -->
+                <div class="comparison-section">
+                    <h3>Speed Comparison</h3>
+                    <div class="comparison-items">
+                        <div class="comparison-item">
+                            <div class="comparison-icon">
+                                <i class="fas fa-walking"></i>
+                            </div>
+                            <div class="comparison-label">Walking Speed</div>
+                            <div class="comparison-value" id="walkingComparison">2.8x faster</div>
+                        </div>
+                        <div class="comparison-item">
+                            <div class="comparison-icon">
+                                <i class="fas fa-bicycle"></i>
+                            </div>
+                            <div class="comparison-label">Bicycle Speed</div>
+                            <div class="comparison-value" id="bikeComparison">1.4x faster</div>
+                        </div>
+                        <div class="comparison-item">
+                            <div class="comparison-icon">
+                                <i class="fas fa-car"></i>
+                            </div>
+                            <div class="comparison-label">Car Speed</div>
+                            <div class="comparison-value" id="carComparison">0.8x slower</div>
+                        </div>
+                        <div class="comparison-item">
+                            <div class="comparison-icon">
+                                <i class="fas fa-plane"></i>
+                            </div>
+                            <div class="comparison-label">Plane Speed</div>
+                            <div class="comparison-value" id="planeComparison">0.3x slower</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Speed Context -->
+                <div class="speed-context">
+                    <h3><i class="fas fa-info-circle"></i> Speed Context</h3>
+                    <div class="context-item">
+                        <span class="context-label">Time to travel 1 km:</span>
+                        <span class="context-value" id="time1km">36 seconds</span>
+                    </div>
+                    <div class="context-item">
+                        <span class="context-label">Time to travel 1 mile:</span>
+                        <span class="context-value" id="time1mile">58 seconds</span>
+                    </div>
+                    <div class="context-item">
+                        <span class="context-label">Distance in 1 hour:</span>
+                        <span class="context-value" id="distance1hour">100 km</span>
+                    </div>
+                    <div class="context-item">
+                        <span class="context-label">World Record 100m:</span>
+                        <span class="context-value" id="worldRecord">3.6 seconds</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How accurate is the speed converter?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our speed converter uses precise conversion factors with up to 10 decimal places for maximum accuracy. All conversions follow international standards and are suitable for scientific, engineering, and everyday use.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What speed units are supported?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We support all major speed units including kilometers per hour (km/h), miles per hour (mph), meters per second (m/s), knots (kn), feet per second (ft/s), Mach number, and even the speed of light. Additional specialized units can be added upon request.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How do you handle Mach number conversions?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Mach number conversions are based on the speed of sound at sea level (approximately 340.29 m/s or 1225 km/h). For precise scientific calculations, we recommend specifying the exact conditions as Mach varies with temperature and altitude.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Can I convert very large or small speed values?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! Our converter handles values from 0.000000001 to 1,000,000,000,000. This covers everything from snail speeds to astronomical velocities. The tool automatically adjusts decimal places for optimal readability.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Is my data stored when I use the converter?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>No! All calculations happen locally in your browser. We don't store, transmit, or collect any of your input data. Your privacy is completely protected and no information leaves your device.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Related Tools Section -->
+        <div class="related-tools-section">
+            <h2>Other Useful Converter Tools</h2>
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-ruler"></i>
+                    </div>
+                    <h3>Length Converter</h3>
+                    <p>Convert between meters, feet, inches, centimeters, miles, kilometers, and more length units.</p>
+                    <a href="length-converter.html" class="tool-link">Use Tool</a>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-weight"></i>
+                    </div>
+                    <h3>Weight Converter</h3>
+                    <p>Convert kilograms, pounds, ounces, grams, stones, and other weight/mass units.</p>
+                    <a href="weight-converter.html" class="tool-link">Use Tool</a>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-thermometer-half"></i>
+                    </div>
+                    <h3>Temperature Converter</h3>
+                    <p>Convert between Celsius, Fahrenheit, Kelvin, and other temperature scales easily.</p>
+                    <a href="temperature-converter.html" class="tool-link">Use Tool</a>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Time Converter</h3>
+                    <p>Convert between different time units including seconds, minutes, hours, days, and years.</p>
+                    <a href="time-converter.html" class="tool-link">Use Tool</a>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <h3>Currency Converter</h3>
+                    <p>Convert between world currencies with up-to-date exchange rates and historical data.</p>
+                    <a href="currency-converter.html" class="tool-link">Use Tool</a>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3>Unit Converter Pro</h3>
+                    <p>All-in-one converter for length, weight, volume, temperature, area, and more units.</p>
+                    <a href="unit-converter-pro.html" class="tool-link">Use Tool</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- SEO Pages Section -->
+        <div class="seo-section" id="privacy-policy">
+            <button class="close-seo" onclick="hideSeoPage()">×</button>
+            <h1>Privacy Policy</h1>
+            <div class="seo-content">
+                <p><strong>Last Updated: January 2024</strong></p>
+                
+                <h2>1. Introduction</h2>
+                <p>Welcome to Toolvexa Speed Converter. Your privacy is critically important to us. This privacy policy document outlines the types of personal information that is received and collected by our tool and how it is used.</p>
+                
+                <h2>2. Information We Collect</h2>
+                <h3>2.1 No Personal Data Collection</h3>
+                <p>Our Speed Converter tool operates entirely in your browser. We do not:</p>
+                <ul>
+                    <li>Collect any personal information</li>
+                    <li>Store your speed values or conversion history</li>
+                    <li>Track your usage patterns</li>
+                    <li>Use cookies for tracking purposes</li>
+                </ul>
+                
+                <h3>2.2 Local Processing</h3>
+                <p>All speed conversions happen locally on your device using JavaScript. Your input values never leave your computer or mobile device.</p>
+                
+                <h2>3. How We Use Information</h2>
+                <p>Since we don't collect any personal data, there's no information to use or share. The tool functions completely offline once loaded in your browser.</p>
+                
+                <h2>4. Third-Party Services</h2>
+                <p>We only use Font Awesome for icons. This service may collect limited data as per their own privacy policies, but no personal information is shared.</p>
+                
+                <h2>5. Security</h2>
+                <p>Your security is guaranteed because:</p>
+                <ul>
+                    <li>No data transmission occurs</li>
+                    <li>All processing is done client-side</li>
+                    <li>No server-side storage exists</li>
+                </ul>
+                
+                <h2>6. Changes to This Policy</h2>
+                <p>We may update this privacy policy from time to time. We will notify you of any changes by posting the new privacy policy on this page.</p>
+                
+                <h2>7. Contact Us</h2>
+                <p>If you have any questions about this Privacy Policy, please contact us at: privacy@toolvexa.com</p>
+            </div>
+        </div>
+
+        <div class="seo-section" id="terms-of-service">
+            <button class="close-seo" onclick="hideSeoPage()">×</button>
+            <h1>Terms of Service</h1>
+            <div class="seo-content">
+                <p><strong>Last Updated: January 2024</strong></p>
+                
+                <h2>1. Acceptance of Terms</h2>
+                <p>By accessing and using the Toolvexa Speed Converter tool, you accept and agree to be bound by the terms and provision of this agreement.</p>
+                
+                <h2>2. Description of Service</h2>
+                <p>Toolvexa Speed Converter provides a free online tool for converting between different speed units. The service includes:</p>
+                <ul>
+                    <li>Speed conversion between multiple units</li>
+                    <li>Real-time calculations</li>
+                    <li>Speed comparison and context</li>
+                    <li>Local processing (no server uploads)</li>
+                </ul>
+                
+                <h2>3. User Responsibilities</h2>
+                <p>You agree to:</p>
+                <ul>
+                    <li>Use the tool only for lawful purposes</li>
+                    <li>Verify important conversions independently</li>
+                    <li>Not misuse the tool for illegal activities</li>
+                    <li>Not attempt to reverse engineer or hack the tool</li>
+                </ul>
+                
+                <h2>4. Service Limitations</h2>
+                <p>The service is provided "as is" without warranties of any kind. We do not guarantee:</p>
+                <ul>
+                    <li>Uninterrupted service availability</li>
+                    <li>100% accuracy for critical applications</li>
+                    <li>Compatibility with all browsers or devices</li>
+                    <li>Support for all possible speed units</li>
+                </ul>
+                
+                <h2>5. Intellectual Property</h2>
+                <p>All code and design elements are property of Toolvexa. You may not copy, modify, or distribute the tool without permission.</p>
+                
+                <h2>6. Limitation of Liability</h2>
+                <p>Toolvexa shall not be liable for any decisions made based on speed conversions from this tool. For critical applications, always verify with authoritative sources.</p>
+                
+                <h2>7. Changes to Terms</h2>
+                <p>We reserve the right to modify these terms at any time. Continued use of the tool constitutes acceptance of modified terms.</p>
+                
+                <h2>8. Contact Information</h2>
+                <p>For any questions regarding these Terms of Service, please contact: legal@toolvexa.com</p>
+            </div>
+        </div>
+
+        <div class="seo-section" id="about-tool">
+            <button class="close-seo" onclick="hideSeoPage()">×</button>
+            <h1>About Speed Converter Tool</h1>
+            <div class="seo-content">
+                <h2>What is Toolvexa Speed Converter?</h2>
+                <p>Toolvexa Speed Converter is a free online tool that helps you convert between different speed units quickly and accurately. Whether you're converting km/h to mph for driving, m/s to knots for aviation, or comparing everyday speeds, this tool has you covered.</p>
+                
+                <h2>Key Features</h2>
+                <ul>
+                    <li><strong>Multiple Units:</strong> Convert between km/h, mph, m/s, knots, ft/s, Mach, and speed of light</li>
+                    <li><strong>Real-time Conversion:</strong> Instant results as you type</li>
+                    <li><strong>Speed Context:</strong> Compare speeds to common references</li>
+                    <li><strong>Preset Values:</strong> Quick access to common speed values</li>
+                    <li><strong>Privacy Protected:</strong> All calculations happen locally in your browser</li>
+                    <li><strong>Mobile Optimized:</strong> Works perfectly on all devices</li>
+                </ul>
+                
+                <h2>How It Works</h2>
+                <p>Our tool uses precise conversion factors to provide accurate results:</p>
+                <ol>
+                    <li>Enter the speed value you want to convert</li>
+                    <li>Select the unit of your input value</li>
+                    <li>View instant conversions to all other units</li>
+                    <li>Compare with common speed references</li>
+                </ol>
+                
+                <h2>Use Cases</h2>
+                <ul>
+                    <li><strong>Driving:</strong> Convert speed limits between countries</li>
+                    <li><strong>Aviation:</strong> Convert knots to km/h for flight planning</li>
+                    <li><strong>Sports:</strong> Compare athlete speeds in different units</li>
+                    <li><strong>Education:</strong> Teach students about speed conversion</li>
+                    <li><strong>Engineering:</strong> Convert between scientific speed units</li>
+                </ul>
+                
+                <h2>Technical Information</h2>
+                <p>The tool uses precise conversion factors including:</p>
+                <ul>
+                    <li>1 km/h = 0.621371 mph</li>
+                    <li>1 mph = 1.60934 km/h</li>
+                    <li>1 m/s = 3.6 km/h</li>
+                    <li>1 knot = 1.852 km/h</li>
+                    <li>Mach 1 = 1234.8 km/h (at sea level)</li>
+                    <li>Speed of light = 1,079,252,848.8 km/h</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-links">
+                <a href="#privacy-policy" onclick="showSeoPage('privacy')">Privacy Policy</a>
+                <a href="#terms-of-service" onclick="showSeoPage('terms')">Terms of Service</a>
+                <a href="#about-tool" onclick="showSeoPage('about')">About This Tool</a>
+                <a href="index.html">All Tools</a>
+                <a href="index.html#converters">Converters</a>
+                <a href="index.html#contact">Contact Us</a>
+            </div>
+            <div class="copyright">
+                <p>© 2024 Speed Converter Tool | Toolvexa | All calculations happen locally in your browser. No data is uploaded to any server.</p>
+                <p style="margin-top: 10px;">Made with <i class="fas fa-heart" style="color: #ea4335;"></i> for everyone</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // ========== GLOBAL VARIABLES ==========
+        let currentSpeed = 100;
+        let currentUnit = 'kmh';
+        let isInitialLoad = true;
+
+        // Speed conversion factors (to meters per second)
+        const conversionFactors = {
+            kmh: 0.277778,    // km/h to m/s
+            mph: 0.44704,     // mph to m/s
+            ms: 1,            // m/s to m/s
+            knots: 0.514444,  // knots to m/s
+            fts: 0.3048,      // ft/s to m/s
+            mach: 340.29,     // Mach to m/s (at sea level)
+            c: 299792458      // Speed of light to m/s
+        };
+
+        // Unit labels
+        const unitLabels = {
+            kmh: 'km/h',
+            mph: 'mph',
+            ms: 'm/s',
+            knots: 'knots',
+            fts: 'ft/s',
+            mach: 'Mach',
+            c: 'c'
+        };
+
+        // Unit full names
+        const unitNames = {
+            kmh: 'Kilometers per hour',
+            mph: 'Miles per hour',
+            ms: 'Meters per second',
+            knots: 'Knots',
+            fts: 'Feet per second',
+            mach: 'Mach number',
+            c: 'Speed of light'
+        };
+
+        // ========== NAVIGATION FUNCTIONALITY ==========
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileMenuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                navLinks.classList.remove('active');
+            }
+        });
+
+        // Close mobile menu when clicking a link
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // ========== SEO PAGES FUNCTIONALITY ==========
+        function showSeoPage(page) {
+            // Hide all seo sections first
+            document.querySelectorAll('.seo-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show the requested section
+            let sectionId = '';
+            switch(page) {
+                case 'privacy':
+                    sectionId = 'privacy-policy';
+                    break;
+                case 'terms':
+                    sectionId = 'terms-of-service';
+                    break;
+                case 'about':
+                    sectionId = 'about-tool';
+                    break;
+            }
+            
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Close mobile menu if open
+            navLinks.classList.remove('active');
+        }
+
+        function hideSeoPage() {
+            document.querySelectorAll('.seo-section').forEach(section => {
+                section.classList.remove('active');
+            });
+        }
+
+        // Close SEO section when clicking outside
+        document.addEventListener('click', (e) => {
+            if (e.target.classList.contains('seo-section')) {
+                hideSeoPage();
+            }
+        });
+
+        // ========== FAQ FUNCTIONALITY ==========
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                item.classList.toggle('active');
+            });
+        });
+
+        // ========== SPEED CONVERTER CORE FUNCTIONALITY ==========
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeEventListeners();
+            setupPresetSpeeds();
+            displayInitialResults();
+        });
+
+        function initializeEventListeners() {
+            // Add event listeners to input fields
+            document.getElementById('speedValue').addEventListener('input', () => {
+                if (!isInitialLoad) {
+                    convertSpeed();
+                }
+            });
+
+            document.getElementById('fromUnit').addEventListener('change', () => {
+                if (!isInitialLoad) {
+                    convertSpeed();
+                }
+            });
+
+            // Add click listener to convert button
+            document.getElementById('convertBtn').addEventListener('click', () => {
+                isInitialLoad = false;
+                convertSpeed();
+            });
+
+            // Add input event for real-time conversion
+            document.getElementById('speedValue').addEventListener('input', debounce(() => {
+                if (!isInitialLoad) {
+                    convertSpeed();
+                }
+            }, 300));
+        }
+
+        function setupPresetSpeeds() {
+            document.querySelectorAll('.speed-preset').forEach(preset => {
+                preset.addEventListener('click', () => {
+                    const value = preset.getAttribute('data-value');
+                    const unit = preset.getAttribute('data-unit');
+                    
+                    document.getElementById('speedValue').value = value;
+                    document.getElementById('fromUnit').value = unit;
+                    
+                    isInitialLoad = false;
+                    convertSpeed();
+                });
+            });
+        }
+
+        function displayInitialResults() {
+            // Display initial results without loading animation
+            currentSpeed = parseFloat(document.getElementById('speedValue').value);
+            currentUnit = document.getElementById('fromUnit').value;
+            
+            if (isNaN(currentSpeed)) {
+                currentSpeed = 0;
+            }
+
+            // Calculate and display results
+            updateResults();
+            updateSpeedContext();
+            updateComparison();
+            
+            isInitialLoad = false;
+        }
+
+        function showLoading() {
+            document.getElementById('loadingOverlay').classList.add('active');
+        }
+
+        function hideLoading() {
+            document.getElementById('loadingOverlay').classList.remove('active');
+        }
+
+        // ========== SPEED CONVERSION FUNCTIONS ==========
+        function convertSpeed() {
+            if (isInitialLoad) {
+                isInitialLoad = false;
+                // Don't show loading on initial calculation
+                performSpeedConversion();
+            } else {
+                showLoading();
+                
+                // Delay slightly to show loading animation (for better UX)
+                setTimeout(() => {
+                    performSpeedConversion();
+                    hideLoading();
+                }, 100);
+            }
+        }
+
+        function performSpeedConversion() {
+            try {
+                currentSpeed = parseFloat(document.getElementById('speedValue').value);
+                currentUnit = document.getElementById('fromUnit').value;
+                
+                if (isNaN(currentSpeed)) {
+                    currentSpeed = 0;
+                }
+
+                // Update results
+                updateResults();
+                updateSpeedContext();
+                updateComparison();
+                
+            } catch (error) {
+                console.error('Error converting speed:', error);
+                alert('An error occurred while converting speed. Please check your input and try again.');
+            }
+        }
+
+        function updateResults() {
+            const baseSpeed = convertToMetersPerSecond(currentSpeed, currentUnit);
+            
+            // Update main display
+            document.getElementById('mainSpeed').textContent = formatNumber(currentSpeed);
+            document.getElementById('mainSpeedUnit').textContent = unitLabels[currentUnit];
+            
+            // Update results grid
+            const resultsGrid = document.getElementById('resultsGrid');
+            resultsGrid.innerHTML = '';
+            
+            // Create result cards for all units
+            Object.keys(conversionFactors).forEach(unit => {
+                if (unit !== currentUnit) {
+                    const convertedValue = convertFromMetersPerSecond(baseSpeed, unit);
+                    const resultCard = createResultCard(unit, convertedValue);
+                    resultsGrid.appendChild(resultCard);
+                }
+            });
+        }
+
+        function convertToMetersPerSecond(value, unit) {
+            return value * conversionFactors[unit];
+        }
+
+        function convertFromMetersPerSecond(value, unit) {
+            return value / conversionFactors[unit];
+        }
+
+        function createResultCard(unit, value) {
+            const card = document.createElement('div');
+            card.className = 'result-card';
+            
+            const formattedValue = formatNumber(value);
+            const unitLabel = unitLabels[unit];
+            const unitName = unitNames[unit];
+            
+            card.innerHTML = `
+                <div class="result-value">${formattedValue}</div>
+                <div class="result-unit">${unitLabel} (${unitName})</div>
+                <button class="copy-btn" onclick="copyToClipboard('${formattedValue}', '${unitLabel}')">
+                    <i class="fas fa-copy"></i> Copy
+                </button>
+            `;
+            
+            return card;
+        }
+
+        function formatNumber(value) {
+            if (value === 0) return '0';
+            
+            if (value >= 1000000000) {
+                return (value / 1000000000).toFixed(3) + 'B';
+            } else if (value >= 1000000) {
+                return (value / 1000000).toFixed(3) + 'M';
+            } else if (value >= 10000) {
+                return value.toLocaleString('en-US', { maximumFractionDigits: 0 });
+            } else if (value >= 1000) {
+                return value.toLocaleString('en-US', { maximumFractionDigits: 1 });
+            } else if (value >= 1) {
+                return value.toLocaleString('en-US', { maximumFractionDigits: 3 });
+            } else if (value >= 0.001) {
+                return value.toLocaleString('en-US', { maximumFractionDigits: 6 });
+            } else {
+                return value.toExponential(3);
+            }
+        }
+
+        // ========== SPEED CONTEXT FUNCTIONS ==========
+        function updateSpeedContext() {
+            const baseSpeed = convertToMetersPerSecond(currentSpeed, currentUnit);
+            const speedKmh = convertFromMetersPerSecond(baseSpeed, 'kmh');
+            
+            // Time to travel 1 km
+            const time1km = 1 / speedKmh * 3600; // in seconds
+            document.getElementById('time1km').textContent = formatTime(time1km);
+            
+            // Time to travel 1 mile
+            const speedMph = convertFromMetersPerSecond(baseSpeed, 'mph');
+            const time1mile = 1 / speedMph * 3600;
+            document.getElementById('time1mile').textContent = formatTime(time1mile);
+            
+            // Distance in 1 hour
+            document.getElementById('distance1hour').textContent = `${speedKmh.toFixed(1)} km (${speedMph.toFixed(1)} miles)`;
+            
+            // World Record 100m time
+            const worldRecordTime = 100 / baseSpeed;
+            document.getElementById('worldRecord').textContent = formatTime(worldRecordTime);
+        }
+
+        function formatTime(seconds) {
+            if (seconds >= 3600) {
+                const hours = Math.floor(seconds / 3600);
+                const minutes = Math.floor((seconds % 3600) / 60);
+                return `${hours}h ${minutes}m`;
+            } else if (seconds >= 60) {
+                const minutes = Math.floor(seconds / 60);
+                const secs = Math.floor(seconds % 60);
+                return `${minutes}m ${secs}s`;
+            } else if (seconds >= 1) {
+                return `${seconds.toFixed(1)} seconds`;
+            } else {
+                return `${(seconds * 1000).toFixed(0)} milliseconds`;
+            }
+        }
+
+        // ========== COMPARISON FUNCTIONS ==========
+        function updateComparison() {
+            const baseSpeed = convertToMetersPerSecond(currentSpeed, currentUnit);
+            const speedKmh = convertFromMetersPerSecond(baseSpeed, 'kmh');
+            
+            // Comparison speeds in km/h
+            const walkingSpeed = 5; // km/h
+            const bikeSpeed = 20; // km/h
+            const carSpeed = 80; // km/h
+            const planeSpeed = 800; // km/h
+            
+            document.getElementById('walkingComparison').textContent = getComparisonText(speedKmh, walkingSpeed);
+            document.getElementById('bikeComparison').textContent = getComparisonText(speedKmh, bikeSpeed);
+            document.getElementById('carComparison').textContent = getComparisonText(speedKmh, carSpeed);
+            document.getElementById('planeComparison').textContent = getComparisonText(speedKmh, planeSpeed);
+        }
+
+        function getComparisonText(speed, reference) {
+            const ratio = speed / reference;
+            
+            if (ratio >= 10) {
+                return `${ratio.toFixed(1)}x faster`;
+            } else if (ratio >= 2) {
+                return `${ratio.toFixed(1)}x faster`;
+            } else if (ratio >= 1.1) {
+                return `${ratio.toFixed(1)}x faster`;
+            } else if (ratio <= 0.9) {
+                return `${(1/ratio).toFixed(1)}x slower`;
+            } else if (ratio <= 0.5) {
+                return `${(1/ratio).toFixed(1)}x slower`;
+            } else if (ratio <= 0.1) {
+                return `${(1/ratio).toFixed(1)}x slower`;
+            } else {
+                return "About the same";
+            }
+        }
+
+        // ========== UTILITY FUNCTIONS ==========
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        function copyToClipboard(value, unit) {
+            const text = `${value} ${unit}`;
+            navigator.clipboard.writeText(text).then(() => {
+                // Show success feedback
+                const originalText = event.target.innerHTML;
+                event.target.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                event.target.style.background = '#34a853';
+                event.target.style.color = 'white';
+                
+                setTimeout(() => {
+                    event.target.innerHTML = originalText;
+                    event.target.style.background = '';
+                    event.target.style.color = '';
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+                alert('Failed to copy to clipboard');
+            });
+        }
+
+        // ========== EXPORT FUNCTIONS TO GLOBAL SCOPE ==========
+        window.convertSpeed = convertSpeed;
+        window.copyToClipboard = copyToClipboard;
+        window.showSeoPage = showSeoPage;
+        window.hideSeoPage = hideSeoPage;
+    </script>
+</body>
+</html>
