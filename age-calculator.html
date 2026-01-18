@@ -301,6 +301,7 @@
             font-size: 1rem;
             transition: all 0.3s ease;
             background: white;
+            width: 100%;
         }
 
         .input-field select:focus,
@@ -340,6 +341,7 @@
             display: flex;
             align-items: center;
             gap: 8px;
+            border: none;
         }
 
         .action-btn:hover {
@@ -881,10 +883,50 @@
                 text-align: center;
             }
         }
+
+        /* Loading Animation */
+        .loading {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .loading.active {
+            display: flex;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
     </style>
 </head>
 
 <body>
+    <!-- Loading Overlay -->
+    <div class="loading" id="loadingOverlay">
+        <div class="spinner"></div>
+        <p>Calculating Age...</p>
+    </div>
+
     <!-- Navigation Bar -->
     <nav class="tool-navbar">
         <div class="nav-container">
@@ -964,18 +1006,7 @@
                             <label for="birthMonth">Month</label>
                             <select id="birthMonth">
                                 <option value="">Month</option>
-                                <option value="0">January</option>
-                                <option value="1">February</option>
-                                <option value="2">March</option>
-                                <option value="3">April</option>
-                                <option value="4">May</option>
-                                <option value="5">June</option>
-                                <option value="6">July</option>
-                                <option value="7">August</option>
-                                <option value="8">September</option>
-                                <option value="9">October</option>
-                                <option value="10">November</option>
-                                <option value="11">December</option>
+                                <!-- Months will be populated by JavaScript -->
                             </select>
                         </div>
                         <div class="input-field">
@@ -1002,18 +1033,7 @@
                             <label for="currentMonth">Month</label>
                             <select id="currentMonth">
                                 <option value="">Month</option>
-                                <option value="0">January</option>
-                                <option value="1">February</option>
-                                <option value="2">March</option>
-                                <option value="3">April</option>
-                                <option value="4">May</option>
-                                <option value="5">June</option>
-                                <option value="6">July</option>
-                                <option value="7">August</option>
-                                <option value="8">September</option>
-                                <option value="9">October</option>
-                                <option value="10">November</option>
-                                <option value="11">December</option>
+                                <!-- Months will be populated by JavaScript -->
                             </select>
                         </div>
                         <div class="input-field">
@@ -1408,11 +1428,17 @@
     </div>
 
     <script>
-        // Navigation functionality
+        // ========== GLOBAL VARIABLES ==========
+        let birthDate = null;
+        let currentDate = null;
+        let ageCalculated = false;
+
+        // ========== NAVIGATION FUNCTIONALITY ==========
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const navLinks = document.getElementById('navLinks');
         
-        mobileMenuBtn.addEventListener('click', () => {
+        mobileMenuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
             navLinks.classList.toggle('active');
         });
         
@@ -1423,7 +1449,14 @@
             }
         });
         
-        // SEO pages functionality
+        // Close mobile menu when clicking a link
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // ========== SEO PAGES FUNCTIONALITY ==========
         function showSeoPage(page) {
             // Hide all seo sections first
             document.querySelectorAll('.seo-section').forEach(section => {
@@ -1448,11 +1481,6 @@
             
             // Close mobile menu if open
             navLinks.classList.remove('active');
-            
-            // Scroll to the section
-            setTimeout(() => {
-                document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
-            }, 100);
         }
         
         function hideSeoPage() {
@@ -1468,7 +1496,7 @@
             }
         });
 
-        // FAQ functionality
+        // ========== FAQ FUNCTIONALITY ==========
         document.querySelectorAll('.faq-question').forEach(question => {
             question.addEventListener('click', () => {
                 const item = question.parentElement;
@@ -1476,141 +1504,215 @@
             });
         });
 
-        // Age Calculator JavaScript
+        // ========== AGE CALCULATOR CORE FUNCTIONALITY ==========
         document.addEventListener('DOMContentLoaded', function() {
-            // Populate day dropdowns (1-31)
-            const daySelects = document.querySelectorAll('#birthDay, #currentDay');
-            daySelects.forEach(select => {
-                for (let i = 1; i <= 31; i++) {
-                    const option = document.createElement('option');
-                    option.value = i;
-                    option.textContent = i;
-                    select.appendChild(option);
-                }
-            });
-
-            // Populate year dropdowns (1900-current year + 10)
-            const currentYear = new Date().getFullYear();
-            const yearSelects = document.querySelectorAll('#birthYear, #currentYear');
-            yearSelects.forEach(select => {
-                for (let i = currentYear + 10; i >= 1900; i--) {
-                    const option = document.createElement('option');
-                    option.value = i;
-                    option.textContent = i;
-                    select.appendChild(option);
-                }
-            });
-
-            // Set default values (today's date for current, and 1990-01-01 for birth)
-            const today = new Date();
-            document.getElementById('birthDay').value = 1;
-            document.getElementById('birthMonth').value = '0'; // January
-            document.getElementById('birthYear').value = 1990;
-            
-            document.getElementById('currentDay').value = today.getDate();
-            document.getElementById('currentMonth').value = today.getMonth().toString();
-            document.getElementById('currentYear').value = today.getFullYear();
-
-            // Calculate age on page load
+            initializeDateSelectors();
+            setupEventListeners();
+            setToday();
+            setDefaultBirthDate();
             calculateAge();
         });
 
-        // Calculate age function
-        function calculateAge() {
-            // Get input values
-            const birthDay = parseInt(document.getElementById('birthDay').value);
-            const birthMonth = parseInt(document.getElementById('birthMonth').value);
-            const birthYear = parseInt(document.getElementById('birthYear').value);
+        function initializeDateSelectors() {
+            // Initialize month dropdowns
+            const months = [
+                'January', 'February', 'March', 'April', 'May', 'June',
+                'July', 'August', 'September', 'October', 'November', 'December'
+            ];
             
-            const currentDay = parseInt(document.getElementById('currentDay').value);
-            const currentMonth = parseInt(document.getElementById('currentMonth').value);
-            const currentYear = parseInt(document.getElementById('currentYear').value);
+            const monthSelects = ['birthMonth', 'currentMonth'];
+            monthSelects.forEach(selectId => {
+                const select = document.getElementById(selectId);
+                select.innerHTML = '<option value="">Month</option>';
+                months.forEach((month, index) => {
+                    const option = document.createElement('option');
+                    option.value = index;
+                    option.textContent = month;
+                    select.appendChild(option);
+                });
+            });
 
-            // Validate inputs
-            if (!birthDay || !birthMonth || !birthYear || !currentDay || !currentMonth || !currentYear) {
-                alert('Please select all date values');
-                return;
+            // Initialize year dropdowns (1900 to current year + 10)
+            const currentYear = new Date().getFullYear();
+            const yearSelects = ['birthYear', 'currentYear'];
+            yearSelects.forEach(selectId => {
+                const select = document.getElementById(selectId);
+                select.innerHTML = '<option value="">Year</option>';
+                for (let year = currentYear + 10; year >= 1900; year--) {
+                    const option = document.createElement('option');
+                    option.value = year;
+                    option.textContent = year;
+                    select.appendChild(option);
+                }
+            });
+
+            // Initialize day dropdowns (1-31)
+            const daySelects = ['birthDay', 'currentDay'];
+            daySelects.forEach(selectId => {
+                const select = document.getElementById(selectId);
+                select.innerHTML = '<option value="">Day</option>';
+                for (let day = 1; day <= 31; day++) {
+                    const option = document.createElement('option');
+                    option.value = day;
+                    option.textContent = day;
+                    select.appendChild(option);
+                }
+            });
+        }
+
+        function setupEventListeners() {
+            // Add change listeners to all date selects
+            ['birthDay', 'birthMonth', 'birthYear', 'currentDay', 'currentMonth', 'currentYear'].forEach(id => {
+                document.getElementById(id).addEventListener('change', calculateAge);
+            });
+
+            // Add click listener to calculate button
+            document.getElementById('calculateBtn').addEventListener('click', calculateAge);
+        }
+
+        function setDefaultBirthDate() {
+            // Set default birth date to 1990-01-01
+            const today = new Date();
+            document.getElementById('birthDay').value = 1;
+            document.getElementById('birthMonth').value = 0; // January
+            document.getElementById('birthYear').value = 1990;
+            
+            document.getElementById('currentDay').value = today.getDate();
+            document.getElementById('currentMonth').value = today.getMonth();
+            document.getElementById('currentYear').value = today.getFullYear();
+        }
+
+        function showLoading() {
+            document.getElementById('loadingOverlay').classList.add('active');
+        }
+
+        function hideLoading() {
+            document.getElementById('loadingOverlay').classList.remove('active');
+        }
+
+        // ========== AGE CALCULATION FUNCTIONS ==========
+        function calculateAge() {
+            showLoading();
+            
+            // Delay slightly to show loading animation (for better UX)
+            setTimeout(() => {
+                try {
+                    const birthDate = getDateFromSelectors('birth');
+                    const currentDate = getDateFromSelectors('current');
+                    
+                    if (!birthDate || !currentDate) {
+                        alert('Please select valid dates for both birth date and current date.');
+                        hideLoading();
+                        return;
+                    }
+
+                    if (birthDate > currentDate) {
+                        alert('Birth date cannot be in the future!');
+                        hideLoading();
+                        return;
+                    }
+
+                    // Calculate age difference
+                    const age = calculateAgeDifference(birthDate, currentDate);
+                    
+                    // Update UI with results
+                    updateAgeDisplay(age);
+                    updateZodiacSign(birthDate);
+                    updateFunFacts(age, birthDate, currentDate);
+                    
+                    ageCalculated = true;
+                } catch (error) {
+                    console.error('Error calculating age:', error);
+                    alert('An error occurred while calculating age. Please check your dates and try again.');
+                } finally {
+                    hideLoading();
+                }
+            }, 300);
+        }
+
+        function getDateFromSelectors(type) {
+            const day = parseInt(document.getElementById(`${type}Day`).value);
+            const month = parseInt(document.getElementById(`${type}Month`).value);
+            const year = parseInt(document.getElementById(`${type}Year`).value);
+            
+            if (isNaN(day) || isNaN(month) || isNaN(year)) {
+                return null;
             }
 
-            // Create date objects
-            const birthDate = new Date(birthYear, birthMonth, birthDay);
-            const currentDate = new Date(currentYear, currentMonth, currentDay);
-
-            // Validate dates
-            if (birthDate > currentDate) {
-                alert('Birth date cannot be in the future');
-                return;
+            // Check if date is valid
+            const date = new Date(year, month, day);
+            if (date.getDate() !== day || date.getMonth() !== month || date.getFullYear() !== year) {
+                return null;
             }
 
-            // Calculate age in years, months, and days
-            let years = currentYear - birthYear;
-            let months = currentMonth - birthMonth;
-            let days = currentDay - birthDay;
+            return date;
+        }
 
-            // Adjust for negative days
+        function calculateAgeDifference(startDate, endDate) {
+            let years = endDate.getFullYear() - startDate.getFullYear();
+            let months = endDate.getMonth() - startDate.getMonth();
+            let days = endDate.getDate() - startDate.getDate();
+
+            // Adjust negative days
             if (days < 0) {
                 months--;
                 // Get days in previous month
-                const prevMonth = new Date(currentYear, currentMonth, 0);
+                const prevMonth = new Date(endDate.getFullYear(), endDate.getMonth(), 0);
                 days += prevMonth.getDate();
             }
 
-            // Adjust for negative months
+            // Adjust negative months
             if (months < 0) {
                 years--;
                 months += 12;
             }
 
-            // Calculate total days
-            const timeDiff = currentDate.getTime() - birthDate.getTime();
+            // Calculate totals
+            const timeDiff = endDate.getTime() - startDate.getTime();
             const totalDays = Math.floor(timeDiff / (1000 * 3600 * 24));
             const totalWeeks = Math.floor(totalDays / 7);
             const totalMonths = years * 12 + months;
             const totalHours = totalDays * 24;
 
-            // Calculate weeks from remaining days after full years
-            const weeks = Math.floor((totalDays - (years * 365 + Math.floor(years / 4))) / 7);
-
-            // Update display
-            document.getElementById('mainAge').textContent = years;
-            document.getElementById('mainAgeLabel').textContent = years === 1 ? 'Year' : 'Years';
-            
-            document.getElementById('ageYears').textContent = years;
-            document.getElementById('ageMonths').textContent = months;
-            document.getElementById('ageDays').textContent = days;
-            document.getElementById('ageWeeks').textContent = weeks;
-            
-            document.getElementById('totalDays').textContent = totalDays.toLocaleString();
-            document.getElementById('totalWeeks').textContent = totalWeeks.toLocaleString();
-            document.getElementById('totalMonths').textContent = totalMonths.toLocaleString();
-            document.getElementById('totalHours').textContent = totalHours.toLocaleString();
-
-            // Calculate next birthday
-            const nextBirthday = calculateNextBirthday(birthDate, currentDate);
-            document.getElementById('nextBirthday').textContent = nextBirthday;
-
-            // Get day of week for birth date
-            const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-            document.getElementById('birthDayName').textContent = daysOfWeek[birthDate.getDay()];
-
-            // Calculate zodiac sign
-            const zodiac = getZodiacSign(birthDate);
-            document.getElementById('zodiacSymbol').textContent = zodiac.symbol;
-            document.getElementById('zodiacName').textContent = zodiac.name;
-            document.getElementById('zodiacDates').textContent = zodiac.dates;
-
-            // Generate fun facts
-            const funFact = generateFunFact(years, months, days, totalDays);
-            document.getElementById('funFactText').textContent = funFact;
+            return {
+                years,
+                months,
+                days,
+                totalDays,
+                totalWeeks,
+                totalMonths,
+                totalHours,
+                nextBirthday: calculateNextBirthday(startDate, endDate),
+                birthDayName: getDayName(startDate)
+            };
         }
 
-        // Calculate next birthday
+        function updateAgeDisplay(age) {
+            // Update main age display
+            document.getElementById('mainAge').textContent = age.years;
+            document.getElementById('mainAgeLabel').textContent = age.years === 1 ? 'Year' : 'Years';
+            
+            // Update breakdown
+            document.getElementById('ageYears').textContent = age.years;
+            document.getElementById('ageMonths').textContent = age.months;
+            document.getElementById('ageDays').textContent = age.days;
+            document.getElementById('ageWeeks').textContent = Math.floor(age.totalDays / 7);
+            
+            // Update detailed results
+            document.getElementById('totalDays').textContent = age.totalDays.toLocaleString();
+            document.getElementById('totalWeeks').textContent = age.totalWeeks.toLocaleString();
+            document.getElementById('totalMonths').textContent = age.totalMonths.toLocaleString();
+            document.getElementById('totalHours').textContent = age.totalHours.toLocaleString();
+            document.getElementById('nextBirthday').textContent = age.nextBirthday;
+            document.getElementById('birthDayName').textContent = age.birthDayName;
+        }
+
         function calculateNextBirthday(birthDate, currentDate) {
             const currentYear = currentDate.getFullYear();
             let nextBirthday = new Date(currentYear, birthDate.getMonth(), birthDate.getDate());
             
             // If birthday has already passed this year, use next year
-            if (nextBirthday < currentDate) {
+            if (nextBirthday <= currentDate) {
                 nextBirthday.setFullYear(currentYear + 1);
             }
             
@@ -1622,96 +1724,105 @@
             return `${nextBirthday.toLocaleDateString('en-US', options)} (in ${daysUntil} days)`;
         }
 
-        // Get zodiac sign based on birth date
-        function getZodiacSign(birthDate) {
-            const month = birthDate.getMonth() + 1; // 1-12
-            const day = birthDate.getDate();
+        function getDayName(date) {
+            const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+            return days[date.getDay()];
+        }
+
+        // ========== ZODIAC SIGN FUNCTIONS ==========
+        function updateZodiacSign(birthDate) {
+            const zodiac = getZodiacSign(birthDate);
+            document.getElementById('zodiacSymbol').textContent = zodiac.symbol;
+            document.getElementById('zodiacName').textContent = zodiac.name;
+            document.getElementById('zodiacDates').textContent = zodiac.dates;
+        }
+
+        function getZodiacSign(date) {
+            const month = date.getMonth() + 1; // 1-12
+            const day = date.getDate();
             
-            const zodiacSigns = [
-                { name: 'Capricorn', symbol: '♑', start: [12, 22], end: [1, 19] },
-                { name: 'Aquarius', symbol: '♒', start: [1, 20], end: [2, 18] },
-                { name: 'Pisces', symbol: '♓', start: [2, 19], end: [3, 20] },
-                { name: 'Aries', symbol: '♈', start: [3, 21], end: [4, 19] },
-                { name: 'Taurus', symbol: '♉', start: [4, 20], end: [5, 20] },
-                { name: 'Gemini', symbol: '♊', start: [5, 21], end: [6, 20] },
-                { name: 'Cancer', symbol: '♋', start: [6, 21], end: [7, 22] },
-                { name: 'Leo', symbol: '♌', start: [7, 23], end: [8, 22] },
-                { name: 'Virgo', symbol: '♍', start: [8, 23], end: [9, 22] },
-                { name: 'Libra', symbol: '♎', start: [9, 23], end: [10, 22] },
-                { name: 'Scorpio', symbol: '♏', start: [10, 23], end: [11, 21] },
-                { name: 'Sagittarius', symbol: '♐', start: [11, 22], end: [12, 21] }
+            // Zodiac dates
+            const zodiacs = [
+                { name: "Capricorn", symbol: "♑", start: [12, 22], end: [1, 19] },
+                { name: "Aquarius", symbol: "♒", start: [1, 20], end: [2, 18] },
+                { name: "Pisces", symbol: "♓", start: [2, 19], end: [3, 20] },
+                { name: "Aries", symbol: "♈", start: [3, 21], end: [4, 19] },
+                { name: "Taurus", symbol: "♉", start: [4, 20], end: [5, 20] },
+                { name: "Gemini", symbol: "♊", start: [5, 21], end: [6, 20] },
+                { name: "Cancer", symbol: "♋", start: [6, 21], end: [7, 22] },
+                { name: "Leo", symbol: "♌", start: [7, 23], end: [8, 22] },
+                { name: "Virgo", symbol: "♍", start: [8, 23], end: [9, 22] },
+                { name: "Libra", symbol: "♎", start: [9, 23], end: [10, 22] },
+                { name: "Scorpio", symbol: "♏", start: [10, 23], end: [11, 21] },
+                { name: "Sagittarius", symbol: "♐", start: [11, 22], end: [12, 21] }
             ];
             
-            for (const sign of zodiacSigns) {
-                if ((month === sign.start[0] && day >= sign.start[1]) || 
-                    (month === sign.end[0] && day <= sign.end[1])) {
-                    return {
-                        symbol: sign.symbol,
-                        name: sign.name,
-                        dates: `${getMonthName(sign.start[0])} ${sign.start[1]} - ${getMonthName(sign.end[0])} ${sign.end[1]}`
-                    };
+            for (const zodiac of zodiacs) {
+                const [startMonth, startDay] = zodiac.start;
+                const [endMonth, endDay] = zodiac.end;
+                
+                if ((month === startMonth && day >= startDay) ||
+                    (month === endMonth && day <= endDay) ||
+                    (startMonth > endMonth && (month > startMonth || month < endMonth))) {
+                    return zodiac;
                 }
             }
             
-            return { symbol: '♑', name: 'Capricorn', dates: 'Dec 22 - Jan 19' };
+            return { name: "Capricorn", symbol: "♑", start: [12, 22], end: [1, 19] };
         }
 
-        // Helper function to get month name
-        function getMonthName(monthNumber) {
-            const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-            return months[monthNumber - 1] || '';
+        // ========== FUN FACTS FUNCTIONS ==========
+        function updateFunFacts(age, birthDate, currentDate) {
+            const facts = generateFunFacts(age, birthDate, currentDate);
+            document.getElementById('funFactText').textContent = facts.join(' ');
         }
 
-        // Generate fun facts based on age
-        function generateFunFact(years, months, days, totalDays) {
+        function generateFunFacts(age, birthDate, currentDate) {
             const facts = [];
             
-            if (years === 0 && months === 0) {
-                facts.push(`You're ${days} day${days === 1 ? '' : 's'} old! Welcome to the world!`);
-            } else if (years === 0) {
-                facts.push(`You're ${months} month${months === 1 ? '' : 's'} and ${days} day${days === 1 ? '' : 's'} old!`);
+            // Basic age fact
+            if (age.years === 0 && age.months === 0) {
+                facts.push(`You're ${age.days} day${age.days === 1 ? '' : 's'} old! Welcome to the world! 🎉`);
+            } else if (age.years === 0) {
+                facts.push(`You're ${age.months} month${age.months === 1 ? '' : 's'} and ${age.days} day${age.days === 1 ? '' : 's'} old! 👶`);
             } else {
-                facts.push(`You're ${years} year${years === 1 ? '' : 's'}, ${months} month${months === 1 ? '' : 's'}, and ${days} day${days === 1 ? '' : 's'} old!`);
+                facts.push(`You're ${age.years} year${age.years === 1 ? '' : 's'}, ${age.months} month${age.months === 1 ? '' : 's'}, and ${age.days} day${age.days === 1 ? '' : 's'} old! 🎂`);
             }
             
-            facts.push(`That's ${totalDays.toLocaleString()} days in total!`);
+            // Total days fact
+            facts.push(`That's ${age.totalDays.toLocaleString()} total days lived! 📅`);
             
-            if (totalDays >= 10000) {
-                facts.push(`You've lived through more than 10,000 days!`);
+            // Hours fact
+            facts.push(`You've been alive for approximately ${Math.round(age.totalHours / 1000)}k hours! ⏰`);
+            
+            // Milestone facts
+            if (age.years >= 18) {
+                facts.push(`You've been an adult for ${age.years - 18} year${age.years - 18 === 1 ? '' : 's'}! 🚗`);
             }
             
-            if (years >= 18) {
-                facts.push(`You've been an adult for ${years - 18} year${years - 18 === 1 ? '' : 's'}!`);
+            if (age.years >= 21) {
+                facts.push(`Legal drinking age for ${age.years - 21} year${age.years - 21 === 1 ? '' : 's'}! 🍷`);
             }
             
-            if (years >= 65) {
-                facts.push(`Congratulations on reaching retirement age!`);
+            if (age.years >= 65) {
+                facts.push(`Retirement age reached! Enjoy your golden years! 🌟`);
             }
             
-            // Add milestone facts
-            const milestones = [
-                { days: 100, text: "You've reached your first 100 days!" },
-                { days: 365, text: "You've completed your first year!" },
-                { days: 1000, text: "You've reached 1,000 days!" },
-                { days: 3650, text: "You're a decade old in days!" },
-                { days: 10000, text: "Wow! 10,000 days of life!" },
-                { days: 18250, text: "Half a century in days!" }
-            ];
-            
-            for (const milestone of milestones) {
-                if (totalDays >= milestone.days && totalDays < milestone.days + 365) {
-                    facts.push(milestone.text);
-                }
+            // Special milestones
+            if (age.totalDays === 10000) {
+                facts.push(`🎉 Congratulations! You've reached 10,000 days today! 🎉`);
+            } else if (age.totalDays > 10000) {
+                facts.push(`You passed 10,000 days ${age.totalDays - 10000} days ago! 🏆`);
             }
             
-            return facts.join(' ');
+            return facts;
         }
 
-        // Quick action functions
+        // ========== QUICK ACTION FUNCTIONS ==========
         function setToday() {
             const today = new Date();
             document.getElementById('currentDay').value = today.getDate();
-            document.getElementById('currentMonth').value = today.getMonth().toString();
+            document.getElementById('currentMonth').value = today.getMonth();
             document.getElementById('currentYear').value = today.getFullYear();
             calculateAge();
         }
@@ -1720,7 +1831,7 @@
             const tomorrow = new Date();
             tomorrow.setDate(tomorrow.getDate() + 1);
             document.getElementById('currentDay').value = tomorrow.getDate();
-            document.getElementById('currentMonth').value = tomorrow.getMonth().toString();
+            document.getElementById('currentMonth').value = tomorrow.getMonth();
             document.getElementById('currentYear').value = tomorrow.getFullYear();
             calculateAge();
         }
@@ -1729,6 +1840,11 @@
             const birthDay = parseInt(document.getElementById('birthDay').value);
             const birthMonth = parseInt(document.getElementById('birthMonth').value);
             const currentYear = new Date().getFullYear();
+            
+            if (isNaN(birthDay) || isNaN(birthMonth)) {
+                alert('Please set a birth date first.');
+                return;
+            }
             
             let nextBirthday = new Date(currentYear, birthMonth, birthDay);
             const today = new Date();
@@ -1739,20 +1855,27 @@
             }
             
             document.getElementById('currentDay').value = nextBirthday.getDate();
-            document.getElementById('currentMonth').value = nextBirthday.getMonth().toString();
+            document.getElementById('currentMonth').value = nextBirthday.getMonth();
             document.getElementById('currentYear').value = nextBirthday.getFullYear();
             calculateAge();
         }
 
         function clearAll() {
+            // Clear birth date
             document.getElementById('birthDay').value = '';
             document.getElementById('birthMonth').value = '';
             document.getElementById('birthYear').value = '';
+            
+            // Clear current date
             document.getElementById('currentDay').value = '';
             document.getElementById('currentMonth').value = '';
             document.getElementById('currentYear').value = '';
             
             // Reset display
+            resetDisplay();
+        }
+
+        function resetDisplay() {
             document.getElementById('mainAge').textContent = '0';
             document.getElementById('mainAgeLabel').textContent = 'Years';
             
@@ -1770,12 +1893,32 @@
             document.getElementById('zodiacName').textContent = 'Aries';
             document.getElementById('zodiacDates').textContent = 'Mar 21 - Apr 19';
             document.getElementById('funFactText').textContent = 'Enter your birth date to see fun facts about your age!';
+            
+            ageCalculated = false;
         }
 
-        // Add event listeners to inputs for auto-calculation
-        document.querySelectorAll('select').forEach(select => {
-            select.addEventListener('change', calculateAge);
-        });
+        // ========== VALIDATION FUNCTIONS ==========
+        function validateDate(day, month, year) {
+            // Check if all values are provided
+            if (!day || !month || !year) {
+                return false;
+            }
+            
+            // Check if date is valid
+            const date = new Date(year, month, day);
+            return date.getDate() === parseInt(day) && 
+                   date.getMonth() === parseInt(month) && 
+                   date.getFullYear() === parseInt(year);
+        }
+
+        // ========== EXPORT FUNCTIONS TO GLOBAL SCOPE ==========
+        window.setToday = setToday;
+        window.setTomorrow = setTomorrow;
+        window.setNextBirthday = setNextBirthday;
+        window.clearAll = clearAll;
+        window.calculateAge = calculateAge;
+        window.showSeoPage = showSeoPage;
+        window.hideSeoPage = hideSeoPage;
     </script>
 </body>
 </html>
