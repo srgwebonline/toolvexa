@@ -1,0 +1,1926 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Percentage Calculator - Free Online Percentage Tools | Toolvexa</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Free online percentage calculator for all percentage calculations. Calculate percentage of a number, percentage increase/decrease, percentage difference, and more.">
+    <meta name="keywords" content="percentage calculator, calculate percentage, percentage increase, percentage decrease, percentage difference, math calculator, online calculator">
+    <meta name="author" content="Toolvexa">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Percentage Calculator - Free Online Percentage Tools | Toolvexa">
+    <meta property="og:description" content="Free online percentage calculator for all percentage calculations. Calculate percentage of a number, percentage increase/decrease, percentage difference, and more.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://toolvexa.com/percentage-calculator">
+    <meta property="og:image" content="https://toolvexa.com/images/percentage-calculator-og.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://toolvexa.com/percentage-calculator">
+    
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Percentage Calculator",
+        "url": "https://toolvexa.com/percentage-calculator",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "Any",
+        "description": "Free online percentage calculator for percentage calculations, percentage increase/decrease, and percentage difference",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "creator": {
+            "@type": "Organization",
+            "name": "Toolvexa",
+            "url": "https://toolvexa.com"
+        },
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://toolvexa.com/percentage-calculator?query={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+
+        :root {
+            --primary: #4cc9f0;
+            --primary-light: #e3f7fc;
+            --secondary: #7209b7;
+            --success: #2ec4b6;
+            --danger: #e63946;
+            --warning: #ff9e00;
+            --info: #4361ee;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --border: #dee2e6;
+            --shadow: rgba(0, 0, 0, 0.1);
+            --radius: 12px;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #f0f8ff 100%);
+            min-height: 100vh;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation Bar */
+        .tool-navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 15px 0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            border-bottom: 3px solid #4cc9f0;
+        }
+        
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: #4cc9f0;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .nav-brand i {
+            font-size: 1.8rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            background: #4cc9f0;
+            color: white;
+        }
+        
+        .back-to-home {
+            background: #4cc9f0;
+            color: white !important;
+            padding: 8px 20px !important;
+            border-radius: 25px;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #333;
+            cursor: pointer;
+        }
+        
+        /* Adjust body padding for fixed navbar */
+        body {
+            padding-top: 80px;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            margin: 20px 0 30px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .breadcrumb a {
+            color: #4cc9f0;
+            text-decoration: none;
+        }
+        
+        .breadcrumb span {
+            margin: 0 5px;
+        }
+
+        /* Tool Header */
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px 20px;
+            background: white;
+            border-radius: var(--radius);
+            box-shadow: 0 5px 20px var(--shadow);
+        }
+
+        .logo {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        header h1 {
+            color: var(--primary);
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        header p {
+            color: #666;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 20px;
+        }
+
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+            color: var(--dark);
+            background: var(--primary-light);
+            padding: 8px 15px;
+            border-radius: 50px;
+        }
+
+        .feature i {
+            color: var(--success);
+        }
+
+        /* Calculator Section */
+        .calculator-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 1100px) {
+            .calculator-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .calculator-types {
+            background: white;
+            border-radius: var(--radius);
+            padding: 30px;
+            box-shadow: 0 5px 20px var(--shadow);
+        }
+
+        .calculator-inputs {
+            background: white;
+            border-radius: var(--radius);
+            padding: 30px;
+            box-shadow: 0 5px 20px var(--shadow);
+        }
+
+        .calculator-types h2, .calculator-inputs h2 {
+            color: var(--primary);
+            margin-bottom: 25px;
+            font-size: 1.5rem;
+            border-bottom: 2px solid var(--primary-light);
+            padding-bottom: 10px;
+        }
+
+        .calculator-tabs {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .calculator-tab {
+            padding: 20px;
+            border: 2px solid var(--border);
+            border-radius: var(--radius);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: var(--light);
+        }
+
+        .calculator-tab:hover {
+            border-color: var(--primary);
+            transform: translateX(5px);
+            background: var(--primary-light);
+        }
+
+        .calculator-tab.active {
+            border-color: var(--primary);
+            background: var(--primary-light);
+            box-shadow: 0 3px 10px rgba(76, 201, 240, 0.2);
+        }
+
+        .tab-icon {
+            font-size: 1.5rem;
+            color: var(--primary);
+            width: 40px;
+            height: 40px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tab-content {
+            flex: 1;
+        }
+
+        .tab-title {
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+
+        .tab-description {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* Input Forms */
+        .input-group {
+            margin-bottom: 25px;
+        }
+
+        .input-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark);
+            font-size: 1rem;
+        }
+
+        .input-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .input-wrapper i {
+            position: absolute;
+            left: 15px;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 15px 15px 15px 45px;
+            border: 2px solid var(--border);
+            border-radius: var(--radius);
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(76, 201, 240, 0.2);
+        }
+
+        .input-field::placeholder {
+            color: #aaa;
+        }
+
+        .input-suffix {
+            position: absolute;
+            right: 15px;
+            color: #666;
+            font-weight: 600;
+        }
+
+        .formula-display {
+            background: var(--primary-light);
+            border: 2px dashed var(--primary);
+            border-radius: var(--radius);
+            padding: 15px;
+            margin-top: 20px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.95rem;
+            color: var(--dark);
+            display: none;
+        }
+
+        .formula-display.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .action-btn {
+            flex: 1;
+            min-width: 150px;
+            padding: 16px 20px;
+            border: none;
+            border-radius: var(--radius);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .action-btn i {
+            font-size: 1.2rem;
+        }
+
+        .calculate-btn {
+            background: var(--primary);
+            color: white;
+        }
+
+        .calculate-btn:hover {
+            background: #3ab7d9;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(76, 201, 240, 0.3);
+        }
+
+        .reset-btn {
+            background: var(--light);
+            color: var(--dark);
+            border: 2px solid var(--border);
+        }
+
+        .reset-btn:hover {
+            background: #e9ecef;
+            transform: translateY(-2px);
+        }
+
+        /* Results Section */
+        .results-section {
+            margin-top: 40px;
+        }
+
+        .section-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .section-title h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+        }
+
+        .results-container {
+            background: white;
+            border-radius: var(--radius);
+            padding: 40px;
+            box-shadow: 0 5px 20px var(--shadow);
+            text-align: center;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .result-placeholder {
+            color: #888;
+            font-size: 1.1rem;
+        }
+
+        .result-placeholder i {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: #ddd;
+        }
+
+        .result-display {
+            width: 100%;
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .result-display.active {
+            display: block;
+        }
+
+        .result-main {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .result-detail {
+            font-size: 1.2rem;
+            color: var(--success);
+            font-weight: 600;
+            margin-bottom: 20px;
+            padding: 10px 20px;
+            background: rgba(46, 196, 182, 0.1);
+            border-radius: var(--radius);
+            display: inline-block;
+        }
+
+        .result-explanation {
+            color: #666;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--light);
+            padding: 20px;
+            border-radius: var(--radius);
+            border-left: 4px solid var(--primary);
+        }
+
+        /* Calculation History */
+        .history-section {
+            margin-top: 40px;
+        }
+
+        .history-container {
+            background: white;
+            border-radius: var(--radius);
+            padding: 30px;
+            box-shadow: 0 5px 20px var(--shadow);
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .history-item {
+            padding: 15px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.2s ease;
+        }
+
+        .history-item:hover {
+            background: var(--primary-light);
+            transform: translateX(5px);
+        }
+
+        .history-item:last-child {
+            border-bottom: none;
+        }
+
+        .history-calculation {
+            font-weight: 500;
+            color: var(--dark);
+        }
+
+        .history-result {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+
+        .clear-history {
+            background: var(--danger);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: var(--radius);
+            cursor: pointer;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .clear-history:hover {
+            background: #d32f3a;
+            transform: translateY(-2px);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            margin: 60px 0 40px;
+        }
+
+        .faq-section h2 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .faq-container {
+            background: white;
+            border-radius: var(--radius);
+            padding: 30px;
+            box-shadow: 0 5px 20px var(--shadow);
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border);
+            padding: 20px 0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            color: var(--dark);
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .faq-question i {
+            color: var(--primary);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            color: #666;
+            line-height: 1.6;
+            padding-right: 40px;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            margin-top: 15px;
+        }
+
+        /* Related Tools Section */
+        .related-tools-section {
+            margin: 60px 0 40px;
+        }
+
+        .related-tools-section h2 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .tool-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 5px 15px var(--shadow);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 25px rgba(76, 201, 240, 0.15);
+        }
+
+        .tool-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .tool-card h3 {
+            color: var(--dark);
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .tool-card p {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .tool-link {
+            display: inline-block;
+            background: var(--primary-light);
+            color: var(--primary);
+            padding: 10px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .tool-link:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* SEO Pages Styles */
+        .seo-section {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            display: none;
+            position: relative;
+        }
+        
+        .seo-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .seo-section h1 {
+            color: #4cc9f0;
+            margin-bottom: 20px;
+            font-size: 2.2rem;
+        }
+        
+        .seo-section h2 {
+            color: #333;
+            margin: 25px 0 15px;
+            font-size: 1.5rem;
+        }
+        
+        .seo-section h3 {
+            color: #555;
+            margin: 20px 0 10px;
+            font-size: 1.2rem;
+        }
+        
+        .seo-content {
+            line-height: 1.8;
+            color: #444;
+        }
+        
+        .seo-content p {
+            margin-bottom: 15px;
+        }
+        
+        .seo-content ul, .seo-content ol {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .seo-content li {
+            margin-bottom: 10px;
+        }
+        
+        .close-seo {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #4cc9f0;
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            z-index: 10;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 30px 20px;
+            color: #666;
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border);
+            background: white;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            color: #4cc9f0;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+            text-decoration: underline;
+        }
+
+        .copyright {
+            margin-top: 20px;
+            color: #888;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-container {
+                flex-wrap: wrap;
+            }
+            
+            .calculator-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+            }
+            
+            .action-btn {
+                min-width: 100%;
+            }
+            
+            .result-main {
+                font-size: 2.5rem;
+            }
+            
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .seo-section {
+                padding: 20px;
+                margin: 20px;
+            }
+            
+            .faq-container {
+                padding: 20px;
+            }
+            
+            .faq-answer {
+                padding-right: 20px;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Utility Classes */
+        .hidden {
+            display: none !important;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .mt-20 {
+            margin-top: 20px;
+        }
+
+        .mb-20 {
+            margin-bottom: 20px;
+        }
+
+        .error {
+            border-color: var(--danger) !important;
+        }
+
+        .error-message {
+            color: var(--danger);
+            font-size: 0.9rem;
+            margin-top: 5px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="tool-navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">
+                <i class="fas fa-tools"></i> Toolvexa
+            </a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#tools">All Tools</a></li>
+                <li><a href="index.html#calculators">Calculators</a></li>
+                <li><a href="#privacy-policy" onclick="showSeoPage('privacy')">Privacy Policy</a></li>
+                <li><a href="#terms-of-service" onclick="showSeoPage('terms')">Terms of Service</a></li>
+                <li><a href="#about-tool" onclick="showSeoPage('about')">About This Tool</a></li>
+                <li><a href="index.html" class="back-to-home">Back to Home</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Breadcrumb -->
+        <div class="breadcrumb">
+            <a href="index.html">Home</a> 
+            <span>></span>
+            <a href="index.html#calculators">Calculators</a>
+            <span>></span>
+            <span>Percentage Calculator</span>
+        </div>
+
+        <!-- Tool Header -->
+        <header>
+            <div class="logo">
+                <i class="fas fa-percentage"></i>
+            </div>
+            <h1>Percentage Calculator</h1>
+            <p>Calculate percentages easily with our free online tool. Solve percentage problems, calculate percentage increase/decrease, and more.</p>
+            <div class="features">
+                <div class="feature">
+                    <i class="fas fa-calculator"></i>
+                    <span>5 Calculation Types</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-history"></i>
+                    <span>Calculation History</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-mobile-alt"></i>
+                    <span>Mobile Friendly</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-rocket"></i>
+                    <span>Instant Results</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Calculator Section -->
+        <div class="calculator-container">
+            <div class="calculator-types">
+                <h2>Select Calculation Type</h2>
+                <div class="calculator-tabs">
+                    <div class="calculator-tab active" data-type="percentage-of">
+                        <div class="tab-icon">
+                            <i class="fas fa-calculator"></i>
+                        </div>
+                        <div class="tab-content">
+                            <div class="tab-title">Percentage of a Number</div>
+                            <div class="tab-description">What is X% of Y? Calculate percentage of a given number.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="calculator-tab" data-type="percentage-what">
+                        <div class="tab-icon">
+                            <i class="fas fa-question-circle"></i>
+                        </div>
+                        <div class="tab-content">
+                            <div class="tab-title">What Percentage is X of Y?</div>
+                            <div class="tab-description">Find what percentage one number is of another number.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="calculator-tab" data-type="percentage-increase">
+                        <div class="tab-icon">
+                            <i class="fas fa-arrow-up"></i>
+                        </div>
+                        <div class="tab-content">
+                            <div class="tab-title">Percentage Increase</div>
+                            <div class="tab-description">Calculate percentage increase from old value to new value.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="calculator-tab" data-type="percentage-decrease">
+                        <div class="tab-icon">
+                            <i class="fas fa-arrow-down"></i>
+                        </div>
+                        <div class="tab-content">
+                            <div class="tab-title">Percentage Decrease</div>
+                            <div class="tab-description">Calculate percentage decrease from old value to new value.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="calculator-tab" data-type="percentage-difference">
+                        <div class="tab-icon">
+                            <i class="fas fa-exchange-alt"></i>
+                        </div>
+                        <div class="tab-content">
+                            <div class="tab-title">Percentage Difference</div>
+                            <div class="tab-description">Find percentage difference between two values.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="calculator-inputs">
+                <h2>Enter Values</h2>
+                
+                <!-- Percentage of a Number -->
+                <div class="input-form active" id="percentage-of-form">
+                    <div class="input-group">
+                        <label class="input-label">Percentage (%)</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-percentage"></i>
+                            <input type="number" class="input-field" id="percentage-of-value" placeholder="Enter percentage" step="0.01" min="0" max="1000">
+                            <span class="input-suffix">%</span>
+                        </div>
+                        <div class="error-message" id="percentage-of-error"></div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label class="input-label">Number</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-hashtag"></i>
+                            <input type="number" class="input-field" id="percentage-of-number" placeholder="Enter number" step="0.01">
+                        </div>
+                        <div class="error-message" id="percentage-number-error"></div>
+                    </div>
+                    
+                    <div class="formula-display" id="percentage-of-formula">
+                        <strong>Formula:</strong> Result = (Percentage ÷ 100) × Number
+                    </div>
+                </div>
+                
+                <!-- What Percentage is X of Y -->
+                <div class="input-form hidden" id="percentage-what-form">
+                    <div class="input-group">
+                        <label class="input-label">Part (X)</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-hashtag"></i>
+                            <input type="number" class="input-field" id="what-percentage-x" placeholder="Enter part value" step="0.01">
+                        </div>
+                        <div class="error-message" id="what-x-error"></div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label class="input-label">Whole (Y)</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-hashtag"></i>
+                            <input type="number" class="input-field" id="what-percentage-y" placeholder="Enter whole value" step="0.01">
+                        </div>
+                        <div class="error-message" id="what-y-error"></div>
+                    </div>
+                    
+                    <div class="formula-display" id="percentage-what-formula">
+                        <strong>Formula:</strong> Percentage = (Part ÷ Whole) × 100
+                    </div>
+                </div>
+                
+                <!-- Percentage Increase -->
+                <div class="input-form hidden" id="percentage-increase-form">
+                    <div class="input-group">
+                        <label class="input-label">Original Value</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-arrow-left"></i>
+                            <input type="number" class="input-field" id="increase-original" placeholder="Enter original value" step="0.01">
+                        </div>
+                        <div class="error-message" id="increase-original-error"></div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label class="input-label">New Value</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-arrow-right"></i>
+                            <input type="number" class="input-field" id="increase-new" placeholder="Enter new value" step="0.01">
+                        </div>
+                        <div class="error-message" id="increase-new-error"></div>
+                    </div>
+                    
+                    <div class="formula-display" id="percentage-increase-formula">
+                        <strong>Formula:</strong> Percentage Increase = [(New Value - Original Value) ÷ Original Value] × 100
+                    </div>
+                </div>
+                
+                <!-- Percentage Decrease -->
+                <div class="input-form hidden" id="percentage-decrease-form">
+                    <div class="input-group">
+                        <label class="input-label">Original Value</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-arrow-left"></i>
+                            <input type="number" class="input-field" id="decrease-original" placeholder="Enter original value" step="0.01">
+                        </div>
+                        <div class="error-message" id="decrease-original-error"></div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label class="input-label">New Value</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-arrow-right"></i>
+                            <input type="number" class="input-field" id="decrease-new" placeholder="Enter new value" step="0.01">
+                        </div>
+                        <div class="error-message" id="decrease-new-error"></div>
+                    </div>
+                    
+                    <div class="formula-display" id="percentage-decrease-formula">
+                        <strong>Formula:</strong> Percentage Decrease = [(Original Value - New Value) ÷ Original Value] × 100
+                    </div>
+                </div>
+                
+                <!-- Percentage Difference -->
+                <div class="input-form hidden" id="percentage-difference-form">
+                    <div class="input-group">
+                        <label class="input-label">Value 1</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-hashtag"></i>
+                            <input type="number" class="input-field" id="difference-value1" placeholder="Enter first value" step="0.01">
+                        </div>
+                        <div class="error-message" id="difference-value1-error"></div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label class="input-label">Value 2</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-hashtag"></i>
+                            <input type="number" class="input-field" id="difference-value2" placeholder="Enter second value" step="0.01">
+                        </div>
+                        <div class="error-message" id="difference-value2-error"></div>
+                    </div>
+                    
+                    <div class="formula-display" id="percentage-difference-formula">
+                        <strong>Formula:</strong> Percentage Difference = (|Value1 - Value2| ÷ [(Value1 + Value2) ÷ 2]) × 100
+                    </div>
+                </div>
+                
+                <div class="action-buttons">
+                    <button class="action-btn calculate-btn" id="calculateBtn">
+                        <i class="fas fa-calculator"></i> Calculate
+                    </button>
+                    <button class="action-btn reset-btn" id="resetBtn">
+                        <i class="fas fa-redo"></i> Reset
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Section -->
+        <div class="results-section">
+            <div class="section-title">
+                <h2>Calculation Result</h2>
+            </div>
+            
+            <div class="results-container">
+                <div class="result-placeholder" id="resultPlaceholder">
+                    <i class="fas fa-percentage"></i>
+                    <h3>No Calculation Yet</h3>
+                    <p>Select a calculation type, enter values, and click "Calculate" to see results here.</p>
+                </div>
+                
+                <div class="result-display" id="resultDisplay">
+                    <div class="result-main" id="resultMain">0</div>
+                    <div class="result-detail" id="resultDetail">Result</div>
+                    <div class="result-explanation" id="resultExplanation">
+                        This is the calculated result based on your inputs.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Calculation History -->
+        <div class="history-section">
+            <div class="section-title">
+                <h2>Calculation History</h2>
+            </div>
+            
+            <div class="history-container" id="historyContainer">
+                <div class="history-placeholder" id="historyPlaceholder">
+                    <p style="color: #888; text-align: center;">No calculations in history yet.</p>
+                </div>
+            </div>
+            
+            <button class="clear-history" id="clearHistoryBtn">
+                <i class="fas fa-trash-alt"></i> Clear History
+            </button>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How do I calculate percentage of a number?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>To calculate percentage of a number, use the formula: <strong>Result = (Percentage ÷ 100) × Number</strong>. For example, to find 20% of 150: (20 ÷ 100) × 150 = 30.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How do I calculate what percentage one number is of another?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Use the formula: <strong>Percentage = (Part ÷ Whole) × 100</strong>. For example, if 25 is what percent of 200: (25 ÷ 200) × 100 = 12.5%.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What's the difference between percentage increase and decrease?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Percentage increase measures growth (new value is higher), while percentage decrease measures reduction (new value is lower). Both use similar formulas but with different order of values.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How do I calculate percentage increase?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Use: <strong>Percentage Increase = [(New Value - Original Value) ÷ Original Value] × 100</strong>. Example: From 50 to 75: [(75-50)÷50]×100 = 50% increase.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What is percentage difference?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Percentage difference measures the relative difference between two values, regardless of which is larger. Formula: <strong>(|Value1 - Value2| ÷ [(Value1 + Value2) ÷ 2]) × 100</strong>.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Related Tools Section -->
+        <div class="related-tools-section">
+            <h2>Other Useful Calculator Tools</h2>
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3>GST Calculator</h3>
+                    <p>Calculate Goods and Services Tax for invoices and purchases. Works with multiple tax rates.</p>
+                    <a href="gst-calculator.html" class="tool-link">Use Tool</a>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <h3>EMI Calculator</h3>
+                    <p>Calculate Equated Monthly Installments for loans with different interest rates and tenures.</p>
+                    <a href="emi-calculator.html" class="tool-link">Use Tool</a>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-birthday-cake"></i>
+                    </div>
+                    <h3>Age Calculator</h3>
+                    <p>Calculate exact age in years, months, and days from birth date to current date.</p>
+                    <a href="age-calculator.html" class="tool-link">Use Tool</a>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Discount Calculator</h3>
+                    <p>Calculate discounts, sale prices, and percentage off for shopping and retail calculations.</p>
+                    <a href="discount-calculator.html" class="tool-link">Use Tool</a>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-exchange-alt"></i>
+                    </div>
+                    <h3>Currency Converter</h3>
+                    <p>Convert between different currencies with real-time exchange rates and historical data.</p>
+                    <a href="currency-converter.html" class="tool-link">Use Tool</a>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-ruler-combined"></i>
+                    </div>
+                    <h3>Unit Converter</h3>
+                    <p>Convert between different units of length, weight, volume, temperature, and more.</p>
+                    <a href="unit-converter.html" class="tool-link">Use Tool</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- SEO Pages Section -->
+        <div class="seo-section" id="privacy-policy">
+            <button class="close-seo" onclick="hideSeoPage()">×</button>
+            <h1>Privacy Policy</h1>
+            <div class="seo-content">
+                <p><strong>Last Updated: January 2024</strong></p>
+                
+                <h2>1. Introduction</h2>
+                <p>Welcome to Toolvexa Percentage Calculator. Your privacy is critically important to us. This privacy policy document outlines how our tool handles your data.</p>
+                
+                <h2>2. Information We Collect</h2>
+                <h3>2.1 No Personal Data Collection</h3>
+                <p>Our Percentage Calculator operates entirely in your browser. We do not:</p>
+                <ul>
+                    <li>Collect any personal information</li>
+                    <li>Store your calculation data on our servers</li>
+                    <li>Use cookies for tracking purposes</li>
+                    <li>Share your data with third parties</li>
+                </ul>
+                
+                <h3>2.2 Local Storage</h3>
+                <p>We use browser local storage to save your calculation history for your convenience. This data stays on your device and is not transmitted to us.</p>
+                
+                <h2>3. How We Use Information</h2>
+                <p>Since we don't collect any personal data, there's no information to use or share. All calculations happen locally in your browser.</p>
+                
+                <h2>4. Third-Party Services</h2>
+                <p>We only use Font Awesome for icons. No other third-party services are used that could track your usage.</p>
+                
+                <h2>5. Security</h2>
+                <p>Your security is guaranteed because all calculations are performed locally on your device.</p>
+                
+                <h2>6. Changes to This Policy</h2>
+                <p>We may update this privacy policy from time to time. Any changes will be posted on this page.</p>
+                
+                <h2>7. Contact Us</h2>
+                <p>If you have any questions about this Privacy Policy, please contact us at: privacy@toolvexa.com</p>
+            </div>
+        </div>
+
+        <div class="seo-section" id="terms-of-service">
+            <button class="close-seo" onclick="hideSeoPage()">×</button>
+            <h1>Terms of Service</h1>
+            <div class="seo-content">
+                <p><strong>Last Updated: January 2024</strong></p>
+                
+                <h2>1. Acceptance of Terms</h2>
+                <p>By accessing and using the Toolvexa Percentage Calculator, you accept and agree to be bound by these terms of service.</p>
+                
+                <h2>2. Description of Service</h2>
+                <p>Toolvexa Percentage Calculator provides a free online tool for calculating percentages. The service includes:</p>
+                <ul>
+                    <li>Percentage of a number calculations</li>
+                    <li>Percentage increase/decrease calculations</li>
+                    <li>Percentage difference calculations</li>
+                    <li>Calculation history storage</li>
+                    <li>Browser-based processing (no server uploads)</li>
+                </ul>
+                
+                <h2>3. User Responsibilities</h2>
+                <p>You agree to use the tool only for lawful purposes and not to misuse the service in any way.</p>
+                
+                <h2>4. Service Limitations</h2>
+                <p>The service is provided "as is" without warranties of any kind. We do not guarantee:</p>
+                <ul>
+                    <li>100% accuracy in all calculations</li>
+                    <li>Uninterrupted service availability</li>
+                    <li>Compatibility with all browsers or devices</li>
+                </ul>
+                
+                <h2>5. Limitation of Liability</h2>
+                <p>Toolvexa shall not be liable for any damages resulting from your use of the calculator tool.</p>
+                
+                <h2>6. Changes to Terms</h2>
+                <p>We reserve the right to modify these terms at any time.</p>
+                
+                <h2>7. Contact Information</h2>
+                <p>For any questions regarding these Terms of Service, please contact: legal@toolvexa.com</p>
+            </div>
+        </div>
+
+        <div class="seo-section" id="about-tool">
+            <button class="close-seo" onclick="hideSeoPage()">×</button>
+            <h1>About Percentage Calculator Tool</h1>
+            <div class="seo-content">
+                <h2>What is Toolvexa Percentage Calculator?</h2>
+                <p>Toolvexa Percentage Calculator is a free online tool that helps you solve various percentage-related calculations quickly and accurately. It's perfect for students, teachers, professionals, and anyone who needs to work with percentages in their daily life.</p>
+                
+                <h2>Key Features</h2>
+                <ul>
+                    <li><strong>5 Calculation Types:</strong> Covers all common percentage calculations</li>
+                    <li><strong>Real-time Results:</strong> Instant calculations as you type</li>
+                    <li><strong>Calculation History:</strong> Saves your recent calculations</li>
+                    <li><strong>No Installation Required:</strong> Works directly in your browser</li>
+                    <li><strong>Mobile Friendly:</strong> Fully responsive design for all devices</li>
+                    <li><strong>Completely Free:</strong> No costs, no registration required</li>
+                </ul>
+                
+                <h2>How It Works</h2>
+                <p>Our tool uses precise mathematical formulas to ensure accurate percentage calculations. The process is simple:</p>
+                <ol>
+                    <li>Select the type of percentage calculation you need</li>
+                    <li>Enter the required values in the input fields</li>
+                    <li>Click "Calculate" to get instant results</li>
+                    <li>View detailed explanations and formulas</li>
+                </ol>
+                
+                <h2>Use Cases</h2>
+                <ul>
+                    <li><strong>Education:</strong> Students learning percentage calculations</li>
+                    <li><strong>Business:</strong> Calculating discounts, taxes, and profit margins</li>
+                    <li><strong>Finance:</strong> Interest calculations and financial analysis</li>
+                    <li><strong>Statistics:</strong> Data analysis and percentage comparisons</li>
+                    <li><strong>Daily Life:</strong> Tip calculations, sale prices, and measurements</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-links">
+                <a href="#privacy-policy" onclick="showSeoPage('privacy')">Privacy Policy</a>
+                <a href="#terms-of-service" onclick="showSeoPage('terms')">Terms of Service</a>
+                <a href="#about-tool" onclick="showSeoPage('about')">About This Tool</a>
+                <a href="index.html">All Tools</a>
+                <a href="index.html#calculators">Calculators</a>
+                <a href="index.html#contact">Contact Us</a>
+            </div>
+            <div class="copyright">
+                <p>© 2024 Percentage Calculator | Toolvexa | All calculations happen locally in your browser. No data is uploaded to any server.</p>
+                <p style="margin-top: 10px;">Made with <i class="fas fa-heart" style="color: #e63946;"></i> for everyone</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Navigation functionality
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                navLinks.classList.remove('active');
+            }
+        });
+        
+        // SEO pages functionality
+        function showSeoPage(page) {
+            // Hide all seo sections first
+            document.querySelectorAll('.seo-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show the requested section
+            let sectionId = '';
+            switch(page) {
+                case 'privacy':
+                    sectionId = 'privacy-policy';
+                    break;
+                case 'terms':
+                    sectionId = 'terms-of-service';
+                    break;
+                case 'about':
+                    sectionId = 'about-tool';
+                    break;
+            }
+            
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Close mobile menu if open
+            navLinks.classList.remove('active');
+            
+            // Scroll to the section
+            setTimeout(() => {
+                document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+            }, 100);
+        }
+        
+        function hideSeoPage() {
+            document.querySelectorAll('.seo-section').forEach(section => {
+                section.classList.remove('active');
+            });
+        }
+        
+        // Close SEO section when clicking outside
+        document.addEventListener('click', (e) => {
+            if (e.target.classList.contains('seo-section')) {
+                hideSeoPage();
+            }
+        });
+
+        // FAQ functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                item.classList.toggle('active');
+            });
+        });
+
+        // Calculator functionality
+        const calculatorTabs = document.querySelectorAll('.calculator-tab');
+        const inputForms = document.querySelectorAll('.input-form');
+        const formulaDisplays = document.querySelectorAll('.formula-display');
+        
+        // Current calculation type
+        let currentCalculationType = 'percentage-of';
+        
+        // Initialize calculation history from localStorage
+        let calculationHistory = JSON.parse(localStorage.getItem('percentageCalculatorHistory')) || [];
+        renderHistory();
+        
+        // Tab switching
+        calculatorTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs
+                calculatorTabs.forEach(t => t.classList.remove('active'));
+                // Add active class to clicked tab
+                tab.classList.add('active');
+                
+                // Get calculation type
+                currentCalculationType = tab.getAttribute('data-type');
+                
+                // Hide all input forms
+                inputForms.forEach(form => form.classList.add('hidden'));
+                // Hide all formula displays
+                formulaDisplays.forEach(formula => formula.classList.remove('active'));
+                
+                // Show selected input form
+                document.getElementById(`${currentCalculationType}-form`).classList.remove('hidden');
+                // Show selected formula display
+                document.getElementById(`${currentCalculationType}-formula`).classList.add('active');
+                
+                // Clear any previous errors
+                clearErrors();
+            });
+        });
+        
+        // Calculate button
+        document.getElementById('calculateBtn').addEventListener('click', performCalculation);
+        
+        // Reset button
+        document.getElementById('resetBtn').addEventListener('click', resetCalculator);
+        
+        // Clear history button
+        document.getElementById('clearHistoryBtn').addEventListener('click', clearHistory);
+        
+        // Allow Enter key to trigger calculation
+        document.querySelectorAll('.input-field').forEach(input => {
+            input.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    performCalculation();
+                }
+            });
+        });
+        
+        // Function to perform calculation based on current type
+        function performCalculation() {
+            clearErrors();
+            
+            let result, explanation, detail;
+            
+            switch(currentCalculationType) {
+                case 'percentage-of':
+                    result = calculatePercentageOf();
+                    break;
+                case 'percentage-what':
+                    result = calculatePercentageWhat();
+                    break;
+                case 'percentage-increase':
+                    result = calculatePercentageIncrease();
+                    break;
+                case 'percentage-decrease':
+                    result = calculatePercentageDecrease();
+                    break;
+                case 'percentage-difference':
+                    result = calculatePercentageDifference();
+                    break;
+            }
+            
+            // If result is null, there was an error
+            if (result === null) return;
+            
+            // Display result
+            displayResult(result.value, result.detail, result.explanation);
+            
+            // Add to history
+            addToHistory(result.historyEntry);
+        }
+        
+        // Calculation functions
+        function calculatePercentageOf() {
+            const percentage = parseFloat(document.getElementById('percentage-of-value').value);
+            const number = parseFloat(document.getElementById('percentage-of-number').value);
+            
+            // Validate inputs
+            if (isNaN(percentage) || percentage < 0) {
+                showError('percentage-of-value', 'Please enter a valid positive percentage');
+                return null;
+            }
+            
+            if (isNaN(number)) {
+                showError('percentage-of-number', 'Please enter a valid number');
+                return null;
+            }
+            
+            const result = (percentage / 100) * number;
+            
+            return {
+                value: result.toFixed(2),
+                detail: `${percentage}% of ${number} is`,
+                explanation: `${percentage} ÷ 100 = ${percentage/100}, then ${percentage/100} × ${number} = ${result.toFixed(2)}`,
+                historyEntry: `${percentage}% of ${number} = ${result.toFixed(2)}`
+            };
+        }
+        
+        function calculatePercentageWhat() {
+            const x = parseFloat(document.getElementById('what-percentage-x').value);
+            const y = parseFloat(document.getElementById('what-percentage-y').value);
+            
+            // Validate inputs
+            if (isNaN(x)) {
+                showError('what-percentage-x', 'Please enter a valid number for part');
+                return null;
+            }
+            
+            if (isNaN(y) || y === 0) {
+                showError('what-percentage-y', 'Please enter a valid non-zero number for whole');
+                return null;
+            }
+            
+            const result = (x / y) * 100;
+            
+            return {
+                value: result.toFixed(2) + '%',
+                detail: `${x} is what percentage of ${y}`,
+                explanation: `${x} ÷ ${y} = ${(x/y).toFixed(4)}, then ${(x/y).toFixed(4)} × 100 = ${result.toFixed(2)}%`,
+                historyEntry: `${x} is ${result.toFixed(2)}% of ${y}`
+            };
+        }
+        
+        function calculatePercentageIncrease() {
+            const original = parseFloat(document.getElementById('increase-original').value);
+            const newValue = parseFloat(document.getElementById('increase-new').value);
+            
+            // Validate inputs
+            if (isNaN(original) || original <= 0) {
+                showError('increase-original', 'Please enter a valid positive number');
+                return null;
+            }
+            
+            if (isNaN(newValue)) {
+                showError('increase-new', 'Please enter a valid number');
+                return null;
+            }
+            
+            const increase = newValue - original;
+            const result = (increase / original) * 100;
+            
+            return {
+                value: result.toFixed(2) + '%',
+                detail: `Percentage increase from ${original} to ${newValue}`,
+                explanation: `Increase = ${newValue} - ${original} = ${increase}, then (${increase} ÷ ${original}) × 100 = ${result.toFixed(2)}%`,
+                historyEntry: `${original} to ${newValue} = ${result.toFixed(2)}% increase`
+            };
+        }
+        
+        function calculatePercentageDecrease() {
+            const original = parseFloat(document.getElementById('decrease-original').value);
+            const newValue = parseFloat(document.getElementById('decrease-new').value);
+            
+            // Validate inputs
+            if (isNaN(original) || original <= 0) {
+                showError('decrease-original', 'Please enter a valid positive number');
+                return null;
+            }
+            
+            if (isNaN(newValue)) {
+                showError('decrease-new', 'Please enter a valid number');
+                return null;
+            }
+            
+            const decrease = original - newValue;
+            const result = (decrease / original) * 100;
+            
+            return {
+                value: result.toFixed(2) + '%',
+                detail: `Percentage decrease from ${original} to ${newValue}`,
+                explanation: `Decrease = ${original} - ${newValue} = ${decrease}, then (${decrease} ÷ ${original}) × 100 = ${result.toFixed(2)}%`,
+                historyEntry: `${original} to ${newValue} = ${result.toFixed(2)}% decrease`
+            };
+        }
+        
+        function calculatePercentageDifference() {
+            const value1 = parseFloat(document.getElementById('difference-value1').value);
+            const value2 = parseFloat(document.getElementById('difference-value2').value);
+            
+            // Validate inputs
+            if (isNaN(value1)) {
+                showError('difference-value1', 'Please enter a valid number');
+                return null;
+            }
+            
+            if (isNaN(value2)) {
+                showError('difference-value2', 'Please enter a valid number');
+                return null;
+            }
+            
+            const difference = Math.abs(value1 - value2);
+            const average = (value1 + value2) / 2;
+            const result = (difference / average) * 100;
+            
+            return {
+                value: result.toFixed(2) + '%',
+                detail: `Percentage difference between ${value1} and ${value2}`,
+                explanation: `Difference = |${value1} - ${value2}| = ${difference}, Average = (${value1} + ${value2}) ÷ 2 = ${average}, then (${difference} ÷ ${average}) × 100 = ${result.toFixed(2)}%`,
+                historyEntry: `Difference between ${value1} and ${value2} = ${result.toFixed(2)}%`
+            };
+        }
+        
+        // Display result
+        function displayResult(value, detail, explanation) {
+            // Hide placeholder
+            document.getElementById('resultPlaceholder').style.display = 'none';
+            
+            // Show result display
+            const resultDisplay = document.getElementById('resultDisplay');
+            resultDisplay.classList.add('active');
+            
+            // Update result elements
+            document.getElementById('resultMain').textContent = value;
+            document.getElementById('resultDetail').textContent = detail;
+            document.getElementById('resultExplanation').textContent = explanation;
+        }
+        
+        // Reset calculator
+        function resetCalculator() {
+            // Clear all input fields
+            document.querySelectorAll('.input-field').forEach(input => {
+                input.value = '';
+                input.classList.remove('error');
+            });
+            
+            // Clear errors
+            clearErrors();
+            
+            // Hide result display
+            document.getElementById('resultDisplay').classList.remove('active');
+            document.getElementById('resultPlaceholder').style.display = 'block';
+        }
+        
+        // Error handling
+        function showError(fieldId, message) {
+            const input = document.getElementById(fieldId);
+            const errorElement = document.getElementById(fieldId + '-error');
+            
+            input.classList.add('error');
+            errorElement.textContent = message;
+            errorElement.style.display = 'block';
+        }
+        
+        function clearErrors() {
+            document.querySelectorAll('.input-field').forEach(input => {
+                input.classList.remove('error');
+            });
+            
+            document.querySelectorAll('.error-message').forEach(error => {
+                error.style.display = 'none';
+            });
+        }
+        
+        // History functions
+        function addToHistory(entry) {
+            const timestamp = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+            const historyItem = {
+                id: Date.now(),
+                entry: entry,
+                timestamp: timestamp,
+                type: currentCalculationType
+            };
+            
+            calculationHistory.unshift(historyItem);
+            
+            // Keep only last 20 items
+            if (calculationHistory.length > 20) {
+                calculationHistory = calculationHistory.slice(0, 20);
+            }
+            
+            // Save to localStorage
+            localStorage.setItem('percentageCalculatorHistory', JSON.stringify(calculationHistory));
+            
+            // Update display
+            renderHistory();
+        }
+        
+        function renderHistory() {
+            const historyContainer = document.getElementById('historyContainer');
+            const placeholder = document.getElementById('historyPlaceholder');
+            
+            if (calculationHistory.length === 0) {
+                placeholder.style.display = 'block';
+                return;
+            }
+            
+            placeholder.style.display = 'none';
+            
+            // Clear current history display (except placeholder)
+            const currentItems = historyContainer.querySelectorAll('.history-item');
+            currentItems.forEach(item => item.remove());
+            
+            // Add history items
+            calculationHistory.forEach(item => {
+                const historyItem = document.createElement('div');
+                historyItem.className = 'history-item';
+                historyItem.innerHTML = `
+                    <div class="history-calculation">${item.entry}</div>
+                    <div class="history-result">${item.timestamp}</div>
+                `;
+                historyContainer.insertBefore(historyItem, placeholder);
+            });
+        }
+        
+        function clearHistory() {
+            if (calculationHistory.length === 0) return;
+            
+            if (confirm('Are you sure you want to clear all calculation history?')) {
+                calculationHistory = [];
+                localStorage.removeItem('percentageCalculatorHistory');
+                renderHistory();
+            }
+        }
+        
+        // Initialize with example values for better UX
+        function initializeExampleValues() {
+            // Only set examples if all fields are empty
+            const allEmpty = Array.from(document.querySelectorAll('.input-field')).every(input => !input.value);
+            
+            if (allEmpty) {
+                document.getElementById('percentage-of-value').value = '20';
+                document.getElementById('percentage-of-number').value = '150';
+                
+                document.getElementById('what-percentage-x').value = '25';
+                document.getElementById('what-percentage-y').value = '200';
+                
+                document.getElementById('increase-original').value = '50';
+                document.getElementById('increase-new').value = '75';
+                
+                document.getElementById('decrease-original').value = '80';
+                document.getElementById('decrease-new').value = '60';
+                
+                document.getElementById('difference-value1').value = '100';
+                document.getElementById('difference-value2').value = '120';
+            }
+        }
+        
+        // Initialize on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            initializeExampleValues();
+            
+            // Show formula for active tab
+            document.getElementById(`${currentCalculationType}-formula`).classList.add('active');
+        });
+    </script>
+</body>
+</html>
