@@ -784,37 +784,6 @@
             line-height: 1.5;
         }
 
-        /* Notification Toast */
-        .toast {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: var(--success);
-            color: white;
-            padding: 15px 25px;
-            border-radius: var(--radius);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            z-index: 1002;
-            transform: translateY(100px);
-            opacity: 0;
-            transition: all 0.3s ease;
-            max-width: 300px;
-            font-weight: 500;
-        }
-
-        .toast.show {
-            transform: translateY(0);
-            opacity: 1;
-        }
-
-        .toast.error {
-            background: var(--danger);
-        }
-
-        .toast.info {
-            background: var(--primary);
-        }
-
         /* Touch-friendly adjustments */
         button, 
         textarea, 
@@ -1555,9 +1524,6 @@ You can convert it to different cases using the buttons below."></textarea>
         </footer>
     </div>
 
-    <!-- Toast Notification -->
-    <div class="toast" id="toast"></div>
-
     <script>
         // Navigation functionality
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
@@ -1647,7 +1613,6 @@ You can convert it to different cases using the buttons below."></textarea>
         const clearInputBtn = document.getElementById('clearInputBtn');
         const clearOutputBtn = document.getElementById('clearOutputBtn');
         const caseButtons = document.querySelectorAll('.case-btn');
-        const toast = document.getElementById('toast');
 
         // Counter elements
         const inputCharCount = document.getElementById('inputCharCount');
@@ -1663,18 +1628,6 @@ You can convert it to different cases using the buttons below."></textarea>
 
         // Current selected case
         let selectedCase = 'uppercase';
-
-        // Show toast notification
-        function showToast(message, type = 'info') {
-            toast.textContent = message;
-            toast.className = 'toast';
-            toast.classList.add(type);
-            toast.classList.add('show');
-            
-            setTimeout(() => {
-                toast.classList.remove('show');
-            }, 3000);
-        }
 
         // Count words in text
         function countWords(text) {
@@ -1806,16 +1759,11 @@ You can convert it to different cases using the buttons below."></textarea>
             
             outputText.value = result;
             updateCounters();
-            
-            if (text.trim()) {
-                showToast(`Text converted to ${selectedCase} successfully!`, 'info');
-            }
         }
 
-        // FIXED: Copy text to clipboard function
+        // Copy text to clipboard
         function copyToClipboard(text, buttonElement) {
             if (!text.trim()) {
-                showToast('Nothing to copy!', 'error');
                 return;
             }
             
@@ -1829,13 +1777,11 @@ You can convert it to different cases using the buttons below."></textarea>
             
             // Select and copy the text
             textarea.select();
-            textarea.setSelectionRange(0, 99999); // For mobile devices
+            textarea.setSelectionRange(0, 99999);
             
             try {
                 const successful = document.execCommand('copy');
                 if (successful) {
-                    showToast('Text copied to clipboard!', 'info');
-                    
                     // Visual feedback for the button
                     const originalHTML = buttonElement.innerHTML;
                     const originalBackground = buttonElement.style.backgroundColor;
@@ -1845,13 +1791,10 @@ You can convert it to different cases using the buttons below."></textarea>
                     setTimeout(() => {
                         buttonElement.innerHTML = originalHTML;
                         buttonElement.style.backgroundColor = originalBackground;
-                    }, 2000);
-                } else {
-                    showToast('Failed to copy text. Please try again.', 'error');
+                    }, 1000);
                 }
             } catch (err) {
                 console.error('Failed to copy: ', err);
-                showToast('Failed to copy text. Please try again.', 'error');
             }
             
             // Clean up
@@ -1861,7 +1804,6 @@ You can convert it to different cases using the buttons below."></textarea>
         // Clear text area
         function clearTextArea(textarea, isInput = true) {
             if (!textarea.value.trim()) {
-                showToast('Text area is already empty!', 'error');
                 return;
             }
             
@@ -1870,9 +1812,6 @@ You can convert it to different cases using the buttons below."></textarea>
             
             if (isInput) {
                 outputText.value = '';
-                showToast('Input cleared!', 'info');
-            } else {
-                showToast('Output cleared!', 'info');
             }
         }
 
@@ -1945,16 +1884,6 @@ You can convert it to different cases using the buttons below."></textarea>
                 e.preventDefault();
                 convertText();
             }
-        });
-
-        // Sample text button functionality
-        document.querySelectorAll('.sample-text-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const sampleText = btn.getAttribute('data-text');
-                inputText.value = sampleText;
-                convertText();
-                showToast('Sample text loaded!', 'info');
-            });
         });
     </script>
 </body>
