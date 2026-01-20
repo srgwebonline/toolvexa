@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    <title>Investment Calculator - Calculate Investment Growth & Returns | Toolvexa</title>
+    <title>Investment Calculator - Calculate Investment Returns | Toolvexa</title>
     
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Free online investment calculator tool for Indian investors. Calculate compound interest, SIP returns, and future value of investments in Indian Rupees.">
-    <meta name="keywords" content="investment calculator India, SIP calculator, mutual fund calculator, compound interest calculator India, investment growth calculator, financial calculator India, Indian investment calculator">
+    <meta name="description" content="Free investment calculator to calculate investment returns with compound interest. Calculate future value, total returns, and growth projections with regular contributions.">
+    <meta name="keywords" content="investment calculator, compound interest calculator, investment returns calculator, future value calculator, retirement calculator, savings calculator">
     <meta name="author" content="Toolvexa">
     <meta name="robots" content="index, follow">
     
     <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Investment Calculator - Calculate Investment Growth & Returns | Toolvexa">
-    <meta property="og:description" content="Free online investment calculator tool for Indian investors. Calculate compound interest, SIP returns, and future value in Indian Rupees.">
+    <meta property="og:title" content="Investment Calculator - Calculate Investment Returns | Toolvexa">
+    <meta property="og:description" content="Free investment calculator to calculate investment returns with compound interest. Calculate future value, total returns, and growth projections with regular contributions.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://toolvexa.com/investment-calculator">
     <meta property="og:image" content="https://toolvexa.com/images/investment-calculator-og.jpg">
@@ -30,11 +30,11 @@
         "url": "https://toolvexa.com/investment-calculator",
         "applicationCategory": "FinanceApplication",
         "operatingSystem": "Any",
-        "description": "Free online investment calculator for Indian investors to calculate compound interest, SIP returns, and future value in Indian Rupees",
+        "description": "Free online investment calculator to calculate compound interest and investment returns",
         "offers": {
             "@type": "Offer",
             "price": "0",
-            "priceCurrency": "INR"
+            "priceCurrency": "USD"
         },
         "creator": {
             "@type": "Organization",
@@ -52,7 +52,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', system-ui, sans-serif;
+            font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
         }
 
         :root {
@@ -60,8 +60,8 @@
             --primary-light: #e6f0ff;
             --secondary: #7209b7;
             --success: #2ec4b6;
-            --danger: #e63946;
             --warning: #ff9e00;
+            --danger: #e63946;
             --light: #f8f9fa;
             --dark: #212529;
             --border: #dee2e6;
@@ -69,25 +69,20 @@
             --radius: 12px;
         }
 
-        html {
-            font-size: 16px;
-            -webkit-text-size-adjust: 100%;
-            -ms-text-size-adjust: 100%;
-        }
-
         body {
             background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
             min-height: 100vh;
             color: var(--dark);
             line-height: 1.6;
-            overflow-x: hidden;
-            -webkit-tap-highlight-color: transparent;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         .container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 0 16px;
+            padding: 0 15px;
+            width: 100%;
         }
 
         /* Navigation Bar - Mobile First */
@@ -98,11 +93,11 @@
             right: 0;
             background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             z-index: 1000;
             padding: 12px 0;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
             border-bottom: 3px solid #4361ee;
-            -webkit-backdrop-filter: blur(10px);
         }
         
         .nav-container {
@@ -111,7 +106,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 16px;
+            padding: 0 15px;
+            width: 100%;
         }
         
         .nav-brand {
@@ -120,8 +116,9 @@
             gap: 8px;
             text-decoration: none;
             color: #4361ee;
-            font-size: 1.25rem;
+            font-size: 1.3rem;
             font-weight: 700;
+            white-space: nowrap;
         }
         
         .nav-brand i {
@@ -129,44 +126,39 @@
         }
         
         .nav-links {
-            display: flex;
-            flex-direction: column;
+            display: none;
             position: fixed;
             top: 60px;
             left: 0;
             right: 0;
             background: white;
+            flex-direction: column;
             padding: 20px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transform: translateY(-100%);
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            z-index: 999;
+            z-index: 1001;
             max-height: calc(100vh - 60px);
             overflow-y: auto;
         }
         
         .nav-links.active {
-            transform: translateY(0);
-            opacity: 1;
-            visibility: visible;
+            display: flex;
         }
         
         .nav-links li {
             list-style: none;
-            margin-bottom: 10px;
+            width: 100%;
         }
         
         .nav-links a {
             color: #333;
             text-decoration: none;
             font-weight: 500;
-            padding: 12px 16px;
+            padding: 12px 15px;
             border-radius: 5px;
             transition: all 0.3s ease;
             display: block;
             width: 100%;
+            font-size: 1rem;
         }
         
         .nav-links a:hover {
@@ -177,9 +169,9 @@
         .back-to-home {
             background: #4361ee;
             color: white !important;
-            padding: 12px 16px !important;
+            padding: 12px 20px !important;
             border-radius: 25px;
-            text-align: center;
+            margin-top: 10px;
         }
         
         .mobile-menu-btn {
@@ -190,47 +182,48 @@
             color: #333;
             cursor: pointer;
             padding: 5px;
-            width: 44px;
-            height: 44px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            min-width: 44px;
+            min-height: 44px;
         }
         
         /* Adjust body padding for fixed navbar */
         body {
-            padding-top: 60px;
+            padding-top: 70px;
         }
 
-        /* Breadcrumb */
+        /* Breadcrumb - Mobile First */
         .breadcrumb {
-            margin: 16px 0 24px;
+            margin: 15px 0 20px;
             font-size: 0.85rem;
             color: #666;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 4px;
+            overflow-x: auto;
+            white-space: nowrap;
+            padding-bottom: 5px;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .breadcrumb::-webkit-scrollbar {
+            height: 3px;
         }
         
         .breadcrumb a {
             color: #4361ee;
             text-decoration: none;
-            white-space: nowrap;
+            font-weight: 500;
         }
         
         .breadcrumb span {
-            margin: 0 2px;
+            margin: 0 5px;
         }
 
-        /* Tool Header */
+        /* Tool Header - Mobile First */
         header {
             text-align: center;
             margin-bottom: 30px;
-            padding: 24px 16px;
+            padding: 25px 15px;
             background: white;
             border-radius: var(--radius);
-            box-shadow: 0 5px 20px var(--shadow);
+            box-shadow: 0 4px 15px var(--shadow);
         }
 
         .logo {
@@ -241,32 +234,32 @@
 
         header h1 {
             color: var(--primary);
-            font-size: 2rem;
+            font-size: 1.8rem;
             margin-bottom: 12px;
             font-weight: 800;
-            line-height: 1.2;
+            line-height: 1.3;
         }
 
         header p {
             color: #666;
             font-size: 1rem;
             max-width: 100%;
-            margin: 0 auto 16px;
+            margin: 0 auto 15px;
             line-height: 1.5;
         }
 
         .features {
             display: flex;
             justify-content: center;
-            gap: 16px;
+            gap: 15px;
             flex-wrap: wrap;
-            margin-top: 20px;
+            margin-top: 15px;
         }
 
         .feature {
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
             font-size: 0.85rem;
             color: var(--dark);
             background: var(--light);
@@ -280,30 +273,30 @@
             font-size: 0.9rem;
         }
 
-        /* Calculator Container */
+        /* Main Calculator Content - Mobile First */
         .calculator-container {
             display: flex;
             flex-direction: column;
-            gap: 24px;
+            gap: 25px;
             margin-bottom: 30px;
+            width: 100%;
         }
 
         .input-section, .results-section {
             background: white;
             border-radius: var(--radius);
-            padding: 24px 16px;
-            box-shadow: 0 5px 20px var(--shadow);
+            padding: 25px 20px;
+            box-shadow: 0 4px 15px var(--shadow);
             width: 100%;
         }
 
-        /* Input Section Styles */
         .input-group {
             margin-bottom: 20px;
         }
 
         .input-group h3 {
             color: var(--primary);
-            margin-bottom: 16px;
+            margin-bottom: 15px;
             font-size: 1.2rem;
             display: flex;
             align-items: center;
@@ -317,65 +310,67 @@
         .input-row {
             display: flex;
             flex-direction: column;
-            gap: 16px;
-            margin-bottom: 16px;
+            gap: 15px;
+            margin-bottom: 15px;
         }
 
         .input-field {
-            display: flex;
-            flex-direction: column;
+            margin-bottom: 15px;
             width: 100%;
         }
 
         .input-field label {
+            display: block;
             margin-bottom: 8px;
             font-weight: 600;
             color: var(--dark);
-            font-size: 0.9rem;
+            font-size: 0.95rem;
         }
 
-        .input-field input,
-        .input-field select {
-            padding: 14px;
+        .input-with-icon {
+            position: relative;
+            width: 100%;
+        }
+
+        .input-with-icon i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #666;
+            font-size: 1rem;
+        }
+
+        .input-with-icon input, .input-with-icon select {
+            width: 100%;
+            padding: 14px 15px 14px 45px;
             border: 2px solid var(--border);
             border-radius: 8px;
             font-size: 1rem;
             transition: all 0.3s ease;
-            background: white;
-            width: 100%;
             -webkit-appearance: none;
             -moz-appearance: none;
             appearance: none;
+            min-height: 52px;
         }
 
-        .input-field input:focus,
-        .input-field select:focus {
+        .input-with-icon input:focus, .input-with-icon select:focus {
             outline: none;
             border-color: var(--primary);
             box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.1);
         }
 
-        .currency-input {
-            position: relative;
-            width: 100%;
+        select {
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 15px center;
+            background-size: 16px;
+            padding-right: 45px !important;
         }
 
-        .currency-symbol {
-            position: absolute;
-            left: 12px;
-            top: 42px;
-            font-weight: 600;
-            color: var(--primary);
-            font-size: 1rem;
-        }
-
-        .currency-input input {
-            padding-left: 32px;
-        }
-
-        /* Slider Styles */
         .slider-container {
-            margin-bottom: 20px;
+            margin-top: 10px;
+            width: 100%;
         }
 
         .slider-label {
@@ -403,13 +398,14 @@
             background: #e0e0e0;
             border-radius: 5px;
             outline: none;
+            cursor: pointer;
         }
 
         .slider::-webkit-slider-thumb {
             -webkit-appearance: none;
             appearance: none;
-            width: 24px;
-            height: 24px;
+            width: 26px;
+            height: 26px;
             border-radius: 50%;
             background: var(--primary);
             cursor: pointer;
@@ -418,278 +414,317 @@
         }
 
         .slider::-moz-range-thumb {
-            width: 24px;
-            height: 24px;
+            width: 26px;
+            height: 26px;
             border-radius: 50%;
             background: var(--primary);
             cursor: pointer;
             border: 3px solid white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
 
-        /* Preset Buttons */
-        .preset-buttons {
-            margin: 20px 0;
-        }
-
-        .preset-buttons h4 {
-            margin-bottom: 12px;
-            color: var(--dark);
-            font-size: 1rem;
-        }
-
-        .preset-grid {
+        /* Contribution Frequency */
+        .frequency-options {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 10px;
+            margin-top: 15px;
         }
 
-        .preset-btn {
+        .frequency-btn {
             padding: 12px 10px;
-            background: var(--primary-light);
+            background: var(--light);
             border: 2px solid var(--border);
             border-radius: 8px;
             cursor: pointer;
             text-align: center;
             font-weight: 500;
-            color: var(--primary);
             transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-            border: none;
             font-size: 0.9rem;
-            min-height: 44px;
         }
 
-        .preset-btn:hover {
+        .frequency-btn:hover, .frequency-btn.active {
             background: var(--primary);
             color: white;
-            transform: translateY(-2px);
+            border-color: var(--primary);
         }
 
-        .preset-btn.active {
-            background: var(--primary);
-            color: white;
-        }
-
-        /* Calculate Button */
-        .calculate-btn {
+        /* Action Buttons - Mobile First */
+        .action-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 25px;
             width: 100%;
-            padding: 16px;
-            background: var(--primary);
-            color: white;
+        }
+
+        .action-btn {
+            width: 100%;
+            padding: 18px 20px;
             border: none;
             border-radius: var(--radius);
-            font-size: 1rem;
+            font-size: 1.1rem;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s ease;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 10px;
-            margin-top: 20px;
-            min-height: 50px;
+            transition: all 0.3s ease;
+            min-height: 60px;
         }
 
-        .calculate-btn:hover {
+        .action-btn i {
+            font-size: 1.2rem;
+        }
+
+        .calculate-btn {
+            background: var(--primary);
+            color: white;
+        }
+
+        .calculate-btn:hover, .calculate-btn:active {
             background: #3a56d4;
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
         }
 
-        .calculate-btn:active {
-            transform: translateY(0);
+        .reset-btn {
+            background: var(--light);
+            color: var(--dark);
+            border: 2px solid var(--border);
         }
 
-        /* Results Section Styles */
-        .results-section h2 {
+        .reset-btn:hover, .reset-btn:active {
+            background: #e9ecef;
+            transform: translateY(-2px);
+        }
+
+        /* Results Section - Mobile First */
+        .results-header {
+            text-align: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .results-header h2 {
             color: var(--primary);
-            margin-bottom: 24px;
             font-size: 1.5rem;
-            text-align: center;
+            margin-bottom: 8px;
         }
 
-        /* Total Value Display */
-        .total-value {
-            text-align: center;
-            margin-bottom: 24px;
-            padding: 20px 16px;
-            background: linear-gradient(135deg, #4361ee 0%, #3a56d4 100%);
-            border-radius: var(--radius);
+        .results-header p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .main-result {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
+            padding: 25px 20px;
+            border-radius: var(--radius);
+            text-align: center;
+            margin-bottom: 25px;
         }
 
-        .total-amount {
+        .future-value {
             font-size: 2.5rem;
             font-weight: 800;
             margin-bottom: 8px;
-            line-height: 1;
+            line-height: 1.2;
             word-break: break-word;
         }
 
-        .total-label {
+        .result-label {
             font-size: 1rem;
             opacity: 0.9;
-            line-height: 1.3;
         }
 
-        /* Results Breakdown */
-        .results-breakdown {
-            margin-bottom: 24px;
-        }
-
-        .results-breakdown h3 {
-            color: var(--primary);
-            margin-bottom: 16px;
-            font-size: 1.2rem;
-            text-align: center;
-        }
-
-        .breakdown-grid {
+        .results-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
+            gap: 15px;
+            margin-bottom: 25px;
         }
 
-        .breakdown-item {
+        .result-item {
             background: var(--light);
-            padding: 16px 12px;
-            border-radius: var(--radius);
+            padding: 18px 15px;
+            border-radius: 8px;
             text-align: center;
-            border: 1px solid var(--border);
         }
 
-        .breakdown-value {
+        .result-value {
             font-size: 1.5rem;
             font-weight: 700;
             color: var(--primary);
             margin-bottom: 5px;
-            line-height: 1;
+            line-height: 1.2;
             word-break: break-word;
         }
 
-        .breakdown-label {
-            font-size: 0.85rem;
+        .result-label {
             color: #666;
-            line-height: 1.2;
+            font-size: 0.85rem;
+            line-height: 1.3;
         }
 
         /* Chart Container */
         .chart-container {
-            margin-top: 24px;
-            padding: 20px 16px;
+            margin-top: 30px;
             background: white;
             border-radius: var(--radius);
-            border: 2px solid var(--border);
-        }
-
-        .chart-container h3 {
-            color: var(--primary);
-            margin-bottom: 16px;
-            font-size: 1.2rem;
-            text-align: center;
-        }
-
-        #investmentChart {
-            width: 100%;
-            height: 250px;
-            position: relative;
-        }
-
-        .chart-placeholder {
-            width: 100%;
-            height: 250px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--light);
-            border-radius: 8px;
-            color: #999;
-            font-size: 0.95rem;
-            text-align: center;
             padding: 20px;
+            box-shadow: 0 4px 15px var(--shadow);
         }
 
-        .chart-legend {
+        .chart-header {
             display: flex;
-            justify-content: center;
-            gap: 16px;
-            margin-top: 16px;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .chart-header h3 {
+            color: var(--primary);
+            font-size: 1.3rem;
+        }
+
+        .chart-toggle {
+            display: flex;
+            gap: 10px;
             flex-wrap: wrap;
         }
 
-        .legend-item {
+        .chart-btn {
+            padding: 8px 15px;
+            background: var(--light);
+            border: 2px solid var(--border);
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .chart-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .chart-wrapper {
+            width: 100%;
+            height: 300px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #investmentChart {
+            width: 100% !important;
+            height: 100% !important;
+        }
+
+        /* Breakdown Table */
+        .breakdown-section {
+            margin-top: 40px;
+        }
+
+        .section-title {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .section-title h2 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            line-height: 1.3;
+        }
+
+        .toggle-breakdown {
+            background: var(--primary-light);
+            color: var(--primary);
+            border: none;
+            padding: 14px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
             display: flex;
             align-items: center;
-            gap: 6px;
-            font-size: 0.85rem;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            width: 100%;
+            min-height: 52px;
+            font-size: 1rem;
         }
 
-        .legend-color {
-            width: 12px;
-            height: 12px;
-            border-radius: 3px;
-        }
-
-        /* Yearly Breakdown */
-        .yearly-breakdown {
-            margin-top: 24px;
-        }
-
-        .yearly-breakdown h3 {
-            color: var(--primary);
-            margin-bottom: 16px;
-            font-size: 1.2rem;
-            text-align: center;
+        .toggle-breakdown:hover, .toggle-breakdown:active {
+            background: #d7e6ff;
         }
 
         .breakdown-table {
-            width: 100%;
-            border-collapse: collapse;
             background: white;
             border-radius: var(--radius);
             overflow: hidden;
-            box-shadow: 0 2px 10px var(--shadow);
-            min-width: 600px;
+            box-shadow: 0 4px 15px var(--shadow);
+            display: none;
+            width: 100%;
         }
 
-        .breakdown-table th {
-            background: var(--primary);
-            color: white;
-            padding: 12px 10px;
-            text-align: left;
-            font-weight: 600;
-            font-size: 0.85rem;
-            white-space: nowrap;
-        }
-
-        .breakdown-table td {
-            padding: 10px 8px;
-            border-bottom: 1px solid var(--border);
-            font-size: 0.85rem;
-            white-space: nowrap;
-        }
-
-        .breakdown-table tr:last-child td {
-            border-bottom: none;
-        }
-
-        .breakdown-table tr:nth-child(even) {
-            background: var(--light);
+        .breakdown-table.show {
+            display: block;
+            animation: fadeIn 0.5s ease;
         }
 
         .table-container {
-            max-height: 300px;
-            overflow-x: auto;
+            max-height: 400px;
             overflow-y: auto;
-            border-radius: var(--radius);
-            border: 1px solid var(--border);
+            overflow-x: auto;
             -webkit-overflow-scrolling: touch;
         }
 
-        /* FAQ Section */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 600px;
+        }
+
+        thead {
+            background: var(--primary);
+            color: white;
+            position: sticky;
+            top: 0;
+        }
+
+        th {
+            padding: 15px 12px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+
+        tbody tr {
+            border-bottom: 1px solid var(--border);
+        }
+
+        tbody tr:nth-child(even) {
+            background: var(--light);
+        }
+
+        td {
+            padding: 14px 12px;
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+
+        /* FAQ Section - Mobile First */
         .faq-section {
             margin: 40px 0 30px;
         }
@@ -697,20 +732,21 @@
         .faq-section h2 {
             color: var(--primary);
             font-size: 1.8rem;
-            margin-bottom: 24px;
+            margin-bottom: 25px;
             text-align: center;
+            line-height: 1.3;
         }
 
         .faq-container {
             background: white;
             border-radius: var(--radius);
-            padding: 24px 16px;
-            box-shadow: 0 5px 20px var(--shadow);
+            padding: 25px 20px;
+            box-shadow: 0 4px 15px var(--shadow);
         }
 
         .faq-item {
             border-bottom: 1px solid var(--border);
-            padding: 16px 0;
+            padding: 18px 0;
         }
 
         .faq-item:last-child {
@@ -723,8 +759,9 @@
             align-items: center;
             cursor: pointer;
             color: var(--dark);
-            font-size: 1rem;
+            font-size: 1.05rem;
             font-weight: 600;
+            line-height: 1.4;
             padding-right: 10px;
         }
 
@@ -732,7 +769,8 @@
             color: var(--primary);
             transition: transform 0.3s ease;
             font-size: 1.1rem;
-            min-width: 20px;
+            min-width: 24px;
+            text-align: right;
         }
 
         .faq-item.active .faq-question i {
@@ -745,15 +783,16 @@
             transition: max-height 0.3s ease;
             color: #666;
             line-height: 1.6;
-            padding-right: 10px;
+            padding-right: 0;
         }
 
         .faq-item.active .faq-answer {
             max-height: 500px;
-            margin-top: 12px;
+            margin-top: 15px;
+            padding-right: 0;
         }
 
-        /* Related Tools Section */
+        /* Related Tools Section - Mobile First */
         .related-tools-section {
             margin: 40px 0 30px;
         }
@@ -761,8 +800,9 @@
         .related-tools-section h2 {
             color: var(--primary);
             font-size: 1.8rem;
-            margin-bottom: 24px;
+            margin-bottom: 25px;
             text-align: center;
+            line-height: 1.3;
         }
 
         .tools-grid {
@@ -774,48 +814,54 @@
         .tool-card {
             background: white;
             border-radius: var(--radius);
-            padding: 20px 16px;
+            padding: 25px 20px;
             text-align: center;
-            box-shadow: 0 5px 15px var(--shadow);
+            box-shadow: 0 4px 15px var(--shadow);
             transition: all 0.3s ease;
             border: 2px solid transparent;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
 
         .tool-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-3px);
             border-color: var(--primary);
-            box-shadow: 0 10px 25px rgba(67, 97, 238, 0.15);
+            box-shadow: 0 8px 20px rgba(67, 97, 238, 0.15);
         }
 
         .tool-icon {
-            font-size: 2rem;
+            font-size: 2.2rem;
             color: var(--primary);
-            margin-bottom: 12px;
+            margin-bottom: 15px;
         }
 
         .tool-card h3 {
             color: var(--dark);
             margin-bottom: 10px;
-            font-size: 1.2rem;
+            font-size: 1.25rem;
+            line-height: 1.3;
         }
 
         .tool-card p {
             color: #666;
-            font-size: 0.9rem;
-            margin-bottom: 16px;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
             line-height: 1.5;
+            flex-grow: 1;
         }
 
         .tool-link {
             display: inline-block;
             background: var(--primary-light);
             color: var(--primary);
-            padding: 10px 18px;
+            padding: 12px 25px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s ease;
-            font-size: 0.9rem;
+            font-size: 1rem;
+            min-height: 46px;
         }
 
         .tool-link:hover {
@@ -826,11 +872,11 @@
         /* SEO Pages Styles */
         .seo-section {
             max-width: 100%;
-            margin: 30px 0;
-            padding: 20px 16px;
+            margin: 30px auto;
+            padding: 25px 20px;
             background: white;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             display: none;
             position: relative;
         }
@@ -842,8 +888,9 @@
         
         .seo-section h1 {
             color: #4361ee;
-            margin-bottom: 16px;
+            margin-bottom: 20px;
             font-size: 1.8rem;
+            line-height: 1.3;
             padding-right: 40px;
         }
         
@@ -866,30 +913,31 @@
         }
         
         .seo-content p {
-            margin-bottom: 12px;
+            margin-bottom: 15px;
         }
         
         .seo-content ul, .seo-content ol {
             margin-left: 20px;
-            margin-bottom: 16px;
+            margin-bottom: 20px;
         }
         
         .seo-content li {
             margin-bottom: 8px;
+            line-height: 1.6;
         }
         
         .close-seo {
             position: absolute;
-            top: 16px;
-            right: 16px;
+            top: 20px;
+            right: 20px;
             background: #4361ee;
             color: white;
             border: none;
-            width: 36px;
-            height: 36px;
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
             cursor: pointer;
-            font-size: 1.1rem;
+            font-size: 1.3rem;
             z-index: 10;
             display: flex;
             align-items: center;
@@ -897,7 +945,7 @@
         }
         
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
+            from { opacity: 0; transform: translateY(15px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
@@ -905,7 +953,7 @@
         footer {
             text-align: center;
             margin-top: 40px;
-            padding: 24px 16px;
+            padding: 25px 15px;
             color: #666;
             font-size: 0.85rem;
             border-top: 1px solid var(--border);
@@ -914,10 +962,11 @@
 
         .footer-links {
             display: flex;
+            flex-wrap: wrap;
             justify-content: center;
             gap: 20px;
-            flex-wrap: wrap;
-            margin-bottom: 16px;
+            margin-bottom: 20px;
+            row-gap: 15px;
         }
 
         .footer-links a {
@@ -925,6 +974,7 @@
             text-decoration: none;
             transition: all 0.3s ease;
             font-size: 0.9rem;
+            white-space: nowrap;
         }
 
         .footer-links a:hover {
@@ -933,25 +983,25 @@
         }
 
         .copyright {
-            margin-top: 16px;
+            margin-top: 20px;
             color: #888;
             line-height: 1.5;
         }
 
-        /* Loading Animation */
+        /* Loading Spinner */
         .loading {
             display: none;
-            position: fixed;
+            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             background: rgba(255, 255, 255, 0.95);
-            z-index: 2000;
-            justify-content: center;
-            align-items: center;
             flex-direction: column;
-            padding: 20px;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            border-radius: var(--radius);
         }
 
         .loading.active {
@@ -961,11 +1011,11 @@
         .spinner {
             width: 50px;
             height: 50px;
-            border: 5px solid #f3f3f3;
-            border-top: 5px solid var(--primary);
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid var(--primary);
             border-radius: 50%;
             animation: spin 1s linear infinite;
-            margin-bottom: 16px;
+            margin-bottom: 15px;
         }
 
         @keyframes spin {
@@ -973,51 +1023,34 @@
             100% { transform: rotate(360deg); }
         }
 
-        /* Download Button */
-        .download-btn {
-            width: 100%;
-            padding: 14px;
-            background: var(--success);
-            color: white;
-            border: none;
-            border-radius: var(--radius);
-            font-size: 0.95rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            margin-top: 20px;
-            min-height: 44px;
+        /* Touch-friendly adjustments */
+        button, 
+        input[type="range"], 
+        select, 
+        .tool-link,
+        .toggle-breakdown,
+        .action-btn,
+        .chart-btn,
+        .frequency-btn {
+            touch-action: manipulation;
         }
 
-        .download-btn:hover {
-            background: #26a69a;
-            transform: translateY(-2px);
+        input, select, button {
+            font-size: 16px; /* Prevents iOS zoom on focus */
         }
 
-        /* Tablet Styles */
+        /* Tablet Styles (768px and up) */
         @media (min-width: 768px) {
-            html {
-                font-size: 17px;
-            }
-            
-            .container {
-                padding: 0 20px;
-            }
-            
             .tool-navbar {
-                padding: 14px 0;
-            }
-            
-            body {
-                padding-top: 70px;
+                padding: 15px 0;
             }
             
             .nav-brand {
-                font-size: 1.4rem;
+                font-size: 1.5rem;
+            }
+            
+            .nav-brand i {
+                font-size: 1.8rem;
             }
             
             .mobile-menu-btn {
@@ -1025,11 +1058,9 @@
             }
             
             .nav-links {
+                display: flex;
                 position: static;
                 flex-direction: row;
-                transform: none;
-                opacity: 1;
-                visibility: visible;
                 background: transparent;
                 box-shadow: none;
                 padding: 0;
@@ -1037,158 +1068,130 @@
                 overflow: visible;
             }
             
-            .nav-links li {
-                margin-bottom: 0;
-                margin-left: 5px;
-            }
-            
             .nav-links a {
-                padding: 8px 12px;
-                width: auto;
+                padding: 10px 15px;
+                font-size: 0.95rem;
             }
             
             .back-to-home {
-                padding: 8px 16px !important;
-            }
-            
-            .calculator-container {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 24px;
-            }
-            
-            .input-row {
-                grid-template-columns: 1fr 1fr;
-                display: grid;
-                flex-direction: row;
-            }
-            
-            .preset-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-            
-            .breakdown-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 16px;
-            }
-            
-            .breakdown-item {
-                padding: 20px;
-            }
-            
-            .tools-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 24px;
-            }
-            
-            .tool-card {
-                padding: 24px 20px;
-            }
-            
-            .tool-icon {
-                font-size: 2.2rem;
-            }
-            
-            .table-container {
-                max-height: 400px;
-            }
-        }
-
-        /* Desktop Styles */
-        @media (min-width: 992px) {
-            .container {
-                padding: 0 24px;
-            }
-            
-            .tool-navbar {
-                padding: 16px 0;
+                margin-top: 0;
+                padding: 10px 20px !important;
             }
             
             body {
                 padding-top: 80px;
             }
             
-            .nav-brand {
-                font-size: 1.5rem;
+            .container {
+                padding: 0 20px;
             }
             
-            .nav-links {
-                gap: 20px;
+            .breadcrumb {
+                margin: 20px 0 30px;
+                font-size: 0.9rem;
             }
             
-            .nav-links li {
-                margin-left: 0;
+            header {
+                padding: 30px 25px;
+                margin-bottom: 40px;
+            }
+            
+            .logo {
+                font-size: 3rem;
+            }
+            
+            header h1 {
+                font-size: 2.5rem;
+            }
+            
+            header p {
+                font-size: 1.1rem;
+            }
+            
+            .feature {
+                font-size: 0.95rem;
+                padding: 8px 15px;
             }
             
             .calculator-container {
+                flex-direction: row;
                 gap: 30px;
             }
             
             .input-section, .results-section {
-                padding: 30px 24px;
+                flex: 1;
+                min-width: 0;
             }
             
-            .input-group h3 {
-                font-size: 1.3rem;
+            .input-row {
+                flex-direction: row;
+                gap: 20px;
             }
             
-            .preset-grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 12px;
+            .input-field {
+                flex: 1;
             }
             
-            .preset-btn {
-                padding: 12px;
-                font-size: 0.95rem;
-            }
-            
-            .total-amount {
-                font-size: 3rem;
-            }
-            
-            .total-label {
-                font-size: 1.1rem;
-            }
-            
-            .breakdown-grid {
+            .frequency-options {
                 grid-template-columns: repeat(4, 1fr);
             }
             
-            .breakdown-value {
-                font-size: 1.8rem;
+            .action-buttons {
+                flex-direction: row;
+                gap: 15px;
+            }
+            
+            .action-btn {
+                min-height: 55px;
+                padding: 16px 20px;
+            }
+            
+            .section-title {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+            
+            .toggle-breakdown {
+                width: auto;
+                min-width: 180px;
             }
             
             .tools-grid {
-                grid-template-columns: repeat(3, 1fr);
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
             }
             
-            .faq-section, .related-tools-section {
-                margin: 60px 0 40px;
+            .results-grid {
+                gap: 20px;
             }
             
-            .faq-section h2, .related-tools-section h2 {
-                font-size: 2rem;
+            .result-value {
+                font-size: 1.8rem;
             }
             
-            .seo-section {
-                padding: 30px;
-                margin: 40px auto;
-                max-width: 1000px;
+            .future-value {
+                font-size: 3rem;
+            }
+            
+            .chart-wrapper {
+                height: 350px;
             }
         }
 
-        /* Large Desktop Styles */
-        @media (min-width: 1200px) {
+        /* Desktop Styles (1100px and up) */
+        @media (min-width: 1100px) {
             .container {
                 padding: 0 30px;
             }
             
-            .calculator-container {
-                gap: 40px;
+            .nav-links {
+                gap: 25px;
             }
             
-            .input-section, .results-section {
-                padding: 40px 30px;
+            .nav-links a {
+                padding: 8px 15px;
+                font-size: 1rem;
             }
             
             .tools-grid {
@@ -1196,101 +1199,92 @@
                 gap: 30px;
             }
             
-            .tool-card {
-                padding: 30px 24px;
+            .input-section, .results-section {
+                padding: 30px;
             }
             
-            .preset-grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 15px;
+            .main-result {
+                padding: 30px;
+            }
+            
+            .results-header h2 {
+                font-size: 1.8rem;
+            }
+            
+            .faq-container {
+                padding: 30px;
+            }
+            
+            .seo-section {
+                padding: 30px;
+                max-width: 1000px;
+            }
+            
+            .seo-section h1 {
+                font-size: 2.2rem;
+            }
+            
+            .chart-wrapper {
+                height: 400px;
             }
         }
 
-        /* Extra Small Devices */
+        /* Large Desktop Styles (1400px and up) */
+        @media (min-width: 1400px) {
+            .tools-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .future-value {
+                font-size: 3.5rem;
+            }
+        }
+
+        /* Small Mobile Styles (max-width: 360px) */
         @media (max-width: 360px) {
-            .total-amount {
-                font-size: 2rem;
+            .nav-brand {
+                font-size: 1.2rem;
             }
             
-            .breakdown-value {
-                font-size: 1.3rem;
-            }
-            
-            .preset-grid {
-                grid-template-columns: 1fr;
+            header h1 {
+                font-size: 1.6rem;
             }
             
             .feature {
                 font-size: 0.8rem;
-                padding: 5px 10px;
+                padding: 6px 10px;
+            }
+            
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .frequency-options {
+                grid-template-columns: 1fr;
             }
             
             .footer-links {
-                gap: 15px;
-            }
-            
-            .footer-links a {
-                font-size: 0.85rem;
-            }
-        }
-
-        /* Landscape Mode for Mobile */
-        @media (max-height: 500px) and (orientation: landscape) {
-            .tool-navbar {
-                padding: 8px 0;
-            }
-            
-            body {
-                padding-top: 50px;
-            }
-            
-            .nav-links {
-                top: 50px;
-                max-height: calc(100vh - 50px);
-            }
-            
-            .calculator-container {
-                gap: 20px;
-            }
-            
-            .total-value {
-                padding: 15px;
-            }
-            
-            .total-amount {
-                font-size: 2rem;
-            }
-            
-            .chart-placeholder {
-                height: 200px;
-            }
-            
-            #investmentChart {
-                height: 200px;
-            }
-            
-            .table-container {
-                max-height: 200px;
-            }
-        }
-
-        /* High Resolution Screens */
-        @media (min-width: 1400px) {
-            .container {
-                max-width: 1400px;
+                flex-direction: column;
+                gap: 12px;
+                align-items: center;
             }
         }
 
         /* Print Styles */
         @media print {
-            .tool-navbar, .mobile-menu-btn, .calculate-btn, .download-btn, .close-seo {
-                display: none !important;
+            .tool-navbar,
+            .breadcrumb,
+            .action-buttons,
+            .toggle-breakdown,
+            .related-tools-section,
+            .faq-section,
+            footer {
+                display: none;
             }
             
             body {
                 padding-top: 0;
                 background: white;
-                color: black;
             }
             
             .container {
@@ -1304,81 +1298,24 @@
             
             .input-section, .results-section {
                 box-shadow: none;
-                border: 1px solid #ccc;
+                border: 1px solid #ddd;
                 margin-bottom: 20px;
-                page-break-inside: avoid;
+                break-inside: avoid;
             }
             
-            footer {
-                page-break-before: always;
-            }
-        }
-
-        /* Accessibility */
-        @media (prefers-reduced-motion: reduce) {
-            * {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
-        }
-
-        /* Dark Mode Support */
-        @media (prefers-color-scheme: dark) {
-            body {
-                background: #121212;
-                color: #f0f0f0;
+            .breakdown-table {
+                display: block !important;
+                break-inside: avoid;
             }
             
-            .input-section, .results-section, .faq-container, .tool-card, .seo-section, footer {
-                background: #1e1e1e;
-                color: #f0f0f0;
-                border-color: #333;
-            }
-            
-            .input-field input,
-            .input-field select {
-                background: #2d2d2d;
-                color: #f0f0f0;
-                border-color: #444;
-            }
-            
-            .breakdown-item, .chart-placeholder {
-                background: #2d2d2d;
-                border-color: #444;
-            }
-            
-            .nav-links a {
-                color: #f0f0f0;
-            }
-            
-            .nav-links a:hover {
-                background: #4361ee;
-                color: white;
-            }
-            
-            .breadcrumb a, .footer-links a {
-                color: #8ab4f8;
-            }
-            
-            header p, .breakdown-label, .faq-answer, .tool-card p, .copyright, .breadcrumb {
-                color: #aaa;
-            }
-            
-            .slider {
-                background: #444;
+            .chart-container {
+                display: none;
             }
         }
     </style>
 </head>
 
 <body>
-    <!-- Loading Overlay -->
-    <div class="loading" id="loadingOverlay">
-        <div class="spinner"></div>
-        <p>Calculating Investment...</p>
-    </div>
-
     <!-- Navigation Bar -->
     <nav class="tool-navbar">
         <div class="nav-container">
@@ -1386,14 +1323,14 @@
                 <i class="fas fa-tools"></i> Toolvexa
             </a>
             
-            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu">
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
                 <i class="fas fa-bars"></i>
             </button>
             
             <ul class="nav-links" id="navLinks">
                 <li><a href="index.html#home">Home</a></li>
                 <li><a href="index.html#tools">All Tools</a></li>
-                <li><a href="index.html#calculators">Calculators</a></li>
+                <li><a href="index.html#calculator-tools">Calculators</a></li>
                 <li><a href="#privacy-policy" onclick="showSeoPage('privacy')">Privacy Policy</a></li>
                 <li><a href="#terms-of-service" onclick="showSeoPage('terms')">Terms of Service</a></li>
                 <li><a href="#about-tool" onclick="showSeoPage('about')">About This Tool</a></li>
@@ -1408,7 +1345,7 @@
         <div class="breadcrumb">
             <a href="index.html">Home</a> 
             <span>></span>
-            <a href="index.html#calculators">Calculators</a>
+            <a href="index.html#calculator-tools">Calculators</a>
             <span>></span>
             <span>Investment Calculator</span>
         </div>
@@ -1419,211 +1356,202 @@
                 <i class="fas fa-chart-line"></i>
             </div>
             <h1>Investment Calculator</h1>
-            <p>Calculate compound interest, SIP returns, and future value of investments in Indian Rupees. Perfect for Indian investors planning their financial future.</p>
+            <p>Calculate investment returns with compound interest. Estimate future value, total returns, and growth projections with regular contributions. Perfect for retirement planning and investment strategy.</p>
             <div class="features">
                 <div class="feature">
-                    <i class="fas fa-shield-alt"></i>
-                    <span>100% Private</span>
-                </div>
-                <div class="feature">
-                    <i class="fas fa-bolt"></i>
-                    <span>Instant Results</span>
-                </div>
-                <div class="feature">
                     <i class="fas fa-calculator"></i>
-                    <span>SIP & Lumpsum</span>
+                    <span>Compound Interest</span>
                 </div>
                 <div class="feature">
-                    <i class="fas fa-rupee-sign"></i>
-                    <span>Indian Currency</span>
+                    <i class="fas fa-mobile-alt"></i>
+                    <span>Mobile Friendly</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>No Data Stored</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Visual Charts</span>
                 </div>
             </div>
         </header>
 
-        <!-- Calculator Container -->
+        <!-- Main Calculator Section -->
         <div class="calculator-container">
             <!-- Input Section -->
             <div class="input-section">
                 <div class="input-group">
-                    <h3><i class="fas fa-money-bill-wave"></i> Investment Details</h3>
-                    <div class="input-row">
-                        <div class="input-field">
-                            <label for="initialInvestment">Lumpsum Investment (₹)</label>
-                            <div class="currency-input">
-                                <span class="currency-symbol">₹</span>
-                                <input type="number" id="initialInvestment" min="0" step="1000" value="100000" aria-label="Initial investment amount in rupees">
-                            </div>
+                    <h3><i class="fas fa-piggy-bank"></i> Initial Investment</h3>
+                    <div class="input-field">
+                        <label for="initialInvestment">Initial Investment ($)</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-money-bill-wave"></i>
+                            <input type="number" id="initialInvestment" min="0" step="100" value="10000" placeholder="e.g., 10000">
                         </div>
-                        <div class="input-field">
-                            <label for="monthlyContribution">Monthly SIP (₹)</label>
-                            <div class="currency-input">
-                                <span class="currency-symbol">₹</span>
-                                <input type="number" id="monthlyContribution" min="0" step="500" value="10000" aria-label="Monthly SIP contribution in rupees">
+                        <div class="slider-container">
+                            <div class="slider-label">
+                                <span>Amount</span>
+                                <span id="initialInvestmentValue">$10,000</span>
                             </div>
+                            <input type="range" id="initialInvestmentSlider" min="0" max="1000000" step="1000" value="10000" class="slider">
                         </div>
                     </div>
                 </div>
 
                 <div class="input-group">
-                    <h3><i class="fas fa-percentage"></i> Interest & Time</h3>
-                    <div class="slider-container">
-                        <div class="slider-label">
-                            <span>Expected Annual Returns</span>
-                            <span id="interestRateValue">12%</span>
+                    <h3><i class="fas fa-calendar-alt"></i> Time Period</h3>
+                    <div class="input-field">
+                        <label for="investmentPeriod">Investment Period (Years)</label>
+                        <div class="input-with-icon">
+                            <i class="far fa-calendar"></i>
+                            <input type="number" id="investmentPeriod" min="1" max="50" step="1" value="10" placeholder="e.g., 10">
                         </div>
-                        <input type="range" min="5" max="20" value="12" step="0.5" class="slider" id="interestRateSlider" aria-label="Annual return rate slider">
-                        <div style="display: flex; justify-content: space-between; font-size: 0.8rem; color: #999; margin-top: 5px;">
-                            <span>5%</span>
-                            <span>20%</span>
-                        </div>
-                    </div>
-
-                    <div class="slider-container">
-                        <div class="slider-label">
-                            <span>Investment Period</span>
-                            <span id="periodValue">15 years</span>
-                        </div>
-                        <input type="range" min="1" max="30" value="15" class="slider" id="periodSlider" aria-label="Investment period slider">
-                        <div style="display: flex; justify-content: space-between; font-size: 0.8rem; color: #999; margin-top: 5px;">
-                            <span>1 year</span>
-                            <span>30 years</span>
+                        <div class="slider-container">
+                            <div class="slider-label">
+                                <span>Years</span>
+                                <span id="investmentPeriodValue">10 years</span>
+                            </div>
+                            <input type="range" id="investmentPeriodSlider" min="1" max="50" step="1" value="10" class="slider">
                         </div>
                     </div>
                 </div>
 
                 <div class="input-group">
-                    <h3><i class="fas fa-chart-bar"></i> Additional Settings</h3>
-                    <div class="input-row">
-                        <div class="input-field">
-                            <label for="compoundingFrequency">Compounding Frequency</label>
-                            <select id="compoundingFrequency" aria-label="Compounding frequency">
-                                <option value="1">Yearly</option>
-                                <option value="2">Half-Yearly</option>
-                                <option value="4">Quarterly</option>
-                                <option value="12" selected>Monthly</option>
-                            </select>
+                    <h3><i class="fas fa-percentage"></i> Expected Returns</h3>
+                    <div class="input-field">
+                        <label for="expectedReturn">Expected Annual Return (%)</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-chart-line"></i>
+                            <input type="number" id="expectedReturn" min="0" max="30" step="0.1" value="7" placeholder="e.g., 7">
                         </div>
-                        <div class="input-field">
-                            <label for="investmentType">Investment Type</label>
-                            <select id="investmentType" aria-label="Investment type">
-                                <option value="compound" selected>Compound Interest</option>
-                                <option value="simple">Simple Interest</option>
-                            </select>
+                        <div class="slider-container">
+                            <div class="slider-label">
+                                <span>Rate</span>
+                                <span id="expectedReturnValue">7%</span>
+                            </div>
+                            <input type="range" id="expectedReturnSlider" min="0" max="30" step="0.1" value="7" class="slider">
                         </div>
                     </div>
                 </div>
 
-                <!-- Preset Buttons -->
-                <div class="preset-buttons">
-                    <h4>Common Investment Goals:</h4>
-                    <div class="preset-grid">
-                        <button class="preset-btn" onclick="setPreset('retirement')" aria-label="Set retirement investment preset">
-                            <i class="fas fa-umbrella-beach"></i> Retirement
-                        </button>
-                        <button class="preset-btn" onclick="setPreset('childEducation')" aria-label="Set child education investment preset">
-                            <i class="fas fa-graduation-cap"></i> Child Education
-                        </button>
-                        <button class="preset-btn" onclick="setPreset('house')" aria-label="Set house purchase investment preset">
-                            <i class="fas fa-home"></i> House Purchase
-                        </button>
-                        <button class="preset-btn" onclick="setPreset('wealth')" aria-label="Set wealth creation investment preset">
-                            <i class="fas fa-gem"></i> Wealth Creation
-                        </button>
-                        <button class="preset-btn active" onclick="setPreset('default')" aria-label="Set default investment preset">
-                            <i class="fas fa-calculator"></i> Default
-                        </button>
-                        <button class="preset-btn" onclick="clearAll()" aria-label="Clear all inputs">
-                            <i class="fas fa-trash-alt"></i> Clear All
-                        </button>
+                <div class="input-group">
+                    <h3><i class="fas fa-plus-circle"></i> Regular Contributions</h3>
+                    <div class="input-field">
+                        <label for="monthlyContribution">Monthly Contribution ($)</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-hand-holding-usd"></i>
+                            <input type="number" id="monthlyContribution" min="0" step="100" value="500" placeholder="e.g., 500">
+                        </div>
+                        <div class="slider-container">
+                            <div class="slider-label">
+                                <span>Amount</span>
+                                <span id="monthlyContributionValue">$500</span>
+                            </div>
+                            <input type="range" id="monthlyContributionSlider" min="0" max="10000" step="100" value="500" class="slider">
+                        </div>
+                    </div>
+                    
+                    <div class="input-field">
+                        <label>Contribution Frequency</label>
+                        <div class="frequency-options">
+                            <div class="frequency-btn active" data-frequency="monthly">Monthly</div>
+                            <div class="frequency-btn" data-frequency="quarterly">Quarterly</div>
+                            <div class="frequency-btn" data-frequency="yearly">Yearly</div>
+                            <div class="frequency-btn" data-frequency="none">None</div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Calculate Button -->
-                <button class="calculate-btn" id="calculateBtn" onclick="calculateInvestment()" aria-label="Calculate investment returns">
-                    <i class="fas fa-calculator"></i> Calculate Investment Returns
-                </button>
+                <!-- Action Buttons -->
+                <div class="action-buttons">
+                    <button class="action-btn calculate-btn" id="calculateBtn">
+                        <i class="fas fa-calculator"></i> Calculate Returns
+                    </button>
+                    <button class="action-btn reset-btn" id="resetBtn">
+                        <i class="fas fa-redo"></i> Reset Calculator
+                    </button>
+                </div>
             </div>
 
             <!-- Results Section -->
             <div class="results-section">
-                <h2>Investment Results</h2>
-                
-                <div class="total-value" id="totalValue">
-                    <div class="total-amount" id="totalAmount">₹1.03 Cr</div>
-                    <div class="total-label" id="totalLabel">Future Value After 15 Years</div>
+                <div class="loading" id="loadingSpinner">
+                    <div class="spinner"></div>
+                    <div>Calculating...</div>
                 </div>
 
-                <div class="results-breakdown">
-                    <h3>Investment Breakdown</h3>
-                    <div class="breakdown-grid">
-                        <div class="breakdown-item">
-                            <div class="breakdown-value" id="totalInvested">₹28.00 L</div>
-                            <div class="breakdown-label">Total Amount Invested</div>
-                        </div>
-                        <div class="breakdown-item">
-                            <div class="breakdown-value" id="totalInterest">₹75.03 L</div>
-                            <div class="breakdown-label">Total Interest Earned</div>
-                        </div>
-                        <div class="breakdown-item">
-                            <div class="breakdown-value" id="annualReturn">12%</div>
-                            <div class="breakdown-label">Annual Return Rate</div>
-                        </div>
-                        <div class="breakdown-item">
-                            <div class="breakdown-value" id="roi">268%</div>
-                            <div class="breakdown-label">Return on Investment (ROI)</div>
-                        </div>
+                <div class="results-header">
+                    <h2>Your Investment Results</h2>
+                    <p>Projected returns based on your inputs</p>
+                </div>
+
+                <div class="main-result">
+                    <div class="future-value" id="futureValue">$0.00</div>
+                    <div class="result-label">Estimated Future Value</div>
+                </div>
+
+                <div class="results-grid">
+                    <div class="result-item">
+                        <div class="result-value" id="totalContributions">$0</div>
+                        <div class="result-label">Total Contributions</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-value" id="totalReturns">$0</div>
+                        <div class="result-label">Total Returns</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-value" id="returnOnInvestment">0%</div>
+                        <div class="result-label">Return on Investment</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-value" id="completionDate">N/A</div>
+                        <div class="result-label">Completion Date</div>
                     </div>
                 </div>
 
                 <!-- Chart Container -->
                 <div class="chart-container">
-                    <h3>Investment Growth Over Time</h3>
-                    <div id="investmentChart">
-                        <div class="chart-placeholder">
-                            <i class="fas fa-chart-bar"></i> Investment growth chart will appear here
+                    <div class="chart-header">
+                        <h3>Investment Growth Visualization</h3>
+                        <div class="chart-toggle">
+                            <div class="chart-btn active" data-chart="growth">Growth Chart</div>
+                            <div class="chart-btn" data-chart="breakdown">Breakdown Chart</div>
                         </div>
                     </div>
-                    <div class="chart-legend">
-                        <div class="legend-item">
-                            <div class="legend-color" style="background-color: #4361ee;"></div>
-                            <span>Total Value</span>
-                        </div>
-                        <div class="legend-item">
-                            <div class="legend-color" style="background-color: #2ec4b6;"></div>
-                            <span>Amount Invested</span>
-                        </div>
-                        <div class="legend-item">
-                            <div class="legend-color" style="background-color: #ff9e00;"></div>
-                            <span>Interest Earned</span>
-                        </div>
+                    <div class="chart-wrapper">
+                        <canvas id="investmentChart"></canvas>
                     </div>
                 </div>
 
-                <!-- Yearly Breakdown -->
-                <div class="yearly-breakdown">
-                    <h3>Yearly Investment Breakdown</h3>
-                    <div class="table-container">
-                        <table class="breakdown-table" id="yearlyBreakdown">
-                            <thead>
-                                <tr>
-                                    <th>Year</th>
-                                    <th>Starting Balance</th>
-                                    <th>SIP Contributions</th>
-                                    <th>Interest Earned</th>
-                                    <th>Ending Balance</th>
-                                </tr>
-                            </thead>
-                            <tbody id="yearlyBreakdownBody">
-                                <!-- Yearly data will be populated here -->
-                            </tbody>
-                        </table>
+                <!-- Breakdown Table -->
+                <div class="breakdown-section">
+                    <div class="section-title">
+                        <h2>Year-by-Year Breakdown</h2>
+                        <button class="toggle-breakdown" id="toggleBreakdown">
+                            <i class="fas fa-table"></i> Show Breakdown
+                        </button>
+                    </div>
+                    
+                    <div class="breakdown-table" id="breakdownTable">
+                        <div class="table-container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Year</th>
+                                        <th>Beginning</th>
+                                        <th>Contributions</th>
+                                        <th>Returns</th>
+                                        <th>End Balance</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="breakdownBody">
+                                    <!-- Breakdown rows will be inserted here by JavaScript -->
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
-
-                <!-- Download Results -->
-                <button class="download-btn" onclick="downloadResults()" aria-label="Download results as CSV">
-                    <i class="fas fa-download"></i> Download Results as CSV
-                </button>
             </div>
         </div>
 
@@ -1633,51 +1561,51 @@
             <div class="faq-container">
                 <div class="faq-item">
                     <div class="faq-question">
-                        <span>How accurate is the investment calculator for Indian investors?</span>
+                        <span>How does compound interest work in investments?</span>
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>Our investment calculator uses precise financial formulas to provide accurate projections for Indian investors. It accounts for rupee-based calculations and typical Indian investment scenarios including SIP and lumpsum investments.</p>
+                        <p>Compound interest is when you earn interest on both your initial investment and the interest that accumulates over time. This creates exponential growth, as each period's interest earns additional interest in subsequent periods. The formula used is A = P(1 + r/n)^(nt), where A is the future value, P is principal, r is annual rate, n is compounding periods per year, and t is years.</p>
                     </div>
                 </div>
                 
                 <div class="faq-item">
                     <div class="faq-question">
-                        <span>What's the difference between SIP and lumpsum investment?</span>
+                        <span>What's a realistic expected annual return?</span>
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>SIP (Systematic Investment Plan) involves investing a fixed amount regularly (monthly), while lumpsum is a one-time investment. SIP helps in rupee cost averaging and is ideal for most Indian investors. Our calculator supports both scenarios.</p>
+                        <p>Historical stock market returns average about 7-10% annually after inflation. Conservative portfolios might yield 4-6%, while aggressive growth strategies could target 8-12%. Remember that past performance doesn't guarantee future results, and all investments carry risk. Diversification and long-term perspective are key to managing investment risk.</p>
                     </div>
                 </div>
                 
                 <div class="faq-item">
                     <div class="faq-question">
-                        <span>What is a realistic return rate for Indian investments?</span>
+                        <span>How important are regular contributions to investments?</span>
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>For equity mutual funds in India, a realistic long-term return expectation is 12-15% annually. For debt funds, 6-8%. FD rates vary between 5-7%. Adjust the calculator based on your investment type and risk appetite.</p>
+                        <p>Regular contributions (dollar-cost averaging) are crucial for long-term investment success. They allow you to benefit from market fluctuations by buying more shares when prices are low and fewer when prices are high. Over time, this strategy can significantly reduce the average cost per share and increase your overall returns.</p>
                     </div>
                 </div>
                 
                 <div class="faq-item">
                     <div class="faq-question">
-                        <span>Are taxes considered in the calculations?</span>
+                        <span>Should I adjust for inflation in my calculations?</span>
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>No, this calculator shows pre-tax returns. For accurate post-tax returns, you should deduct applicable taxes (like capital gains tax for equity or TDS for FDs) from the final amount based on your tax slab.</p>
+                        <p>For accurate long-term planning, it's recommended to use real returns (nominal returns minus inflation) rather than nominal returns. Historical inflation averages 2-3% annually. If you use nominal returns in this calculator, your results will be in today's dollars. For inflation-adjusted results, subtract expected inflation from your expected return rate.</p>
                     </div>
                 </div>
                 
                 <div class="faq-item">
                     <div class="faq-question">
-                        <span>Is my financial information stored or shared?</span>
+                        <span>Are the calculations accurate for tax-advantaged accounts?</span>
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>No! All calculations happen locally in your browser. We don't store, transmit, or collect any of your financial information. Your privacy and financial data security are completely protected.</p>
+                        <p>This calculator shows pre-tax investment growth. For tax-advantaged accounts like 401(k)s or IRAs, the results reflect tax-deferred growth. For taxable accounts, you'd need to account for taxes on dividends and capital gains, which would reduce net returns. Consult with a tax professional for specific tax implications of your investments.</p>
                     </div>
                 </div>
             </div>
@@ -1685,92 +1613,92 @@
 
         <!-- Related Tools Section -->
         <div class="related-tools-section">
-            <h2>Other Useful Financial Tools for Indians</h2>
+            <h2>Other Useful Finance Tools</h2>
             <div class="tools-grid">
                 <div class="tool-card">
                     <div class="tool-icon">
-                        <i class="fas fa-percentage"></i>
+                        <i class="fas fa-car"></i>
                     </div>
-                    <h3>SIP Calculator</h3>
-                    <p>Calculate Systematic Investment Plan returns for mutual funds with monthly contributions.</p>
-                    <a href="sip-calculator.html" class="tool-link">Use Tool</a>
+                    <h3>Auto Loan Calculator</h3>
+                    <p>Calculate monthly car payments, total interest, and amortization schedule for auto loans.</p>
+                    <a href="auto-loan-calculator.html" class="tool-link">Use Tool</a>
                 </div>
                 
                 <div class="tool-card">
                     <div class="tool-icon">
-                        <i class="fas fa-calculator"></i>
+                        <i class="fas fa-home"></i>
                     </div>
-                    <h3>GST Calculator India</h3>
-                    <p>Calculate Goods and Services Tax for invoices, purchases, and business transactions in India.</p>
-                    <a href="gst-calculator-india.html" class="tool-link">Use Tool</a>
+                    <h3>Mortgage Calculator</h3>
+                    <p>Calculate monthly mortgage payments with PMI, taxes, and insurance. Estimate home buying budget.</p>
+                    <a href="mortgage-calculator.html" class="tool-link">Use Tool</a>
                 </div>
                 
                 <div class="tool-card">
                     <div class="tool-icon">
-                        <i class="fas fa-money-bill-wave"></i>
+                        <i class="fas fa-credit-card"></i>
                     </div>
-                    <h3>EMI Calculator</h3>
-                    <p>Calculate Equated Monthly Installments for home loans, car loans, and personal loans in India.</p>
-                    <a href="emi-calculator.html" class="tool-link">Use Tool</a>
+                    <h3>Credit Card Payoff</h3>
+                    <p>Calculate how long it will take to pay off credit card debt and find the best payoff strategy.</p>
+                    <a href="credit-card-payoff.html" class="tool-link">Use Tool</a>
                 </div>
                 
                 <div class="tool-card">
                     <div class="tool-icon">
-                        <i class="fas fa-exchange-alt"></i>
+                        <i class="fas fa-university"></i>
                     </div>
-                    <h3>PPF Calculator</h3>
-                    <p>Calculate Public Provident Fund returns with tax benefits for long-term savings in India.</p>
-                    <a href="ppf-calculator.html" class="tool-link">Use Tool</a>
+                    <h3>Student Loan Calculator</h3>
+                    <p>Calculate student loan payments, forgiveness options, and repayment strategies.</p>
+                    <a href="student-loan-calculator.html" class="tool-link">Use Tool</a>
                 </div>
                 
                 <div class="tool-card">
                     <div class="tool-icon">
-                        <i class="fas fa-clock"></i>
+                        <i class="fas fa-retweet"></i>
                     </div>
-                    <h3>FD Calculator</h3>
-                    <p>Calculate Fixed Deposit returns with different tenure and interest rate options in India.</p>
-                    <a href="fd-calculator.html" class="tool-link">Use Tool</a>
+                    <h3>Debt Consolidation</h3>
+                    <p>Explore debt consolidation options and calculate potential savings from combining debts.</p>
+                    <a href="debt-consolidation.html" class="tool-link">Use Tool</a>
                 </div>
                 
                 <div class="tool-card">
                     <div class="tool-icon">
-                        <i class="fas fa-birthday-cake"></i>
+                        <i class="fas fa-chart-pie"></i>
                     </div>
-                    <h3>Age Calculator</h3>
-                    <p>Calculate exact age in years, months, days, and even hours. Find age difference instantly.</p>
-                    <a href="age-calculator.html" class="tool-link">Use Tool</a>
+                    <h3>Budget Planner</h3>
+                    <p>Create and manage your monthly budget. Track income, expenses, and savings goals.</p>
+                    <a href="budget-planner.html" class="tool-link">Use Tool</a>
                 </div>
             </div>
         </div>
 
         <!-- SEO Pages Section -->
         <div class="seo-section" id="privacy-policy">
-            <button class="close-seo" onclick="hideSeoPage()" aria-label="Close privacy policy">×</button>
+            <button class="close-seo" onclick="hideSeoPage()">×</button>
             <h1>Privacy Policy</h1>
             <div class="seo-content">
                 <p><strong>Last Updated: January 2024</strong></p>
                 
                 <h2>1. Introduction</h2>
-                <p>Welcome to Toolvexa Investment Calculator for Indian Investors. Your privacy is critically important to us. This privacy policy document outlines the types of personal information that is received and collected by our tool and how it is used.</p>
+                <p>Welcome to Toolvexa Investment Calculator. Your privacy is critically important to us. This privacy policy document outlines the types of personal information that is received and collected by our tool and how it is used.</p>
                 
                 <h2>2. Information We Collect</h2>
                 <h3>2.1 No Personal Data Collection</h3>
                 <p>Our Investment Calculator tool operates entirely in your browser. We do not:</p>
                 <ul>
                     <li>Collect any personal information</li>
-                    <li>Store your financial data or investment details</li>
-                    <li>Track your usage patterns</li>
+                    <li>Upload your financial data to our servers</li>
+                    <li>Store any information about your usage</li>
                     <li>Use cookies for tracking purposes</li>
                 </ul>
                 
                 <h3>2.2 Local Processing</h3>
-                <p>All investment calculations happen locally on your device using JavaScript. Your financial information in Indian Rupees never leaves your computer or mobile device.</p>
+                <p>All calculations happen locally on your device using JavaScript. Your investment data never leaves your computer or mobile device.</p>
                 
                 <h2>3. How We Use Information</h2>
                 <p>Since we don't collect any personal data, there's no information to use or share. The tool functions completely offline once loaded in your browser.</p>
                 
                 <h2>4. Third-Party Services</h2>
-                <p>We only use Font Awesome for icons. This service may collect limited data as per their own privacy policies, but no personal information is shared.</p>
+                <p>We only use Font Awesome for icons and Google Fonts for typography. These services may collect limited data as per their own privacy policies.</p>
                 
                 <h2>5. Security</h2>
                 <p>Your security is guaranteed because:</p>
@@ -1789,7 +1717,7 @@
         </div>
 
         <div class="seo-section" id="terms-of-service">
-            <button class="close-seo" onclick="hideSeoPage()" aria-label="Close terms of service">×</button>
+            <button class="close-seo" onclick="hideSeoPage()">×</button>
             <h1>Terms of Service</h1>
             <div class="seo-content">
                 <p><strong>Last Updated: January 2024</strong></p>
@@ -1798,21 +1726,21 @@
                 <p>By accessing and using the Toolvexa Investment Calculator tool, you accept and agree to be bound by the terms and provision of this agreement.</p>
                 
                 <h2>2. Description of Service</h2>
-                <p>Toolvexa Investment Calculator provides a free online tool for calculating investment growth and returns for Indian investors. The service includes:</p>
+                <p>Toolvexa Investment Calculator provides a free online tool for calculating investment returns with compound interest. The service includes:</p>
                 <ul>
-                    <li>Compound interest calculations in Indian Rupees</li>
-                    <li>SIP and lumpsum investment projections</li>
-                    <li>Future value calculations</li>
-                    <li>Yearly breakdown analysis</li>
-                    <li>Local processing (no server uploads)</li>
+                    <li>Future value calculation with compound interest</li>
+                    <li>Regular contribution calculations</li>
+                    <li>Investment growth projections</li>
+                    <li>Year-by-year breakdown</li>
+                    <li>Visual chart representations</li>
                 </ul>
                 
                 <h2>3. User Responsibilities</h2>
                 <p>You agree to:</p>
                 <ul>
-                    <li>Use the tool only for educational and planning purposes</li>
-                    <li>Not make financial decisions based solely on calculator results</li>
-                    <li>Consult with SEBI registered financial advisors for actual investment decisions</li>
+                    <li>Use the tool only for lawful purposes</li>
+                    <li>Not rely solely on calculations for investment decisions</li>
+                    <li>Consult with financial professionals for important decisions</li>
                     <li>Not attempt to reverse engineer or hack the tool</li>
                 </ul>
                 
@@ -1820,16 +1748,16 @@
                 <p>The service is provided "as is" without warranties of any kind. We do not guarantee:</p>
                 <ul>
                     <li>Uninterrupted service availability</li>
-                    <li>100% accuracy for actual investment returns</li>
+                    <li>Specific calculation results matching actual returns</li>
                     <li>Compatibility with all browsers or devices</li>
-                    <li>Consideration of taxes, fees, or market volatility</li>
+                    <li>Accuracy for all investment scenarios</li>
                 </ul>
                 
                 <h2>5. Investment Disclaimer</h2>
-                <p>This tool provides projections only. Actual investment returns may vary. Past performance does not guarantee future results. Mutual fund investments are subject to market risks. Read all scheme related documents carefully. Always consult with qualified financial advisors before making investment decisions.</p>
+                <p>This tool provides estimates only. Actual investment returns may vary based on market conditions, fees, taxes, and other factors. Past performance does not guarantee future results. All investments carry risk, including potential loss of principal. Always consult with qualified financial advisors before making investment decisions.</p>
                 
                 <h2>6. Limitation of Liability</h2>
-                <p>Toolvexa shall not be liable for any financial decisions made based on calculator results. For actual investment decisions, always verify with qualified financial professionals registered with SEBI.</p>
+                <p>Toolvexa shall not be liable for any investment decisions made based on calculations from this tool. Users assume all responsibility for their investment decisions and acknowledge that all investments carry risk.</p>
                 
                 <h2>7. Changes to Terms</h2>
                 <p>We reserve the right to modify these terms at any time. Continued use of the tool constitutes acceptance of modified terms.</p>
@@ -1840,53 +1768,49 @@
         </div>
 
         <div class="seo-section" id="about-tool">
-            <button class="close-seo" onclick="hideSeoPage()" aria-label="Close about tool">×</button>
-            <h1>About Investment Calculator Tool</h1>
+            <button class="close-seo" onclick="hideSeoPage()">×</button>
+            <h1>About Investment Calculator</h1>
             <div class="seo-content">
                 <h2>What is Toolvexa Investment Calculator?</h2>
-                <p>Toolvexa Investment Calculator is a free online tool specifically designed for Indian investors to calculate investment growth, compound interest, and future value of investments in Indian Rupees. Whether you're planning for retirement, saving for your child's education, or building wealth through SIPs, this tool provides valuable insights into your financial future.</p>
+                <p>Toolvexa Investment Calculator is a free online tool that helps you calculate investment returns with compound interest. It's perfect for retirement planning, investment strategy development, and understanding how regular contributions and compound growth can work together to build wealth over time.</p>
                 
                 <h2>Key Features</h2>
                 <ul>
-                    <li><strong>Indian Rupee Calculations:</strong> All calculations in ₹ with Indian numbering system</li>
-                    <li><strong>SIP & Lumpsum Support:</strong> Calculate both Systematic Investment Plans and one-time investments</li>
-                    <li><strong>Realistic Indian Returns:</strong> Pre-set with typical Indian investment return rates</li>
-                    <li><strong>Visual Charts:</strong> Graphical representation of investment growth over time</li>
-                    <li><strong>Yearly Breakdown:</strong> Detailed year-by-year analysis of your investment</li>
-                    <li><strong>Common Indian Goals:</strong> Presets for retirement, child education, house purchase</li>
-                    <li><strong>Privacy Protected:</strong> All calculations happen locally in your browser</li>
+                    <li><strong>Compound Interest Calculations:</strong> Uses standard compound interest formulas</li>
+                    <li><strong>Regular Contributions:</strong> Includes monthly, quarterly, or yearly contributions</li>
+                    <li><strong>Visual Charts:</strong> Interactive charts showing growth and breakdown</li>
+                    <li><strong>Year-by-Year Breakdown:</strong> Detailed annual investment progression</li>
+                    <li><strong>Mobile Friendly:</strong> Works perfectly on all devices</li>
+                    <li><strong>Privacy Guaranteed:</strong> All calculations happen in your browser</li>
                 </ul>
                 
                 <h2>How It Works</h2>
-                <p>Our tool uses advanced financial formulas adapted for Indian investment scenarios:</p>
+                <p>Our tool uses mathematical formulas to calculate investment growth with compound interest. The process is simple:</p>
                 <ol>
-                    <li>Enter your lumpsum investment amount in ₹</li>
-                    <li>Set your monthly SIP contribution (if any)</li>
-                    <li>Choose your expected annual return rate (typical for Indian markets)</li>
-                    <li>Select your investment period</li>
-                    <li>Click "Calculate Investment Returns" for instant results</li>
-                    <li>View detailed breakdown in ₹ and growth charts</li>
+                    <li>Enter your initial investment amount</li>
+                    <li>Set your investment period in years</li>
+                    <li>Choose your expected annual return rate</li>
+                    <li>Add regular contributions if applicable</li>
+                    <li>View your projected future value and returns</li>
                 </ol>
                 
-                <h2>Use Cases for Indian Investors</h2>
+                <h2>Use Cases</h2>
                 <ul>
-                    <li><strong>Retirement Planning:</strong> Calculate how much you need to save for retirement in India</li>
-                    <li><strong>Child Education:</strong> Plan for children's education expenses in Indian context</li>
-                    <li><strong>House Purchase:</strong> Save for down payment on a house in Indian cities</li>
-                    <li><strong>Wealth Building:</strong> Understand the power of compound interest through SIPs</li>
-                    <li><strong>Financial Goal Setting:</strong> Set and track progress toward Indian financial goals</li>
+                    <li><strong>Retirement Planning:</strong> Estimate how much you need to save</li>
+                    <li><strong>Investment Strategy:</strong> Compare different contribution strategies</li>
+                    <li><strong>Goal Setting:</strong> Calculate time needed to reach financial goals</li>
+                    <li><strong>Education:</strong> Learn how compound interest works</li>
+                    <li><strong>Scenario Analysis:</strong> Test different return and contribution scenarios</li>
                 </ul>
                 
                 <h2>Technical Information</h2>
-                <p>The tool uses the compound interest formula adapted for monthly SIPs:</p>
-                <p><strong>A = P(1 + r/n)^(nt) + PMT × (((1 + r/n)^(nt) - 1) / (r/n))</strong></p>
-                <p>Where:<br>
-                A = Future value of investment in ₹<br>
-                P = Principal investment amount in ₹<br>
-                r = Annual interest rate (decimal)<br>
-                n = Number of times interest compounds per year<br>
-                t = Time in years<br>
-                PMT = Monthly SIP contribution in ₹</p>
+                <p>The tool uses JavaScript for all calculations and implements:</p>
+                <ul>
+                    <li>Compound interest formula for growth projections</li>
+                    <li>Chart.js for interactive visualizations</li>
+                    <li>Real-time calculation updates</li>
+                    <li>Responsive design for all screen sizes</li>
+                </ul>
             </div>
         </div>
 
@@ -1897,79 +1821,47 @@
                 <a href="#terms-of-service" onclick="showSeoPage('terms')">Terms of Service</a>
                 <a href="#about-tool" onclick="showSeoPage('about')">About This Tool</a>
                 <a href="index.html">All Tools</a>
-                <a href="index.html#calculators">Calculators</a>
+                <a href="index.html#calculator-tools">Calculators</a>
                 <a href="index.html#contact">Contact Us</a>
             </div>
             <div class="copyright">
-                <p>© 2024 Investment Calculator Tool | Toolvexa | All calculations happen locally in your browser. No data is uploaded to any server.</p>
-                <p style="margin-top: 10px;"><strong>Disclaimer:</strong> This tool provides projections only. Actual investment returns may vary. Mutual fund investments are subject to market risks. Consult with SEBI registered financial advisors for investment decisions.</p>
-                <p style="margin-top: 10px;">Made with <i class="fas fa-heart" style="color: #e63946;"></i> for Indian investors</p>
+                <p>© 2024 Investment Calculator | Toolvexa | All calculations happen locally in your browser. No data is uploaded to any server.</p>
+                <p style="margin-top: 10px; font-size: 0.8rem; color: #999;">
+                    <strong>Disclaimer:</strong> This tool provides estimates only. Actual investment returns may vary. Consult with financial professionals for specific advice. All investments carry risk.
+                </p>
+                <p style="margin-top: 10px;">Made with <i class="fas fa-heart" style="color: #e63946;"></i> for everyone</p>
             </div>
         </footer>
     </div>
 
-    <script>
-        // ========== GLOBAL VARIABLES ==========
-        let calculationData = null;
-        let isInitialLoad = true;
-        let chartCanvas = null;
-        let chartContext = null;
-        let isMobile = window.innerWidth <= 768;
+    <!-- Chart.js Library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-        // ========== NAVIGATION FUNCTIONALITY ==========
+    <script>
+        // Navigation functionality
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const navLinks = document.getElementById('navLinks');
-
+        
         mobileMenuBtn.addEventListener('click', (e) => {
             e.stopPropagation();
             navLinks.classList.toggle('active');
-            const icon = mobileMenuBtn.querySelector('i');
-            if (navLinks.classList.contains('active')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-                document.body.style.overflow = 'hidden';
-            } else {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-                document.body.style.overflow = '';
-            }
         });
-
+        
         // Close mobile menu when clicking outside
         document.addEventListener('click', (e) => {
             if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
                 navLinks.classList.remove('active');
-                const icon = mobileMenuBtn.querySelector('i');
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-                document.body.style.overflow = '';
             }
         });
-
+        
         // Close mobile menu when clicking a link
-        navLinks.querySelectorAll('a').forEach(link => {
+        document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
-                const icon = mobileMenuBtn.querySelector('i');
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-                document.body.style.overflow = '';
             });
         });
-
-        // Handle window resize
-        window.addEventListener('resize', () => {
-            isMobile = window.innerWidth <= 768;
-            if (window.innerWidth > 768) {
-                navLinks.classList.remove('active');
-                document.body.style.overflow = '';
-                const icon = mobileMenuBtn.querySelector('i');
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
-        });
-
-        // ========== SEO PAGES FUNCTIONALITY ==========
+        
+        // SEO pages functionality
         function showSeoPage(page) {
             // Hide all seo sections first
             document.querySelectorAll('.seo-section').forEach(section => {
@@ -1994,12 +1886,8 @@
             
             // Close mobile menu if open
             navLinks.classList.remove('active');
-            const icon = mobileMenuBtn.querySelector('i');
-            icon.classList.remove('fa-times');
-            icon.classList.add('fa-bars');
-            document.body.style.overflow = '';
             
-            // Scroll to section
+            // Scroll to the section
             setTimeout(() => {
                 document.getElementById(sectionId).scrollIntoView({ 
                     behavior: 'smooth',
@@ -2007,13 +1895,13 @@
                 });
             }, 100);
         }
-
+        
         function hideSeoPage() {
             document.querySelectorAll('.seo-section').forEach(section => {
                 section.classList.remove('active');
             });
         }
-
+        
         // Close SEO section when clicking outside
         document.addEventListener('click', (e) => {
             if (e.target.classList.contains('seo-section')) {
@@ -2021,7 +1909,7 @@
             }
         });
 
-        // ========== FAQ FUNCTIONALITY ==========
+        // FAQ functionality
         document.querySelectorAll('.faq-question').forEach(question => {
             question.addEventListener('click', () => {
                 const item = question.parentElement;
@@ -2029,626 +1917,580 @@
             });
         });
 
-        // ========== INVESTMENT CALCULATOR CORE FUNCTIONALITY ==========
-        document.addEventListener('DOMContentLoaded', function() {
-            setupEventListeners();
-            setupChart();
-            setDefaultValues();
-            displayInitialResults();
-            setupTouchEvents();
+        // Investment Calculator JavaScript
+        const calculateBtn = document.getElementById('calculateBtn');
+        const resetBtn = document.getElementById('resetBtn');
+        const toggleBreakdown = document.getElementById('toggleBreakdown');
+        const loadingSpinner = document.getElementById('loadingSpinner');
+        const breakdownTable = document.getElementById('breakdownTable');
+        const breakdownBody = document.getElementById('breakdownBody');
+
+        // Input elements
+        const initialInvestment = document.getElementById('initialInvestment');
+        const initialInvestmentSlider = document.getElementById('initialInvestmentSlider');
+        const initialInvestmentValue = document.getElementById('initialInvestmentValue');
+        const investmentPeriod = document.getElementById('investmentPeriod');
+        const investmentPeriodSlider = document.getElementById('investmentPeriodSlider');
+        const investmentPeriodValue = document.getElementById('investmentPeriodValue');
+        const expectedReturn = document.getElementById('expectedReturn');
+        const expectedReturnSlider = document.getElementById('expectedReturnSlider');
+        const expectedReturnValue = document.getElementById('expectedReturnValue');
+        const monthlyContribution = document.getElementById('monthlyContribution');
+        const monthlyContributionSlider = document.getElementById('monthlyContributionSlider');
+        const monthlyContributionValue = document.getElementById('monthlyContributionValue');
+        const frequencyBtns = document.querySelectorAll('.frequency-btn');
+        const chartBtns = document.querySelectorAll('.chart-btn');
+
+        // Result elements
+        const futureValue = document.getElementById('futureValue');
+        const totalContributions = document.getElementById('totalContributions');
+        const totalReturns = document.getElementById('totalReturns');
+        const returnOnInvestment = document.getElementById('returnOnInvestment');
+        const completionDate = document.getElementById('completionDate');
+
+        // Chart variables
+        let investmentChart = null;
+        let currentChartType = 'growth';
+
+        // Format currency
+        function formatCurrency(amount) {
+            return new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD',
+                minimumFractionDigits: 0,
+                maximumFractionDigits: 0
+            }).format(amount);
+        }
+
+        function formatCurrencyDecimal(amount) {
+            return new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD',
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            }).format(amount);
+        }
+
+        // Update slider value displays
+        function updateSliderValues() {
+            initialInvestmentValue.textContent = formatCurrency(parseInt(initialInvestmentSlider.value));
+            investmentPeriodValue.textContent = parseInt(investmentPeriodSlider.value) + ' years';
+            expectedReturnValue.textContent = parseFloat(expectedReturnSlider.value).toFixed(1) + '%';
+            monthlyContributionValue.textContent = formatCurrency(parseInt(monthlyContributionSlider.value));
+        }
+
+        // Sync sliders with input fields
+        initialInvestment.addEventListener('input', () => {
+            const value = Math.min(Math.max(initialInvestment.min, initialInvestment.value), initialInvestment.max);
+            initialInvestmentSlider.value = value;
+            initialInvestmentValue.textContent = formatCurrency(value);
+            calculateInvestment();
         });
 
-        function setupEventListeners() {
-            // Add event listeners to all inputs and sliders
-            ['initialInvestment', 'monthlyContribution', 'interestRateSlider', 'periodSlider', 'compoundingFrequency', 'investmentType'].forEach(id => {
-                const element = document.getElementById(id);
-                if (element) {
-                    element.addEventListener('input', () => {
-                        if (!isInitialLoad) {
-                            updateValuesFromInputs();
-                            calculateInvestment();
-                        }
-                    });
-                    
-                    // Add touch events for mobile
-                    element.addEventListener('touchstart', function(e) {
-                        e.stopPropagation();
-                    });
-                }
-            });
-
-            // Add event listener to calculate button
-            const calculateBtn = document.getElementById('calculateBtn');
-            if (calculateBtn) {
-                calculateBtn.addEventListener('click', () => {
-                    isInitialLoad = false;
-                    calculateInvestment();
-                });
-                
-                // Touch event for mobile
-                calculateBtn.addEventListener('touchend', function(e) {
-                    e.preventDefault();
-                    this.click();
-                });
-            }
-
-            // Update slider values display
-            const interestSlider = document.getElementById('interestRateSlider');
-            if (interestSlider) {
-                interestSlider.addEventListener('input', function() {
-                    document.getElementById('interestRateValue').textContent = this.value + '%';
-                });
-                
-                // Touch events for better mobile experience
-                interestSlider.addEventListener('touchstart', function(e) {
-                    this.classList.add('active');
-                });
-                
-                interestSlider.addEventListener('touchend', function(e) {
-                    this.classList.remove('active');
-                });
-            }
-
-            const periodSlider = document.getElementById('periodSlider');
-            if (periodSlider) {
-                periodSlider.addEventListener('input', function() {
-                    document.getElementById('periodValue').textContent = this.value + ' years';
-                });
-                
-                // Touch events for better mobile experience
-                periodSlider.addEventListener('touchstart', function(e) {
-                    this.classList.add('active');
-                });
-                
-                periodSlider.addEventListener('touchend', function(e) {
-                    this.classList.remove('active');
-                });
-            }
-        }
-
-        function setupTouchEvents() {
-            // Make buttons more touch-friendly
-            const buttons = document.querySelectorAll('button');
-            buttons.forEach(button => {
-                button.addEventListener('touchstart', function() {
-                    this.style.transform = 'scale(0.98)';
-                });
-                
-                button.addEventListener('touchend', function() {
-                    this.style.transform = '';
-                });
-            });
-            
-            // Prevent zoom on double tap
-            let lastTouchEnd = 0;
-            document.addEventListener('touchend', function(event) {
-                const now = (new Date()).getTime();
-                if (now - lastTouchEnd <= 300) {
-                    event.preventDefault();
-                }
-                lastTouchEnd = now;
-            }, false);
-        }
-
-        function setupChart() {
-            const chartContainer = document.getElementById('investmentChart');
-            if (chartContainer) {
-                // Create responsive canvas
-                chartContainer.innerHTML = '<canvas id="chartCanvas"></canvas>';
-                chartCanvas = document.getElementById('chartCanvas');
-                
-                // Set initial size
-                updateChartSize();
-                
-                // Update chart size on window resize
-                window.addEventListener('resize', updateChartSize);
-                
-                chartContext = chartCanvas.getContext('2d');
-            }
-        }
-
-        function updateChartSize() {
-            if (!chartCanvas) return;
-            
-            const container = chartCanvas.parentElement;
-            const dpr = window.devicePixelRatio || 1;
-            
-            // Get container dimensions
-            const width = container.clientWidth;
-            const height = isMobile ? 250 : 300;
-            
-            // Set canvas dimensions
-            chartCanvas.width = width * dpr;
-            chartCanvas.height = height * dpr;
-            
-            // Set CSS dimensions
-            chartCanvas.style.width = width + 'px';
-            chartCanvas.style.height = height + 'px';
-            
-            // Scale context for high DPI displays
-            if (chartContext) {
-                chartContext.scale(dpr, dpr);
-            }
-        }
-
-        function setDefaultValues() {
-            // Set default values for Indian investors
-            document.getElementById('initialInvestment').value = 100000;
-            document.getElementById('monthlyContribution').value = 10000;
-            document.getElementById('interestRateSlider').value = 12;
-            document.getElementById('periodSlider').value = 15;
-            document.getElementById('compoundingFrequency').value = 12;
-            document.getElementById('investmentType').value = 'compound';
-            
-            // Update displayed values
-            updateValuesFromInputs();
-        }
-
-        function displayInitialResults() {
-            // Display initial results without loading animation
-            calculateInvestmentWithoutLoading();
-            isInitialLoad = false;
-        }
-
-        function showLoading() {
-            document.getElementById('loadingOverlay').classList.add('active');
-        }
-
-        function hideLoading() {
-            document.getElementById('loadingOverlay').classList.remove('active');
-        }
-
-        // ========== CALCULATION FUNCTIONS ==========
-        function calculateInvestment() {
-            if (isInitialLoad) {
-                isInitialLoad = false;
-                calculateInvestmentWithoutLoading();
-            } else {
-                showLoading();
-                
-                // Small delay for better UX
-                setTimeout(() => {
-                    calculateInvestmentWithoutLoading();
-                    hideLoading();
-                }, 100);
-            }
-        }
-
-        function calculateInvestmentWithoutLoading() {
-            try {
-                // Get input values
-                const initialInvestment = parseFloat(document.getElementById('initialInvestment').value) || 0;
-                const monthlyContribution = parseFloat(document.getElementById('monthlyContribution').value) || 0;
-                const annualInterestRate = parseFloat(document.getElementById('interestRateSlider').value) / 100;
-                const years = parseInt(document.getElementById('periodSlider').value);
-                const compoundingFrequency = parseInt(document.getElementById('compoundingFrequency').value);
-                const investmentType = document.getElementById('investmentType').value;
-                
-                // Validate inputs
-                if (initialInvestment < 0 || monthlyContribution < 0 || annualInterestRate < 0 || years < 1) {
-                    alert('Please enter valid positive values for all fields.');
-                    return;
-                }
-
-                // Calculate investment growth
-                const results = calculateInvestmentGrowth(
-                    initialInvestment,
-                    monthlyContribution,
-                    annualInterestRate,
-                    years,
-                    compoundingFrequency,
-                    investmentType
-                );
-
-                // Store calculation data
-                calculationData = results;
-
-                // Update UI with results
-                updateResultsDisplay(results);
-                updateChart(results);
-                updateYearlyBreakdown(results.yearlyData);
-
-            } catch (error) {
-                console.error('Error calculating investment:', error);
-                alert('An error occurred while calculating investment. Please check your values and try again.');
-            }
-        }
-
-        function calculateInvestmentGrowth(principal, monthlyPayment, annualRate, years, compoundingFreq, type) {
-            const monthlyRate = annualRate / 12;
-            const totalMonths = years * 12;
-            const yearlyData = [];
-            
-            let currentBalance = principal;
-            let totalInvested = principal;
-            let totalInterest = 0;
-            
-            // Calculate month by month for accurate results
-            const monthlyData = [];
-            
-            for (let month = 1; month <= totalMonths; month++) {
-                // Add monthly contribution at the beginning of the month
-                currentBalance += monthlyPayment;
-                totalInvested += monthlyPayment;
-                
-                // Calculate interest for the month
-                let monthlyInterest;
-                if (type === 'compound') {
-                    monthlyInterest = currentBalance * monthlyRate;
-                } else {
-                    // Simple interest: only on principal
-                    monthlyInterest = principal * monthlyRate;
-                }
-                
-                currentBalance += monthlyInterest;
-                totalInterest += monthlyInterest;
-                
-                monthlyData.push({
-                    month: month,
-                    balance: currentBalance,
-                    invested: totalInvested,
-                    interest: totalInterest
-                });
-                
-                // Store yearly data
-                if (month % 12 === 0 || month === totalMonths) {
-                    const year = Math.ceil(month / 12);
-                    const startingBalance = yearlyData.length > 0 
-                        ? yearlyData[yearlyData.length - 1].endingBalance 
-                        : principal;
-                    
-                    const yearlyContributions = monthlyPayment * 12;
-                    const yearlyInterest = currentBalance - startingBalance - yearlyContributions;
-                    
-                    yearlyData.push({
-                        year: year,
-                        startingBalance: startingBalance,
-                        contributions: yearlyContributions,
-                        interestEarned: yearlyInterest,
-                        endingBalance: currentBalance
-                    });
-                }
-            }
-            
-            // Calculate ROI
-            const roi = ((currentBalance - totalInvested) / totalInvested * 100).toFixed(1);
-            
-            return {
-                futureValue: currentBalance,
-                totalInvested: totalInvested,
-                totalInterest: totalInterest,
-                annualReturn: (annualRate * 100).toFixed(1),
-                roi: roi,
-                years: years,
-                monthlyData: monthlyData,
-                yearlyData: yearlyData
-            };
-        }
-
-        function formatIndianCurrency(value) {
-            // Format as Indian Rupees with lakhs and crores
-            if (value >= 10000000) { // 1 crore = 1,00,00,000
-                const crores = value / 10000000;
-                return '₹' + crores.toFixed(2) + ' Cr';
-            } else if (value >= 100000) { // 1 lakh = 1,00,000
-                const lakhs = value / 100000;
-                return '₹' + lakhs.toFixed(2) + ' L';
-            } else if (value >= 1000) {
-                const thousands = value / 1000;
-                return '₹' + thousands.toFixed(1) + 'k';
-            }
-            return '₹' + Math.round(value).toLocaleString('en-IN');
-        }
-
-        function formatIndianCurrencyFull(value) {
-            // Format full amount with Indian numbering system
-            return '₹' + value.toLocaleString('en-IN', {
-                maximumFractionDigits: 0,
-                minimumFractionDigits: 0
-            });
-        }
-
-        function updateResultsDisplay(results) {
-            // Update main display
-            document.getElementById('totalAmount').textContent = formatIndianCurrency(results.futureValue);
-            document.getElementById('totalLabel').textContent = `Future Value After ${results.years} Years`;
-            
-            // Update breakdown
-            document.getElementById('totalInvested').textContent = formatIndianCurrency(results.totalInvested);
-            document.getElementById('totalInterest').textContent = formatIndianCurrency(results.totalInterest);
-            document.getElementById('annualReturn').textContent = results.annualReturn + '%';
-            document.getElementById('roi').textContent = results.roi + '%';
-        }
-
-        function updateChart(results) {
-            if (!chartContext || !chartCanvas) return;
-            
-            const ctx = chartContext;
-            const width = chartCanvas.width / (window.devicePixelRatio || 1);
-            const height = chartCanvas.height / (window.devicePixelRatio || 1);
-            
-            // Clear canvas
-            ctx.clearRect(0, 0, chartCanvas.width, chartCanvas.height);
-            
-            // Get yearly data for chart
-            const years = results.yearlyData.map(d => d.year);
-            const balances = results.yearlyData.map(d => d.endingBalance);
-            const invested = results.yearlyData.map(d => 
-                d.startingBalance + d.contributions
-            );
-            const interest = results.yearlyData.map(d => d.interestEarned);
-            
-            // Find maximum value for scaling
-            const maxValue = Math.max(...balances);
-            
-            // Chart dimensions
-            const padding = isMobile ? 30 : 40;
-            const chartWidth = width - padding * 2;
-            const chartHeight = height - padding * 2;
-            
-            // Draw grid
-            ctx.strokeStyle = '#e0e0e0';
-            ctx.lineWidth = 1;
-            
-            // Vertical grid lines
-            const yearStep = Math.max(1, Math.floor(years.length / (isMobile ? 5 : 10)));
-            for (let i = 0; i < years.length; i += yearStep) {
-                const x = padding + (i / (years.length - 1)) * chartWidth;
-                ctx.beginPath();
-                ctx.moveTo(x, padding);
-                ctx.lineTo(x, height - padding);
-                ctx.stroke();
-                
-                // Year labels
-                ctx.fillStyle = '#666';
-                ctx.font = isMobile ? '10px Arial' : '12px Arial';
-                ctx.textAlign = 'center';
-                ctx.fillText(years[i], x, height - padding + (isMobile ? 15 : 20));
-            }
-            
-            // Horizontal grid lines
-            const gridLines = isMobile ? 4 : 5;
-            for (let i = 0; i <= gridLines; i++) {
-                const y = padding + (i / gridLines) * chartHeight;
-                const value = maxValue * (1 - i / gridLines);
-                
-                ctx.beginPath();
-                ctx.moveTo(padding, y);
-                ctx.lineTo(width - padding, y);
-                ctx.stroke();
-                
-                // Value labels
-                ctx.fillStyle = '#666';
-                ctx.font = isMobile ? '10px Arial' : '12px Arial';
-                ctx.textAlign = 'right';
-                ctx.fillText(formatIndianCurrencyShort(value), padding - 5, y + 4);
-            }
-            
-            // Draw axis
-            ctx.strokeStyle = '#333';
-            ctx.lineWidth = 2;
-            ctx.beginPath();
-            ctx.moveTo(padding, padding);
-            ctx.lineTo(padding, height - padding);
-            ctx.lineTo(width - padding, height - padding);
-            ctx.stroke();
-            
-            // Draw data lines
-            drawLine(ctx, years, balances, '#4361ee', padding, chartWidth, chartHeight, maxValue);
-            drawLine(ctx, years, invested, '#2ec4b6', padding, chartWidth, chartHeight, maxValue);
-            drawLine(ctx, years, interest, '#ff9e00', padding, chartWidth, chartHeight, maxValue);
-        }
-
-        function drawLine(ctx, years, data, color, padding, chartWidth, chartHeight, maxValue) {
-            ctx.strokeStyle = color;
-            ctx.lineWidth = isMobile ? 1.5 : 2;
-            ctx.beginPath();
-            
-            for (let i = 0; i < years.length; i++) {
-                const x = padding + (i / (years.length - 1)) * chartWidth;
-                const y = padding + (1 - data[i] / maxValue) * chartHeight;
-                
-                if (i === 0) {
-                    ctx.moveTo(x, y);
-                } else {
-                    ctx.lineTo(x, y);
-                }
-            }
-            
-            ctx.stroke();
-        }
-
-        function formatIndianCurrencyShort(value) {
-            if (value >= 10000000) {
-                return '₹' + (value / 10000000).toFixed(1) + 'Cr';
-            } else if (value >= 100000) {
-                return '₹' + (value / 100000).toFixed(1) + 'L';
-            } else if (value >= 1000) {
-                return '₹' + (value / 1000).toFixed(1) + 'k';
-            }
-            return '₹' + Math.round(value);
-        }
-
-        function updateYearlyBreakdown(yearlyData) {
-            const tbody = document.getElementById('yearlyBreakdownBody');
-            if (!tbody) return;
-            
-            tbody.innerHTML = '';
-            
-            // Show first 10 years and last 5 years (or all if less than 15 years)
-            const showAll = yearlyData.length <= 15;
-            const displayData = showAll ? yearlyData : [
-                ...yearlyData.slice(0, 10),
-                {year: '...', startingBalance: null, contributions: null, interestEarned: null, endingBalance: null},
-                ...yearlyData.slice(-5)
-            ];
-            
-            displayData.forEach(data => {
-                const row = document.createElement('tr');
-                
-                if (data.year === '...') {
-                    row.innerHTML = `
-                        <td colspan="5" style="text-align: center; font-style: italic; color: #666;">
-                            ... ${yearlyData.length - 15} more years ...
-                        </td>
-                    `;
-                } else {
-                    row.innerHTML = `
-                        <td>Year ${data.year}</td>
-                        <td>${formatIndianCurrencyFull(data.startingBalance)}</td>
-                        <td>${formatIndianCurrencyFull(data.contributions)}</td>
-                        <td>${formatIndianCurrencyFull(data.interestEarned)}</td>
-                        <td><strong>${formatIndianCurrencyFull(data.endingBalance)}</strong></td>
-                    `;
-                }
-                
-                tbody.appendChild(row);
-            });
-        }
-
-        // ========== PRESET FUNCTIONS ==========
-        function setPreset(type) {
-            // Update preset buttons
-            document.querySelectorAll('.preset-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            event.currentTarget.classList.add('active');
-            
-            switch(type) {
-                case 'retirement':
-                    document.getElementById('initialInvestment').value = 500000;
-                    document.getElementById('monthlyContribution').value = 20000;
-                    document.getElementById('interestRateSlider').value = 12;
-                    document.getElementById('periodSlider').value = 25;
-                    document.getElementById('compoundingFrequency').value = 12;
-                    document.getElementById('investmentType').value = 'compound';
-                    break;
-                    
-                case 'childEducation':
-                    document.getElementById('initialInvestment').value = 50000;
-                    document.getElementById('monthlyContribution').value = 10000;
-                    document.getElementById('interestRateSlider').value = 10;
-                    document.getElementById('periodSlider').value = 18;
-                    document.getElementById('compoundingFrequency').value = 12;
-                    document.getElementById('investmentType').value = 'compound';
-                    break;
-                    
-                case 'house':
-                    document.getElementById('initialInvestment').value = 300000;
-                    document.getElementById('monthlyContribution').value = 15000;
-                    document.getElementById('interestRateSlider').value = 8;
-                    document.getElementById('periodSlider').value = 10;
-                    document.getElementById('compoundingFrequency').value = 12;
-                    document.getElementById('investmentType').value = 'compound';
-                    break;
-                    
-                case 'wealth':
-                    document.getElementById('initialInvestment').value = 1000000;
-                    document.getElementById('monthlyContribution').value = 25000;
-                    document.getElementById('interestRateSlider').value = 15;
-                    document.getElementById('periodSlider').value = 20;
-                    document.getElementById('compoundingFrequency').value = 12;
-                    document.getElementById('investmentType').value = 'compound';
-                    break;
-                    
-                case 'default':
-                    setDefaultValues();
-                    break;
-            }
-            
-            // Update displayed values
-            updateValuesFromInputs();
+        initialInvestmentSlider.addEventListener('input', () => {
+            initialInvestment.value = initialInvestmentSlider.value;
+            initialInvestmentValue.textContent = formatCurrency(initialInvestmentSlider.value);
             calculateInvestment();
-        }
+        });
 
-        function updateValuesFromInputs() {
-            document.getElementById('interestRateValue').textContent = 
-                document.getElementById('interestRateSlider').value + '%';
-            document.getElementById('periodValue').textContent = 
-                document.getElementById('periodSlider').value + ' years';
-        }
+        investmentPeriod.addEventListener('input', () => {
+            const value = Math.min(Math.max(investmentPeriod.min, investmentPeriod.value), investmentPeriod.max);
+            investmentPeriodSlider.value = value;
+            investmentPeriodValue.textContent = value + ' years';
+            calculateInvestment();
+        });
 
-        function clearAll() {
-            // Clear all inputs
-            document.getElementById('initialInvestment').value = '';
-            document.getElementById('monthlyContribution').value = '';
-            document.getElementById('interestRateSlider').value = 12;
-            document.getElementById('periodSlider').value = 15;
-            document.getElementById('compoundingFrequency').value = 12;
-            document.getElementById('investmentType').value = 'compound';
-            
-            // Reset preset buttons
-            document.querySelectorAll('.preset-btn').forEach(btn => {
-                btn.classList.remove('active');
+        investmentPeriodSlider.addEventListener('input', () => {
+            investmentPeriod.value = investmentPeriodSlider.value;
+            investmentPeriodValue.textContent = investmentPeriodSlider.value + ' years';
+            calculateInvestment();
+        });
+
+        expectedReturn.addEventListener('input', () => {
+            const value = Math.min(Math.max(expectedReturn.min, expectedReturn.value), expectedReturn.max);
+            expectedReturnSlider.value = value;
+            expectedReturnValue.textContent = parseFloat(value).toFixed(1) + '%';
+            calculateInvestment();
+        });
+
+        expectedReturnSlider.addEventListener('input', () => {
+            expectedReturn.value = expectedReturnSlider.value;
+            expectedReturnValue.textContent = parseFloat(expectedReturnSlider.value).toFixed(1) + '%';
+            calculateInvestment();
+        });
+
+        monthlyContribution.addEventListener('input', () => {
+            const value = Math.min(Math.max(monthlyContribution.min, monthlyContribution.value), monthlyContribution.max);
+            monthlyContributionSlider.value = value;
+            monthlyContributionValue.textContent = formatCurrency(value);
+            calculateInvestment();
+        });
+
+        monthlyContributionSlider.addEventListener('input', () => {
+            monthlyContribution.value = monthlyContributionSlider.value;
+            monthlyContributionValue.textContent = formatCurrency(monthlyContributionSlider.value);
+            calculateInvestment();
+        });
+
+        // Frequency button functionality
+        let selectedFrequency = 'monthly';
+        frequencyBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                frequencyBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                selectedFrequency = btn.getAttribute('data-frequency');
+                calculateInvestment();
             });
-            const defaultBtn = document.querySelector('.preset-btn[onclick="setPreset(\'default\')"]');
-            if (defaultBtn) {
-                defaultBtn.classList.add('active');
-            }
-            
-            // Update displayed values
-            updateValuesFromInputs();
-            
-            // Clear results
-            document.getElementById('totalAmount').textContent = '₹0';
-            document.getElementById('totalLabel').textContent = 'Future Value';
-            document.getElementById('totalInvested').textContent = '₹0';
-            document.getElementById('totalInterest').textContent = '₹0';
-            document.getElementById('annualReturn').textContent = '0%';
-            document.getElementById('roi').textContent = '0%';
-            
-            const tbody = document.getElementById('yearlyBreakdownBody');
-            if (tbody) {
-                tbody.innerHTML = '';
-            }
-            
-            // Clear chart
-            if (chartContext && chartCanvas) {
-                chartContext.clearRect(0, 0, chartCanvas.width, chartCanvas.height);
-            }
-        }
+        });
 
-        // ========== DOWNLOAD FUNCTION ==========
-        function downloadResults() {
-            if (!calculationData) {
-                alert('Please calculate investment results first.');
-                return;
-            }
-
-            // Create CSV content
-            let csv = 'Year,Starting Balance (₹),SIP Contributions (₹),Interest Earned (₹),Ending Balance (₹)\n';
-            
-            calculationData.yearlyData.forEach(data => {
-                csv += `${data.year},${data.startingBalance},${data.contributions},${data.interestEarned},${data.endingBalance}\n`;
+        // Chart button functionality
+        chartBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                chartBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentChartType = btn.getAttribute('data-chart');
+                updateChart();
             });
+        });
+
+        // Button event listeners
+        calculateBtn.addEventListener('click', calculateInvestment);
+        
+        resetBtn.addEventListener('click', () => {
+            initialInvestment.value = 10000;
+            initialInvestmentSlider.value = 10000;
+            investmentPeriod.value = 10;
+            investmentPeriodSlider.value = 10;
+            expectedReturn.value = 7;
+            expectedReturnSlider.value = 7;
+            monthlyContribution.value = 500;
+            monthlyContributionSlider.value = 500;
             
-            // Add summary
-            csv += '\nSummary\n';
-            csv += `Future Value,${calculationData.futureValue} ₹\n`;
-            csv += `Total Invested,${calculationData.totalInvested} ₹\n`;
-            csv += `Total Interest,${calculationData.totalInterest} ₹\n`;
-            csv += `Annual Return,${calculationData.annualReturn}%\n`;
-            csv += `Return on Investment,${calculationData.roi}%\n`;
+            frequencyBtns.forEach(btn => btn.classList.remove('active'));
+            document.querySelector('.frequency-btn[data-frequency="monthly"]').classList.add('active');
+            selectedFrequency = 'monthly';
             
-            // Create download link
-            const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = `investment-calculator-results-${new Date().toISOString().slice(0,10)}.csv`;
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
+            updateSliderValues();
+            calculateInvestment();
+        });
+
+        toggleBreakdown.addEventListener('click', () => {
+            breakdownTable.classList.toggle('show');
+            toggleBreakdown.innerHTML = breakdownTable.classList.contains('show') 
+                ? '<i class="fas fa-table"></i> Hide Breakdown' 
+                : '<i class="fas fa-table"></i> Show Breakdown';
+        });
+
+        // Calculate compound interest with regular contributions
+        function calculateFutureValue(initial, annualRate, years, contribution, frequency) {
+            // Convert annual rate to decimal
+            const r = annualRate / 100;
+            
+            // Get contribution frequency multiplier
+            let periodsPerYear, contributionPerPeriod;
+            switch(frequency) {
+                case 'monthly':
+                    periodsPerYear = 12;
+                    contributionPerPeriod = contribution;
+                    break;
+                case 'quarterly':
+                    periodsPerYear = 4;
+                    contributionPerPeriod = contribution * 3; // Quarterly contribution is 3x monthly
+                    break;
+                case 'yearly':
+                    periodsPerYear = 1;
+                    contributionPerPeriod = contribution * 12; // Yearly contribution is 12x monthly
+                    break;
+                case 'none':
+                default:
+                    periodsPerYear = 1;
+                    contributionPerPeriod = 0;
+                    break;
+            }
+            
+            // Calculate periodic interest rate
+            const i = r / periodsPerYear;
+            
+            // Total number of periods
+            const n = years * periodsPerYear;
+            
+            // Future value of initial investment
+            const fvInitial = initial * Math.pow(1 + i, n);
+            
+            // Future value of annuity (regular contributions)
+            let fvAnnuity = 0;
+            if (contributionPerPeriod > 0 && i > 0) {
+                fvAnnuity = contributionPerPeriod * ((Math.pow(1 + i, n) - 1) / i);
+            } else if (contributionPerPeriod > 0) {
+                // Simple addition if no interest
+                fvAnnuity = contributionPerPeriod * n;
+            }
+            
+            return fvInitial + fvAnnuity;
         }
 
-        // ========== EXPORT FUNCTIONS TO GLOBAL SCOPE ==========
-        window.setPreset = setPreset;
-        window.clearAll = clearAll;
-        window.calculateInvestment = calculateInvestment;
-        window.downloadResults = downloadResults;
-        window.showSeoPage = showSeoPage;
-        window.hideSeoPage = hideSeoPage;
+        // Generate year-by-year breakdown
+        function generateBreakdown(initial, annualRate, years, contribution, frequency) {
+            const breakdown = [];
+            let balance = initial;
+            const r = annualRate / 100;
+            
+            // Get contribution per year based on frequency
+            let yearlyContribution = 0;
+            switch(frequency) {
+                case 'monthly':
+                    yearlyContribution = contribution * 12;
+                    break;
+                case 'quarterly':
+                    yearlyContribution = contribution * 4;
+                    break;
+                case 'yearly':
+                    yearlyContribution = contribution;
+                    break;
+                case 'none':
+                default:
+                    yearlyContribution = 0;
+                    break;
+            }
+            
+            for (let year = 1; year <= years; year++) {
+                const beginningBalance = balance;
+                const returns = balance * r;
+                balance += returns + yearlyContribution;
+                
+                breakdown.push({
+                    year: year,
+                    beginning: beginningBalance,
+                    contributions: yearlyContribution,
+                    returns: returns,
+                    endBalance: balance
+                });
+            }
+            
+            return breakdown;
+        }
+
+        // Calculate investment details
+        function calculateInvestment() {
+            // Show loading spinner
+            loadingSpinner.classList.add('active');
+            
+            // Use setTimeout to show loading and allow UI update
+            setTimeout(() => {
+                try {
+                    // Get input values
+                    const initial = parseFloat(initialInvestment.value) || 0;
+                    const years = parseInt(investmentPeriod.value) || 0;
+                    const rate = parseFloat(expectedReturn.value) || 0;
+                    const contribution = parseFloat(monthlyContribution.value) || 0;
+                    
+                    // Calculate future value
+                    const fv = calculateFutureValue(initial, rate, years, contribution, selectedFrequency);
+                    
+                    // Calculate totals
+                    let totalContributionAmount = 0;
+                    switch(selectedFrequency) {
+                        case 'monthly':
+                            totalContributionAmount = contribution * 12 * years;
+                            break;
+                        case 'quarterly':
+                            totalContributionAmount = contribution * 4 * years;
+                            break;
+                        case 'yearly':
+                            totalContributionAmount = contribution * years;
+                            break;
+                        case 'none':
+                        default:
+                            totalContributionAmount = 0;
+                            break;
+                    }
+                    
+                    const totalContrib = initial + totalContributionAmount;
+                    const totalReturn = fv - totalContrib;
+                    const roi = totalContrib > 0 ? (totalReturn / totalContrib) * 100 : 0;
+                    
+                    // Calculate completion date
+                    const today = new Date();
+                    const completionDateObj = new Date(today);
+                    completionDateObj.setFullYear(completionDateObj.getFullYear() + years);
+                    
+                    // Update results
+                    futureValue.textContent = formatCurrencyDecimal(fv);
+                    totalContributions.textContent = formatCurrency(totalContrib);
+                    totalReturns.textContent = formatCurrency(totalReturn);
+                    returnOnInvestment.textContent = roi.toFixed(1) + '%';
+                    completionDate.textContent = completionDateObj.toLocaleDateString('en-US', {
+                        month: 'short',
+                        year: 'numeric'
+                    });
+                    
+                    // Generate and display breakdown
+                    if (years > 0 && rate >= 0) {
+                        const breakdown = generateBreakdown(initial, rate, years, contribution, selectedFrequency);
+                        displayBreakdown(breakdown);
+                        breakdownTable.classList.add('show');
+                        toggleBreakdown.innerHTML = '<i class="fas fa-table"></i> Hide Breakdown';
+                        
+                        // Update chart
+                        updateChartData(breakdown, fv, totalContributionAmount, totalReturn);
+                    } else {
+                        breakdownBody.innerHTML = `
+                            <tr>
+                                <td colspan="5" style="text-align: center; padding: 40px; color: #888;">
+                                    <i class="fas fa-info-circle" style="font-size: 1.5rem; margin-bottom: 10px; display: block;"></i>
+                                    No breakdown available for zero-year or negative return investments
+                                </td>
+                            </tr>
+                        `;
+                    }
+                    
+                } catch (error) {
+                    console.error('Calculation error:', error);
+                    futureValue.textContent = '$0.00';
+                    totalContributions.textContent = '$0';
+                    totalReturns.textContent = '$0';
+                    returnOnInvestment.textContent = '0%';
+                    completionDate.textContent = 'N/A';
+                    
+                    breakdownBody.innerHTML = `
+                        <tr>
+                            <td colspan="5" style="text-align: center; padding: 40px; color: #e63946;">
+                                <i class="fas fa-exclamation-triangle" style="font-size: 1.5rem; margin-bottom: 10px; display: block;"></i>
+                                Error in calculation. Please check your inputs.
+                            </td>
+                        </tr>
+                    `;
+                } finally {
+                    // Hide loading spinner
+                    loadingSpinner.classList.remove('active');
+                }
+            }, 300);
+        }
+
+        // Display breakdown table
+        function displayBreakdown(breakdown) {
+            breakdownBody.innerHTML = '';
+            
+            // Show all years (or limit for very long periods)
+            const showAll = breakdown.length <= 30;
+            const displayBreakdown = showAll ? breakdown : [...breakdown.slice(0, 15), ...breakdown.slice(-15)];
+            const middleOmitted = !showAll;
+            
+            // Add first 15 years if needed
+            if (!showAll) {
+                displayBreakdown.slice(0, 15).forEach(item => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${item.year}</td>
+                        <td>${formatCurrencyDecimal(item.beginning)}</td>
+                        <td>${formatCurrencyDecimal(item.contributions)}</td>
+                        <td>${formatCurrencyDecimal(item.returns)}</td>
+                        <td>${formatCurrencyDecimal(item.endBalance)}</td>
+                    `;
+                    breakdownBody.appendChild(row);
+                });
+                
+                // Add omitted rows indicator
+                const omittedRow = document.createElement('tr');
+                omittedRow.innerHTML = `
+                    <td colspan="5" style="text-align: center; padding: 20px; background: #f8f9fa; color: #666; font-style: italic;">
+                        ... ${breakdown.length - 30} years omitted ...
+                    </td>
+                `;
+                breakdownBody.appendChild(omittedRow);
+                
+                // Add last 15 years
+                displayBreakdown.slice(15).forEach(item => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${item.year}</td>
+                        <td>${formatCurrencyDecimal(item.beginning)}</td>
+                        <td>${formatCurrencyDecimal(item.contributions)}</td>
+                        <td>${formatCurrencyDecimal(item.returns)}</td>
+                        <td>${formatCurrencyDecimal(item.endBalance)}</td>
+                    `;
+                    breakdownBody.appendChild(row);
+                });
+            } else {
+                // Show all years
+                breakdown.forEach(item => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${item.year}</td>
+                        <td>${formatCurrencyDecimal(item.beginning)}</td>
+                        <td>${formatCurrencyDecimal(item.contributions)}</td>
+                        <td>${formatCurrencyDecimal(item.returns)}</td>
+                        <td>${formatCurrencyDecimal(item.endBalance)}</td>
+                    `;
+                    breakdownBody.appendChild(row);
+                });
+            }
+        }
+
+        // Update chart data
+        function updateChartData(breakdown, futureValue, totalContributions, totalReturns) {
+            const years = breakdown.map(item => `Year ${item.year}`);
+            const balances = breakdown.map(item => item.endBalance);
+            const contributions = breakdown.map(item => item.contributions);
+            const returns = breakdown.map(item => item.returns);
+            
+            // Get chart context
+            const ctx = document.getElementById('investmentChart').getContext('2d');
+            
+            // Destroy existing chart if it exists
+            if (investmentChart) {
+                investmentChart.destroy();
+            }
+            
+            // Create chart data based on current chart type
+            let chartData, chartOptions;
+            
+            if (currentChartType === 'growth') {
+                chartData = {
+                    labels: years,
+                    datasets: [{
+                        label: 'Investment Value',
+                        data: balances,
+                        backgroundColor: 'rgba(67, 97, 238, 0.2)',
+                        borderColor: 'rgba(67, 97, 238, 1)',
+                        borderWidth: 2,
+                        fill: true,
+                        tension: 0.4
+                    }]
+                };
+                
+                chartOptions = {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'top'
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `Value: ${formatCurrencyDecimal(context.raw)}`;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value) {
+                                    return formatCurrency(value);
+                                }
+                            }
+                        }
+                    }
+                };
+            } else {
+                // Breakdown chart
+                const initialInvestment = parseFloat(initialInvestment.value) || 0;
+                const totalInitial = initialInvestment;
+                const totalContrib = totalContributions - initialInvestment;
+                
+                chartData = {
+                    labels: ['Initial Investment', 'Additional Contributions', 'Investment Returns'],
+                    datasets: [{
+                        data: [totalInitial, totalContrib, totalReturns],
+                        backgroundColor: [
+                            'rgba(67, 97, 238, 0.7)',
+                            'rgba(46, 196, 182, 0.7)',
+                            'rgba(255, 158, 0, 0.7)'
+                        ],
+                        borderColor: [
+                            'rgba(67, 97, 238, 1)',
+                            'rgba(46, 196, 182, 1)',
+                            'rgba(255, 158, 0, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                };
+                
+                chartOptions = {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'top'
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const value = context.raw;
+                                    const percentage = ((value / futureValue) * 100).toFixed(1);
+                                    return `${context.label}: ${formatCurrencyDecimal(value)} (${percentage}%)`;
+                                }
+                            }
+                        }
+                    }
+                };
+            }
+            
+            // Create new chart
+            investmentChart = new Chart(ctx, {
+                type: currentChartType === 'growth' ? 'line' : 'pie',
+                data: chartData,
+                options: chartOptions
+            });
+        }
+
+        // Update chart based on current type
+        function updateChart() {
+            if (investmentChart) {
+                const initial = parseFloat(initialInvestment.value) || 0;
+                const years = parseInt(investmentPeriod.value) || 0;
+                const rate = parseFloat(expectedReturn.value) || 0;
+                const contribution = parseFloat(monthlyContribution.value) || 0;
+                
+                if (years > 0 && rate >= 0) {
+                    const breakdown = generateBreakdown(initial, rate, years, contribution, selectedFrequency);
+                    const fv = calculateFutureValue(initial, rate, years, contribution, selectedFrequency);
+                    
+                    let totalContributionAmount = 0;
+                    switch(selectedFrequency) {
+                        case 'monthly':
+                            totalContributionAmount = contribution * 12 * years;
+                            break;
+                        case 'quarterly':
+                            totalContributionAmount = contribution * 4 * years;
+                            break;
+                        case 'yearly':
+                            totalContributionAmount = contribution * years;
+                            break;
+                        case 'none':
+                        default:
+                            totalContributionAmount = 0;
+                            break;
+                    }
+                    
+                    const totalContrib = initial + totalContributionAmount;
+                    const totalReturn = fv - totalContrib;
+                    
+                    updateChartData(breakdown, fv, totalContrib, totalReturn);
+                }
+            }
+        }
+
+        // Initialize calculator on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            updateSliderValues();
+            calculateInvestment();
+        });
+
+        // Handle window resize
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                // Recalculate on resize to ensure proper layout
+                calculateInvestment();
+            }, 250);
+        });
     </script>
 </body>
 </html>
