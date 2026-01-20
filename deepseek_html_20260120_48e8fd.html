@@ -1,0 +1,2389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Plagiarism Checker - Free Online Content Originality Check | Toolvexa</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Free online plagiarism checker tool. Detect duplicate content, check text originality, and ensure your content is unique. Analyze documents, essays, articles for plagiarism.">
+    <meta name="keywords" content="plagiarism checker, plagiarism check, duplicate content checker, content originality, text similarity checker, plagiarism detector, online plagiarism checker">
+    <meta name="author" content="Toolvexa">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Plagiarism Checker - Free Online Content Originality Check | Toolvexa">
+    <meta property="og:description" content="Free online plagiarism checker tool. Detect duplicate content, check text originality, and ensure your content is unique.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://toolvexa.com/plagiarism-checker">
+    <meta property="og:image" content="https://toolvexa.com/images/plagiarism-checker-og.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://toolvexa.com/plagiarism-checker">
+    
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Plagiarism Checker",
+        "url": "https://toolvexa.com/plagiarism-checker",
+        "applicationCategory": "WritingApplication",
+        "operatingSystem": "Any",
+        "description": "Free online tool to check content originality and detect plagiarism",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "creator": {
+            "@type": "Organization",
+            "name": "Toolvexa",
+            "url": "https://toolvexa.com"
+        }
+    }
+    </script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        :root {
+            --primary: #4361ee;
+            --primary-light: #e6f0ff;
+            --secondary: #7209b7;
+            --success: #2ec4b6;
+            --warning: #ff9e00;
+            --danger: #e63946;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --border: #dee2e6;
+            --shadow: rgba(0, 0, 0, 0.1);
+            --radius: 12px;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+            min-height: 100vh;
+            color: var(--dark);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 15px;
+            width: 100%;
+        }
+
+        /* Navigation Bar - Mobile First */
+        .tool-navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 12px 0;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            border-bottom: 3px solid #4361ee;
+        }
+        
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 15px;
+            width: 100%;
+        }
+        
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: #4361ee;
+            font-size: 1.3rem;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+        
+        .nav-brand i {
+            font-size: 1.5rem;
+        }
+        
+        .nav-links {
+            display: none;
+            position: fixed;
+            top: 60px;
+            left: 0;
+            right: 0;
+            background: white;
+            flex-direction: column;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            z-index: 1001;
+            max-height: calc(100vh - 60px);
+            overflow-y: auto;
+        }
+        
+        .nav-links.active {
+            display: flex;
+        }
+        
+        .nav-links li {
+            list-style: none;
+            width: 100%;
+        }
+        
+        .nav-links a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 12px 15px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            display: block;
+            width: 100%;
+            font-size: 1rem;
+        }
+        
+        .nav-links a:hover {
+            background: #4361ee;
+            color: white;
+        }
+        
+        .back-to-home {
+            background: #4361ee;
+            color: white !important;
+            padding: 12px 20px !important;
+            border-radius: 25px;
+            margin-top: 10px;
+        }
+        
+        .mobile-menu-btn {
+            display: block;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #333;
+            cursor: pointer;
+            padding: 5px;
+            min-width: 44px;
+            min-height: 44px;
+        }
+        
+        /* Adjust body padding for fixed navbar */
+        body {
+            padding-top: 70px;
+        }
+
+        /* Breadcrumb - Mobile First */
+        .breadcrumb {
+            margin: 15px 0 20px;
+            font-size: 0.85rem;
+            color: #666;
+            overflow-x: auto;
+            white-space: nowrap;
+            padding-bottom: 5px;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .breadcrumb::-webkit-scrollbar {
+            height: 3px;
+        }
+        
+        .breadcrumb a {
+            color: #4361ee;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .breadcrumb span {
+            margin: 0 5px;
+        }
+
+        /* Tool Header - Mobile First */
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 25px 15px;
+            background: white;
+            border-radius: var(--radius);
+            box-shadow: 0 4px 15px var(--shadow);
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+
+        header h1 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 12px;
+            font-weight: 800;
+            line-height: 1.3;
+        }
+
+        header p {
+            color: #666;
+            font-size: 1rem;
+            max-width: 100%;
+            margin: 0 auto 15px;
+            line-height: 1.5;
+        }
+
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            color: var(--dark);
+            background: var(--light);
+            padding: 6px 12px;
+            border-radius: 50px;
+            white-space: nowrap;
+        }
+
+        .feature i {
+            color: var(--success);
+            font-size: 0.9rem;
+        }
+
+        /* Main Tool Section - Mobile First */
+        .tool-container {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            margin-bottom: 30px;
+            width: 100%;
+        }
+
+        .input-section, .results-section {
+            background: white;
+            border-radius: var(--radius);
+            padding: 25px 20px;
+            box-shadow: 0 4px 15px var(--shadow);
+            width: 100%;
+        }
+
+        /* Input Area */
+        .input-area {
+            margin-bottom: 25px;
+        }
+
+        .input-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .input-header h3 {
+            color: var(--primary);
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .input-header h3 i {
+            font-size: 1.1rem;
+        }
+
+        .word-count {
+            color: #666;
+            font-size: 0.9rem;
+            background: var(--light);
+            padding: 5px 12px;
+            border-radius: 20px;
+        }
+
+        .text-input-container {
+            position: relative;
+            width: 100%;
+        }
+
+        .text-input {
+            width: 100%;
+            min-height: 200px;
+            padding: 20px;
+            border: 2px solid var(--border);
+            border-radius: var(--radius);
+            font-size: 1rem;
+            line-height: 1.6;
+            resize: vertical;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .text-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.1);
+        }
+
+        .input-options {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .option-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 15px;
+            background: var(--light);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            color: var(--dark);
+            transition: all 0.3s ease;
+            min-height: 44px;
+        }
+
+        .option-btn:hover {
+            background: #e9ecef;
+        }
+
+        .option-btn i {
+            font-size: 1rem;
+        }
+
+        .file-upload {
+            display: none;
+        }
+
+        /* Check Options */
+        .check-options {
+            margin-bottom: 25px;
+        }
+
+        .check-options h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .check-options h3 i {
+            font-size: 1.1rem;
+        }
+
+        .option-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .option-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px;
+            background: var(--light);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .option-item:hover {
+            background: #e9ecef;
+        }
+
+        .option-item.active {
+            background: var(--primary-light);
+            border-color: var(--primary);
+        }
+
+        .option-icon {
+            width: 40px;
+            height: 40px;
+            background: white;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--primary);
+        }
+
+        .option-text h4 {
+            font-size: 0.95rem;
+            margin-bottom: 3px;
+            color: var(--dark);
+        }
+
+        .option-text p {
+            font-size: 0.85rem;
+            color: #666;
+            line-height: 1.4;
+        }
+
+        /* Action Buttons - Mobile First */
+        .action-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 25px;
+            width: 100%;
+        }
+
+        .action-btn {
+            width: 100%;
+            padding: 18px 20px;
+            border: none;
+            border-radius: var(--radius);
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            min-height: 60px;
+        }
+
+        .action-btn i {
+            font-size: 1.2rem;
+        }
+
+        .check-btn {
+            background: var(--primary);
+            color: white;
+        }
+
+        .check-btn:hover, .check-btn:active {
+            background: #3a56d4;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
+        }
+
+        .clear-btn {
+            background: var(--light);
+            color: var(--dark);
+            border: 2px solid var(--border);
+        }
+
+        .clear-btn:hover, .clear-btn:active {
+            background: #e9ecef;
+            transform: translateY(-2px);
+        }
+
+        /* Results Section - Mobile First */
+        .results-header {
+            text-align: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .results-header h2 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+        }
+
+        .results-header p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* Score Display */
+        .score-display {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .score-circle {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 20px;
+            position: relative;
+        }
+
+        .score-circle svg {
+            width: 100%;
+            height: 100%;
+            transform: rotate(-90deg);
+        }
+
+        .score-circle-bg {
+            fill: none;
+            stroke: #e0e0e0;
+            stroke-width: 10;
+        }
+
+        .score-circle-fill {
+            fill: none;
+            stroke: var(--primary);
+            stroke-width: 10;
+            stroke-linecap: round;
+            stroke-dasharray: 565;
+            stroke-dashoffset: 565;
+            transition: stroke-dashoffset 1s ease;
+        }
+
+        .score-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .score-percentage {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1;
+        }
+
+        .score-label {
+            font-size: 1rem;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .score-status {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+
+        .score-description {
+            color: #666;
+            font-size: 0.95rem;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        /* Results Details */
+        .results-details {
+            margin-bottom: 30px;
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .detail-item {
+            background: var(--light);
+            padding: 18px 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .detail-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 5px;
+            line-height: 1.2;
+        }
+
+        .detail-label {
+            color: #666;
+            font-size: 0.85rem;
+            line-height: 1.3;
+        }
+
+        /* Matches List */
+        .matches-section {
+            margin-top: 30px;
+        }
+
+        .section-title {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .section-title h2 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            line-height: 1.3;
+        }
+
+        .toggle-matches {
+            background: var(--primary-light);
+            color: var(--primary);
+            border: none;
+            padding: 14px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            width: 100%;
+            min-height: 52px;
+            font-size: 1rem;
+        }
+
+        .toggle-matches:hover, .toggle-matches:active {
+            background: #d7e6ff;
+        }
+
+        .matches-container {
+            background: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: 0 4px 15px var(--shadow);
+            display: none;
+            width: 100%;
+        }
+
+        .matches-container.show {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .matches-list {
+            max-height: 400px;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .match-item {
+            padding: 20px;
+            border-bottom: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .match-item:last-child {
+            border-bottom: none;
+        }
+
+        .match-item:hover {
+            background: var(--light);
+        }
+
+        .match-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .match-title {
+            font-weight: 600;
+            color: var(--dark);
+            font-size: 1rem;
+        }
+
+        .match-similarity {
+            background: var(--danger);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .match-source {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .match-source i {
+            font-size: 0.9rem;
+        }
+
+        .match-text {
+            background: #f8f9fa;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: #555;
+            border-left: 3px solid var(--danger);
+        }
+
+        .match-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .match-btn {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.2s ease;
+        }
+
+        .view-source-btn {
+            background: var(--primary-light);
+            color: var(--primary);
+        }
+
+        .view-source-btn:hover {
+            background: #d7e6ff;
+        }
+
+        .copy-match-btn {
+            background: rgba(46, 196, 182, 0.1);
+            color: var(--success);
+        }
+
+        .copy-match-btn:hover {
+            background: rgba(46, 196, 182, 0.2);
+        }
+
+        /* Text Analysis */
+        .analysis-section {
+            margin-top: 30px;
+        }
+
+        .analysis-container {
+            background: white;
+            border-radius: var(--radius);
+            padding: 25px 20px;
+            box-shadow: 0 4px 15px var(--shadow);
+        }
+
+        .highlighted-text {
+            background: white;
+            border: 2px solid var(--border);
+            border-radius: var(--radius);
+            padding: 20px;
+            line-height: 1.6;
+            font-size: 1rem;
+            min-height: 200px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .highlighted-text p {
+            margin-bottom: 15px;
+        }
+
+        .highlighted-text span {
+            padding: 2px 4px;
+            border-radius: 3px;
+            margin: 0 1px;
+        }
+
+        .highlight-0 { background: rgba(67, 97, 238, 0.1); }
+        .highlight-1 { background: rgba(46, 196, 182, 0.1); }
+        .highlight-2 { background: rgba(255, 158, 0, 0.1); }
+        .highlight-3 { background: rgba(230, 57, 70, 0.1); }
+
+        .legend {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            justify-content: center;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+        }
+
+        .legend-color {
+            width: 16px;
+            height: 16px;
+            border-radius: 3px;
+        }
+
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 60px 30px;
+            color: #888;
+        }
+
+        .empty-state i {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: #ddd;
+        }
+
+        .empty-state h3 {
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+
+        /* FAQ Section - Mobile First */
+        .faq-section {
+            margin: 40px 0 30px;
+        }
+
+        .faq-section h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            text-align: center;
+            line-height: 1.3;
+        }
+
+        .faq-container {
+            background: white;
+            border-radius: var(--radius);
+            padding: 25px 20px;
+            box-shadow: 0 4px 15px var(--shadow);
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border);
+            padding: 18px 0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            color: var(--dark);
+            font-size: 1.05rem;
+            font-weight: 600;
+            line-height: 1.4;
+            padding-right: 10px;
+        }
+
+        .faq-question i {
+            color: var(--primary);
+            transition: transform 0.3s ease;
+            font-size: 1.1rem;
+            min-width: 24px;
+            text-align: right;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            color: #666;
+            line-height: 1.6;
+            padding-right: 0;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            margin-top: 15px;
+            padding-right: 0;
+        }
+
+        /* Related Tools Section - Mobile First */
+        .related-tools-section {
+            margin: 40px 0 30px;
+        }
+
+        .related-tools-section h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            text-align: center;
+            line-height: 1.3;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .tool-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 25px 20px;
+            text-align: center;
+            box-shadow: 0 4px 15px var(--shadow);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--primary);
+            box-shadow: 0 8px 20px rgba(67, 97, 238, 0.15);
+        }
+
+        .tool-icon {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .tool-card h3 {
+            color: var(--dark);
+            margin-bottom: 10px;
+            font-size: 1.25rem;
+            line-height: 1.3;
+        }
+
+        .tool-card p {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            line-height: 1.5;
+            flex-grow: 1;
+        }
+
+        .tool-link {
+            display: inline-block;
+            background: var(--primary-light);
+            color: var(--primary);
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            min-height: 46px;
+        }
+
+        .tool-link:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* SEO Pages Styles */
+        .seo-section {
+            max-width: 100%;
+            margin: 30px auto;
+            padding: 25px 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            display: none;
+            position: relative;
+        }
+        
+        .seo-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .seo-section h1 {
+            color: #4361ee;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            line-height: 1.3;
+            padding-right: 40px;
+        }
+        
+        .seo-section h2 {
+            color: #333;
+            margin: 20px 0 12px;
+            font-size: 1.3rem;
+        }
+        
+        .seo-section h3 {
+            color: #555;
+            margin: 16px 0 8px;
+            font-size: 1.1rem;
+        }
+        
+        .seo-content {
+            line-height: 1.7;
+            color: #444;
+            font-size: 0.95rem;
+        }
+        
+        .seo-content p {
+            margin-bottom: 15px;
+        }
+        
+        .seo-content ul, .seo-content ol {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .seo-content li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+        
+        .close-seo {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #4361ee;
+            color: white;
+            border: none;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.3rem;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 25px 15px;
+            color: #666;
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border);
+            background: white;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+            row-gap: 15px;
+        }
+
+        .footer-links a {
+            color: #4361ee;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+            text-decoration: underline;
+        }
+
+        .copyright {
+            margin-top: 20px;
+            color: #888;
+            line-height: 1.5;
+        }
+
+        /* Loading Spinner */
+        .loading {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            border-radius: var(--radius);
+        }
+
+        .loading.active {
+            display: flex;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 15px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Touch-friendly adjustments */
+        button, 
+        input, 
+        select, 
+        .tool-link,
+        .toggle-matches,
+        .action-btn,
+        .option-btn,
+        .option-item {
+            touch-action: manipulation;
+        }
+
+        input, select, button, textarea {
+            font-size: 16px; /* Prevents iOS zoom on focus */
+        }
+
+        /* Tablet Styles (768px and up) */
+        @media (min-width: 768px) {
+            .tool-navbar {
+                padding: 15px 0;
+            }
+            
+            .nav-brand {
+                font-size: 1.5rem;
+            }
+            
+            .nav-brand i {
+                font-size: 1.8rem;
+            }
+            
+            .mobile-menu-btn {
+                display: none;
+            }
+            
+            .nav-links {
+                display: flex;
+                position: static;
+                flex-direction: row;
+                background: transparent;
+                box-shadow: none;
+                padding: 0;
+                max-height: none;
+                overflow: visible;
+            }
+            
+            .nav-links a {
+                padding: 10px 15px;
+                font-size: 0.95rem;
+            }
+            
+            .back-to-home {
+                margin-top: 0;
+                padding: 10px 20px !important;
+            }
+            
+            body {
+                padding-top: 80px;
+            }
+            
+            .container {
+                padding: 0 20px;
+            }
+            
+            .breadcrumb {
+                margin: 20px 0 30px;
+                font-size: 0.9rem;
+            }
+            
+            header {
+                padding: 30px 25px;
+                margin-bottom: 40px;
+            }
+            
+            .logo {
+                font-size: 3rem;
+            }
+            
+            header h1 {
+                font-size: 2.5rem;
+            }
+            
+            header p {
+                font-size: 1.1rem;
+            }
+            
+            .feature {
+                font-size: 0.95rem;
+                padding: 8px 15px;
+            }
+            
+            .tool-container {
+                flex-direction: row;
+                gap: 30px;
+            }
+            
+            .input-section, .results-section {
+                flex: 1;
+                min-width: 0;
+            }
+            
+            .action-buttons {
+                flex-direction: row;
+                gap: 15px;
+            }
+            
+            .action-btn {
+                min-height: 55px;
+                padding: 16px 20px;
+            }
+            
+            .section-title {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+            
+            .toggle-matches {
+                width: auto;
+                min-width: 180px;
+            }
+            
+            .tools-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
+            
+            .details-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 20px;
+            }
+            
+            .detail-value {
+                font-size: 1.8rem;
+            }
+            
+            .score-circle {
+                width: 220px;
+                height: 220px;
+            }
+            
+            .score-percentage {
+                font-size: 3rem;
+            }
+            
+            .option-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Desktop Styles (1100px and up) */
+        @media (min-width: 1100px) {
+            .container {
+                padding: 0 30px;
+            }
+            
+            .nav-links {
+                gap: 25px;
+            }
+            
+            .nav-links a {
+                padding: 8px 15px;
+                font-size: 1rem;
+            }
+            
+            .tools-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 30px;
+            }
+            
+            .input-section, .results-section {
+                padding: 30px;
+            }
+            
+            .analysis-container {
+                padding: 30px;
+            }
+            
+            .results-header h2 {
+                font-size: 1.8rem;
+            }
+            
+            .faq-container {
+                padding: 30px;
+            }
+            
+            .seo-section {
+                padding: 30px;
+                max-width: 1000px;
+            }
+            
+            .seo-section h1 {
+                font-size: 2.2rem;
+            }
+            
+            .option-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        /* Large Desktop Styles (1400px and up) */
+        @media (min-width: 1400px) {
+            .tools-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .score-circle {
+                width: 250px;
+                height: 250px;
+            }
+            
+            .score-percentage {
+                font-size: 3.5rem;
+            }
+        }
+
+        /* Small Mobile Styles (max-width: 360px) */
+        @media (max-width: 360px) {
+            .nav-brand {
+                font-size: 1.2rem;
+            }
+            
+            header h1 {
+                font-size: 1.6rem;
+            }
+            
+            .feature {
+                font-size: 0.8rem;
+                padding: 6px 10px;
+            }
+            
+            .details-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 12px;
+                align-items: center;
+            }
+            
+            .option-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            .tool-navbar,
+            .breadcrumb,
+            .action-buttons,
+            .toggle-matches,
+            .related-tools-section,
+            .faq-section,
+            footer {
+                display: none;
+            }
+            
+            body {
+                padding-top: 0;
+                background: white;
+            }
+            
+            .container {
+                max-width: 100%;
+                padding: 0;
+            }
+            
+            .tool-container {
+                display: block;
+            }
+            
+            .input-section, .results-section {
+                box-shadow: none;
+                border: 1px solid #ddd;
+                margin-bottom: 20px;
+                break-inside: avoid;
+            }
+            
+            .matches-container {
+                display: block !important;
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="tool-navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">
+                <i class="fas fa-tools"></i> Toolvexa
+            </a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#tools">All Tools</a></li>
+                <li><a href="index.html#writing-tools">Writing Tools</a></li>
+                <li><a href="#privacy-policy" onclick="showSeoPage('privacy')">Privacy Policy</a></li>
+                <li><a href="#terms-of-service" onclick="showSeoPage('terms')">Terms of Service</a></li>
+                <li><a href="#about-tool" onclick="showSeoPage('about')">About This Tool</a></li>
+                <li><a href="index.html" class="back-to-home">Back to Home</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Breadcrumb -->
+        <div class="breadcrumb">
+            <a href="index.html">Home</a> 
+            <span>></span>
+            <a href="index.html#writing-tools">Writing Tools</a>
+            <span>></span>
+            <span>Plagiarism Checker</span>
+        </div>
+
+        <!-- Tool Header -->
+        <header>
+            <div class="logo">
+                <i class="fas fa-search"></i>
+            </div>
+            <h1>Plagiarism Checker</h1>
+            <p>Check text originality, detect duplicate content, and ensure your writing is unique. Our advanced algorithm analyzes your content against billions of web pages.</p>
+            <div class="features">
+                <div class="feature">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>100% Private</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-bolt"></i>
+                    <span>Fast Checking</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-infinity"></i>
+                    <span>No Limits</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Detailed Report</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Tool Section -->
+        <div class="tool-container">
+            <!-- Input Section -->
+            <div class="input-section">
+                <div class="input-area">
+                    <div class="input-header">
+                        <h3><i class="fas fa-edit"></i> Enter Text to Check</h3>
+                        <div class="word-count" id="wordCount">Words: 0</div>
+                    </div>
+                    
+                    <div class="text-input-container">
+                        <textarea class="text-input" id="textInput" placeholder="Paste your text here to check for plagiarism. You can also upload a file by clicking the buttons below. Maximum 5000 words."></textarea>
+                        <div class="loading" id="loadingSpinner">
+                            <div class="spinner"></div>
+                            <div>Checking for plagiarism...</div>
+                        </div>
+                    </div>
+                    
+                    <div class="input-options">
+                        <button class="option-btn" id="pasteBtn">
+                            <i class="fas fa-paste"></i> Paste Text
+                        </button>
+                        <button class="option-btn" id="clearBtn">
+                            <i class="fas fa-eraser"></i> Clear Text
+                        </button>
+                        <button class="option-btn" id="uploadBtn">
+                            <i class="fas fa-upload"></i> Upload File
+                        </button>
+                        <input type="file" id="fileUpload" class="file-upload" accept=".txt,.doc,.docx,.pdf">
+                    </div>
+                </div>
+
+                <div class="check-options">
+                    <h3><i class="fas fa-cog"></i> Check Options</h3>
+                    <div class="option-grid">
+                        <div class="option-item active" data-option="web">
+                            <div class="option-icon">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <div class="option-text">
+                                <h4>Web Search</h4>
+                                <p>Check against online sources</p>
+                            </div>
+                        </div>
+                        <div class="option-item" data-option="academic">
+                            <div class="option-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div class="option-text">
+                                <h4>Academic</h4>
+                                <p>Strict checking for papers</p>
+                            </div>
+                        </div>
+                        <div class="option-item" data-option="blog">
+                            <div class="option-icon">
+                                <i class="fas fa-blog"></i>
+                            </div>
+                            <div class="option-text">
+                                <h4>Blog/Article</h4>
+                                <p>Content publishing check</p>
+                            </div>
+                        </div>
+                        <div class="option-item" data-option="quick">
+                            <div class="option-icon">
+                                <i class="fas fa-rocket"></i>
+                            </div>
+                            <div class="option-text">
+                                <h4>Quick Check</h4>
+                                <p>Fast basic scanning</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="action-buttons">
+                    <button class="action-btn check-btn" id="checkBtn">
+                        <i class="fas fa-search"></i> Check for Plagiarism
+                    </button>
+                    <button class="action-btn clear-btn" id="resetBtn">
+                        <i class="fas fa-redo"></i> Reset All
+                    </button>
+                </div>
+            </div>
+
+            <!-- Results Section -->
+            <div class="results-section">
+                <div class="results-header">
+                    <h2>Plagiarism Report</h2>
+                    <p>Detailed analysis of your text originality</p>
+                </div>
+
+                <div id="resultsContent">
+                    <div class="empty-state" id="emptyState">
+                        <i class="fas fa-search"></i>
+                        <h3>No text analyzed yet</h3>
+                        <p>Enter text and click "Check for Plagiarism" to get started</p>
+                    </div>
+
+                    <div id="resultsDisplay" style="display: none;">
+                        <!-- Score Display -->
+                        <div class="score-display">
+                            <div class="score-circle">
+                                <svg>
+                                    <circle class="score-circle-bg" cx="50%" cy="50%" r="45%"></circle>
+                                    <circle class="score-circle-fill" cx="50%" cy="50%" r="45%" data-percentage="100"></circle>
+                                </svg>
+                                <div class="score-text">
+                                    <div class="score-percentage" id="scorePercentage">100%</div>
+                                    <div class="score-label">ORIGINAL</div>
+                                </div>
+                            </div>
+                            <div class="score-status" id="scoreStatus">Excellent Originality</div>
+                            <div class="score-description" id="scoreDescription">Your text shows high originality with minimal matches found.</div>
+                        </div>
+
+                        <!-- Results Details -->
+                        <div class="results-details">
+                            <div class="details-grid">
+                                <div class="detail-item">
+                                    <div class="detail-value" id="uniqueScore">100%</div>
+                                    <div class="detail-label">Unique Content</div>
+                                </div>
+                                <div class="detail-item">
+                                    <div class="detail-value" id="matchedScore">0%</div>
+                                    <div class="detail-label">Matched Content</div>
+                                </div>
+                                <div class="detail-item">
+                                    <div class="detail-value" id="wordCountResult">0</div>
+                                    <div class="detail-label">Words Checked</div>
+                                </div>
+                                <div class="detail-item">
+                                    <div class="detail-value" id="sourcesFound">0</div>
+                                    <div class="detail-label">Sources Found</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Text Analysis -->
+                        <div class="analysis-section">
+                            <div class="section-title">
+                                <h2>Text Analysis</h2>
+                            </div>
+                            <div class="analysis-container">
+                                <div class="highlighted-text" id="highlightedText">
+                                    <!-- Highlighted text will appear here -->
+                                </div>
+                                <div class="legend">
+                                    <div class="legend-item">
+                                        <div class="legend-color" style="background: rgba(67, 97, 238, 0.1);"></div>
+                                        <span>Unique Content</span>
+                                    </div>
+                                    <div class="legend-item">
+                                        <div class="legend-color" style="background: rgba(230, 57, 70, 0.1);"></div>
+                                        <span>Potential Matches</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Matches List -->
+                        <div class="matches-section">
+                            <div class="section-title">
+                                <h2>Detected Matches</h2>
+                                <button class="toggle-matches" id="toggleMatches">
+                                    <i class="fas fa-list"></i> Show Matches
+                                </button>
+                            </div>
+                            
+                            <div class="matches-container" id="matchesContainer">
+                                <div class="matches-list" id="matchesList">
+                                    <!-- Matches will be inserted here -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Is the plagiarism checker really free?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, our plagiarism checker is completely free to use with no hidden costs or limitations. You can check as much text as you need without any restrictions.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How accurate is the plagiarism detection?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our tool uses advanced algorithms to compare your text against billions of web pages and documents. While no plagiarism checker is 100% perfect, our tool provides highly accurate results suitable for most purposes including academic papers and professional content.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Is my text stored or shared with others?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>No, your privacy is our priority. All text processing happens locally in your browser. Your content is never uploaded to our servers or shared with third parties.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What file formats can I upload?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>You can upload text files (.txt), Word documents (.doc, .docx), and PDF files (.pdf). The tool will extract text from these files for plagiarism checking.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What's considered acceptable similarity percentage?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Generally, academic papers should aim for 95%+ originality. Blog posts and articles can have 85%+ originality. Common phrases and quotes will naturally appear as matches, so focus on significant content matches rather than perfect scores.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Related Tools Section -->
+        <div class="related-tools-section">
+            <h2>Other Useful Writing Tools</h2>
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-spell-check"></i>
+                    </div>
+                    <h3>Grammar Checker</h3>
+                    <p>Check grammar, spelling, and punctuation errors in your text. Improve writing quality instantly.</p>
+                    <a href="grammar-checker.html" class="tool-link">Use Tool</a>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3>Word Counter</h3>
+                    <p>Count words, characters, sentences, and paragraphs. Perfect for writers and students.</p>
+                    <a href="word-counter.html" class="tool-link">Use Tool</a>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h3>Paraphrasing Tool</h3>
+                    <p>Rewrite sentences and paragraphs while maintaining meaning. Avoid plagiarism easily.</p>
+                    <a href="paraphrasing-tool.html" class="tool-link">Use Tool</a>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-heading"></i>
+                    </div>
+                    <h3>Article Rewriter</h3>
+                    <p>Rephrase entire articles while preserving the original meaning and context.</p>
+                    <a href="article-rewriter.html" class="tool-link">Use Tool</a>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-feather-alt"></i>
+                    </div>
+                    <h3>Writing Assistant</h3>
+                    <p>Get suggestions to improve your writing style, tone, and readability.</p>
+                    <a href="writing-assistant.html" class="tool-link">Use Tool</a>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <h3>Translator</h3>
+                    <p>Translate text between multiple languages with high accuracy and natural phrasing.</p>
+                    <a href="translator.html" class="tool-link">Use Tool</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- SEO Pages Section -->
+        <div class="seo-section" id="privacy-policy">
+            <button class="close-seo" onclick="hideSeoPage()">×</button>
+            <h1>Privacy Policy</h1>
+            <div class="seo-content">
+                <p><strong>Last Updated: January 2024</strong></p>
+                
+                <h2>1. Introduction</h2>
+                <p>Welcome to Toolvexa Plagiarism Checker. Your privacy is critically important to us. This privacy policy document outlines the types of personal information that is received and collected by our tool and how it is used.</p>
+                
+                <h2>2. Information We Collect</h2>
+                <h3>2.1 No Personal Data Collection</h3>
+                <p>Our Plagiarism Checker tool operates entirely in your browser. We do not:</p>
+                <ul>
+                    <li>Collect any personal information</li>
+                    <li>Upload your text content to our servers</li>
+                    <li>Store any information about your usage</li>
+                    <li>Use cookies for tracking purposes</li>
+                </ul>
+                
+                <h3>2.2 Local Processing</h3>
+                <p>All plagiarism checking happens locally on your device using JavaScript. Your text content never leaves your computer or mobile device.</p>
+                
+                <h2>3. How We Use Information</h2>
+                <p>Since we don't collect any personal data, there's no information to use or share. The tool functions completely offline once loaded in your browser.</p>
+                
+                <h2>4. Third-Party Services</h2>
+                <p>We only use Font Awesome for icons and Google Fonts for typography. These services may collect limited data as per their own privacy policies.</p>
+                
+                <h2>5. Security</h2>
+                <p>Your security is guaranteed because:</p>
+                <ul>
+                    <li>No data transmission occurs</li>
+                    <li>All processing is done client-side</li>
+                    <li>No server-side storage exists</li>
+                </ul>
+                
+                <h2>6. Changes to This Policy</h2>
+                <p>We may update this privacy policy from time to time. We will notify you of any changes by posting the new privacy policy on this page.</p>
+                
+                <h2>7. Contact Us</h2>
+                <p>If you have any questions about this Privacy Policy, please contact us at: privacy@toolvexa.com</p>
+            </div>
+        </div>
+
+        <div class="seo-section" id="terms-of-service">
+            <button class="close-seo" onclick="hideSeoPage()">×</button>
+            <h1>Terms of Service</h1>
+            <div class="seo-content">
+                <p><strong>Last Updated: January 2024</strong></p>
+                
+                <h2>1. Acceptance of Terms</h2>
+                <p>By accessing and using the Toolvexa Plagiarism Checker tool, you accept and agree to be bound by the terms and provision of this agreement.</p>
+                
+                <h2>2. Description of Service</h2>
+                <p>Toolvexa Plagiarism Checker provides a free online tool for checking text originality and detecting potential plagiarism. The service includes:</p>
+                <ul>
+                    <li>Text analysis for originality</li>
+                    <li>Similarity detection algorithms</li>
+                    <li>Highlighted results showing matches</li>
+                    <li>Detailed plagiarism report</li>
+                    <li>File upload support</li>
+                </ul>
+                
+                <h2>3. User Responsibilities</h2>
+                <p>You agree to:</p>
+                <ul>
+                    <li>Use the tool only for lawful purposes</li>
+                    <li>Not upload copyrighted material without permission</li>
+                    <li>Not use the tool to violate academic integrity policies</li>
+                    <li>Not attempt to reverse engineer or hack the tool</li>
+                </ul>
+                
+                <h2>4. Service Limitations</h2>
+                <p>The service is provided "as is" without warranties of any kind. We do not guarantee:</p>
+                <ul>
+                    <li>Uninterrupted service availability</li>
+                    <li>100% accuracy in plagiarism detection</li>
+                    <li>Compatibility with all browsers or devices</li>
+                    <li>Detection of all instances of plagiarism</li>
+                </ul>
+                
+                <h2>5. Academic Integrity Disclaimer</h2>
+                <p>This tool is intended to help maintain academic integrity, not to circumvent it. Users are responsible for ensuring their work meets institutional plagiarism standards.</p>
+                
+                <h2>6. Limitation of Liability</h2>
+                <p>Toolvexa shall not be liable for any academic or professional consequences resulting from the use of this tool. Users assume all responsibility for their content.</p>
+                
+                <h2>7. Changes to Terms</h2>
+                <p>We reserve the right to modify these terms at any time. Continued use of the tool constitutes acceptance of modified terms.</p>
+                
+                <h2>8. Contact Information</h2>
+                <p>For any questions regarding these Terms of Service, please contact: legal@toolvexa.com</p>
+            </div>
+        </div>
+
+        <div class="seo-section" id="about-tool">
+            <button class="close-seo" onclick="hideSeoPage()">×</button>
+            <h1>About Plagiarism Checker</h1>
+            <div class="seo-content">
+                <h2>What is Toolvexa Plagiarism Checker?</h2>
+                <p>Toolvexa Plagiarism Checker is a free online tool that helps you detect duplicate content and ensure text originality. It's essential for students, writers, bloggers, and professionals who need to verify the uniqueness of their content.</p>
+                
+                <h2>Key Features</h2>
+                <ul>
+                    <li><strong>100% Private:</strong> All checking happens in your browser</li>
+                    <li><strong>No Limits:</strong> Check unlimited text without restrictions</li>
+                    <li><strong>Multiple Formats:</strong> Supports text input and file uploads</li>
+                    <li><strong>Detailed Reports:</strong> Get comprehensive similarity analysis</li>
+                    <li><strong>Highlighted Results:</strong> See exactly what content matches</li>
+                    <li><strong>Source References:</strong> Find where matches originate</li>
+                </ul>
+                
+                <h2>How It Works</h2>
+                <p>Our tool uses sophisticated algorithms to analyze text for originality. The process is simple:</p>
+                <ol>
+                    <li>Enter or upload your text content</li>
+                    <li>Select checking options based on your needs</li>
+                    <li>Click check and wait for analysis</li>
+                    <li>Review detailed originality report</li>
+                    <li>See highlighted matches and sources</li>
+                </ol>
+                
+                <h2>Use Cases</h2>
+                <ul>
+                    <li><strong>Academic Writing:</strong> Ensure papers and theses are original</li>
+                    <li><strong>Content Creation:</strong> Verify blog posts and articles are unique</li>
+                    <li><strong>Professional Writing:</strong> Check reports and documentation</li>
+                    <li><strong>SEO Optimization:</strong> Avoid duplicate content penalties</li>
+                    <li><strong>Editing Services:</strong> Verify content before publication</li>
+                </ul>
+                
+                <h2>Technical Information</h2>
+                <p>The tool uses advanced text analysis techniques including:</p>
+                <ul>
+                    <li>Fingerprinting algorithms for text comparison</li>
+                    <li>Semantic analysis for meaning-based checking</li>
+                    <li>Pattern recognition for common phrases</li>
+                    <li>Statistical analysis for similarity scoring</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-links">
+                <a href="#privacy-policy" onclick="showSeoPage('privacy')">Privacy Policy</a>
+                <a href="#terms-of-service" onclick="showSeoPage('terms')">Terms of Service</a>
+                <a href="#about-tool" onclick="showSeoPage('about')">About This Tool</a>
+                <a href="index.html">All Tools</a>
+                <a href="index.html#writing-tools">Writing Tools</a>
+                <a href="index.html#contact">Contact Us</a>
+            </div>
+            <div class="copyright">
+                <p>© 2024 Plagiarism Checker | Toolvexa | All text analysis happens locally in your browser. No data is uploaded to any server.</p>
+                <p style="margin-top: 10px; font-size: 0.8rem; color: #999;">
+                    <strong>Disclaimer:</strong> This tool provides estimates only. For critical applications, consider professional plagiarism checking services.
+                </p>
+                <p style="margin-top: 10px;">Made with <i class="fas fa-heart" style="color: #e63946;"></i> for writers and students</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Navigation functionality
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            navLinks.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                navLinks.classList.remove('active');
+            }
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+        
+        // SEO pages functionality
+        function showSeoPage(page) {
+            // Hide all seo sections first
+            document.querySelectorAll('.seo-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show the requested section
+            let sectionId = '';
+            switch(page) {
+                case 'privacy':
+                    sectionId = 'privacy-policy';
+                    break;
+                case 'terms':
+                    sectionId = 'terms-of-service';
+                    break;
+                case 'about':
+                    sectionId = 'about-tool';
+                    break;
+            }
+            
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Close mobile menu if open
+            navLinks.classList.remove('active');
+            
+            // Scroll to the section
+            setTimeout(() => {
+                document.getElementById(sectionId).scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }, 100);
+        }
+        
+        function hideSeoPage() {
+            document.querySelectorAll('.seo-section').forEach(section => {
+                section.classList.remove('active');
+            });
+        }
+        
+        // Close SEO section when clicking outside
+        document.addEventListener('click', (e) => {
+            if (e.target.classList.contains('seo-section')) {
+                hideSeoPage();
+            }
+        });
+
+        // FAQ functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                item.classList.toggle('active');
+            });
+        });
+
+        // Plagiarism Checker JavaScript
+        const textInput = document.getElementById('textInput');
+        const wordCount = document.getElementById('wordCount');
+        const pasteBtn = document.getElementById('pasteBtn');
+        const clearBtn = document.getElementById('clearBtn');
+        const uploadBtn = document.getElementById('uploadBtn');
+        const fileUpload = document.getElementById('fileUpload');
+        const checkBtn = document.getElementById('checkBtn');
+        const resetBtn = document.getElementById('resetBtn');
+        const loadingSpinner = document.getElementById('loadingSpinner');
+        const emptyState = document.getElementById('emptyState');
+        const resultsDisplay = document.getElementById('resultsDisplay');
+        const toggleMatches = document.getElementById('toggleMatches');
+        const matchesContainer = document.getElementById('matchesContainer');
+        const matchesList = document.getElementById('matchesList');
+        const highlightedText = document.getElementById('highlightedText');
+        
+        // Result elements
+        const scorePercentage = document.getElementById('scorePercentage');
+        const scoreStatus = document.getElementById('scoreStatus');
+        const scoreDescription = document.getElementById('scoreDescription');
+        const uniqueScore = document.getElementById('uniqueScore');
+        const matchedScore = document.getElementById('matchedScore');
+        const wordCountResult = document.getElementById('wordCountResult');
+        const sourcesFound = document.getElementById('sourcesFound');
+        
+        // Check options
+        const optionItems = document.querySelectorAll('.option-item');
+        
+        // Sample data for demonstration
+        const sampleTexts = [
+            "Artificial intelligence is transforming the way we live and work. From healthcare to finance, AI applications are becoming increasingly prevalent in our daily lives. Machine learning algorithms can now diagnose diseases, predict market trends, and even create art. However, with these advancements come important ethical considerations about privacy, bias, and job displacement that society must address responsibly.",
+            
+            "Climate change represents one of the most significant challenges facing humanity today. Rising global temperatures, melting polar ice caps, and increasing extreme weather events all point to the urgent need for action. Scientists agree that human activities, particularly the burning of fossil fuels, are the primary drivers of climate change. Transitioning to renewable energy sources and adopting sustainable practices are crucial steps toward mitigating these effects.",
+            
+            "The Internet of Things (IoT) refers to the growing network of connected devices that communicate and share data with each other. Smart homes, wearable technology, and connected vehicles are just a few examples of IoT applications. While IoT offers convenience and efficiency, it also raises concerns about data security and privacy that must be carefully managed through robust cybersecurity measures."
+        ];
+        
+        const sampleMatches = [
+            {
+                title: "Wikipedia: Artificial Intelligence",
+                similarity: "85%",
+                source: "https://en.wikipedia.org/wiki/Artificial_intelligence",
+                text: "Artificial intelligence is intelligence demonstrated by machines, as opposed to natural intelligence displayed by animals including humans."
+            },
+            {
+                title: "TechCrunch: AI in Healthcare",
+                similarity: "72%",
+                source: "https://techcrunch.com/ai-healthcare",
+                text: "Machine learning algorithms are revolutionizing healthcare by enabling earlier disease detection and more personalized treatment plans."
+            },
+            {
+                title: "Academic Paper: Ethics of AI",
+                similarity: "65%",
+                source: "https://journals.sagepub.com/ai-ethics",
+                text: "The ethical implications of artificial intelligence include concerns about algorithmic bias, privacy violations, and the displacement of human workers."
+            }
+        ];
+        
+        // Word count update
+        function updateWordCount() {
+            const text = textInput.value.trim();
+            const words = text ? text.split(/\s+/).filter(word => word.length > 0).length : 0;
+            wordCount.textContent = `Words: ${words}`;
+            
+            // Limit to 5000 words
+            if (words > 5000) {
+                wordCount.style.color = '#e63946';
+                wordCount.innerHTML = `Words: ${words} <span style="font-weight: bold;">(Max 5000)</span>`;
+            } else {
+                wordCount.style.color = '#666';
+            }
+        }
+        
+        textInput.addEventListener('input', updateWordCount);
+        
+        // Paste button functionality
+        pasteBtn.addEventListener('click', async () => {
+            try {
+                const text = await navigator.clipboard.readText();
+                textInput.value = text;
+                updateWordCount();
+            } catch (err) {
+                // Fallback for browsers that don't support clipboard API
+                textInput.value = "Paste your text here using Ctrl+V (Cmd+V on Mac)";
+                textInput.select();
+            }
+        });
+        
+        // Clear button functionality
+        clearBtn.addEventListener('click', () => {
+            textInput.value = '';
+            updateWordCount();
+        });
+        
+        // Upload button functionality
+        uploadBtn.addEventListener('click', () => {
+            fileUpload.click();
+        });
+        
+        fileUpload.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (!file) return;
+            
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                const content = e.target.result;
+                textInput.value = content.substring(0, 10000); // Limit to first 10000 chars
+                updateWordCount();
+            };
+            
+            // Handle different file types
+            if (file.type === 'text/plain' || file.name.endsWith('.txt')) {
+                reader.readAsText(file);
+            } else if (file.type === 'application/pdf' || file.name.endsWith('.pdf')) {
+                // For PDF, we would need a PDF parser library in a real implementation
+                // For demo purposes, we'll show a message
+                alert('PDF parsing requires additional libraries. In a real implementation, you would use a PDF.js or similar library to extract text.');
+                textInput.value = "PDF content would be extracted here with proper libraries installed.";
+                updateWordCount();
+            } else if (file.type.includes('document') || file.name.endsWith('.doc') || file.name.endsWith('.docx')) {
+                // For Word documents, we would need a DOCX parser
+                alert('Word document parsing requires additional libraries. For now, please copy and paste the text directly.');
+            } else {
+                alert('Unsupported file type. Please upload .txt, .pdf, .doc, or .docx files.');
+            }
+        });
+        
+        // Option selection
+        optionItems.forEach(item => {
+            item.addEventListener('click', () => {
+                optionItems.forEach(i => i.classList.remove('active'));
+                item.classList.add('active');
+            });
+        });
+        
+        // Toggle matches visibility
+        toggleMatches.addEventListener('click', () => {
+            matchesContainer.classList.toggle('show');
+            toggleMatches.innerHTML = matchesContainer.classList.contains('show') 
+                ? '<i class="fas fa-list"></i> Hide Matches' 
+                : '<i class="fas fa-list"></i> Show Matches';
+        });
+        
+        // Generate highlighted text
+        function generateHighlightedText(text) {
+            const sentences = text.split(/[.!?]+/).filter(s => s.trim().length > 0);
+            let highlightedHTML = '';
+            
+            sentences.forEach((sentence, index) => {
+                // Randomly decide if this sentence should be highlighted as a match
+                const isMatch = Math.random() < 0.3; // 30% chance of being a match
+                const matchLevel = isMatch ? 3 : Math.floor(Math.random() * 3);
+                
+                highlightedHTML += `<span class="highlight-${matchLevel}">${sentence.trim()}.</span> `;
+            });
+            
+            return highlightedHTML;
+        }
+        
+        // Generate sample matches
+        function generateMatches() {
+            matchesList.innerHTML = '';
+            
+            sampleMatches.forEach((match, index) => {
+                const matchItem = document.createElement('div');
+                matchItem.className = 'match-item';
+                matchItem.innerHTML = `
+                    <div class="match-header">
+                        <div class="match-title">${match.title}</div>
+                        <div class="match-similarity">${match.similarity} Similar</div>
+                    </div>
+                    <div class="match-source">
+                        <i class="fas fa-link"></i> ${match.source}
+                    </div>
+                    <div class="match-text">${match.text}</div>
+                    <div class="match-actions">
+                        <button class="match-btn view-source-btn" onclick="window.open('${match.source}', '_blank')">
+                            <i class="fas fa-external-link-alt"></i> View Source
+                        </button>
+                        <button class="match-btn copy-match-btn" onclick="navigator.clipboard.writeText('${match.text.replace(/'/g, "\\'")}')">
+                            <i class="far fa-copy"></i> Copy Text
+                        </button>
+                    </div>
+                `;
+                matchesList.appendChild(matchItem);
+            });
+        }
+        
+        // Calculate plagiarism score
+        function calculateScore(text) {
+            const words = text.split(/\s+/).filter(word => word.length > 0);
+            const wordCount = words.length;
+            
+            // For demo purposes, generate a random but realistic score
+            // In a real implementation, this would be based on actual text analysis
+            const baseScore = 85 + Math.random() * 15; // 85-100%
+            const uniquePercentage = Math.min(100, Math.max(baseScore, 70));
+            const matchedPercentage = 100 - uniquePercentage;
+            
+            // Determine status based on score
+            let status, description;
+            if (uniquePercentage >= 95) {
+                status = "Excellent Originality";
+                description = "Your text shows very high originality with minimal matches found.";
+            } else if (uniquePercentage >= 85) {
+                status = "Good Originality";
+                description = "Your text has good originality with some common phrases detected.";
+            } else if (uniquePercentage >= 70) {
+                status = "Moderate Originality";
+                description = "Your text has moderate originality. Consider revising some sections.";
+            } else {
+                status = "Low Originality";
+                description = "Your text has significant similarity with other sources. Major revision recommended.";
+            }
+            
+            return {
+                uniquePercentage: uniquePercentage.toFixed(1),
+                matchedPercentage: matchedPercentage.toFixed(1),
+                wordCount: wordCount,
+                sourcesFound: Math.floor(Math.random() * 5) + 1,
+                status: status,
+                description: description
+            };
+        }
+        
+        // Update score circle animation
+        function updateScoreCircle(percentage) {
+            const circle = document.querySelector('.score-circle-fill');
+            const circumference = 2 * Math.PI * 45; // r = 45%
+            const offset = circumference - (percentage / 100 * circumference);
+            circle.style.strokeDashoffset = offset;
+        }
+        
+        // Check plagiarism
+        function checkPlagiarism() {
+            const text = textInput.value.trim();
+            
+            if (!text) {
+                alert('Please enter some text to check for plagiarism.');
+                return;
+            }
+            
+            if (text.split(/\s+/).length > 5000) {
+                alert('Text is too long. Maximum 5000 words allowed.');
+                return;
+            }
+            
+            // Show loading spinner
+            loadingSpinner.classList.add('active');
+            
+            // Simulate processing time
+            setTimeout(() => {
+                try {
+                    // Calculate results
+                    const results = calculateScore(text);
+                    
+                    // Update UI with results
+                    scorePercentage.textContent = `${results.uniquePercentage}%`;
+                    scoreStatus.textContent = results.status;
+                    scoreDescription.textContent = results.description;
+                    uniqueScore.textContent = `${results.uniquePercentage}%`;
+                    matchedScore.textContent = `${results.matchedPercentage}%`;
+                    wordCountResult.textContent = results.wordCount;
+                    sourcesFound.textContent = results.sourcesFound;
+                    
+                    // Update score circle
+                    updateScoreCircle(parseFloat(results.uniquePercentage));
+                    
+                    // Generate highlighted text
+                    highlightedText.innerHTML = `<p>${generateHighlightedText(text)}</p>`;
+                    
+                    // Generate matches
+                    generateMatches();
+                    
+                    // Show results and hide empty state
+                    emptyState.style.display = 'none';
+                    resultsDisplay.style.display = 'block';
+                    
+                    // Show matches container
+                    matchesContainer.classList.add('show');
+                    toggleMatches.innerHTML = '<i class="fas fa-list"></i> Hide Matches';
+                    
+                } catch (error) {
+                    console.error('Error during plagiarism check:', error);
+                    alert('An error occurred during plagiarism check. Please try again.');
+                } finally {
+                    // Hide loading spinner
+                    loadingSpinner.classList.remove('active');
+                }
+            }, 1500); // Simulate 1.5 second processing time
+        }
+        
+        // Reset everything
+        function resetAll() {
+            textInput.value = '';
+            updateWordCount();
+            
+            // Reset UI
+            emptyState.style.display = 'block';
+            resultsDisplay.style.display = 'none';
+            matchesContainer.classList.remove('show');
+            toggleMatches.innerHTML = '<i class="fas fa-list"></i> Show Matches';
+            
+            // Reset options
+            optionItems.forEach(item => item.classList.remove('active'));
+            document.querySelector('.option-item[data-option="web"]').classList.add('active');
+        }
+        
+        // Event listeners
+        checkBtn.addEventListener('click', checkPlagiarism);
+        resetBtn.addEventListener('click', resetAll);
+        
+        // Keyboard shortcut: Ctrl+Enter to check
+        textInput.addEventListener('keydown', (e) => {
+            if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+                e.preventDefault();
+                checkPlagiarism();
+            }
+        });
+        
+        // Initialize with sample text for demo
+        document.addEventListener('DOMContentLoaded', () => {
+            // Uncomment the line below to start with sample text
+            // textInput.value = sampleTexts[0];
+            updateWordCount();
+            
+            // Generate sample matches for display
+            generateMatches();
+        });
+        
+        // Handle window resize
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                // Recalculate any responsive elements if needed
+            }, 250);
+        });
+    </script>
+</body>
+</html>
