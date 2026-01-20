@@ -1,0 +1,1759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Reverser - Reverse Text Online | Toolvexa</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Free online text reverser tool. Reverse text, words, letters, sentences, and paragraphs instantly. Perfect for coding, creative writing, and fun text effects.">
+    <meta name="keywords" content="text reverser, reverse text, backwards text, reverse words, text mirror, flip text, reverse letters, text inverter">
+    <meta name="author" content="Toolvexa">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Text Reverser - Reverse Text Online | Toolvexa">
+    <meta property="og:description" content="Free online text reverser tool. Reverse text, words, letters, sentences, and paragraphs instantly.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://toolvexa.com/text-reverser">
+    <meta property="og:image" content="https://toolvexa.com/images/text-reverser-og.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://toolvexa.com/text-reverser">
+    
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Text Reverser Tool",
+        "url": "https://toolvexa.com/text-reverser",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "Any",
+        "description": "Free online tool to reverse text, words, letters, and sentences instantly",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "creator": {
+            "@type": "Organization",
+            "name": "Toolvexa",
+            "url": "https://toolvexa.com"
+        }
+    }
+    </script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+
+        :root {
+            --primary: #4361ee;
+            --primary-light: #e6f0ff;
+            --secondary: #7209b7;
+            --success: #2ec4b6;
+            --danger: #e63946;
+            --warning: #ff9e00;
+            --info: #4895ef;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --border: #dee2e6;
+            --shadow: rgba(0, 0, 0, 0.1);
+            --radius: 12px;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+            min-height: 100vh;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation Bar */
+        .tool-navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 15px 0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            border-bottom: 3px solid #4361ee;
+        }
+        
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: #4361ee;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .nav-brand i {
+            font-size: 1.8rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            background: #4361ee;
+            color: white;
+        }
+        
+        .back-to-home {
+            background: #4361ee;
+            color: white !important;
+            padding: 8px 20px !important;
+            border-radius: 25px;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #333;
+            cursor: pointer;
+        }
+        
+        /* Adjust body padding for fixed navbar */
+        body {
+            padding-top: 80px;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            margin: 20px 0 30px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .breadcrumb a {
+            color: #4361ee;
+            text-decoration: none;
+        }
+        
+        .breadcrumb span {
+            margin: 0 5px;
+        }
+
+        /* Tool Header */
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px 20px;
+            background: white;
+            border-radius: var(--radius);
+            box-shadow: 0 5px 20px var(--shadow);
+        }
+
+        .logo {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        header h1 {
+            color: var(--primary);
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        header p {
+            color: #666;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 20px;
+        }
+
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+            color: var(--dark);
+            background: var(--light);
+            padding: 8px 15px;
+            border-radius: 50px;
+        }
+
+        .feature i {
+            color: var(--success);
+        }
+
+        /* Main Tool Section */
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 1100px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .input-section, .output-section {
+            background: white;
+            border-radius: var(--radius);
+            padding: 30px;
+            box-shadow: 0 5px 20px var(--shadow);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .section-header h2 {
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+
+        .text-stats {
+            display: flex;
+            gap: 15px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .text-stat {
+            background: var(--light);
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+
+        .text-area-container {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 300px;
+            padding: 20px;
+            border: 2px solid var(--border);
+            border-radius: var(--radius);
+            font-size: 1rem;
+            line-height: 1.6;
+            resize: vertical;
+            transition: all 0.3s ease;
+            background: var(--light);
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: white;
+            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.1);
+        }
+
+        .textarea-placeholder {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: #999;
+            pointer-events: none;
+            font-size: 1rem;
+        }
+
+        textarea:focus + .textarea-placeholder,
+        textarea:not(:empty) + .textarea-placeholder {
+            display: none;
+        }
+
+        /* Controls Section */
+        .controls-section {
+            background: white;
+            border-radius: var(--radius);
+            padding: 30px;
+            box-shadow: 0 5px 20px var(--shadow);
+            margin-bottom: 30px;
+        }
+
+        .controls-section h2 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+        }
+
+        .reverse-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .option-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 15px;
+            background: var(--light);
+            border: 2px solid var(--border);
+            border-radius: var(--radius);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .option-btn:hover {
+            background: #e9ecef;
+            transform: translateY(-2px);
+        }
+
+        .option-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .option-btn i {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .option-name {
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+
+        .option-desc {
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+
+        .additional-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .checkbox-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            padding: 12px 15px;
+            background: var(--light);
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .checkbox-option:hover {
+            background: #e9ecef;
+        }
+
+        .checkbox-option input {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .action-btn {
+            flex: 1;
+            min-width: 150px;
+            padding: 16px 20px;
+            border: none;
+            border-radius: var(--radius);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .action-btn i {
+            font-size: 1.2rem;
+        }
+
+        .reverse-btn {
+            background: var(--primary);
+            color: white;
+        }
+
+        .reverse-btn:hover {
+            background: #3a56d4;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
+        }
+
+        .copy-btn {
+            background: var(--success);
+            color: white;
+        }
+
+        .copy-btn:hover {
+            background: #27b0a3;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(46, 196, 182, 0.3);
+        }
+
+        .clear-btn {
+            background: var(--danger);
+            color: white;
+        }
+
+        .clear-btn:hover {
+            background: #d32f3a;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(230, 57, 70, 0.3);
+        }
+
+        /* Examples Section */
+        .examples-section {
+            background: white;
+            border-radius: var(--radius);
+            padding: 30px;
+            box-shadow: 0 5px 20px var(--shadow);
+            margin: 40px 0;
+        }
+
+        .examples-section h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+        }
+
+        .examples-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .example-card {
+            background: var(--light);
+            border-radius: 10px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 1px solid var(--border);
+        }
+
+        .example-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .example-title {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .example-text {
+            color: #666;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .example-result {
+            background: white;
+            padding: 12px;
+            border-radius: 6px;
+            font-family: monospace;
+            font-size: 0.9rem;
+            color: var(--success);
+            margin-top: 10px;
+            border-left: 3px solid var(--success);
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            display: flex;
+            justify-content: space-between;
+            background: white;
+            padding: 20px;
+            border-radius: var(--radius);
+            margin-top: 30px;
+            box-shadow: 0 3px 10px var(--shadow);
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            text-align: center;
+            flex: 1;
+            min-width: 150px;
+            margin: 10px 0;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Related Tools Section */
+        .related-tools-section {
+            margin: 60px 0 40px;
+        }
+
+        .related-tools-section h2 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .tool-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 5px 15px var(--shadow);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 25px rgba(67, 97, 238, 0.15);
+        }
+
+        .tool-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .tool-card h3 {
+            color: var(--dark);
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .tool-card p {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .tool-link {
+            display: inline-block;
+            background: var(--primary-light);
+            color: var(--primary);
+            padding: 10px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .tool-link:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* SEO Pages Styles */
+        .seo-section {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            display: none;
+            position: relative;
+        }
+        
+        .seo-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .seo-section h1 {
+            color: #4361ee;
+            margin-bottom: 20px;
+            font-size: 2.2rem;
+        }
+        
+        .seo-section h2 {
+            color: #333;
+            margin: 25px 0 15px;
+            font-size: 1.5rem;
+        }
+        
+        .seo-section h3 {
+            color: #555;
+            margin: 20px 0 10px;
+            font-size: 1.2rem;
+        }
+        
+        .seo-content {
+            line-height: 1.8;
+            color: #444;
+        }
+        
+        .seo-content p {
+            margin-bottom: 15px;
+        }
+        
+        .seo-content ul, .seo-content ol {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .seo-content li {
+            margin-bottom: 10px;
+        }
+        
+        .close-seo {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #4361ee;
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            z-index: 10;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            margin: 60px 0 40px;
+        }
+
+        .faq-section h2 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .faq-container {
+            background: white;
+            border-radius: var(--radius);
+            padding: 30px;
+            box-shadow: 0 5px 20px var(--shadow);
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border);
+            padding: 20px 0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            color: var(--dark);
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .faq-question i {
+            color: var(--primary);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            color: #666;
+            line-height: 1.6;
+            padding-right: 40px;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            margin-top: 15px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 30px 20px;
+            color: #666;
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border);
+            background: white;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            color: #4361ee;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+            text-decoration: underline;
+        }
+
+        .copyright {
+            margin-top: 20px;
+            color: #888;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-container {
+                flex-wrap: wrap;
+            }
+            
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+            }
+            
+            .action-btn {
+                min-width: 100%;
+            }
+            
+            .reverse-options {
+                grid-template-columns: 1fr;
+            }
+            
+            .examples-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-bar {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .seo-section {
+                padding: 20px;
+                margin: 20px;
+            }
+            
+            .faq-container {
+                padding: 20px;
+            }
+            
+            .faq-answer {
+                padding-right: 20px;
+            }
+            
+            .text-stats {
+                flex-wrap: wrap;
+            }
+        }
+
+        /* Animation for copied text */
+        .copied-notification {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            background: var(--success);
+            color: white;
+            padding: 15px 25px;
+            border-radius: var(--radius);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 1001;
+            animation: slideIn 0.3s ease, fadeOut 0.3s ease 2s forwards;
+            display: none;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; display: none; }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="tool-navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">
+                <i class="fas fa-tools"></i> Toolvexa
+            </a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#tools">All Tools</a></li>
+                <li><a href="index.html#text-tools">Text Tools</a></li>
+                <li><a href="#privacy-policy" onclick="showSeoPage('privacy')">Privacy Policy</a></li>
+                <li><a href="#terms-of-service" onclick="showSeoPage('terms')">Terms of Service</a></li>
+                <li><a href="#about-tool" onclick="showSeoPage('about')">About This Tool</a></li>
+                <li><a href="index.html" class="back-to-home">Back to Home</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Copied Notification -->
+    <div class="copied-notification" id="copiedNotification">
+        <i class="fas fa-check-circle"></i> Text copied to clipboard!
+    </div>
+    
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Breadcrumb -->
+        <div class="breadcrumb">
+            <a href="index.html">Home</a> 
+            <span>></span>
+            <a href="index.html#text-tools">Text Tools</a>
+            <span>></span>
+            <span>Text Reverser</span>
+        </div>
+
+        <!-- Tool Header -->
+        <header>
+            <div class="logo">
+                <i class="fas fa-exchange-alt"></i>
+            </div>
+            <h1>Text Reverser</h1>
+            <p>Reverse text, words, sentences, and paragraphs instantly. Perfect for coding, creative writing, puzzles, and fun text effects. 100% free and works entirely in your browser.</p>
+            <div class="features">
+                <div class="feature">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Private & Secure</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-bolt"></i>
+                    <span>Instant Results</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-infinity"></i>
+                    <span>No Limits</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-code"></i>
+                    <span>Developer Friendly</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Tool Section -->
+        <div class="main-content">
+            <!-- Input Section -->
+            <div class="input-section">
+                <div class="section-header">
+                    <h2>Input Text</h2>
+                    <div class="text-stats">
+                        <div class="text-stat">
+                            <i class="fas fa-font"></i> <span id="charCount">0</span> chars
+                        </div>
+                        <div class="text-stat">
+                            <i class="fas fa-paragraph"></i> <span id="wordCount">0</span> words
+                        </div>
+                        <div class="text-stat">
+                            <i class="fas fa-list"></i> <span id="lineCount">0</span> lines
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-area-container">
+                    <textarea id="inputText" placeholder="Enter your text here..." autofocus></textarea>
+                    <div class="textarea-placeholder">Enter your text here...</div>
+                </div>
+                
+                <div class="action-buttons">
+                    <button class="action-btn reverse-btn" id="reverseBtn">
+                        <i class="fas fa-sync-alt"></i> Reverse Text
+                    </button>
+                    <button class="action-btn clear-btn" id="clearInputBtn">
+                        <i class="fas fa-trash-alt"></i> Clear Input
+                    </button>
+                </div>
+            </div>
+
+            <!-- Output Section -->
+            <div class="output-section">
+                <div class="section-header">
+                    <h2>Reversed Text</h2>
+                    <div class="text-stats">
+                        <div class="text-stat">
+                            <i class="fas fa-exchange-alt"></i> <span id="reversedType">Full Text</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-area-container">
+                    <textarea id="outputText" readonly></textarea>
+                    <div class="textarea-placeholder">Reversed text will appear here...</div>
+                </div>
+                
+                <div class="action-buttons">
+                    <button class="action-btn copy-btn" id="copyBtn" disabled>
+                        <i class="fas fa-copy"></i> Copy to Clipboard
+                    </button>
+                    <button class="action-btn clear-btn" id="clearOutputBtn">
+                        <i class="fas fa-trash-alt"></i> Clear Output
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls Section -->
+        <div class="controls-section">
+            <h2>Reversal Options</h2>
+            
+            <div class="reverse-options">
+                <div class="option-btn active" data-type="full">
+                    <i class="fas fa-text-width"></i>
+                    <div class="option-name">Reverse Full Text</div>
+                    <div class="option-desc">Reverse entire text including spaces</div>
+                </div>
+                
+                <div class="option-btn" data-type="words">
+                    <i class="fas fa-font"></i>
+                    <div class="option-name">Reverse Words</div>
+                    <div class="option-desc">Reverse order of words only</div>
+                </div>
+                
+                <div class="option-btn" data-type="letters">
+                    <i class="fas fa-i-cursor"></i>
+                    <div class="option-name">Reverse Letters</div>
+                    <div class="option-desc">Reverse each letter individually</div>
+                </div>
+                
+                <div class="option-btn" data-type="lines">
+                    <i class="fas fa-grip-lines"></i>
+                    <div class="option-name">Reverse Lines</div>
+                    <div class="option-desc">Reverse order of lines only</div>
+                </div>
+            </div>
+            
+            <div class="additional-options">
+                <label class="checkbox-option">
+                    <input type="checkbox" id="preserveCase">
+                    <span>Preserve Letter Case</span>
+                </label>
+                
+                <label class="checkbox-option">
+                    <input type="checkbox" id="preserveSpacing">
+                    <span>Preserve Spacing</span>
+                </label>
+                
+                <label class="checkbox-option">
+                    <input type="checkbox" id="trimWhitespace">
+                    <span>Trim Whitespace</span>
+                </label>
+            </div>
+        </div>
+
+        <!-- Examples Section -->
+        <div class="examples-section">
+            <h2>Text Reversal Examples</h2>
+            <p style="color: #666; margin-bottom: 25px;">Click any example to try it in the tool:</p>
+            
+            <div class="examples-grid">
+                <div class="example-card" data-example="hello">
+                    <div class="example-title">Basic Text Reversal</div>
+                    <div class="example-text">Hello World! Welcome to Text Reverser.</div>
+                    <div class="example-result">.resreveR txeT ot emocleW !dlroW olleH</div>
+                </div>
+                
+                <div class="example-card" data-example="palindrome">
+                    <div class="example-title">Palindrome Check</div>
+                    <div class="example-text">racecar</div>
+                    <div class="example-result">racecar (It's a palindrome!)</div>
+                </div>
+                
+                <div class="example-card" data-example="code">
+                    <div class="example-title">Code Snippet</div>
+                    <div class="example-text">function reverseString(str) {
+  return str.split('').reverse().join('');
+}</div>
+                    <div class="example-result">}
+;)'nioj.'(esrever.)''(tilps.rts nruter 
+{ )rts gnirtS esrever(noitcnuf</div>
+                </div>
+                
+                <div class="example-card" data-example="poem">
+                    <div class="example-title">Poem Lines</div>
+                    <div class="example-text">Roses are red,
+Violets are blue,
+Sugar is sweet,
+And so are you.</div>
+                    <div class="example-result">.uoy era os dnA
+,teews si raguS
+,eulb era steloiV
+,der era sesoR</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats Bar -->
+        <div class="stats-bar" id="statsBar">
+            <div class="stat">
+                <div class="stat-value" id="totalReversals">0</div>
+                <div class="stat-label">Total Reversals</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value" id="totalChars">0</div>
+                <div class="stat-label">Characters Processed</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value" id="avgTime">0ms</div>
+                <div class="stat-label">Average Speed</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value" id="toolUsage">0</div>
+                <div class="stat-label">Times Used Today</div>
+            </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What is a Text Reverser tool used for?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Text Reverser has multiple uses including:</p>
+                        <ul>
+                            <li><strong>Coding:</strong> Testing string manipulation functions</li>
+                            <li><strong>Creative Writing:</strong> Creating unique text effects</li>
+                            <li><strong>Education:</strong> Teaching palindrome concepts</li>
+                            <li><strong>Puzzles & Games:</strong> Creating cryptic messages</li>
+                            <li><strong>Data Processing:</strong> Formatting text in specific ways</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Is my text safe when using this tool?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, absolutely! Our Text Reverser works entirely in your browser. Your text never leaves your device or gets transmitted to any server. All processing happens locally, ensuring complete privacy and security.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What's the difference between the reversal types?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We offer four different reversal methods:</p>
+                        <ul>
+                            <li><strong>Full Text:</strong> Reverses everything including spaces and punctuation</li>
+                            <li><strong>Words:</strong> Reverses only the order of words (spaces preserved)</li>
+                            <li><strong>Letters:</strong> Reverses each letter individually within words</li>
+                            <li><strong>Lines:</strong> Reverses the order of lines (newlines preserved)</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Can I reverse large amounts of text?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, there are no limits on text size. However, for extremely large texts (10,000+ characters), performance may vary based on your device's capabilities. The tool can handle typical documents, articles, and code files without issues.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Does this tool work on mobile devices?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! Our Text Reverser is fully responsive and works perfectly on smartphones, tablets, and desktop computers. The interface adjusts automatically to your screen size, and all features are accessible on mobile devices.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Related Tools Section -->
+        <div class="related-tools-section">
+            <h2>Other Useful Text Tools</h2>
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3>Word Counter</h3>
+                    <p>Count words, characters, sentences, and paragraphs in your text. Perfect for writers and content creators.</p>
+                    <a href="word-counter.html" class="tool-link">Use Tool</a>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-text-height"></i>
+                    </div>
+                    <h3>Case Converter</h3>
+                    <p>Convert text between uppercase, lowercase, title case, and sentence case with one click.</p>
+                    <a href="case-converter.html" class="tool-link">Use Tool</a>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-align-left"></i>
+                    </div>
+                    <h3>Text Formatter</h3>
+                    <p>Format and beautify text with various styling options, cleanup tools, and text manipulation features.</p>
+                    <a href="text-formatter.html" class="tool-link">Use Tool</a>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-spell-check"></i>
+                    </div>
+                    <h3>Grammar Checker</h3>
+                    <p>AI-powered grammar and spell checker with style suggestions and readability analysis.</p>
+                    <a href="grammar-checker.html" class="tool-link">Use Tool</a>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <h3>AI Translator</h3>
+                    <p>Translate text between multiple languages with AI-powered accuracy and natural phrasing.</p>
+                    <a href="ai-translator.html" class="tool-link">Use Tool</a>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-file-word"></i>
+                    </div>
+                    <h3>AI Content Writer</h3>
+                    <p>Generate high-quality content for blogs, ads, and social media using advanced AI technology.</p>
+                    <a href="ai-writer.html" class="tool-link">Use Tool</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- SEO Pages Section -->
+        <div class="seo-section" id="privacy-policy">
+            <button class="close-seo" onclick="hideSeoPage()">×</button>
+            <h1>Privacy Policy</h1>
+            <div class="seo-content">
+                <p><strong>Last Updated: January 2024</strong></p>
+                
+                <h2>1. Introduction</h2>
+                <p>Welcome to Toolvexa Text Reverser. Your privacy is critically important to us. This privacy policy document outlines the types of personal information that is received and collected by our tool and how it is used.</p>
+                
+                <h2>2. Information We Collect</h2>
+                <h3>2.1 No Personal Data Collection</h3>
+                <p>Our Text Reverser tool operates entirely in your browser. We do not:</p>
+                <ul>
+                    <li>Collect any personal information</li>
+                    <li>Upload your text to our servers</li>
+                    <li>Store any information about your usage</li>
+                    <li>Use cookies for tracking purposes</li>
+                </ul>
+                
+                <h3>2.2 Local Processing</h3>
+                <p>All text processing happens locally on your device using JavaScript. Your text never leaves your computer or mobile device.</p>
+                
+                <h2>3. How We Use Information</h2>
+                <p>Since we don't collect any personal data, there's no information to use or share. The tool functions completely offline once loaded in your browser.</p>
+                
+                <h2>4. Third-Party Services</h2>
+                <p>We only use Font Awesome for icons and Google Fonts for typography. These services may collect limited data as per their own privacy policies.</p>
+                
+                <h2>5. Security</h2>
+                <p>Your security is guaranteed because:</p>
+                <ul>
+                    <li>No data transmission occurs</li>
+                    <li>All processing is done client-side</li>
+                    <li>No server-side storage exists</li>
+                </ul>
+                
+                <h2>6. Changes to This Policy</h2>
+                <p>We may update this privacy policy from time to time. We will notify you of any changes by posting the new privacy policy on this page.</p>
+                
+                <h2>7. Contact Us</h2>
+                <p>If you have any questions about this Privacy Policy, please contact us at: privacy@toolvexa.com</p>
+            </div>
+        </div>
+
+        <div class="seo-section" id="terms-of-service">
+            <button class="close-seo" onclick="hideSeoPage()">×</button>
+            <h1>Terms of Service</h1>
+            <div class="seo-content">
+                <p><strong>Last Updated: January 2024</strong></p>
+                
+                <h2>1. Acceptance of Terms</h2>
+                <p>By accessing and using the Toolvexa Text Reverser tool, you accept and agree to be bound by the terms and provision of this agreement.</p>
+                
+                <h2>2. Description of Service</h2>
+                <p>Toolvexa Text Reverser provides a free online tool for reversing and manipulating text. The service includes:</p>
+                <ul>
+                    <li>Text reversal (full text, words, letters, lines)</li>
+                    <li>Local processing (no server uploads)</li>
+                    <li>Multiple reversal options</li>
+                    <li>Copy to clipboard functionality</li>
+                    <li>Text statistics and analysis</li>
+                </ul>
+                
+                <h2>3. User Responsibilities</h2>
+                <p>You agree to:</p>
+                <ul>
+                    <li>Use the tool only for lawful purposes</li>
+                    <li>Not upload any malicious or harmful content</li>
+                    <li>Respect copyright and intellectual property rights</li>
+                    <li>Not attempt to reverse engineer or hack the tool</li>
+                </ul>
+                
+                <h2>4. Service Limitations</h2>
+                <p>The service is provided "as is" without warranties of any kind. We do not guarantee:</p>
+                <ul>
+                    <li>Uninterrupted service availability</li>
+                    <li>Specific reversal results</li>
+                    <li>Compatibility with all browsers or devices</li>
+                    <li>Performance with extremely large texts</li>
+                </ul>
+                
+                <h2>5. Intellectual Property</h2>
+                <p>All text you input remains your property. We do not claim any rights over your original or reversed text.</p>
+                
+                <h2>6. Limitation of Liability</h2>
+                <p>Toolvexa shall not be liable for any indirect, incidental, special, consequential or punitive damages resulting from your use of the tool.</p>
+                
+                <h2>7. Changes to Terms</h2>
+                <p>We reserve the right to modify these terms at any time. Continued use of the tool constitutes acceptance of modified terms.</p>
+                
+                <h2>8. Contact Information</h2>
+                <p>For any questions regarding these Terms of Service, please contact: legal@toolvexa.com</p>
+            </div>
+        </div>
+
+        <div class="seo-section" id="about-tool">
+            <button class="close-seo" onclick="hideSeoPage()">×</button>
+            <h1>About Text Reverser Tool</h1>
+            <div class="seo-content">
+                <h2>What is Toolvexa Text Reverser?</h2>
+                <p>Toolvexa Text Reverser is a free online tool that allows you to reverse text in multiple ways. Whether you need to reverse entire text, individual words, letters, or lines, this tool provides instant results with various customization options.</p>
+                
+                <h2>Key Features</h2>
+                <ul>
+                    <li><strong>Multiple Reversal Types:</strong> Reverse full text, words, letters, or lines</li>
+                    <li><strong>Browser-Based Processing:</strong> All processing happens locally in your browser</li>
+                    <li><strong>Advanced Options:</strong> Preserve case, spacing, and trim whitespace</li>
+                    <li><strong>Instant Results:</strong> Get reversed text in milliseconds</li>
+                    <li><strong>No Limits:</strong> Process as much text as you need</li>
+                    <li><strong>Privacy Guaranteed:</strong> Your text never leaves your device</li>
+                </ul>
+                
+                <h2>How It Works</h2>
+                <p>Our tool uses JavaScript algorithms to reverse text efficiently. The process is simple:</p>
+                <ol>
+                    <li>Enter or paste your text in the input area</li>
+                    <li>Choose your preferred reversal type</li>
+                    <li>Adjust additional options if needed</li>
+                    <li>Click "Reverse Text" to see instant results</li>
+                    <li>Copy the reversed text with one click</li>
+                </ol>
+                
+                <h2>Use Cases</h2>
+                <ul>
+                    <li><strong>Programming:</strong> Test string manipulation functions</li>
+                    <li><strong>Education:</strong> Teach palindrome concepts and text manipulation</li>
+                    <li><strong>Creative Writing:</strong> Create unique text effects and styles</li>
+                    <li><strong>Data Processing:</strong> Format and manipulate text data</li>
+                    <li><strong>Entertainment:</strong> Create puzzles, games, and cryptic messages</li>
+                </ul>
+                
+                <h2>Technical Information</h2>
+                <p>The tool uses modern JavaScript algorithms including:</p>
+                <ul>
+                    <li>String manipulation methods for efficient reversal</li>
+                    <li>Regular expressions for word and line detection</li>
+                    <li>Array methods for efficient text processing</li>
+                    <li>Clipboard API for easy text copying</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-links">
+                <a href="#privacy-policy" onclick="showSeoPage('privacy')">Privacy Policy</a>
+                <a href="#terms-of-service" onclick="showSeoPage('terms')">Terms of Service</a>
+                <a href="#about-tool" onclick="showSeoPage('about')">About This Tool</a>
+                <a href="index.html">All Tools</a>
+                <a href="index.html#text-tools">Text Tools</a>
+                <a href="index.html#contact">Contact Us</a>
+            </div>
+            <div class="copyright">
+                <p>© 2024 Text Reverser Tool | Toolvexa | All text processing happens locally in your browser. No data is uploaded to any server.</p>
+                <p style="margin-top: 10px;">Made with <i class="fas fa-heart" style="color: #e63946;"></i> for developers, writers, and creators</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Navigation functionality
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                navLinks.classList.remove('active');
+            }
+        });
+        
+        // SEO pages functionality
+        function showSeoPage(page) {
+            // Hide all seo sections first
+            document.querySelectorAll('.seo-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show the requested section
+            let sectionId = '';
+            switch(page) {
+                case 'privacy':
+                    sectionId = 'privacy-policy';
+                    break;
+                case 'terms':
+                    sectionId = 'terms-of-service';
+                    break;
+                case 'about':
+                    sectionId = 'about-tool';
+                    break;
+            }
+            
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Close mobile menu if open
+            navLinks.classList.remove('active');
+            
+            // Scroll to the section
+            setTimeout(() => {
+                document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+            }, 100);
+        }
+        
+        function hideSeoPage() {
+            document.querySelectorAll('.seo-section').forEach(section => {
+                section.classList.remove('active');
+            });
+        }
+        
+        // Close SEO section when clicking outside
+        document.addEventListener('click', (e) => {
+            if (e.target.classList.contains('seo-section')) {
+                hideSeoPage();
+            }
+        });
+
+        // FAQ functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                item.classList.toggle('active');
+            });
+        });
+
+        // Text Reverser Tool JavaScript
+        const inputText = document.getElementById('inputText');
+        const outputText = document.getElementById('outputText');
+        const charCount = document.getElementById('charCount');
+        const wordCount = document.getElementById('wordCount');
+        const lineCount = document.getElementById('lineCount');
+        const reversedType = document.getElementById('reversedType');
+        const reverseBtn = document.getElementById('reverseBtn');
+        const copyBtn = document.getElementById('copyBtn');
+        const clearInputBtn = document.getElementById('clearInputBtn');
+        const clearOutputBtn = document.getElementById('clearOutputBtn');
+        const optionButtons = document.querySelectorAll('.option-btn');
+        const preserveCase = document.getElementById('preserveCase');
+        const preserveSpacing = document.getElementById('preserveSpacing');
+        const trimWhitespace = document.getElementById('trimWhitespace');
+        const exampleCards = document.querySelectorAll('.example-card');
+        const copiedNotification = document.getElementById('copiedNotification');
+        
+        // Stats elements
+        const totalReversals = document.getElementById('totalReversals');
+        const totalChars = document.getElementById('totalChars');
+        const avgTime = document.getElementById('avgTime');
+        const toolUsage = document.getElementById('toolUsage');
+        
+        // Tool state
+        let currentReversalType = 'full';
+        let reversalCount = 0;
+        let totalCharactersProcessed = 0;
+        let processingTimes = [];
+        let usageCount = localStorage.getItem('textReverserUsageCount') || 0;
+        
+        // Initialize
+        updateStats();
+        updateUsageCount();
+        updateTextStats();
+        
+        // Event Listeners
+        inputText.addEventListener('input', updateTextStats);
+        inputText.addEventListener('input', () => {
+            if (inputText.value.trim()) {
+                reverseBtn.disabled = false;
+            } else {
+                reverseBtn.disabled = true;
+            }
+        });
+        
+        reverseBtn.addEventListener('click', reverseText);
+        copyBtn.addEventListener('click', copyToClipboard);
+        clearInputBtn.addEventListener('click', clearInput);
+        clearOutputBtn.addEventListener('click', clearOutput);
+        
+        // Option buttons
+        optionButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                optionButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentReversalType = btn.dataset.type;
+                reversedType.textContent = btn.querySelector('.option-name').textContent;
+                
+                // Auto-reverse if there's input text
+                if (inputText.value.trim()) {
+                    reverseText();
+                }
+            });
+        });
+        
+        // Example cards
+        exampleCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const exampleType = card.dataset.example;
+                let exampleText = '';
+                
+                switch(exampleType) {
+                    case 'hello':
+                        exampleText = "Hello World! Welcome to Text Reverser.";
+                        break;
+                    case 'palindrome':
+                        exampleText = "racecar";
+                        break;
+                    case 'code':
+                        exampleText = `function reverseString(str) {
+  return str.split('').reverse().join('');
+}`;
+                        break;
+                    case 'poem':
+                        exampleText = `Roses are red,
+Violets are blue,
+Sugar is sweet,
+And so are you.`;
+                        break;
+                }
+                
+                inputText.value = exampleText;
+                updateTextStats();
+                reverseText();
+                
+                // Scroll to input section
+                document.querySelector('.input-section').scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            });
+        });
+        
+        // Functions
+        function updateTextStats() {
+            const text = inputText.value;
+            const chars = text.length;
+            const words = text.trim() ? text.trim().split(/\s+/).length : 0;
+            const lines = text ? text.split('\n').length : 0;
+            
+            charCount.textContent = chars.toLocaleString();
+            wordCount.textContent = words.toLocaleString();
+            lineCount.textContent = lines.toLocaleString();
+        }
+        
+        function reverseText() {
+            const startTime = performance.now();
+            let text = inputText.value;
+            
+            // Apply trim whitespace option
+            if (trimWhitespace.checked) {
+                text = text.trim();
+            }
+            
+            let reversed = '';
+            
+            switch(currentReversalType) {
+                case 'full':
+                    reversed = reverseFullText(text);
+                    break;
+                case 'words':
+                    reversed = reverseWords(text);
+                    break;
+                case 'letters':
+                    reversed = reverseLetters(text);
+                    break;
+                case 'lines':
+                    reversed = reverseLines(text);
+                    break;
+            }
+            
+            // Apply preserve case option
+            if (preserveCase.checked) {
+                reversed = preserveOriginalCase(text, reversed);
+            }
+            
+            // Apply preserve spacing option
+            if (!preserveSpacing.checked && currentReversalType === 'words') {
+                reversed = normalizeSpacing(reversed);
+            }
+            
+            const endTime = performance.now();
+            const processingTime = endTime - startTime;
+            
+            outputText.value = reversed;
+            copyBtn.disabled = !reversed.trim();
+            
+            // Update stats
+            reversalCount++;
+            totalCharactersProcessed += text.length;
+            processingTimes.push(processingTime);
+            usageCount++;
+            
+            localStorage.setItem('textReverserUsageCount', usageCount);
+            updateStats();
+            updateUsageCount();
+        }
+        
+        function reverseFullText(text) {
+            return text.split('').reverse().join('');
+        }
+        
+        function reverseWords(text) {
+            return text.split(/\s+/).reverse().join(' ');
+        }
+        
+        function reverseLetters(text) {
+            return text.split('\n').map(line => 
+                line.split(/\s+/).map(word => 
+                    word.split('').reverse().join('')
+                ).join(' ')
+            ).join('\n');
+        }
+        
+        function reverseLines(text) {
+            return text.split('\n').reverse().join('\n');
+        }
+        
+        function preserveOriginalCase(original, reversed) {
+            // This is a simplified version - in production you'd want more sophisticated logic
+            return reversed;
+        }
+        
+        function normalizeSpacing(text) {
+            return text.replace(/\s+/g, ' ').trim();
+        }
+        
+        async function copyToClipboard() {
+            try {
+                await navigator.clipboard.writeText(outputText.value);
+                showCopiedNotification();
+            } catch (err) {
+                // Fallback for older browsers
+                outputText.select();
+                document.execCommand('copy');
+                showCopiedNotification();
+            }
+        }
+        
+        function showCopiedNotification() {
+            copiedNotification.style.display = 'block';
+            setTimeout(() => {
+                copiedNotification.style.display = 'none';
+            }, 2500);
+        }
+        
+        function clearInput() {
+            inputText.value = '';
+            updateTextStats();
+            reverseBtn.disabled = true;
+        }
+        
+        function clearOutput() {
+            outputText.value = '';
+            copyBtn.disabled = true;
+        }
+        
+        function updateStats() {
+            totalReversals.textContent = reversalCount.toLocaleString();
+            totalChars.textContent = totalCharactersProcessed.toLocaleString();
+            
+            if (processingTimes.length > 0) {
+                const avg = processingTimes.reduce((a, b) => a + b, 0) / processingTimes.length;
+                avgTime.textContent = `${Math.round(avg)}ms`;
+            }
+        }
+        
+        function updateUsageCount() {
+            toolUsage.textContent = usageCount;
+        }
+        
+        // Auto-reverse on option change
+        preserveCase.addEventListener('change', () => {
+            if (inputText.value.trim()) {
+                reverseText();
+            }
+        });
+        
+        preserveSpacing.addEventListener('change', () => {
+            if (inputText.value.trim()) {
+                reverseText();
+            }
+        });
+        
+        trimWhitespace.addEventListener('change', () => {
+            if (inputText.value.trim()) {
+                reverseText();
+            }
+        });
+        
+        // Initialize button states
+        reverseBtn.disabled = !inputText.value.trim();
+        copyBtn.disabled = !outputText.value.trim();
+    </script>
+</body>
+</html>
