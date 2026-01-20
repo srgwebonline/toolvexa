@@ -1,0 +1,1683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Formatter - Format & Beautify Text Online | Toolvexa</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Free online text formatter tool. Format, clean, and beautify text with multiple options. Convert case, remove spaces, add line breaks, and optimize text for any purpose.">
+    <meta name="keywords" content="text formatter, format text online, text beautifier, text cleaner, case converter, text optimization, remove extra spaces, text formatting tool">
+    <meta name="author" content="Toolvexa">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Text Formatter - Format & Beautify Text Online | Toolvexa">
+    <meta property="og:description" content="Free online text formatter tool. Format, clean, and beautify text with multiple options. Convert case, remove spaces, add line breaks, and optimize text for any purpose.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://toolvexa.com/text-formatter">
+    <meta property="og:image" content="https://toolvexa.com/images/text-formatter-og.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://toolvexa.com/text-formatter">
+    
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Text Formatter",
+        "url": "https://toolvexa.com/text-formatter",
+        "applicationCategory": "WritingApplication",
+        "operatingSystem": "Any",
+        "description": "Free online tool to format, clean, and beautify text with multiple formatting options",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "creator": {
+            "@type": "Organization",
+            "name": "Toolvexa",
+            "url": "https://toolvexa.com"
+        }
+    }
+    </script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+
+        :root {
+            --primary: #4361ee;
+            --primary-light: #e6f0ff;
+            --secondary: #7209b7;
+            --success: #2ec4b6;
+            --danger: #e63946;
+            --warning: #ff9e00;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --border: #dee2e6;
+            --shadow: rgba(0, 0, 0, 0.1);
+            --radius: 12px;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+            min-height: 100vh;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation Bar */
+        .tool-navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 15px 0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            border-bottom: 3px solid #4361ee;
+        }
+        
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: #4361ee;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .nav-brand i {
+            font-size: 1.8rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            background: #4361ee;
+            color: white;
+        }
+        
+        .back-to-home {
+            background: #4361ee;
+            color: white !important;
+            padding: 8px 20px !important;
+            border-radius: 25px;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #333;
+            cursor: pointer;
+        }
+        
+        /* Adjust body padding for fixed navbar */
+        body {
+            padding-top: 80px;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            margin: 20px 0 30px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .breadcrumb a {
+            color: #4361ee;
+            text-decoration: none;
+        }
+        
+        .breadcrumb span {
+            margin: 0 5px;
+        }
+
+        /* Tool Header */
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px 20px;
+            background: white;
+            border-radius: var(--radius);
+            box-shadow: 0 5px 20px var(--shadow);
+        }
+
+        .logo {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        header h1 {
+            color: var(--primary);
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        header p {
+            color: #666;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 20px;
+        }
+
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+            color: var(--dark);
+            background: var(--light);
+            padding: 8px 15px;
+            border-radius: 50px;
+        }
+
+        .feature i {
+            color: var(--success);
+        }
+
+        /* Main Tool Content */
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 1100px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .text-input-section, .controls-section {
+            background: white;
+            border-radius: var(--radius);
+            padding: 30px;
+            box-shadow: 0 5px 20px var(--shadow);
+        }
+
+        .text-input-section h3, .controls-section h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+
+        .textarea-container {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .textarea-container textarea {
+            width: 100%;
+            min-height: 300px;
+            padding: 20px;
+            border: 2px solid var(--border);
+            border-radius: var(--radius);
+            font-size: 1rem;
+            line-height: 1.6;
+            resize: vertical;
+            transition: border-color 0.3s ease;
+        }
+
+        .textarea-container textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .char-count {
+            position: absolute;
+            bottom: 10px;
+            right: 15px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        .text-actions {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .text-btn {
+            flex: 1;
+            min-width: 120px;
+            padding: 12px 20px;
+            border: none;
+            border-radius: var(--radius);
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .clear-btn {
+            background: var(--danger);
+            color: white;
+        }
+
+        .clear-btn:hover {
+            background: #d32f3a;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(230, 57, 70, 0.3);
+        }
+
+        .paste-btn {
+            background: var(--success);
+            color: white;
+        }
+
+        .paste-btn:hover {
+            background: #27b0a3;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(46, 196, 182, 0.3);
+        }
+
+        .sample-btn {
+            background: var(--warning);
+            color: white;
+        }
+
+        .sample-btn:hover {
+            background: #e68f00;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 158, 0, 0.3);
+        }
+
+        /* Controls Section */
+        .format-options {
+            margin-bottom: 30px;
+        }
+
+        .option-group {
+            margin-bottom: 25px;
+        }
+
+        .option-group h4 {
+            color: var(--dark);
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .option-group h4 i {
+            color: var(--primary);
+        }
+
+        .option-buttons {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .option-buttons {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .option-btn {
+            padding: 12px 15px;
+            background: var(--light);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: left;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .option-btn:hover {
+            background: #e9ecef;
+        }
+
+        .option-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .option-btn i {
+            font-size: 1rem;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .action-btn {
+            flex: 1;
+            min-width: 150px;
+            padding: 16px 20px;
+            border: none;
+            border-radius: var(--radius);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .action-btn i {
+            font-size: 1.2rem;
+        }
+
+        .format-btn {
+            background: var(--primary);
+            color: white;
+        }
+
+        .format-btn:hover {
+            background: #3a56d4;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
+        }
+
+        .copy-btn {
+            background: var(--success);
+            color: white;
+        }
+
+        .copy-btn:hover {
+            background: #27b0a3;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(46, 196, 182, 0.3);
+        }
+
+        .download-btn {
+            background: var(--warning);
+            color: white;
+        }
+
+        .download-btn:hover {
+            background: #e68f00;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 158, 0, 0.3);
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: white;
+            border-radius: var(--radius);
+            padding: 30px;
+            margin-top: 40px;
+            box-shadow: 0 5px 20px var(--shadow);
+        }
+
+        .stats-section h3 {
+            color: var(--primary);
+            margin-bottom: 25px;
+            font-size: 1.5rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .stat-card {
+            background: var(--light);
+            border-radius: var(--radius);
+            padding: 20px;
+            text-align: center;
+            border: 1px solid var(--border);
+        }
+
+        .stat-value {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Related Tools Section */
+        .related-tools-section {
+            margin: 60px 0 40px;
+        }
+
+        .related-tools-section h2 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .tool-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 5px 15px var(--shadow);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 25px rgba(67, 97, 238, 0.15);
+        }
+
+        .tool-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .tool-card h3 {
+            color: var(--dark);
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .tool-card p {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .tool-link {
+            display: inline-block;
+            background: var(--primary-light);
+            color: var(--primary);
+            padding: 10px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .tool-link:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* SEO Pages Styles */
+        .seo-section {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            display: none;
+            position: relative;
+        }
+        
+        .seo-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .seo-section h1 {
+            color: #4361ee;
+            margin-bottom: 20px;
+            font-size: 2.2rem;
+        }
+        
+        .seo-section h2 {
+            color: #333;
+            margin: 25px 0 15px;
+            font-size: 1.5rem;
+        }
+        
+        .seo-section h3 {
+            color: #555;
+            margin: 20px 0 10px;
+            font-size: 1.2rem;
+        }
+        
+        .seo-content {
+            line-height: 1.8;
+            color: #444;
+        }
+        
+        .seo-content p {
+            margin-bottom: 15px;
+        }
+        
+        .seo-content ul, .seo-content ol {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .seo-content li {
+            margin-bottom: 10px;
+        }
+        
+        .close-seo {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #4361ee;
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            z-index: 10;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            margin: 60px 0 40px;
+        }
+
+        .faq-section h2 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .faq-container {
+            background: white;
+            border-radius: var(--radius);
+            padding: 30px;
+            box-shadow: 0 5px 20px var(--shadow);
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border);
+            padding: 20px 0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            color: var(--dark);
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .faq-question i {
+            color: var(--primary);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            color: #666;
+            line-height: 1.6;
+            padding-right: 40px;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            margin-top: 15px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 30px 20px;
+            color: #666;
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border);
+            background: white;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            color: #4361ee;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+            text-decoration: underline;
+        }
+
+        .copyright {
+            margin-top: 20px;
+            color: #888;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-container {
+                flex-wrap: wrap;
+            }
+            
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+            }
+            
+            .action-btn {
+                min-width: 100%;
+            }
+            
+            .text-actions {
+                flex-direction: column;
+            }
+            
+            .text-btn {
+                min-width: 100%;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .seo-section {
+                padding: 20px;
+                margin: 20px;
+            }
+            
+            .faq-container {
+                padding: 20px;
+            }
+            
+            .faq-answer {
+                padding-right: 20px;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+
+        /* Notification Toast */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--success);
+            color: white;
+            padding: 15px 25px;
+            border-radius: var(--radius);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 1001;
+        }
+
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .toast.error {
+            background: var(--danger);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="tool-navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">
+                <i class="fas fa-tools"></i> Toolvexa
+            </a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#tools">All Tools</a></li>
+                <li><a href="index.html#text-tools">Text Tools</a></li>
+                <li><a href="#privacy-policy" onclick="showSeoPage('privacy')">Privacy Policy</a></li>
+                <li><a href="#terms-of-service" onclick="showSeoPage('terms')">Terms of Service</a></li>
+                <li><a href="#about-tool" onclick="showSeoPage('about')">About This Tool</a></li>
+                <li><a href="index.html" class="back-to-home">Back to Home</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Toast Notification -->
+    <div class="toast" id="toast"></div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Breadcrumb -->
+        <div class="breadcrumb">
+            <a href="index.html">Home</a> 
+            <span>></span>
+            <a href="index.html#text-tools">Text Tools</a>
+            <span>></span>
+            <span>Text Formatter</span>
+        </div>
+
+        <!-- Tool Header -->
+        <header>
+            <div class="logo">
+                <i class="fas fa-align-left"></i>
+            </div>
+            <h1>Text Formatter</h1>
+            <p>Format, clean, and beautify text with multiple options. Convert case, remove extra spaces, add line breaks, and optimize text for any purpose. 100% free and works offline.</p>
+            <div class="features">
+                <div class="feature">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Secure & Private</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-bolt"></i>
+                    <span>Instant Processing</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-infinity"></i>
+                    <span>No Limits</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-desktop"></i>
+                    <span>Works Offline</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Tool Section -->
+        <div class="main-content">
+            <div class="text-input-section">
+                <h3>Input Text</h3>
+                <div class="textarea-container">
+                    <textarea id="inputText" placeholder="Paste or type your text here...">Hello world! This is a sample text for formatting.
+You can try different formatting options on the right.
+
+This tool will help you:
+- Clean up messy text
+- Convert text case
+- Remove extra spaces
+- Format paragraphs
+- And much more!</textarea>
+                    <div class="char-count" id="inputCharCount">0 characters</div>
+                </div>
+                
+                <div class="text-actions">
+                    <button class="text-btn clear-btn" id="clearBtn">
+                        <i class="fas fa-trash-alt"></i> Clear All
+                    </button>
+                    <button class="text-btn paste-btn" id="pasteBtn">
+                        <i class="fas fa-paste"></i> Paste Text
+                    </button>
+                    <button class="text-btn sample-btn" id="sampleBtn">
+                        <i class="fas fa-file-alt"></i> Load Sample
+                    </button>
+                </div>
+            </div>
+
+            <div class="controls-section">
+                <h3>Formatting Options</h3>
+                
+                <div class="format-options">
+                    <div class="option-group">
+                        <h4><i class="fas fa-font"></i> Text Case</h4>
+                        <div class="option-buttons" id="caseOptions">
+                            <button class="option-btn" data-format="uppercase">
+                                <i class="fas fa-text-height"></i> UPPERCASE
+                            </button>
+                            <button class="option-btn" data-format="lowercase">
+                                <i class="fas fa-text-height"></i> lowercase
+                            </button>
+                            <button class="option-btn active" data-format="titlecase">
+                                <i class="fas fa-text-height"></i> Title Case
+                            </button>
+                            <button class="option-btn" data-format="sentencecase">
+                                <i class="fas fa-text-height"></i> Sentence case
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="option-group">
+                        <h4><i class="fas fa-broom"></i> Clean & Format</h4>
+                        <div class="option-buttons" id="cleanOptions">
+                            <button class="option-btn" data-format="trim">
+                                <i class="fas fa-cut"></i> Trim Spaces
+                            </button>
+                            <button class="option-btn" data-format="remove-extra-spaces">
+                                <i class="fas fa-compress-alt"></i> Remove Extra Spaces
+                            </button>
+                            <button class="option-btn" data-format="remove-linebreaks">
+                                <i class="fas fa-minus"></i> Remove Line Breaks
+                            </button>
+                            <button class="option-btn" data-format="single-line">
+                                <i class="fas fa-stream"></i> Single Line
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="option-group">
+                        <h4><i class="fas fa-magic"></i> Advanced Formatting</h4>
+                        <div class="option-buttons" id="advancedOptions">
+                            <button class="option-btn" data-format="reverse">
+                                <i class="fas fa-exchange-alt"></i> Reverse Text
+                            </button>
+                            <button class="option-btn" data-format="reverse-words">
+                                <i class="fas fa-exchange-alt"></i> Reverse Words
+                            </button>
+                            <button class="option-btn" data-format="sort-lines">
+                                <i class="fas fa-sort-alpha-down"></i> Sort Lines A-Z
+                            </button>
+                            <button class="option-btn" data-format="sort-lines-desc">
+                                <i class="fas fa-sort-alpha-down-alt"></i> Sort Lines Z-A
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="action-btn format-btn" id="formatBtn">
+                        <i class="fas fa-magic"></i> Format Text
+                    </button>
+                    <button class="action-btn copy-btn" id="copyBtn" disabled>
+                        <i class="fas fa-copy"></i> Copy Result
+                    </button>
+                    <button class="action-btn download-btn" id="downloadBtn" disabled>
+                        <i class="fas fa-download"></i> Download Text
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Output Section -->
+        <div class="text-input-section">
+            <h3>Formatted Result</h3>
+            <div class="textarea-container">
+                <textarea id="outputText" placeholder="Formatted text will appear here..." readonly></textarea>
+                <div class="char-count" id="outputCharCount">0 characters</div>
+            </div>
+        </div>
+
+        <!-- Stats Section -->
+        <div class="stats-section">
+            <h3>Text Statistics</h3>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value" id="charCount">0</div>
+                    <div class="stat-label">Characters</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="wordCount">0</div>
+                    <div class="stat-label">Words</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="lineCount">0</div>
+                    <div class="stat-label">Lines</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="sentenceCount">0</div>
+                    <div class="stat-label">Sentences</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="paragraphCount">0</div>
+                    <div class="stat-label">Paragraphs</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="spaceCount">0</div>
+                    <div class="stat-label">Spaces</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Is the Text Formatter tool free to use?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, our Text Formatter is 100% free with no hidden costs, registration requirements, or limitations. You can format as much text as you need without any restrictions.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Is my text data safe and private?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely! All text processing happens locally in your browser. Your text never leaves your device or gets uploaded to any server. This ensures complete privacy and security for sensitive content.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What text formats do you support?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We support all text formats including plain text, code snippets, JSON, XML, CSV data, and more. The tool works with any text-based content regardless of its source or format.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Can I format large amounts of text?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! The tool can handle large text documents. Performance may vary based on your device's capabilities, but there are no artificial limits on text size.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Does the tool work offline?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! Once the page is loaded, you can use all formatting features without an internet connection. This makes it perfect for working with sensitive documents or in areas with poor connectivity.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Related Tools Section -->
+        <div class="related-tools-section">
+            <h2>Other Useful Text Tools</h2>
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3>Word Counter</h3>
+                    <p>Count words, characters, sentences, and paragraphs in your text. Perfect for writers, students, and professionals.</p>
+                    <a href="word-counter.html" class="tool-link">Use Tool</a>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-exchange-alt"></i>
+                    </div>
+                    <h3>Case Converter</h3>
+                    <p>Convert text between uppercase, lowercase, title case, and sentence case. Perfect for formatting headings and titles.</p>
+                    <a href="case-converter.html" class="tool-link">Use Tool</a>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-spell-check"></i>
+                    </div>
+                    <h3>Grammar Checker</h3>
+                    <p>Check grammar, spelling, and punctuation errors in your text. Improve your writing with AI-powered suggestions.</p>
+                    <a href="grammar-checker.html" class="tool-link">Use Tool</a>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <h3>Text Translator</h3>
+                    <p>Translate text between multiple languages with high accuracy. Perfect for international communication and content creation.</p>
+                    <a href="text-translator.html" class="tool-link">Use Tool</a>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-random"></i>
+                    </div>
+                    <h3>Text Reverser</h3>
+                    <p>Reverse text, words, or sentences for creative purposes, coding, or solving puzzles.</p>
+                    <a href="text-reverser.html" class="tool-link">Use Tool</a>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-paragraph"></i>
+                    </div>
+                    <h3>Text Summarizer</h3>
+                    <p>Summarize long articles, documents, or text into concise summaries. Save time on reading and research.</p>
+                    <a href="text-summarizer.html" class="tool-link">Use Tool</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- SEO Pages Section -->
+        <div class="seo-section" id="privacy-policy">
+            <button class="close-seo" onclick="hideSeoPage()">×</button>
+            <h1>Privacy Policy</h1>
+            <div class="seo-content">
+                <p><strong>Last Updated: January 2024</strong></p>
+                
+                <h2>1. Introduction</h2>
+                <p>Welcome to Toolvexa Text Formatter. Your privacy is critically important to us. This privacy policy document outlines the types of personal information that is received and collected by our tool and how it is used.</p>
+                
+                <h2>2. Information We Collect</h2>
+                <h3>2.1 No Personal Data Collection</h3>
+                <p>Our Text Formatter tool operates entirely in your browser. We do not:</p>
+                <ul>
+                    <li>Collect any personal information</li>
+                    <li>Upload your text to our servers</li>
+                    <li>Store any information about your usage</li>
+                    <li>Use cookies for tracking purposes</li>
+                </ul>
+                
+                <h3>2.2 Local Processing</h3>
+                <p>All text formatting happens locally on your device using JavaScript. Your text never leaves your computer or mobile device.</p>
+                
+                <h2>3. How We Use Information</h2>
+                <p>Since we don't collect any personal data, there's no information to use or share. The tool functions completely offline once loaded in your browser.</p>
+                
+                <h2>4. Third-Party Services</h2>
+                <p>We only use Font Awesome for icons. These services may collect limited data as per their own privacy policies.</p>
+                
+                <h2>5. Security</h2>
+                <p>Your security is guaranteed because:</p>
+                <ul>
+                    <li>No data transmission occurs</li>
+                    <li>All processing is done client-side</li>
+                    <li>No server-side storage exists</li>
+                </ul>
+                
+                <h2>6. Changes to This Policy</h2>
+                <p>We may update this privacy policy from time to time. We will notify you of any changes by posting the new privacy policy on this page.</p>
+                
+                <h2>7. Contact Us</h2>
+                <p>If you have any questions about this Privacy Policy, please contact us at: privacy@toolvexa.com</p>
+            </div>
+        </div>
+
+        <div class="seo-section" id="terms-of-service">
+            <button class="close-seo" onclick="hideSeoPage()">×</button>
+            <h1>Terms of Service</h1>
+            <div class="seo-content">
+                <p><strong>Last Updated: January 2024</strong></p>
+                
+                <h2>1. Acceptance of Terms</h2>
+                <p>By accessing and using the Toolvexa Text Formatter tool, you accept and agree to be bound by the terms and provision of this agreement.</p>
+                
+                <h2>2. Description of Service</h2>
+                <p>Toolvexa Text Formatter provides a free online tool for formatting, cleaning, and beautifying text. The service includes:</p>
+                <ul>
+                    <li>Text case conversion (uppercase, lowercase, title case)</li>
+                    <li>Text cleaning and formatting</li>
+                    <li>Advanced text manipulation</li>
+                    <li>Local processing (no server uploads)</li>
+                    <li>Text statistics and analysis</li>
+                </ul>
+                
+                <h2>3. User Responsibilities</h2>
+                <p>You agree to:</p>
+                <ul>
+                    <li>Use the tool only for lawful purposes</li>
+                    <li>Not upload any malicious or harmful content</li>
+                    <li>Respect copyright and intellectual property rights</li>
+                    <li>Not attempt to reverse engineer or hack the tool</li>
+                </ul>
+                
+                <h2>4. Service Limitations</h2>
+                <p>The service is provided "as is" without warranties of any kind. We do not guarantee:</p>
+                <ul>
+                    <li>Uninterrupted service availability</li>
+                    <li>Specific formatting results</li>
+                    <li>Compatibility with all browsers or devices</li>
+                    <li>Perfect accuracy in all formatting operations</li>
+                </ul>
+                
+                <h2>5. Intellectual Property</h2>
+                <p>All text you input remains your property. We do not claim any rights over your original or formatted text.</p>
+                
+                <h2>6. Limitation of Liability</h2>
+                <p>Toolvexa shall not be liable for any indirect, incidental, special, consequential or punitive damages resulting from your use of the tool.</p>
+                
+                <h2>7. Changes to Terms</h2>
+                <p>We reserve the right to modify these terms at any time. Continued use of the tool constitutes acceptance of modified terms.</p>
+                
+                <h2>8. Contact Information</h2>
+                <p>For any questions regarding these Terms of Service, please contact: legal@toolvexa.com</p>
+            </div>
+        </div>
+
+        <div class="seo-section" id="about-tool">
+            <button class="close-seo" onclick="hideSeoPage()">×</button>
+            <h1>About Text Formatter Tool</h1>
+            <div class="seo-content">
+                <h2>What is Toolvexa Text Formatter?</h2>
+                <p>Toolvexa Text Formatter is a free online tool that helps you format, clean, and beautify text for various purposes. It's perfect for writers, developers, students, and professionals who need to prepare text for publishing, coding, or analysis.</p>
+                
+                <h2>Key Features</h2>
+                <ul>
+                    <li><strong>Browser-Based Processing:</strong> All formatting happens locally in your browser</li>
+                    <li><strong>No Text Limits:</strong> Format as much text as you need</li>
+                    <li><strong>Multiple Formatting Options:</strong> Case conversion, cleaning, advanced formatting</li>
+                    <li><strong>Text Statistics:</strong> Detailed analysis of your text</li>
+                    <li><strong>Privacy Guaranteed:</strong> Your text never leaves your device</li>
+                    <li><strong>Works Offline:</strong> Use without internet connection</li>
+                </ul>
+                
+                <h2>How It Works</h2>
+                <p>Our tool uses advanced JavaScript algorithms to format text efficiently. The process is simple:</p>
+                <ol>
+                    <li>Input your text in the left panel</li>
+                    <li>Select formatting options on the right</li>
+                    <li>Click "Format Text" to process</li>
+                    <li>Copy or download the formatted result</li>
+                </ol>
+                
+                <h2>Use Cases</h2>
+                <ul>
+                    <li><strong>Content Creation:</strong> Format text for blogs, articles, and social media</li>
+                    <li><strong>Data Cleaning:</strong> Prepare text data for analysis or databases</li>
+                    <li><strong>Code Formatting:</strong> Clean and format code snippets</li>
+                    <li><strong>Academic Work:</strong> Format essays, papers, and research documents</li>
+                    <li><strong>Business Documents:</strong> Prepare professional documents and reports</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-links">
+                <a href="#privacy-policy" onclick="showSeoPage('privacy')">Privacy Policy</a>
+                <a href="#terms-of-service" onclick="showSeoPage('terms')">Terms of Service</a>
+                <a href="#about-tool" onclick="showSeoPage('about')">About This Tool</a>
+                <a href="index.html">All Tools</a>
+                <a href="index.html#text-tools">Text Tools</a>
+                <a href="index.html#contact">Contact Us</a>
+            </div>
+            <div class="copyright">
+                <p>© 2024 Text Formatter Tool | Toolvexa | All text processing happens locally in your browser. No data is uploaded to any server.</p>
+                <p style="margin-top: 10px;">Made with <i class="fas fa-heart" style="color: #e63946;"></i> for everyone</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Navigation functionality
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                navLinks.classList.remove('active');
+            }
+        });
+        
+        // SEO pages functionality
+        function showSeoPage(page) {
+            // Hide all seo sections first
+            document.querySelectorAll('.seo-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show the requested section
+            let sectionId = '';
+            switch(page) {
+                case 'privacy':
+                    sectionId = 'privacy-policy';
+                    break;
+                case 'terms':
+                    sectionId = 'terms-of-service';
+                    break;
+                case 'about':
+                    sectionId = 'about-tool';
+                    break;
+            }
+            
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Close mobile menu if open
+            navLinks.classList.remove('active');
+            
+            // Scroll to the section
+            setTimeout(() => {
+                document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+            }, 100);
+        }
+        
+        function hideSeoPage() {
+            document.querySelectorAll('.seo-section').forEach(section => {
+                section.classList.remove('active');
+            });
+        }
+        
+        // Close SEO section when clicking outside
+        document.addEventListener('click', (e) => {
+            if (e.target.classList.contains('seo-section')) {
+                hideSeoPage();
+            }
+        });
+
+        // FAQ functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                item.classList.toggle('active');
+            });
+        });
+
+        // Toast Notification
+        function showToast(message, isError = false) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.className = 'toast';
+            toast.classList.add('show');
+            if (isError) {
+                toast.classList.add('error');
+            }
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // Text Formatter Tool JavaScript
+        const inputText = document.getElementById('inputText');
+        const outputText = document.getElementById('outputText');
+        const inputCharCount = document.getElementById('inputCharCount');
+        const outputCharCount = document.getElementById('outputCharCount');
+        const clearBtn = document.getElementById('clearBtn');
+        const pasteBtn = document.getElementById('pasteBtn');
+        const sampleBtn = document.getElementById('sampleBtn');
+        const formatBtn = document.getElementById('formatBtn');
+        const copyBtn = document.getElementById('copyBtn');
+        const downloadBtn = document.getElementById('downloadBtn');
+        
+        // Option buttons
+        const caseButtons = document.querySelectorAll('#caseOptions .option-btn');
+        const cleanButtons = document.querySelectorAll('#cleanOptions .option-btn');
+        const advancedButtons = document.querySelectorAll('#advancedOptions .option-btn');
+        
+        // Stats elements
+        const charCount = document.getElementById('charCount');
+        const wordCount = document.getElementById('wordCount');
+        const lineCount = document.getElementById('lineCount');
+        const sentenceCount = document.getElementById('sentenceCount');
+        const paragraphCount = document.getElementById('paragraphCount');
+        const spaceCount = document.getElementById('spaceCount');
+        
+        // Selected formatting options
+        let selectedCaseFormat = 'titlecase';
+        let selectedCleanFormat = null;
+        let selectedAdvancedFormat = null;
+        
+        // Initialize
+        updateCharCount();
+        updateStats();
+        updateOutput();
+        
+        // Event Listeners
+        inputText.addEventListener('input', () => {
+            updateCharCount();
+            updateStats();
+            updateOutput();
+        });
+        
+        clearBtn.addEventListener('click', () => {
+            inputText.value = '';
+            updateCharCount();
+            updateStats();
+            updateOutput();
+            showToast('Text cleared successfully');
+        });
+        
+        pasteBtn.addEventListener('click', async () => {
+            try {
+                const text = await navigator.clipboard.readText();
+                inputText.value = text;
+                updateCharCount();
+                updateStats();
+                updateOutput();
+                showToast('Text pasted successfully');
+            } catch (err) {
+                showToast('Failed to paste text. Please paste manually.', true);
+            }
+        });
+        
+        sampleBtn.addEventListener('click', () => {
+            inputText.value = `Welcome to the Text Formatter Tool!
+
+This is a sample text to demonstrate the formatting capabilities.
+
+FEATURES INCLUDE:
+• Uppercase/lowercase conversion
+• Title case formatting
+• Sentence case correction
+• Trim extra spaces
+• Remove line breaks
+• Text reversal
+• Line sorting
+• And much more!
+
+Try different formatting options to see how they work.
+
+Formatting text has never been easier!
+All processing happens locally in your browser for maximum privacy.`;
+            updateCharCount();
+            updateStats();
+            updateOutput();
+            showToast('Sample text loaded');
+        });
+        
+        formatBtn.addEventListener('click', () => {
+            updateOutput();
+            showToast('Text formatted successfully');
+        });
+        
+        copyBtn.addEventListener('click', () => {
+            if (!outputText.value.trim()) {
+                showToast('No text to copy', true);
+                return;
+            }
+            
+            outputText.select();
+            outputText.setSelectionRange(0, 99999);
+            
+            try {
+                navigator.clipboard.writeText(outputText.value);
+                showToast('Text copied to clipboard');
+            } catch (err) {
+                // Fallback for older browsers
+                document.execCommand('copy');
+                showToast('Text copied to clipboard');
+            }
+        });
+        
+        downloadBtn.addEventListener('click', () => {
+            if (!outputText.value.trim()) {
+                showToast('No text to download', true);
+                return;
+            }
+            
+            const blob = new Blob([outputText.value], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'formatted-text.txt';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            
+            showToast('Text downloaded successfully');
+        });
+        
+        // Option button event listeners
+        caseButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                caseButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                selectedCaseFormat = btn.dataset.format;
+                updateOutput();
+            });
+        });
+        
+        cleanButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Toggle selection for clean options
+                if (btn.classList.contains('active')) {
+                    btn.classList.remove('active');
+                    selectedCleanFormat = null;
+                } else {
+                    cleanButtons.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    selectedCleanFormat = btn.dataset.format;
+                }
+                updateOutput();
+            });
+        });
+        
+        advancedButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Toggle selection for advanced options
+                if (btn.classList.contains('active')) {
+                    btn.classList.remove('active');
+                    selectedAdvancedFormat = null;
+                } else {
+                    advancedButtons.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    selectedAdvancedFormat = btn.dataset.format;
+                }
+                updateOutput();
+            });
+        });
+        
+        // Functions
+        function updateCharCount() {
+            const inputLength = inputText.value.length;
+            inputCharCount.textContent = `${inputLength} character${inputLength !== 1 ? 's' : ''}`;
+            
+            const outputLength = outputText.value.length;
+            outputCharCount.textContent = `${outputLength} character${outputLength !== 1 ? 's' : ''}`;
+            
+            // Enable/disable buttons based on text content
+            copyBtn.disabled = outputLength === 0;
+            downloadBtn.disabled = outputLength === 0;
+        }
+        
+        function updateStats() {
+            const text = inputText.value;
+            
+            // Character count
+            charCount.textContent = text.length;
+            
+            // Word count
+            const words = text.trim().split(/\s+/).filter(word => word.length > 0);
+            wordCount.textContent = words.length;
+            
+            // Line count
+            const lines = text.split('\n').filter(line => line.trim().length > 0);
+            lineCount.textContent = lines.length;
+            
+            // Sentence count
+            const sentences = text.split(/[.!?]+/).filter(sentence => sentence.trim().length > 0);
+            sentenceCount.textContent = sentences.length;
+            
+            // Paragraph count
+            const paragraphs = text.split(/\n\s*\n/).filter(para => para.trim().length > 0);
+            paragraphCount.textContent = paragraphs.length;
+            
+            // Space count
+            const spaces = (text.match(/ /g) || []).length;
+            spaceCount.textContent = spaces;
+        }
+        
+        function updateOutput() {
+            let formattedText = inputText.value;
+            
+            // Apply case formatting
+            formattedText = applyCaseFormatting(formattedText, selectedCaseFormat);
+            
+            // Apply clean formatting
+            if (selectedCleanFormat) {
+                formattedText = applyCleanFormatting(formattedText, selectedCleanFormat);
+            }
+            
+            // Apply advanced formatting
+            if (selectedAdvancedFormat) {
+                formattedText = applyAdvancedFormatting(formattedText, selectedAdvancedFormat);
+            }
+            
+            outputText.value = formattedText;
+            updateCharCount();
+        }
+        
+        function applyCaseFormatting(text, format) {
+            switch(format) {
+                case 'uppercase':
+                    return text.toUpperCase();
+                case 'lowercase':
+                    return text.toLowerCase();
+                case 'titlecase':
+                    return text.toLowerCase().replace(/\b\w/g, char => char.toUpperCase());
+                case 'sentencecase':
+                    return text.toLowerCase().replace(/(^\s*\w|[.!?]\s+\w)/g, match => match.toUpperCase());
+                default:
+                    return text;
+            }
+        }
+        
+        function applyCleanFormatting(text, format) {
+            switch(format) {
+                case 'trim':
+                    return text.trim();
+                case 'remove-extra-spaces':
+                    return text.replace(/\s+/g, ' ').trim();
+                case 'remove-linebreaks':
+                    return text.replace(/\n/g, ' ').replace(/\s+/g, ' ').trim();
+                case 'single-line':
+                    return text.replace(/\n/g, ' ').replace(/\s+/g, ' ').trim();
+                default:
+                    return text;
+            }
+        }
+        
+        function applyAdvancedFormatting(text, format) {
+            switch(format) {
+                case 'reverse':
+                    return text.split('').reverse().join('');
+                case 'reverse-words':
+                    return text.split(' ').reverse().join(' ');
+                case 'sort-lines':
+                    return text.split('\n').filter(line => line.trim()).sort().join('\n');
+                case 'sort-lines-desc':
+                    return text.split('\n').filter(line => line.trim()).sort().reverse().join('\n');
+                default:
+                    return text;
+            }
+        }
+    </script>
+</body>
+</html>
