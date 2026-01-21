@@ -1,486 +1,1058 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Disclaimer | Toolvexa - Smart Online Tools for Everyday Use</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Toolvexa Disclaimer - Important information about the use of our free online tools and services.">
-    <meta name="keywords" content="disclaimer, terms of use, legal disclaimer, Toolvexa disclaimer">
-    <meta name="robots" content="index, follow">
-    <meta property="og:title" content="Disclaimer | Toolvexa">
-    <meta property="og:description" content="Important legal disclaimer for using Toolvexa's free online tools and services.">
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        
-        :root {
-            --primary-color: #4f46e5;
-            --primary-dark: #3730a3;
-            --secondary-color: #10b981;
-            --accent-color: #ec4899;
-            --light-color: #f8fafc;
-            --dark-color: #111827;
-            --gray-color: #6b7280;
-            --light-gray: #e5e7eb;
-            --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            --transition: all 0.3s ease;
-            --border-radius: 12px;
-            --warning-bg: #fef3c7;
-            --warning-border: #f59e0b;
-            --warning-text: #92400e;
-        }
-        
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--light-color);
-            color: var(--dark-color);
-            line-height: 1.6;
-            overflow-x: hidden;
-            padding-top: 70px;
-        }
-        
-        h1, h2, h3, h4 {
-            font-family: 'Playfair Display', serif;
-            font-weight: 600;
-            line-height: 1.3;
-        }
-        
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Header */
-        header {
-            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
-            color: white;
-            padding: 1rem 0;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-        
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-            color: white;
-        }
-        
-        .logo:hover {
-            color: var(--secondary-color);
-            transition: var(--transition);
-        }
-        
-        /* Back to Home Button */
-        .back-home {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background-color: var(--primary-color);
-            color: white;
-            padding: 0.8rem 1.5rem;
-            border-radius: var(--border-radius);
-            text-decoration: none;
-            font-weight: 500;
-            margin-top: 2rem;
-            transition: var(--transition);
-        }
-        
-        .back-home:hover {
-            background-color: var(--primary-dark);
-            transform: translateY(-3px);
-            box-shadow: var(--card-shadow);
-        }
-        
-        /* Disclaimer Content */
-        .disclaimer-container {
-            background-color: white;
-            border-radius: var(--border-radius);
-            padding: 3rem;
-            margin: 3rem 0;
-            box-shadow: var(--card-shadow);
-            animation: fadeIn 1s ease-out;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .disclaimer-header {
-            text-align: center;
-            margin-bottom: 2.5rem;
-        }
-        
-        .disclaimer-header h1 {
-            font-size: 2.5rem;
-            color: var(--dark-color);
-            margin-bottom: 1rem;
-        }
-        
-        .disclaimer-header .last-updated {
-            color: var(--gray-color);
-            font-size: 0.9rem;
-            font-style: italic;
-        }
-        
-        .disclaimer-content h2 {
-            font-size: 1.8rem;
-            color: var(--dark-color);
-            margin: 2rem 0 1rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--light-gray);
-        }
-        
-        .disclaimer-content h3 {
-            font-size: 1.3rem;
-            color: var(--primary-dark);
-            margin: 1.5rem 0 0.8rem;
-        }
-        
-        .disclaimer-content p {
-            margin-bottom: 1rem;
-            color: var(--gray-color);
-        }
-        
-        .disclaimer-content ul, .disclaimer-content ol {
-            margin-left: 2rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .disclaimer-content li {
-            margin-bottom: 0.5rem;
-            color: var(--gray-color);
-        }
-        
-        .warning-box {
-            background-color: var(--warning-bg);
-            border-left: 4px solid var(--warning-border);
-            padding: 1.5rem;
-            margin: 1.5rem 0;
-            border-radius: 0 var(--border-radius) var(--border-radius) 0;
-        }
-        
-        .warning-box h3 {
-            color: var(--warning-text);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .important-box {
-            background-color: rgba(79, 70, 229, 0.05);
-            border-left: 4px solid var(--primary-color);
-            padding: 1.5rem;
-            margin: 1.5rem 0;
-            border-radius: 0 var(--border-radius) var(--border-radius) 0;
-        }
-        
-        .tool-specific {
-            background-color: #f0f9ff;
-            border: 1px solid #bae6fd;
-            padding: 1.5rem;
-            border-radius: var(--border-radius);
-            margin: 1.5rem 0;
-        }
-        
-        .tool-specific h4 {
-            color: #0369a1;
-            margin-bottom: 0.8rem;
-            font-size: 1.1rem;
-        }
-        
-        /* Footer */
-        footer {
-            background-color: var(--dark-color);
-            color: #9ca3af;
-            padding: 3rem 0 2rem;
-            margin-top: 4rem;
-        }
-        
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid #374151;
-            font-size: 0.9rem;
-        }
-        
-        .footer-bottom a {
-            color: #9ca3af;
-            margin: 0 10px;
-            transition: var(--transition);
-        }
-        
-        .footer-bottom a:hover {
-            color: var(--primary-color);
-        }
-        
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            body {
-                padding-top: 60px;
-            }
-            
-            .disclaimer-container {
-                padding: 2rem;
-                margin: 2rem 0;
-            }
-            
-            .disclaimer-header h1 {
-                font-size: 2rem;
-            }
-            
-            .disclaimer-content h2 {
-                font-size: 1.5rem;
-            }
-            
-            .disclaimer-content h3 {
-                font-size: 1.2rem;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            .disclaimer-container {
-                padding: 1.5rem;
-                margin: 1.5rem 0;
-            }
-            
-            .disclaimer-header h1 {
-                font-size: 1.8rem;
-            }
-            
-            .back-home {
-                width: 100%;
-                justify-content: center;
-                padding: 0.8rem 1rem;
-            }
-            
-            .logo {
-                font-size: 1.5rem;
-            }
-        }
-        
-        /* Smooth scrolling */
-        html {
-            scroll-behavior: smooth;
-        }
-        
-        /* Text selection */
-        ::selection {
-            background-color: rgba(79, 70, 229, 0.3);
-            color: var(--dark-color);
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Disclaimer - Toolsedito | Free Online Tools</title>
+  <meta name="description" content="Disclaimer for Toolsedito - Free online tools for PDF, images, SEO, AI, and calculations. Important legal information about tool usage." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.toolsedito.com/disclaimer.html" />
+  
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+  <style>
+    /* Mobile First CSS - Based on homepage styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #4f46e5;
+      --primary-dark: #4338ca;
+      --secondary: #10b981;
+      --accent: #f59e0b;
+      --light: #f8fafc;
+      --dark: #1f2933;
+      --gray: #6b7280;
+      --light-gray: #f3f4f6;
+      --card-bg: #ffffff;
+      --card-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+      --hover-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      --body-bg: var(--light);
+      --text-color: var(--dark);
+      --border-color: rgba(0, 0, 0, 0.05);
+      --footer-bg: linear-gradient(135deg, #111827, #1f2937);
+      --transition-speed: 0.3s;
+    }
+
+    /* Dark Theme Variables */
+    .dark-theme {
+      --light: #121826;
+      --dark: #f3f4f6;
+      --gray: #9ca3af;
+      --light-gray: #1f2937;
+      --card-bg: #1a2332;
+      --body-bg: #0f172a;
+      --text-color: #f3f4f6;
+      --border-color: rgba(255, 255, 255, 0.05);
+      --card-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      --hover-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      --footer-bg: linear-gradient(135deg, #0f172a, #1e293b);
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--body-bg);
+      color: var(--text-color);
+      line-height: 1.6;
+      overflow-x: hidden;
+      transition: background-color var(--transition-speed) ease,
+                  color var(--transition-speed) ease;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+    }
+
+    /* Theme Toggle Button */
+    .theme-toggle {
+      background: var(--light-gray);
+      border: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--text-color);
+      font-size: 1.2rem;
+      transition: all var(--transition-speed) ease;
+      margin-left: 10px;
+    }
+
+    .theme-toggle:hover {
+      background: var(--primary);
+      color: white;
+      transform: rotate(15deg);
+    }
+
+    .theme-toggle i {
+      transition: transform 0.5s ease;
+    }
+
+    .dark-theme .theme-toggle i.fa-sun {
+      display: block;
+    }
+
+    .dark-theme .theme-toggle i.fa-moon {
+      display: none;
+    }
+
+    .theme-toggle i.fa-sun {
+      display: none;
+    }
+
+    .theme-toggle i.fa-moon {
+      display: block;
+    }
+
+    /* Mobile First - Sidebar Implementation */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      padding: 18px 0;
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+      transition: all var(--transition-speed) ease;
+    }
+
+    .dark-theme .navbar {
+      background: rgba(26, 35, 50, 0.98);
+    }
+
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+    }
+
+    .nav-logo {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--primary);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-logo i {
+      font-size: 1.4rem;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    /* Desktop Navigation - Hidden on Mobile */
+    .nav-links {
+      display: none;
+    }
+
+    /* Mobile Menu Button */
+    .mobile-menu-btn {
+      display: block;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--text-color);
+      cursor: pointer;
+      z-index: 1002;
+      transition: color var(--transition-speed) ease;
+    }
+
+    /* Sidebar Styles */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      right: -300px;
+      width: 280px;
+      height: 100vh;
+      background: var(--card-bg);
+      box-shadow: -5px 0 25px rgba(0, 0, 0, 0.1);
+      z-index: 1001;
+      transition: right 0.3s ease-in-out;
+      padding: 80px 25px 30px;
+      overflow-y: auto;
+    }
+
+    .dark-theme .sidebar {
+      box-shadow: -5px 0 25px rgba(0, 0, 0, 0.3);
+    }
+
+    .sidebar.active {
+      right: 0;
+    }
+
+    .sidebar-header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px;
+      background: var(--primary);
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .sidebar-header .nav-logo {
+      color: white;
+      font-size: 1.3rem;
+    }
+
+    .sidebar-close {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .sidebar-links {
+      list-style: none;
+      margin-top: 20px;
+    }
+
+    .sidebar-links li {
+      margin-bottom: 15px;
+    }
+
+    .sidebar-links a {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--text-color);
+      text-decoration: none;
+      font-weight: 500;
+      padding: 12px 15px;
+      border-radius: 8px;
+      transition: all var(--transition-speed) ease;
+    }
+
+    .sidebar-links a:hover {
+      background: var(--light-gray);
+      color: var(--primary);
+      transform: translateX(5px);
+    }
+
+    .sidebar-links a i {
+      width: 20px;
+      text-align: center;
+    }
+
+    .sidebar-links a.active {
+      background: var(--primary);
+      color: white;
+    }
+
+    .sidebar-divider {
+      height: 1px;
+      background: var(--border-color);
+      margin: 20px 0;
+    }
+
+    .sidebar-tool-categories {
+      margin-top: 20px;
+    }
+
+    .sidebar-tool-categories h4 {
+      font-size: 0.9rem;
+      color: var(--gray);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 15px;
+    }
+
+    .sidebar-tools-list {
+      list-style: none;
+      margin-bottom: 20px;
+    }
+
+    .sidebar-tools-list li {
+      margin-bottom: 10px;
+    }
+
+    .sidebar-tools-list a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--gray);
+      text-decoration: none;
+      font-size: 0.9rem;
+      padding: 8px 10px;
+      border-radius: 6px;
+      transition: all var(--transition-speed) ease;
+    }
+
+    .sidebar-tools-list a:hover {
+      color: var(--primary);
+      background: var(--light-gray);
+    }
+
+    /* Overlay when sidebar is open */
+    .sidebar-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .sidebar-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Main Content Area */
+    .main-content {
+      padding-top: 100px;
+      padding-bottom: 60px;
+      min-height: calc(100vh - 300px);
+    }
+
+    .page-header {
+      text-align: center;
+      padding: 40px 20px;
+      background: linear-gradient(135deg, #e6f7ff 0%, #f0f9ff 100%);
+      margin-bottom: 40px;
+    }
+
+    .dark-theme .page-header {
+      background: linear-gradient(135deg, #0a1929 0%, #112240 100%);
+    }
+
+    .page-header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      background: linear-gradient(90deg, #4f46e5, #10b981);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .page-header p {
+      font-size: 1.1rem;
+      color: var(--gray);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .disclaimer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .disclaimer-section {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: var(--card-shadow);
+      margin-bottom: 30px;
+      border-left: 4px solid var(--primary);
+    }
+
+    .disclaimer-section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      color: var(--text-color);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .disclaimer-section h2 i {
+      color: var(--primary);
+    }
+
+    .disclaimer-section h3 {
+      font-size: 1.3rem;
+      margin: 25px 0 15px;
+      color: var(--text-color);
+    }
+
+    .disclaimer-section p {
+      margin-bottom: 15px;
+      color: var(--gray);
+      line-height: 1.7;
+    }
+
+    .disclaimer-section ul, .disclaimer-section ol {
+      margin: 15px 0 15px 25px;
+      color: var(--gray);
+    }
+
+    .disclaimer-section li {
+      margin-bottom: 10px;
+      line-height: 1.6;
+    }
+
+    .highlight-box {
+      background: var(--light-gray);
+      padding: 20px;
+      border-radius: 12px;
+      border-left: 4px solid var(--accent);
+      margin: 25px 0;
+    }
+
+    .highlight-box p {
+      margin-bottom: 0;
+      color: var(--text-color);
+      font-weight: 500;
+    }
+
+    .update-date {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-color);
+      color: var(--gray);
+      font-size: 0.9rem;
+    }
+
+    /* Back to Home Button */
+    .back-home {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .back-home a {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 30px;
+      background: var(--primary);
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: all var(--transition-speed) ease;
+    }
+
+    .back-home a:hover {
+      background: var(--primary-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(79, 70, 229, 0.2);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--footer-bg);
+      color: #9ca3af;
+      padding: 50px 20px 30px;
+      margin-top: 60px;
+      position: relative;
+      transition: background var(--transition-speed) ease;
+    }
+
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+
+    .footer-logo {
+      font-size: 2rem;
+      font-weight: 800;
+      color: white;
+      margin-bottom: 15px;
+      display: inline-block;
+      background: linear-gradient(90deg, #fff, #c7d2fe);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .footer-description {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 12px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .social-link:hover {
+      background: var(--primary);
+      transform: translateY(-5px);
+    }
+
+    .footer-links h4 {
+      color: white;
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    .footer-links h4::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 40px;
+      height: 3px;
+      background: var(--primary);
+    }
+
+    .footer-links ul {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+
+    .footer-links a {
+      color: #9ca3af;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: inline-block;
+      font-size: 0.95rem;
+    }
+
+    .footer-links a:hover {
+      color: white;
+      transform: translateX(5px);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.85rem;
+    }
+
+    /* Tablet Styles (768px and up) */
+    @media (min-width: 768px) {
+      .nav-logo {
+        font-size: 1.8rem;
+      }
+      
+      .nav-logo i {
+        font-size: 1.6rem;
+      }
+      
+      .page-header {
+        padding: 60px 20px;
+      }
+      
+      .page-header h1 {
+        font-size: 3rem;
+      }
+      
+      .page-header p {
+        font-size: 1.2rem;
+      }
+      
+      .disclaimer-section {
+        padding: 40px;
+      }
+      
+      .disclaimer-section h2 {
+        font-size: 2rem;
+      }
+      
+      .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* Desktop Styles (1024px and up) */
+    @media (min-width: 1024px) {
+      .nav-links {
+        display: flex;
+        gap: 30px;
+        list-style: none;
+      }
+
+      .nav-links a {
+        color: var(--text-color);
+        text-decoration: none;
+        font-weight: 500;
+        transition: color var(--transition-speed) ease;
+        position: relative;
+      }
+
+      .nav-links a:hover {
+        color: var(--primary);
+      }
+
+      .nav-links a::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--primary);
+        transition: width 0.3s;
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      .mobile-menu-btn {
+        display: none;
+      }
+
+      .sidebar {
+        display: none;
+      }
+
+      .sidebar-overlay {
+        display: none;
+      }
+      
+      .page-header {
+        padding: 80px 20px;
+      }
+      
+      .page-header h1 {
+        font-size: 3.5rem;
+      }
+      
+      .footer-content {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-fade-in-up {
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+
+    .delay-1 { animation-delay: 0.2s; }
+    .delay-2 { animation-delay: 0.4s; }
+    .delay-3 { animation-delay: 0.6s; }
+    .delay-4 { animation-delay: 0.8s; }
+  </style>
 </head>
+
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container nav-container">
-            <a href="index.html" class="logo">
-                <i class="fas fa-tools"></i>
-                Toolvexa
-            </a>
-        </div>
-    </header>
-
-    <!-- Main Content -->
-    <main class="container">
-        <!-- Back to Home Button -->
-        <a href="index.html" class="back-home">
-            <i class="fas fa-arrow-left"></i>
-            Back to Home
-        </a>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <i class="fas fa-tools"></i> Toolsedito
+      </a>
+      
+      <!-- Desktop Navigation -->
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#tools">Tools</a></li>
+        <li><a href="index.html#blog">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="disclaimer.html" class="active">Disclaimer</a></li>
+      </ul>
+      
+      <div style="display: flex; align-items: center;">
+        <!-- Theme Toggle Button -->
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+          <i class="fas fa-moon"></i>
+          <i class="fas fa-sun"></i>
+        </button>
         
-        <!-- Disclaimer Content -->
-        <div class="disclaimer-container">
-            <div class="disclaimer-header">
-                <h1>Disclaimer for Toolvexa</h1>
-                <p class="last-updated">Last Updated: May 2026</p>
-            </div>
-            
-            <div class="disclaimer-content">
-                <div class="warning-box">
-                    <h3><i class="fas fa-exclamation-triangle"></i> Important Legal Notice</h3>
-                    <p>Please read this disclaimer carefully before using Toolvexa's online tools. By accessing and using our website, you accept and agree to be bound by the terms of this disclaimer.</p>
-                </div>
-                
-                <h2>1. General Information Only</h2>
-                <p>Toolvexa provides online tools for general informational purposes only. All information and tools on the Toolvexa website are provided in good faith, however, we make no representation or warranty of any kind, express or implied, regarding the accuracy, adequacy, validity, reliability, availability, or completeness of any information on the site.</p>
-                
-                <h2>2. No Professional Advice</h2>
-                <p>The content and tools provided on Toolvexa are not intended to be a substitute for professional advice. Under no circumstances shall we have any liability to you for any loss or damage of any kind incurred as a result of the use of the site or reliance on any information provided on the site. Your use of the site and your reliance on any information on the site is solely at your own risk.</p>
-                
-                <h2>3. File Processing and Storage</h2>
-                <p>We do not host or store any user-uploaded files on our servers permanently. Most tools process files locally in your browser. For tools requiring server processing:</p>
-                <ul>
-                    <li>Files are temporarily stored for processing only</li>
-                    <li>Files are automatically deleted after processing is complete</li>
-                    <li>We do not access, view, or analyze the content of your files</li>
-                    <li>No permanent storage of uploaded or processed files</li>
-                </ul>
-                
-                <div class="important-box">
-                    <p><strong>Important:</strong> While we take measures to ensure the security of file processing, we cannot guarantee that unauthorized access, hacking, data loss, or other breaches will never occur. You should not upload sensitive, confidential, or proprietary information that you would not want potentially exposed.</p>
-                </div>
-                
-                <h2>4. User Responsibility</h2>
-                <p>Users are solely responsible for how they use our tools and the results obtained from them. You agree to use our tools only for lawful purposes and in a way that does not infringe the rights of, restrict or inhibit anyone else's use and enjoyment of the website.</p>
-                
-                <h3>Specific User Responsibilities:</h3>
-                <ul>
-                    <li>Ensure you have the right to upload and process any files</li>
-                    <li>Comply with all applicable laws and regulations</li>
-                    <li>Not use our tools for illegal, harmful, or unethical purposes</li>
-                    <li>Verify the accuracy and appropriateness of tool outputs</li>
-                    <li>Back up important data before using our tools</li>
-                </ul>
-                
-                <h2>5. Tool-Specific Disclaimers</h2>
-                
-                <div class="tool-specific">
-                    <h4>Image Tools Disclaimer</h4>
-                    <p>Our image tools are designed for general use. We cannot guarantee perfect results for all image types or formats. Some image quality loss may occur during compression or conversion processes.</p>
-                </div>
-                
-                <div class="tool-specific">
-                    <h4>PDF Tools Disclaimer</h4>
-                    <p>PDF processing may not preserve all formatting, fonts, or complex layouts perfectly. Always verify processed PDFs for accuracy before using them for official or important purposes.</p>
-                </div>
-                
-                <div class="tool-specific">
-                    <h4>SEO Tools Disclaimer</h4>
-                    <p>Our SEO tools provide general guidance and suggestions. SEO results depend on numerous factors beyond tool recommendations. We do not guarantee improved search rankings.</p>
-                </div>
-                
-                <div class="tool-specific">
-                    <h4>AI Tools Disclaimer</h4>
-                    <p>AI-generated content may contain inaccuracies, biases, or errors. Always review and verify AI-generated content before use. AI tools are for assistance only, not replacement of human judgment.</p>
-                </div>
-                
-                <div class="tool-specific">
-                    <h4>Calculator Tools Disclaimer</h4>
-                    <p>Calculator results are estimates only. For financial, legal, or other important calculations, consult with appropriate professionals and verify results independently.</p>
-                </div>
-                
-                <h2>6. Third-Party Content and Links</h2>
-                <p>Toolvexa may contain links to external websites that are not provided or maintained by or in any way affiliated with us. Please note that Toolvexa does not guarantee the accuracy, relevance, timeliness, or completeness of any information on these external websites.</p>
-                
-                <h2>7. Limitation of Liability</h2>
-                <p>To the maximum extent permitted by applicable law, we exclude all representations, warranties, and conditions relating to our website and the use of this website. Nothing in this disclaimer will:</p>
-                <ul>
-                    <li>Limit or exclude our or your liability for death or personal injury</li>
-                    <li>Limit or exclude our or your liability for fraud or fraudulent misrepresentation</li>
-                    <li>Limit any of our or your liabilities in any way that is not permitted under applicable law</li>
-                    <li>Exclude any of our or your liabilities that may not be excluded under applicable law</li>
-                </ul>
-                
-                <h2>8. Service Availability</h2>
-                <p>We do not guarantee that the Toolvexa service will be available at all times. We may experience hardware, software, or other problems or need to perform maintenance related to the website, resulting in interruptions, delays, or errors. We reserve the right to change, revise, update, suspend, discontinue, or otherwise modify the website at any time or for any reason without notice to you.</p>
-                
-                <h2>9. Changes to This Disclaimer</h2>
-                <p>We reserve the right to make changes to this disclaimer at any time. We will notify you of any changes by posting the new disclaimer on this page. These changes are effective immediately after they are posted on this page.</p>
-                
-                <h2>10. Contact Information</h2>
-                <p>If you have any questions about this disclaimer, please contact us:</p>
-                <ul>
-                    <li>By email: legal@toolvexa.com</li>
-                    <li>Through our contact form on the website</li>
-                    <li>Address: 123 Tech Street, San Francisco, CA</li>
-                </ul>
-                
-                <div class="warning-box">
-                    <h3><i class="fas fa-info-circle"></i> Final Note</h3>
-                    <p>By using Toolvexa, you acknowledge that you have read, understood, and agree to be bound by this disclaimer. If you do not agree with any part of this disclaimer, you must not use our website or tools.</p>
-                </div>
-                
-                <a href="index.html" class="back-home">
-                    <i class="fas fa-arrow-left"></i>
-                    Back to Home
-                </a>
-            </div>
-        </div>
-    </main>
+        <!-- Mobile Menu Button -->
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-bottom">
-                <p>
-                    <a href="index.html">Home</a> |
-                    <a href="privacy-policy.html">Privacy Policy</a> |
-                    <a href="term-condition.html">Terms of Service</a> |
-                    <a href="disclaimer.html">Disclaimer</a> |
-                    <a href="index.html#contact">Contact</a>
-                </p>
-                <p>© 2026 Toolvexa. All Rights Reserved. | Smart Online Tools for Everyday Use</p>
-                <p style="margin-top: 10px; font-size: 0.8rem;">Use of this website constitutes acceptance of our Disclaimer, Privacy Policy, and Terms of Service.</p>
-            </div>
-        </div>
-    </footer>
+  <!-- Mobile Sidebar -->
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <a href="index.html" class="nav-logo">
+        <i class="fas fa-tools"></i> Toolsedito
+      </a>
+      <button class="sidebar-close" id="sidebarClose">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    
+    <ul class="sidebar-links">
+      <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="index.html#tools"><i class="fas fa-tools"></i> All Tools</a></li>
+      <li><a href="index.html#blog"><i class="fas fa-blog"></i> Blog</a></li>
+      <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+      <li><a href="disclaimer.html" class="active"><i class="fas fa-exclamation-triangle"></i> Disclaimer</a></li>
+      <li>
+        <a href="#" id="sidebarThemeToggle">
+          <i class="fas fa-moon"></i> Dark Mode
+          <span id="themeStatus" style="margin-left: auto; font-size: 0.8rem; opacity: 0.7;">OFF</span>
+        </a>
+      </li>
+    </ul>
+    
+    <div class="sidebar-divider"></div>
+    
+    <div class="sidebar-tool-categories">
+      <h4>Quick Legal Pages</h4>
+      <ul class="sidebar-tools-list">
+        <li><a href="privacy-policy.html"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li>
+        <li><a href="terms-of-service.html"><i class="fas fa-file-contract"></i> Terms of Service</a></li>
+        <li><a href="disclaimer.html"><i class="fas fa-exclamation-triangle"></i> Disclaimer</a></li>
+        <li><a href="cookie-policy.html"><i class="fas fa-cookie"></i> Cookie Policy</a></li>
+      </ul>
+    </div>
+  </div>
 
-    <script>
-        // Simple script for smooth back to top
-        document.addEventListener('DOMContentLoaded', function() {
-            // Add active class to disclaimer link in footer
-            const currentPage = window.location.pathname.split('/').pop();
-            if (currentPage === 'disclaimer.html') {
-                const disclaimerLinks = document.querySelectorAll('a[href="disclaimer.html"]');
-                disclaimerLinks.forEach(link => {
-                    link.style.color = 'var(--primary-color)';
-                    link.style.fontWeight = '600';
-                });
-            }
-            
-            // Back to home button animation
-            const backHomeBtn = document.querySelector('.back-home');
-            if (backHomeBtn) {
-                backHomeBtn.addEventListener('mouseenter', function() {
-                    this.querySelector('i').style.transform = 'translateX(-5px)';
-                    this.querySelector('i').style.transition = 'transform 0.3s ease';
-                });
-                
-                backHomeBtn.addEventListener('mouseleave', function() {
-                    this.querySelector('i').style.transform = 'translateX(0)';
-                });
-            }
-            
-            // Update last updated year
-            const lastUpdated = document.querySelector('.last-updated');
-            if (lastUpdated) {
-                const currentYear = new Date().getFullYear();
-                lastUpdated.textContent = `Last Updated: May ${currentYear}`;
-            }
-        });
-    </script>
+  <!-- Main Content -->
+  <main class="main-content">
+    <!-- Page Header -->
+    <div class="page-header">
+      <h1 class="animate__animated animate__fadeIn">Disclaimer</h1>
+      <p class="animate__animated animate__fadeIn delay-1">Important legal information about our free online tools</p>
+    </div>
+
+    <!-- Disclaimer Content -->
+    <div class="disclaimer-container">
+      <div class="disclaimer-section animate-fade-in-up">
+        <h2><i class="fas fa-exclamation-triangle"></i> General Disclaimer</h2>
+        
+        <p>Welcome to Toolsedito. This Disclaimer governs your use of our website and all free online tools available at www.toolsedito.com. By accessing and using our tools, you accept and agree to be bound by the terms of this Disclaimer.</p>
+        
+        <div class="highlight-box">
+          <p><i class="fas fa-info-circle"></i> All tools on Toolsedito are provided "as is" without any warranties of any kind, either express or implied.</p>
+        </div>
+        
+        <h3>1. No Professional Advice</h3>
+        <p>The tools and information provided on Toolsedito are for general informational and educational purposes only. They are not intended to constitute professional advice of any kind, including but not limited to:</p>
+        <ul>
+          <li>Legal advice</li>
+          <li>Financial advice</li>
+          <li>Tax advice</li>
+          <li>Medical or health advice</li>
+          <li>Professional engineering or architectural advice</li>
+        </ul>
+        <p>You should consult with appropriate professionals for specific advice tailored to your situation.</p>
+        
+        <h3>2. Accuracy of Information</h3>
+        <p>While we strive to provide accurate and up-to-date information through our tools, we make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability, or availability of the information, products, services, or related graphics contained on Toolsedito for any purpose.</p>
+        
+        <h3>3. Tool Limitations</h3>
+        <p>Our online tools have inherent limitations:</p>
+        <ul>
+          <li>Tools may not be 100% accurate or error-free</li>
+          <li>Results may vary based on input quality and complexity</li>
+          <li>Some tools rely on third-party services or algorithms</li>
+          <li>Technical issues may cause temporary unavailability</li>
+        </ul>
+        
+        <h3>4. Financial Calculations Disclaimer</h3>
+        <p>Our financial calculators (GST, EMI, Tax, Investment, etc.) provide estimates only. These calculations should not be considered as financial advice. Actual financial outcomes may differ due to various factors including but not limited to:</p>
+        <ul>
+          <li>Changes in interest rates</li>
+          <li>Tax law changes</li>
+          <li>Market fluctuations</li>
+          <li>Individual financial circumstances</li>
+        </ul>
+        <p>Always consult with a qualified financial advisor before making financial decisions.</p>
+        
+        <h3>5. SEO and Marketing Tools</h3>
+        <p>Our SEO tools provide guidance and suggestions based on general best practices. Search engine algorithms change frequently, and what works today may not work tomorrow. We do not guarantee improved search rankings or website traffic from using our SEO tools.</p>
+        
+        <h3>6. AI Tools Disclaimer</h3>
+        <p>AI-powered tools may generate content or images that could be:</p>
+        <ul>
+          <li>Inaccurate or misleading</li>
+          <li>Potentially offensive or biased</li>
+          <li>Legally problematic (copyright, trademark, etc.)</li>
+          <li>Factually incorrect</li>
+        </ul>
+        <p>You are responsible for reviewing, editing, and verifying any content generated by AI tools before use.</p>
+        
+        <h3>7. File Processing Tools</h3>
+        <p>For image and PDF processing tools:</p>
+        <ul>
+          <li>We process files in your browser whenever possible</li>
+          <li>We do not store your files on our servers</li>
+          <li>We recommend keeping backups of original files</li>
+          <li>Complex files may not process correctly</li>
+        </ul>
+        
+        <h3>8. Third-Party Links and Services</h3>
+        <p>Our website may contain links to third-party websites or services. We have no control over, and assume no responsibility for:</p>
+        <ul>
+          <li>The content, privacy policies, or practices of any third-party sites</li>
+          <li>Any damage or loss caused by using third-party services</li>
+          <li>The accuracy of information on linked sites</li>
+        </ul>
+        
+        <h3>9. Limitation of Liability</h3>
+        <p>To the fullest extent permitted by applicable law, Toolsedito and its team shall not be liable for any direct, indirect, incidental, special, consequential, or exemplary damages, including but not limited to:</p>
+        <ul>
+          <li>Damages for loss of profits, goodwill, use, data, or other intangible losses</li>
+          <li>Business interruption</li>
+          <li>Computer failure or malfunction</li>
+          <li>Any other commercial damages or losses</li>
+        </ul>
+        
+        <h3>10. Indemnification</h3>
+        <p>You agree to indemnify, defend, and hold harmless Toolsedito, its team, and affiliates from any claim, liability, loss, damage, cost, or expense (including reasonable attorneys' fees) arising out of or related to your use of our tools or violation of this Disclaimer.</p>
+        
+        <h3>11. Changes to This Disclaimer</h3>
+        <p>We reserve the right to modify this Disclaimer at any time. We will notify users of any material changes by updating the "Last Updated" date at the bottom of this page. Your continued use of Toolsedito after any changes constitutes acceptance of the modified Disclaimer.</p>
+        
+        <div class="highlight-box">
+          <p><i class="fas fa-exclamation-circle"></i> If you do not agree with any part of this Disclaimer, you must immediately discontinue using Toolsedito and all associated tools.</p>
+        </div>
+        
+        <div class="update-date">
+          <p><strong>Last Updated:</strong> January 2026</p>
+          <p><strong>Effective Date:</strong> January 2026</p>
+        </div>
+      </div>
+      
+      <!-- Back to Home Button -->
+      <div class="back-home animate-fade-in-up delay-2">
+        <a href="index.html">
+          <i class="fas fa-arrow-left"></i> Back to Home
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-about">
+        <h3 class="footer-logo">Toolsedito</h3>
+        <p class="footer-description">Toolsedito provides smart online tools for everyday productivity. Our tools are fast, free, and easy to use, helping you accomplish tasks efficiently.</p>
+        <div class="social-links">
+          <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#tools">Tools</a></li>
+          <li><a href="index.html#blog">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Tool Categories</h4>
+        <ul>
+          <li><a href="index.html#image-tools">Image Tools</a></li>
+          <li><a href="index.html#pdf-tools">PDF Tools</a></li>
+          <li><a href="index.html#seo-tools">SEO Tools</a></li>
+          <li><a href="index.html#calculators">Calculators</a></li>
+          <li><a href="index.html#ai-tools">AI Tools</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms-of-service.html">Terms of Service</a></li>
+          <li><a href="disclaimer.html">Disclaimer</a></li>
+          <li><a href="cookie-policy.html">Cookie Policy</a></li>
+          <li><a href="contact.html">Help Center</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2026 Toolsedito. All rights reserved. | Designed with <i class="fas fa-heart" style="color: #ef4444;"></i> for productivity</p>
+    </div>
+  </footer>
+
+  <script>
+    // Dark Theme Toggle
+    const themeToggle = document.getElementById('themeToggle');
+    const sidebarThemeToggle = document.getElementById('sidebarThemeToggle');
+    const themeStatus = document.getElementById('themeStatus');
+    const body = document.body;
+    
+    // Check for saved theme preference or prefer-color-scheme
+    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    const savedTheme = localStorage.getItem('theme');
+    
+    // Set initial theme
+    if (savedTheme === 'dark' || (!savedTheme && prefersDarkScheme.matches)) {
+      body.classList.add('dark-theme');
+      updateThemeStatus(true);
+    } else {
+      updateThemeStatus(false);
+    }
+    
+    // Main theme toggle function
+    function toggleTheme() {
+      const isDark = body.classList.toggle('dark-theme');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      updateThemeStatus(isDark);
+      
+      // Add animation to the toggle button
+      themeToggle.style.transform = 'rotate(360deg)';
+      setTimeout(() => {
+        themeToggle.style.transform = '';
+      }, 300);
+    }
+    
+    // Update theme status text and icon
+    function updateThemeStatus(isDark) {
+      if (themeStatus) {
+        themeStatus.textContent = isDark ? 'ON' : 'OFF';
+      }
+    }
+    
+    // Event listeners for theme toggles
+    themeToggle.addEventListener('click', toggleTheme);
+    
+    if (sidebarThemeToggle) {
+      sidebarThemeToggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        toggleTheme();
+      });
+    }
+    
+    // Mobile Sidebar Functionality
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const sidebar = document.getElementById('sidebar');
+    const sidebarClose = document.getElementById('sidebarClose');
+    const sidebarOverlay = document.getElementById('sidebarOverlay');
+    
+    // Open sidebar
+    mobileMenuBtn.addEventListener('click', () => {
+      sidebar.classList.add('active');
+      sidebarOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+    
+    // Close sidebar
+    function closeSidebar() {
+      sidebar.classList.remove('active');
+      sidebarOverlay.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+    
+    sidebarClose.addEventListener('click', closeSidebar);
+    sidebarOverlay.addEventListener('click', closeSidebar);
+    
+    // Close sidebar when clicking on a link (for mobile)
+    document.querySelectorAll('.sidebar-links a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        if (!this.id.includes('Theme')) { // Don't close for theme toggle
+          closeSidebar();
+        }
+      });
+    });
+    
+    // Add smooth scrolling to all links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if(targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if(targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+          
+          // Close sidebar on mobile after clicking
+          if (window.innerWidth < 1024) {
+            closeSidebar();
+          }
+        }
+      });
+    });
+    
+    // Handle responsive behavior on window resize
+    window.addEventListener('resize', function() {
+      if (window.innerWidth >= 1024) {
+        closeSidebar();
+      }
+    });
+    
+    // Update theme status in sidebar when theme changes
+    const themeObserver = new MutationObserver(function(mutations) {
+      mutations.forEach(function(mutation) {
+        if (mutation.attributeName === 'class') {
+          const isDark = body.classList.contains('dark-theme');
+          updateThemeStatus(isDark);
+        }
+      });
+    });
+    
+    themeObserver.observe(body, { attributes: true });
+  </script>
 </body>
 </html>
