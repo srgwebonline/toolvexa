@@ -3,18 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>About Us - Toolvexa | Smart Online Tools Platform</title>
+  <title>About Toolsedito - Our Story, Mission & Team | Free Online Tools</title>
 
   <!-- SEO Meta -->
-  <meta name="description" content="Learn about Toolvexa - our mission to provide free, accessible online tools for everyday productivity. Discover our story, values, and team." />
-  <meta name="keywords" content="about toolvexa, online tools platform, mission, vision, values, team" />
-  <meta name="author" content="Toolvexa" />
+  <meta name="description" content="Learn about Toolsedito's mission to provide free online tools for everyone. Discover our story, team, values, and why we're committed to privacy-first tools." />
+  <meta name="keywords" content="about toolsedito, free online tools mission, toolsedito team, privacy-first tools, online tools company" />
+  <meta name="author" content="Toolsedito Team" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.toolsedito.com/about.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="About Toolsedito - Our Story, Mission & Team">
+  <meta property="og:description" content="Learn about our mission to provide free, privacy-first online tools for everyone.">
+  <meta property="og:url" content="https://www.toolsedito.com/about.html">
+  <meta property="og:image" content="https://www.toolsedito.com/og-image-about.jpg">
 
   <!-- Fonts & Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 
+  <!-- Reuse Homepage CSS with Enhanced Responsive Design -->
   <style>
     * {
       margin: 0;
@@ -31,16 +41,38 @@
       --dark: #1f2933;
       --gray: #6b7280;
       --light-gray: #f3f4f6;
+      --card-bg: #ffffff;
       --card-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
       --hover-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      --body-bg: var(--light);
+      --text-color: var(--dark);
+      --border-color: rgba(0, 0, 0, 0.05);
+      --footer-bg: linear-gradient(135deg, #111827, #1f2937);
+      --transition-speed: 0.3s;
+    }
+
+    .dark-theme {
+      --light: #121826;
+      --dark: #f3f4f6;
+      --gray: #9ca3af;
+      --light-gray: #1f2937;
+      --card-bg: #1a2332;
+      --body-bg: #0f172a;
+      --text-color: #f3f4f6;
+      --border-color: rgba(255, 255, 255, 0.05);
+      --card-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      --hover-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      --footer-bg: linear-gradient(135deg, #0f172a, #1e293b);
     }
 
     body {
       font-family: 'Inter', sans-serif;
-      background-color: var(--light);
-      color: var(--dark);
+      background-color: var(--body-bg);
+      color: var(--text-color);
       line-height: 1.6;
       overflow-x: hidden;
+      transition: background-color var(--transition-speed) ease,
+                  color var(--transition-speed) ease;
     }
 
     h1, h2, h3, h4 {
@@ -48,17 +80,44 @@
       font-weight: 700;
     }
 
-    /* Navigation */
+    /* Theme Toggle Button */
+    .theme-toggle {
+      background: var(--light-gray);
+      border: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--text-color);
+      font-size: 1.2rem;
+      transition: all var(--transition-speed) ease;
+      margin-left: 10px;
+    }
+
+    .theme-toggle:hover {
+      background: var(--primary);
+      color: white;
+      transform: rotate(15deg);
+    }
+
+    /* Navigation - Mobile First */
     .navbar {
       position: fixed;
       top: 0;
       width: 100%;
-      background: rgba(255, 255, 255, 0.95);
+      background: rgba(255, 255, 255, 0.98);
       backdrop-filter: blur(10px);
       z-index: 1000;
-      padding: 20px 0;
+      padding: 18px 0;
       box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
-      transition: all 0.3s ease;
+      transition: all var(--transition-speed) ease;
+    }
+
+    .dark-theme .navbar {
+      background: rgba(26, 35, 50, 0.98);
     }
 
     .nav-container {
@@ -71,7 +130,7 @@
     }
 
     .nav-logo {
-      font-size: 1.8rem;
+      font-size: 1.5rem;
       font-weight: 800;
       color: var(--primary);
       text-decoration: none;
@@ -80,127 +139,190 @@
       gap: 10px;
     }
 
+    .nav-logo i {
+      font-size: 1.4rem;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    /* Desktop Navigation - Hidden on Mobile */
     .nav-links {
-      display: flex;
-      gap: 30px;
-      list-style: none;
+      display: none;
     }
 
-    .nav-links a {
-      color: var(--dark);
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s;
-      position: relative;
+    /* Mobile Menu Button */
+    .mobile-menu-btn {
+      display: block;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--text-color);
+      cursor: pointer;
+      z-index: 1002;
+      transition: color var(--transition-speed) ease;
     }
 
-    .nav-links a:hover {
-      color: var(--primary);
+    /* Sidebar */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      right: -300px;
+      width: 280px;
+      height: 100vh;
+      background: var(--card-bg);
+      box-shadow: -5px 0 25px rgba(0, 0, 0, 0.1);
+      z-index: 1001;
+      transition: right 0.3s ease-in-out;
+      padding: 80px 25px 30px;
+      overflow-y: auto;
     }
 
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: -5px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: var(--primary);
-      transition: width 0.3s;
+    .dark-theme .sidebar {
+      box-shadow: -5px 0 25px rgba(0, 0, 0, 0.3);
     }
 
-    .nav-links a:hover::after {
-      width: 100%;
+    .sidebar.active {
+      right: 0;
     }
 
-    /* Header */
-    .about-header {
-      background: linear-gradient(135deg, #4f46e5, #6366f1, #8b5cf6);
-      color: white;
-      padding: 180px 20px 100px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-      margin-top: 70px;
-    }
-
-    .about-header::before {
-      content: '';
+    .sidebar-header {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
-      height: 100%;
-      background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
-      opacity: 0.3;
+      padding: 20px;
+      background: var(--primary);
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
-    .header-content {
-      max-width: 900px;
+    .sidebar-close {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .sidebar-links {
+      list-style: none;
+      margin-top: 20px;
+    }
+
+    .sidebar-links li {
+      margin-bottom: 15px;
+    }
+
+    .sidebar-links a {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--text-color);
+      text-decoration: none;
+      font-weight: 500;
+      padding: 12px 15px;
+      border-radius: 8px;
+      transition: all var(--transition-speed) ease;
+    }
+
+    .sidebar-links a:hover {
+      background: var(--light-gray);
+      color: var(--primary);
+      transform: translateX(5px);
+    }
+
+    .sidebar-links a.active {
+      background: var(--primary);
+      color: white;
+    }
+
+    /* Overlay */
+    .sidebar-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .sidebar-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Mobile Header - Responsive Adjustments */
+    .about-header {
+      background: linear-gradient(135deg, #e6f7ff 0%, #f0f9ff 100%);
+      color: #1f2933;
+      padding: 100px 20px 50px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      margin-top: 75px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .dark-theme .about-header {
+      background: linear-gradient(135deg, #0a1929 0%, #112240 100%);
+      color: #f3f4f6;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .about-header-content {
+      max-width: 1000px;
       margin: 0 auto;
       position: relative;
-      z-index: 1;
+      z-index: 2;
     }
 
     .about-title {
-      font-size: 3.5rem;
+      font-size: 2.2rem;
       font-weight: 800;
-      margin-bottom: 1.5rem;
-      display: inline-block;
-      background: linear-gradient(90deg, #fff, #c7d2fe);
+      background: linear-gradient(90deg, #4f46e5, #7c3aed, #10b981);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
-      text-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      letter-spacing: -0.5px;
+      line-height: 1.2;
+      margin-bottom: 15px;
     }
 
     .about-subtitle {
-      font-size: 1.4rem;
-      margin-bottom: 2rem;
-      opacity: 0.95;
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+      color: var(--dark);
       max-width: 700px;
       margin-left: auto;
       margin-right: auto;
-      line-height: 1.8;
+      line-height: 1.5;
+      font-weight: 400;
     }
 
-    /* Breadcrumb */
-    .breadcrumb {
-      background: var(--light-gray);
-      padding: 20px;
-      margin-top: 0;
+    .dark-theme .about-subtitle {
+      color: #e5e7eb;
     }
 
-    .breadcrumb-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 0.95rem;
-    }
-
-    .breadcrumb a {
-      color: var(--primary);
-      text-decoration: none;
-    }
-
-    .breadcrumb span {
-      color: var(--gray);
-    }
-
-    /* Section Styles */
+    /* Section Styles - Mobile First */
     .section {
-      padding: 100px 20px;
+      padding: 50px 20px;
       max-width: 1400px;
       margin: auto;
     }
 
     .section-title {
       text-align: center;
-      font-size: 2.8rem;
+      font-size: 1.8rem;
       margin-bottom: 1rem;
-      color: var(--dark);
+      color: var(--text-color);
       position: relative;
       display: inline-block;
       left: 50%;
@@ -210,166 +332,256 @@
     .section-title::after {
       content: '';
       position: absolute;
-      bottom: -10px;
+      bottom: -8px;
       left: 0;
       width: 100%;
-      height: 4px;
+      height: 3px;
       background: linear-gradient(90deg, var(--primary), var(--secondary));
       border-radius: 2px;
     }
 
     .section-subtitle {
       text-align: center;
-      font-size: 1.2rem;
+      font-size: 0.95rem;
       color: var(--gray);
       max-width: 700px;
-      margin: 0 auto 60px;
+      margin: 0 auto 30px;
+      line-height: 1.5;
     }
 
-    /* Content Styles */
-    .content-container {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
+    /* About Content Cards - Mobile Responsive */
     .about-content {
-      background: white;
-      padding: 60px;
-      border-radius: 20px;
+      max-width: 1000px;
+      margin: 0 auto 30px;
+      padding: 25px 20px;
+      background: var(--card-bg);
+      border-radius: 16px;
       box-shadow: var(--card-shadow);
-      margin-bottom: 60px;
-    }
-
-    .about-content h2 {
-      color: var(--primary);
-      margin: 40px 0 20px;
-      font-size: 2.2rem;
-    }
-
-    .about-content h3 {
-      color: var(--dark);
-      margin: 30px 0 15px;
-      font-size: 1.6rem;
+      border-left: 4px solid var(--primary);
     }
 
     .about-content p {
-      margin-bottom: 20px;
-      font-size: 1.1rem;
-      line-height: 1.8;
+      margin-bottom: 15px;
+      font-size: 1rem;
+      line-height: 1.6;
       color: var(--gray);
     }
 
-    .highlight-box {
-      background: linear-gradient(135deg, rgba(79, 70, 229, 0.05), rgba(16, 185, 129, 0.05));
-      border-left: 4px solid var(--primary);
-      padding: 30px;
-      margin: 30px 0;
-      border-radius: 10px;
+    .about-content h3 {
+      font-size: 1.4rem;
+      margin: 20px 0 12px;
+      color: var(--text-color);
     }
 
-    .highlight-box p {
-      font-size: 1.2rem;
-      font-weight: 500;
-      color: var(--dark);
-      margin: 0;
-    }
-
-    /* Values Section */
-    .values-grid {
+    /* Mission Cards - Mobile First */
+    .mission-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-      margin-top: 50px;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      max-width: 1200px;
+      margin: 30px auto 0;
     }
 
-    .value-card {
-      background: white;
-      padding: 40px 30px;
-      border-radius: 15px;
+    .mission-card {
+      background: var(--card-bg);
+      padding: 25px 20px;
+      border-radius: 16px;
       text-align: center;
       box-shadow: var(--card-shadow);
-      transition: all 0.3s ease;
-      border-top: 4px solid var(--primary);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
     }
 
-    .value-card:hover {
-      transform: translateY(-10px);
+    .mission-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
+    }
+
+    .mission-card:hover {
+      transform: translateY(-5px);
       box-shadow: var(--hover-shadow);
     }
 
-    .value-icon {
-      width: 80px;
-      height: 80px;
+    .mission-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .mission-icon {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+      display: inline-block;
+      width: 70px;
+      height: 70px;
+      line-height: 70px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      box-shadow: 0 8px 16px rgba(79, 70, 229, 0.2);
+      transition: all 0.4s ease;
+    }
+
+    .mission-card:hover .mission-icon {
+      transform: scale(1.05) rotate(5deg);
+    }
+
+    .mission-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 12px;
+      color: var(--text-color);
+    }
+
+    .mission-card p {
+      font-size: 0.9rem;
+      color: var(--gray);
+      line-height: 1.5;
+    }
+
+    /* Team Section - Mobile First */
+    .team-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      max-width: 1200px;
+      margin: 30px auto 0;
+    }
+
+    .team-card {
+      background: var(--card-bg);
+      padding: 25px 20px;
+      border-radius: 16px;
+      text-align: center;
+      box-shadow: var(--card-shadow);
+      transition: transform 0.3s ease;
+    }
+
+    .team-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .team-avatar {
+      width: 90px;
+      height: 90px;
+      margin: 0 auto 15px;
       background: linear-gradient(135deg, var(--primary), var(--secondary));
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 0 auto 25px;
       color: white;
       font-size: 2rem;
+      font-weight: 700;
     }
 
-    .value-card h3 {
-      color: var(--dark);
-      margin-bottom: 15px;
-      font-size: 1.6rem;
-    }
-
-    .value-card p {
-      color: var(--gray);
-      line-height: 1.7;
-    }
-
-    /* CTA Section */
-    .cta-section {
-      background: linear-gradient(135deg, #f59e0b, #d97706);
-      color: white;
-      padding: 80px 20px;
-      text-align: center;
-      border-radius: 20px;
-      margin-top: 60px;
-    }
-
-    .cta-section h2 {
-      font-size: 2.5rem;
-      margin-bottom: 20px;
-    }
-
-    .cta-section p {
+    .team-card h4 {
       font-size: 1.2rem;
-      margin-bottom: 30px;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-      opacity: 0.9;
+      margin-bottom: 8px;
+      color: var(--text-color);
     }
 
-    .cta-button {
-      display: inline-block;
-      padding: 16px 40px;
-      background: white;
-      color: #d97706;
-      border-radius: 50px;
+    .team-role {
+      color: var(--secondary);
+      font-weight: 600;
+      margin-bottom: 12px;
+      font-size: 0.85rem;
+    }
+
+    .team-bio {
+      color: var(--gray);
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    /* CTA Section - Mobile Responsive */
+    .cta-section {
+      background: var(--light-gray);
+      border-radius: 16px;
+      padding: 40px 20px;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .cta-title {
+      font-size: 1.6rem;
+      margin-bottom: 15px;
+      color: var(--text-color);
+    }
+
+    .cta-description {
+      font-size: 1rem;
+      color: var(--gray);
+      max-width: 600px;
+      margin: 0 auto 25px;
+      line-height: 1.5;
+    }
+
+    .cta-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      align-items: center;
+    }
+
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 25px;
+      background: linear-gradient(135deg, #4f46e5, #7c3aed);
+      color: white;
+      border-radius: 10px;
       font-weight: 600;
       text-decoration: none;
-      font-size: 1.1rem;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-      transition: all 0.3s ease;
+      font-size: 1rem;
+      box-shadow: 0 8px 20px rgba(79, 70, 229, 0.25);
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+      border: none;
+      cursor: pointer;
+      gap: 8px;
+      width: 100%;
+      max-width: 300px;
     }
 
-    .cta-button:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-      background: #f8fafc;
+    .cta-btn.secondary {
+      background: transparent;
+      color: var(--primary);
+      box-shadow: none;
+      border: 2px solid #e5e7eb;
     }
 
-    /* Footer */
+    .dark-theme .cta-btn.secondary {
+      border-color: #374151;
+      color: #e5e7eb;
+    }
+
+    .cta-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 25px rgba(79, 70, 229, 0.35);
+    }
+
+    .cta-btn.secondary:hover {
+      background: var(--light-gray);
+      border-color: var(--primary);
+      transform: translateY(-3px);
+    }
+
+    /* Footer - Mobile First */
     footer {
-      background: linear-gradient(135deg, #111827, #1f2937);
+      background: var(--footer-bg);
       color: #9ca3af;
-      padding: 60px 20px 30px;
-      margin-top: 100px;
+      padding: 40px 20px 25px;
+      margin-top: 50px;
       position: relative;
     }
 
@@ -379,7 +591,7 @@
       top: 0;
       left: 0;
       width: 100%;
-      height: 5px;
+      height: 4px;
       background: linear-gradient(90deg, var(--primary), var(--secondary));
     }
 
@@ -387,15 +599,15 @@
       max-width: 1200px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 40px;
+      grid-template-columns: 1fr;
+      gap: 25px;
     }
 
     .footer-logo {
-      font-size: 2.5rem;
+      font-size: 1.8rem;
       font-weight: 800;
       color: white;
-      margin-bottom: 20px;
+      margin-bottom: 12px;
       display: inline-block;
       background: linear-gradient(90deg, #fff, #c7d2fe);
       -webkit-background-clip: text;
@@ -404,23 +616,24 @@
     }
 
     .footer-description {
-      font-size: 1rem;
-      line-height: 1.7;
-      margin-bottom: 25px;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin-bottom: 15px;
     }
 
     .social-links {
       display: flex;
-      gap: 15px;
-      margin-top: 20px;
+      gap: 10px;
+      margin-top: 15px;
+      flex-wrap: wrap;
     }
 
     .social-link {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 40px;
-      height: 40px;
+      width: 38px;
+      height: 38px;
       background: rgba(255, 255, 255, 0.1);
       border-radius: 50%;
       color: white;
@@ -430,15 +643,15 @@
 
     .social-link:hover {
       background: var(--primary);
-      transform: translateY(-5px);
+      transform: translateY(-3px);
     }
 
     .footer-links h4 {
       color: white;
-      font-size: 1.3rem;
-      margin-bottom: 25px;
+      font-size: 1.1rem;
+      margin-bottom: 15px;
       position: relative;
-      padding-bottom: 10px;
+      padding-bottom: 8px;
     }
 
     .footer-links h4::after {
@@ -446,8 +659,8 @@
       position: absolute;
       bottom: 0;
       left: 0;
-      width: 40px;
-      height: 3px;
+      width: 35px;
+      height: 2px;
       background: var(--primary);
     }
 
@@ -456,7 +669,7 @@
     }
 
     .footer-links li {
-      margin-bottom: 12px;
+      margin-bottom: 8px;
     }
 
     .footer-links a {
@@ -464,26 +677,27 @@
       text-decoration: none;
       transition: all 0.3s ease;
       display: inline-block;
+      font-size: 0.9rem;
     }
 
     .footer-links a:hover {
       color: white;
-      transform: translateX(5px);
+      transform: translateX(3px);
     }
 
     .footer-bottom {
       text-align: center;
-      margin-top: 60px;
-      padding-top: 30px;
+      margin-top: 30px;
+      padding-top: 15px;
       border-top: 1px solid rgba(255, 255, 255, 0.1);
-      font-size: 0.9rem;
+      font-size: 0.8rem;
     }
 
     /* Animations */
     @keyframes fadeInUp {
       from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(20px);
       }
       to {
         opacity: 1;
@@ -492,60 +706,408 @@
     }
 
     .animate-fade-in-up {
-      animation: fadeInUp 0.8s ease-out forwards;
+      animation: fadeInUp 0.6s ease-out forwards;
     }
 
-    .delay-1 { animation-delay: 0.2s; }
-    .delay-2 { animation-delay: 0.4s; }
-    .delay-3 { animation-delay: 0.6s; }
-    .delay-4 { animation-delay: 0.8s; }
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.2s; }
+    .delay-3 { animation-delay: 0.3s; }
+    .delay-4 { animation-delay: 0.4s; }
 
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      .section {
-        padding: 60px 20px;
-      }
-      
-      .section-title {
-        font-size: 2.2rem;
-      }
-      
+    /* Tablet Styles (min-width: 600px) */
+    @media (min-width: 600px) {
       .about-title {
         font-size: 2.8rem;
+        margin-bottom: 20px;
       }
       
       .about-subtitle {
         font-size: 1.2rem;
+        margin-bottom: 2rem;
       }
       
-      .about-content {
-        padding: 40px 20px;
-      }
-      
-      .values-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .about-title {
-        font-size: 2.2rem;
+      .section {
+        padding: 60px 30px;
       }
       
       .section-title {
-        font-size: 1.8rem;
+        font-size: 2.2rem;
       }
       
-      .about-content h2 {
-        font-size: 1.8rem;
+      .section-subtitle {
+        font-size: 1.05rem;
+        margin-bottom: 40px;
+      }
+      
+      .about-content {
+        padding: 30px 25px;
+        margin-bottom: 40px;
+      }
+      
+      .about-content p {
+        font-size: 1.05rem;
+        line-height: 1.7;
       }
       
       .about-content h3 {
+        font-size: 1.5rem;
+      }
+      
+      .mission-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+        margin-top: 40px;
+      }
+      
+      .mission-card {
+        padding: 30px 25px;
+      }
+      
+      .mission-icon {
+        width: 75px;
+        height: 75px;
+        line-height: 75px;
+        font-size: 2.5rem;
+      }
+      
+      .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+        margin-top: 40px;
+      }
+      
+      .team-card {
+        padding: 30px 25px;
+      }
+      
+      .team-avatar {
+        width: 100px;
+        height: 100px;
+        font-size: 2.2rem;
+      }
+      
+      .cta-section {
+        padding: 50px 30px;
+        margin-top: 50px;
+      }
+      
+      .cta-title {
+        font-size: 1.8rem;
+      }
+      
+      .cta-buttons {
+        flex-direction: row;
+        justify-content: center;
+        gap: 20px;
+      }
+      
+      .cta-btn {
+        width: auto;
+        max-width: none;
+        padding: 14px 30px;
+      }
+      
+      .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+      }
+    }
+
+    /* Tablet Landscape (min-width: 768px) */
+    @media (min-width: 768px) {
+      .about-header {
+        padding: 120px 30px 70px;
+      }
+      
+      .about-title {
+        font-size: 3.5rem;
+      }
+      
+      .about-subtitle {
         font-size: 1.4rem;
       }
       
-      .cta-section h2 {
+      .section-title {
+        font-size: 2.5rem;
+      }
+      
+      .about-content {
+        padding: 35px 30px;
+      }
+      
+      .mission-card:hover {
+        transform: translateY(-8px);
+      }
+      
+      .team-card:hover {
+        transform: translateY(-8px);
+      }
+      
+      .cta-btn:hover {
+        transform: translateY(-5px);
+      }
+      
+      .cta-btn.secondary:hover {
+        transform: translateY(-5px);
+      }
+    }
+
+    /* Desktop Styles (min-width: 1024px) */
+    @media (min-width: 1024px) {
+      .nav-links {
+        display: flex;
+        gap: 25px;
+        list-style: none;
+      }
+
+      .nav-links a {
+        color: var(--text-color);
+        text-decoration: none;
+        font-weight: 500;
+        transition: color var(--transition-speed) ease;
+        position: relative;
+      }
+
+      .nav-links a:hover {
+        color: var(--primary);
+      }
+
+      .nav-links a::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--primary);
+        transition: width 0.3s;
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      .mobile-menu-btn {
+        display: none;
+      }
+
+      .sidebar {
+        display: none;
+      }
+
+      .sidebar-overlay {
+        display: none;
+      }
+
+      .about-header {
+        padding: 140px 40px 80px;
+      }
+      
+      .about-title {
+        font-size: 4rem;
+      }
+      
+      .about-subtitle {
+        font-size: 1.6rem;
+      }
+      
+      .section {
+        padding: 80px 40px;
+      }
+      
+      .mission-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+        margin-top: 50px;
+      }
+      
+      .mission-card {
+        padding: 35px 30px;
+      }
+      
+      .mission-icon {
+        width: 80px;
+        height: 80px;
+        line-height: 80px;
+        font-size: 3rem;
+      }
+      
+      .mission-card h3 {
+        font-size: 1.4rem;
+      }
+      
+      .mission-card p {
+        font-size: 1rem;
+      }
+      
+      .team-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 30px;
+        margin-top: 50px;
+      }
+      
+      .team-card {
+        padding: 35px 30px;
+      }
+      
+      .team-avatar {
+        width: 110px;
+        height: 110px;
+        font-size: 2.5rem;
+      }
+      
+      .cta-section {
+        padding: 60px 40px;
+        margin-top: 60px;
+      }
+      
+      .cta-title {
+        font-size: 2.2rem;
+      }
+      
+      .cta-description {
+        font-size: 1.1rem;
+      }
+      
+      .cta-btn {
+        padding: 16px 35px;
+      }
+      
+      .footer-content {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 40px;
+      }
+      
+      .footer-logo {
         font-size: 2rem;
+      }
+    }
+
+    /* Large Desktop (min-width: 1200px) */
+    @media (min-width: 1200px) {
+      .about-title {
+        font-size: 4.5rem;
+      }
+      
+      .about-subtitle {
+        font-size: 1.8rem;
+      }
+      
+      .section {
+        padding: 100px 50px;
+      }
+      
+      .about-content {
+        padding: 40px;
+      }
+      
+      .mission-grid {
+        gap: 35px;
+      }
+      
+      .mission-card {
+        padding: 40px 35px;
+      }
+      
+      .team-grid {
+        gap: 35px;
+      }
+      
+      .team-card {
+        padding: 40px 35px;
+      }
+      
+      .cta-section {
+        padding: 70px 50px;
+      }
+    }
+
+    /* Extra Large Screens (min-width: 1400px) */
+    @media (min-width: 1400px) {
+      .nav-container {
+        padding: 0 50px;
+      }
+      
+      .about-header {
+        padding: 160px 50px 100px;
+      }
+      
+      .about-title {
+        font-size: 5rem;
+      }
+    }
+
+    /* Touch Device Optimization */
+    @media (hover: none) and (pointer: coarse) {
+      .mission-card:hover {
+        transform: none;
+      }
+      
+      .mission-card:hover::before {
+        transform: scaleX(1);
+      }
+      
+      .mission-card:hover .mission-icon {
+        transform: none;
+      }
+      
+      .team-card:hover {
+        transform: none;
+      }
+      
+      .cta-btn:hover {
+        transform: none;
+      }
+      
+      .cta-btn.secondary:hover {
+        transform: none;
+      }
+      
+      .social-link:hover {
+        transform: none;
+      }
+      
+      .footer-links a:hover {
+        transform: none;
+      }
+    }
+
+    /* High Contrast Mode Support */
+    @media (prefers-contrast: high) {
+      :root {
+        --primary: #2a1db3;
+        --primary-dark: #1a1280;
+        --secondary: #0a8c5e;
+        --accent: #c47d0a;
+      }
+      
+      .about-title, .logo {
+        background: var(--primary);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: var(--primary);
+      }
+    }
+
+    /* Reduced Motion Support */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      
+      .animate-fade-in-up {
+        animation: none;
+        opacity: 1;
+        transform: none;
+      }
+      
+      .mission-card:hover,
+      .team-card:hover,
+      .cta-btn:hover,
+      .social-link:hover {
+        transform: none;
       }
     }
   </style>
@@ -556,126 +1118,211 @@
   <nav class="navbar">
     <div class="nav-container">
       <a href="index.html" class="nav-logo">
-        <i class="fas fa-tools"></i> Toolvexa
+        <i class="fas fa-tools"></i> Toolsedito
       </a>
       
+      <!-- Desktop Navigation -->
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="index.html#tools">Tools</a></li>
-        <li><a href="#about">About Us</a></li>
+        <li><a href="about.html" class="active">About</a></li>
         <li><a href="index.html#blog">Blog</a></li>
-        <li><a href="index.html#contact">Contact</a></li>
+        <li><a href="sitemap.html">Sitemap</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
+      
+      <div style="display: flex; align-items: center;">
+        <!-- Theme Toggle Button -->
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+          <i class="fas fa-moon"></i>
+          <i class="fas fa-sun"></i>
+        </button>
+        
+        <!-- Mobile Menu Button -->
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
     </div>
   </nav>
 
-  <!-- Header -->
-  <header class="about-header">
-    <div class="header-content animate__animated animate__fadeIn">
-      <h1 class="about-title">About Toolvexa</h1>
-      <p class="about-subtitle">Empowering productivity through smart, accessible online tools. Discover our journey, mission, and commitment to making complex tasks simple for everyone.</p>
+  <!-- Mobile Sidebar -->
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <a href="index.html" class="nav-logo">
+        <i class="fas fa-tools"></i> Toolsedito
+      </a>
+      <button class="sidebar-close" id="sidebarClose">
+        <i class="fas fa-times"></i>
+      </button>
     </div>
-  </header>
-
-  <!-- Breadcrumb -->
-  <div class="breadcrumb">
-    <div class="breadcrumb-container">
-      <a href="index.html">Home</a>
-      <i class="fas fa-chevron-right"></i>
-      <span>About Us</span>
+    
+    <ul class="sidebar-links">
+      <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="index.html#tools"><i class="fas fa-tools"></i> All Tools</a></li>
+      <li><a href="about.html" class="active"><i class="fas fa-info-circle"></i> About</a></li>
+      <li><a href="index.html#blog"><i class="fas fa-blog"></i> Blog</a></li>
+      <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+      <li>
+        <a href="#" id="sidebarThemeToggle">
+          <i class="fas fa-moon"></i> Dark Mode
+          <span id="themeStatus" style="margin-left: auto; font-size: 0.8rem; opacity: 0.7;">OFF</span>
+        </a>
+      </li>
+    </ul>
+    
+    <div class="sidebar-divider"></div>
+    
+    <div class="sidebar-tool-categories">
+      <h4>Quick Tools Access</h4>
+      <ul class="sidebar-tools-list">
+        <li><a href="index.html#image-tools"><i class="fas fa-image"></i> Image Tools</a></li>
+        <li><a href="index.html#pdf-tools"><i class="fas fa-file-pdf"></i> PDF Tools</a></li>
+        <li><a href="index.html#seo-tools"><i class="fas fa-search"></i> SEO Tools</a></li>
+        <li><a href="index.html#calculators"><i class="fas fa-calculator"></i> Calculators</a></li>
+        <li><a href="index.html#ai-tools"><i class="fas fa-robot"></i> AI Tools</a></li>
+      </ul>
     </div>
   </div>
 
+  <!-- About Header -->
+  <header class="about-header" id="home">
+    <div class="about-header-content animate__animated animate__fadeIn">
+      <h1 class="about-title">About Toolsedito</h1>
+      <p class="about-subtitle">Building the future of free, accessible online tools for everyone</p>
+    </div>
+  </header>
+
   <!-- Our Story Section -->
-  <section class="section" id="about">
-    <div class="content-container">
-      <div class="about-content animate-fade-in-up">
-        <h2>Our Story</h2>
-        <p>Toolvexa was born from a simple observation: in today's digital world, people and businesses face countless small but important tasks that require specialized software or technical knowledge. From converting file formats and optimizing images to calculating complex financial metrics, these tasks often interrupt workflow and reduce productivity.</p>
-        
-        <p>Founded in 2023 by a team of developers and productivity enthusiasts, Toolvexa started as a small collection of essential tools designed to solve common problems. What began as a personal project quickly grew into a comprehensive platform serving millions of users worldwide.</p>
-        
-        <div class="highlight-box">
-          <p>Our vision is simple: to create a world where anyone can accomplish technical tasks without technical expertise, where productivity tools are accessible to all, and where work flows seamlessly from one task to the next.</p>
-        </div>
-        
-        <p>Today, Toolvexa stands as a testament to that vision, offering over 50 specialized tools across multiple categories, all completely free and accessible from any device with an internet connection.</p>
-        
-        <h2>Our Mission</h2>
-        <p>We believe that technology should empower, not intimidate. Our mission is to democratize access to powerful productivity tools by:</p>
-        
-        <h3>1. Simplifying Complexity</h3>
-        <p>We take complex technical processes and present them in intuitive, user-friendly interfaces. Whether you're converting a PDF to Word or optimizing images for the web, our tools guide you through the process step by step.</p>
-        
-        <h3>2. Ensuring Accessibility</h3>
-        <p>All our tools are completely free with no hidden costs, registration requirements, or usage limits. We're committed to keeping it that way, supported by sustainable business practices that don't compromise user experience.</p>
-        
-        <h3>3. Protecting Privacy</h3>
-        <p>We process most files locally in your browser whenever possible. When server processing is necessary, we implement strict security measures and automatic file deletion policies to protect your data.</p>
-        
-        <h3>4. Driving Innovation</h3>
-        <p>We continuously update our tools with the latest technology, from AI-powered content generation to advanced image processing algorithms, ensuring our users always have access to cutting-edge solutions.</p>
-      </div>
-
-      <!-- Our Values -->
-      <h2 class="section-title">Our Core Values</h2>
-      <p class="section-subtitle">The principles that guide everything we do at Toolvexa</p>
+  <section class="section">
+    <h2 class="section-title">Our Story</h2>
+    <p class="section-subtitle">How we started and what drives us to create better tools every day</p>
+    
+    <div class="about-content animate-fade-in-up">
+      <p>Toolsedito was founded in 2023 by a group of developers, designers, and digital enthusiasts who were frustrated with the state of online tools. We noticed that most "free" tools were either limited by watermarks, required registrations, or secretly stored user data.</p>
       
-      <div class="values-grid">
-        <div class="value-card animate-fade-in-up">
-          <div class="value-icon">
-            <i class="fas fa-universal-access"></i>
-          </div>
-          <h3>Accessibility</h3>
-          <p>We believe powerful tools should be available to everyone, regardless of technical skill or financial resources. That's why all our tools are free and designed with simplicity in mind.</p>
-        </div>
-        
-        <div class="value-card animate-fade-in-up delay-1">
-          <div class="value-icon">
-            <i class="fas fa-shield-alt"></i>
-          </div>
-          <h3>Security & Privacy</h3>
-          <p>Your data's security is our priority. We implement industry-leading security practices and process files locally whenever possible to ensure your information remains private.</p>
-        </div>
-        
-        <div class="value-card animate-fade-in-up delay-2">
-          <div class="value-icon">
-            <i class="fas fa-rocket"></i>
-          </div>
-          <h3>Innovation</h3>
-          <p>We're constantly exploring new technologies and methodologies to improve our tools. From AI integration to advanced algorithms, we stay at the forefront of tool development.</p>
-        </div>
-        
-        <div class="value-card animate-fade-in-up delay-3">
-          <div class="value-icon">
-            <i class="fas fa-heart"></i>
-          </div>
-          <h3>User-Centric Design</h3>
-          <p>Every tool is designed with the end-user in mind. We obsess over user experience, ensuring our tools are intuitive, efficient, and solve real-world problems effectively.</p>
-        </div>
-        
-        <div class="value-card animate-fade-in-up">
-          <div class="value-icon">
-            <i class="fas fa-handshake"></i>
-          </div>
-          <h3>Transparency</h3>
-          <p>We believe in being open about how our tools work, what data we collect, and how we operate. No hidden terms, no surprise fees—just straightforward, honest service.</p>
-        </div>
-        
-        <div class="value-card animate-fade-in-up delay-1">
-          <div class="value-icon">
-            <i class="fas fa-globe"></i>
-          </div>
-          <h3>Global Impact</h3>
-          <p>We're building tools that serve users worldwide, supporting multiple languages and currencies, and addressing diverse needs across different regions and industries.</p>
-        </div>
-      </div>
+      <p>Our founding team had a simple vision: create a collection of genuinely free online tools that respect user privacy while delivering professional-grade results. We started with just 5 basic tools and have since grown to over 50 specialized utilities used by thousands of users worldwide.</p>
+      
+      <h3>Why We're Different</h3>
+      <p>Unlike many online tool websites, Toolsedito processes all your files directly in your browser. This means your documents, images, and data never leave your device. We don't store your files on our servers, we don't require registration, and we never place watermarks on your results.</p>
+      
+      <p>Every tool in our collection is built with the same core principles: simplicity, efficiency, and privacy. Whether you're a student, professional, freelancer, or small business owner, Toolsedito provides the tools you need without compromising your data or workflow.</p>
+    </div>
+  </section>
 
-      <!-- CTA Section -->
-      <div class="cta-section animate-fade-in-up">
-        <h2>Ready to Boost Your Productivity?</h2>
-        <p>Join millions of users worldwide who trust Toolvexa for their daily productivity needs. Explore our comprehensive suite of tools today.</p>
-        <a href="index.html#tools" class="cta-button">Explore Our Tools <i class="fas fa-arrow-right"></i></a>
+  <!-- Our Mission Section -->
+  <section class="section" style="background: var(--light-gray);">
+    <h2 class="section-title">Our Mission & Values</h2>
+    <p class="section-subtitle">The principles that guide everything we build at Toolsedito</p>
+    
+    <div class="mission-grid">
+      <div class="mission-card animate-fade-in-up">
+        <div class="mission-icon">
+          <i class="fas fa-lock"></i>
+        </div>
+        <h3>Privacy First</h3>
+        <p>Your data belongs to you. We built Toolsedito with privacy-by-design principles, ensuring your files never leave your device.</p>
+      </div>
+      
+      <div class="mission-card animate-fade-in-up delay-1">
+        <div class="mission-icon">
+          <i class="fas fa-gift"></i>
+        </div>
+        <h3>Truly Free</h3>
+        <p>No hidden fees, no premium tiers, no watermarks. Every tool on Toolsedito is 100% free to use without limitations.</p>
+      </div>
+      
+      <div class="mission-card animate-fade-in-up delay-2">
+        <div class="mission-icon">
+          <i class="fas fa-bolt"></i>
+        </div>
+        <h3>Maximum Efficiency</h3>
+        <p>We optimize every tool for speed and performance. Process PDFs in seconds, convert images instantly, and get SEO insights without waiting.</p>
+      </div>
+      
+      <div class="mission-card animate-fade-in-up delay-3">
+        <div class="mission-icon">
+          <i class="fas fa-code"></i>
+        </div>
+        <h3>Open Development</h3>
+        <p>We regularly update and improve our tools based on user feedback. Our development process is transparent and user-driven.</p>
+      </div>
+      
+      <div class="mission-card animate-fade-in-up delay-4">
+        <div class="mission-icon">
+          <i class="fas fa-users"></i>
+        </div>
+        <h3>User-Centric Design</h3>
+        <p>Every tool is designed with the end-user in mind. Clean interfaces and intuitive workflows make complex tasks simple.</p>
+      </div>
+      
+      <div class="mission-card animate-fade-in-up delay-1">
+        <div class="mission-icon">
+          <i class="fas fa-shield-alt"></i>
+        </div>
+        <h3>Security Focused</h3>
+        <p>We implement the latest security practices and regularly audit our codebase. Your safety is our priority in everything we build.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Meet The Team Section -->
+  <section class="section">
+    <h2 class="section-title">Meet Our Team</h2>
+    <p class="section-subtitle">The passionate individuals behind Toolsedito</p>
+    
+    <div class="team-grid">
+      <div class="team-card animate-fade-in-up">
+        <div class="team-avatar">AJ</div>
+        <h4>Alex Johnson</h4>
+        <div class="team-role">Founder & Lead Developer</div>
+        <p class="team-bio">Full-stack developer with 10+ years experience. Believes in making technology accessible to everyone without compromising privacy.</p>
+      </div>
+      
+      <div class="team-card animate-fade-in-up delay-1">
+        <div class="team-avatar">SR</div>
+        <h4>Sarah Rodriguez</h4>
+        <div class="team-role">UI/UX Designer</div>
+        <p class="team-bio">Design specialist focused on creating intuitive, beautiful interfaces that make complex tools simple to use for all skill levels.</p>
+      </div>
+      
+      <div class="team-card animate-fade-in-up delay-2">
+        <div class="team-avatar">MK</div>
+        <h4>Michael Kim</h4>
+        <div class="team-role">Backend Engineer</div>
+        <p class="team-bio">Infrastructure expert who ensures all our tools run smoothly, securely, and at lightning speed for users worldwide.</p>
+      </div>
+      
+      <div class="team-card animate-fade-in-up delay-3">
+        <div class="team-avatar">EP</div>
+        <h4>Emma Patel</h4>
+        <div class="team-role">Product Manager</div>
+        <p class="team-bio">Listens to user feedback and translates it into new features and tools that solve real problems for our community.</p>
+      </div>
+    </div>
+    
+    <div class="about-content animate-fade-in-up" style="margin-top: 40px;">
+      <h3>Our Commitment to You</h3>
+      <p>Toolsedito is more than just a collection of online tools—it's a commitment to digital empowerment. We're constantly working to expand our toolset, improve existing utilities, and maintain the highest standards of privacy and performance.</p>
+      
+      <p>We're proud to serve students, freelancers, small businesses, and professionals from around the world. Your trust is our most valuable asset, and we work every day to deserve it by providing reliable, private, and completely free tools.</p>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section">
+    <div class="cta-section">
+      <h2 class="cta-title">Ready to Get Started?</h2>
+      <p class="cta-description">Explore our collection of 50+ free tools designed to simplify your digital workflow. No registration required—just pure productivity.</p>
+      
+      <div class="cta-buttons">
+        <a href="index.html#tools" class="cta-btn">
+          <i class="fas fa-rocket"></i> Explore All Tools
+        </a>
+        <a href="contact.html" class="cta-btn secondary">
+          <i class="fas fa-envelope"></i> Contact Us
+        </a>
       </div>
     </div>
   </section>
@@ -684,8 +1331,8 @@
   <footer>
     <div class="footer-content">
       <div class="footer-about">
-        <h3 class="footer-logo">Toolvexa</h3>
-        <p class="footer-description">Toolvexa provides smart online tools for everyday productivity. Our tools are fast, free, and easy to use, helping you accomplish tasks efficiently.</p>
+        <h3 class="footer-logo">Toolsedito</h3>
+        <p class="footer-description">Providing free, privacy-first online tools since 2023. Empowering digital productivity without compromising your data.</p>
         <div class="social-links">
           <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
           <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
@@ -700,9 +1347,10 @@
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="index.html#tools">Tools</a></li>
-          <li><a href="#about">About Us</a></li>
+          <li><a href="about.html">About</a></li>
           <li><a href="index.html#blog">Blog</a></li>
-          <li><a href="index.html#contact">Contact</a></li>
+          <li><a href="sitemap.html">Sitemap</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
       
@@ -720,35 +1368,98 @@
       <div class="footer-links">
         <h4>Legal</h4>
         <ul>
-          <li><a href="index.html#privacy-policy">Privacy Policy</a></li>
-          <li><a href="index.html#terms-of-service">Terms of Service</a></li>
-          <li><a href="index.html#disclaimer">Disclaimer</a></li>
-          <li><a href="index.html#cookie-policy">Cookie Policy</a></li>
-          <li><a href="index.html#contact">Help Center</a></li>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms-of-service.html">Terms of Service</a></li>
+          <li><a href="disclaimer.html">Disclaimer</a></li>
+          <li><a href="cookie-policy.html">Cookie Policy</a></li>
+          <li><a href="contact.html">Help Center</a></li>
         </ul>
       </div>
     </div>
     
     <div class="footer-bottom">
-      <p>&copy; 2026 Toolvexa. All rights reserved. | Designed with <i class="fas fa-heart" style="color: #ef4444;"></i> for productivity</p>
+      <p>&copy; 2026 Toolsedito. All rights reserved. | Designed with <i class="fas fa-heart" style="color: #ef4444;"></i> for digital empowerment</p>
     </div>
   </footer>
 
+  <!-- JavaScript -->
   <script>
-    // Add smooth scrolling to all links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
+    // Dark Theme Toggle
+    const themeToggle = document.getElementById('themeToggle');
+    const sidebarThemeToggle = document.getElementById('sidebarThemeToggle');
+    const themeStatus = document.getElementById('themeStatus');
+    const body = document.body;
+    
+    // Check for saved theme preference
+    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    const savedTheme = localStorage.getItem('theme');
+    
+    // Set initial theme
+    if (savedTheme === 'dark' || (!savedTheme && prefersDarkScheme.matches)) {
+      body.classList.add('dark-theme');
+      updateThemeStatus(true);
+    } else {
+      updateThemeStatus(false);
+    }
+    
+    // Main theme toggle function
+    function toggleTheme() {
+      const isDark = body.classList.toggle('dark-theme');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      updateThemeStatus(isDark);
+      
+      // Add animation to the toggle button
+      themeToggle.style.transform = 'rotate(360deg)';
+      setTimeout(() => {
+        themeToggle.style.transform = '';
+      }, 300);
+    }
+    
+    // Update theme status text and icon
+    function updateThemeStatus(isDark) {
+      if (themeStatus) {
+        themeStatus.textContent = isDark ? 'ON' : 'OFF';
+      }
+    }
+    
+    // Event listeners for theme toggles
+    themeToggle.addEventListener('click', toggleTheme);
+    
+    if (sidebarThemeToggle) {
+      sidebarThemeToggle.addEventListener('click', function(e) {
         e.preventDefault();
-        
-        const targetId = this.getAttribute('href');
-        if(targetId === '#') return;
-        
-        const targetElement = document.querySelector(targetId);
-        if(targetElement) {
-          window.scrollTo({
-            top: targetElement.offsetTop - 80,
-            behavior: 'smooth'
-          });
+        toggleTheme();
+      });
+    }
+    
+    // Mobile Sidebar Functionality
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const sidebar = document.getElementById('sidebar');
+    const sidebarClose = document.getElementById('sidebarClose');
+    const sidebarOverlay = document.getElementById('sidebarOverlay');
+    
+    // Open sidebar
+    mobileMenuBtn.addEventListener('click', () => {
+      sidebar.classList.add('active');
+      sidebarOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+    
+    // Close sidebar
+    function closeSidebar() {
+      sidebar.classList.remove('active');
+      sidebarOverlay.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+    
+    sidebarClose.addEventListener('click', closeSidebar);
+    sidebarOverlay.addEventListener('click', closeSidebar);
+    
+    // Close sidebar when clicking on a link
+    document.querySelectorAll('.sidebar-links a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        if (!this.id.includes('Theme')) {
+          closeSidebar();
         }
       });
     });
@@ -768,32 +1479,88 @@
     }, observerOptions);
     
     // Observe all cards for animation
-    document.querySelectorAll('.value-card, .cta-section').forEach((el) => {
+    document.querySelectorAll('.mission-card, .team-card, .about-content').forEach((el) => {
       observer.observe(el);
     });
-
+    
     // Navbar scroll effect
     window.addEventListener('scroll', function() {
       const navbar = document.querySelector('.navbar');
       if (window.scrollY > 50) {
-        navbar.style.padding = '15px 0';
+        navbar.style.padding = '12px 0';
         navbar.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
       } else {
-        navbar.style.padding = '20px 0';
+        navbar.style.padding = '18px 0';
         navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.08)';
       }
     });
 
-    // Add hover effect to value cards
-    document.querySelectorAll('.value-card').forEach(card => {
-      card.addEventListener('mouseenter', () => {
-        card.style.transform = 'translateY(-10px)';
-      });
-      
-      card.addEventListener('mouseleave', () => {
-        card.style.transform = 'translateY(0)';
+    // Handle responsive behavior on window resize
+    window.addEventListener('resize', function() {
+      if (window.innerWidth >= 1024) {
+        closeSidebar();
+      }
+    });
+    
+    // Update theme status in sidebar when theme changes
+    const themeObserver = new MutationObserver(function(mutations) {
+      mutations.forEach(function(mutation) {
+        if (mutation.attributeName === 'class') {
+          const isDark = body.classList.contains('dark-theme');
+          updateThemeStatus(isDark);
+        }
       });
     });
+    
+    themeObserver.observe(body, { attributes: true });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if(targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if(targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+          
+          // Close sidebar on mobile after clicking
+          if (window.innerWidth < 1024) {
+            closeSidebar();
+          }
+        }
+      });
+    });
+
+    // Touch device optimization
+    function isTouchDevice() {
+      return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    }
+
+    // Adjust animations for touch devices
+    if (isTouchDevice()) {
+      document.querySelectorAll('.mission-card, .team-card').forEach(card => {
+        card.style.cursor = 'pointer';
+        card.addEventListener('click', function() {
+          this.classList.toggle('active');
+        });
+      });
+    }
+
+    // Prevent zoom on double-tap for mobile
+    let lastTouchEnd = 0;
+    document.addEventListener('touchend', function(event) {
+      const now = (new Date()).getTime();
+      if (now - lastTouchEnd <= 300) {
+        event.preventDefault();
+      }
+      lastTouchEnd = now;
+    }, false);
   </script>
 </body>
 </html>
