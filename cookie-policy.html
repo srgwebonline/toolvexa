@@ -1,593 +1,1141 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Cookie Policy | Toolvexa - Smart Online Tools for Everyday Use</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Toolvexa Cookie Policy - Learn about how we use cookies to enhance your experience on our free online tools platform.">
-    <meta name="keywords" content="cookie policy, cookies, data privacy, toolvexa cookies, online tools cookies">
-    <meta name="robots" content="index, follow">
-    <meta property="og:title" content="Cookie Policy | Toolvexa">
-    <meta property="og:description" content="Read our cookie policy to understand how we use cookies to improve your experience with our online tools.">
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        
-        :root {
-            --primary-color: #4f46e5;
-            --primary-dark: #3730a3;
-            --secondary-color: #10b981;
-            --accent-color: #ec4899;
-            --light-color: #f8fafc;
-            --dark-color: #111827;
-            --gray-color: #6b7280;
-            --light-gray: #e5e7eb;
-            --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            --transition: all 0.3s ease;
-            --border-radius: 12px;
-        }
-        
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--light-color);
-            color: var(--dark-color);
-            line-height: 1.6;
-            overflow-x: hidden;
-            padding-top: 70px;
-        }
-        
-        h1, h2, h3, h4 {
-            font-family: 'Playfair Display', serif;
-            font-weight: 600;
-            line-height: 1.3;
-        }
-        
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Header */
-        header {
-            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
-            color: white;
-            padding: 1rem 0;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-        
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-            color: white;
-        }
-        
-        .logo:hover {
-            color: var(--secondary-color);
-            transition: var(--transition);
-        }
-        
-        /* Back to Home Button */
-        .back-home {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background-color: var(--primary-color);
-            color: white;
-            padding: 0.8rem 1.5rem;
-            border-radius: var(--border-radius);
-            text-decoration: none;
-            font-weight: 500;
-            margin-top: 2rem;
-            transition: var(--transition);
-        }
-        
-        .back-home:hover {
-            background-color: var(--primary-dark);
-            transform: translateY(-3px);
-            box-shadow: var(--card-shadow);
-        }
-        
-        /* Cookie Policy Content */
-        .policy-container {
-            background-color: white;
-            border-radius: var(--border-radius);
-            padding: 3rem;
-            margin: 3rem 0;
-            box-shadow: var(--card-shadow);
-            animation: fadeIn 1s ease-out;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .policy-header {
-            text-align: center;
-            margin-bottom: 2.5rem;
-        }
-        
-        .policy-header h1 {
-            font-size: 2.5rem;
-            color: var(--dark-color);
-            margin-bottom: 1rem;
-        }
-        
-        .policy-header .last-updated {
-            color: var(--gray-color);
-            font-size: 0.9rem;
-            font-style: italic;
-        }
-        
-        .policy-content h2 {
-            font-size: 1.8rem;
-            color: var(--dark-color);
-            margin: 2rem 0 1rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--light-gray);
-        }
-        
-        .policy-content h3 {
-            font-size: 1.3rem;
-            color: var(--primary-dark);
-            margin: 1.5rem 0 0.8rem;
-        }
-        
-        .policy-content p {
-            margin-bottom: 1rem;
-            color: var(--gray-color);
-        }
-        
-        .policy-content ul, .policy-content ol {
-            margin-left: 2rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .policy-content li {
-            margin-bottom: 0.5rem;
-            color: var(--gray-color);
-        }
-        
-        .highlight-box {
-            background-color: rgba(79, 70, 229, 0.05);
-            border-left: 4px solid var(--primary-color);
-            padding: 1.5rem;
-            margin: 1.5rem 0;
-            border-radius: 0 var(--border-radius) var(--border-radius) 0;
-        }
-        
-        .cookie-types {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-        
-        .cookie-card {
-            background-color: #f8fafc;
-            padding: 1.5rem;
-            border-radius: var(--border-radius);
-            border: 1px solid var(--light-gray);
-            transition: var(--transition);
-        }
-        
-        .cookie-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--card-shadow);
-        }
-        
-        .cookie-card h4 {
-            color: var(--primary-color);
-            margin-bottom: 0.8rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .contact-info {
-            background-color: #f8fafc;
-            padding: 2rem;
-            border-radius: var(--border-radius);
-            margin: 2rem 0;
-            border: 1px solid var(--light-gray);
-        }
-        
-        /* Cookie Banner */
-        .cookie-banner {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background-color: var(--dark-color);
-            color: white;
-            padding: 1.5rem;
-            box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.2);
-            z-index: 999;
-            display: none;
-        }
-        
-        .cookie-banner .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 1rem;
-        }
-        
-        .cookie-banner p {
-            color: #9ca3af;
-            margin: 0;
-        }
-        
-        .cookie-buttons {
-            display: flex;
-            gap: 1rem;
-        }
-        
-        .cookie-btn {
-            padding: 0.5rem 1.5rem;
-            border-radius: var(--border-radius);
-            border: none;
-            font-weight: 500;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-        
-        .cookie-btn.accept {
-            background-color: var(--primary-color);
-            color: white;
-        }
-        
-        .cookie-btn.accept:hover {
-            background-color: var(--primary-dark);
-        }
-        
-        .cookie-btn.reject {
-            background-color: transparent;
-            color: #9ca3af;
-            border: 1px solid #9ca3af;
-        }
-        
-        .cookie-btn.reject:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-        }
-        
-        /* Footer */
-        footer {
-            background-color: var(--dark-color);
-            color: #9ca3af;
-            padding: 3rem 0 2rem;
-            margin-top: 4rem;
-        }
-        
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid #374151;
-            font-size: 0.9rem;
-        }
-        
-        .footer-bottom a {
-            color: #9ca3af;
-            margin: 0 10px;
-            transition: var(--transition);
-        }
-        
-        .footer-bottom a:hover {
-            color: var(--primary-color);
-        }
-        
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            body {
-                padding-top: 60px;
-            }
-            
-            .policy-container {
-                padding: 2rem;
-                margin: 2rem 0;
-            }
-            
-            .policy-header h1 {
-                font-size: 2rem;
-            }
-            
-            .policy-content h2 {
-                font-size: 1.5rem;
-            }
-            
-            .policy-content h3 {
-                font-size: 1.2rem;
-            }
-            
-            .cookie-banner .container {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .cookie-buttons {
-                width: 100%;
-                justify-content: center;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            .policy-container {
-                padding: 1.5rem;
-                margin: 1.5rem 0;
-            }
-            
-            .policy-header h1 {
-                font-size: 1.8rem;
-            }
-            
-            .back-home {
-                width: 100%;
-                justify-content: center;
-                padding: 0.8rem 1rem;
-            }
-            
-            .logo {
-                font-size: 1.5rem;
-            }
-            
-            .cookie-types {
-                grid-template-columns: 1fr;
-            }
-        }
-        
-        /* Smooth scrolling */
-        html {
-            scroll-behavior: smooth;
-        }
-        
-        /* Text selection */
-        ::selection {
-            background-color: rgba(79, 70, 229, 0.3);
-            color: var(--dark-color);
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cookie Policy | Toolsedito - Free Online Tools</title>
+  
+  <!-- SEO Meta -->
+  <meta name="description" content="Cookie Policy for Toolsedito. Learn how we use cookies and similar technologies on our free online tools platform.">
+  <meta name="keywords" content="cookie policy, privacy, online tools, data protection, Toolsedito">
+  <meta name="author" content="Toolsedito Team">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.toolsedito.com/cookie-policy.html">
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+  <style>
+    /* Mobile-First CSS - Same as homepage with adjustments for policy page */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #4f46e5;
+      --primary-dark: #4338ca;
+      --secondary: #10b981;
+      --accent: #f59e0b;
+      --light: #f8fafc;
+      --dark: #1f2933;
+      --gray: #6b7280;
+      --light-gray: #f3f4f6;
+      --card-bg: #ffffff;
+      --card-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+      --hover-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      --body-bg: var(--light);
+      --text-color: var(--dark);
+      --border-color: rgba(0, 0, 0, 0.05);
+      --footer-bg: linear-gradient(135deg, #111827, #1f2937);
+      --transition-speed: 0.3s;
+    }
+
+    /* Dark Theme Variables */
+    .dark-theme {
+      --light: #121826;
+      --dark: #f3f4f6;
+      --gray: #9ca3af;
+      --light-gray: #1f2937;
+      --card-bg: #1a2332;
+      --body-bg: #0f172a;
+      --text-color: #f3f4f6;
+      --border-color: rgba(255, 255, 255, 0.05);
+      --card-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      --hover-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      --footer-bg: linear-gradient(135deg, #0f172a, #1e293b);
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--body-bg);
+      color: var(--text-color);
+      line-height: 1.6;
+      overflow-x: hidden;
+      transition: background-color var(--transition-speed) ease,
+                  color var(--transition-speed) ease;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+    }
+
+    /* Theme Toggle Button */
+    .theme-toggle {
+      background: var(--light-gray);
+      border: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--text-color);
+      font-size: 1.2rem;
+      transition: all var(--transition-speed) ease;
+      margin-left: 10px;
+    }
+
+    .theme-toggle:hover {
+      background: var(--primary);
+      color: white;
+      transform: rotate(15deg);
+    }
+
+    .theme-toggle i {
+      transition: transform 0.5s ease;
+    }
+
+    .dark-theme .theme-toggle i.fa-sun {
+      display: block;
+    }
+
+    .dark-theme .theme-toggle i.fa-moon {
+      display: none;
+    }
+
+    .theme-toggle i.fa-sun {
+      display: none;
+    }
+
+    .theme-toggle i.fa-moon {
+      display: block;
+    }
+
+    /* Mobile First - Sidebar Implementation */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      padding: 18px 0;
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+      transition: all var(--transition-speed) ease;
+    }
+
+    .dark-theme .navbar {
+      background: rgba(26, 35, 50, 0.98);
+    }
+
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+    }
+
+    .nav-logo {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--primary);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-logo i {
+      font-size: 1.6rem;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    /* Desktop Navigation - Hidden on Mobile */
+    .nav-links {
+      display: none;
+    }
+
+    /* Mobile Menu Button */
+    .mobile-menu-btn {
+      display: block;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--text-color);
+      cursor: pointer;
+      z-index: 1002;
+      transition: color var(--transition-speed) ease;
+    }
+
+    /* Sidebar Styles */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      right: -300px;
+      width: 280px;
+      height: 100vh;
+      background: var(--card-bg);
+      box-shadow: -5px 0 25px rgba(0, 0, 0, 0.1);
+      z-index: 1001;
+      transition: right 0.3s ease-in-out;
+      padding: 80px 25px 30px;
+      overflow-y: auto;
+    }
+
+    .dark-theme .sidebar {
+      box-shadow: -5px 0 25px rgba(0, 0, 0, 0.3);
+    }
+
+    .sidebar.active {
+      right: 0;
+    }
+
+    .sidebar-header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px;
+      background: var(--primary);
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .sidebar-header .nav-logo {
+      color: white;
+      font-size: 1.3rem;
+    }
+
+    .sidebar-close {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .sidebar-links {
+      list-style: none;
+      margin-top: 20px;
+    }
+
+    .sidebar-links li {
+      margin-bottom: 15px;
+    }
+
+    .sidebar-links a {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--text-color);
+      text-decoration: none;
+      font-weight: 500;
+      padding: 12px 15px;
+      border-radius: 8px;
+      transition: all var(--transition-speed) ease;
+    }
+
+    .sidebar-links a:hover {
+      background: var(--light-gray);
+      color: var(--primary);
+      transform: translateX(5px);
+    }
+
+    .sidebar-links a i {
+      width: 20px;
+      text-align: center;
+    }
+
+    .sidebar-links a.active {
+      background: var(--primary);
+      color: white;
+    }
+
+    .sidebar-divider {
+      height: 1px;
+      background: var(--border-color);
+      margin: 20px 0;
+    }
+
+    /* Overlay when sidebar is open */
+    .sidebar-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .sidebar-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Policy Page Header */
+    .policy-header {
+      background: linear-gradient(135deg, #e6f7ff 0%, #f0f9ff 100%);
+      color: #1f2933;
+      padding: 120px 20px 50px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      margin-top: 75px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .dark-theme .policy-header {
+      background: linear-gradient(135deg, #0a1929 0%, #112240 100%);
+      color: #f3f4f6;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .policy-header h1 {
+      font-size: 2.2rem;
+      margin-bottom: 15px;
+      color: var(--text-color);
+    }
+
+    .policy-header p {
+      font-size: 1.1rem;
+      color: var(--gray);
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* Policy Content Section */
+    .policy-content {
+      padding: 50px 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .policy-card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: var(--card-shadow);
+      border-left: 4px solid var(--primary);
+      transition: transform 0.3s ease;
+    }
+
+    .policy-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .policy-card h2 {
+      font-size: 1.6rem;
+      margin-bottom: 20px;
+      color: var(--text-color);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .policy-card h2 i {
+      color: var(--primary);
+    }
+
+    .policy-card h3 {
+      font-size: 1.3rem;
+      margin: 25px 0 15px;
+      color: var(--text-color);
+    }
+
+    .policy-card p {
+      margin-bottom: 15px;
+      color: var(--gray);
+      line-height: 1.7;
+    }
+
+    .policy-card ul, .policy-card ol {
+      margin: 15px 0 15px 25px;
+      color: var(--gray);
+    }
+
+    .policy-card li {
+      margin-bottom: 10px;
+      line-height: 1.6;
+    }
+
+    .policy-card strong {
+      color: var(--text-color);
+      font-weight: 600;
+    }
+
+    .cookie-types {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      margin: 25px 0;
+    }
+
+    .cookie-type {
+      background: var(--light-gray);
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+    }
+
+    .cookie-type h4 {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+      color: var(--text-color);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .cookie-type h4 i {
+      color: var(--primary);
+    }
+
+    .table-container {
+      overflow-x: auto;
+      margin: 25px 0;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 600px;
+    }
+
+    th {
+      background: var(--light-gray);
+      padding: 15px;
+      text-align: left;
+      font-weight: 600;
+      color: var(--text-color);
+      border-bottom: 2px solid var(--border-color);
+    }
+
+    td {
+      padding: 15px;
+      border-bottom: 1px solid var(--border-color);
+      color: var(--gray);
+      vertical-align: top;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    .consent-banner {
+      background: var(--light-gray);
+      padding: 25px;
+      border-radius: 12px;
+      margin: 30px 0;
+      border-left: 4px solid var(--secondary);
+    }
+
+    .consent-banner h3 {
+      margin-top: 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .consent-banner h3 i {
+      color: var(--secondary);
+    }
+
+    .contact-info {
+      background: var(--light-gray);
+      padding: 25px;
+      border-radius: 12px;
+      margin-top: 30px;
+      border-left: 4px solid var(--accent);
+    }
+
+    .contact-info h3 {
+      margin-top: 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .contact-info h3 i {
+      color: var(--accent);
+    }
+
+    .contact-info p {
+      margin-bottom: 10px;
+    }
+
+    .contact-info a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--footer-bg);
+      color: #9ca3af;
+      padding: 50px 20px 30px;
+      margin-top: auto;
+      position: relative;
+      transition: background var(--transition-speed) ease;
+    }
+
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+
+    .footer-logo {
+      font-size: 2rem;
+      font-weight: 800;
+      color: white;
+      margin-bottom: 15px;
+      display: inline-block;
+      background: linear-gradient(90deg, #fff, #c7d2fe);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .footer-description {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 12px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .social-link:hover {
+      background: var(--primary);
+      transform: translateY(-5px);
+    }
+
+    .footer-links h4 {
+      color: white;
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    .footer-links h4::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 40px;
+      height: 3px;
+      background: var(--primary);
+    }
+
+    .footer-links ul {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+
+    .footer-links a {
+      color: #9ca3af;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: inline-block;
+      font-size: 0.95rem;
+    }
+
+    .footer-links a:hover {
+      color: white;
+      transform: translateX(5px);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.85rem;
+    }
+
+    /* Responsive Design */
+    @media (min-width: 768px) {
+      .policy-header {
+        padding: 140px 20px 70px;
+      }
+      
+      .policy-header h1 {
+        font-size: 2.8rem;
+      }
+      
+      .policy-header p {
+        font-size: 1.2rem;
+      }
+      
+      .policy-content {
+        padding: 70px 20px;
+      }
+      
+      .policy-card h2 {
+        font-size: 1.8rem;
+      }
+      
+      .cookie-types {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .nav-links {
+        display: flex;
+        gap: 30px;
+        list-style: none;
+      }
+
+      .nav-links a {
+        color: var(--text-color);
+        text-decoration: none;
+        font-weight: 500;
+        transition: color var(--transition-speed) ease;
+        position: relative;
+      }
+
+      .nav-links a:hover {
+        color: var(--primary);
+      }
+
+      .nav-links a::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--primary);
+        transition: width 0.3s;
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      .mobile-menu-btn {
+        display: none;
+      }
+
+      .sidebar {
+        display: none;
+      }
+
+      .sidebar-overlay {
+        display: none;
+      }
+      
+      .policy-header {
+        padding: 160px 20px 90px;
+      }
+      
+      .cookie-types {
+        grid-template-columns: repeat(4, 1fr);
+      }
+      
+      .footer-content {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    @media (min-width: 1200px) {
+      .policy-content {
+        padding: 90px 20px;
+      }
+    }
+
+    /* Print Styles */
+    @media print {
+      .navbar, .sidebar, .sidebar-overlay, .mobile-menu-btn,
+      .theme-toggle, .social-links, .footer-bottom {
+        display: none !important;
+      }
+      
+      body {
+        background: white;
+        color: black;
+      }
+      
+      .policy-header {
+        background: white !important;
+        color: black;
+        padding: 20px;
+        margin-top: 0;
+      }
+      
+      .policy-card {
+        box-shadow: none;
+        border: 1px solid #ddd;
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container nav-container">
-            <a href="index.html" class="logo">
-                <i class="fas fa-tools"></i>
-                Toolvexa
-            </a>
-        </div>
-    </header>
-
-    <!-- Main Content -->
-    <main class="container">
-        <!-- Back to Home Button -->
-        <a href="index.html" class="back-home">
-            <i class="fas fa-arrow-left"></i>
-            Back to Home
-        </a>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <i class="fas fa-tools"></i> Toolsedito
+      </a>
+      
+      <!-- Desktop Navigation -->
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#tools">Tools</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="index.html#blog">Blog</a></li>
+        <li><a href="sitemap.html">Sitemap</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      
+      <div style="display: flex; align-items: center;">
+        <!-- Theme Toggle Button -->
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+          <i class="fas fa-moon"></i>
+          <i class="fas fa-sun"></i>
+        </button>
         
-        <!-- Cookie Policy Content -->
-        <div class="policy-container">
-            <div class="policy-header">
-                <h1>Cookie Policy for Toolvexa</h1>
-                <p class="last-updated">Last Updated: May 2026</p>
-            </div>
-            
-            <div class="policy-content">
-                <p>This Cookie Policy explains how <strong>Toolvexa</strong> uses cookies and similar technologies to recognize you when you visit our website at <a href="index.html">https://toolvexa.com</a>. It explains what these technologies are and why we use them, as well as your rights to control our use of them.</p>
-                
-                <div class="highlight-box">
-                    <p><strong>TL;DR:</strong> We use cookies to improve your experience on our site. You can control cookies through your browser settings. By continuing to use our website, you consent to our use of cookies as described in this policy.</p>
-                </div>
-                
-                <h2>1. What Are Cookies?</h2>
-                <p>Cookies are small data files that are placed on your computer or mobile device when you visit a website. Cookies are widely used by website owners to make their websites work, or to work more efficiently, as well as to provide reporting information.</p>
-                <p>Cookies set by the website owner (in this case, Toolvexa) are called "first-party cookies." Cookies set by parties other than the website owner are called "third-party cookies." Third-party cookies enable third-party features or functionality to be provided on or through the website (e.g., advertising, interactive content, and analytics).</p>
-                
-                <h2>2. Why Do We Use Cookies?</h2>
-                <p>We use first-party and third-party cookies for several reasons. Some cookies are required for technical reasons in order for our website to operate, and we refer to these as "essential" or "strictly necessary" cookies. Other cookies also enable us to track and target the interests of our users to enhance the experience on our website.</p>
-                
-                <h2>3. Types of Cookies We Use</h2>
-                <p>The cookies we use can be categorized as follows:</p>
-                
-                <div class="cookie-types">
-                    <div class="cookie-card">
-                        <h4><i class="fas fa-cog"></i> Essential Cookies</h4>
-                        <p>These cookies are necessary for the website to function and cannot be switched off in our systems. They are usually only set in response to actions made by you which amount to a request for services, such as setting your privacy preferences, logging in, or filling in forms.</p>
-                    </div>
-                    
-                    <div class="cookie-card">
-                        <h4><i class="fas fa-chart-line"></i> Analytics Cookies</h4>
-                        <p>These cookies allow us to count visits and traffic sources so we can measure and improve the performance of our site. They help us to know which pages are the most and least popular and see how visitors move around the site.</p>
-                    </div>
-                    
-                    <div class="cookie-card">
-                        <h4><i class="fas fa-user-cog"></i> Preference Cookies</h4>
-                        <p>These cookies enable the website to provide enhanced functionality and personalization. They may be set by us or by third-party providers whose services we have added to our pages.</p>
-                    </div>
-                    
-                    <div class="cookie-card">
-                        <h4><i class="fas fa-ad"></i> Marketing Cookies</h4>
-                        <p>These cookies are used to track visitors across websites. The intention is to display ads that are relevant and engaging for the individual user and thereby more valuable for publishers and third-party advertisers.</p>
-                    </div>
-                </div>
-                
-                <h3>First-Party Cookies</h3>
-                <p>These are cookies that are set by Toolvexa and are essential for our website to function properly:</p>
-                <ul>
-                    <li><strong>session_id:</strong> Maintains your session on our website</li>
-                    <li><strong>tool_preferences:</strong> Stores your tool settings and preferences</li>
-                    <li><strong>language:</strong> Remembers your preferred language</li>
-                    <li><strong>theme:</strong> Remembers your theme preference (light/dark)</li>
-                </ul>
-                
-                <h3>Third-Party Cookies</h3>
-                <p>We also use cookies set by trusted third parties. The following section details which third-party cookies you might encounter through our site:</p>
-                <ul>
-                    <li><strong>Google Analytics:</strong> We use Google Analytics to collect information about how visitors use our website. These cookies collect information in an anonymous form.</li>
-                    <li><strong>Google AdSense:</strong> We use Google AdSense to show relevant ads to our visitors. These cookies track your browsing habits to show you relevant ads.</li>
-                    <li><strong>Social Media:</strong> We may include social media sharing buttons that set cookies to recognize you when you return to our site.</li>
-                </ul>
-                
-                <h2>4. How Can You Control Cookies?</h2>
-                <p>You have the right to decide whether to accept or reject cookies. You can exercise your cookie preferences by clicking on the appropriate opt-out links provided in the cookie table above.</p>
-                
-                <h3>Browser Controls</h3>
-                <p>You can set or amend your web browser controls to accept or refuse cookies. If you choose to reject cookies, you may still use our website though your access to some functionality and areas of our website may be restricted. As the means by which you can refuse cookies through your web browser controls vary from browser to browser, you should visit your browser's help menu for more information.</p>
-                
-                <h3>Cookie Management Tools</h3>
-                <p>You can manage cookies through various online tools:</p>
-                <ul>
-                    <li><a href="https://optout.aboutads.info" target="_blank">Digital Advertising Alliance</a></li>
-                    <li><a href="https://optout.networkadvertising.org" target="_blank">Network Advertising Initiative</a></li>
-                    <li><a href="https://www.youronlinechoices.com" target="_blank">Your Online Choices</a></li>
-                </ul>
-                
-                <h2>5. How Often Will We Update This Cookie Policy?</h2>
-                <p>We may update this Cookie Policy from time to time in order to reflect, for example, changes to the cookies we use or for other operational, legal, or regulatory reasons. Please therefore re-visit this Cookie Policy regularly to stay informed about our use of cookies and related technologies.</p>
-                <p>The date at the top of this Cookie Policy indicates when it was last updated.</p>
-                
-                <h2>6. Where Can You Get Further Information?</h2>
-                <p>If you have any questions about our use of cookies or other technologies, please contact us using the details below:</p>
-                
-                <div class="contact-info">
-                    <h3>Contact Us</h3>
-                    <p>If you have any questions about our Cookie Policy, please contact us:</p>
-                    <ul>
-                        <li>By email: privacy@toolvexa.com</li>
-                        <li>Through our contact form on the website</li>
-                        <li>Address: 123 Tech Street, San Francisco, CA</li>
-                    </ul>
-                </div>
-                
-                <div class="highlight-box">
-                    <h3>Cookie Consent</h3>
-                    <p>When you first visit our website, we will ask for your consent to use cookies. You can withdraw your consent at any time by deleting the cookies from your browser or by using the tools mentioned above. However, please note that some features of our website may not function properly without cookies.</p>
-                </div>
-                
-                <a href="index.html" class="back-home">
-                    <i class="fas fa-arrow-left"></i>
-                    Back to Home
-                </a>
-            </div>
-        </div>
-    </main>
+        <!-- Mobile Menu Button -->
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-bottom">
-                <p>
-                    <a href="index.html">Home</a> |
-                    <a href="privacy-policy.html">Privacy Policy</a> |
-                    <a href="terms-of-service.html">Terms of Service</a> |
-                    <a href="cookie-policy.html">Cookie Policy</a> |
-                    <a href="index.html#contact">Contact</a>
-                </p>
-                <p>© 2026 Toolvexa. All Rights Reserved. | Smart Online Tools for Everyday Use</p>
-                <p style="margin-top: 10px; font-size: 0.8rem;">This website uses cookies to enhance user experience. By using our site, you consent to our use of cookies.</p>
-            </div>
-        </div>
-    </footer>
+  <!-- Mobile Sidebar -->
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <a href="index.html" class="nav-logo">
+        <i class="fas fa-tools"></i> Toolsedito
+      </a>
+      <button class="sidebar-close" id="sidebarClose">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    
+    <ul class="sidebar-links">
+      <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="index.html#tools"><i class="fas fa-tools"></i> All Tools</a></li>
+      <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+      <li><a href="index.html#blog"><i class="fas fa-blog"></i> Blog</a></li>
+      <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+      <li>
+        <a href="#" id="sidebarThemeToggle">
+          <i class="fas fa-moon"></i> Dark Mode
+          <span id="themeStatus" style="margin-left: auto; font-size: 0.8rem; opacity: 0.7;">OFF</span>
+        </a>
+      </li>
+    </ul>
+    
+    <div class="sidebar-divider"></div>
+    
+    <div class="sidebar-tool-categories">
+      <h4>Quick Links</h4>
+      <ul class="sidebar-tools-list">
+        <li><a href="privacy-policy.html"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li>
+        <li><a href="terms-of-service.html"><i class="fas fa-file-contract"></i> Terms of Service</a></li>
+        <li><a href="cookie-policy.html" class="active"><i class="fas fa-cookie"></i> Cookie Policy</a></li>
+        <li><a href="disclaimer.html"><i class="fas fa-exclamation-circle"></i> Disclaimer</a></li>
+      </ul>
+    </div>
+  </div>
 
-    <!-- Cookie Banner (Optional - for implementation) -->
-    <!-- <div class="cookie-banner" id="cookieBanner">
-        <div class="container">
-            <p>We use cookies to enhance your experience on our website. By continuing to use our site, you consent to our use of cookies as described in our Cookie Policy.</p>
-            <div class="cookie-buttons">
-                <button class="cookie-btn accept" id="acceptCookies">Accept All</button>
-                <button class="cookie-btn reject" id="rejectCookies">Reject Non-Essential</button>
-                <button class="cookie-btn reject" id="customizeCookies">Customize</button>
-            </div>
-        </div>
-    </div> -->
+  <!-- Policy Header -->
+  <header class="policy-header">
+    <h1>Cookie Policy</h1>
+    <p>Last Updated: January 2026 | This policy explains how Toolsedito uses cookies and similar technologies.</p>
+  </header>
 
-    <script>
-        // Simple script for smooth back to top
-        document.addEventListener('DOMContentLoaded', function() {
-            // Add active class to cookie policy link in footer
-            const currentPage = window.location.pathname.split('/').pop();
-            if (currentPage === 'cookie-policy.html') {
-                const cookieLinks = document.querySelectorAll('a[href="cookie-policy.html"]');
-                cookieLinks.forEach(link => {
-                    link.style.color = 'var(--primary-color)';
-                    link.style.fontWeight = '600';
-                });
-            }
-            
-            // Back to home button animation
-            const backHomeBtn = document.querySelector('.back-home');
-            if (backHomeBtn) {
-                backHomeBtn.addEventListener('mouseenter', function() {
-                    this.querySelector('i').style.transform = 'translateX(-5px)';
-                    this.querySelector('i').style.transition = 'transform 0.3s ease';
-                });
-                
-                backHomeBtn.addEventListener('mouseleave', function() {
-                    this.querySelector('i').style.transform = 'translateX(0)';
-                });
-            }
-            
-            // Update last updated year
-            const lastUpdated = document.querySelector('.last-updated');
-            if (lastUpdated) {
-                const currentYear = new Date().getFullYear();
-                lastUpdated.textContent = `Last Updated: May ${currentYear}`;
-            }
-            
-            // Optional: Cookie banner functionality
-            const cookieBanner = document.getElementById('cookieBanner');
-            if (cookieBanner) {
-                // Check if user has already made a choice
-                if (!localStorage.getItem('cookieConsent')) {
-                    cookieBanner.style.display = 'block';
-                }
-                
-                // Handle cookie acceptance
-                document.getElementById('acceptCookies')?.addEventListener('click', function() {
-                    localStorage.setItem('cookieConsent', 'accepted');
-                    cookieBanner.style.display = 'none';
-                });
-                
-                // Handle cookie rejection
-                document.getElementById('rejectCookies')?.addEventListener('click', function() {
-                    localStorage.setItem('cookieConsent', 'rejected');
-                    cookieBanner.style.display = 'none';
-                });
-            }
+  <!-- Policy Content -->
+  <main class="policy-content">
+    <div class="policy-card">
+      <h2><i class="fas fa-cookie-bite"></i> What Are Cookies?</h2>
+      <p>Cookies are small text files that are placed on your computer, smartphone, or other device when you visit our website. They are widely used to make websites work more efficiently and provide information to the website owners.</p>
+      <p>At Toolsedito, we use cookies and similar tracking technologies to enhance your experience, analyze site usage, and support our marketing efforts.</p>
+    </div>
+
+    <div class="policy-card">
+      <h2><i class="fas fa-th-list"></i> Types of Cookies We Use</h2>
+      
+      <div class="cookie-types">
+        <div class="cookie-type">
+          <h4><i class="fas fa-cog"></i> Essential Cookies</h4>
+          <p>Required for basic site functionality, such as page navigation and access to secure areas. These cookies do not store personal information.</p>
+        </div>
+        
+        <div class="cookie-type">
+          <h4><i class="fas fa-chart-line"></i> Analytics Cookies</h4>
+          <p>Help us understand how visitors interact with our website by collecting anonymous information about page visits and tool usage.</p>
+        </div>
+        
+        <div class="cookie-type">
+          <h4><i class="fas fa-ad"></i> Advertising Cookies</h4>
+          <p>Used to deliver relevant advertisements and track ad campaign performance. These may be set by third-party advertising partners.</p>
+        </div>
+        
+        <div class="cookie-type">
+          <h4><i class="fas fa-user-cog"></i> Preference Cookies</h4>
+          <p>Remember your preferences (like theme settings) and provide enhanced, more personalized features on subsequent visits.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="policy-card">
+      <h2><i class="fas fa-table"></i> Detailed Cookie Information</h2>
+      <p>The table below provides more detailed information about the cookies we use and their purposes:</p>
+      
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Cookie Name</th>
+              <th>Type</th>
+              <th>Purpose</th>
+              <th>Duration</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>toolsedito_session</strong></td>
+              <td>Essential</td>
+              <td>Maintains your session while using our tools</td>
+              <td>Session</td>
+            </tr>
+            <tr>
+              <td><strong>theme_preference</strong></td>
+              <td>Preference</td>
+              <td>Remembers your dark/light theme choice</td>
+              <td>1 year</td>
+            </tr>
+            <tr>
+              <td><strong>_ga</strong></td>
+              <td>Analytics</td>
+              <td>Google Analytics - distinguishes users</td>
+              <td>2 years</td>
+            </tr>
+            <tr>
+              <td><strong>_gid</strong></td>
+              <td>Analytics</td>
+              <td>Google Analytics - distinguishes users</td>
+              <td>24 hours</td>
+            </tr>
+            <tr>
+              <td><strong>_gat</strong></td>
+              <td>Analytics</td>
+              <td>Google Analytics - throttles request rate</td>
+              <td>1 minute</td>
+            </tr>
+            <tr>
+              <td><strong>cookie_consent</strong></td>
+              <td>Preference</td>
+              <td>Remembers your cookie consent choice</td>
+              <td>1 year</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="policy-card">
+      <h2><i class="fas fa-user-shield"></i> Third-Party Cookies</h2>
+      <p>We may also use various third-party cookies to report usage statistics, deliver advertisements, and so on. These include:</p>
+      
+      <h3>Google Analytics</h3>
+      <p>We use Google Analytics to collect information about how visitors use our website. We use the information to compile reports and help us improve the site. The cookies collect information in an anonymous form, including the number of visitors to the site, where visitors have come from, and the pages they visited.</p>
+      
+      <h3>Google AdSense</h3>
+      <p>We use Google AdSense to display relevant advertisements on our site. Google uses cookies to serve ads based on a user's prior visits to our website or other websites.</p>
+      
+      <h3>Social Media Platforms</h3>
+      <p>We may embed content from social media platforms like Twitter or Facebook, which may set their own cookies. We do not control these cookies and you should check the respective privacy policies of these sites for more information.</p>
+    </div>
+
+    <div class="consent-banner">
+      <h3><i class="fas fa-hand-paper"></i> Your Cookie Choices</h3>
+      <p>You have several options to control or limit how we and our partners use cookies:</p>
+      <ul>
+        <li><strong>Browser Controls:</strong> Most web browsers allow you to control cookies through their settings preferences. However, limiting essential cookies may affect the functionality of our website.</li>
+        <li><strong>Opt-Out Tools:</strong> You can opt out of personalized advertising by visiting <a href="https://www.aboutads.info/choices/" target="_blank">YourAdChoices</a> or <a href="https://optout.networkadvertising.org/" target="_blank">NAI Consumer Opt-Out</a>.</li>
+        <li><strong>Google Analytics:</strong> You can opt out of Google Analytics by installing the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank">Google Analytics Opt-Out Browser Add-on</a>.</li>
+        <li><strong>Do Not Track:</strong> Some browsers have a "Do Not Track" feature that lets you tell websites you do not want to have your online activities tracked. Our site does not currently respond to "Do Not Track" signals.</li>
+      </ul>
+    </div>
+
+    <div class="policy-card">
+      <h2><i class="fas fa-sync-alt"></i> Cookie Duration</h2>
+      <p>Cookies have different lifespans:</p>
+      <ul>
+        <li><strong>Session Cookies:</strong> These are temporary and expire when you close your browser.</li>
+        <li><strong>Persistent Cookies:</strong> These remain on your device for a set period specified in the cookie (e.g., 30 days, 1 year, etc.).</li>
+      </ul>
+      <p>We strive to keep cookie durations as short as possible while still providing a good user experience. Essential cookies are typically session-based, while preference cookies may last longer to remember your settings across visits.</p>
+    </div>
+
+    <div class="contact-info">
+      <h3><i class="fas fa-question-circle"></i> Questions About Our Cookie Policy?</h3>
+      <p>If you have any questions about our use of cookies or this Cookie Policy, please contact us:</p>
+      <p><strong>Email:</strong> <a href="mailto:privacy@toolsedito.com">privacy@toolsedito.com</a></p>
+      <p><strong>Contact Form:</strong> <a href="contact.html">Visit our Contact Page</a></p>
+      <p>We may update this Cookie Policy from time to time to reflect changes in technology, legislation, or our operations. We encourage you to review this page periodically for the latest information on our use of cookies.</p>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-about">
+        <h3 class="footer-logo">Toolsedito</h3>
+        <p class="footer-description">Toolsedito provides smart online tools for everyday productivity. Our tools are fast, free, and easy to use, helping you accomplish tasks efficiently.</p>
+        <div class="social-links">
+          <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#tools">Tools</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="index.html#blog">Blog</a></li>
+          <li><a href="sitemap.html">Sitemap</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Tool Categories</h4>
+        <ul>
+          <li><a href="index.html#image-tools">Image Tools</a></li>
+          <li><a href="index.html#pdf-tools">PDF Tools</a></li>
+          <li><a href="index.html#seo-tools">SEO Tools</a></li>
+          <li><a href="index.html#calculators">Calculators</a></li>
+          <li><a href="index.html#ai-tools">AI Tools</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms-of-service.html">Terms of Service</a></li>
+          <li><a href="cookie-policy.html" class="active">Cookie Policy</a></li>
+          <li><a href="disclaimer.html">Disclaimer</a></li>
+          <li><a href="contact.html">Help Center</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2026 Toolsedito. All rights reserved. | Designed with <i class="fas fa-heart" style="color: #ef4444;"></i> for productivity | Last Updated: January 2026</p>
+    </div>
+  </footer>
+
+  <script>
+    // Dark Theme Toggle
+    const themeToggle = document.getElementById('themeToggle');
+    const sidebarThemeToggle = document.getElementById('sidebarThemeToggle');
+    const themeStatus = document.getElementById('themeStatus');
+    const body = document.body;
+    
+    // Check for saved theme preference or prefer-color-scheme
+    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    const savedTheme = localStorage.getItem('theme');
+    
+    // Set initial theme
+    if (savedTheme === 'dark' || (!savedTheme && prefersDarkScheme.matches)) {
+      body.classList.add('dark-theme');
+      updateThemeStatus(true);
+    } else {
+      updateThemeStatus(false);
+    }
+    
+    // Main theme toggle function
+    function toggleTheme() {
+      const isDark = body.classList.toggle('dark-theme');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      updateThemeStatus(isDark);
+      
+      // Add animation to the toggle button
+      themeToggle.style.transform = 'rotate(360deg)';
+      setTimeout(() => {
+        themeToggle.style.transform = '';
+      }, 300);
+    }
+    
+    // Update theme status text and icon
+    function updateThemeStatus(isDark) {
+      if (themeStatus) {
+        themeStatus.textContent = isDark ? 'ON' : 'OFF';
+      }
+    }
+    
+    // Event listeners for theme toggles
+    themeToggle.addEventListener('click', toggleTheme);
+    
+    if (sidebarThemeToggle) {
+      sidebarThemeToggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        toggleTheme();
+      });
+    }
+    
+    // Mobile Sidebar Functionality
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const sidebar = document.getElementById('sidebar');
+    const sidebarClose = document.getElementById('sidebarClose');
+    const sidebarOverlay = document.getElementById('sidebarOverlay');
+    
+    // Open sidebar
+    mobileMenuBtn.addEventListener('click', () => {
+      sidebar.classList.add('active');
+      sidebarOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+    
+    // Close sidebar
+    function closeSidebar() {
+      sidebar.classList.remove('active');
+      sidebarOverlay.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+    
+    sidebarClose.addEventListener('click', closeSidebar);
+    sidebarOverlay.addEventListener('click', closeSidebar);
+    
+    // Close sidebar when clicking on a link (for mobile)
+    document.querySelectorAll('.sidebar-links a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        if (!this.id.includes('Theme')) { // Don't close for theme toggle
+          closeSidebar();
+        }
+      });
+    });
+    
+    // Cookie Consent Simulation (for demo purposes)
+    document.addEventListener('DOMContentLoaded', function() {
+      // Check if cookie consent is already given
+      const cookieConsent = localStorage.getItem('toolsedito_cookie_consent');
+      
+      if (!cookieConsent) {
+        // Show cookie consent banner (simplified version for demo)
+        setTimeout(() => {
+          console.log('Cookie consent banner would appear here in production.');
+          // In production, you would show an actual banner here
+        }, 1000);
+      }
+      
+      // Set cookie consent if user accepts (demo functionality)
+      const acceptCookiesBtn = document.getElementById('acceptCookies');
+      const rejectCookiesBtn = document.getElementById('rejectCookies');
+      
+      if (acceptCookiesBtn) {
+        acceptCookiesBtn.addEventListener('click', function() {
+          localStorage.setItem('toolsedito_cookie_consent', 'accepted');
+          console.log('Cookies accepted');
         });
-    </script>
+      }
+      
+      if (rejectCookiesBtn) {
+        rejectCookiesBtn.addEventListener('click', function() {
+          localStorage.setItem('toolsedito_cookie_consent', 'rejected');
+          console.log('Cookies rejected');
+        });
+      }
+    });
+
+    // Handle responsive behavior on window resize
+    window.addEventListener('resize', function() {
+      if (window.innerWidth >= 1024) {
+        closeSidebar();
+      }
+    });
+    
+    // Update theme status in sidebar when theme changes
+    const themeObserver = new MutationObserver(function(mutations) {
+      mutations.forEach(function(mutation) {
+        if (mutation.attributeName === 'class') {
+          const isDark = body.classList.contains('dark-theme');
+          updateThemeStatus(isDark);
+        }
+      });
+    });
+    
+    themeObserver.observe(body, { attributes: true });
+  </script>
 </body>
 </html>
