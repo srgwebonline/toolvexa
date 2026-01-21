@@ -1,930 +1,2099 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sitemap | Toolvexa - Complete Directory of All Tools and Pages</title>
-    
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Complete sitemap of Toolvexa website. Browse all 50+ online tools, categories, blog posts, and informational pages. Find every tool easily.">
-    <meta name="keywords" content="website sitemap, page directory, Toolvexa pages, online tools directory, site structure, XML sitemap, SEO sitemap">
-    <meta name="author" content="Toolvexa">
-    <meta name="robots" content="index, follow">
-    
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Sitemap | Toolvexa - Complete Directory of All Tools and Pages">
-    <meta property="og:description" content="Complete directory of all pages and tools on Toolvexa website. Browse 50+ free online tools.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://toolvexa.com/sitemap">
-    <meta property="og:image" content="https://toolvexa.com/images/sitemap-og.jpg">
-    
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://toolvexa.com/sitemap">
-    
-    <!-- Structured Data for SEO -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "ItemList",
-        "name": "Toolvexa Website Sitemap",
-        "description": "Complete directory of all tools, categories, and pages on Toolvexa",
-        "numberOfItems": "50",
-        "itemListElement": [
-            {
-                "@type": "SiteNavigationElement",
-                "name": "Image Tools",
-                "url": "https://toolvexa.com/image-tools",
-                "description": "Image editing and processing tools"
-            },
-            {
-                "@type": "SiteNavigationElement",
-                "name": "PDF Tools",
-                "url": "https://toolvexa.com/pdf-tools",
-                "description": "PDF processing and conversion tools"
-            },
-            {
-                "@type": "SiteNavigationElement",
-                "name": "SEO Tools",
-                "url": "https://toolvexa.com/seo-tools",
-                "description": "Search engine optimization tools"
-            }
-        ]
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Toolsedito Sitemap - Complete List of All Free Online Tools</title>
+  
+  <!-- SEO Meta -->
+  <meta name="description" content="Complete sitemap of Toolsedito - Browse all 50+ free online tools for images, PDFs, SEO, AI, calculators, and text utilities. Easy navigation to every tool.">
+  <meta name="keywords" content="toolsedito sitemap, online tools directory, all tools list, website map, tool navigation">
+  <meta name="author" content="Toolsedito Team">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.toolsedito.com/sitemap.html">
+  
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+  <style>
+    /* Reusing the exact same CSS from homepage for consistency */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-    </script>
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
-    <style>
-        /* Reset & Base Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', system-ui, sans-serif;
-        }
 
-        :root {
-            --primary: #4361ee;
-            --primary-light: #e6f0ff;
-            --secondary: #7209b7;
-            --success: #2ec4b6;
-            --danger: #e63946;
-            --warning: #ff9e00;
-            --light: #f8f9fa;
-            --dark: #212529;
-            --border: #dee2e6;
-            --shadow: rgba(0, 0, 0, 0.1);
-            --radius: 12px;
-        }
+    :root {
+      --primary: #4f46e5;
+      --primary-dark: #4338ca;
+      --secondary: #10b981;
+      --accent: #f59e0b;
+      --light: #f8fafc;
+      --dark: #1f2933;
+      --gray: #6b7280;
+      --light-gray: #f3f4f6;
+      --card-bg: #ffffff;
+      --card-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+      --hover-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      --body-bg: var(--light);
+      --text-color: var(--dark);
+      --border-color: rgba(0, 0, 0, 0.05);
+      --footer-bg: linear-gradient(135deg, #111827, #1f2937);
+      --transition-speed: 0.3s;
+    }
 
-        body {
-            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
-            min-height: 100vh;
-            color: var(--dark);
-            line-height: 1.6;
-            padding-top: 80px; /* For fixed navbar */
-        }
+    /* Dark Theme Variables */
+    .dark-theme {
+      --light: #121826;
+      --dark: #f3f4f6;
+      --gray: #9ca3af;
+      --light-gray: #1f2937;
+      --card-bg: #1a2332;
+      --body-bg: #0f172a;
+      --text-color: #f3f4f6;
+      --border-color: rgba(255, 255, 255, 0.05);
+      --card-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      --hover-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      --footer-bg: linear-gradient(135deg, #0f172a, #1e293b);
+    }
 
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--body-bg);
+      color: var(--text-color);
+      line-height: 1.6;
+      overflow-x: hidden;
+      transition: background-color var(--transition-speed) ease,
+                  color var(--transition-speed) ease;
+    }
 
-        /* Navigation Bar */
-        .tool-navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 15px 0;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-            border-bottom: 3px solid #4361ee;
-        }
-        
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 20px;
-        }
-        
-        .nav-brand {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-            color: #4361ee;
-            font-size: 1.5rem;
-            font-weight: 700;
-            font-family: 'Playfair Display', serif;
-        }
-        
-        .nav-brand i {
-            font-size: 1.8rem;
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 25px;
-            list-style: none;
-        }
-        
-        .nav-links a {
-            color: #333;
-            text-decoration: none;
-            font-weight: 500;
-            padding: 8px 15px;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-        }
-        
-        .nav-links a:hover {
-            background: #4361ee;
-            color: white;
-        }
-        
-        .nav-links a.active {
-            background: #4361ee;
-            color: white;
-        }
-        
-        .back-to-home {
-            background: #4361ee;
-            color: white !important;
-            padding: 8px 20px !important;
-            border-radius: 25px;
-        }
-        
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: #333;
-            cursor: pointer;
-        }
+    h1, h2, h3, h4 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+    }
 
-        /* Breadcrumb */
-        .breadcrumb {
-            margin: 20px 0 30px;
-            font-size: 0.9rem;
-            color: #666;
-        }
-        
-        .breadcrumb a {
-            color: #4361ee;
-            text-decoration: none;
-        }
-        
-        .breadcrumb span {
-            margin: 0 5px;
-        }
+    /* Theme Toggle Button */
+    .theme-toggle {
+      background: var(--light-gray);
+      border: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--text-color);
+      font-size: 1.2rem;
+      transition: all var(--transition-speed) ease;
+      margin-left: 10px;
+    }
 
-        /* Sitemap Content */
-        .sitemap-container {
-            animation: fadeIn 1s ease-out;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .sitemap-header {
-            text-align: center;
-            margin-bottom: 3rem;
-            padding: 2rem;
-            background: white;
-            border-radius: var(--radius);
-            box-shadow: 0 5px 20px var(--shadow);
-        }
-        
-        .sitemap-header h1 {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-            font-family: 'Playfair Display', serif;
-        }
-        
-        .sitemap-header p {
-            color: #666;
-            max-width: 700px;
-            margin: 0 auto;
-            font-size: 1.1rem;
-        }
-        
-        .sitemap-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-        
-        .sitemap-category {
-            background: white;
-            border-radius: var(--radius);
-            padding: 1.5rem;
-            box-shadow: 0 5px 20px var(--shadow);
-            transition: all 0.3s ease;
-            border-top: 4px solid var(--primary);
-        }
-        
-        .sitemap-category:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(67, 97, 238, 0.15);
-        }
-        
-        .category-title {
-            color: var(--primary);
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid rgba(67, 97, 238, 0.2);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .category-title i {
-            font-size: 1.2rem;
-        }
-        
-        .page-list {
-            list-style: none;
-        }
-        
-        .page-list li {
-            margin-bottom: 0.8rem;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-        
-        .page-list li:before {
-            content: "→";
-            color: var(--primary);
-            position: absolute;
-            left: 0;
-            font-weight: bold;
-        }
-        
-        .page-list a {
-            color: #666;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-        }
-        
-        .page-list a:hover {
-            color: var(--primary);
-            padding-left: 5px;
-        }
-        
-        .priority-badge {
-            display: inline-block;
-            font-size: 0.7rem;
-            padding: 0.2rem 0.5rem;
-            border-radius: 3px;
-            margin-left: 0.5rem;
-            font-weight: bold;
-        }
-        
-        .high-priority { background: var(--success); color: white; }
-        .medium-priority { background: var(--warning); color: var(--dark); }
-        .low-priority { background: #6b7280; color: white; }
-        
-        /* Statistics Box */
-        .statistics-box {
-            background: white;
-            border-radius: var(--radius);
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 5px 20px var(--shadow);
-        }
-        
-        .statistics-box h2 {
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-        }
-        
-        .stat-item {
-            text-align: center;
-            padding: 1.5rem;
-            background: var(--light);
-            border-radius: var(--radius);
-            transition: all 0.3s ease;
-        }
-        
-        .stat-item:hover {
-            transform: translateY(-5px);
-            background: var(--primary-light);
-        }
-        
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-        
-        /* Recommendations Box */
-        .recommendations-box {
-            background: linear-gradient(135deg, rgba(67, 97, 238, 0.05), rgba(114, 9, 183, 0.05));
-            border-radius: var(--radius);
-            padding: 2rem;
-            margin-bottom: 2rem;
-            border-left: 4px solid var(--primary);
-        }
-        
-        .recommendations-box h2 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .recommendations-box ul {
-            list-style: none;
-            padding-left: 0;
-        }
-        
-        .recommendations-box li {
-            margin-bottom: 0.8rem;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-        
-        .recommendations-box li i {
-            color: var(--warning);
-            position: absolute;
-            left: 0;
-        }
-        
-        /* Footer */
-        footer {
-            text-align: center;
-            margin-top: 50px;
-            padding: 30px 20px;
-            color: #666;
-            font-size: 0.9rem;
-            border-top: 1px solid var(--border);
-            background: white;
-        }
+    .theme-toggle:hover {
+      background: var(--primary);
+      color: white;
+      transform: rotate(15deg);
+    }
 
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-            margin-bottom: 20px;
-        }
+    .theme-toggle i {
+      transition: transform 0.5s ease;
+    }
 
-        .footer-links a {
-            color: #4361ee;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
+    .dark-theme .theme-toggle i.fa-sun {
+      display: block;
+    }
 
-        .footer-links a:hover {
-            color: var(--secondary);
-            text-decoration: underline;
-        }
+    .dark-theme .theme-toggle i.fa-moon {
+      display: none;
+    }
 
-        .copyright {
-            margin-top: 20px;
-            color: #888;
-        }
+    .theme-toggle i.fa-sun {
+      display: none;
+    }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: white;
-                flex-direction: column;
-                padding: 20px;
-                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            }
-            
-            .nav-links.active {
-                display: flex;
-            }
-            
-            .mobile-menu-btn {
-                display: block;
-            }
-            
-            .nav-container {
-                flex-wrap: wrap;
-            }
-            
-            .sitemap-header h1 {
-                font-size: 2rem;
-            }
-            
-            .sitemap-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .stat-number {
-                font-size: 2rem;
-            }
-            
-            .footer-links {
-                flex-direction: column;
-                gap: 15px;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .sitemap-header {
-                padding: 1rem 0 2rem;
-            }
-            
-            .sitemap-header h1 {
-                font-size: 1.8rem;
-            }
-        }
-        
-        /* Smooth scrolling */
-        html {
-            scroll-behavior: smooth;
-        }
-        
-        /* Text selection */
-        ::selection {
-            background-color: rgba(67, 97, 238, 0.3);
-            color: var(--dark);
-        }
-    </style>
+    .theme-toggle i.fa-moon {
+      display: block;
+    }
+
+    /* Mobile First - Sidebar Implementation */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      padding: 18px 0;
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+      transition: all var(--transition-speed) ease;
+    }
+
+    .dark-theme .navbar {
+      background: rgba(26, 35, 50, 0.98);
+    }
+
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+    }
+
+    .nav-logo {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--primary);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-logo i {
+      font-size: 1.6rem;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    /* Desktop Navigation - Hidden on Mobile */
+    .nav-links {
+      display: none;
+    }
+
+    /* Mobile Menu Button */
+    .mobile-menu-btn {
+      display: block;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--text-color);
+      cursor: pointer;
+      z-index: 1002;
+      transition: color var(--transition-speed) ease;
+    }
+
+    /* Sidebar Styles */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      right: -300px;
+      width: 280px;
+      height: 100vh;
+      background: var(--card-bg);
+      box-shadow: -5px 0 25px rgba(0, 0, 0, 0.1);
+      z-index: 1001;
+      transition: right 0.3s ease-in-out;
+      padding: 80px 25px 30px;
+      overflow-y: auto;
+    }
+
+    .dark-theme .sidebar {
+      box-shadow: -5px 0 25px rgba(0, 0, 0, 0.3);
+    }
+
+    .sidebar.active {
+      right: 0;
+    }
+
+    .sidebar-header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px;
+      background: var(--primary);
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .sidebar-header .nav-logo {
+      color: white;
+      font-size: 1.3rem;
+    }
+
+    .sidebar-close {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .sidebar-links {
+      list-style: none;
+      margin-top: 20px;
+    }
+
+    .sidebar-links li {
+      margin-bottom: 15px;
+    }
+
+    .sidebar-links a {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--text-color);
+      text-decoration: none;
+      font-weight: 500;
+      padding: 12px 15px;
+      border-radius: 8px;
+      transition: all var(--transition-speed) ease;
+    }
+
+    .sidebar-links a:hover {
+      background: var(--light-gray);
+      color: var(--primary);
+      transform: translateX(5px);
+    }
+
+    .sidebar-links a i {
+      width: 20px;
+      text-align: center;
+    }
+
+    .sidebar-links a.active {
+      background: var(--primary);
+      color: white;
+    }
+
+    .sidebar-divider {
+      height: 1px;
+      background: var(--border-color);
+      margin: 20px 0;
+    }
+
+    .sidebar-tool-categories {
+      margin-top: 20px;
+    }
+
+    .sidebar-tool-categories h4 {
+      font-size: 0.9rem;
+      color: var(--gray);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 15px;
+    }
+
+    .sidebar-tools-list {
+      list-style: none;
+      margin-bottom: 20px;
+    }
+
+    .sidebar-tools-list li {
+      margin-bottom: 10px;
+    }
+
+    .sidebar-tools-list a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--gray);
+      text-decoration: none;
+      font-size: 0.9rem;
+      padding: 8px 10px;
+      border-radius: 6px;
+      transition: all var(--transition-speed) ease;
+    }
+
+    .sidebar-tools-list a:hover {
+      color: var(--primary);
+      background: var(--light-gray);
+    }
+
+    /* Overlay when sidebar is open */
+    .sidebar-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .sidebar-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Header Styles - Same as homepage */
+    header {
+      background: linear-gradient(135deg, #e6f7ff 0%, #f0f9ff 100%);
+      color: #1f2933;
+      padding: 70px 20px 50px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      margin-top: 75px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .dark-theme header {
+      background: linear-gradient(135deg, #0a1929 0%, #112240 100%);
+      color: #f3f4f6;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .header-content {
+      max-width: 1000px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .logo-container {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 25px;
+      gap: 15px;
+    }
+
+    .logo {
+      font-size: 3.5rem;
+      font-weight: 800;
+      background: linear-gradient(90deg, #4f46e5, #7c3aed, #10b981);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: -0.5px;
+      line-height: 1;
+    }
+
+    .tagline {
+      font-size: 1.4rem;
+      margin-bottom: 1.5rem;
+      color: var(--dark);
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+      font-weight: 400;
+    }
+
+    .dark-theme .tagline {
+      color: #e5e7eb;
+    }
+
+    .subtagline {
+      font-size: 1.1rem;
+      margin-bottom: 2.5rem;
+      color: var(--gray);
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+
+    /* Sitemap Specific Styles */
+    .sitemap-section {
+      padding: 60px 20px;
+      max-width: 1400px;
+      margin: auto;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: var(--text-color);
+      position: relative;
+      display: inline-block;
+      left: 50%;
+      transform: translateX(-50%);
+      transition: color var(--transition-speed) ease;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      border-radius: 2px;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      font-size: 1rem;
+      color: var(--gray);
+      max-width: 700px;
+      margin: 0 auto 40px;
+      line-height: 1.5;
+      transition: color var(--transition-speed) ease;
+    }
+
+    /* Sitemap Grid Layout */
+    .sitemap-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .sitemap-category {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: var(--card-shadow);
+      border-left: 4px solid var(--primary);
+      transition: all var(--transition-speed) ease;
+    }
+
+    .sitemap-category:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--hover-shadow);
+    }
+
+    .category-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 25px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .category-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.5rem;
+      margin-right: 20px;
+      flex-shrink: 0;
+    }
+
+    .category-title {
+      font-size: 1.8rem;
+      color: var(--text-color);
+    }
+
+    .category-subtitle {
+      color: var(--gray);
+      font-size: 1rem;
+      margin-top: 5px;
+    }
+
+    /* Sitemap Links Grid */
+    .sitemap-links {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 15px;
+    }
+
+    .sitemap-link-item {
+      display: flex;
+      align-items: flex-start;
+      padding: 15px;
+      background: var(--light-gray);
+      border-radius: 10px;
+      transition: all var(--transition-speed) ease;
+    }
+
+    .sitemap-link-item:hover {
+      background: var(--primary);
+      transform: translateX(5px);
+    }
+
+    .sitemap-link-item:hover .link-title,
+    .sitemap-link-item:hover .link-description {
+      color: white;
+    }
+
+    .link-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--card-bg);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      font-size: 1.2rem;
+      margin-right: 15px;
+      flex-shrink: 0;
+      transition: all var(--transition-speed) ease;
+    }
+
+    .sitemap-link-item:hover .link-icon {
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+    }
+
+    .link-content {
+      flex: 1;
+    }
+
+    .link-title {
+      font-size: 1.1rem;
+      color: var(--text-color);
+      margin-bottom: 5px;
+      transition: color var(--transition-speed) ease;
+    }
+
+    .link-description {
+      font-size: 0.9rem;
+      color: var(--gray);
+      line-height: 1.5;
+      transition: color var(--transition-speed) ease;
+    }
+
+    .link-arrow {
+      color: var(--gray);
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      transition: all var(--transition-speed) ease;
+    }
+
+    .sitemap-link-item:hover .link-arrow {
+      color: white;
+      transform: translateX(5px);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--footer-bg);
+      color: #9ca3af;
+      padding: 50px 20px 30px;
+      margin-top: 60px;
+      position: relative;
+      transition: background var(--transition-speed) ease;
+    }
+
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+
+    .footer-logo {
+      font-size: 2rem;
+      font-weight: 800;
+      color: white;
+      margin-bottom: 15px;
+      display: inline-block;
+      background: linear-gradient(90deg, #fff, #c7d2fe);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .footer-description {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 12px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .social-link:hover {
+      background: var(--primary);
+      transform: translateY(-5px);
+    }
+
+    .footer-links h4 {
+      color: white;
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    .footer-links h4::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 40px;
+      height: 3px;
+      background: var(--primary);
+    }
+
+    .footer-links ul {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+
+    .footer-links a {
+      color: #9ca3af;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: inline-block;
+      font-size: 0.95rem;
+    }
+
+    .footer-links a:hover {
+      color: white;
+      transform: translateX(5px);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.85rem;
+    }
+
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background: var(--primary);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      text-decoration: none;
+      box-shadow: 0 5px 15px rgba(79, 70, 229, 0.3);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 999;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      background: var(--primary-dark);
+      transform: translateY(-5px);
+    }
+
+    /* Breadcrumb Navigation */
+    .breadcrumb {
+      max-width: 1200px;
+      margin: 0 auto 30px;
+      padding: 0 20px;
+    }
+
+    .breadcrumb-links {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .breadcrumb-links a {
+      color: var(--primary);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color var(--transition-speed) ease;
+    }
+
+    .breadcrumb-links a:hover {
+      color: var(--primary-dark);
+      text-decoration: underline;
+    }
+
+    .breadcrumb-separator {
+      color: var(--gray);
+      font-size: 0.8rem;
+    }
+
+    .breadcrumb-current {
+      color: var(--gray);
+      font-size: 0.9rem;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-fade-in-up {
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+
+    .delay-1 { animation-delay: 0.2s; }
+    .delay-2 { animation-delay: 0.4s; }
+    .delay-3 { animation-delay: 0.6s; }
+    .delay-4 { animation-delay: 0.8s; }
+
+    /* Tablet Styles (768px and up) */
+    @media (min-width: 768px) {
+      .logo {
+        font-size: 4rem;
+      }
+      
+      .tagline {
+        font-size: 1.6rem;
+      }
+      
+      .subtagline {
+        font-size: 1.2rem;
+      }
+      
+      .sitemap-section {
+        padding: 80px 20px;
+      }
+      
+      .section-title {
+        font-size: 2.5rem;
+      }
+      
+      .section-subtitle {
+        font-size: 1.1rem;
+      }
+      
+      .sitemap-links {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .category-header {
+        flex-direction: row;
+      }
+      
+      .category-icon {
+        margin-right: 20px;
+        margin-bottom: 0;
+      }
+    }
+
+    /* Desktop Styles (1024px and up) */
+    @media (min-width: 1024px) {
+      .nav-links {
+        display: flex;
+        gap: 30px;
+        list-style: none;
+      }
+
+      .nav-links a {
+        color: var(--text-color);
+        text-decoration: none;
+        font-weight: 500;
+        transition: color var(--transition-speed) ease;
+        position: relative;
+      }
+
+      .nav-links a:hover {
+        color: var(--primary);
+      }
+
+      .nav-links a::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--primary);
+        transition: width 0.3s;
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      .mobile-menu-btn {
+        display: none;
+      }
+
+      .sidebar {
+        display: none;
+      }
+
+      .sidebar-overlay {
+        display: none;
+      }
+
+      header {
+        padding: 100px 20px 80px;
+        margin-top: 85px;
+      }
+      
+      .logo {
+        font-size: 4.5rem;
+      }
+      
+      .tagline {
+        font-size: 1.8rem;
+      }
+      
+      .subtagline {
+        font-size: 1.3rem;
+      }
+      
+      .sitemap-links {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      
+      .footer-content {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    /* Large Desktop Styles (1200px and up) */
+    @media (min-width: 1200px) {
+      .sitemap-section {
+        padding: 100px 20px;
+      }
+      
+      .sitemap-links {
+        grid-template-columns: repeat(4, 1fr);
+      }
+      
+      .logo {
+        font-size: 5rem;
+      }
+    }
+
+    /* Print Styles */
+    @media print {
+      .navbar, .sidebar, .sidebar-overlay, .mobile-menu-btn,
+      .social-links, .footer-bottom, .theme-toggle, .back-to-top {
+        display: none !important;
+      }
+      
+      body {
+        background: white;
+        color: black;
+      }
+      
+      .sitemap-section {
+        padding: 20px;
+      }
+      
+      header {
+        background: white !important;
+        color: black;
+        padding: 20px;
+        margin-top: 0;
+      }
+      
+      .logo {
+        background: black !important;
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: black;
+      }
+      
+      .tagline {
+        color: black;
+      }
+      
+      .sitemap-link-item {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <!-- Navigation Bar -->
-    <nav class="tool-navbar">
-        <div class="nav-container">
-            <a href="index.html" class="nav-brand">
-                <i class="fas fa-tools"></i> Toolvexa
-            </a>
-            
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
-                <i class="fas fa-bars"></i>
-            </button>
-            
-            <ul class="nav-links" id="navLinks">
-                <li><a href="index.html" class="back-to-home">Back to Home</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <!-- Main Content -->
-    <main class="container">
-        <!-- Breadcrumb -->
-        <div class="breadcrumb">
-            <a href="index.html">Home</a> 
-            <span>></span>
-            <span>Sitemap</span>
-        </div>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <i class="fas fa-tools"></i> Toolsedito
+      </a>
+      
+      <!-- Desktop Navigation -->
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#tools">Tools</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="index.html#blog">Blog</a></li>
+        <li><a href="sitemap.html" class="active">Sitemap</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      
+      <div style="display: flex; align-items: center;">
+        <!-- Theme Toggle Button -->
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+          <i class="fas fa-moon"></i>
+          <i class="fas fa-sun"></i>
+        </button>
         
-        <!-- Sitemap Content -->
-        <div class="sitemap-container">
-            <div class="sitemap-header">
-                <h1><i class="fas fa-sitemap"></i> Toolvexa Website Sitemap</h1>
-                <p>Complete directory of all tools, categories, and pages on Toolvexa. Browse our entire collection of 50+ free online tools for professionals.</p>
-            </div>
-            
-            <div class="sitemap-grid">
-                <!-- Main Pages -->
-                <div class="sitemap-category">
-                    <h2 class="category-title">
-                        <i class="fas fa-home"></i>
-                        Main Pages
-                    </h2>
-                    <ul class="page-list">
-                        <li><a href="index.html">Homepage <span class="priority-badge high-priority">High</span></a></li>
-                        <li><a href="index.html#tools">Tool Categories <span class="priority-badge high-priority">High</span></a></li>
-                        <li><a href="about.html">About Toolvexa <span class="priority-badge medium-priority">Medium</span></a></li>
-                        <li><a href="index.html#blog">Blog Posts <span class="priority-badge medium-priority">Medium</span></a></li>
-                        <li><a href="contact.html">Contact Us <span class="priority-badge medium-priority">Medium</span></a></li>
-                    </ul>
-                </div>
-                
-                <!-- Image Tools -->
-                <div class="sitemap-category">
-                    <h2 class="category-title">
-                        <i class="fas fa-image"></i>
-                        Image Tools
-                    </h2>
-                    <ul class="page-list">
-                        <li><a href="image-converter.html">Image Converter <span class="priority-badge high-priority">High</span></a></li>
-                        <li><a href="image-compressor.html">Image Compressor <span class="priority-badge high-priority">High</span></a></li>
-                        <li><a href="image-resizer.html">Image Resizer <span class="priority-badge high-priority">High</span></a></li>
-                        <li><a href="image-cropper.html">Image Cropper <span class="priority-badge high-priority">High</span></a></li>
-                        <li><a href="background-remover.html">Background Remover <span class="priority-badge medium-priority">Medium</span></a></li>
-                        <li><a href="image-to-text.html">Image to Text (OCR) <span class="priority-badge medium-priority">Medium</span></a></li>
-                        <li><a href="image-rotator.html">Image Rotator <span class="priority-badge medium-priority">Medium</span></a></li>
-                        <li><a href="image-editor.html">Image Editor <span class="priority-badge medium-priority">Medium</span></a></li>
-                    </ul>
-                </div>
-                
-                <!-- PDF Tools -->
-                <div class="sitemap-category">
-                    <h2 class="category-title">
-                        <i class="fas fa-file-pdf"></i>
-                        PDF Tools
-                    </h2>
-                    <ul class="page-list">
-                        <li><a href="pdf-to-word.html">PDF to Word <span class="priority-badge high-priority">High</span></a></li>
-                        <li><a href="pdf-compressor.html">PDF Compressor <span class="priority-badge high-priority">High</span></a></li>
-                        <li><a href="pdf-merger.html">PDF Merger & Splitter <span class="priority-badge high-priority">High</span></a></li>
-                        <li><a href="document-converter.html">Document Converter <span class="priority-badge medium-priority">Medium</span></a></li>
-                        <li><a href="pdf-protect.html">PDF Protect <span class="priority-badge medium-priority">Medium</span></a></li>
-                    </ul>
-                </div>
-                
-                <!-- SEO Tools -->
-                <div class="sitemap-category">
-                    <h2 class="category-title">
-                        <i class="fas fa-search"></i>
-                        SEO Tools
-                    </h2>
-                    <ul class="page-list">
-                        <li><a href="keyword-research.html">Keyword Research <span class="priority-badge high-priority">High</span></a></li>
-                        <li><a href="meta-tag-generator.html">Meta Tag Generator <span class="priority-badge high-priority">High</span></a></li>
-                        <li><a href="seo-analyzer.html">SEO Analyzer <span class="priority-badge medium-priority">Medium</span></a></li>
-                        <li><a href="sitemap-generator.html">Sitemap Generator <span class="priority-badge medium-priority">Medium</span></a></li>
-                    </ul>
-                </div>
-                
-                <!-- Calculator Tools -->
-                <div class="sitemap-category">
-                    <h2 class="category-title">
-                        <i class="fas fa-calculator"></i>
-                        Calculators
-                    </h2>
-                    <ul class="page-list">
-                        <li><a href="gst-calculator.html">GST Calculator <span class="priority-badge medium-priority">Medium</span></a></li>
-                        <li><a href="emi-calculator.html">EMI Calculator <span class="priority-badge medium-priority">Medium</span></a></li>
-                        <li><a href="age-calculator.html">Age Calculator <span class="priority-badge medium-priority">Medium</span></a></li>
-                        <li><a href="percentage-calculator.html">Percentage Calculator <span class="priority-badge medium-priority">Medium</span></a></li>
-                        <li><a href="discount-calculator.html">Discount Calculator <span class="priority-badge high-priority">High</span></a></li>
-                        <li><a href="currency-converter.html">Currency Converter <span class="priority-badge medium-priority">Medium</span></a></li>
-                        <li><a href="speed-converter.html">Speed Converter <span class="priority-badge low-priority">Low</span></a></li>
-                    </ul>
-                </div>
-                
-                <!-- AI Tools -->
-                <div class="sitemap-category">
-                    <h2 class="category-title">
-                        <i class="fas fa-robot"></i>
-                        AI Tools
-                    </h2>
-                    <ul class="page-list">
-                        <li><a href="ai-content-writer.html">AI Content Writer <span class="priority-badge high-priority">High</span></a></li>
-                        <li><a href="ai-image-generator.html">AI Image Generator <span class="priority-badge high-priority">High</span></a></li>
-                        <li><a href="ai-translator.html">AI Translator <span class="priority-badge medium-priority">Medium</span></a></li>
-                        <li><a href="grammar-checker.html">Grammar Checker <span class="priority-badge medium-priority">Medium</span></a></li>
-                    </ul>
-                </div>
-                
-                <!-- Text Tools -->
-                <div class="sitemap-category">
-                    <h2 class="category-title">
-                        <i class="fas fa-font"></i>
-                        Text Tools
-                    </h2>
-                    <ul class="page-list">
-                        <li><a href="word-counter.html">Word Counter <span class="priority-badge medium-priority">Medium</span></a></li>
-                        <li><a href="case-converter.html">Case Converter <span class="priority-badge medium-priority">Medium</span></a></li>
-                        <li><a href="text-formatter.html">Text Formatter <span class="priority-badge medium-priority">Medium</span></a></li>
-                        <li><a href="text-reverser.html">Text Reverser <span class="priority-badge low-priority">Low</span></a></li>
-                    </ul>
-                </div>
-                
-                <!-- Content & Information -->
-                <div class="sitemap-category">
-                    <h2 class="category-title">
-                        <i class="fas fa-info-circle"></i>
-                        Content & Information
-                    </h2>
-                    <ul class="page-list">
-                        <li><a href="index.html#about">About Toolvexa <span class="priority-badge medium-priority">Medium</span></a></li>
-                        <li><a href="index.html#blog">Blog Posts <span class="priority-badge medium-priority">Medium</span></a></li>
-                        <li><a href="contact.html">Contact Us <span class="priority-badge medium-priority">Medium</span></a></li>
-                        <li><a href="privacy-policy.html">Privacy Policy <span class="priority-badge low-priority">Low</span></a></li>
-                        <li><a href="term-condition.html">Terms of Service <span class="priority-badge low-priority">Low</span></a></li>
-                        <li><a href="faq.html">FAQ <span class="priority-badge low-priority">Low</span></a></li>
-                        <li><a href="sitemap.html">Sitemap <span class="priority-badge low-priority">Low</span></a></li>
-                    </ul>
-                </div>
-                
-                <!-- Blog Posts -->
-                <div class="sitemap-category">
-                    <h2 class="category-title">
-                        <i class="fas fa-blog"></i>
-                        Blog Posts
-                    </h2>
-                    <ul class="page-list">
-                        <li><a href="blog/image-optimization-guide.html">Image Optimization Guide <span class="priority-badge medium-priority">Medium</span></a></li>
-                        <li><a href="blog/pdf-security-best-practices.html">PDF Security Best Practices <span class="priority-badge medium-priority">Medium</span></a></li>
-                        <li><a href="blog/ai-tools-revolution.html">AI Tools Revolution <span class="priority-badge medium-priority">Medium</span></a></li>
-                        <li><a href="blog/seo-tools-for-beginners.html">SEO Tools for Beginners <span class="priority-badge medium-priority">Medium</span></a></li>
-                        <li><a href="blog/free-online-tools-2024.html">Free Online Tools 2024 <span class="priority-badge medium-priority">Medium</span></a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <!-- Sitemap Statistics -->
-            <div class="statistics-box">
-                <h2><i class="fas fa-chart-bar"></i> Toolvexa Sitemap Statistics</h2>
-                <div class="stats-grid">
-                    <div class="stat-item">
-                        <div class="stat-number">50+</div>
-                        <div>Total Tools</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">8</div>
-                        <div>Tool Categories</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">24</div>
-                        <div>High Priority Pages</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number" style="color: var(--success);">Updated</div>
-                        <div id="currentMonthYear"></div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- SEO Recommendations -->
-            <div class="recommendations-box">
-                <h2><i class="fas fa-lightbulb"></i> SEO Recommendations</h2>
-                <ul>
-                    <li><i class="fas fa-check-circle"></i> Submit XML sitemap to Google Search Console</li>
-                    <li><i class="fas fa-check-circle"></i> Link to this HTML sitemap in website footer</li>
-                    <li><i class="fas fa-check-circle"></i> Update sitemap monthly with new tools and content</li>
-                    <li><i class="fas fa-check-circle"></i> Use priority tags to guide search engine crawling</li>
-                    <li><i class="fas fa-check-circle"></i> Create internal links between related tools</li>
-                </ul>
-            </div>
-            
-            <!-- Second Back to Home Button -->
-            <div style="text-align: center; margin: 2rem 0;">
-                <a href="index.html" class="back-home" style="display: inline-flex; align-items: center; gap: 8px; background: var(--primary); color: white; padding: 12px 24px; border-radius: 25px; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
-                    <i class="fas fa-arrow-left"></i>
-                    Back to Toolvexa Home
-                </a>
-            </div>
-        </div>
-    </main>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-links">
-            <a href="index.html">Home</a>
-            <a href="privacy-policy.html">Privacy Policy</a>
-            <a href="sitemap.html">Sitemap</a>
-            <a href="term-condition.html">Terms of Service</a>
-            <a href="contact.html">Contact</a>
-        </div>
-        <div class="copyright">
-            <p>© <span id="currentYear"></span> Toolvexa. All Rights Reserved. | The Ultimate Online Toolkit for Professionals</p>
-            <p style="margin-top: 10px; font-size: 0.8rem;">All tools are completely free to use, with no registration required.</p>
-        </div>
-    </footer>
-
-    <!-- SEO Pages Section -->
-    <div class="seo-section" id="privacy-policy" style="display: none; max-width: 1000px; margin: 40px auto; padding: 30px; background: white; border-radius: 15px; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); position: relative;">
-        <button class="close-seo" onclick="hideSeoPage()" style="position: absolute; top: 20px; right: 20px; background: #4361ee; color: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.2rem;">×</button>
-        <h1 style="color: #4361ee; margin-bottom: 20px; font-size: 2.2rem;">Privacy Policy</h1>
-        <div class="seo-content" style="line-height: 1.8; color: #444;">
-            <p><strong>Last Updated: <span id="privacyUpdateDate"></span></strong></p>
-            
-            <h2 style="color: #333; margin: 25px 0 15px; font-size: 1.5rem;">1. Introduction</h2>
-            <p>Welcome to Toolvexa. Your privacy is critically important to us. This privacy policy document outlines the types of personal information that is received and collected by our website and how it is used.</p>
-            
-            <h2 style="color: #333; margin: 25px 0 15px; font-size: 1.5rem;">2. Information We Collect</h2>
-            <h3 style="color: #555; margin: 20px 0 10px; font-size: 1.2rem;">2.1 No Personal Data Collection</h3>
-            <p>Our tools operate entirely in your browser. We do not:</p>
-            <ul style="margin-left: 20px; margin-bottom: 20px;">
-                <li>Collect any personal information</li>
-                <li>Upload your files to our servers</li>
-                <li>Store any information about your usage</li>
-                <li>Use cookies for tracking purposes</li>
-            </ul>
-            
-            <h2 style="color: #333; margin: 25px 0 15px; font-size: 1.5rem;">3. How We Use Information</h2>
-            <p>Since we don't collect any personal data, there's no information to use or share. All tools function completely offline once loaded in your browser.</p>
-            
-            <h2 style="color: #333; margin: 25px 0 15px; font-size: 1.5rem;">4. Third-Party Services</h2>
-            <p>We only use Font Awesome for icons and Google Fonts for typography. These services may collect limited data as per their own privacy policies.</p>
-            
-            <h2 style="color: #333; margin: 25px 0 15px; font-size: 1.5rem;">5. Security</h2>
-            <p>Your security is guaranteed because:</p>
-            <ul style="margin-left: 20px; margin-bottom: 20px;">
-                <li>No data transmission occurs</li>
-                <li>All processing is done client-side</li>
-                <li>No server-side storage exists</li>
-            </ul>
-            
-            <h2 style="color: #333; margin: 25px 0 15px; font-size: 1.5rem;">6. Changes to This Policy</h2>
-            <p>We may update this privacy policy from time to time. We will notify you of any changes by posting the new privacy policy on this page.</p>
-            
-            <h2 style="color: #333; margin: 25px 0 15px; font-size: 1.5rem;">7. Contact Us</h2>
-            <p>If you have any questions about this Privacy Policy, please contact us at: privacy@toolvexa.com</p>
-        </div>
+        <!-- Mobile Menu Button -->
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
     </div>
+  </nav>
 
-    <div class="seo-section" id="terms-of-service" style="display: none; max-width: 1000px; margin: 40px auto; padding: 30px; background: white; border-radius: 15px; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); position: relative;">
-        <button class="close-seo" onclick="hideSeoPage()" style="position: absolute; top: 20px; right: 20px; background: #4361ee; color: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.2rem;">×</button>
-        <h1 style="color: #4361ee; margin-bottom: 20px; font-size: 2.2rem;">Terms of Service</h1>
-        <div class="seo-content" style="line-height: 1.8; color: #444;">
-            <p><strong>Last Updated: <span id="termsUpdateDate"></span></strong></p>
-            
-            <h2 style="color: #333; margin: 25px 0 15px; font-size: 1.5rem;">1. Acceptance of Terms</h2>
-            <p>By accessing and using Toolvexa tools, you accept and agree to be bound by the terms and provision of this agreement.</p>
-            
-            <h2 style="color: #333; margin: 25px 0 15px; font-size: 1.5rem;">2. Description of Service</h2>
-            <p>Toolvexa provides free online tools for various purposes including image processing, PDF manipulation, SEO optimization, calculations, and text formatting.</p>
-            
-            <h2 style="color: #333; margin: 25px 0 15px; font-size: 1.5rem;">3. User Responsibilities</h2>
-            <p>You agree to:</p>
-            <ul style="margin-left: 20px; margin-bottom: 20px;">
-                <li>Use the tools only for lawful purposes</li>
-                <li>Not upload any malicious or harmful content</li>
-                <li>Respect copyright and intellectual property rights</li>
-                <li>Not attempt to reverse engineer or hack the tools</li>
-            </ul>
-            
-            <h2 style="color: #333; margin: 25px 0 15px; font-size: 1.5rem;">4. Service Limitations</h2>
-            <p>The services are provided "as is" without warranties of any kind. We do not guarantee:</p>
-            <ul style="margin-left: 20px; margin-bottom: 20px;">
-                <li>Uninterrupted service availability</li>
-                <li>Specific results from any tool</li>
-                <li>Compatibility with all browsers or devices</li>
-            </ul>
-            
-            <h2 style="color: #333; margin: 25px 0 15px; font-size: 1.5rem;">5. Intellectual Property</h2>
-            <p>All content you upload remains your property. We do not claim any rights over your original or processed files.</p>
-            
-            <h2 style="color: #333; margin: 25px 0 15px; font-size: 1.5rem;">6. Limitation of Liability</h2>
-            <p>Toolvexa shall not be liable for any indirect, incidental, special, consequential or punitive damages resulting from your use of the tools.</p>
-            
-            <h2 style="color: #333; margin: 25px 0 15px; font-size: 1.5rem;">7. Changes to Terms</h2>
-            <p>We reserve the right to modify these terms at any time. Continued use of the tools constitutes acceptance of modified terms.</p>
-            
-            <h2 style="color: #333; margin: 25px 0 15px; font-size: 1.5rem;">8. Contact Information</h2>
-            <p>For any questions regarding these Terms of Service, please contact: legal@toolvexa.com</p>
-        </div>
+  <!-- Mobile Sidebar -->
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <a href="index.html" class="nav-logo">
+        <i class="fas fa-tools"></i> Toolsedito
+      </a>
+      <button class="sidebar-close" id="sidebarClose">
+        <i class="fas fa-times"></i>
+      </button>
     </div>
+    
+    <ul class="sidebar-links">
+      <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="index.html#tools"><i class="fas fa-tools"></i> All Tools</a></li>
+      <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+      <li><a href="index.html#blog"><i class="fas fa-blog"></i> Blog</a></li>
+      <li><a href="sitemap.html" class="active"><i class="fas fa-sitemap"></i> Sitemap</a></li>
+      <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+      <li>
+        <a href="#" id="sidebarThemeToggle">
+          <i class="fas fa-moon"></i> Dark Mode
+          <span id="themeStatus" style="margin-left: auto; font-size: 0.8rem; opacity: 0.7;">OFF</span>
+        </a>
+      </li>
+    </ul>
+    
+    <div class="sidebar-divider"></div>
+    
+    <div class="sidebar-tool-categories">
+      <h4>Quick Tools Access</h4>
+      <ul class="sidebar-tools-list">
+        <li><a href="index.html#image-tools"><i class="fas fa-image"></i> Image Tools</a></li>
+        <li><a href="index.html#pdf-tools"><i class="fas fa-file-pdf"></i> PDF Tools</a></li>
+        <li><a href="index.html#seo-tools"><i class="fas fa-search"></i> SEO Tools</a></li>
+        <li><a href="index.html#calculators"><i class="fas fa-calculator"></i> Calculators</a></li>
+        <li><a href="index.html#ai-tools"><i class="fas fa-robot"></i> AI Tools</a></li>
+      </ul>
+    </div>
+  </div>
 
-    <script>
-        // Navigation functionality
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const navLinks = document.getElementById('navLinks');
+  <!-- Header -->
+  <header id="home">
+    <div class="header-content animate__animated animate__fadeIn">
+      <div class="logo-container">
+        <h1 class="logo">Toolsedito</h1>
+      </div>
+      
+      <p class="tagline">Complete Website Sitemap</p>
+      <p class="subtagline">Navigate through all 50+ free online tools, pages, and resources available on Toolsedito. Find exactly what you need quickly and easily.</p>
+    </div>
+  </header>
+
+  <!-- Breadcrumb Navigation -->
+  <div class="breadcrumb">
+    <div class="breadcrumb-links">
+      <a href="index.html">Home</a>
+      <span class="breadcrumb-separator">/</span>
+      <span class="breadcrumb-current">Sitemap</span>
+    </div>
+  </div>
+
+  <!-- Main Sitemap Section -->
+  <section class="sitemap-section">
+    <h2 class="section-title">Complete Toolsedito Sitemap</h2>
+    <p class="section-subtitle">Browse through all pages and tools organized by category for easy navigation</p>
+    
+    <div class="sitemap-container">
+      <!-- Main Pages Category -->
+      <div class="sitemap-category animate-fade-in-up">
+        <div class="category-header">
+          <div class="category-icon">
+            <i class="fas fa-home"></i>
+          </div>
+          <div>
+            <h2 class="category-title">Main Pages</h2>
+            <p class="category-subtitle">Essential pages for website navigation</p>
+          </div>
+        </div>
         
-        mobileMenuBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
+        <div class="sitemap-links">
+          <a href="index.html" class="sitemap-link-item">
+            <div class="link-icon">
+              <i class="fas fa-home"></i>
+            </div>
+            <div class="link-content">
+              <h3 class="link-title">Homepage</h3>
+              <p class="link-description">Main landing page with all tool categories</p>
+            </div>
+            <div class="link-arrow">
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </a>
+          
+          <a href="about.html" class="sitemap-link-item">
+            <div class="link-icon">
+              <i class="fas fa-info-circle"></i>
+            </div>
+            <div class="link-content">
+              <h3 class="link-title">About Us</h3>
+              <p class="link-description">Learn about Toolsedito's mission and team</p>
+            </div>
+            <div class="link-arrow">
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </a>
+          
+          <a href="contact.html" class="sitemap-link-item">
+            <div class="link-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="link-content">
+              <h3 class="link-title">Contact Us</h3>
+              <p class="link-description">Get in touch with our support team</p>
+            </div>
+            <div class="link-arrow">
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </a>
+          
+          <a href="index.html#blog" class="sitemap-link-item">
+            <div class="link-icon">
+              <i class="fas fa-blog"></i>
+            </div>
+            <div class="link-content">
+              <h3 class="link-title">Blog & Resources</h3>
+              <p class="link-description">Tips, tutorials, and productivity insights</p>
+            </div>
+            <div class="link-arrow">
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Image Tools Category -->
+      <div class="sitemap-category animate-fade-in-up delay-1">
+        <div class="category-header">
+          <div class="category-icon">
+            <i class="fas fa-image"></i>
+          </div>
+          <div>
+            <h2 class="category-title">Image Tools</h2>
+            <p class="category-subtitle">Complete suite of image editing and processing tools</p>
+          </div>
+        </div>
         
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-                navLinks.classList.remove('active');
-            }
-        });
+        <div class="sitemap-links">
+          <a href="image-converter.html" class="sitemap-link-item">
+            <div class="link-icon">
+              <i class="fas fa-exchange-alt"></i>
+            </div>
+            <div class="link-content">
+              <h3 class="link-title">Image Converter</h3>
+              <p class="link-description">Convert between JPG, PNG, GIF, WebP formats</p>
+            </div>
+            <div class="link-arrow">
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </a>
+          
+          <a href="image-compressor.html" class="sitemap-link-item">
+            <div class="link-icon">
+              <i class="fas fa-compress-alt"></i>
+            </div>
+            <div class="link-content">
+              <h3 class="link-title">Image Compressor</h3>
+              <p class="link-description">Reduce image file size without quality loss</p>
+            </div>
+            <div class="link-arrow">
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </a>
+          
+          <a href="image-resizer.html" class="sitemap-link-item">
+            <div class="link-icon">
+              <i class="fas fa-expand-alt"></i>
+            </div>
+            <div class="link-content">
+              <h3 class="link-title">Image Resizer</h3>
+              <p class="link-description">Resize images with aspect ratio preservation</p>
+            </div>
+            <div class="link-arrow">
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </a>
+          
+          <a href="image-cropper.html" class="sitemap-link-item">
+            <div class="link-icon">
+              <i class="fas fa-crop-alt"></i>
+            </div>
+            <div class="link-content">
+              <h3 class="link-title">Image Cropper</h3>
+              <p class="link-description">Crop images to focus on specific areas</p>
+            </div>
+            <div class="link-arrow">
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </a>
+          
+          <a href="image-background-remover.html" class="sitemap-link-item">
+            <div class="link-icon">
+              <i class="fas fa-layer-group"></i>
+            </div>
+            <div class="link-content">
+              <h3 class="link-title">Background Remover</h3>
+              <p class="link-description">Remove backgrounds from images with AI</p>
+            </div>
+            <div class="link-arrow">
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </a>
+          
+          <a href="image-to-text.html" class="sitemap-link-item">
+            <div class="link-icon">
+              <i class="fas fa-font"></i>
+            </div>
+            <div class="link-content">
+              <h3 class="link-title">Image to Text (OCR)</h3>
+              <p class="link-description">Extract text from images using OCR technology</p>
+            </div>
+            <div class="link-arrow">
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </a>
+          
+          <a href="image-rotator.html" class="sitemap-link-item">
+            <div class="link-icon">
+              <i class="fas fa-sync-alt"></i>
+            </div>
+            <div class="link-content">
+              <h3 class="link-title">Image Rotator</h3>
+              <p class="link-description">Rotate, flip, or mirror images precisely</p>
+            </div>
+            <div class="link-arrow">
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </a>
+          
+          <a href="image-editor.html" class="sitemap-link-item">
+            <div class="link-icon">
+              <i class="fas fa-edit"></i>
+            </div>
+            <div class="link-content">
+              <h3 class="link-title">Image Editor</h3>
+              <p class="link-description">Beautify images with filters and adjustments</p>
+            </div>
+            <div class="link-arrow">
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- PDF Tools Category -->
+      <div class="sitemap-category animate-fade-in-up delay-2">
+        <div class="category-header">
+          <div class="category-icon">
+            <i class="fas fa-file-pdf"></i>
+          </div>
+          <div>
+            <h2 class="category-title">PDF Tools</h2>
+            <p class="category-subtitle">Powerful PDF processing and conversion tools</p>
+          </div>
+        </div>
         
-        // SEO pages functionality
-        function showSeoPage(page) {
-            // Hide all seo sections first
-            document.querySelectorAll('.seo-section').forEach(section => {
-                section.style.display = 'none';
-            });
-            
-            // Show the requested section
-            let sectionId = '';
-            switch(page) {
-                case 'privacy':
-                    sectionId = 'privacy-policy';
-                    break;
-                case 'terms':
-                    sectionId = 'terms-of-service';
-                    break;
-            }
-            
-            document.getElementById(sectionId).style.display = 'block';
-            
-            // Close mobile menu if open
-            navLinks.classList.remove('active');
-            
-            // Scroll to the section
-            setTimeout(() => {
-                document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
-            }, 100);
+        <div class="sitemap-links">
+          <a href="pdf-to-word.html" class="sitemap-link-item">
+            <div class="link-icon">
+              <i class="fas fa-file-word"></i>
+            </div>
+            <div class="link-content">
+              <h3 class="link-title">PDF to Word</h3>
+              <p class="link-description">Convert PDF to editable Word documents</p>
+            </div>
+            <div class="link-arrow">
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </a>
+          
+          <a href="pdf-compressor.html" class="sitemap-link-item">
+            <div class="link-icon">
+              <i class="fas fa-file-archive"></i>
+            </div>
+            <div class="link-content">
+              <h3 class="link-title">PDF Compressor</h3>
+              <p class="link-description">Reduce PDF file size while preserving quality</p>
+            </div>
+            <div class="link-arrow">
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </a>
+          
+          <a href="pdf-merger-splitter.html" class="sitemap-link-item">
+            <div class="link-icon">
+              <i class="fas fa-copy"></i>
+            </div>
+            <div class="link-content">
+              <h3 class="link-title">PDF Merger & Splitter</h3>
+              <p class="link-description">Combine or split PDF files easily</p>
+            </div>
+            <div class="link-arrow">
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </a>
+          
+          <a href="document-converter.html" class="sitemap-link-item">
+            <div class="link-icon">
+              <i class="fas fa-exchange-alt"></i>
+            </div>
+            <div class="link-content">
+              <h3 class="link-title">Document Converter</h3>
+              <p class="link-description">Convert between PDF, DOC, TXT formats</p>
+            </div>
+            <div class="link-arrow">
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </a>
+          
+          <a href="pdf-protect.html" class="sitemap-link-item">
+            <div class="link-icon">
+              <i class="fas fa-lock"></i>
+            </div>
+            <div class="link-content">
+              <h3 class="link-title">PDF Protect</h3>
+              <p class="link-description">Add password protection to PDF documents</p>
+            </div>
+            <div class="link-arrow">
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- SEO Tools Category -->
+      <div class="sitemap-category animate-fade-in-up delay-3">
+        <div class="category-header">
+          <div class="category-icon">
+            <i class="fas fa-search"></i>
+          </div>
+          <div>
+            <h2 class="category-title">SEO Tools</h2>
+            <p class="category-subtitle">Improve website search engine visibility</p>
+          </div>
+        </div>
+        
+        <div class="sitemap-links">
+          <a href="keyword-research.html" class="sitemap-link-item">
+            <div class="link-icon">
+              <i class="fas fa-key"></i>
+            </div>
+            <div class="link-content">
+              <h3 class="link-title">Keyword Research</h3>
+              <p class="link-description">Find profitable keywords with competition data</p>
+            </div>
+            <div class="link-arrow">
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </a>
+          
+          <a href="meta-tag-generator.html" class="sitemap-link-item">
+            <div class="link-icon">
+              <i class="fas fa-tags"></i>
+            </div>
+            <div class="link-content">
+              <h3 class="link-title">Meta Tag Generator</h3>
+              <p class="link-description">Generate optimized meta titles and descriptions</p>
+            </div>
+            <div class="link-arrow">
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </a>
+          
+          <a href="seo-analyzer.html" class="sitemap-link-item">
+            <div class="link-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <div class="link-content">
+              <h3 class="link-title">SEO Analyzer</h3>
+              <p class="link-description">Analyze website SEO performance</p>
+            </div>
+            <div class="link-arrow">
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </a>
+          
+          <a href="sitemap-generator.html" class="sitemap-link-item">
+            <div class="link-icon">
+              <i class="fas fa-sitemap"></i>
+            </div>
+            <div class="link-content">
+              <h3 class="link-title">Sitemap Generator</h3>
+              <p class="link-description">Create XML sitemaps for search engines</p>
+            </div>
+            <div class="link-arrow">
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Calculator Tools Category -->
+      <div class="sitemap-category animate-fade-in-up">
+        <div class="category-header">
+          <div class="category-icon">
+            <i class="fas fa-calculator"></i>
+          </div>
+          <div>
+            <h2 class="category-title">Calculators</h2>
+            <p class="category-subtitle">Financial, mathematical, and conversion calculators</p>
+          </div>
+        </div>
+        
+        <div class="sitemap-links">
+          <a href="gst-calculator.html" class="sitemap-link-item">
+            <div class="link-icon">
+              <i class="fas fa-rupee-sign"></i>
+            </div>
+            <div class="link-content">
+              <h3 class="link-title">GST Calculator</h3>
+              <p class="link-description">Calculate Goods and Services Tax</p>
+            </div>
+            <div class="link-arrow">
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </a>
+          
+          <a href="emi-calculator.html" class="sitemap-link-item">
+            <div class="link-icon">
+              <i class="fas fa-home"></i>
+            </div>
+            <div class="link-content">
+              <h3 class="link-title">EMI Calculator</h3>
+              <p class="link-description">Calculate Equated Monthly Installments</p>
+            </div>
+            <div class="link-arrow">
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </a>
+          
+          <a href="tax-calculator.html" class="sitemap-link-item">
+            <div class="link-icon">
+              <i class="fas fa-rupee-sign"></i>
+            </div>
+            <div class="link-content">
+              <h3 class="link-title">Tax Calculator</h3>
+              <p class="link-description">Calculate taxes with latest rules</p>
+            </div>
+            <div class="link-arrow">
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </a>
+          
+          <a href="investment-calculator.html" class="sitemap-link-item">
+            <div class="link-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <div class="link-content">
+              <h3 class="link-title">Investment Calculator</h3>
+              <p class="link-description">Calculate returns on investments</p>
+            </div>
+            <div class="link-arrow">
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </a>
+          
+          <a href="age-calculator.html" class="sitemap-link-item">
+            <div class="link-icon">
+              <i class="fas fa-birthday-cake"></i>
+            </div>
+            <div class="link-content">
+              <h3 class="link-title">Age Calculator</h3>
+              <p class="link-description">Calculate exact age from birth date</p>
+            </div>
+            <div class="link-arrow">
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </a>
+          
+          <a href="currency-converter.html" class="sitemap-link-item">
+            <div class="link-icon">
+              <i class="fas fa-exchange-alt"></i>
+            </div>
+            <div class="link-content">
+              <h3 class="link-title">Currency Converter</h3>
+              <p class="link-description">Convert between world currencies</p>
+            </div>
+            <div class="link-arrow">
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </a>
+          
+          <a href="unit-converter.html" class="sitemap-link-item">
+            <div class="link-icon">
+              <i class="fas fa-balance-scale"></i>
+            </div>
+            <div class="link-content">
+              <h3 class="link-title">Unit Converter</h3>
+              <p class="link-description">Convert between measurement units</p>
+            </div>
+            <div class="link-arrow">
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </a>
+          
+          <a href="compound-interest.html" class="sitemap-link-item">
+            <div class="link-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <div class="link-content">
+              <h3 class="link-title">Compound Interest Calculator</h3>
+              <p class="link-description">Calculate compound interest growth</p>
+            </div>
+            <div class="link-arrow">
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- AI Tools Category -->
+      <div class="sitemap-category animate-fade-in-up delay-1">
+        <div class="category-header">
+          <div class="category-icon">
+            <i class="fas fa-robot"></i>
+          </div>
+          <div>
+            <h2 class="category-title">AI Tools</h2>
+            <p class="category-subtitle">Artificial Intelligence powered productivity tools</p>
+          </div>
+        </div>
+        
+        <div class="sitemap-links">
+          <a href="ai-content-writer.html" class="sitemap-link-item">
+            <div class="link-icon">
+              <i class="fas fa-pen-fancy"></i>
+            </div>
+            <div class="link-content">
+              <h3 class="link-title">AI Content Writer</h3>
+              <p class="link-description">Generate high-quality content using AI</p>
+            </div>
+            <div class="link-arrow">
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </a>
+          
+          <a href="ai-image-generator.html" class="sitemap-link-item">
+            <div class="link-icon">
+              <i class="fas fa-image"></i>
+            </div>
+            <div class="link-content">
+              <h3 class="link-title">AI Image Generator</h3>
+              <p class="link-description">Create images from text descriptions</p>
+            </div>
+            <div class="link-arrow">
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </a>
+          
+          <a href="ai-translator.html" class="sitemap-link-item">
+            <div class="link-icon">
+              <i class="fas fa-language"></i>
+            </div>
+            <div class="link-content">
+              <h3 class="link-title">AI Translator</h3>
+              <p class="link-description">Translate text between multiple languages</p>
+            </div>
+            <div class="link-arrow">
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </a>
+          
+          <a href="grammar-checker.html" class="sitemap-link-item">
+            <div class="link-icon">
+              <i class="fas fa-check-circle"></i>
+            </div>
+            <div class="link-content">
+              <h3 class="link-title">Grammar Checker</h3>
+              <p class="link-description">AI-powered grammar and spell checker</p>
+            </div>
+            <div class="link-arrow">
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Text Tools Category -->
+      <div class="sitemap-category animate-fade-in-up delay-2">
+        <div class="category-header">
+          <div class="category-icon">
+            <i class="fas fa-font"></i>
+          </div>
+          <div>
+            <h2 class="category-title">Text Tools</h2>
+            <p class="category-subtitle">Text manipulation and formatting utilities</p>
+          </div>
+        </div>
+        
+        <div class="sitemap-links">
+          <a href="word-counter.html" class="sitemap-link-item">
+            <div class="link-icon">
+              <i class="fas fa-sort-numeric-down"></i>
+            </div>
+            <div class="link-content">
+              <h3 class="link-title">Word Counter</h3>
+              <p class="link-description">Count words, characters, sentences</p>
+            </div>
+            <div class="link-arrow">
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </a>
+          
+          <a href="case-converter.html" class="sitemap-link-item">
+            <div class="link-icon">
+              <i class="fas fa-text-height"></i>
+            </div>
+            <div class="link-content">
+              <h3 class="link-title">Case Converter</h3>
+              <p class="link-description">Convert text between different cases</p>
+            </div>
+            <div class="link-arrow">
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </a>
+          
+          <a href="text-formatter.html" class="sitemap-link-item">
+            <div class="link-icon">
+              <i class="fas fa-clipboard"></i>
+            </div>
+            <div class="link-content">
+              <h3 class="link-title">Text Formatter</h3>
+              <p class="link-description">Format and beautify text</p>
+            </div>
+            <div class="link-arrow">
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </a>
+          
+          <a href="article-rewriter.html" class="sitemap-link-item">
+            <div class="link-icon">
+              <i class="fas fa-heading"></i>
+            </div>
+            <div class="link-content">
+              <h3 class="link-title">Article Rewriter</h3>
+              <p class="link-description">Rephrase articles while preserving meaning</p>
+            </div>
+            <div class="link-arrow">
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </a>
+          
+          <a href="plagiarism-checker.html" class="sitemap-link-item">
+            <div class="link-icon">
+              <i class="fas fa-file-alt"></i>
+            </div>
+            <div class="link-content">
+              <h3 class="link-title">Plagiarism Checker</h3>
+              <p class="link-description">Check text for duplicate content</p>
+            </div>
+            <div class="link-arrow">
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </a>
+          
+          <a href="text-reverser.html" class="sitemap-link-item">
+            <div class="link-icon">
+              <i class="fas fa-random"></i>
+            </div>
+            <div class="link-content">
+              <h3 class="link-title">Text Reverser</h3>
+              <p class="link-description">Reverse text, words, or sentences</p>
+            </div>
+            <div class="link-arrow">
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Legal & Resources Category -->
+      <div class="sitemap-category animate-fade-in-up delay-3">
+        <div class="category-header">
+          <div class="category-icon">
+            <i class="fas fa-gavel"></i>
+          </div>
+          <div>
+            <h2 class="category-title">Legal & Resources</h2>
+            <p class="category-subtitle">Important policies and resource pages</p>
+          </div>
+        </div>
+        
+        <div class="sitemap-links">
+          <a href="privacy-policy.html" class="sitemap-link-item">
+            <div class="link-icon">
+              <i class="fas fa-user-shield"></i>
+            </div>
+            <div class="link-content">
+              <h3 class="link-title">Privacy Policy</h3>
+              <p class="link-description">How we protect your data and privacy</p>
+            </div>
+            <div class="link-arrow">
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </a>
+          
+          <a href="terms-of-service.html" class="sitemap-link-item">
+            <div class="link-icon">
+              <i class="fas fa-file-contract"></i>
+            </div>
+            <div class="link-content">
+              <h3 class="link-title">Terms of Service</h3>
+              <p class="link-description">Terms and conditions for using Toolsedito</p>
+            </div>
+            <div class="link-arrow">
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </a>
+          
+          <a href="disclaimer.html" class="sitemap-link-item">
+            <div class="link-icon">
+              <i class="fas fa-exclamation-triangle"></i>
+            </div>
+            <div class="link-content">
+              <h3 class="link-title">Disclaimer</h3>
+              <p class="link-description">Legal disclaimer for tool usage</p>
+            </div>
+            <div class="link-arrow">
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </a>
+          
+          <a href="cookie-policy.html" class="sitemap-link-item">
+            <div class="link-icon">
+              <i class="fas fa-cookie-bite"></i>
+            </div>
+            <div class="link-content">
+              <h3 class="link-title">Cookie Policy</h3>
+              <p class="link-description">Information about cookie usage</p>
+            </div>
+            <div class="link-arrow">
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </a>
+          
+          <a href="contact.html#help" class="sitemap-link-item">
+            <div class="link-icon">
+              <i class="fas fa-question-circle"></i>
+            </div>
+            <div class="link-content">
+              <h3 class="link-title">Help Center</h3>
+              <p class="link-description">Get help and support for tools</p>
+            </div>
+            <div class="link-arrow">
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </a>
+          
+          <a href="index.html#why-choose" class="sitemap-link-item">
+            <div class="link-icon">
+              <i class="fas fa-star"></i>
+            </div>
+            <div class="link-content">
+              <h3 class="link-title">Why Choose Toolsedito</h3>
+              <p class="link-description">Our unique features and benefits</p>
+            </div>
+            <div class="link-arrow">
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Blog Resources Category -->
+      <div class="sitemap-category animate-fade-in-up">
+        <div class="category-header">
+          <div class="category-icon">
+            <i class="fas fa-newspaper"></i>
+          </div>
+          <div>
+            <h2 class="category-title">Blog & Resources</h2>
+            <p class="category-subtitle">Educational content and tutorials</p>
+          </div>
+        </div>
+        
+        <div class="sitemap-links">
+          <a href="blog/image-optimization-guide.html" class="sitemap-link-item">
+            <div class="link-icon">
+              <i class="fas fa-image"></i>
+            </div>
+            <div class="link-content">
+              <h3 class="link-title">Image Optimization Guide</h3>
+              <p class="link-description">Learn to optimize images for web</p>
+            </div>
+            <div class="link-arrow">
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </a>
+          
+          <a href="blog/pdf-security-best-practices.html" class="sitemap-link-item">
+            <div class="link-icon">
+              <i class="fas fa-file-pdf"></i>
+            </div>
+            <div class="link-content">
+              <h3 class="link-title">PDF Security Best Practices</h3>
+              <p class="link-description">Secure your PDF documents effectively</p>
+            </div>
+            <div class="link-arrow">
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </a>
+          
+          <a href="blog/ai-tools-revolution.html" class="sitemap-link-item">
+            <div class="link-icon">
+              <i class="fas fa-robot"></i>
+            </div>
+            <div class="link-content">
+              <h3 class="link-title">AI Tools Revolution</h3>
+              <p class="link-description">How AI is changing productivity tools</p>
+            </div>
+            <div class="link-arrow">
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-about">
+        <h3 class="footer-logo">Toolsedito</h3>
+        <p class="footer-description">Toolsedito provides smart online tools for everyday productivity. Our tools are fast, free, and easy to use, helping you accomplish tasks efficiently.</p>
+        <div class="social-links">
+          <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#tools">Tools</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="index.html#blog">Blog</a></li>
+          <li><a href="sitemap.html">Sitemap</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Tool Categories</h4>
+        <ul>
+          <li><a href="index.html#image-tools">Image Tools</a></li>
+          <li><a href="index.html#pdf-tools">PDF Tools</a></li>
+          <li><a href="index.html#seo-tools">SEO Tools</a></li>
+          <li><a href="index.html#calculators">Calculators</a></li>
+          <li><a href="index.html#ai-tools">AI Tools</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms-of-service.html">Terms of Service</a></li>
+          <li><a href="disclaimer.html">Disclaimer</a></li>
+          <li><a href="cookie-policy.html">Cookie Policy</a></li>
+          <li><a href="contact.html">Help Center</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2026 Toolsedito. All rights reserved. | Designed with <i class="fas fa-heart" style="color: #ef4444;"></i> for productivity | Sitemap last updated: January 2026</p>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <a href="#home" class="back-to-top" id="backToTop">
+    <i class="fas fa-chevron-up"></i>
+  </a>
+
+  <script>
+    // Reuse the same JavaScript functions from homepage for consistency
+    
+    // Dark Theme Toggle
+    const themeToggle = document.getElementById('themeToggle');
+    const sidebarThemeToggle = document.getElementById('sidebarThemeToggle');
+    const themeStatus = document.getElementById('themeStatus');
+    const body = document.body;
+    
+    // Check for saved theme preference or prefer-color-scheme
+    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    const savedTheme = localStorage.getItem('theme');
+    
+    // Set initial theme
+    if (savedTheme === 'dark' || (!savedTheme && prefersDarkScheme.matches)) {
+      body.classList.add('dark-theme');
+      updateThemeStatus(true);
+    } else {
+      updateThemeStatus(false);
+    }
+    
+    // Main theme toggle function
+    function toggleTheme() {
+      const isDark = body.classList.toggle('dark-theme');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      updateThemeStatus(isDark);
+      
+      // Add animation to the toggle button
+      themeToggle.style.transform = 'rotate(360deg)';
+      setTimeout(() => {
+        themeToggle.style.transform = '';
+      }, 300);
+    }
+    
+    // Update theme status text and icon
+    function updateThemeStatus(isDark) {
+      if (themeStatus) {
+        themeStatus.textContent = isDark ? 'ON' : 'OFF';
+      }
+    }
+    
+    // Event listeners for theme toggles
+    themeToggle.addEventListener('click', toggleTheme);
+    
+    if (sidebarThemeToggle) {
+      sidebarThemeToggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        toggleTheme();
+      });
+    }
+    
+    // Mobile Sidebar Functionality
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const sidebar = document.getElementById('sidebar');
+    const sidebarClose = document.getElementById('sidebarClose');
+    const sidebarOverlay = document.getElementById('sidebarOverlay');
+    
+    // Open sidebar
+    mobileMenuBtn.addEventListener('click', () => {
+      sidebar.classList.add('active');
+      sidebarOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+    
+    // Close sidebar
+    function closeSidebar() {
+      sidebar.classList.remove('active');
+      sidebarOverlay.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+    
+    sidebarClose.addEventListener('click', closeSidebar);
+    sidebarOverlay.addEventListener('click', closeSidebar);
+    
+    // Close sidebar when clicking on a link (for mobile)
+    document.querySelectorAll('.sidebar-links a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        if (!this.id.includes('Theme')) { // Don't close for theme toggle
+          closeSidebar();
         }
+      });
+    });
+    
+    // Add smooth scrolling to all links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
         
-        function hideSeoPage() {
-            document.querySelectorAll('.seo-section').forEach(section => {
-                section.style.display = 'none';
-            });
+        const targetId = this.getAttribute('href');
+        if(targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if(targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+          
+          // Close sidebar on mobile after clicking
+          if (window.innerWidth < 1024) {
+            closeSidebar();
+          }
         }
-        
-        // Update current year in footer
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
-        
-        // Update current month and year
-        const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-        const currentDate = new Date();
-        document.getElementById('currentMonthYear').textContent = `${months[currentDate.getMonth()]} ${currentDate.getFullYear()}`;
-        
-        // Update privacy and terms dates
-        document.getElementById('privacyUpdateDate').textContent = `${months[currentDate.getMonth()]} ${currentDate.getFullYear()}`;
-        document.getElementById('termsUpdateDate').textContent = `${months[currentDate.getMonth()]} ${currentDate.getFullYear()}`;
-        
-        // Update total tools count
-        const toolCategories = document.querySelectorAll('.sitemap-category:not(:first-child):not(:nth-last-child(2)):not(:last-child)');
-        let totalTools = 0;
-        
-        toolCategories.forEach(category => {
-            const toolCount = category.querySelectorAll('.page-list li').length;
-            totalTools += toolCount;
-        });
-        
-        // Update total tools count
-        const totalToolsElement = document.querySelector('.stat-item:nth-child(1) .stat-number');
-        if (totalToolsElement && totalTools > 0) {
-            totalToolsElement.textContent = totalTools;
+      });
+    });
+    
+    // Add scroll animation for elements
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) {
+          entry.target.classList.add('animate-fade-in-up');
         }
-        
-        // Update high priority pages count
-        const highPriorityElements = document.querySelectorAll('.high-priority');
-        const highPriorityCount = highPriorityElements.length;
-        const highPriorityElement = document.querySelector('.stat-item:nth-child(3) .stat-number');
-        if (highPriorityElement && highPriorityCount > 0) {
-            highPriorityElement.textContent = highPriorityCount;
+      });
+    }, observerOptions);
+    
+    // Observe all sitemap categories for animation
+    document.querySelectorAll('.sitemap-category').forEach((el) => {
+      observer.observe(el);
+    });
+    
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        navbar.style.padding = '12px 0';
+        navbar.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
+      } else {
+        navbar.style.padding = '18px 0';
+        navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.08)';
+      }
+      
+      // Back to top button visibility
+      const backToTop = document.getElementById('backToTop');
+      if (window.scrollY > 500) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+    });
+
+    // Handle responsive behavior on window resize
+    window.addEventListener('resize', function() {
+      if (window.innerWidth >= 1024) {
+        closeSidebar();
+      }
+    });
+    
+    // Add active state to sidebar links based on current page
+    window.addEventListener('load', function() {
+      const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+      const navLinks = document.querySelectorAll('.sidebar-links a, .nav-links a');
+      
+      navLinks.forEach(link => {
+        const linkHref = link.getAttribute('href');
+        if (linkHref === currentPage || (currentPage === '' && linkHref === 'index.html')) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
         }
-        
-        // Highlight current page in navigation
-        const currentPage = window.location.pathname.split('/').pop();
-        if (currentPage === 'sitemap.html') {
-            const navLinks = document.querySelectorAll('.nav-links a');
-            navLinks.forEach(link => {
-                if (link.getAttribute('href') === 'sitemap.html') {
-                    link.classList.add('active');
-                }
-            });
+      });
+    });
+    
+    // Update theme status in sidebar when theme changes
+    const themeObserver = new MutationObserver(function(mutations) {
+      mutations.forEach(function(mutation) {
+        if (mutation.attributeName === 'class') {
+          const isDark = body.classList.contains('dark-theme');
+          updateThemeStatus(isDark);
         }
-        
-        // Smooth scroll for anchor links
-        document.querySelectorAll('.page-list a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                const href = this.getAttribute('href');
-                if (href === '#' || href === '#!') return;
-                
-                e.preventDefault();
-                const targetElement = document.querySelector(href);
-                if (targetElement) {
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-    </script>
+      });
+    });
+    
+    themeObserver.observe(body, { attributes: true });
+
+    // Print-friendly sitemap feature
+    const printButton = document.createElement('button');
+    printButton.innerHTML = '<i class="fas fa-print"></i> Print Sitemap';
+    printButton.style.cssText = `
+      position: fixed;
+      bottom: 90px;
+      right: 30px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Inter', sans-serif;
+    `;
+    
+    printButton.addEventListener('click', function() {
+      window.print();
+    });
+    
+    document.body.appendChild(printButton);
+    
+    // Add dark theme support for print button
+    const updatePrintButtonTheme = () => {
+      if (body.classList.contains('dark-theme')) {
+        printButton.style.background = '#4338ca';
+      } else {
+        printButton.style.background = '#4f46e5';
+      }
+    };
+    
+    // Initial theme update for print button
+    updatePrintButtonTheme();
+    
+    // Update print button theme when theme changes
+    themeObserver.observe(body, { 
+      attributes: true,
+      attributeFilter: ['class']
+    });
+  </script>
 </body>
 </html>
