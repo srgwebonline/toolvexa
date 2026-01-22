@@ -986,38 +986,85 @@
       color: var(--text-color);
     }
 
-    /* Stats Bar */
-    .stats-bar {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
+    /* NEW: Tutorial Section (Replaces Stats Bar) */
+    .tutorial-section {
       background: var(--card-bg);
-      padding: 25px;
+      padding: 35px 30px;
       border-radius: 16px;
       margin-top: 30px;
       box-shadow: var(--card-shadow);
+      border: 1px solid var(--border-color);
+    }
+
+    .tutorial-section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 25px;
+      color: var(--text-color);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .tutorial-section h2 i {
+      color: var(--primary);
+    }
+
+    .tutorial-steps {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 25px;
     }
 
     @media (min-width: 768px) {
-      .stats-bar {
+      .tutorial-steps {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .tutorial-steps {
         grid-template-columns: repeat(4, 1fr);
       }
     }
 
-    .stat {
+    .tutorial-step {
       text-align: center;
+      padding: 25px 20px;
+      background: var(--light-gray);
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      transition: all 0.3s ease;
     }
 
-    .stat-value {
-      font-size: 2rem;
-      font-weight: 800;
-      color: var(--primary);
-      margin-bottom: 5px;
+    .tutorial-step:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     }
 
-    .stat-label {
+    .step-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      border-radius: 50%;
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+    }
+
+    .step-content h3 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      color: var(--text-color);
+    }
+
+    .step-content p {
       color: var(--gray);
-      font-size: 0.9rem;
+      font-size: 0.95rem;
+      line-height: 1.5;
     }
 
     /* About Section for EEAT */
@@ -1372,7 +1419,8 @@
       .preset-btn:hover,
       .social-link:hover,
       .theme-toggle:hover,
-      .browse-btn:hover {
+      .browse-btn:hover,
+      .tutorial-step:hover {
         transform: none !important;
       }
       
@@ -1471,6 +1519,14 @@
       
       .upload-icon {
         font-size: 3rem;
+      }
+      
+      .tutorial-section {
+        padding: 25px 20px;
+      }
+      
+      .tutorial-step {
+        padding: 20px 15px;
       }
       
       .faq-container {
@@ -1702,23 +1758,41 @@
       </div>
     </div>
 
-    <!-- Stats Bar -->
-    <div class="stats-bar" id="statsBar" style="display: none;">
-      <div class="stat">
-        <div class="stat-value" id="totalImages">0</div>
-        <div class="stat-label">Total Images</div>
-      </div>
-      <div class="stat">
-        <div class="stat-value" id="totalOriginalSize">0 KB</div>
-        <div class="stat-label">Original Size</div>
-      </div>
-      <div class="stat">
-        <div class="stat-value" id="totalCompressedSize">0 KB</div>
-        <div class="stat-label">Compressed Size</div>
-      </div>
-      <div class="stat">
-        <div class="stat-value" id="totalSavings">0%</div>
-        <div class="stat-label">Space Saved</div>
+    <!-- NEW: How to Compress Images Tutorial Section (Replaces Stats Bar) -->
+    <div class="tutorial-section" id="tutorialSection">
+      <h2><i class="fas fa-graduation-cap"></i> How to Compress Images</h2>
+      <div class="tutorial-steps">
+        <div class="tutorial-step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>Upload Your Images</h3>
+            <p>Drag and drop your images into the upload area or click "Browse Files" to select them from your device.</p>
+          </div>
+        </div>
+        
+        <div class="tutorial-step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>Adjust Compression Settings</h3>
+            <p>Use the quality slider or choose a preset to set your desired compression level and maximum file size.</p>
+          </div>
+        </div>
+        
+        <div class="tutorial-step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>Compress Images</h3>
+            <p>Click "Compress All Images" to start the compression process. Watch as your images are optimized.</p>
+          </div>
+        </div>
+        
+        <div class="tutorial-step">
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <h3>Download Optimized Images</h3>
+            <p>Download individual compressed images or use "Download All" to save all your optimized files at once.</p>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -2030,7 +2104,7 @@
     const fileList = document.getElementById('fileList');
     const imagesContainer = document.getElementById('imagesContainer');
     const emptyState = document.getElementById('emptyState');
-    const statsBar = document.getElementById('statsBar');
+    const tutorialSection = document.getElementById('tutorialSection');
     
     // Control elements
     const qualitySlider = document.getElementById('qualitySlider');
@@ -2043,12 +2117,6 @@
     const compressAllBtn = document.getElementById('compressAllBtn');
     const downloadAllBtn = document.getElementById('downloadAllBtn');
     const deleteAllBtn = document.getElementById('deleteAllBtn');
-    
-    // Stats elements
-    const totalImages = document.getElementById('totalImages');
-    const totalOriginalSize = document.getElementById('totalOriginalSize');
-    const totalCompressedSize = document.getElementById('totalCompressedSize');
-    const totalSavings = document.getElementById('totalSavings');
     
     // Data storage
     let images = [];
@@ -2508,35 +2576,8 @@
     }
     
     function updateStats() {
-      if (images.length === 0) {
-        statsBar.style.display = 'none';
-        return;
-      }
-      
-      statsBar.style.display = 'grid';
-      
-      const totalImagesCount = images.length;
-      const compressedImagesCount = images.filter(img => img.compressed).length;
-      
-      let originalTotalSize = 0;
-      let compressedTotalSize = 0;
-      
-      images.forEach(img => {
-        originalTotalSize += img.originalSize;
-        if (img.compressedSize) {
-          compressedTotalSize += img.compressedSize;
-        } else {
-          compressedTotalSize += img.originalSize;
-        }
-      });
-      
-      const savings = originalTotalSize > 0 ? 
-        Math.round((1 - compressedTotalSize / originalTotalSize) * 100) : 0;
-      
-      totalImages.textContent = totalImagesCount;
-      totalOriginalSize.textContent = formatFileSize(originalTotalSize);
-      totalCompressedSize.textContent = formatFileSize(compressedTotalSize);
-      totalSavings.textContent = `${savings}%`;
+      // This function is kept for compatibility but doesn't update anything now
+      // The tutorial section is always visible
     }
     
     function formatFileSize(bytes) {
