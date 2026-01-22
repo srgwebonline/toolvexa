@@ -134,6 +134,33 @@
       transition: color var(--transition-speed) ease;
     }
 
+    /* Theme Toggle Button */
+    .theme-toggle {
+      background: none;
+      border: none;
+      color: var(--text-color);
+      font-size: 1.3rem;
+      cursor: pointer;
+      padding: 8px;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      margin-left: 10px;
+    }
+
+    .theme-toggle:hover {
+      background: var(--light-gray);
+      transform: rotate(30deg);
+    }
+
+    .theme-toggle i {
+      transition: transform 0.3s ease;
+    }
+
     /* Sidebar Styles */
     .sidebar {
       position: fixed;
@@ -717,6 +744,77 @@
       color: white;
     }
 
+    /* FAQ Section */
+    .faq-section {
+      margin-top: 60px;
+    }
+
+    .faq-container {
+      max-width: 800px;
+      margin: 40px auto 0;
+    }
+
+    .faq-item {
+      background: var(--card-bg);
+      border-radius: 15px;
+      margin-bottom: 15px;
+      overflow: hidden;
+      box-shadow: var(--card-shadow);
+      transition: all 0.3s ease;
+      border: 1px solid var(--border-color);
+    }
+
+    .faq-item:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--hover-shadow);
+    }
+
+    .faq-question {
+      padding: 22px 25px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      background: var(--light-gray);
+    }
+
+    .faq-question h4 {
+      font-size: 1.1rem;
+      color: var(--text-color);
+      font-weight: 600;
+      margin: 0;
+      flex: 1;
+    }
+
+    .faq-question i {
+      color: var(--primary);
+      font-size: 1.2rem;
+      transition: transform 0.3s ease;
+    }
+
+    .faq-item.active .faq-question i {
+      transform: rotate(180deg);
+    }
+
+    .faq-answer {
+      padding: 0 25px;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .faq-item.active .faq-answer {
+      padding: 25px;
+      max-height: 500px;
+    }
+
+    .faq-answer p {
+      color: var(--gray);
+      line-height: 1.6;
+      font-size: 0.95rem;
+      margin: 0;
+    }
+
     /* Features Section */
     .features-section {
       background: var(--light-gray);
@@ -1075,6 +1173,7 @@
         display: flex;
         gap: 30px;
         list-style: none;
+        align-items: center;
       }
 
       .nav-links a {
@@ -1162,9 +1261,19 @@
         <li><a href="index.html#tools">Tools</a></li>
         <li><a href="index.html#blog">Blog</a></li>
         <li><a href="contact.html">Contact</a></li>
+        <li>
+          <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+            <i class="fas fa-moon"></i>
+          </button>
+        </li>
       </ul>
       
       <div style="display: flex; align-items: center;">
+        <!-- Theme Toggle for Mobile -->
+        <button class="theme-toggle" id="themeToggleMobile" aria-label="Toggle theme">
+          <i class="fas fa-moon"></i>
+        </button>
+        
         <!-- Mobile Menu Button -->
         <button class="mobile-menu-btn" id="mobileMenuBtn">
           <i class="fas fa-bars"></i>
@@ -1190,6 +1299,11 @@
       <li><a href="index.html#tools"><i class="fas fa-tools"></i> All Tools</a></li>
       <li><a href="index.html#blog"><i class="fas fa-blog"></i> Blog</a></li>
       <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+      <li>
+        <a href="#" id="sidebarThemeToggle">
+          <i class="fas fa-moon"></i> Dark Mode
+        </a>
+      </li>
     </ul>
     
     <div class="sidebar-divider"></div>
@@ -1462,6 +1576,74 @@
         </div>
       </div>
 
+      <!-- FAQ Section -->
+      <div class="faq-section">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-subtitle">Find quick answers to common questions about our image editor</p>
+        
+        <div class="faq-container">
+          <div class="faq-item">
+            <div class="faq-question">
+              <h4>Is this image editor really free to use?</h4>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>Yes, our online image editor is completely free with no hidden costs, watermarks, or registration required. You can use all editing features without any limitations.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <div class="faq-question">
+              <h4>Are my images uploaded to your servers?</h4>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>No, all image processing happens directly in your browser. Your images never leave your device, ensuring complete privacy and security.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <div class="faq-question">
+              <h4>What image formats are supported?</h4>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>We support JPG, PNG, GIF, WebP, and SVG formats. You can upload images in any of these formats and download them as PNG or JPG.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <div class="faq-question">
+              <h4>Is there a file size limit for images?</h4>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>You can edit images up to 10MB in size. For larger files, we recommend compressing them first using our Image Compressor tool.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <div class="faq-question">
+              <h4>Can I use this editor on mobile devices?</h4>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>Yes, our image editor is fully responsive and works perfectly on smartphones, tablets, and desktop computers.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <div class="faq-question">
+              <h4>Do I need to install any software or plugins?</h4>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>No installation required! Our editor works directly in your web browser. You don't need to install any software, plugins, or extensions.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- Related Tools -->
       <div class="related-tools">
         <h2 class="section-title">More Image Tools</h2>
@@ -1586,6 +1768,81 @@
     // Close sidebar when clicking on a link (for mobile)
     document.querySelectorAll('.sidebar-links a').forEach(link => {
       link.addEventListener('click', closeSidebar);
+    });
+
+    // Theme Toggle Functionality
+    const themeToggle = document.getElementById('themeToggle');
+    const themeToggleMobile = document.getElementById('themeToggleMobile');
+    const sidebarThemeToggle = document.getElementById('sidebarThemeToggle');
+    const body = document.body;
+    
+    // Check for saved theme preference or prefer-color-scheme
+    function getThemePreference() {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme) {
+        return savedTheme;
+      }
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    
+    // Set theme
+    function setTheme(theme) {
+      if (theme === 'dark') {
+        body.classList.add('dark-theme');
+        updateThemeIcons('dark');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        body.classList.remove('dark-theme');
+        updateThemeIcons('light');
+        localStorage.setItem('theme', 'light');
+      }
+    }
+    
+    // Update theme icons
+    function updateThemeIcons(theme) {
+      const moonIcons = document.querySelectorAll('.theme-toggle i, #sidebarThemeToggle i');
+      if (theme === 'dark') {
+        moonIcons.forEach(icon => {
+          icon.className = 'fas fa-sun';
+        });
+        if (sidebarThemeToggle) {
+          sidebarThemeToggle.innerHTML = '<i class="fas fa-sun"></i> Light Mode';
+        }
+      } else {
+        moonIcons.forEach(icon => {
+          icon.className = 'fas fa-moon';
+        });
+        if (sidebarThemeToggle) {
+          sidebarThemeToggle.innerHTML = '<i class="fas fa-moon"></i> Dark Mode';
+        }
+      }
+    }
+    
+    // Toggle theme
+    function toggleTheme() {
+      const isDark = body.classList.contains('dark-theme');
+      setTheme(isDark ? 'light' : 'dark');
+    }
+    
+    // Initialize theme
+    const currentTheme = getThemePreference();
+    setTheme(currentTheme);
+    
+    // Add event listeners to all theme toggles
+    themeToggle.addEventListener('click', toggleTheme);
+    themeToggleMobile.addEventListener('click', toggleTheme);
+    if (sidebarThemeToggle) {
+      sidebarThemeToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        toggleTheme();
+      });
+    }
+    
+    // Listen for system theme changes
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+      if (!localStorage.getItem('theme')) {
+        setTheme(e.matches ? 'dark' : 'light');
+      }
     });
 
     // Image Editor Functionality
@@ -1948,6 +2205,25 @@
         resetAllAdjustments();
         applyAdjustments();
       }
+    });
+
+    // FAQ Toggle Functionality
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    faqItems.forEach(item => {
+      const question = item.querySelector('.faq-question');
+      
+      question.addEventListener('click', () => {
+        // Close other open FAQ items
+        faqItems.forEach(otherItem => {
+          if (otherItem !== item && otherItem.classList.contains('active')) {
+            otherItem.classList.remove('active');
+          }
+        });
+        
+        // Toggle current item
+        item.classList.toggle('active');
+      });
     });
     
     // Initialize
