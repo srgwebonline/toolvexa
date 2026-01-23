@@ -842,12 +842,6 @@
       color: var(--text-color);
     }
 
-    .legend-color {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-    }
-
     .legend-color.principal {
       background: var(--primary);
     }
@@ -2135,8 +2129,8 @@
       }
     }
     
-    // Calculate and display results
-    function calculateAndDisplay() {
+    // Calculate and display results WITHOUT AUTO-SCROLL
+    function calculateAndDisplay(shouldScroll = false) {
       const principal = parseFloat(loanAmountInput.value);
       const annualRate = parseFloat(interestRateInput.value);
       const years = parseFloat(loanTenureInput.value);
@@ -2224,10 +2218,12 @@
       // Show results section
       resultsSection.style.display = 'block';
       
-      // Scroll to results
-      setTimeout(() => {
-        resultsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 100);
+      // Only scroll to results if explicitly requested (user clicked calculate)
+      if (shouldScroll) {
+        setTimeout(() => {
+          resultsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
+      }
     }
     
     // Reset calculator
@@ -2336,13 +2332,16 @@
         updateInterestRate();
         updateLoanTenure();
         
-        // Auto calculate when preset is selected
-        calculateAndDisplay();
+        // Auto calculate when preset is selected WITHOUT auto-scroll
+        calculateAndDisplay(false);
       });
     });
     
     // Action buttons
-    calculateBtn.addEventListener('click', calculateAndDisplay);
+    calculateBtn.addEventListener('click', function() {
+      calculateAndDisplay(true); // Pass true to scroll to results
+    });
+    
     resetBtn.addEventListener('click', resetCalculator);
     shareBtn.addEventListener('click', shareResults);
     
@@ -2383,13 +2382,13 @@
     updateInterestRate();
     updateLoanTenure();
     
-    // Auto calculate on page load
-    calculateAndDisplay();
+    // Auto calculate on page load WITHOUT auto-scroll
+    calculateAndDisplay(false);
     
-    // Add enter key support
+    // Add enter key support - scroll when user presses enter
     document.addEventListener('keypress', function(e) {
       if (e.key === 'Enter') {
-        calculateAndDisplay();
+        calculateAndDisplay(true);
       }
     });
   </script>
