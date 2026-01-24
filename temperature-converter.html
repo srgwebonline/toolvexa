@@ -1,1566 +1,2182 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Temperature Converter - Convert Celsius, Fahrenheit, Kelvin | Toolvexa</title>
-    
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Free online temperature converter tool. Convert between Celsius, Fahrenheit, Kelvin, and Rankine instantly. Accurate conversions for cooking, science, weather, and more.">
-    <meta name="keywords" content="temperature converter, celsius to fahrenheit, fahrenheit to celsius, kelvin converter, temperature calculator, convert temperature, temperature conversion">
-    <meta name="author" content="Toolvexa">
-    <meta name="robots" content="index, follow">
-    
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Temperature Converter - Convert Celsius, Fahrenheit, Kelvin | Toolvexa">
-    <meta property="og:description" content="Free online temperature converter tool. Convert between Celsius, Fahrenheit, Kelvin, and Rankine instantly.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://toolvexa.com/temperature-converter">
-    <meta property="og:image" content="https://toolvexa.com/images/temperature-converter-og.jpg">
-    
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://toolvexa.com/temperature-converter">
-    
-    <!-- Structured Data for SEO -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebApplication",
-        "name": "Temperature Converter",
-        "url": "https://toolvexa.com/temperature-converter",
-        "applicationCategory": "UtilityApplication",
-        "operatingSystem": "Any",
-        "description": "Free online tool to convert temperature between Celsius, Fahrenheit, Kelvin, and Rankine",
-        "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "USD"
-        },
-        "creator": {
-            "@type": "Organization",
-            "name": "Toolvexa",
-            "url": "https://toolvexa.com"
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <!-- UPDATED: Brand name changed to Toolsedito -->
+  <title>Temperature Converter - Convert Celsius, Fahrenheit, Kelvin Online | Toolsedito</title>
+
+  <!-- UPDATED: SEO Meta Tags -->
+  <meta name="description" content="Free online temperature converter. Convert between Celsius, Fahrenheit, Kelvin instantly. Accurate temperature conversion for cooking, science, weather, and more." />
+  <meta name="keywords" content="temperature converter, celsius to fahrenheit, fahrenheit to celsius, kelvin converter, temperature conversion, online temperature converter, free temperature calculator" />
+  <meta name="author" content="Toolsedito Team" />
+  <meta name="robots" content="index, follow" />
+  <meta name="googlebot" content="index, follow" />
+  <!-- UPDATED: Custom domain -->
+  <link rel="canonical" href="https://www.toolsedito.com/temperature-converter.html" />
+
+  <!-- UPDATED: Open Graph with new domain -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Temperature Converter - Convert Celsius, Fahrenheit, Kelvin Online | Toolsedito">
+  <meta property="og:description" content="Free online temperature converter. Convert between Celsius, Fahrenheit, Kelvin instantly. Accurate temperature conversion for cooking, science, weather, and more.">
+  <meta property="og:url" content="https://www.toolsedito.com/temperature-converter.html">
+  <meta property="og:image" content="https://www.toolsedito.com/images/temperature-converter-og.jpg">
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:title" content="Temperature Converter - Toolsedito">
+  <meta property="twitter:description" content="Free online temperature converter. Convert between Celsius, Fahrenheit, Kelvin instantly.">
+
+  <!-- UPDATED: JSON-LD Schema for Temperature Converter -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Temperature Converter",
+    "description": "Free online tool to convert temperatures between Celsius, Fahrenheit, and Kelvin scales. Accurate conversions for cooking, science, weather, and everyday use.",
+    "url": "https://www.toolsedito.com/temperature-converter.html",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "ratingCount": "650"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "Toolsedito",
+      "url": "https://www.toolsedito.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Toolsedito",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.toolsedito.com/logo.png"
+      }
     }
-    </script>
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
-    <style>
-        /* Reset & Base Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', system-ui, sans-serif;
-        }
-
-        :root {
-            --primary: #4361ee;
-            --primary-light: #e6f0ff;
-            --secondary: #7209b7;
-            --success: #2ec4b6;
-            --danger: #e63946;
-            --warning: #ff9e00;
-            --light: #f8f9fa;
-            --dark: #212529;
-            --border: #dee2e6;
-            --shadow: rgba(0, 0, 0, 0.1);
-            --radius: 12px;
-        }
-
-        body {
-            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
-            min-height: 100vh;
-            color: var(--dark);
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Navigation Bar */
-        .tool-navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 15px 0;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-            border-bottom: 3px solid #4361ee;
-        }
-        
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 20px;
-        }
-        
-        .nav-brand {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-            color: #4361ee;
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
-        
-        .nav-brand i {
-            font-size: 1.8rem;
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 25px;
-            list-style: none;
-        }
-        
-        .nav-links a {
-            color: #333;
-            text-decoration: none;
-            font-weight: 500;
-            padding: 8px 15px;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-        }
-        
-        .nav-links a:hover {
-            background: #4361ee;
-            color: white;
-        }
-        
-        .back-to-home {
-            background: #4361ee;
-            color: white !important;
-            padding: 8px 20px !important;
-            border-radius: 25px;
-        }
-        
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: #333;
-            cursor: pointer;
-        }
-        
-        /* Adjust body padding for fixed navbar */
-        body {
-            padding-top: 80px;
-        }
-
-        /* Breadcrumb */
-        .breadcrumb {
-            margin: 20px 0 30px;
-            font-size: 0.9rem;
-            color: #666;
-        }
-        
-        .breadcrumb a {
-            color: #4361ee;
-            text-decoration: none;
-        }
-        
-        .breadcrumb span {
-            margin: 0 5px;
-        }
-
-        /* Tool Header */
-        header {
-            text-align: center;
-            margin-bottom: 40px;
-            padding: 30px 20px;
-            background: white;
-            border-radius: var(--radius);
-            box-shadow: 0 5px 20px var(--shadow);
-        }
-
-        .logo {
-            font-size: 3rem;
-            color: var(--primary);
-            margin-bottom: 15px;
-        }
-
-        header h1 {
-            color: var(--primary);
-            font-size: 2.8rem;
-            margin-bottom: 15px;
-            font-weight: 800;
-        }
-
-        header p {
-            color: #666;
-            font-size: 1.1rem;
-            max-width: 700px;
-            margin: 0 auto 20px;
-        }
-
-        .features {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-            margin-top: 20px;
-        }
-
-        .feature {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 0.95rem;
-            color: var(--dark);
-            background: var(--light);
-            padding: 8px 15px;
-            border-radius: 50px;
-        }
-
-        .feature i {
-            color: var(--success);
-        }
-
-        /* Main Converter Section */
-        .converter-section {
-            background: white;
-            border-radius: var(--radius);
-            padding: 40px;
-            box-shadow: 0 5px 20px var(--shadow);
-            margin-bottom: 40px;
-        }
-
-        .converter-wrapper {
-            display: grid;
-            grid-template-columns: 1fr auto 1fr;
-            gap: 30px;
-            align-items: center;
-            margin-bottom: 30px;
-        }
-
-        @media (max-width: 768px) {
-            .converter-wrapper {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-            
-            .swap-btn {
-                transform: rotate(90deg);
-            }
-        }
-
-        .input-group {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .input-group label {
-            font-weight: 600;
-            color: var(--dark);
-            font-size: 1.1rem;
-        }
-
-        .temperature-input {
-            padding: 20px;
-            font-size: 2rem;
-            border: 2px solid var(--border);
-            border-radius: var(--radius);
-            width: 100%;
-            text-align: center;
-            transition: all 0.3s ease;
-            font-weight: 600;
-            color: var(--primary);
-        }
-
-        .temperature-input:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.1);
-        }
-
-        .unit-select {
-            padding: 15px;
-            font-size: 1.1rem;
-            border: 2px solid var(--border);
-            border-radius: var(--radius);
-            background: white;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .unit-select:focus {
-            outline: none;
-            border-color: var(--primary);
-        }
-
-        .swap-btn {
-            background: var(--primary);
-            color: white;
-            border: none;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            font-size: 1.5rem;
-            transition: all 0.3s ease;
-            justify-self: center;
-        }
-
-        .swap-btn:hover {
-            background: #3a56d4;
-            transform: scale(1.1);
-            box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
-        }
-
-        .result-container {
-            background: var(--primary-light);
-            border-radius: var(--radius);
-            padding: 30px;
-            text-align: center;
-            margin-top: 20px;
-            border: 2px dashed var(--primary);
-        }
-
-        .result-label {
-            color: #666;
-            font-size: 1rem;
-            margin-bottom: 10px;
-        }
-
-        .result-value {
-            font-size: 3rem;
-            font-weight: 800;
-            color: var(--primary);
-            margin-bottom: 10px;
-        }
-
-        .result-unit {
-            font-size: 1.5rem;
-            color: var(--secondary);
-            font-weight: 600;
-        }
-
-        /* Quick Conversion Buttons */
-        .quick-conversions {
-            margin: 30px 0;
-        }
-
-        .quick-conversions h3 {
-            color: var(--primary);
-            margin-bottom: 20px;
-            font-size: 1.3rem;
-            text-align: center;
-        }
-
-        .quick-buttons {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .quick-btn {
-            padding: 15px;
-            background: var(--light);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            cursor: pointer;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            text-align: center;
-        }
-
-        .quick-btn:hover {
-            background: #e9ecef;
-            transform: translateY(-2px);
-        }
-
-        .quick-btn.active {
-            background: var(--primary);
-            color: white;
-            border-color: var(--primary);
-        }
-
-        /* Temperature Scale Chart */
-        .scale-chart {
-            background: white;
-            border-radius: var(--radius);
-            padding: 30px;
-            box-shadow: 0 5px 20px var(--shadow);
-            margin: 40px 0;
-            overflow-x: auto;
-        }
-
-        .scale-chart h3 {
-            color: var(--primary);
-            margin-bottom: 20px;
-            font-size: 1.5rem;
-            text-align: center;
-        }
-
-        .chart-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-
-        .chart-table th {
-            background: var(--primary);
-            color: white;
-            padding: 15px;
-            text-align: center;
-            font-weight: 600;
-        }
-
-        .chart-table td {
-            padding: 12px 15px;
-            text-align: center;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .chart-table tr:nth-child(even) {
-            background: var(--light);
-        }
-
-        .chart-table tr:hover {
-            background: var(--primary-light);
-        }
-
-        /* Temperature Facts */
-        .temperature-facts {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin: 40px 0;
-        }
-
-        .fact-card {
-            background: white;
-            border-radius: var(--radius);
-            padding: 25px;
-            box-shadow: 0 5px 15px var(--shadow);
-            transition: transform 0.3s ease;
-        }
-
-        .fact-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .fact-icon {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 15px;
-        }
-
-        .fact-card h4 {
-            color: var(--dark);
-            margin-bottom: 10px;
-            font-size: 1.2rem;
-        }
-
-        .fact-card p {
-            color: #666;
-            line-height: 1.6;
-        }
-
-        /* Related Tools Section */
-        .related-tools-section {
-            margin: 60px 0 40px;
-        }
-
-        .related-tools-section h2 {
-            color: var(--primary);
-            font-size: 2rem;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
-        .tools-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-        }
-
-        .tool-card {
-            background: white;
-            border-radius: var(--radius);
-            padding: 25px;
-            text-align: center;
-            box-shadow: 0 5px 15px var(--shadow);
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-        }
-
-        .tool-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary);
-            box-shadow: 0 10px 25px rgba(67, 97, 238, 0.15);
-        }
-
-        .tool-icon {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 15px;
-        }
-
-        .tool-card h3 {
-            color: var(--dark);
-            margin-bottom: 10px;
-            font-size: 1.3rem;
-        }
-
-        .tool-card p {
-            color: #666;
-            font-size: 0.95rem;
-            margin-bottom: 20px;
-            line-height: 1.5;
-        }
-
-        .tool-link {
-            display: inline-block;
-            background: var(--primary-light);
-            color: var(--primary);
-            padding: 10px 20px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .tool-link:hover {
-            background: var(--primary);
-            color: white;
-        }
-
-        /* FAQ Section */
-        .faq-section {
-            margin: 60px 0 40px;
-        }
-
-        .faq-section h2 {
-            color: var(--primary);
-            font-size: 2rem;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
-        .faq-container {
-            background: white;
-            border-radius: var(--radius);
-            padding: 30px;
-            box-shadow: 0 5px 20px var(--shadow);
-        }
-
-        .faq-item {
-            border-bottom: 1px solid var(--border);
-            padding: 20px 0;
-        }
-
-        .faq-item:last-child {
-            border-bottom: none;
-        }
-
-        .faq-question {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-            color: var(--dark);
-            font-size: 1.1rem;
-            font-weight: 600;
-        }
-
-        .faq-question i {
-            color: var(--primary);
-            transition: transform 0.3s ease;
-        }
-
-        .faq-item.active .faq-question i {
-            transform: rotate(180deg);
-        }
-
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-            color: #666;
-            line-height: 1.6;
-            padding-right: 40px;
-        }
-
-        .faq-item.active .faq-answer {
-            max-height: 500px;
-            margin-top: 15px;
-        }
-
-        /* SEO Pages Styles */
-        .seo-section {
-            max-width: 1000px;
-            margin: 40px auto;
-            padding: 30px;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            display: none;
-            position: relative;
-        }
-        
-        .seo-section.active {
-            display: block;
-            animation: fadeIn 0.5s ease;
-        }
-        
-        .seo-section h1 {
-            color: #4361ee;
-            margin-bottom: 20px;
-            font-size: 2.2rem;
-        }
-        
-        .seo-section h2 {
-            color: #333;
-            margin: 25px 0 15px;
-            font-size: 1.5rem;
-        }
-        
-        .seo-section h3 {
-            color: #555;
-            margin: 20px 0 10px;
-            font-size: 1.2rem;
-        }
-        
-        .seo-content {
-            line-height: 1.8;
-            color: #444;
-        }
-        
-        .seo-content p {
-            margin-bottom: 15px;
-        }
-        
-        .seo-content ul, .seo-content ol {
-            margin-left: 20px;
-            margin-bottom: 20px;
-        }
-        
-        .seo-content li {
-            margin-bottom: 10px;
-        }
-        
-        .close-seo {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: #4361ee;
-            color: white;
-            border: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 1.2rem;
-            z-index: 10;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            margin-top: 50px;
-            padding: 30px 20px;
-            color: #666;
-            font-size: 0.9rem;
-            border-top: 1px solid var(--border);
-            background: white;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-            margin-bottom: 20px;
-        }
-
-        .footer-links a {
-            color: #4361ee;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: var(--secondary);
-            text-decoration: underline;
-        }
-
-        .copyright {
-            margin-top: 20px;
-            color: #888;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: white;
-                flex-direction: column;
-                padding: 20px;
-                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            }
-            
-            .nav-links.active {
-                display: flex;
-            }
-            
-            .mobile-menu-btn {
-                display: block;
-            }
-            
-            .nav-container {
-                flex-wrap: wrap;
-            }
-            
-            .converter-section {
-                padding: 20px;
-            }
-            
-            .temperature-input {
-                font-size: 1.5rem;
-                padding: 15px;
-            }
-            
-            .result-value {
-                font-size: 2rem;
-            }
-            
-            .quick-buttons {
-                grid-template-columns: 1fr;
-            }
-            
-            .chart-table {
-                font-size: 0.9rem;
-            }
-            
-            .chart-table th,
-            .chart-table td {
-                padding: 8px;
-            }
-            
-            .temperature-facts {
-                grid-template-columns: 1fr;
-            }
-            
-            .tools-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .seo-section {
-                padding: 20px;
-                margin: 20px;
-            }
-            
-            .faq-container {
-                padding: 20px;
-            }
-            
-            .faq-answer {
-                padding-right: 20px;
-            }
-            
-            .footer-links {
-                flex-direction: column;
-                gap: 15px;
-                align-items: center;
-            }
-        }
-
-        /* Loading Animation */
-        .loading {
-            display: none;
-            text-align: center;
-            padding: 20px;
-        }
-
-        .spinner {
-            width: 40px;
-            height: 40px;
-            border: 4px solid #f3f3f3;
-            border-top: 4px solid var(--primary);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 15px;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-    </style>
+  }
+  </script>
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #4f46e5;
+      --primary-dark: #4338ca;
+      --secondary: #10b981;
+      --accent: #f59e0b;
+      --light: #f8fafc;
+      --dark: #1f2933;
+      --gray: #6b7280;
+      --light-gray: #f3f4f6;
+      --card-bg: #ffffff;
+      --card-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+      --hover-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      --body-bg: var(--light);
+      --text-color: var(--dark);
+      --border-color: rgba(0, 0, 0, 0.05);
+      --footer-bg: linear-gradient(135deg, #111827, #1f2937);
+      --transition-speed: 0.3s;
+    }
+
+    /* Dark Theme Variables */
+    .dark-theme {
+      --light: #121826;
+      --dark: #f3f4f6;
+      --gray: #9ca3af;
+      --light-gray: #1f2937;
+      --card-bg: #1a2332;
+      --body-bg: #0f172a;
+      --text-color: #f3f4f6;
+      --border-color: rgba(255, 255, 255, 0.05);
+      --card-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      --hover-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      --footer-bg: linear-gradient(135deg, #0f172a, #1e293b);
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--body-bg);
+      color: var(--text-color);
+      line-height: 1.6;
+      overflow-x: hidden;
+      transition: background-color var(--transition-speed) ease,
+                  color var(--transition-speed) ease;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+    }
+
+    /* Theme Toggle Button */
+    .theme-toggle {
+      background: var(--light-gray);
+      border: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--text-color);
+      font-size: 1.2rem;
+      transition: all var(--transition-speed) ease;
+      margin-left: 10px;
+    }
+
+    .theme-toggle:hover {
+      background: var(--primary);
+      color: white;
+      transform: rotate(15deg);
+    }
+
+    .theme-toggle i {
+      transition: transform 0.5s ease;
+    }
+
+    .dark-theme .theme-toggle i.fa-sun {
+      display: block;
+    }
+
+    .dark-theme .theme-toggle i.fa-moon {
+      display: none;
+    }
+
+    .theme-toggle i.fa-sun {
+      display: none;
+    }
+
+    .theme-toggle i.fa-moon {
+      display: block;
+    }
+
+    /* Mobile First - Sidebar Implementation */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      padding: 18px 0;
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+      transition: all var(--transition-speed) ease;
+    }
+
+    .dark-theme .navbar {
+      background: rgba(26, 35, 50, 0.98);
+    }
+
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+    }
+
+    .nav-logo {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--primary);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-logo i {
+      font-size: 1.6rem;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    /* Desktop Navigation - Hidden on Mobile */
+    .nav-links {
+      display: none;
+    }
+
+    /* Mobile Menu Button */
+    .mobile-menu-btn {
+      display: block;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--text-color);
+      cursor: pointer;
+      z-index: 1002;
+      transition: color var(--transition-speed) ease;
+    }
+
+    /* Sidebar Styles */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      right: -300px;
+      width: 280px;
+      height: 100vh;
+      background: var(--card-bg);
+      box-shadow: -5px 0 25px rgba(0, 0, 0, 0.1);
+      z-index: 1001;
+      transition: right 0.3s ease-in-out;
+      padding: 80px 25px 30px;
+      overflow-y: auto;
+    }
+
+    .dark-theme .sidebar {
+      box-shadow: -5px 0 25px rgba(0, 0, 0, 0.3);
+    }
+
+    .sidebar.active {
+      right: 0;
+    }
+
+    .sidebar-header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px;
+      background: var(--primary);
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .sidebar-header .nav-logo {
+      color: white;
+      font-size: 1.3rem;
+    }
+
+    .sidebar-close {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .sidebar-links {
+      list-style: none;
+      margin-top: 20px;
+    }
+
+    .sidebar-links li {
+      margin-bottom: 15px;
+    }
+
+    .sidebar-links a {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--text-color);
+      text-decoration: none;
+      font-weight: 500;
+      padding: 12px 15px;
+      border-radius: 8px;
+      transition: all var(--transition-speed) ease;
+    }
+
+    .sidebar-links a:hover {
+      background: var(--light-gray);
+      color: var(--primary);
+      transform: translateX(5px);
+    }
+
+    .sidebar-links a i {
+      width: 20px;
+      text-align: center;
+    }
+
+    .sidebar-links a.active {
+      background: var(--primary);
+      color: white;
+    }
+
+    .sidebar-divider {
+      height: 1px;
+      background: var(--border-color);
+      margin: 20px 0;
+    }
+
+    .sidebar-tool-categories {
+      margin-top: 20px;
+    }
+
+    .sidebar-tool-categories h4 {
+      font-size: 0.9rem;
+      color: var(--gray);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 15px;
+    }
+
+    .sidebar-tools-list {
+      list-style: none;
+      margin-bottom: 20px;
+    }
+
+    .sidebar-tools-list li {
+      margin-bottom: 10px;
+    }
+
+    .sidebar-tools-list a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--gray);
+      text-decoration: none;
+      font-size: 0.9rem;
+      padding: 8px 10px;
+      border-radius: 6px;
+      transition: all var(--transition-speed) ease;
+    }
+
+    .sidebar-tools-list a:hover {
+      color: var(--primary);
+      background: var(--light-gray);
+    }
+
+    /* Overlay when sidebar is open */
+    .sidebar-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .sidebar-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Tool Header - MODIFIED: Reduced top padding to move title higher */
+    header {
+      background: linear-gradient(135deg, #e6f7ff 0%, #f0f9ff 100%);
+      color: #1f2933;
+      padding: 80px 20px 40px; /* CHANGED FROM: padding: 120px 20px 60px; */
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      margin-top: 75px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .dark-theme header {
+      background: linear-gradient(135deg, #0a1929 0%, #112240 100%);
+      color: #f3f4f6;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .header-content {
+      max-width: 1000px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .logo-container {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 15px; /* CHANGED FROM: 25px */
+      gap: 15px;
+    }
+
+    /* Tool-specific header */
+    .tool-logo {
+      font-size: 4rem;
+      margin-bottom: 10px; /* CHANGED FROM: 15px */
+      color: var(--primary);
+    }
+
+    .tool-header h1 {
+      font-size: 3.5rem; /* CHANGED FROM 2.8rem to 3.5rem */
+      margin-bottom: 15px;
+      color: var(--text-color);
+      background: linear-gradient(90deg, #4f46e5, #7c3aed, #10b981);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: -0.5px;
+      line-height: 1.1;
+    }
+
+    .tool-header .tagline {
+      font-size: 1.4rem;
+      margin-bottom: 1.5rem;
+      color: var(--dark);
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+      font-weight: 400;
+    }
+
+    .dark-theme .tool-header .tagline {
+      color: #e5e7eb;
+    }
+
+    /* Main Tool Container */
+    .tool-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    /* Tool Card Sections */
+    .tool-card-section {
+      background: var(--card-bg);
+      border-radius: 20px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: var(--card-shadow);
+      border: 1px solid var(--border-color);
+    }
+
+    .tool-card-section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      color: var(--text-color);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .tool-card-section h2 i {
+      color: var(--primary);
+    }
+
+    /* Converter Interface */
+    .converter-interface {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+
+    @media (min-width: 768px) {
+      .converter-interface {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* Input Section */
+    .input-section {
+      background: var(--light-gray);
+      border-radius: 16px;
+      padding: 25px;
+    }
+
+    .input-section h3 {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+      color: var(--text-color);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .unit-selector {
+      margin-bottom: 20px;
+    }
+
+    .unit-selector label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: var(--text-color);
+    }
+
+    .unit-dropdown {
+      width: 100%;
+      padding: 14px 16px;
+      border: 2px solid var(--border-color);
+      border-radius: 12px;
+      background: var(--card-bg);
+      color: var(--text-color);
+      font-size: 1rem;
+      font-family: 'Inter', sans-serif;
+      transition: all 0.3s ease;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%234f46e5' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+      background-size: 16px;
+    }
+
+    .unit-dropdown:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+    }
+
+    .input-container {
+      margin-bottom: 25px;
+    }
+
+    .input-container label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: var(--text-color);
+    }
+
+    .input-with-unit {
+      position: relative;
+    }
+
+    .temperature-input {
+      width: 100%;
+      padding: 16px;
+      border: 2px solid var(--border-color);
+      border-radius: 12px;
+      background: var(--card-bg);
+      color: var(--text-color);
+      font-size: 1.25rem;
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+      transition: all 0.3s ease;
+    }
+
+    .temperature-input:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+    }
+
+    .unit-label {
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: var(--primary);
+      color: white;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-weight: 600;
+      font-size: 0.85rem;
+    }
+
+    /* Result Section */
+    .result-section {
+      background: linear-gradient(135deg, rgba(79, 70, 229, 0.05), rgba(16, 185, 129, 0.05));
+      border-radius: 16px;
+      padding: 25px;
+      border: 2px solid rgba(79, 70, 229, 0.1);
+    }
+
+    .result-section h3 {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+      color: var(--text-color);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 15px;
+    }
+
+    @media (min-width: 480px) {
+      .results-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .result-item {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      border: 1px solid var(--border-color);
+      transition: all 0.3s ease;
+    }
+
+    .result-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .result-value {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+      color: var(--primary);
+    }
+
+    .result-unit {
+      font-size: 0.9rem;
+      color: var(--gray);
+      font-weight: 600;
+    }
+
+    .result-label {
+      font-size: 0.85rem;
+      color: var(--secondary);
+      font-weight: 600;
+      margin-top: 5px;
+    }
+
+    /* Quick Conversion Buttons */
+    .quick-conversions {
+      margin-top: 30px;
+    }
+
+    .quick-conversions h3 {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+      color: var(--text-color);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .quick-buttons-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    @media (min-width: 768px) {
+      .quick-buttons-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .quick-btn {
+      padding: 14px 10px;
+      background: var(--card-bg);
+      border: 2px solid var(--border-color);
+      border-radius: 12px;
+      font-weight: 600;
+      color: var(--text-color);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .quick-btn:hover {
+      background: var(--light-gray);
+      border-color: var(--primary);
+    }
+
+    .quick-btn.active {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    .quick-value {
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+
+    .quick-label {
+      font-size: 0.8rem;
+      opacity: 0.8;
+    }
+
+    /* Common Temperatures Reference */
+    .reference-section {
+      margin-top: 30px;
+    }
+
+    .reference-section h3 {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+      color: var(--text-color);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .reference-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 15px;
+    }
+
+    @media (min-width: 768px) {
+      .reference-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .reference-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .reference-item {
+      background: var(--light-gray);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      border: 1px solid var(--border-color);
+      transition: all 0.3s ease;
+    }
+
+    .reference-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .reference-temp {
+      font-size: 1.8rem;
+      font-weight: 800;
+      margin-bottom: 5px;
+      color: var(--primary);
+    }
+
+    .reference-desc {
+      font-size: 0.95rem;
+      color: var(--text-color);
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .reference-conversions {
+      font-size: 0.85rem;
+      color: var(--gray);
+      line-height: 1.4;
+    }
+
+    /* Action Buttons */
+    .action-buttons {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    @media (min-width: 768px) {
+      .action-buttons {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .action-btn {
+      padding: 16px 20px;
+      border: none;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .action-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      z-index: -1;
+    }
+
+    .action-btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .convert-btn {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+    }
+
+    .convert-btn::before {
+      background: linear-gradient(135deg, var(--primary-dark), #8b5cf6);
+    }
+
+    .convert-btn:hover::before {
+      opacity: 1;
+    }
+
+    .reset-btn {
+      background: linear-gradient(135deg, var(--secondary), #0da67e);
+      color: white;
+    }
+
+    .reset-btn::before {
+      background: linear-gradient(135deg, #0da67e, #0b9a74);
+    }
+
+    .reset-btn:hover::before {
+      opacity: 1;
+    }
+
+    .swap-btn {
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+      color: white;
+    }
+
+    .swap-btn::before {
+      background: linear-gradient(135deg, #d97706, #b45309);
+    }
+
+    .swap-btn:hover::before {
+      opacity: 1;
+    }
+
+    /* NEW: How to Convert Temperatures Tutorial Section */
+    .tutorial-section {
+      background: var(--card-bg);
+      padding: 35px 30px;
+      border-radius: 16px;
+      margin-top: 30px;
+      box-shadow: var(--card-shadow);
+      border: 1px solid var(--border-color);
+    }
+
+    .tutorial-section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 25px;
+      color: var(--text-color);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .tutorial-section h2 i {
+      color: var(--primary);
+    }
+
+    .tutorial-steps {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 25px;
+    }
+
+    @media (min-width: 768px) {
+      .tutorial-steps {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .tutorial-steps {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .tutorial-step {
+      text-align: center;
+      padding: 25px 20px;
+      background: var(--light-gray);
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      transition: all 0.3s ease;
+    }
+
+    .tutorial-step:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .step-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      border-radius: 50%;
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+    }
+
+    .step-content h3 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      color: var(--text-color);
+    }
+
+    .step-content p {
+      color: var(--gray);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    /* About Section for EEAT */
+    .about-section {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 25px;
+      background: var(--card-bg);
+      border-radius: 16px;
+      box-shadow: var(--card-shadow);
+      border-left: 4px solid var(--primary);
+    }
+
+    .about-section h2 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      color: var(--text-color);
+    }
+
+    .about-section p {
+      color: var(--gray);
+      line-height: 1.7;
+      margin-bottom: 15px;
+    }
+
+    /* FAQ Section */
+    .faq-section {
+      margin-top: 60px;
+    }
+
+    .faq-section h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 30px;
+      color: var(--text-color);
+    }
+
+    .faq-container {
+      background: var(--card-bg);
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: var(--card-shadow);
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--border-color);
+      padding: 20px 0;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-question {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      color: var(--text-color);
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .faq-question i {
+      color: var(--primary);
+      transition: transform 0.3s ease;
+    }
+
+    .faq-item.active .faq-question i {
+      transform: rotate(180deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      color: var(--gray);
+      line-height: 1.6;
+      padding-right: 40px;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 500px;
+      margin-top: 15px;
+    }
+
+    /* Related Tools Section */
+    .related-tools-section {
+      margin: 60px 0 40px;
+    }
+
+    .related-tools-section h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 30px;
+      color: var(--text-color);
+    }
+
+    .related-tools-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 25px;
+    }
+
+    @media (min-width: 768px) {
+      .related-tools-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .related-tools-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .related-tool-card {
+      background: var(--card-bg);
+      padding: 25px;
+      border-radius: 16px;
+      text-align: center;
+      box-shadow: var(--card-shadow);
+      transition: all 0.3s ease;
+      border: 1px solid var(--border-color);
+    }
+
+    .related-tool-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--hover-shadow);
+    }
+
+    .related-tool-icon {
+      width: 60px;
+      height: 60px;
+      margin: 0 auto 15px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.5rem;
+    }
+
+    .related-tool-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      color: var(--text-color);
+    }
+
+    .related-tool-card p {
+      color: var(--gray);
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .related-tool-link {
+      display: inline-block;
+      padding: 8px 20px;
+      background: var(--light-gray);
+      color: var(--primary);
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+    }
+
+    .related-tool-card:hover .related-tool-link {
+      background: var(--primary);
+      color: white;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--footer-bg);
+      color: #9ca3af;
+      padding: 50px 20px 30px;
+      margin-top: 60px;
+      position: relative;
+      transition: background var(--transition-speed) ease;
+    }
+
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+
+    @media (min-width: 768px) {
+      .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .footer-content {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .footer-logo {
+      font-size: 2rem;
+      font-weight: 800;
+      color: white;
+      margin-bottom: 15px;
+      display: inline-block;
+      background: linear-gradient(90deg, #fff, #c7d2fe);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .footer-description {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 12px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .social-link:hover {
+      background: var(--primary);
+      transform: translateY(-5px);
+    }
+
+    .footer-links h4 {
+      color: white;
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    .footer-links h4::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 40px;
+      height: 3px;
+      background: var(--primary);
+    }
+
+    .footer-links ul {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+
+    .footer-links a {
+      color: #9ca3af;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: inline-block;
+      font-size: 0.95rem;
+    }
+
+    .footer-links a:hover {
+      color: white;
+      transform: translateX(5px);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.85rem;
+    }
+
+    /* ACCESSIBILITY: Prefers Reduced Motion */
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+      
+      .action-btn:hover,
+      .related-tool-card:hover,
+      .quick-btn:hover,
+      .reference-item:hover,
+      .result-item:hover,
+      .social-link:hover,
+      .theme-toggle:hover,
+      .tutorial-step:hover {
+        transform: none !important;
+      }
+      
+      .tool-header h1,
+      .footer-logo {
+        background: var(--primary) !important;
+        -webkit-background-clip: initial !important;
+        background-clip: initial !important;
+        color: var(--primary) !important;
+      }
+    }
+
+    /* Desktop Navigation Styles */
+    @media (min-width: 1024px) {
+      .nav-links {
+        display: flex;
+        gap: 30px;
+        list-style: none;
+      }
+
+      .nav-links a {
+        color: var(--text-color);
+        text-decoration: none;
+        font-weight: 500;
+        transition: color var(--transition-speed) ease;
+        position: relative;
+      }
+
+      .nav-links a:hover {
+        color: var(--primary);
+      }
+
+      .nav-links a::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--primary);
+        transition: width 0.3s;
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      .mobile-menu-btn {
+        display: none;
+      }
+
+      .sidebar {
+        display: none;
+      }
+
+      .sidebar-overlay {
+        display: none;
+      }
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      header {
+        padding: 60px 20px 30px; /* CHANGED FROM: 100px 20px 40px */
+        margin-top: 70px;
+      }
+      
+      .tool-header h1 {
+        font-size: 2.8rem; /* CHANGED FROM 2.2rem to 2.8rem */
+      }
+      
+      .tool-header .tagline {
+        font-size: 1.2rem;
+      }
+      
+      .tool-card-section {
+        padding: 20px;
+      }
+      
+      .tutorial-section {
+        padding: 25px 20px;
+      }
+      
+      .tutorial-step {
+        padding: 20px 15px;
+      }
+      
+      .faq-container {
+        padding: 20px;
+      }
+      
+      .faq-answer {
+        padding-right: 20px;
+      }
+      
+      .quick-buttons-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* Large Desktop Styles */
+    @media (min-width: 1200px) {
+      .tool-container {
+        padding: 60px 20px;
+      }
+      
+      .tool-header h1 {
+        font-size: 4rem; /* CHANGED FROM 3.2rem to 4rem */
+      }
+    }
+  </style>
 </head>
 
 <body>
-    <!-- Navigation Bar -->
-    <nav class="tool-navbar">
-        <div class="nav-container">
-            <a href="index.html" class="nav-brand">
-                <i class="fas fa-tools"></i> Toolvexa
-            </a>
-            
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
-                <i class="fas fa-bars"></i>
-            </button>
-            
-            <ul class="nav-links" id="navLinks">
-                <li><a href="index.html#home">Home</a></li>
-                <li><a href="index.html#tools">All Tools</a></li>
-                <li><a href="index.html#calculators">Calculators</a></li>
-                <li><a href="#privacy-policy" onclick="showSeoPage('privacy')">Privacy Policy</a></li>
-                <li><a href="#terms-of-service" onclick="showSeoPage('terms')">Terms of Service</a></li>
-                <li><a href="#about-tool" onclick="showSeoPage('about')">About This Tool</a></li>
-                <li><a href="index.html" class="back-to-home">Back to Home</a></li>
-            </ul>
-        </div>
-    </nav>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <!-- UPDATED: Brand name changed -->
+      <a href="index.html" class="nav-logo">
+        <i class="fas fa-tools"></i> Toolsedito
+      </a>
+      
+      <!-- Desktop Navigation -->
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#tools">Tools</a></li>
+        <li><a href="index.html#calculators">Calculators</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#privacy">Privacy</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+      
+      <div style="display: flex; align-items: center;">
+        <!-- Theme Toggle Button -->
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+          <i class="fas fa-moon"></i>
+          <i class="fas fa-sun"></i>
+        </button>
+        
+        <!-- Mobile Menu Button -->
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Sidebar -->
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <!-- UPDATED: Brand name changed -->
+      <a href="index.html" class="nav-logo">
+        <i class="fas fa-tools"></i> Toolsedito
+      </a>
+      <button class="sidebar-close" id="sidebarClose">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
     
-    <!-- Main Content -->
-    <div class="container">
-        <!-- Breadcrumb -->
-        <div class="breadcrumb">
-            <a href="index.html">Home</a> 
-            <span>></span>
-            <a href="index.html#calculators">Calculators</a>
-            <span>></span>
-            <span>Temperature Converter</span>
+    <ul class="sidebar-links">
+      <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="index.html#tools"><i class="fas fa-tools"></i> All Tools</a></li>
+      <li><a href="index.html#calculators"><i class="fas fa-calculator"></i> Calculators</a></li>
+      <li><a href="#faq"><i class="fas fa-question-circle"></i> FAQ</a></li>
+      <li><a href="#privacy"><i class="fas fa-shield-alt"></i> Privacy</a></li>
+      <li>
+        <a href="#" id="sidebarThemeToggle">
+          <i class="fas fa-moon"></i> Dark Mode
+          <span id="themeStatus" style="margin-left: auto; font-size: 0.8rem; opacity: 0.7;">OFF</span>
+        </a>
+      </li>
+    </ul>
+    
+    <div class="sidebar-divider"></div>
+    
+    <div class="sidebar-tool-categories">
+      <h4>Quick Calculator Tools</h4>
+      <ul class="sidebar-tools-list">
+        <li><a href="temperature-converter.html" class="active"><i class="fas fa-temperature-high"></i> Temperature Converter</a></li>
+        <li><a href="unit-converter.html"><i class="fas fa-balance-scale"></i> Unit Converter</a></li>
+        <li><a href="currency-converter.html"><i class="fas fa-money-bill-wave"></i> Currency Converter</a></li>
+        <li><a href="length-converter.html"><i class="fas fa-ruler"></i> Length Converter</a></li>
+        <li><a href="weight-converter.html"><i class="fas fa-weight"></i> Weight Converter</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Tool Header -->
+  <header>
+    <div class="header-content">
+      <div class="tool-header">
+        <div class="logo-container">
+          <div class="tool-logo">
+            <i class="fas fa-temperature-high"></i>
+          </div>
         </div>
+        
+        <h1>Temperature Converter</h1>
+        <p class="tagline">Convert between Celsius, Fahrenheit, and Kelvin instantly. Perfect for cooking, science, weather, and everyday temperature conversions.</p>
+      </div>
+    </div>
+  </header>
 
-        <!-- Tool Header -->
-        <header>
-            <div class="logo">
-                <i class="fas fa-thermometer-half"></i>
+  <!-- Main Tool Container -->
+  <div class="tool-container">
+    <!-- Converter Interface -->
+    <div class="tool-card-section">
+      <h2><i class="fas fa-exchange-alt"></i> Temperature Converter</h2>
+      
+      <div class="converter-interface">
+        <!-- Input Section -->
+        <div class="input-section">
+          <h3><i class="fas fa-thermometer-half"></i> Enter Temperature</h3>
+          
+          <div class="unit-selector">
+            <label for="fromUnit"><i class="fas fa-arrow-right"></i> Convert From:</label>
+            <select id="fromUnit" class="unit-dropdown">
+              <option value="celsius">Celsius (°C)</option>
+              <option value="fahrenheit">Fahrenheit (°F)</option>
+              <option value="kelvin">Kelvin (K)</option>
+            </select>
+          </div>
+          
+          <div class="input-container">
+            <label for="temperatureInput"><i class="fas fa-keyboard"></i> Temperature Value:</label>
+            <div class="input-with-unit">
+              <input type="number" id="temperatureInput" class="temperature-input" value="25" step="0.1">
+              <span id="inputUnitLabel" class="unit-label">°C</span>
             </div>
-            <h1>Temperature Converter</h1>
-            <p>Convert between Celsius, Fahrenheit, Kelvin, and Rankine instantly. Perfect for cooking, science, weather, and everyday use.</p>
-            <div class="features">
-                <div class="feature">
-                    <i class="fas fa-bolt"></i>
-                    <span>Instant Conversion</span>
-                </div>
-                <div class="feature">
-                    <i class="fas fa-shield-alt"></i>
-                    <span>No Data Upload</span>
-                </div>
-                <div class="feature">
-                    <i class="fas fa-mobile-alt"></i>
-                    <span>Mobile Friendly</span>
-                </div>
-                <div class="feature">
-                    <i class="fas fa-infinity"></i>
-                    <span>Unlimited Use</span>
-                </div>
+          </div>
+          
+          <div class="unit-selector">
+            <label for="toUnit"><i class="fas fa-arrow-right"></i> Convert To:</label>
+            <select id="toUnit" class="unit-dropdown">
+              <option value="fahrenheit">Fahrenheit (°F)</option>
+              <option value="celsius" selected>Celsius (°C)</option>
+              <option value="kelvin">Kelvin (K)</option>
+            </select>
+          </div>
+          
+          <!-- Quick Conversion Buttons -->
+          <div class="quick-conversions">
+            <h3><i class="fas fa-bolt"></i> Quick Conversions</h3>
+            <div class="quick-buttons-grid">
+              <button class="quick-btn" data-temp="0" data-unit="celsius">
+                <span class="quick-value">0°C</span>
+                <span class="quick-label">Freezing Point</span>
+              </button>
+              <button class="quick-btn" data-temp="100" data-unit="celsius">
+                <span class="quick-value">100°C</span>
+                <span class="quick-label">Boiling Point</span>
+              </button>
+              <button class="quick-btn" data-temp="37" data-unit="celsius">
+                <span class="quick-value">37°C</span>
+                <span class="quick-label">Body Temp</span>
+              </button>
+              <button class="quick-btn" data-temp="20" data-unit="celsius">
+                <span class="quick-value">20°C</span>
+                <span class="quick-label">Room Temp</span>
+              </button>
             </div>
-        </header>
-
-        <!-- Main Converter -->
-        <div class="converter-section">
-            <div class="converter-wrapper">
-                <!-- Input Section -->
-                <div class="input-group">
-                    <label for="inputValue">Enter Temperature</label>
-                    <input 
-                        type="number" 
-                        id="inputValue" 
-                        class="temperature-input" 
-                        placeholder="0" 
-                        value="0"
-                        step="any"
-                    >
-                    <select id="inputUnit" class="unit-select">
-                        <option value="celsius">Celsius (°C)</option>
-                        <option value="fahrenheit">Fahrenheit (°F)</option>
-                        <option value="kelvin">Kelvin (K)</option>
-                        <option value="rankine">Rankine (°R)</option>
-                    </select>
-                </div>
-
-                <!-- Swap Button -->
-                <button class="swap-btn" id="swapBtn">
-                    <i class="fas fa-exchange-alt"></i>
-                </button>
-
-                <!-- Output Section -->
-                <div class="input-group">
-                    <label for="outputValue">Converted Temperature</label>
-                    <input 
-                        type="text" 
-                        id="outputValue" 
-                        class="temperature-input" 
-                        placeholder="0" 
-                        readonly
-                    >
-                    <select id="outputUnit" class="unit-select">
-                        <option value="fahrenheit">Fahrenheit (°F)</option>
-                        <option value="celsius" selected>Celsius (°C)</option>
-                        <option value="kelvin">Kelvin (K)</option>
-                        <option value="rankine">Rankine (°R)</option>
-                    </select>
-                </div>
-            </div>
-
-            <!-- Quick Conversions -->
-            <div class="quick-conversions">
-                <h3>Quick Conversions</h3>
-                <div class="quick-buttons">
-                    <button class="quick-btn" data-from="celsius" data-to="fahrenheit">°C to °F</button>
-                    <button class="quick-btn" data-from="fahrenheit" data-to="celsius">°F to °C</button>
-                    <button class="quick-btn" data-from="celsius" data-to="kelvin">°C to K</button>
-                    <button class="quick-btn" data-from="kelvin" data-to="celsius">K to °C</button>
-                    <button class="quick-btn" data-from="fahrenheit" data-to="kelvin">°F to K</button>
-                    <button class="quick-btn" data-from="kelvin" data-to="fahrenheit">K to °F</button>
-                </div>
-            </div>
-
-            <!-- Detailed Result -->
-            <div class="result-container" id="resultContainer">
-                <div class="result-label">Converted Result:</div>
-                <div class="result-value" id="detailedResult">0</div>
-                <div class="result-unit" id="detailedUnit">°C</div>
-            </div>
+          </div>
         </div>
-
-        <!-- Temperature Scale Chart -->
-        <div class="scale-chart">
-            <h3>Temperature Scale Comparison</h3>
-            <table class="chart-table">
-                <thead>
-                    <tr>
-                        <th>Celsius (°C)</th>
-                        <th>Fahrenheit (°F)</th>
-                        <th>Kelvin (K)</th>
-                        <th>Rankine (°R)</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>-273.15</td>
-                        <td>-459.67</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>Absolute Zero</td>
-                    </tr>
-                    <tr>
-                        <td>0</td>
-                        <td>32</td>
-                        <td>273.15</td>
-                        <td>491.67</td>
-                        <td>Water Freezing Point</td>
-                    </tr>
-                    <tr>
-                        <td>20</td>
-                        <td>68</td>
-                        <td>293.15</td>
-                        <td>527.67</td>
-                        <td>Room Temperature</td>
-                    </tr>
-                    <tr>
-                        <td>37</td>
-                        <td>98.6</td>
-                        <td>310.15</td>
-                        <td>558.27</td>
-                        <td>Human Body Temperature</td>
-                    </tr>
-                    <tr>
-                        <td>100</td>
-                        <td>212</td>
-                        <td>373.15</td>
-                        <td>671.67</td>
-                        <td>Water Boiling Point</td>
-                    </tr>
-                    <tr>
-                        <td>500</td>
-                        <td>932</td>
-                        <td>773.15</td>
-                        <td>1391.67</td>
-                        <td>Pizza Oven Temperature</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- Temperature Facts -->
-        <div class="temperature-facts">
-            <div class="fact-card">
-                <div class="fact-icon">
-                    <i class="fas fa-water"></i>
-                </div>
-                <h4>Celsius Scale</h4>
-                <p>Created by Anders Celsius in 1742. Based on water properties: 0°C for freezing point and 100°C for boiling point at sea level.</p>
+        
+        <!-- Result Section -->
+        <div class="result-section">
+          <h3><i class="fas fa-chart-line"></i> Conversion Results</h3>
+          
+          <div class="results-grid">
+            <div class="result-item">
+              <div class="result-value" id="celsiusResult">25.0</div>
+              <div class="result-unit">Celsius (°C)</div>
+              <div class="result-label">Metric System</div>
             </div>
             
-            <div class="fact-card">
-                <div class="fact-icon">
-                    <i class="fas fa-user"></i>
-                </div>
-                <h4>Fahrenheit Scale</h4>
-                <p>Invented by Daniel Gabriel Fahrenheit in 1724. Originally based on three reference points including human body temperature.</p>
+            <div class="result-item">
+              <div class="result-value" id="fahrenheitResult">77.0</div>
+              <div class="result-unit">Fahrenheit (°F)</div>
+              <div class="result-label">US Customary</div>
             </div>
             
-            <div class="fact-card">
-                <div class="fact-icon">
-                    <i class="fas fa-atom"></i>
-                </div>
-                <h4>Kelvin Scale</h4>
-                <p>Absolute thermodynamic temperature scale. 0 K is absolute zero where molecular motion stops. Used in scientific calculations.</p>
+            <div class="result-item">
+              <div class="result-value" id="kelvinResult">298.2</div>
+              <div class="result-unit">Kelvin (K)</div>
+              <div class="result-label">Scientific</div>
             </div>
+            
+            <div class="result-item">
+              <div class="result-value" id="convertedResult">77.0</div>
+              <div class="result-unit" id="convertedUnit">°F</div>
+              <div class="result-label" id="convertedLabel">Fahrenheit</div>
+            </div>
+          </div>
+          
+          <!-- Common Temperatures Reference -->
+          <div class="reference-section">
+            <h3><i class="fas fa-list-alt"></i> Common Temperatures</h3>
+            <div class="reference-grid">
+              <div class="reference-item">
+                <div class="reference-temp">0°C / 32°F</div>
+                <div class="reference-desc">Water Freezes</div>
+                <div class="reference-conversions">273.15 K</div>
+              </div>
+              
+              <div class="reference-item">
+                <div class="reference-temp">20°C / 68°F</div>
+                <div class="reference-desc">Room Temperature</div>
+                <div class="reference-conversions">293.15 K</div>
+              </div>
+              
+              <div class="reference-item">
+                <div class="reference-temp">37°C / 98.6°F</div>
+                <div class="reference-desc">Human Body</div>
+                <div class="reference-conversions">310.15 K</div>
+              </div>
+              
+              <div class="reference-item">
+                <div class="reference-temp">100°C / 212°F</div>
+                <div class="reference-desc">Water Boils</div>
+                <div class="reference-conversions">373.15 K</div>
+              </div>
+            </div>
+          </div>
         </div>
-
-        <!-- FAQ Section -->
-        <div class="faq-section">
-            <h2>Frequently Asked Questions</h2>
-            <div class="faq-container">
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>How accurate is the temperature conversion?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Our temperature converter uses precise mathematical formulas for conversion between all temperature scales. The calculations are accurate to the decimal point specified by the user's input.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>What's the formula for Celsius to Fahrenheit?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>The formula is: °F = (°C × 9/5) + 32. For example, to convert 20°C to Fahrenheit: (20 × 9/5) + 32 = 68°F.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>What is absolute zero in different scales?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Absolute zero, the lowest possible temperature, is:
-                        <br>• -273.15°C (Celsius)
-                        <br>• -459.67°F (Fahrenheit)
-                        <br>• 0 K (Kelvin)
-                        <br>• 0°R (Rankine)</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Why are there different temperature scales?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Different scales were developed for different purposes: Celsius for scientific use, Fahrenheit for everyday weather, Kelvin for absolute temperature measurements in science, and Rankine for engineering applications.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Can I convert negative temperatures?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Yes! Our converter handles negative temperatures for all scales. For example, -40°C equals -40°F, which is where the two scales intersect.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Related Tools Section -->
-        <div class="related-tools-section">
-            <h2>Other Useful Conversion Tools</h2>
-            <div class="tools-grid">
-                <div class="tool-card">
-                    <div class="tool-icon">
-                        <i class="fas fa-ruler"></i>
-                    </div>
-                    <h3>Length Converter</h3>
-                    <p>Convert between meters, feet, inches, centimeters, and more length units easily and accurately.</p>
-                    <a href="length-converter.html" class="tool-link">Use Tool</a>
-                </div>
-                
-                <div class="tool-card">
-                    <div class="tool-icon">
-                        <i class="fas fa-weight"></i>
-                    </div>
-                    <h3>Weight Converter</h3>
-                    <p>Convert kilograms, pounds, ounces, grams, and other weight units for cooking and science.</p>
-                    <a href="weight-converter.html" class="tool-link">Use Tool</a>
-                </div>
-                
-                <div class="tool-card">
-                    <div class="tool-icon">
-                        <i class="fas fa-tint"></i>
-                    </div>
-                    <h3>Volume Converter</h3>
-                    <p>Convert liters, gallons, milliliters, cups, and other volume units for liquids and cooking.</p>
-                    <a href="volume-converter.html" class="tool-link">Use Tool</a>
-                </div>
-                
-                <div class="tool-card">
-                    <div class="tool-icon">
-                        <i class="fas fa-bolt"></i>
-                    </div>
-                    <h3>Energy Converter</h3>
-                    <p>Convert joules, calories, kilowatt-hours, and other energy units for physics and nutrition.</p>
-                    <a href="energy-converter.html" class="tool-link">Use Tool</a>
-                </div>
-                
-                <div class="tool-card">
-                    <div class="tool-icon">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <h3>Time Converter</h3>
-                    <p>Convert between seconds, minutes, hours, days, weeks, and other time units.</p>
-                    <a href="time-converter.html" class="tool-link">Use Tool</a>
-                </div>
-                
-                <div class="tool-card">
-                    <div class="tool-icon">
-                        <i class="fas fa-money-bill-wave"></i>
-                    </div>
-                    <h3>Currency Converter</h3>
-                    <p>Convert between different world currencies with up-to-date exchange rates.</p>
-                    <a href="currency-converter.html" class="tool-link">Use Tool</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- SEO Pages Section -->
-        <div class="seo-section" id="privacy-policy">
-            <button class="close-seo" onclick="hideSeoPage()">×</button>
-            <h1>Privacy Policy</h1>
-            <div class="seo-content">
-                <p><strong>Last Updated: January 2024</strong></p>
-                
-                <h2>1. Introduction</h2>
-                <p>Welcome to Toolvexa Temperature Converter. Your privacy is critically important to us. This privacy policy document outlines how our tool handles information.</p>
-                
-                <h2>2. No Data Collection</h2>
-                <p>Our Temperature Converter tool operates entirely in your browser. We do not:</p>
-                <ul>
-                    <li>Collect any personal information</li>
-                    <li>Store any conversion data</li>
-                    <li>Use cookies for tracking</li>
-                    <li>Share data with third parties</li>
-                </ul>
-                
-                <h2>3. Local Processing</h2>
-                <p>All temperature conversions happen locally on your device using JavaScript. No data is sent to any server.</p>
-                
-                <h2>4. Third-Party Services</h2>
-                <p>We use Font Awesome for icons. These services may collect limited data as per their own privacy policies.</p>
-                
-                <h2>5. Security</h2>
-                <p>Your security is guaranteed because all processing happens client-side with no data transmission.</p>
-                
-                <h2>6. Changes to This Policy</h2>
-                <p>We may update this privacy policy from time to time. Changes will be posted on this page.</p>
-                
-                <h2>7. Contact Us</h2>
-                <p>If you have any questions about this Privacy Policy: privacy@toolvexa.com</p>
-            </div>
-        </div>
-
-        <div class="seo-section" id="terms-of-service">
-            <button class="close-seo" onclick="hideSeoPage()">×</button>
-            <h1>Terms of Service</h1>
-            <div class="seo-content">
-                <p><strong>Last Updated: January 2024</strong></p>
-                
-                <h2>1. Acceptance of Terms</h2>
-                <p>By using the Toolvexa Temperature Converter, you accept and agree to be bound by these terms.</p>
-                
-                <h2>2. Description of Service</h2>
-                <p>Toolvexa Temperature Converter provides free online temperature conversion between:</p>
-                <ul>
-                    <li>Celsius, Fahrenheit, Kelvin, and Rankine</li>
-                    <li>Local processing (no server uploads)</li>
-                    <li>Quick conversion presets</li>
-                    <li>Temperature reference charts</li>
-                </ul>
-                
-                <h2>3. User Responsibilities</h2>
-                <p>You agree to use the tool for lawful purposes only and not for any illegal activities.</p>
-                
-                <h2>4. Service Limitations</h2>
-                <p>The service is provided "as is" without warranties. We don't guarantee uninterrupted service or specific results.</p>
-                
-                <h2>5. Intellectual Property</h2>
-                <p>The tool's code and design are property of Toolvexa. You may not copy or redistribute without permission.</p>
-                
-                <h2>6. Limitation of Liability</h2>
-                <p>Toolvexa shall not be liable for any damages resulting from your use of the tool.</p>
-                
-                <h2>7. Changes to Terms</h2>
-                <p>We reserve the right to modify these terms at any time.</p>
-                
-                <h2>8. Contact Information</h2>
-                <p>For questions: legal@toolvexa.com</p>
-            </div>
-        </div>
-
-        <div class="seo-section" id="about-tool">
-            <button class="close-seo" onclick="hideSeoPage()">×</button>
-            <h1>About Temperature Converter Tool</h1>
-            <div class="seo-content">
-                <h2>What is Toolvexa Temperature Converter?</h2>
-                <p>Toolvexa Temperature Converter is a free online tool that instantly converts temperatures between Celsius, Fahrenheit, Kelvin, and Rankine scales.</p>
-                
-                <h2>Key Features</h2>
-                <ul>
-                    <li><strong>Four Temperature Scales:</strong> Celsius, Fahrenheit, Kelvin, and Rankine</li>
-                    <li><strong>Instant Conversion:</strong> Real-time conversion as you type</li>
-                    <li><strong>Quick Presets:</strong> One-click common conversions</li>
-                    <li><strong>Reference Chart:</strong> Comparison table for common temperatures</li>
-                    <li><strong>Mobile Optimized:</strong> Works perfectly on all devices</li>
-                    <li><strong>No Data Upload:</strong> All processing happens locally</li>
-                </ul>
-                
-                <h2>Use Cases</h2>
-                <ul>
-                    <li><strong>Cooking & Baking:</strong> Convert oven temperatures between °C and °F</li>
-                    <li><strong>Weather:</strong> Understand temperature forecasts in different scales</li>
-                    <li><strong>Science & Education:</strong> Convert between scientific temperature units</li>
-                    <li><strong>Travel:</strong> Understand local temperature measurements</li>
-                    <li><strong>Engineering:</strong> Convert between different engineering temperature scales</li>
-                </ul>
-                
-                <h2>Temperature Scale Information</h2>
-                <h3>Celsius (°C)</h3>
-                <p>Most widely used temperature scale worldwide. Based on water's freezing (0°C) and boiling (100°C) points at sea level.</p>
-                
-                <h3>Fahrenheit (°F)</h3>
-                <p>Primarily used in the United States. Water freezes at 32°F and boils at 212°F.</p>
-                
-                <h3>Kelvin (K)</h3>
-                <p>Absolute temperature scale used in scientific contexts. 0 K is absolute zero (-273.15°C).</p>
-                
-                <h3>Rankine (°R)</h3>
-                <p>Absolute temperature scale used in some engineering fields in the United States.</p>
-            </div>
-        </div>
-
-        <!-- Footer -->
-        <footer>
-            <div class="footer-links">
-                <a href="#privacy-policy" onclick="showSeoPage('privacy')">Privacy Policy</a>
-                <a href="#terms-of-service" onclick="showSeoPage('terms')">Terms of Service</a>
-                <a href="#about-tool" onclick="showSeoPage('about')">About This Tool</a>
-                <a href="index.html">All Tools</a>
-                <a href="index.html#calculators">Calculators</a>
-                <a href="index.html#contact">Contact Us</a>
-            </div>
-            <div class="copyright">
-                <p>© 2024 Temperature Converter | Toolvexa | All conversions happen locally in your browser</p>
-                <p style="margin-top: 10px;">Accurate temperature conversion for cooking, science, weather, and everyday use</p>
-            </div>
-        </footer>
+      </div>
+      
+      <!-- Action Buttons -->
+      <div class="action-buttons">
+        <button class="action-btn convert-btn" id="convertBtn">
+          <i class="fas fa-sync-alt"></i> Convert Now
+        </button>
+        <button class="action-btn reset-btn" id="resetBtn">
+          <i class="fas fa-redo"></i> Reset All
+        </button>
+        <button class="action-btn swap-btn" id="swapBtn">
+          <i class="fas fa-exchange-alt"></i> Swap Units
+        </button>
+      </div>
     </div>
 
-    <script>
-        // Navigation functionality
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const navLinks = document.getElementById('navLinks');
+    <!-- NEW: How to Convert Temperatures Tutorial Section -->
+    <div class="tutorial-section" id="tutorialSection">
+      <h2><i class="fas fa-graduation-cap"></i> How to Use Temperature Converter</h2>
+      <div class="tutorial-steps">
+        <div class="tutorial-step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>Enter Temperature Value</h3>
+            <p>Type the temperature value you want to convert in the input field. You can use decimal numbers for precision.</p>
+          </div>
+        </div>
         
-        mobileMenuBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
+        <div class="tutorial-step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>Select Units</h3>
+            <p>Choose the unit you're converting from and the unit you want to convert to using the dropdown menus.</p>
+          </div>
+        </div>
         
-        document.addEventListener('click', (e) => {
-            if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-                navLinks.classList.remove('active');
-            }
-        });
+        <div class="tutorial-step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>Get Instant Results</h3>
+            <p>Click "Convert Now" or press Enter to see all temperature conversions instantly in the results section.</p>
+          </div>
+        </div>
         
-        // SEO pages functionality
-        function showSeoPage(page) {
-            document.querySelectorAll('.seo-section').forEach(section => {
-                section.classList.remove('active');
-            });
-            
-            let sectionId = '';
-            switch(page) {
-                case 'privacy':
-                    sectionId = 'privacy-policy';
-                    break;
-                case 'terms':
-                    sectionId = 'terms-of-service';
-                    break;
-                case 'about':
-                    sectionId = 'about-tool';
-                    break;
-            }
-            
-            document.getElementById(sectionId).classList.add('active');
-            navLinks.classList.remove('active');
-            
-            setTimeout(() => {
-                document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
-            }, 100);
-        }
+        <div class="tutorial-step">
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <h3>Use Quick Tools</h3>
+            <p>Try the quick conversion buttons for common temperatures or swap units with one click.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EEAT About Section -->
+    <div class="about-section" id="about">
+      <h2>About This Temperature Converter Tool</h2>
+      <p>Our Temperature Converter is designed by professionals who understand the need for accurate and easy temperature conversions in daily life, scientific work, cooking, and weather analysis. We've created this tool to be the most reliable and user-friendly temperature converter available online.</p>
+      <p>Unlike other converters, our tool provides:</p>
+      <ul style="margin-left: 20px; margin-bottom: 15px; color: var(--gray);">
+        <li>Instant conversion between all three major temperature scales</li>
+        <li>High precision calculations with decimal support</li>
+        <li>Quick access to common temperature references</li>
+        <li>Completely free with no registration required</li>
+        <li>Works entirely in your browser - no data sent to servers</li>
+      </ul>
+      <p>The converter uses precise mathematical formulas for accurate conversions. Celsius to Fahrenheit: °F = (°C × 9/5) + 32. Celsius to Kelvin: K = °C + 273.15. All calculations are performed locally in your browser for maximum privacy and speed.</p>
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="faq-section" id="faq">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-container">
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>How accurate is the temperature conversion?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Our temperature converter uses precise mathematical formulas with high decimal precision. Celsius to Fahrenheit conversion uses the formula: °F = (°C × 9/5) + 32. Celsius to Kelvin uses: K = °C + 273.15. All calculations are accurate to at least 4 decimal places for scientific precision.</p>
+          </div>
+        </div>
         
-        function hideSeoPage() {
-            document.querySelectorAll('.seo-section').forEach(section => {
-                section.classList.remove('active');
-            });
-        }
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>What temperature scales do you support?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>We support all three major temperature scales: Celsius (°C), Fahrenheit (°F), and Kelvin (K). Celsius is used worldwide for most temperature measurements, Fahrenheit is primarily used in the United States, and Kelvin is the scientific standard used in physics and chemistry.</p>
+          </div>
+        </div>
         
-        document.addEventListener('click', (e) => {
-            if (e.target.classList.contains('seo-section')) {
-                hideSeoPage();
-            }
-        });
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Can I convert negative temperatures?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Yes, you can convert any temperature value including negative numbers. The converter handles all valid temperature ranges: from absolute zero (-273.15°C) to extremely high temperatures. Simply enter the negative value in the input field and the converter will calculate all equivalent temperatures.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Why do I need to convert temperatures?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Temperature conversion is essential for many activities: cooking (following international recipes), scientific research, weather forecasting, medical applications, engineering, and travel. Different countries use different temperature scales, so conversion helps ensure accuracy and understanding across regions.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>What's the formula for Fahrenheit to Celsius?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>To convert Fahrenheit to Celsius: °C = (°F - 32) × 5/9. For example, 68°F converts to 20°C. Our tool performs this calculation automatically, but knowing the formula can be helpful for quick mental calculations or verification.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Is Kelvin used in daily life?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Kelvin is primarily used in scientific contexts, particularly in physics, chemistry, and astronomy. It's an absolute temperature scale where 0 K represents absolute zero (the theoretical lowest possible temperature). While not commonly used in daily life, it's essential for scientific accuracy and calculations involving gas laws and thermodynamics.</p>
+          </div>
+        </div>
+      </div>
+    </div>
 
-        // FAQ functionality
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', () => {
-                const item = question.parentElement;
-                item.classList.toggle('active');
-            });
-        });
+    <!-- Related Tools Section -->
+    <div class="related-tools-section">
+      <h2>Other Useful Conversion Tools</h2>
+      <div class="related-tools-grid">
+        <div class="related-tool-card">
+          <div class="related-tool-icon">
+            <i class="fas fa-balance-scale"></i>
+          </div>
+          <h3>Unit Converter</h3>
+          <p>Convert between different units of measurement: length, weight, volume, area, and more. All in one convenient tool.</p>
+          <a href="unit-converter.html" class="related-tool-link">Use Tool</a>
+        </div>
+        
+        <div class="related-tool-card">
+          <div class="related-tool-icon">
+            <i class="fas fa-money-bill-wave"></i>
+          </div>
+          <h3>Currency Converter</h3>
+          <p>Convert between world currencies with real-time exchange rates. Perfect for travel, business, and shopping.</p>
+          <a href="currency-converter.html" class="related-tool-link">Use Tool</a>
+        </div>
+        
+        <div class="related-tool-card">
+          <div class="related-tool-icon">
+            <i class="fas fa-ruler"></i>
+          </div>
+          <h3>Length Converter</h3>
+          <p>Convert between meters, feet, inches, yards, miles, and more. Essential for construction, crafting, and DIY projects.</p>
+          <a href="length-converter.html" class="related-tool-link">Use Tool</a>
+        </div>
+        
+        <div class="related-tool-card">
+          <div class="related-tool-icon">
+            <i class="fas fa-weight"></i>
+          </div>
+          <h3>Weight Converter</h3>
+          <p>Convert between kilograms, pounds, ounces, grams, and stones. Perfect for cooking, shipping, and fitness tracking.</p>
+          <a href="weight-converter.html" class="related-tool-link">Use Tool</a>
+        </div>
+        
+        <div class="related-tool-card">
+          <div class="related-tool-icon">
+            <i class="fas fa-tachometer-alt"></i>
+          </div>
+          <h3>Speed Converter</h3>
+          <p>Convert between kilometers per hour, miles per hour, meters per second, knots, and other speed units.</p>
+          <a href="speed-converter.html" class="related-tool-link">Use Tool</a>
+        </div>
+        
+        <div class="related-tool-card">
+          <div class="related-tool-icon">
+            <i class="fas fa-clock"></i>
+          </div>
+          <h3>Time Converter</h3>
+          <p>Convert between time zones, hours, minutes, seconds, and days. Essential for scheduling and international communication.</p>
+          <a href="time-converter.html" class="related-tool-link">Use Tool</a>
+        </div>
+      </div>
+    </div>
+  </div>
 
-        // Temperature Converter Logic
-        const inputValue = document.getElementById('inputValue');
-        const inputUnit = document.getElementById('inputUnit');
-        const outputValue = document.getElementById('outputValue');
-        const outputUnit = document.getElementById('outputUnit');
-        const swapBtn = document.getElementById('swapBtn');
-        const quickButtons = document.querySelectorAll('.quick-btn');
-        const detailedResult = document.getElementById('detailedResult');
-        const detailedUnit = document.getElementById('detailedUnit');
-        const resultContainer = document.getElementById('resultContainer');
+  <!-- Footer -->
+  <footer id="privacy">
+    <div class="footer-content">
+      <div class="footer-about">
+        <h3 class="footer-logo">Toolsedito</h3>
+        <p class="footer-description">Toolsedito provides smart online tools for everyday productivity. Our Temperature Converter is 100% free, accurate, and works completely in your browser for maximum privacy.</p>
+        <div class="social-links">
+          <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#tools">All Tools</a></li>
+          <li><a href="index.html#calculators">Calculators</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#about">About This Tool</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Converter Tools</h4>
+        <ul>
+          <li><a href="temperature-converter.html">Temperature Converter</a></li>
+          <li><a href="unit-converter.html">Unit Converter</a></li>
+          <li><a href="currency-converter.html">Currency Converter</a></li>
+          <li><a href="length-converter.html">Length Converter</a></li>
+          <li><a href="weight-converter.html">Weight Converter</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms-of-service.html">Terms of Service</a></li>
+          <li><a href="disclaimer.html">Disclaimer</a></li>
+          <li><a href="cookie-policy.html">Cookie Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2026 Toolsedito. All rights reserved. | Temperature Converter v1.2 | All calculations happen locally in your browser. No data is uploaded to any server.</p>
+      <p style="margin-top: 10px; color: #9ca3af;">Made with <i class="fas fa-heart" style="color: #ef4444;"></i> for students, cooks, scientists, and travelers worldwide</p>
+    </div>
+  </footer>
 
-        // Conversion formulas
-        const conversionFunctions = {
-            celsius: {
-                fahrenheit: (c) => (c * 9/5) + 32,
-                kelvin: (c) => c + 273.15,
-                rankine: (c) => (c + 273.15) * 9/5,
-                celsius: (c) => c
-            },
-            fahrenheit: {
-                celsius: (f) => (f - 32) * 5/9,
-                kelvin: (f) => (f - 32) * 5/9 + 273.15,
-                rankine: (f) => f + 459.67,
-                fahrenheit: (f) => f
-            },
-            kelvin: {
-                celsius: (k) => k - 273.15,
-                fahrenheit: (k) => (k - 273.15) * 9/5 + 32,
-                rankine: (k) => k * 9/5,
-                kelvin: (k) => k
-            },
-            rankine: {
-                celsius: (r) => (r - 491.67) * 5/9,
-                fahrenheit: (r) => r - 459.67,
-                kelvin: (r) => r * 5/9,
-                rankine: (r) => r
-            }
-        };
-
-        // Unit display names
-        const unitNames = {
-            celsius: "°C",
-            fahrenheit: "°F",
-            kelvin: "K",
-            rankine: "°R"
-        };
-
-        // Format number with appropriate decimals
-        function formatNumber(num) {
-            if (num === 0) return "0";
-            
-            // For very small numbers, use scientific notation
-            if (Math.abs(num) < 0.000001 && num !== 0) {
-                return num.toExponential(6);
-            }
-            
-            // For regular numbers, show appropriate decimal places
-            const absNum = Math.abs(num);
-            if (absNum >= 1000) {
-                return num.toFixed(0);
-            } else if (absNum >= 100) {
-                return num.toFixed(1);
-            } else if (absNum >= 10) {
-                return num.toFixed(2);
-            } else if (absNum >= 1) {
-                return num.toFixed(3);
-            } else if (absNum >= 0.1) {
-                return num.toFixed(4);
-            } else if (absNum >= 0.01) {
-                return num.toFixed(5);
-            } else {
-                return num.toFixed(6);
-            }
+  <script>
+    // Dark Theme Toggle
+    const themeToggle = document.getElementById('themeToggle');
+    const sidebarThemeToggle = document.getElementById('sidebarThemeToggle');
+    const themeStatus = document.getElementById('themeStatus');
+    const body = document.body;
+    
+    // Check for saved theme preference or prefer-color-scheme
+    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    const savedTheme = localStorage.getItem('theme');
+    
+    // Set initial theme
+    if (savedTheme === 'dark' || (!savedTheme && prefersDarkScheme.matches)) {
+      body.classList.add('dark-theme');
+      updateThemeStatus(true);
+    } else {
+      updateThemeStatus(false);
+    }
+    
+    // Main theme toggle function
+    function toggleTheme() {
+      const isDark = body.classList.toggle('dark-theme');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      updateThemeStatus(isDark);
+      
+      // Add animation to the toggle button
+      themeToggle.style.transform = 'rotate(360deg)';
+      setTimeout(() => {
+        themeToggle.style.transform = '';
+      }, 300);
+    }
+    
+    // Update theme status text and icon
+    function updateThemeStatus(isDark) {
+      if (themeStatus) {
+        themeStatus.textContent = isDark ? 'ON' : 'OFF';
+      }
+    }
+    
+    // Event listeners for theme toggles
+    themeToggle.addEventListener('click', toggleTheme);
+    
+    if (sidebarThemeToggle) {
+      sidebarThemeToggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        toggleTheme();
+      });
+    }
+    
+    // Mobile Sidebar Functionality
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const sidebar = document.getElementById('sidebar');
+    const sidebarClose = document.getElementById('sidebarClose');
+    const sidebarOverlay = document.getElementById('sidebarOverlay');
+    
+    // Open sidebar
+    mobileMenuBtn.addEventListener('click', () => {
+      sidebar.classList.add('active');
+      sidebarOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+    
+    // Close sidebar
+    function closeSidebar() {
+      sidebar.classList.remove('active');
+      sidebarOverlay.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+    
+    sidebarClose.addEventListener('click', closeSidebar);
+    sidebarOverlay.addEventListener('click', closeSidebar);
+    
+    // Close sidebar when clicking on a link (for mobile)
+    document.querySelectorAll('.sidebar-links a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        if (!this.id.includes('Theme')) { // Don't close for theme toggle
+          closeSidebar();
         }
-
-        // Convert temperature
-        function convertTemperature() {
-            const fromUnit = inputUnit.value;
-            const toUnit = outputUnit.value;
-            const value = parseFloat(inputValue.value);
-            
-            if (isNaN(value)) {
-                outputValue.value = "0";
-                detailedResult.textContent = "0";
-                detailedUnit.textContent = unitNames[toUnit];
-                return;
-            }
-            
-            // Perform conversion
-            const result = conversionFunctions[fromUnit][toUnit](value);
-            
-            // Update output field
-            outputValue.value = formatNumber(result);
-            
-            // Update detailed result
-            detailedResult.textContent = formatNumber(result);
-            detailedUnit.textContent = unitNames[toUnit];
-            
-            // Highlight result container
-            resultContainer.style.animation = 'none';
-            setTimeout(() => {
-                resultContainer.style.animation = 'fadeIn 0.5s ease';
-            }, 10);
+      });
+    });
+    
+    // Add smooth scrolling to all links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if(targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if(targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+          
+          // Close sidebar on mobile after clicking
+          if (window.innerWidth < 1024) {
+            closeSidebar();
+          }
         }
+      });
+    });
 
-        // Swap units
-        function swapUnits() {
-            const tempUnit = inputUnit.value;
-            inputUnit.value = outputUnit.value;
-            outputUnit.value = tempUnit;
-            convertTemperature();
+    // Temperature Converter Tool JavaScript
+    // DOM Elements
+    const temperatureInput = document.getElementById('temperatureInput');
+    const fromUnit = document.getElementById('fromUnit');
+    const toUnit = document.getElementById('toUnit');
+    const inputUnitLabel = document.getElementById('inputUnitLabel');
+    
+    // Result elements
+    const celsiusResult = document.getElementById('celsiusResult');
+    const fahrenheitResult = document.getElementById('fahrenheitResult');
+    const kelvinResult = document.getElementById('kelvinResult');
+    const convertedResult = document.getElementById('convertedResult');
+    const convertedUnit = document.getElementById('convertedUnit');
+    const convertedLabel = document.getElementById('convertedLabel');
+    
+    // Buttons
+    const convertBtn = document.getElementById('convertBtn');
+    const resetBtn = document.getElementById('resetBtn');
+    const swapBtn = document.getElementById('swapBtn');
+    const quickButtons = document.querySelectorAll('.quick-btn');
+    
+    // Temperature conversion formulas
+    const conversionFormulas = {
+      celsius: {
+        fahrenheit: (c) => (c * 9/5) + 32,
+        kelvin: (c) => c + 273.15,
+        celsius: (c) => c
+      },
+      fahrenheit: {
+        celsius: (f) => (f - 32) * 5/9,
+        kelvin: (f) => ((f - 32) * 5/9) + 273.15,
+        fahrenheit: (f) => f
+      },
+      kelvin: {
+        celsius: (k) => k - 273.15,
+        fahrenheit: (k) => ((k - 273.15) * 9/5) + 32,
+        kelvin: (k) => k
+      }
+    };
+    
+    // Unit labels and names
+    const unitLabels = {
+      celsius: { symbol: '°C', name: 'Celsius' },
+      fahrenheit: { symbol: '°F', name: 'Fahrenheit' },
+      kelvin: { symbol: 'K', name: 'Kelvin' }
+    };
+    
+    // Initialize converter
+    function initConverter() {
+      updateInputUnitLabel();
+      convertTemperature();
+      
+      // Set initial quick button active state
+      quickButtons.forEach(btn => {
+        const temp = parseFloat(btn.getAttribute('data-temp'));
+        const unit = btn.getAttribute('data-unit');
+        if (Math.abs(temp - parseFloat(temperatureInput.value)) < 0.1 && fromUnit.value === unit) {
+          btn.classList.add('active');
         }
-
-        // Set quick conversion
-        function setQuickConversion(from, to) {
-            inputUnit.value = from;
-            outputUnit.value = to;
-            
-            // Update quick buttons active state
-            quickButtons.forEach(btn => {
-                btn.classList.remove('active');
-                if (btn.getAttribute('data-from') === from && btn.getAttribute('data-to') === to) {
-                    btn.classList.add('active');
-                }
-            });
-            
-            convertTemperature();
+      });
+    }
+    
+    // Update input unit label based on selected unit
+    function updateInputUnitLabel() {
+      const unit = fromUnit.value;
+      inputUnitLabel.textContent = unitLabels[unit].symbol;
+    }
+    
+    // Convert temperature function
+    function convertTemperature() {
+      const inputValue = parseFloat(temperatureInput.value);
+      const from = fromUnit.value;
+      const to = toUnit.value;
+      
+      // Validate input
+      if (isNaN(inputValue)) {
+        alert('Please enter a valid number');
+        temperatureInput.value = '25';
+        return;
+      }
+      
+      // First convert everything to Celsius as base
+      let celsiusValue;
+      switch(from) {
+        case 'celsius':
+          celsiusValue = inputValue;
+          break;
+        case 'fahrenheit':
+          celsiusValue = conversionFormulas.fahrenheit.celsius(inputValue);
+          break;
+        case 'kelvin':
+          celsiusValue = conversionFormulas.kelvin.celsius(inputValue);
+          break;
+      }
+      
+      // Calculate all conversions
+      const fahrenheitValue = conversionFormulas.celsius.fahrenheit(celsiusValue);
+      const kelvinValue = conversionFormulas.celsius.kelvin(celsiusValue);
+      
+      // Calculate the specific conversion requested
+      let convertedValue;
+      switch(to) {
+        case 'celsius':
+          convertedValue = celsiusValue;
+          break;
+        case 'fahrenheit':
+          convertedValue = fahrenheitValue;
+          break;
+        case 'kelvin':
+          convertedValue = kelvinValue;
+          break;
+      }
+      
+      // Update all result displays
+      celsiusResult.textContent = formatTemperature(celsiusValue);
+      fahrenheitResult.textContent = formatTemperature(fahrenheitValue);
+      kelvinResult.textContent = formatTemperature(kelvinValue);
+      convertedResult.textContent = formatTemperature(convertedValue);
+      convertedUnit.textContent = unitLabels[to].symbol;
+      convertedLabel.textContent = unitLabels[to].name;
+      
+      // Update quick button active states
+      updateQuickButtonStates();
+    }
+    
+    // Format temperature with appropriate decimal places
+    function formatTemperature(temp) {
+      // For very large or very small numbers, use scientific notation
+      if (Math.abs(temp) > 1000000 || (Math.abs(temp) < 0.001 && temp !== 0)) {
+        return temp.toExponential(4);
+      }
+      
+      // For temperatures close to whole numbers, show as integer
+      if (Math.abs(temp - Math.round(temp)) < 0.0001) {
+        return Math.round(temp).toString();
+      }
+      
+      // Otherwise show with 2 decimal places
+      return temp.toFixed(2);
+    }
+    
+    // Update quick button active states
+    function updateQuickButtonStates() {
+      const currentTemp = parseFloat(temperatureInput.value);
+      const currentUnit = fromUnit.value;
+      
+      quickButtons.forEach(btn => {
+        btn.classList.remove('active');
+        const btnTemp = parseFloat(btn.getAttribute('data-temp'));
+        const btnUnit = btn.getAttribute('data-unit');
+        
+        // Check if this button matches current input
+        if (Math.abs(btnTemp - currentTemp) < 0.1 && btnUnit === currentUnit) {
+          btn.classList.add('active');
         }
+      });
+    }
+    
+    // Swap units function
+    function swapUnits() {
+      const tempFrom = fromUnit.value;
+      const tempTo = toUnit.value;
+      
+      // Swap the units
+      fromUnit.value = tempTo;
+      toUnit.value = tempFrom;
+      
+      // Update the display
+      updateInputUnitLabel();
+      
+      // Convert with swapped units
+      convertTemperature();
+    }
+    
+    // Reset converter function
+    function resetConverter() {
+      temperatureInput.value = '25';
+      fromUnit.value = 'celsius';
+      toUnit.value = 'fahrenheit';
+      updateInputUnitLabel();
+      convertTemperature();
+    }
+    
+    // Handle quick button clicks
+    function handleQuickButtonClick(temp, unit) {
+      temperatureInput.value = temp;
+      fromUnit.value = unit;
+      updateInputUnitLabel();
+      convertTemperature();
+    }
+    
+    // Event Listeners
+    temperatureInput.addEventListener('input', convertTemperature);
+    temperatureInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        convertTemperature();
+      }
+    });
+    
+    fromUnit.addEventListener('change', () => {
+      updateInputUnitLabel();
+      convertTemperature();
+    });
+    
+    toUnit.addEventListener('change', convertTemperature);
+    
+    convertBtn.addEventListener('click', convertTemperature);
+    resetBtn.addEventListener('click', resetConverter);
+    swapBtn.addEventListener('click', swapUnits);
+    
+    // Quick button event listeners
+    quickButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const temp = btn.getAttribute('data-temp');
+        const unit = btn.getAttribute('data-unit');
+        handleQuickButtonClick(temp, unit);
+      });
+    });
+    
+    // FAQ functionality
+    document.querySelectorAll('.faq-question').forEach(question => {
+      question.addEventListener('click', () => {
+        const item = question.parentElement;
+        item.classList.toggle('active');
+      });
+    });
 
-        // Event Listeners
-        inputValue.addEventListener('input', convertTemperature);
-        inputUnit.addEventListener('change', convertTemperature);
-        outputUnit.addEventListener('change', convertTemperature);
-        swapBtn.addEventListener('click', swapUnits);
+    // Initialize the converter
+    initConverter();
 
-        // Quick buttons
-        quickButtons.forEach(btn => {
-            btn.addEventListener('click', () => {
-                const from = btn.getAttribute('data-from');
-                const to = btn.getAttribute('data-to');
-                setQuickConversion(from, to);
-            });
-        });
-
-        // Example conversions for quick buttons
-        const examples = {
-            'celsius-fahrenheit': 20,
-            'fahrenheit-celsius': 68,
-            'celsius-kelvin': 20,
-            'kelvin-celsius': 293.15,
-            'fahrenheit-kelvin': 68,
-            'kelvin-fahrenheit': 293.15
-        };
-
-        // Set example value when quick button is clicked
-        quickButtons.forEach(btn => {
-            btn.addEventListener('click', function() {
-                const from = this.getAttribute('data-from');
-                const to = this.getAttribute('data-to');
-                const key = `${from}-${to}`;
-                
-                if (examples[key] !== undefined) {
-                    inputValue.value = examples[key];
-                    convertTemperature();
-                }
-            });
-        });
-
-        // Keyboard shortcuts
-        document.addEventListener('keydown', (e) => {
-            if (e.ctrlKey && e.key === 's') {
-                e.preventDefault();
-                swapUnits();
-            }
-            if (e.key === 'Escape') {
-                inputValue.value = '0';
-                convertTemperature();
-            }
-        });
-
-        // Mobile touch improvements
-        let touchStart = 0;
-        inputValue.addEventListener('touchstart', (e) => {
-            touchStart = e.touches[0].clientY;
-        });
-
-        inputValue.addEventListener('touchmove', (e) => {
-            if (!e.target.value) return;
-            
-            const touchEnd = e.touches[0].clientY;
-            const diff = touchStart - touchEnd;
-            
-            if (Math.abs(diff) > 50) {
-                const currentValue = parseFloat(inputValue.value) || 0;
-                const step = diff > 0 ? 1 : -1;
-                inputValue.value = currentValue + step;
-                convertTemperature();
-                touchStart = touchEnd;
-            }
-        });
-
-        // Initialize with default conversion
-        window.addEventListener('DOMContentLoaded', () => {
-            convertTemperature();
-            
-            // Set first quick button as active
-            if (quickButtons.length > 0) {
-                quickButtons[0].classList.add('active');
-            }
-        });
-
-        // Make functions globally available for onclick handlers
-        window.showSeoPage = showSeoPage;
-        window.hideSeoPage = hideSeoPage;
-    </script>
+    // Track tool usage for analytics (AdSense compliant)
+    document.querySelectorAll('.action-btn, .quick-btn').forEach(button => {
+      button.addEventListener('click', function(e) {
+        const action = this.textContent.trim() || this.querySelector('.quick-value').textContent;
+        console.log(`Temperature Converter action: ${action}`);
+        // You can add Google Analytics tracking here
+        // gtag('event', 'tool_action', { 'action_name': action });
+      });
+    });
+  </script>
 </body>
 </html>
