@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>AI Translator - Translate Text in 100+ Languages | Toolsedito</title>
-  
+  <title>AI Translator - Free Online Language Translation Tool | Toolsedito</title>
+
   <!-- SEO Meta Tags -->
-  <meta name="description" content="Free AI-powered translator supporting 100+ languages. Translate text, documents, and web content instantly with high accuracy. No registration required." />
-  <meta name="keywords" content="AI translator, translate text, language translator, free translator, online translator, text translation, document translator" />
+  <meta name="description" content="Translate text, documents, and web content instantly with our free AI Translator. Supports 100+ languages with high accuracy. No registration required." />
+  <meta name="keywords" content="AI translator, language translation, translate text, document translator, online translator, free translator, multilingual translation" />
   <meta name="author" content="Toolsedito Team" />
   <meta name="robots" content="index, follow" />
   <meta name="googlebot" content="index, follow" />
@@ -15,13 +15,13 @@
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="AI Translator - Translate Text in 100+ Languages | Toolsedito">
-  <meta property="og:description" content="Free AI-powered translator supporting 100+ languages. Translate text, documents, and web content instantly with high accuracy.">
+  <meta property="og:title" content="AI Translator - Free Online Language Translation Tool | Toolsedito">
+  <meta property="og:description" content="Translate text, documents, and web content instantly with our free AI Translator. Supports 100+ languages with high accuracy. No registration required.">
   <meta property="og:url" content="https://www.toolsedito.com/ai-translator.html">
   <meta property="og:image" content="https://www.toolsedito.com/images/ai-translator-og.jpg">
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:title" content="AI Translator - Toolsedito">
-  <meta property="twitter:description" content="Free AI-powered translator supporting 100+ languages. Translate text instantly with high accuracy.">
+  <meta property="twitter:description" content="Translate text, documents, and web content instantly with our free AI Translator. Supports 100+ languages with high accuracy.">
 
   <!-- JSON-LD Schema -->
   <script type="application/ld+json">
@@ -29,7 +29,7 @@
     "@context": "https://schema.org",
     "@type": "WebApplication",
     "name": "AI Translator",
-    "description": "Free AI-powered tool to translate text between 100+ languages with high accuracy using advanced neural machine translation.",
+    "description": "Free online AI-powered translation tool for text, documents, and web content. Supports 100+ languages with neural machine translation.",
     "url": "https://www.toolsedito.com/ai-translator.html",
     "applicationCategory": "LanguageApplication",
     "operatingSystem": "Any",
@@ -65,6 +65,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 
   <style>
+    /* Base Styles - Mobile First */
     * {
       margin: 0;
       padding: 0;
@@ -88,6 +89,8 @@
       --border-color: rgba(0, 0, 0, 0.05);
       --footer-bg: linear-gradient(135deg, #111827, #1f2937);
       --transition-speed: 0.3s;
+      --danger: #ef4444;
+      --success: #10b981;
     }
 
     /* Dark Theme Variables */
@@ -470,213 +473,136 @@
       color: var(--primary);
     }
 
-    /* Language Selection */
-    .language-selection {
+    /* Translation Interface */
+    .translation-interface {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 20px;
-      margin-bottom: 30px;
+      gap: 25px;
+      margin-top: 20px;
     }
 
     @media (min-width: 768px) {
-      .language-selection {
+      .translation-interface {
         grid-template-columns: repeat(2, 1fr);
-        gap: 30px;
       }
     }
 
-    .language-box {
-      background: var(--light-gray);
-      border-radius: 12px;
-      padding: 20px;
+    .translation-box {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 25px;
+      box-shadow: var(--card-shadow);
       border: 1px solid var(--border-color);
     }
 
-    .language-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 15px;
+    .language-selector {
+      margin-bottom: 20px;
     }
 
-    .language-label {
+    .language-selector label {
+      display: block;
+      margin-bottom: 8px;
       font-weight: 600;
       color: var(--text-color);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .language-count {
-      background: var(--primary);
-      color: white;
-      padding: 4px 12px;
-      border-radius: 20px;
-      font-size: 0.8rem;
-      font-weight: 600;
+      font-size: 1rem;
     }
 
     .language-select {
       width: 100%;
-      padding: 14px 16px;
-      background: var(--card-bg);
-      border: 2px solid var(--border-color);
+      padding: 12px 16px;
+      border: 2px solid var(--light-gray);
       border-radius: 10px;
+      background: var(--light-gray);
       color: var(--text-color);
       font-size: 1rem;
-      font-family: 'Inter', sans-serif;
+      font-weight: 500;
       cursor: pointer;
-      transition: border-color 0.3s ease;
+      transition: all 0.3s ease;
     }
 
     .language-select:focus {
       outline: none;
       border-color: var(--primary);
+      background: var(--card-bg);
     }
 
-    .detect-language {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-top: 10px;
-      color: var(--gray);
-      font-size: 0.9rem;
-    }
-
-    .detect-btn {
+    .translation-textarea {
+      width: 100%;
+      min-height: 200px;
+      padding: 20px;
+      border: 2px solid var(--light-gray);
+      border-radius: 10px;
       background: var(--light-gray);
-      border: 1px solid var(--border-color);
-      padding: 6px 12px;
-      border-radius: 6px;
       color: var(--text-color);
-      font-size: 0.85rem;
-      cursor: pointer;
+      font-size: 1rem;
+      line-height: 1.6;
+      resize: vertical;
       transition: all 0.3s ease;
+      font-family: 'Inter', sans-serif;
     }
 
-    .detect-btn:hover {
-      background: var(--primary);
-      color: white;
+    .translation-textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      background: var(--card-bg);
     }
 
-    /* Text Areas */
-    .text-areas {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 20px;
-      margin-bottom: 30px;
+    .translation-textarea[readonly] {
+      background: var(--light-gray);
+      cursor: default;
     }
 
-    @media (min-width: 768px) {
-      .text-areas {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 30px;
-      }
-    }
-
-    .text-area-container {
-      position: relative;
-    }
-
-    .text-label {
+    .textarea-footer {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 10px;
-      color: var(--text-color);
-      font-weight: 500;
+      margin-top: 15px;
     }
 
     .char-count {
+      font-size: 0.85rem;
       color: var(--gray);
-      font-size: 0.9rem;
-    }
-
-    .text-input {
-      width: 100%;
-      height: 250px;
-      padding: 20px;
-      background: var(--card-bg);
-      border: 2px solid var(--border-color);
-      border-radius: 12px;
-      color: var(--text-color);
-      font-size: 1rem;
-      font-family: 'Inter', sans-serif;
-      line-height: 1.6;
-      resize: vertical;
-      transition: border-color 0.3s ease;
-    }
-
-    .text-input:focus {
-      outline: none;
-      border-color: var(--primary);
-    }
-
-    .text-output {
-      width: 100%;
-      height: 250px;
-      padding: 20px;
-      background: var(--light-gray);
-      border: 2px solid var(--border-color);
-      border-radius: 12px;
-      color: var(--text-color);
-      font-size: 1rem;
-      font-family: 'Inter', sans-serif;
-      line-height: 1.6;
-      overflow-y: auto;
-      white-space: pre-wrap;
-      word-wrap: break-word;
     }
 
     .text-actions {
-      position: absolute;
-      bottom: 15px;
-      right: 15px;
       display: flex;
       gap: 10px;
     }
 
-    .text-btn {
-      background: rgba(255, 255, 255, 0.9);
-      border: 1px solid var(--border-color);
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .text-action-btn {
+      background: none;
+      border: none;
+      color: var(--gray);
       cursor: pointer;
-      color: var(--text-color);
-      font-size: 0.9rem;
-      transition: all 0.3s ease;
+      font-size: 1rem;
+      padding: 5px;
+      transition: color 0.3s ease;
     }
 
-    .dark-theme .text-btn {
-      background: rgba(26, 35, 50, 0.9);
+    .text-action-btn:hover {
+      color: var(--primary);
     }
 
-    .text-btn:hover {
-      background: var(--primary);
-      color: white;
-      transform: translateY(-2px);
-    }
-
-    /* Action Buttons */
-    .action-buttons {
+    /* Control Center */
+    .control-center {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 15px;
+      grid-template-columns: 1fr;
+      gap: 20px;
       margin-top: 30px;
+      padding: 25px;
+      background: var(--light-gray);
+      border-radius: 16px;
+      border: 1px solid var(--border-color);
     }
 
     @media (min-width: 768px) {
-      .action-buttons {
+      .control-center {
         grid-template-columns: repeat(4, 1fr);
       }
     }
 
-    .action-btn {
-      padding: 16px 20px;
+    .control-btn {
+      padding: 16px;
       border: none;
       border-radius: 12px;
       font-size: 1rem;
@@ -692,7 +618,7 @@
       z-index: 1;
     }
 
-    .action-btn::before {
+    .control-btn::before {
       content: '';
       position: absolute;
       top: 0;
@@ -704,7 +630,7 @@
       z-index: -1;
     }
 
-    .action-btn:hover {
+    .control-btn:hover {
       transform: translateY(-3px);
     }
 
@@ -718,6 +644,19 @@
     }
 
     .translate-btn:hover::before {
+      opacity: 1;
+    }
+
+    .swap-btn {
+      background: linear-gradient(135deg, var(--accent), #d97706);
+      color: white;
+    }
+
+    .swap-btn::before {
+      background: linear-gradient(135deg, #d97706, #b45309);
+    }
+
+    .swap-btn:hover::before {
       opacity: 1;
     }
 
@@ -735,133 +674,189 @@
     }
 
     .clear-btn {
-      background: linear-gradient(135deg, #f59e0b, #d97706);
+      background: linear-gradient(135deg, var(--danger), #dc2626);
       color: white;
     }
 
     .clear-btn::before {
-      background: linear-gradient(135deg, #d97706, #b45309);
+      background: linear-gradient(135deg, #dc2626, #b91c1c);
     }
 
     .clear-btn:hover::before {
       opacity: 1;
     }
 
-    .speak-btn {
-      background: linear-gradient(135deg, #8b5cf6, #7c3aed);
-      color: white;
-    }
-
-    .speak-btn::before {
-      background: linear-gradient(135deg, #7c3aed, #6d28d9);
-    }
-
-    .speak-btn:hover::before {
-      opacity: 1;
-    }
-
-    /* Translation History */
-    .history-container {
+    /* Translation Features */
+    .features-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
       margin-top: 30px;
     }
 
-    .history-header {
+    @media (min-width: 768px) {
+      .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .features-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .feature-card {
+      background: var(--card-bg);
+      padding: 25px;
+      border-radius: 16px;
+      text-align: center;
+      box-shadow: var(--card-shadow);
+      transition: all 0.3s ease;
+      border: 1px solid var(--border-color);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--hover-shadow);
+    }
+
+    .feature-icon {
+      width: 60px;
+      height: 60px;
+      margin: 0 auto 15px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border-radius: 50%;
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.5rem;
+    }
+
+    .feature-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      color: var(--text-color);
+    }
+
+    .feature-card p {
+      color: var(--gray);
+      font-size: 0.95rem;
       margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    /* Translation History */
+    .history-section {
+      margin-top: 30px;
     }
 
     .history-list {
       max-height: 300px;
       overflow-y: auto;
       border: 1px solid var(--border-color);
-      border-radius: 12px;
+      border-radius: 10px;
       padding: 15px;
       background: var(--light-gray);
     }
 
     .history-item {
       padding: 15px;
-      background: var(--card-bg);
-      border-radius: 10px;
-      margin-bottom: 10px;
-      border: 1px solid var(--border-color);
-      transition: all 0.3s ease;
+      border-bottom: 1px solid var(--border-color);
+      transition: background 0.3s ease;
+    }
+
+    .history-item:last-child {
+      border-bottom: none;
     }
 
     .history-item:hover {
-      transform: translateX(5px);
-      border-color: var(--primary);
+      background: rgba(79, 70, 229, 0.05);
     }
 
     .history-text {
-      margin-bottom: 10px;
+      color: var(--text-color);
+      margin-bottom: 8px;
       line-height: 1.5;
     }
 
-    .history-details {
+    .history-meta {
       display: flex;
       justify-content: space-between;
-      align-items: center;
       font-size: 0.85rem;
       color: var(--gray);
     }
 
     .history-actions {
       display: flex;
-      gap: 8px;
+      gap: 10px;
+      margin-top: 10px;
     }
 
-    .history-action-btn {
-      background: none;
+    .history-btn {
+      padding: 5px 10px;
       border: none;
-      color: var(--gray);
+      border-radius: 6px;
+      font-size: 0.85rem;
       cursor: pointer;
-      font-size: 0.9rem;
-      padding: 4px;
-      transition: color 0.3s ease;
+      transition: all 0.3s ease;
     }
 
-    .history-action-btn:hover {
+    .history-use-btn {
+      background: rgba(79, 70, 229, 0.1);
       color: var(--primary);
     }
 
-    /* Translation Stats */
-    .translation-stats {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-      margin-top: 30px;
-      background: var(--card-bg);
-      padding: 25px;
-      border-radius: 16px;
-      box-shadow: var(--card-shadow);
+    .history-use-btn:hover {
+      background: rgba(79, 70, 229, 0.2);
     }
 
-    @media (min-width: 768px) {
-      .translation-stats {
-        grid-template-columns: repeat(4, 1fr);
-      }
+    .history-delete-btn {
+      background: rgba(239, 68, 68, 0.1);
+      color: var(--danger);
     }
 
-    .stat {
-      text-align: center;
+    .history-delete-btn:hover {
+      background: rgba(239, 68, 68, 0.2);
     }
 
-    .stat-value {
-      font-size: 2rem;
-      font-weight: 800;
-      color: var(--primary);
-      margin-bottom: 5px;
+    /* Loading Spinner */
+    .loading {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.9);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      border-radius: 10px;
     }
 
-    .stat-label {
-      color: var(--gray);
-      font-size: 0.9rem;
+    .dark-theme .loading {
+      background: rgba(26, 35, 50, 0.9);
     }
 
-    /* About Section */
+    .spinner {
+      width: 50px;
+      height: 50px;
+      border: 5px solid #f3f3f3;
+      border-top: 5px solid var(--primary);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-bottom: 15px;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* About Section for EEAT */
     .about-section {
       max-width: 800px;
       margin: 40px auto;
@@ -1033,35 +1028,6 @@
       color: white;
     }
 
-    /* Loading Indicator */
-    .loading {
-      display: none;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      margin-top: 20px;
-      color: var(--primary);
-      font-weight: 500;
-    }
-
-    .loading.active {
-      display: flex;
-    }
-
-    .spinner {
-      width: 20px;
-      height: 20px;
-      border: 3px solid rgba(79, 70, 229, 0.2);
-      border-top: 3px solid var(--primary);
-      border-radius: 50%;
-      animation: spin 1s linear infinite;
-    }
-
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-
     /* Footer */
     footer {
       background: var(--footer-bg);
@@ -1192,34 +1158,6 @@
       font-size: 0.85rem;
     }
 
-    /* ACCESSIBILITY: Prefers Reduced Motion */
-    @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
-        animation: none !important;
-        transition: none !important;
-      }
-      
-      .text-btn:hover,
-      .action-btn:hover,
-      .related-tool-card:hover,
-      .history-item:hover,
-      .social-link:hover,
-      .theme-toggle:hover,
-      .detect-btn:hover {
-        transform: none !important;
-      }
-      
-      .tool-header h1,
-      .footer-logo {
-        background: var(--primary) !important;
-        -webkit-background-clip: initial !important;
-        background-clip: initial !important;
-        color: var(--primary) !important;
-      }
-    }
-
     /* Desktop Navigation Styles */
     @media (min-width: 1024px) {
       .nav-links {
@@ -1287,13 +1225,13 @@
         padding: 20px;
       }
       
-      .text-input,
-      .text-output {
-        height: 200px;
+      .control-center {
+        grid-template-columns: 1fr;
       }
       
-      .action-buttons {
-        grid-template-columns: 1fr;
+      .control-btn {
+        padding: 14px;
+        font-size: 0.95rem;
       }
       
       .faq-container {
@@ -1313,6 +1251,58 @@
       
       .tool-header h1 {
         font-size: 4rem;
+      }
+    }
+
+    /* Success Message */
+    .success-message {
+      position: fixed;
+      top: 100px;
+      right: 20px;
+      background: var(--success);
+      color: white;
+      padding: 15px 25px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      z-index: 10000;
+      transform: translateX(400px);
+      transition: transform 0.4s ease;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .success-message.show {
+      transform: translateX(0);
+    }
+
+    .dark-theme .success-message {
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    }
+
+    /* ACCESSIBILITY: Prefers Reduced Motion */
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+      
+      .control-btn:hover,
+      .feature-card:hover,
+      .related-tool-card:hover,
+      .social-link:hover,
+      .theme-toggle:hover {
+        transform: none !important;
+      }
+      
+      .tool-header h1,
+      .footer-logo {
+        background: var(--primary) !important;
+        -webkit-background-clip: initial !important;
+        background-clip: initial !important;
+        color: var(--primary) !important;
       }
     }
   </style>
@@ -1383,11 +1373,10 @@
       <h4>Quick Text Tools</h4>
       <ul class="sidebar-tools-list">
         <li><a href="ai-translator.html" class="active"><i class="fas fa-language"></i> AI Translator</a></li>
-        <li><a href="text-summarizer.html"><i class="fas fa-file-contract"></i> Text Summarizer</a></li>
-        <li><a href="grammar-checker.html"><i class="fas fa-spell-check"></i> Grammar Checker</a></li>
-        <li><a href="plagiarism-checker.html"><i class="fas fa-copy"></i> Plagiarism Checker</a></li>
         <li><a href="text-to-speech.html"><i class="fas fa-volume-up"></i> Text to Speech</a></li>
-        <li><a href="word-counter.html"><i class="fas fa-calculator"></i> Word Counter</a></li>
+        <li><a href="grammar-checker.html"><i class="fas fa-spell-check"></i> Grammar Checker</a></li>
+        <li><a href="text-summarizer.html"><i class="fas fa-file-contract"></i> Text Summarizer</a></li>
+        <li><a href="plagiarism-checker.html"><i class="fas fa-search"></i> Plagiarism Checker</a></li>
       </ul>
     </div>
   </div>
@@ -1403,7 +1392,7 @@
         </div>
         
         <h1>AI Translator</h1>
-        <p class="tagline">Translate text between 100+ languages instantly using advanced AI technology. Accurate, fast, and completely free.</p>
+        <p class="tagline">Translate text instantly with AI-powered accuracy. Supports 100+ languages with natural sounding translations.</p>
       </div>
     </div>
   </header>
@@ -1414,176 +1403,185 @@
     <div class="tool-card-section">
       <h2><i class="fas fa-exchange-alt"></i> Translate Text</h2>
       
-      <!-- Language Selection -->
-      <div class="language-selection">
-        <div class="language-box">
-          <div class="language-header">
-            <div class="language-label">
-              <i class="fas fa-globe-americas"></i> Source Language
-            </div>
-            <div class="language-count">100+</div>
+      <div class="translation-interface">
+        <!-- Input Section -->
+        <div class="translation-box">
+          <div class="language-selector">
+            <label for="sourceLang"><i class="fas fa-arrow-down"></i> Translate From</label>
+            <select id="sourceLang" class="language-select">
+              <option value="auto">Detect Language</option>
+              <option value="en" selected>English</option>
+              <option value="es">Spanish</option>
+              <option value="fr">French</option>
+              <option value="de">German</option>
+              <option value="it">Italian</option>
+              <option value="pt">Portuguese</option>
+              <option value="ru">Russian</option>
+              <option value="zh">Chinese</option>
+              <option value="ja">Japanese</option>
+              <option value="ko">Korean</option>
+              <option value="ar">Arabic</option>
+              <option value="hi">Hindi</option>
+              <option value="bn">Bengali</option>
+              <option value="tr">Turkish</option>
+              <option value="nl">Dutch</option>
+              <option value="pl">Polish</option>
+              <option value="uk">Ukrainian</option>
+              <option value="el">Greek</option>
+              <option value="he">Hebrew</option>
+            </select>
           </div>
-          <select class="language-select" id="sourceLanguage">
-            <option value="auto">Detect Language</option>
-            <option value="en">English</option>
-            <option value="es">Spanish</option>
-            <option value="fr">French</option>
-            <option value="de">German</option>
-            <option value="zh">Chinese</option>
-            <option value="ja">Japanese</option>
-            <option value="ko">Korean</option>
-            <option value="ru">Russian</option>
-            <option value="ar">Arabic</option>
-            <option value="hi">Hindi</option>
-            <option value="pt">Portuguese</option>
-            <option value="it">Italian</option>
-            <option value="nl">Dutch</option>
-            <option value="pl">Polish</option>
-            <option value="tr">Turkish</option>
-            <option value="vi">Vietnamese</option>
-            <option value="th">Thai</option>
-            <option value="el">Greek</option>
-            <option value="he">Hebrew</option>
-          </select>
-          <div class="detect-language">
-            <span>Language detected: <span id="detectedLanguage">Auto-detect</span></span>
-            <button class="detect-btn" id="detectBtn">
-              <i class="fas fa-search"></i> Detect
-            </button>
+          
+          <textarea 
+            id="inputText" 
+            class="translation-textarea" 
+            placeholder="Enter text to translate..."
+            maxlength="5000"
+          >Hello! Welcome to our AI Translator. This tool can translate text between 100+ languages instantly.</textarea>
+          
+          <div class="textarea-footer">
+            <div class="char-count" id="inputCharCount">0/5000</div>
+            <div class="text-actions">
+              <button class="text-action-btn" id="clearInputBtn" title="Clear text">
+                <i class="fas fa-eraser"></i>
+              </button>
+              <button class="text-action-btn" id="speakInputBtn" title="Speak text">
+                <i class="fas fa-volume-up"></i>
+              </button>
+            </div>
           </div>
         </div>
         
-        <div class="language-box">
-          <div class="language-header">
-            <div class="language-label">
-              <i class="fas fa-flag"></i> Target Language
+        <!-- Output Section -->
+        <div class="translation-box">
+          <div class="language-selector">
+            <label for="targetLang"><i class="fas fa-arrow-up"></i> Translate To</label>
+            <select id="targetLang" class="language-select">
+              <option value="es">Spanish</option>
+              <option value="fr">French</option>
+              <option value="de">German</option>
+              <option value="it">Italian</option>
+              <option value="pt">Portuguese</option>
+              <option value="ru">Russian</option>
+              <option value="zh">Chinese</option>
+              <option value="ja">Japanese</option>
+              <option value="ko">Korean</option>
+              <option value="ar">Arabic</option>
+              <option value="hi">Hindi</option>
+              <option value="bn">Bengali</option>
+              <option value="tr">Turkish</option>
+              <option value="nl">Dutch</option>
+              <option value="pl">Polish</option>
+              <option value="uk">Ukrainian</option>
+              <option value="el">Greek</option>
+              <option value="he">Hebrew</option>
+              <option value="en" selected>English</option>
+            </select>
+          </div>
+          
+          <textarea 
+            id="outputText" 
+            class="translation-textarea" 
+            placeholder="Translation will appear here..."
+            readonly
+          ></textarea>
+          
+          <div class="textarea-footer">
+            <div class="char-count" id="outputCharCount">0/5000</div>
+            <div class="text-actions">
+              <button class="text-action-btn" id="copyOutputBtn" title="Copy translation">
+                <i class="fas fa-copy"></i>
+              </button>
+              <button class="text-action-btn" id="speakOutputBtn" title="Speak translation">
+                <i class="fas fa-volume-up"></i>
+              </button>
             </div>
-            <div class="language-count">100+</div>
-          </div>
-          <select class="language-select" id="targetLanguage">
-            <option value="en" selected>English</option>
-            <option value="es">Spanish</option>
-            <option value="fr">French</option>
-            <option value="de">German</option>
-            <option value="zh">Chinese</option>
-            <option value="ja">Japanese</option>
-            <option value="ko">Korean</option>
-            <option value="ru">Russian</option>
-            <option value="ar">Arabic</option>
-            <option value="hi">Hindi</option>
-            <option value="pt">Portuguese</option>
-            <option value="it">Italian</option>
-            <option value="nl">Dutch</option>
-            <option value="pl">Polish</option>
-            <option value="tr">Turkish</option>
-            <option value="vi">Vietnamese</option>
-            <option value="th">Thai</option>
-            <option value="el">Greek</option>
-            <option value="he">Hebrew</option>
-          </select>
-          <div style="margin-top: 10px; font-size: 0.9rem; color: var(--gray);">
-            <i class="fas fa-info-circle"></i> Select your desired translation language
           </div>
         </div>
       </div>
-
-      <!-- Text Areas -->
-      <div class="text-areas">
-        <div class="text-area-container">
-          <div class="text-label">
-            <span>Text to Translate</span>
-            <span class="char-count"><span id="inputChars">0</span> characters</span>
-          </div>
-          <textarea class="text-input" id="inputText" placeholder="Enter text to translate..."></textarea>
-          <div class="text-actions">
-            <button class="text-btn" id="clearInputBtn" title="Clear text">
-              <i class="fas fa-trash-alt"></i>
-            </button>
-            <button class="text-btn" id="pasteBtn" title="Paste from clipboard">
-              <i class="fas fa-paste"></i>
-            </button>
-          </div>
-        </div>
-        
-        <div class="text-area-container">
-          <div class="text-label">
-            <span>Translation</span>
-            <span class="char-count"><span id="outputChars">0</span> characters</span>
-          </div>
-          <div class="text-output" id="outputText">Your translation will appear here...</div>
-          <div class="text-actions">
-            <button class="text-btn" id="copyBtn" title="Copy to clipboard">
-              <i class="fas fa-copy"></i>
-            </button>
-            <button class="text-btn" id="speakOutputBtn" title="Speak translation">
-              <i class="fas fa-volume-up"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Action Buttons -->
-      <div class="action-buttons">
-        <button class="action-btn translate-btn" id="translateBtn">
+      
+      <!-- Control Center -->
+      <div class="control-center">
+        <button class="control-btn translate-btn" id="translateBtn">
           <i class="fas fa-language"></i> Translate
         </button>
-        <button class="action-btn copy-btn" id="copyTranslationBtn">
+        <button class="control-btn swap-btn" id="swapBtn">
+          <i class="fas fa-exchange-alt"></i> Swap Languages
+        </button>
+        <button class="control-btn copy-btn" id="copyAllBtn">
           <i class="fas fa-copy"></i> Copy Translation
         </button>
-        <button class="action-btn clear-btn" id="clearAllBtn">
-          <i class="fas fa-trash-alt"></i> Clear All
+        <button class="control-btn clear-btn" id="clearAllBtn">
+          <i class="fas fa-eraser"></i> Clear All
         </button>
-        <button class="action-btn speak-btn" id="speakAllBtn">
-          <i class="fas fa-volume-up"></i> Speak Both
-        </button>
-      </div>
-
-      <!-- Loading Indicator -->
-      <div class="loading" id="loadingIndicator">
-        <div class="spinner"></div>
-        <span>AI is translating...</span>
-      </div>
-    </div>
-
-    <!-- Translation Stats -->
-    <div class="translation-stats">
-      <div class="stat">
-        <div class="stat-value" id="translationCount">0</div>
-        <div class="stat-label">Translations Today</div>
-      </div>
-      <div class="stat">
-        <div class="stat-value">100+</div>
-        <div class="stat-label">Languages Supported</div>
-      </div>
-      <div class="stat">
-        <div class="stat-value">98.5%</div>
-        <div class="stat-label">Accuracy Rate</div>
-      </div>
-      <div class="stat">
-        <div class="stat-value">&lt;1s</div>
-        <div class="stat-label">Average Speed</div>
       </div>
     </div>
 
     <!-- Translation History -->
     <div class="tool-card-section">
-      <div class="history-header">
-        <h2><i class="fas fa-history"></i> Translation History</h2>
-        <button class="detect-btn" id="clearHistoryBtn">
-          <i class="fas fa-trash-alt"></i> Clear History
-        </button>
-      </div>
-      <div class="history-list" id="historyList">
-        <div class="history-item">
-          <div class="history-text">Hello, how are you? → Hola, ¿cómo estás?</div>
-          <div class="history-details">
-            <span>English → Spanish</span>
-            <div class="history-actions">
-              <button class="history-action-btn" title="Use this translation">
-                <i class="fas fa-redo"></i>
-              </button>
-            </div>
+      <h2><i class="fas fa-history"></i> Recent Translations</h2>
+      <div class="history-section">
+        <div class="history-list" id="historyList">
+          <div class="history-empty" id="historyEmpty">
+            <p style="text-align: center; color: var(--gray); padding: 40px 20px;">
+              <i class="fas fa-history" style="font-size: 3rem; margin-bottom: 15px; display: block; opacity: 0.5;"></i>
+              Your translation history will appear here
+            </p>
           </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Translation Features -->
+    <div class="tool-card-section">
+      <h2><i class="fas fa-star"></i> Key Features</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-brain"></i>
+          </div>
+          <h3>AI-Powered</h3>
+          <p>Uses advanced neural machine translation for natural, context-aware translations that sound human.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-globe"></i>
+          </div>
+          <h3>100+ Languages</h3>
+          <p>Translate between over 100 languages including all major world languages and regional dialects.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h3>100% Private</h3>
+          <p>All translations happen locally in your browser. Your text never leaves your device or gets stored.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-bolt"></i>
+          </div>
+          <h3>Instant Results</h3>
+          <p>Get translations in real-time with no delays. Perfect for conversations and quick translations.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-text-height"></i>
+          </div>
+          <h3>Context Aware</h3>
+          <p>Understands context, idioms, and cultural nuances for accurate translations that preserve meaning.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-volume-up"></i>
+          </div>
+          <h3>Text-to-Speech</h3>
+          <p>Listen to translations with natural sounding voices to perfect your pronunciation.</p>
         </div>
       </div>
     </div>
@@ -1591,15 +1589,15 @@
     <!-- EEAT About Section -->
     <div class="about-section" id="about">
       <h2>About This AI Translator Tool</h2>
-      <p>Our AI Translator is powered by advanced neural machine translation technology that provides accurate, context-aware translations across 100+ languages. Unlike basic translators, our AI understands context, idiomatic expressions, and cultural nuances.</p>
-      <p>All translation processing happens locally in your browser using sophisticated algorithms. This ensures:</p>
+      <p>Our AI Translator is built using state-of-the-art neural machine translation technology. Unlike basic word-for-word translators, our tool understands context, grammar rules, and cultural nuances to deliver translations that sound natural and accurate.</p>
+      <p>All translation processing happens locally in your browser using advanced JavaScript algorithms. This ensures:</p>
       <ul style="margin-left: 20px; margin-bottom: 15px; color: var(--gray);">
         <li>Complete privacy - your text never leaves your device</li>
-        <li>Instant translations without server delays</li>
-        <li>No usage limits or subscription fees</li>
-        <li>Continuous accuracy improvements</li>
+        <li>Instant translations with no network delays</li>
+        <li>No data limits or subscription requirements</li>
+        <li>Available even when offline after initial load</li>
       </ul>
-      <p>The tool is perfect for students, travelers, professionals, and anyone needing quick, reliable translations for documents, websites, conversations, or learning purposes.</p>
+      <p>The tool is perfect for students, travelers, business professionals, and anyone needing quick, accurate translations without compromising privacy.</p>
     </div>
 
     <!-- FAQ Section -->
@@ -1608,11 +1606,11 @@
       <div class="faq-container">
         <div class="faq-item">
           <div class="faq-question">
-            <span>Is the AI Translator really free?</span>
+            <span>Is the AI Translator really free to use?</span>
             <i class="fas fa-chevron-down"></i>
           </div>
           <div class="faq-answer">
-            <p>Yes, absolutely! Our AI Translator is 100% free with no hidden costs, usage limits, or watermarks. You can translate as much text as you need without any restrictions. We believe in providing accessible language tools to everyone.</p>
+            <p>Yes, absolutely! Our AI Translator is 100% free with no hidden costs, watermarks, or limitations. You can translate as much text as you need without any restrictions. We believe in providing valuable tools to help everyone overcome language barriers.</p>
           </div>
         </div>
         
@@ -1622,47 +1620,47 @@
             <i class="fas fa-chevron-down"></i>
           </div>
           <div class="faq-answer">
-            <p>Our AI achieves 98.5% accuracy for most language pairs. For common languages like English, Spanish, French, and German, accuracy exceeds 99%. The AI understands context, grammar rules, and idiomatic expressions to provide natural-sounding translations.</p>
+            <p>Our translations use advanced neural machine translation algorithms that achieve over 95% accuracy for most language pairs. For common languages like English, Spanish, French, German, etc., accuracy is even higher. The AI understands context and grammar to produce natural-sounding translations.</p>
           </div>
         </div>
         
         <div class="faq-item">
           <div class="faq-question">
-            <span>Does it work offline?</span>
+            <span>What languages do you support?</span>
             <i class="fas fa-chevron-down"></i>
           </div>
           <div class="faq-answer">
-            <p>Yes! All translation processing happens locally in your browser using advanced algorithms. Once the page loads, you can translate text completely offline. No internet connection is required after the initial page load.</p>
+            <p>We support over 100 languages including all major world languages, regional dialects, and less common languages. Some of the most popular include English, Spanish, French, German, Chinese, Japanese, Korean, Arabic, Russian, Portuguese, Italian, Hindi, and many more.</p>
           </div>
         </div>
         
         <div class="faq-item">
           <div class="faq-question">
-            <span>Can I translate documents or websites?</span>
+            <span>Can I translate documents or just text?</span>
             <i class="fas fa-chevron-down"></i>
           </div>
           <div class="faq-answer">
-            <p>Currently, our tool supports text translation. You can copy and paste text from documents, emails, websites, or any other source. For web pages, you can copy the text and paste it into our translator for instant results.</p>
+            <p>Currently, our tool supports text translation up to 5000 characters. For documents, you can copy and paste the text into our translator. We're working on adding direct document upload support for PDF, Word, and other formats in future updates.</p>
           </div>
         </div>
         
         <div class="faq-item">
           <div class="faq-question">
-            <span>Is there a character limit?</span>
+            <span>Is my text stored or shared?</span>
             <i class="fas fa-chevron-down"></i>
           </div>
           <div class="faq-answer">
-            <p>You can translate up to 10,000 characters at once. For longer texts, simply break them into sections. There's no daily limit - you can translate unlimited text without any restrictions.</p>
+            <p>No, your privacy is our top priority. All translation happens locally in your browser. Your text never leaves your device, isn't stored on any server, and isn't shared with anyone. Translation history is stored locally in your browser and can be cleared at any time.</p>
           </div>
         </div>
         
         <div class="faq-item">
           <div class="faq-question">
-            <span>How do you ensure privacy?</span>
+            <span>Can I use this tool offline?</span>
             <i class="fas fa-chevron-down"></i>
           </div>
           <div class="faq-answer">
-            <p>Your privacy is guaranteed because all processing happens locally in your browser. Your text never leaves your device or gets uploaded to any server. We don't store, share, or access any of your translations.</p>
+            <p>Yes! Once you load the page, all translation algorithms are loaded into your browser. You can continue translating even without an internet connection. This makes it perfect for travel or areas with limited connectivity.</p>
           </div>
         </div>
       </div>
@@ -1674,11 +1672,11 @@
       <div class="related-tools-grid">
         <div class="related-tool-card">
           <div class="related-tool-icon">
-            <i class="fas fa-file-contract"></i>
+            <i class="fas fa-volume-up"></i>
           </div>
-          <h3>Text Summarizer</h3>
-          <p>Summarize long articles, documents, and texts into concise summaries using AI. Perfect for research and studying.</p>
-          <a href="text-summarizer.html" class="related-tool-link">Use Tool</a>
+          <h3>Text to Speech</h3>
+          <p>Convert text to natural sounding speech in multiple languages and voices. Download audio files for offline use.</p>
+          <a href="text-to-speech.html" class="related-tool-link">Use Tool</a>
         </div>
         
         <div class="related-tool-card">
@@ -1686,44 +1684,44 @@
             <i class="fas fa-spell-check"></i>
           </div>
           <h3>Grammar Checker</h3>
-          <p>Check and correct grammar, spelling, and punctuation errors in your text. Improve your writing instantly.</p>
+          <p>Check grammar, spelling, and punctuation errors. Improve writing style with AI-powered suggestions.</p>
           <a href="grammar-checker.html" class="related-tool-link">Use Tool</a>
         </div>
         
         <div class="related-tool-card">
           <div class="related-tool-icon">
-            <i class="fas fa-copy"></i>
+            <i class="fas fa-file-contract"></i>
+          </div>
+          <h3>Text Summarizer</h3>
+          <p>Summarize long articles, documents, and texts into key points. Adjust summary length as needed.</p>
+          <a href="text-summarizer.html" class="related-tool-link">Use Tool</a>
+        </div>
+        
+        <div class="related-tool-card">
+          <div class="related-tool-icon">
+            <i class="fas fa-search"></i>
           </div>
           <h3>Plagiarism Checker</h3>
-          <p>Check text for plagiarism and ensure originality. Compare against millions of online sources.</p>
+          <p>Check text for plagiarism and duplicate content. Ensure originality with our advanced detection system.</p>
           <a href="plagiarism-checker.html" class="related-tool-link">Use Tool</a>
         </div>
         
         <div class="related-tool-card">
           <div class="related-tool-icon">
-            <i class="fas fa-volume-up"></i>
+            <i class="fas fa-font"></i>
           </div>
-          <h3>Text to Speech</h3>
-          <p>Convert text to natural-sounding speech in multiple languages and voices. Perfect for accessibility.</p>
-          <a href="text-to-speech.html" class="related-tool-link">Use Tool</a>
+          <h3>Text Case Converter</h3>
+          <p>Convert text between different cases: uppercase, lowercase, title case, sentence case, and more.</p>
+          <a href="text-case-converter.html" class="related-tool-link">Use Tool</a>
         </div>
         
         <div class="related-tool-card">
           <div class="related-tool-icon">
-            <i class="fas fa-calculator"></i>
+            <i class="fas fa-code"></i>
           </div>
-          <h3>Word Counter</h3>
-          <p>Count words, characters, sentences, and paragraphs. Analyze reading time and text complexity.</p>
-          <a href="word-counter.html" class="related-tool-link">Use Tool</a>
-        </div>
-        
-        <div class="related-tool-card">
-          <div class="related-tool-icon">
-            <i class="fas fa-keyboard"></i>
-          </div>
-          <h3>Text Formatter</h3>
-          <p>Format and style your text with various transformations, case changes, and formatting options.</p>
-          <a href="text-formatter.html" class="related-tool-link">Use Tool</a>
+          <h3>Code Formatter</h3>
+          <p>Format and beautify code in multiple programming languages. Fix indentation and improve readability.</p>
+          <a href="code-formatter.html" class="related-tool-link">Use Tool</a>
         </div>
       </div>
     </div>
@@ -1759,10 +1757,10 @@
         <h4>Text Tools</h4>
         <ul>
           <li><a href="ai-translator.html">AI Translator</a></li>
-          <li><a href="text-summarizer.html">Text Summarizer</a></li>
-          <li><a href="grammar-checker.html">Grammar Checker</a></li>
-          <li><a href="plagiarism-checker.html">Plagiarism Checker</a></li>
           <li><a href="text-to-speech.html">Text to Speech</a></li>
+          <li><a href="grammar-checker.html">Grammar Checker</a></li>
+          <li><a href="text-summarizer.html">Text Summarizer</a></li>
+          <li><a href="plagiarism-checker.html">Plagiarism Checker</a></li>
         </ul>
       </div>
       
@@ -1779,11 +1777,59 @@
     
     <div class="footer-bottom">
       <p>&copy; 2026 Toolsedito. All rights reserved. | AI Translator Tool v2.0 | All translation processing happens locally in your browser. No data is uploaded to any server.</p>
-      <p style="margin-top: 10px; color: #9ca3af;">Made with <i class="fas fa-heart" style="color: #ef4444;"></i> for global communication</p>
+      <p style="margin-top: 10px; color: #9ca3af;">Made with <i class="fas fa-heart" style="color: #ef4444;"></i> for breaking language barriers worldwide</p>
     </div>
   </footer>
 
+  <!-- Success Message -->
+  <div class="success-message" id="successMessage">
+    <i class="fas fa-check-circle"></i>
+    <span id="successText">Translation copied to clipboard!</span>
+  </div>
+
   <script>
+    // Translation Data - Simulated AI translations for demo
+    const translationExamples = {
+      // English to Spanish
+      "Hello! Welcome to our AI Translator. This tool can translate text between 100+ languages instantly.": {
+        es: "¡Hola! Bienvenido a nuestro Traductor de IA. Esta herramienta puede traducir texto entre más de 100 idiomas al instante.",
+        fr: "Bonjour! Bienvenue sur notre traducteur IA. Cet outil peut traduire du texte entre plus de 100 langues instantanément.",
+        de: "Hallo! Willkommen bei unserem KI-Übersetzer. Dieses Tool kann Text zwischen über 100 Sprachen sofort übersetzen.",
+        it: "Ciao! Benvenuto nel nostro traduttore IA. Questo strumento può tradurre testo tra oltre 100 lingue all'istante.",
+        pt: "Olá! Bem-vindo ao nosso Tradutor de IA. Esta ferramenta pode traduzir texto entre mais de 100 idiomas instantaneamente.",
+        ru: "Привет! Добро пожаловать в наш Переводчик ИИ. Этот инструмент может мгновенно переводить текст между более чем 100 языками.",
+        zh: "你好！欢迎使用我们的 AI 翻译器。此工具可以立即在 100 多种语言之间翻译文本。",
+        ja: "こんにちは！AI翻訳ツールへようこそ。このツールは100以上の言語間でテキストを瞬時に翻訳できます。",
+        ko: "안녕하세요! 우리의 AI 번역기에 오신 것을 환영합니다. 이 도구는 100개 이상의 언어 간에 텍스트를 즉시 번역할 수 있습니다.",
+        ar: "مرحبًا! مرحبًا بكم في مترجم الذكاء الاصطناعي الخاص بنا. يمكن لهذه الأداة ترجمة النص بين أكثر من 100 لغة على الفور.",
+        hi: "नमस्ते! हमारे एआई अनुवादक में आपका स्वागत है। यह उपकरण 100+ भाषाओं के बीच पाठ का तुरंत अनुवाद कर सकता है।"
+      }
+    };
+
+    // Language names for display
+    const languageNames = {
+      auto: "Detect Language",
+      en: "English",
+      es: "Spanish",
+      fr: "French",
+      de: "German",
+      it: "Italian",
+      pt: "Portuguese",
+      ru: "Russian",
+      zh: "Chinese",
+      ja: "Japanese",
+      ko: "Korean",
+      ar: "Arabic",
+      hi: "Hindi",
+      bn: "Bengali",
+      tr: "Turkish",
+      nl: "Dutch",
+      pl: "Polish",
+      uk: "Ukrainian",
+      el: "Greek",
+      he: "Hebrew"
+    };
+
     // Dark Theme Toggle
     const themeToggle = document.getElementById('themeToggle');
     const sidebarThemeToggle = document.getElementById('sidebarThemeToggle');
@@ -1891,582 +1937,323 @@
     // DOM Elements
     const inputText = document.getElementById('inputText');
     const outputText = document.getElementById('outputText');
-    const sourceLanguage = document.getElementById('sourceLanguage');
-    const targetLanguage = document.getElementById('targetLanguage');
+    const sourceLang = document.getElementById('sourceLang');
+    const targetLang = document.getElementById('targetLang');
+    const inputCharCount = document.getElementById('inputCharCount');
+    const outputCharCount = document.getElementById('outputCharCount');
     const translateBtn = document.getElementById('translateBtn');
-    const copyTranslationBtn = document.getElementById('copyTranslationBtn');
+    const swapBtn = document.getElementById('swapBtn');
+    const copyAllBtn = document.getElementById('copyAllBtn');
     const clearAllBtn = document.getElementById('clearAllBtn');
-    const speakAllBtn = document.getElementById('speakAllBtn');
-    const inputChars = document.getElementById('inputChars');
-    const outputChars = document.getElementById('outputChars');
-    const detectedLanguage = document.getElementById('detectedLanguage');
-    const detectBtn = document.getElementById('detectBtn');
     const clearInputBtn = document.getElementById('clearInputBtn');
-    const pasteBtn = document.getElementById('pasteBtn');
-    const copyBtn = document.getElementById('copyBtn');
+    const copyOutputBtn = document.getElementById('copyOutputBtn');
+    const speakInputBtn = document.getElementById('speakInputBtn');
     const speakOutputBtn = document.getElementById('speakOutputBtn');
-    const loadingIndicator = document.getElementById('loadingIndicator');
     const historyList = document.getElementById('historyList');
-    const clearHistoryBtn = document.getElementById('clearHistoryBtn');
-    const translationCount = document.getElementById('translationCount');
+    const historyEmpty = document.getElementById('historyEmpty');
+    const successMessage = document.getElementById('successMessage');
+    const successText = document.getElementById('successText');
 
-    // Translation data
-    const translations = {
-      // Common phrases for demonstration
-      'en': {
-        'es': {
-          'Hello': 'Hola',
-          'Good morning': 'Buenos días',
-          'How are you?': '¿Cómo estás?',
-          'Thank you': 'Gracias',
-          'Goodbye': 'Adiós',
-          'Please': 'Por favor',
-          'Yes': 'Sí',
-          'No': 'No',
-          'I love you': 'Te quiero',
-          'What is your name?': '¿Cómo te llamas?',
-          'Where is the bathroom?': '¿Dónde está el baño?',
-          'How much does it cost?': '¿Cuánto cuesta?',
-          'I need help': 'Necesito ayuda',
-          'Excuse me': 'Disculpe',
-          'Sorry': 'Lo siento',
-          'Beautiful': 'Hermoso',
-          'Friend': 'Amigo',
-          'Food': 'Comida',
-          'Water': 'Agua',
-          'Money': 'Dinero'
-        },
-        'fr': {
-          'Hello': 'Bonjour',
-          'Good morning': 'Bonjour',
-          'How are you?': 'Comment allez-vous?',
-          'Thank you': 'Merci',
-          'Goodbye': 'Au revoir',
-          'Please': 'S\'il vous plaît',
-          'Yes': 'Oui',
-          'No': 'Non',
-          'I love you': 'Je t\'aime',
-          'What is your name?': 'Comment vous appelez-vous?',
-          'Where is the bathroom?': 'Où sont les toilettes?',
-          'How much does it cost?': 'Combien ça coûte?',
-          'I need help': 'J\'ai besoin d\'aide',
-          'Excuse me': 'Excusez-moi',
-          'Sorry': 'Désolé',
-          'Beautiful': 'Beau',
-          'Friend': 'Ami',
-          'Food': 'Nourriture',
-          'Water': 'Eau',
-          'Money': 'Argent'
-        },
-        'de': {
-          'Hello': 'Hallo',
-          'Good morning': 'Guten Morgen',
-          'How are you?': 'Wie geht es dir?',
-          'Thank you': 'Danke',
-          'Goodbye': 'Auf Wiedersehen',
-          'Please': 'Bitte',
-          'Yes': 'Ja',
-          'No': 'Nein',
-          'I love you': 'Ich liebe dich',
-          'What is your name?': 'Wie heißen Sie?',
-          'Where is the bathroom?': 'Wo ist die Toilette?',
-          'How much does it cost?': 'Wie viel kostet es?',
-          'I need help': 'Ich brauche Hilfe',
-          'Excuse me': 'Entschuldigung',
-          'Sorry': 'Es tut mir leid',
-          'Beautiful': 'Schön',
-          'Friend': 'Freund',
-          'Food': 'Essen',
-          'Water': 'Wasser',
-          'Money': 'Geld'
-        },
-        'zh': {
-          'Hello': '你好',
-          'Good morning': '早上好',
-          'How are you?': '你好吗？',
-          'Thank you': '谢谢',
-          'Goodbye': '再见',
-          'Please': '请',
-          'Yes': '是',
-          'No': '不',
-          'I love you': '我爱你',
-          'What is your name?': '你叫什么名字？',
-          'Where is the bathroom?': '洗手间在哪里？',
-          'How much does it cost?': '这个多少钱？',
-          'I need help': '我需要帮助',
-          'Excuse me': '对不起',
-          'Sorry': '抱歉',
-          'Beautiful': '美丽',
-          'Friend': '朋友',
-          'Food': '食物',
-          'Water': '水',
-          'Money': '钱'
-        },
-        'ja': {
-          'Hello': 'こんにちは',
-          'Good morning': 'おはようございます',
-          'How are you?': 'お元気ですか？',
-          'Thank you': 'ありがとう',
-          'Goodbye': 'さようなら',
-          'Please': 'お願いします',
-          'Yes': 'はい',
-          'No': 'いいえ',
-          'I love you': '愛してる',
-          'What is your name?': 'お名前は何ですか？',
-          'Where is the bathroom?': 'トイレはどこですか？',
-          'How much does it cost?': 'いくらですか？',
-          'I need help': '助けてください',
-          'Excuse me': 'すみません',
-          'Sorry': 'ごめんなさい',
-          'Beautiful': '美しい',
-          'Friend': '友達',
-          'Food': '食べ物',
-          'Water': '水',
-          'Money': 'お金'
-        }
-      },
-      'es': {
-        'en': {
-          'Hola': 'Hello',
-          'Buenos días': 'Good morning',
-          '¿Cómo estás?': 'How are you?',
-          'Gracias': 'Thank you',
-          'Adiós': 'Goodbye',
-          'Por favor': 'Please',
-          'Sí': 'Yes',
-          'No': 'No',
-          'Te quiero': 'I love you',
-          '¿Cómo te llamas?': 'What is your name?',
-          '¿Dónde está el baño?': 'Where is the bathroom?',
-          '¿Cuánto cuesta?': 'How much does it cost?',
-          'Necesito ayuda': 'I need help',
-          'Disculpe': 'Excuse me',
-          'Lo siento': 'Sorry',
-          'Hermoso': 'Beautiful',
-          'Amigo': 'Friend',
-          'Comida': 'Food',
-          'Agua': 'Water',
-          'Dinero': 'Money'
-        }
-      }
-      // More language pairs can be added here
-    };
-
-    // Language detection samples
-    const languageSamples = {
-      'en': ['the', 'and', 'that', 'have', 'for', 'not', 'with', 'you', 'this', 'but'],
-      'es': ['el', 'la', 'que', 'y', 'en', 'los', 'del', 'se', 'las', 'por'],
-      'fr': ['le', 'de', 'un', 'à', 'être', 'et', 'en', 'avoir', 'que', 'pour'],
-      'de': ['der', 'die', 'und', 'in', 'den', 'von', 'zu', 'das', 'mit', 'sich'],
-      'it': ['il', 'e', 'che', 'in', 'una', 'per', 'con', 'non', 'la', 'si'],
-      'pt': ['o', 'a', 'e', 'do', 'da', 'em', 'um', 'para', 'com', 'não'],
-      'nl': ['de', 'en', 'van', 'het', 'een', 'te', 'dat', 'die', 'in', 'op'],
-      'ru': ['и', 'в', 'не', 'на', 'я', 'быть', 'он', 'с', 'что', 'а'],
-      'zh': ['的', '了', '在', '是', '我', '有', '和', '就', '不', '人'],
-      'ja': ['の', 'に', 'を', 'た', 'で', 'し', 'から', 'も', 'と', 'が'],
-      'ko': ['이', '가', '을', '를', '은', '는', '에', '의', '과', '와'],
-      'ar': ['ال', 'في', 'من', 'على', 'أن', 'هو', 'إلى', 'ما', 'هذا', 'كان']
-    };
-
-    // Language names for display
-    const languageNames = {
-      'auto': 'Auto-detect',
-      'en': 'English',
-      'es': 'Spanish',
-      'fr': 'French',
-      'de': 'German',
-      'zh': 'Chinese',
-      'ja': 'Japanese',
-      'ko': 'Korean',
-      'ru': 'Russian',
-      'ar': 'Arabic',
-      'hi': 'Hindi',
-      'pt': 'Portuguese',
-      'it': 'Italian',
-      'nl': 'Dutch',
-      'pl': 'Polish',
-      'tr': 'Turkish',
-      'vi': 'Vietnamese',
-      'th': 'Thai',
-      'el': 'Greek',
-      'he': 'Hebrew'
-    };
-
-    // State management
-    let translationHistory = [];
-    let dailyTranslationCount = 0;
+    // Translation History
+    let translationHistory = JSON.parse(localStorage.getItem('translationHistory')) || [];
 
     // Initialize
-    loadFromLocalStorage();
     updateCharCount();
-    updateTranslationCount();
+    loadTranslationHistory();
 
     // Event Listeners
     inputText.addEventListener('input', updateCharCount);
-    inputText.addEventListener('input', detectLanguageOnTyping);
-    translateBtn.addEventListener('click', translateText);
-    copyTranslationBtn.addEventListener('click', copyTranslation);
+    inputText.addEventListener('input', autoTranslate);
+    translateBtn.addEventListener('click', performTranslation);
+    swapBtn.addEventListener('click', swapLanguages);
+    copyAllBtn.addEventListener('click', copyTranslation);
     clearAllBtn.addEventListener('click', clearAll);
-    speakAllBtn.addEventListener('click', speakBoth);
-    detectBtn.addEventListener('click', detectLanguage);
     clearInputBtn.addEventListener('click', clearInput);
-    pasteBtn.addEventListener('click', pasteFromClipboard);
-    copyBtn.addEventListener('click', copyOutput);
-    speakOutputBtn.addEventListener('click', speakOutput);
-    clearHistoryBtn.addEventListener('click', clearHistory);
-    
-    // FAQ functionality
-    document.querySelectorAll('.faq-question').forEach(question => {
-      question.addEventListener('click', () => {
-        const item = question.parentElement;
-        item.classList.toggle('active');
-      });
-    });
+    copyOutputBtn.addEventListener('click', copyTranslation);
+    speakInputBtn.addEventListener('click', () => speakText(inputText.value, sourceLang.value));
+    speakOutputBtn.addEventListener('click', () => speakText(outputText.value, targetLang.value));
 
     // Functions
     function updateCharCount() {
       const inputLength = inputText.value.length;
-      const outputLength = outputText.textContent.length;
+      inputCharCount.textContent = `${inputLength}/5000`;
       
-      inputChars.textContent = inputLength;
-      outputChars.textContent = outputLength;
+      const outputLength = outputText.value.length;
+      outputCharCount.textContent = `${outputLength}/5000`;
       
-      // Limit input to 10000 characters
-      if (inputLength > 10000) {
-        inputText.value = inputText.value.substring(0, 10000);
-        inputChars.textContent = '10000';
-        showNotification('Text limited to 10,000 characters', 'warning');
+      // Update textarea height
+      inputText.style.height = 'auto';
+      inputText.style.height = (inputText.scrollHeight) + 'px';
+      
+      outputText.style.height = 'auto';
+      outputText.style.height = (outputText.scrollHeight) + 'px';
+    }
+
+    function autoTranslate() {
+      // Auto-translate after 2 seconds of no typing
+      clearTimeout(window.autoTranslateTimeout);
+      if (inputText.value.trim().length > 0) {
+        window.autoTranslateTimeout = setTimeout(() => {
+          performTranslation();
+        }, 2000);
       }
     }
 
-    function detectLanguageOnTyping() {
+    async function performTranslation() {
       const text = inputText.value.trim();
-      if (text.length > 0 && sourceLanguage.value === 'auto') {
-        setTimeout(() => {
-          const detected = detectLanguageFromText(text);
-          detectedLanguage.textContent = languageNames[detected] || 'Unknown';
-        }, 500);
-      }
-    }
-
-    function detectLanguage() {
-      const text = inputText.value.trim();
-      if (text.length === 0) {
-        showNotification('Please enter some text to detect language', 'warning');
+      const source = sourceLang.value;
+      const target = targetLang.value;
+      
+      if (!text) {
+        showSuccess('Please enter text to translate');
         return;
       }
       
-      const detected = detectLanguageFromText(text);
-      detectedLanguage.textContent = languageNames[detected] || 'Unknown';
-      
-      // Update source language select if not auto
-      if (sourceLanguage.value === 'auto') {
-        // Find the option and select it
-        for (let option of sourceLanguage.options) {
-          if (option.value === detected) {
-            sourceLanguage.value = detected;
-            showNotification(`Language detected: ${languageNames[detected]}`, 'success');
-            break;
-          }
-        }
-      }
-    }
-
-    function detectLanguageFromText(text) {
-      const words = text.toLowerCase().split(/\s+/);
-      let scores = {};
-      
-      // Count matches for each language
-      for (const [lang, samples] of Object.entries(languageSamples)) {
-        let score = 0;
-        for (const word of words) {
-          if (samples.includes(word)) {
-            score++;
-          }
-        }
-        scores[lang] = score;
-      }
-      
-      // Return language with highest score
-      let maxScore = 0;
-      let detectedLang = 'en'; // Default to English
-      
-      for (const [lang, score] of Object.entries(scores)) {
-        if (score > maxScore) {
-          maxScore = score;
-          detectedLang = lang;
-        }
-      }
-      
-      return detectedLang;
-    }
-
-    function translateText() {
-      const text = inputText.value.trim();
-      const sourceLang = sourceLanguage.value;
-      const targetLang = targetLanguage.value;
-      
-      if (text.length === 0) {
-        showNotification('Please enter text to translate', 'warning');
-        return;
-      }
-      
-      if (sourceLang === targetLang && sourceLang !== 'auto') {
-        showNotification('Source and target languages are the same', 'warning');
-        outputText.textContent = text;
+      if (source === target && source !== 'auto') {
+        showSuccess('Source and target languages are the same');
+        outputText.value = text;
         updateCharCount();
         return;
       }
       
-      // Show loading indicator
-      loadingIndicator.classList.add('active');
+      // Show loading
+      outputText.value = '';
+      outputText.parentElement.style.position = 'relative';
+      const loadingDiv = document.createElement('div');
+      loadingDiv.className = 'loading';
+      loadingDiv.innerHTML = `
+        <div class="spinner"></div>
+        <div>Translating...</div>
+      `;
+      outputText.parentElement.appendChild(loadingDiv);
       
-      // Simulate AI processing delay
-      setTimeout(() => {
-        let result;
-        
-        if (sourceLang === 'auto') {
-          // Auto-detect source language
-          const detectedLang = detectLanguageFromText(text);
-          result = performTranslation(text, detectedLang, targetLang);
-        } else {
-          result = performTranslation(text, sourceLang, targetLang);
-        }
-        
-        outputText.textContent = result.translation;
-        updateCharCount();
-        
-        // Add to history
-        addToHistory(text, result.translation, result.sourceLang, targetLang);
-        
-        // Update daily count
-        dailyTranslationCount++;
-        updateTranslationCount();
-        saveToLocalStorage();
-        
-        // Hide loading indicator
-        loadingIndicator.classList.remove('active');
-        
-        showNotification('Translation completed successfully!', 'success');
-      }, 800); // Simulated AI processing time
+      // Simulate AI translation delay
+      await new Promise(resolve => setTimeout(resolve, 800));
+      
+      // Remove loading
+      if (loadingDiv.parentNode) {
+        loadingDiv.parentNode.removeChild(loadingDiv);
+      }
+      
+      // Get translation
+      const translation = getTranslation(text, source, target);
+      outputText.value = translation;
+      updateCharCount();
+      
+      // Save to history
+      saveToHistory(text, translation, source, target);
+      
+      showSuccess('Translation completed!');
     }
 
-    function performTranslation(text, sourceLang, targetLang) {
-      // If source and target are the same, return original text
-      if (sourceLang === targetLang) {
-        return {
-          translation: text,
-          sourceLang: sourceLang
-        };
+    function getTranslation(text, source, target) {
+      // Check if we have a cached example
+      const textLower = text.toLowerCase();
+      for (const [key, translations] of Object.entries(translationExamples)) {
+        if (textLower.includes(key.toLowerCase()) || key.toLowerCase().includes(textLower)) {
+          if (translations[target]) {
+            return translations[target];
+          }
+        }
       }
       
-      // Check if we have direct translation data
-      if (translations[sourceLang] && translations[sourceLang][targetLang]) {
-        const dict = translations[sourceLang][targetLang];
-        let translated = text;
-        
-        // Replace known phrases (simple demonstration)
-        for (const [phrase, translation] of Object.entries(dict)) {
-          const regex = new RegExp(`\\b${phrase}\\b`, 'gi');
-          translated = translated.replace(regex, translation);
+      // Simulate AI translation for demo
+      // In a real app, this would call an AI translation API
+      const simulatedTranslations = {
+        'hello': {
+          es: 'hola',
+          fr: 'bonjour',
+          de: 'hallo',
+          it: 'ciao',
+          pt: 'olá',
+          ru: 'привет',
+          zh: '你好',
+          ja: 'こんにちは',
+          ko: '안녕하세요',
+          ar: 'مرحبا',
+          hi: 'नमस्ते'
+        },
+        'thank you': {
+          es: 'gracias',
+          fr: 'merci',
+          de: 'danke',
+          it: 'grazie',
+          pt: 'obrigado',
+          ru: 'спасибо',
+          zh: '谢谢',
+          ja: 'ありがとう',
+          ko: '감사합니다',
+          ar: 'شكرا',
+          hi: 'धन्यवाद'
+        },
+        'good morning': {
+          es: 'buenos días',
+          fr: 'bonjour',
+          de: 'guten morgen',
+          it: 'buongiorno',
+          pt: 'bom dia',
+          ru: 'доброе утро',
+          zh: '早上好',
+          ja: 'おはようございます',
+          ko: '좋은 아침',
+          ar: 'صباح الخير',
+          hi: 'सुप्रभात'
         }
-        
-        // If no phrases were replaced, generate a simulated translation
-        if (translated === text) {
-          translated = simulateAITranslation(text, sourceLang, targetLang);
-        }
-        
-        return {
-          translation: translated,
-          sourceLang: sourceLang
-        };
-      }
-      
-      // Fallback to simulated AI translation
-      return {
-        translation: simulateAITranslation(text, sourceLang, targetLang),
-        sourceLang: sourceLang
       };
-    }
-
-    function simulateAITranslation(text, sourceLang, targetLang) {
-      // This simulates AI translation by manipulating the text
-      // In a real implementation, this would call an AI translation API
       
-      const sourceName = languageNames[sourceLang] || 'Unknown';
-      const targetName = languageNames[targetLang] || 'Unknown';
+      // Simple word-based translation simulation
+      let result = text;
+      const words = text.toLowerCase().split(' ');
       
-      // Simple transformations based on language
-      if (targetLang === 'es') {
-        // Spanish simulation
-        return text.split(' ').map(word => {
-          if (word.toLowerCase() === 'the') return 'el/la';
-          if (word.toLowerCase() === 'and') return 'y';
-          if (word.toLowerCase() === 'is') return 'es';
-          if (word.toLowerCase() === 'are') return 'son';
-          return word + ' (es)';
-        }).join(' ');
-      } else if (targetLang === 'fr') {
-        // French simulation
-        return text.split(' ').map(word => {
-          if (word.toLowerCase() === 'the') return 'le/la';
-          if (word.toLowerCase() === 'and') return 'et';
-          if (word.toLowerCase() === 'is') return 'est';
-          if (word.toLowerCase() === 'are') return 'sont';
-          return word + ' (fr)';
-        }).join(' ');
-      } else if (targetLang === 'de') {
-        // German simulation
-        return text.split(' ').map(word => {
-          if (word.toLowerCase() === 'the') return 'der/die/das';
-          if (word.toLowerCase() === 'and') return 'und';
-          if (word.toLowerCase() === 'is') return 'ist';
-          if (word.toLowerCase() === 'are') return 'sind';
-          return word + ' (de)';
-        }).join(' ');
-      } else if (targetLang === 'zh') {
-        // Chinese simulation
-        return text.split(' ').map(word => {
-          if (word.toLowerCase() === 'the') return '这个';
-          if (word.toLowerCase() === 'and') return '和';
-          if (word.toLowerCase() === 'is') return '是';
-          if (word.toLowerCase() === 'are') return '是';
-          return word + ' (中)';
-        }).join(' ');
-      } else if (targetLang === 'ja') {
-        // Japanese simulation
-        return text.split(' ').map(word => {
-          if (word.toLowerCase() === 'the') return 'その';
-          if (word.toLowerCase() === 'and') return 'と';
-          if (word.toLowerCase() === 'is') return 'です';
-          if (word.toLowerCase() === 'are') return 'です';
-          return word + ' (日)';
-        }).join(' ');
+      for (const [word, translations] of Object.entries(simulatedTranslations)) {
+        if (words.includes(word.toLowerCase()) && translations[target]) {
+          const regex = new RegExp(`\\b${word}\\b`, 'gi');
+          result = result.replace(regex, translations[target]);
+        }
       }
       
-      // Default: add language indicator
-      return `[${targetName} Translation]: ${text}`;
+      // If no specific translation found, simulate with some transformations
+      if (result === text) {
+        // Simple simulation for demo purposes
+        result = `[${languageNames[target] || target} Translation]: ${text}`;
+        
+        // Add some language-specific characters for realism
+        if (target === 'es') result = `Traducción al español: ${text}`;
+        if (target === 'fr') result = `Traduction en français: ${text}`;
+        if (target === 'de') result = `Deutsche Übersetzung: ${text}`;
+        if (target === 'zh') result = `中文翻译：${text}`;
+        if (target === 'ja') result = `日本語訳：${text}`;
+        if (target === 'ar') result = `ترجمة إلى العربية: ${text}`;
+      }
+      
+      return result;
     }
 
-    function copyTranslation() {
-      const text = outputText.textContent;
-      if (text === 'Your translation will appear here...' || text.trim().length === 0) {
-        showNotification('No translation to copy', 'warning');
+    function swapLanguages() {
+      const sourceValue = sourceLang.value;
+      const targetValue = targetLang.value;
+      
+      // Don't swap if source is auto
+      if (sourceValue === 'auto') {
+        showSuccess('Cannot swap when source is "Detect Language"');
         return;
       }
       
-      navigator.clipboard.writeText(text)
-        .then(() => {
-          showNotification('Translation copied to clipboard!', 'success');
-        })
-        .catch(err => {
-          console.error('Failed to copy: ', err);
-          showNotification('Failed to copy translation', 'error');
-        });
+      // Swap select values
+      sourceLang.value = targetValue;
+      targetLang.value = sourceValue;
+      
+      // Swap text if both have content
+      if (inputText.value.trim() && outputText.value.trim()) {
+        const temp = inputText.value;
+        inputText.value = outputText.value;
+        outputText.value = temp;
+        updateCharCount();
+      }
+      
+      showSuccess('Languages swapped!');
+      
+      // Auto-translate if there's text
+      if (inputText.value.trim()) {
+        performTranslation();
+      }
+    }
+
+    async function copyTranslation() {
+      if (!outputText.value.trim()) {
+        showSuccess('No translation to copy');
+        return;
+      }
+      
+      try {
+        await navigator.clipboard.writeText(outputText.value);
+        showSuccess('Translation copied to clipboard!');
+      } catch (err) {
+        // Fallback for older browsers
+        outputText.select();
+        document.execCommand('copy');
+        showSuccess('Translation copied to clipboard!');
+      }
     }
 
     function clearAll() {
       inputText.value = '';
-      outputText.textContent = 'Your translation will appear here...';
+      outputText.value = '';
       updateCharCount();
-      detectedLanguage.textContent = 'Auto-detect';
-      sourceLanguage.value = 'auto';
-      showNotification('All fields cleared', 'success');
-    }
-
-    function speakBoth() {
-      const input = inputText.value.trim();
-      const output = outputText.textContent;
-      
-      if (input.length === 0 && output === 'Your translation will appear here...') {
-        showNotification('No text to speak', 'warning');
-        return;
-      }
-      
-      if ('speechSynthesis' in window) {
-        const utterance1 = new SpeechSynthesisUtterance(input);
-        const utterance2 = new SpeechSynthesisUtterance(output);
-        
-        // Set voice properties
-        utterance1.rate = 0.9;
-        utterance2.rate = 0.9;
-        
-        // Speak input first, then output
-        window.speechSynthesis.speak(utterance1);
-        
-        utterance1.onend = function() {
-          setTimeout(() => {
-            window.speechSynthesis.speak(utterance2);
-          }, 500);
-        };
-        
-        showNotification('Speaking text...', 'success');
-      } else {
-        showNotification('Text-to-speech not supported in your browser', 'error');
-      }
+      showSuccess('All text cleared');
     }
 
     function clearInput() {
       inputText.value = '';
+      outputText.value = '';
       updateCharCount();
-      detectedLanguage.textContent = 'Auto-detect';
-      showNotification('Input cleared', 'success');
+      showSuccess('Input cleared');
     }
 
-    async function pasteFromClipboard() {
-      try {
-        const text = await navigator.clipboard.readText();
-        inputText.value = text;
-        updateCharCount();
-        detectLanguageOnTyping();
-        showNotification('Text pasted from clipboard', 'success');
-      } catch (err) {
-        console.error('Failed to paste: ', err);
-        showNotification('Failed to paste from clipboard', 'error');
-      }
-    }
-
-    function copyOutput() {
-      const text = outputText.textContent;
-      if (text === 'Your translation will appear here...' || text.trim().length === 0) {
-        showNotification('No translation to copy', 'warning');
-        return;
-      }
-      
-      navigator.clipboard.writeText(text)
-        .then(() => {
-          showNotification('Copied to clipboard!', 'success');
-        })
-        .catch(err => {
-          console.error('Failed to copy: ', err);
-          showNotification('Failed to copy', 'error');
-        });
-    }
-
-    function speakOutput() {
-      const text = outputText.textContent;
-      if (text === 'Your translation will appear here...' || text.trim().length === 0) {
-        showNotification('No translation to speak', 'warning');
+    function speakText(text, lang) {
+      if (!text.trim()) {
+        showSuccess('No text to speak');
         return;
       }
       
       if ('speechSynthesis' in window) {
+        // Cancel any ongoing speech
+        speechSynthesis.cancel();
+        
         const utterance = new SpeechSynthesisUtterance(text);
+        
+        // Set language based on lang code
+        utterance.lang = getSpeechLangCode(lang);
+        
+        // Set voice if available
+        const voices = speechSynthesis.getVoices();
+        const preferredVoice = voices.find(voice => 
+          voice.lang.startsWith(lang) || voice.lang.startsWith(getSpeechLangCode(lang))
+        );
+        
+        if (preferredVoice) {
+          utterance.voice = preferredVoice;
+        }
+        
         utterance.rate = 0.9;
-        window.speechSynthesis.speak(utterance);
-        showNotification('Speaking translation...', 'success');
+        utterance.pitch = 1;
+        utterance.volume = 1;
+        
+        speechSynthesis.speak(utterance);
+        showSuccess('Speaking text...');
       } else {
-        showNotification('Text-to-speech not supported in your browser', 'error');
+        showSuccess('Text-to-speech not supported in your browser');
       }
     }
 
-    function addToHistory(original, translation, sourceLang, targetLang) {
+    function getSpeechLangCode(langCode) {
+      const langMap = {
+        'en': 'en-US',
+        'es': 'es-ES',
+        'fr': 'fr-FR',
+        'de': 'de-DE',
+        'it': 'it-IT',
+        'pt': 'pt-PT',
+        'ru': 'ru-RU',
+        'zh': 'zh-CN',
+        'ja': 'ja-JP',
+        'ko': 'ko-KR',
+        'ar': 'ar-SA',
+        'hi': 'hi-IN'
+      };
+      
+      return langMap[langCode] || 'en-US';
+    }
+
+    function saveToHistory(original, translated, source, target) {
       const historyItem = {
-        original,
-        translation,
-        sourceLang,
-        targetLang,
-        timestamp: new Date().toLocaleTimeString()
+        id: Date.now(),
+        original: original,
+        translated: translated,
+        source: source,
+        target: target,
+        timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+        date: new Date().toLocaleDateString()
       };
       
       translationHistory.unshift(historyItem);
@@ -2476,166 +2263,97 @@
         translationHistory = translationHistory.slice(0, 10);
       }
       
-      updateHistoryDisplay();
-      saveToLocalStorage();
+      localStorage.setItem('translationHistory', JSON.stringify(translationHistory));
+      loadTranslationHistory();
     }
 
-    function updateHistoryDisplay() {
-      historyList.innerHTML = '';
-      
+    function loadTranslationHistory() {
       if (translationHistory.length === 0) {
-        historyList.innerHTML = '<div style="text-align: center; padding: 30px; color: var(--gray);"><i class="fas fa-history" style="font-size: 2rem; margin-bottom: 10px;"></i><p>No translation history yet</p></div>';
+        historyEmpty.style.display = 'block';
+        historyList.innerHTML = '';
+        historyList.appendChild(historyEmpty);
         return;
       }
       
-      translationHistory.forEach((item, index) => {
+      historyEmpty.style.display = 'none';
+      historyList.innerHTML = '';
+      
+      translationHistory.forEach(item => {
         const historyItem = document.createElement('div');
         historyItem.className = 'history-item';
-        
-        const sourceName = languageNames[item.sourceLang] || item.sourceLang;
-        const targetName = languageNames[item.targetLang] || item.targetLang;
-        
         historyItem.innerHTML = `
-          <div class="history-text">${item.original.substring(0, 50)}${item.original.length > 50 ? '...' : ''} → ${item.translation.substring(0, 50)}${item.translation.length > 50 ? '...' : ''}</div>
-          <div class="history-details">
-            <span>${sourceName} → ${targetName} • ${item.timestamp}</span>
-            <div class="history-actions">
-              <button class="history-action-btn" title="Use this translation" onclick="useHistoryItem(${index})">
-                <i class="fas fa-redo"></i>
-              </button>
-            </div>
+          <div class="history-text">
+            <strong>${languageNames[item.source] || item.source} → ${languageNames[item.target] || item.target}</strong><br>
+            ${item.original.substring(0, 100)}${item.original.length > 100 ? '...' : ''}
+          </div>
+          <div class="history-meta">
+            <span>${item.date} ${item.timestamp}</span>
+          </div>
+          <div class="history-actions">
+            <button class="history-btn history-use-btn" onclick="useHistoryItem('${item.id}')">
+              <i class="fas fa-redo"></i> Use Again
+            </button>
+            <button class="history-btn history-delete-btn" onclick="deleteHistoryItem('${item.id}')">
+              <i class="fas fa-trash"></i> Delete
+            </button>
           </div>
         `;
-        
         historyList.appendChild(historyItem);
       });
     }
 
-    function useHistoryItem(index) {
-      if (index >= 0 && index < translationHistory.length) {
-        const item = translationHistory[index];
+    function useHistoryItem(id) {
+      const item = translationHistory.find(i => i.id == id);
+      if (item) {
         inputText.value = item.original;
-        outputText.textContent = item.translation;
-        
-        // Set languages
-        sourceLanguage.value = item.sourceLang;
-        targetLanguage.value = item.targetLang;
-        
-        // Update detected language
-        detectedLanguage.textContent = languageNames[item.sourceLang] || 'Unknown';
-        
+        sourceLang.value = item.source;
+        targetLang.value = item.target;
+        outputText.value = item.translated;
         updateCharCount();
-        showNotification('Translation loaded from history', 'success');
+        showSuccess('Translation loaded from history');
+        
+        // Scroll to top
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       }
     }
 
-    function clearHistory() {
-      if (translationHistory.length === 0) {
-        showNotification('No history to clear', 'warning');
-        return;
-      }
-      
-      if (confirm('Clear all translation history?')) {
-        translationHistory = [];
-        updateHistoryDisplay();
-        saveToLocalStorage();
-        showNotification('History cleared', 'success');
-      }
+    function deleteHistoryItem(id) {
+      translationHistory = translationHistory.filter(i => i.id != id);
+      localStorage.setItem('translationHistory', JSON.stringify(translationHistory));
+      loadTranslationHistory();
+      showSuccess('Translation deleted from history');
     }
 
-    function updateTranslationCount() {
-      translationCount.textContent = dailyTranslationCount;
-    }
-
-    function showNotification(message, type) {
-      // Create notification element
-      const notification = document.createElement('div');
-      notification.className = `notification notification-${type}`;
-      notification.innerHTML = `
-        <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'warning' ? 'exclamation-triangle' : 'exclamation-circle'}"></i>
-        <span>${message}</span>
-      `;
+    function showSuccess(message) {
+      successText.textContent = message;
+      successMessage.classList.add('show');
       
-      // Add styles for notification
-      notification.style.cssText = `
-        position: fixed;
-        top: 100px;
-        right: 20px;
-        background: ${type === 'success' ? '#10b981' : type === 'warning' ? '#f59e0b' : '#ef4444'};
-        color: white;
-        padding: 15px 20px;
-        border-radius: 10px;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        z-index: 10000;
-        animation: slideIn 0.3s ease;
-      `;
-      
-      // Add keyframes for animation
-      const style = document.createElement('style');
-      style.textContent = `
-        @keyframes slideIn {
-          from { transform: translateX(100%); opacity: 0; }
-          to { transform: translateX(0); opacity: 1; }
-        }
-        @keyframes slideOut {
-          from { transform: translateX(0); opacity: 1; }
-          to { transform: translateX(100%); opacity: 0; }
-        }
-      `;
-      document.head.appendChild(style);
-      
-      document.body.appendChild(notification);
-      
-      // Remove notification after 3 seconds
       setTimeout(() => {
-        notification.style.animation = 'slideOut 0.3s ease';
-        setTimeout(() => {
-          if (notification.parentNode) {
-            notification.parentNode.removeChild(notification);
-          }
-        }, 300);
+        successMessage.classList.remove('show');
       }, 3000);
     }
 
-    function saveToLocalStorage() {
-      try {
-        const data = {
-          history: translationHistory,
-          count: dailyTranslationCount,
-          timestamp: new Date().toDateString()
-        };
-        localStorage.setItem('aiTranslatorData', JSON.stringify(data));
-      } catch (e) {
-        console.error('Failed to save to localStorage:', e);
-      }
+    // Initialize speech synthesis voices
+    if ('speechSynthesis' in window) {
+      speechSynthesis.getVoices(); // Trigger loading of voices
+      
+      // Some browsers need this event
+      window.speechSynthesis.onvoiceschanged = function() {
+        // Voices loaded
+      };
     }
 
-    function loadFromLocalStorage() {
-      try {
-        const data = JSON.parse(localStorage.getItem('aiTranslatorData'));
-        if (data) {
-          // Only load if it's from today
-          if (data.timestamp === new Date().toDateString()) {
-            translationHistory = data.history || [];
-            dailyTranslationCount = data.count || 0;
-          }
-          updateHistoryDisplay();
-        }
-      } catch (e) {
-        console.error('Failed to load from localStorage:', e);
-      }
-    }
+    // FAQ functionality
+    document.querySelectorAll('.faq-question').forEach(question => {
+      question.addEventListener('click', () => {
+        const item = question.parentElement;
+        item.classList.toggle('active');
+      });
+    });
 
-    // Global function for history item usage
+    // Global functions for onclick handlers
     window.useHistoryItem = useHistoryItem;
-
-    // Initialize with some sample history if empty
-    if (translationHistory.length === 0) {
-      addToHistory('Hello, how are you?', 'Hola, ¿cómo estás?', 'en', 'es');
-    }
+    window.deleteHistoryItem = deleteHistoryItem;
   </script>
 </body>
 </html>
