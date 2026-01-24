@@ -3,14 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Text Formatter - Format & Beautify Text Online | Toolsedito</title>
+  <title>Text Formatter Tool - Format & Beautify Text Online | Toolsedito</title>
   
-  <meta name="description" content="Free online text formatter tool. Clean up, format, and beautify text instantly. Remove extra spaces, line breaks, format cases, and more. No registration required.">
-  <meta name="keywords" content="text formatter, text beautifier, remove extra spaces, format text, clean text, text tool">
-  <meta name="author" content="Toolsedito Team">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://www.toolsedito.com/text-formatter.html">
+  <meta name="description" content="Free online Text Formatter tool to format, beautify and clean up text. Remove extra spaces, line breaks, format case, and optimize text for better readability." />
+  <meta name="keywords" content="text formatter, text beautifier, remove extra spaces, text cleaner, case converter, text formatting tool" />
+  <meta name="author" content="Toolsedito Team" />
   
+  <!-- Fonts & Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
@@ -40,6 +39,7 @@
       --transition-speed: 0.3s;
     }
 
+    /* Dark Theme Variables */
     .dark-theme {
       --light: #121826;
       --dark: #f3f4f6;
@@ -69,7 +69,7 @@
       font-weight: 700;
     }
 
-    /* Navigation - Mobile First */
+    /* Navigation */
     .navbar {
       position: fixed;
       top: 0;
@@ -96,146 +96,160 @@
     }
 
     .nav-logo {
-      font-size: 1.4rem;
+      font-size: 1.8rem;
       font-weight: 800;
       color: var(--primary);
       text-decoration: none;
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
     }
 
     .nav-logo i {
-      font-size: 1.3rem;
+      font-size: 1.6rem;
       background: linear-gradient(135deg, var(--primary), var(--secondary));
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
     }
 
-    .theme-toggle {
-      background: var(--light-gray);
+    /* Mobile Menu Button */
+    .mobile-menu-btn {
+      display: block;
+      background: none;
       border: none;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
+      font-size: 1.5rem;
       color: var(--text-color);
-      font-size: 1.1rem;
-      transition: all var(--transition-speed) ease;
+      cursor: pointer;
+      z-index: 1002;
+      transition: color var(--transition-speed) ease;
     }
 
-    .theme-toggle:hover {
-      background: var(--primary);
-      color: white;
-      transform: rotate(15deg);
-    }
-
-    /* Main Container - Mobile First */
-    .main-container {
-      max-width: 1400px;
-      margin: 80px auto 0;
-      padding: 20px;
+    /* Desktop Navigation - Hidden on Mobile */
+    .nav-links {
+      display: none;
     }
 
     /* Tool Header */
     .tool-header {
+      background: linear-gradient(135deg, #e6f7ff 0%, #f0f9ff 100%);
+      color: #1f2933;
+      padding: 100px 20px 50px;
       text-align: center;
-      margin-bottom: 30px;
-      padding-top: 20px;
+      position: relative;
+      overflow: hidden;
+      margin-top: 75px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     }
 
-    .tool-header h1 {
-      font-size: 2rem;
-      margin-bottom: 10px;
-      background: linear-gradient(90deg, #4f46e5, #7c3aed, #10b981);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
+    .dark-theme .tool-header {
+      background: linear-gradient(135deg, #0a1929 0%, #112240 100%);
+      color: #f3f4f6;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
 
-    .tool-description {
-      color: var(--gray);
-      max-width: 800px;
-      margin: 0 auto 20px;
-      font-size: 1.1rem;
-    }
-
-    .tool-stats {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      margin-top: 20px;
-      flex-wrap: wrap;
-    }
-
-    .stat-item {
-      text-align: center;
-    }
-
-    .stat-number {
-      font-size: 1.8rem;
-      font-weight: 800;
-      color: var(--primary);
-      line-height: 1;
-      margin-bottom: 5px;
-    }
-
-    .stat-label {
-      font-size: 0.8rem;
-      color: var(--gray);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    /* Tool Container */
-    .tool-container {
-      display: flex;
-      flex-direction: column;
-      gap: 30px;
-      margin-bottom: 40px;
-    }
-
-    /* Text Areas */
-    .text-area-container {
-      background: var(--card-bg);
-      border-radius: 16px;
-      padding: 25px;
-      box-shadow: var(--card-shadow);
-      transition: all var(--transition-speed) ease;
-    }
-
-    .text-area-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    .tool-title {
+      font-size: 2.5rem;
       margin-bottom: 15px;
-    }
-
-    .text-area-header h3 {
-      font-size: 1.2rem;
       color: var(--text-color);
     }
 
-    .text-counter {
+    .tool-subtitle {
+      font-size: 1.1rem;
+      color: var(--gray);
+      max-width: 700px;
+      margin: 0 auto 20px;
+      line-height: 1.6;
+    }
+
+    .tool-breadcrumb {
       font-size: 0.9rem;
       color: var(--gray);
+      margin-top: 10px;
+    }
+
+    .tool-breadcrumb a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    /* Main Tool Container */
+    .tool-container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    /* Tool Grid */
+    .tool-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+
+    @media (min-width: 1024px) {
+      .tool-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    /* Tool Card */
+    .tool-card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      box-shadow: var(--card-shadow);
+      transition: all 0.3s ease;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+    }
+
+    .tool-card-header {
+      padding: 25px 25px 20px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .tool-card-header h3 {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1.3rem;
+      margin-bottom: 8px;
+    }
+
+    .tool-card-header p {
+      color: var(--gray);
+      font-size: 0.95rem;
+    }
+
+    .tool-card-body {
+      padding: 25px;
+    }
+
+    /* Text Areas */
+    .textarea-container {
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    .textarea-label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: var(--text-color);
+      font-size: 0.95rem;
     }
 
     textarea {
       width: 100%;
       min-height: 200px;
-      padding: 20px;
-      border: 2px solid var(--light-gray);
-      border-radius: 12px;
+      padding: 15px;
+      border: 2px solid var(--border-color);
+      border-radius: 10px;
       background: var(--light-gray);
       color: var(--text-color);
       font-family: 'Inter', sans-serif;
       font-size: 1rem;
-      line-height: 1.6;
+      line-height: 1.5;
       resize: vertical;
       transition: all var(--transition-speed) ease;
     }
@@ -246,175 +260,185 @@
       box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
     }
 
-    /* Formatting Options */
-    .formatting-options {
-      background: var(--card-bg);
-      border-radius: 16px;
-      padding: 25px;
-      box-shadow: var(--card-shadow);
+    .char-count {
+      position: absolute;
+      bottom: 10px;
+      right: 15px;
+      font-size: 0.8rem;
+      color: var(--gray);
+      background: var(--light-gray);
+      padding: 2px 8px;
+      border-radius: 10px;
+    }
+
+    /* Format Options */
+    .format-options {
+      margin: 30px 0;
+    }
+
+    .format-options h4 {
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+      color: var(--text-color);
     }
 
     .options-grid {
       display: grid;
-      grid-template-columns: 1fr;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
       gap: 15px;
-      margin-top: 20px;
     }
 
-    .format-option {
+    .option-item {
       display: flex;
       align-items: center;
-      gap: 15px;
-      padding: 15px;
+      gap: 12px;
+      padding: 12px 15px;
       background: var(--light-gray);
-      border: 2px solid transparent;
-      border-radius: 12px;
+      border-radius: 8px;
       cursor: pointer;
       transition: all var(--transition-speed) ease;
+      user-select: none;
     }
 
-    .format-option:hover {
+    .option-item:hover {
       background: var(--primary);
-      transform: translateY(-2px);
-      box-shadow: var(--hover-shadow);
+      color: white;
     }
 
-    .format-option:hover .option-icon,
-    .format-option:hover .option-label,
-    .format-option:hover .option-desc {
+    .option-item:hover .option-icon {
+      color: white;
+    }
+
+    .option-item.active {
+      background: var(--primary);
+      color: white;
+    }
+
+    .option-item.active .option-icon {
       color: white;
     }
 
     .option-icon {
-      width: 50px;
-      height: 50px;
-      background: linear-gradient(135deg, #e0e7ff, #c7d2fe);
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      font-size: 1.2rem;
       color: var(--primary);
-      font-size: 1.3rem;
-      transition: all var(--transition-speed) ease;
-    }
-
-    .dark-theme .option-icon {
-      background: linear-gradient(135deg, rgba(79, 70, 229, 0.2), rgba(99, 102, 241, 0.2));
-    }
-
-    .option-content {
-      flex: 1;
+      transition: color var(--transition-speed) ease;
+      width: 24px;
+      text-align: center;
     }
 
     .option-label {
-      font-weight: 600;
-      color: var(--text-color);
-      margin-bottom: 5px;
-      transition: all var(--transition-speed) ease;
+      font-size: 0.95rem;
+      font-weight: 500;
     }
 
-    .option-desc {
-      font-size: 0.9rem;
-      color: var(--gray);
-      transition: all var(--transition-speed) ease;
-    }
-
-    /* Action Buttons */
+    /* Buttons */
     .action-buttons {
       display: flex;
-      flex-direction: column;
       gap: 15px;
-      margin-top: 20px;
+      margin-top: 30px;
+      flex-wrap: wrap;
     }
 
     .btn {
-      padding: 16px 24px;
+      padding: 14px 28px;
       border: none;
-      border-radius: 12px;
-      font-family: 'Inter', sans-serif;
+      border-radius: 10px;
       font-weight: 600;
       font-size: 1rem;
       cursor: pointer;
       transition: all var(--transition-speed) ease;
-      display: flex;
+      display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 10px;
+      text-decoration: none;
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, #4f46e5, #7c3aed);
+      background: var(--primary);
       color: white;
-      box-shadow: 0 10px 25px rgba(79, 70, 229, 0.25);
+      flex: 1;
+      min-width: 180px;
     }
 
     .btn-primary:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 15px 35px rgba(79, 70, 229, 0.35);
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(79, 70, 229, 0.25);
     }
 
     .btn-secondary {
       background: var(--light-gray);
       color: var(--text-color);
-      border: 2px solid var(--border-color);
+      flex: 1;
+      min-width: 180px;
     }
 
     .btn-secondary:hover {
-      background: var(--primary);
+      background: var(--gray);
       color: white;
-      border-color: var(--primary);
-      transform: translateY(-3px);
+      transform: translateY(-2px);
     }
 
-    /* Tool Info */
+    .btn-small {
+      padding: 8px 16px;
+      font-size: 0.9rem;
+      min-width: auto;
+    }
+
+    /* Tool Info Section */
     .tool-info {
-      background: var(--card-bg);
-      border-radius: 16px;
-      padding: 30px;
-      margin-top: 40px;
-      box-shadow: var(--card-shadow);
-    }
-
-    .tool-info h2 {
-      font-size: 1.5rem;
-      margin-bottom: 20px;
-      color: var(--text-color);
-      position: relative;
-      padding-bottom: 10px;
-    }
-
-    .tool-info h2::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 60px;
-      height: 4px;
-      background: linear-gradient(90deg, var(--primary), var(--secondary));
-      border-radius: 2px;
+      margin-top: 60px;
     }
 
     .info-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 25px;
-      margin-top: 20px;
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    @media (min-width: 768px) {
+      .info-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .info-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
     }
 
     .info-card {
-      padding: 20px;
-      background: var(--light-gray);
-      border-radius: 12px;
-      border-left: 4px solid var(--primary);
+      background: var(--card-bg);
+      padding: 30px 25px;
+      border-radius: 16px;
+      box-shadow: var(--card-shadow);
+      transition: transform 0.3s ease;
     }
 
-    .info-card h3 {
-      font-size: 1.1rem;
-      margin-bottom: 10px;
-      color: var(--text-color);
+    .info-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .info-icon {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border-radius: 12px;
       display: flex;
       align-items: center;
-      gap: 10px;
+      justify-content: center;
+      color: white;
+      font-size: 1.5rem;
+    }
+
+    .info-card h4 {
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+      color: var(--text-color);
     }
 
     .info-card p {
@@ -427,8 +451,8 @@
     footer {
       background: var(--footer-bg);
       color: #9ca3af;
-      padding: 40px 20px 20px;
-      margin-top: 60px;
+      padding: 50px 20px 30px;
+      margin-top: 80px;
       position: relative;
     }
 
@@ -450,8 +474,20 @@
       gap: 30px;
     }
 
+    @media (min-width: 768px) {
+      .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .footer-content {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
     .footer-logo {
-      font-size: 1.8rem;
+      font-size: 2rem;
       font-weight: 800;
       color: white;
       margin-bottom: 15px;
@@ -463,42 +499,17 @@
     }
 
     .footer-description {
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       line-height: 1.7;
       margin-bottom: 20px;
     }
 
-    .social-links {
-      display: flex;
-      gap: 10px;
-      margin-top: 20px;
-      flex-wrap: wrap;
-    }
-
-    .social-link {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 36px;
-      height: 36px;
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 50%;
-      color: white;
-      text-decoration: none;
-      transition: all 0.3s ease;
-    }
-
-    .social-link:hover {
-      background: var(--primary);
-      transform: translateY(-3px);
-    }
-
     .footer-links h4 {
       color: white;
-      font-size: 1.1rem;
-      margin-bottom: 15px;
+      font-size: 1.2rem;
+      margin-bottom: 20px;
       position: relative;
-      padding-bottom: 8px;
+      padding-bottom: 10px;
     }
 
     .footer-links h4::after {
@@ -506,7 +517,7 @@
       position: absolute;
       bottom: 0;
       left: 0;
-      width: 30px;
+      width: 40px;
       height: 3px;
       background: var(--primary);
     }
@@ -516,7 +527,7 @@
     }
 
     .footer-links li {
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
 
     .footer-links a {
@@ -524,7 +535,7 @@
       text-decoration: none;
       transition: all 0.3s ease;
       display: inline-block;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
     }
 
     .footer-links a:hover {
@@ -537,139 +548,95 @@
       margin-top: 40px;
       padding-top: 20px;
       border-top: 1px solid rgba(255, 255, 255, 0.1);
-      font-size: 0.8rem;
+      font-size: 0.85rem;
     }
 
-    /* Loading Animation */
-    .loading {
-      display: none;
-      text-align: center;
-      padding: 20px;
-    }
-
-    .loading.active {
-      display: block;
-    }
-
-    .spinner {
-      width: 40px;
-      height: 40px;
-      border: 4px solid var(--light-gray);
-      border-top: 4px solid var(--primary);
+    /* Theme Toggle */
+    .theme-toggle {
+      background: var(--light-gray);
+      border: none;
+      width: 44px;
+      height: 44px;
       border-radius: 50%;
-      animation: spin 1s linear infinite;
-      margin: 0 auto 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--text-color);
+      font-size: 1.2rem;
+      transition: all var(--transition-speed) ease;
+      margin-left: 10px;
     }
 
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-
-    /* Tool Status */
-    .tool-status {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
+    .theme-toggle:hover {
       background: var(--primary);
       color: white;
-      padding: 12px 20px;
-      border-radius: 50px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-      transform: translateY(100px);
-      opacity: 0;
-      transition: all 0.3s ease;
-      z-index: 1000;
+      transform: rotate(15deg);
     }
 
-    .tool-status.show {
-      transform: translateY(0);
-      opacity: 1;
-    }
-
-    /* Tablet Styles (768px and up) */
-    @media (min-width: 768px) {
-      .nav-logo {
-        font-size: 1.6rem;
-      }
-      
-      .tool-header h1 {
-        font-size: 2.5rem;
-      }
-      
-      .options-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      
-      .action-buttons {
-        flex-direction: row;
-      }
-      
-      .btn {
-        flex: 1;
-      }
-      
-      .info-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      
-      .footer-content {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    /* Desktop Styles (1024px and up) */
-    @media (min-width: 1024px) {
-      .navbar {
-        padding: 20px 0;
-      }
-      
-      .tool-container {
-        flex-direction: row;
-      }
-      
-      .text-area-container {
-        flex: 1;
-      }
-      
-      .formatting-options {
-        width: 350px;
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .tool-title {
+        font-size: 2rem;
       }
       
       .options-grid {
         grid-template-columns: 1fr;
       }
       
-      .info-grid {
-        grid-template-columns: repeat(3, 1fr);
+      .action-buttons {
+        flex-direction: column;
       }
       
-      .footer-content {
-        grid-template-columns: repeat(4, 1fr);
+      .btn {
+        width: 100%;
       }
     }
 
-    /* Large Desktop Styles (1200px and up) */
-    @media (min-width: 1200px) {
-      .main-container {
-        padding: 40px;
+    @media (max-width: 480px) {
+      .nav-container {
+        padding: 0 15px;
       }
       
       .tool-header {
-        margin-bottom: 50px;
+        padding: 90px 15px 40px;
       }
       
       .tool-container {
-        gap: 40px;
+        padding: 0 15px;
       }
       
-      .formatting-options {
-        width: 400px;
+      .tool-card-body {
+        padding: 20px;
+      }
+    }
+
+    /* Print Styles */
+    @media print {
+      .navbar, .theme-toggle, .action-buttons, footer {
+        display: none !important;
+      }
+      
+      body {
+        background: white !important;
+        color: black !important;
+      }
+      
+      .tool-header {
+        background: white !important;
+        color: black;
+        padding: 20px;
+        margin-top: 0;
+      }
+      
+      textarea {
+        background: white !important;
+        color: black !important;
+        border: 1px solid #ccc !important;
       }
     }
   </style>
 </head>
-
 <body>
   <!-- Navigation -->
   <nav class="navbar">
@@ -678,221 +645,244 @@
         <i class="fas fa-tools"></i> Toolsedito
       </a>
       
-      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
-        <i class="fas fa-moon"></i>
-        <i class="fas fa-sun"></i>
-      </button>
+      <!-- Desktop Navigation -->
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#tools">Tools</a></li>
+        <li><a href="index.html#blog">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      
+      <div style="display: flex; align-items: center;">
+        <!-- Theme Toggle Button -->
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+          <i class="fas fa-moon"></i>
+          <i class="fas fa-sun"></i>
+        </button>
+        
+        <!-- Mobile Menu Button -->
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
     </div>
   </nav>
 
-  <!-- Main Content -->
-  <div class="main-container">
-    <!-- Tool Header -->
-    <div class="tool-header">
-      <h1>Text Formatter</h1>
-      <p class="tool-description">Format and beautify your text instantly. Clean up extra spaces, format cases, remove line breaks, and more. All processing happens in your browser for maximum privacy.</p>
-      
-      <div class="tool-stats">
-        <div class="stat-item">
-          <div class="stat-number">100%</div>
-          <div class="stat-label">Free Tool</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">Instant</div>
-          <div class="stat-label">Processing</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">Zero</div>
-          <div class="stat-label">Data Sent</div>
-        </div>
+  <!-- Tool Header -->
+  <header class="tool-header">
+    <div class="header-content">
+      <h1 class="tool-title">Text Formatter Tool</h1>
+      <p class="tool-subtitle">Format, beautify and clean up your text instantly. Remove extra spaces, line breaks, format case, and optimize text for better readability.</p>
+      <div class="tool-breadcrumb">
+        <a href="index.html">Home</a> &gt; <a href="index.html#text-tools">Text Tools</a> &gt; Text Formatter
       </div>
     </div>
+  </header>
 
-    <!-- Tool Container -->
-    <div class="tool-container">
-      <!-- Input Text Area -->
-      <div class="text-area-container">
-        <div class="text-area-header">
-          <h3>Input Text</h3>
-          <div class="text-counter">
-            <span id="charCount">0</span> characters • <span id="wordCount">0</span> words
-          </div>
+  <!-- Main Tool Container -->
+  <main class="tool-container">
+    <div class="tool-grid">
+      <!-- Input Card -->
+      <div class="tool-card">
+        <div class="tool-card-header">
+          <h3><i class="fas fa-keyboard"></i> Input Text</h3>
+          <p>Paste or type your text here to format</p>
         </div>
-        <textarea id="inputText" placeholder="Paste or type your text here..."></textarea>
-      </div>
+        <div class="tool-card-body">
+          <div class="textarea-container">
+            <label class="textarea-label">Original Text</label>
+            <textarea id="inputText" placeholder="Paste your text here... For example: This  is  a  sample  text  with  extra  spaces  and  
+            
+            unnecessary 
+            
+            line  
+            
+            breaks.">This  is  a  sample  text  with  extra  spaces  and  
 
-      <!-- Formatting Options -->
-      <div class="formatting-options">
-        <h3>Formatting Options</h3>
-        
-        <div class="options-grid" id="formatOptions">
-          <div class="format-option" data-action="uppercase">
-            <div class="option-icon">
-              <i class="fas fa-text-height"></i>
-            </div>
-            <div class="option-content">
-              <div class="option-label">UPPERCASE</div>
-              <div class="option-desc">Convert all text to uppercase</div>
-            </div>
-          </div>
-          
-          <div class="format-option" data-action="lowercase">
-            <div class="option-icon">
-              <i class="fas fa-font"></i>
-            </div>
-            <div class="option-content">
-              <div class="option-label">lowercase</div>
-              <div class="option-desc">Convert all text to lowercase</div>
-            </div>
-          </div>
-          
-          <div class="format-option" data-action="titlecase">
-            <div class="option-icon">
-              <i class="fas fa-heading"></i>
-            </div>
-            <div class="option-content">
-              <div class="option-label">Title Case</div>
-              <div class="option-desc">Capitalize first letter of each word</div>
-            </div>
-          </div>
-          
-          <div class="format-option" data-action="sentencecase">
-            <div class="option-icon">
-              <i class="fas fa-paragraph"></i>
-            </div>
-            <div class="option-content">
-              <div class="option-label">Sentence case</div>
-              <div class="option-desc">Capitalize first letter of sentences</div>
-            </div>
-          </div>
-          
-          <div class="format-option" data-action="removespaces">
-            <div class="option-icon">
-              <i class="fas fa-compress-alt"></i>
-            </div>
-            <div class="option-content">
-              <div class="option-label">Remove Extra Spaces</div>
-              <div class="option-desc">Clean up multiple spaces</div>
-            </div>
-          </div>
-          
-          <div class="format-option" data-action="removelines">
-            <div class="option-icon">
-              <i class="fas fa-minus"></i>
-            </div>
-            <div class="option-content">
-              <div class="option-label">Remove Line Breaks</div>
-              <div class="option-desc">Convert to single paragraph</div>
-            </div>
-          </div>
-          
-          <div class="format-option" data-action="trim">
-            <div class="option-icon">
-              <i class="fas fa-crop-alt"></i>
-            </div>
-            <div class="option-content">
-              <div class="option-label">Trim Text</div>
-              <div class="option-desc">Remove spaces from start/end</div>
-            </div>
-          </div>
-          
-          <div class="format-option" data-action="reverse">
-            <div class="option-icon">
-              <i class="fas fa-exchange-alt"></i>
-            </div>
-            <div class="option-content">
-              <div class="option-label">Reverse Text</div>
-              <div class="option-desc">Reverse character order</div>
-            </div>
-          </div>
-        </div>
+unnecessary 
 
-        <!-- Action Buttons -->
-        <div class="action-buttons">
-          <button class="btn btn-primary" id="formatBtn">
-            <i class="fas fa-magic"></i> Format Text
-          </button>
-          <button class="btn btn-secondary" id="copyBtn">
-            <i class="far fa-copy"></i> Copy Result
-          </button>
-          <button class="btn btn-secondary" id="clearBtn">
-            <i class="fas fa-eraser"></i> Clear All
-          </button>
+line  
+
+breaks. It also has MIXED CASE and needs proper formatting.</textarea>
+            <div class="char-count" id="inputCount">Characters: 0 | Words: 0</div>
+          </div>
+          
+          <div class="format-options">
+            <h4>Formatting Options</h4>
+            <div class="options-grid">
+              <div class="option-item active" data-option="clean">
+                <div class="option-icon">
+                  <i class="fas fa-broom"></i>
+                </div>
+                <div class="option-label">Clean & Format</div>
+              </div>
+              
+              <div class="option-item" data-option="lowercase">
+                <div class="option-icon">
+                  <i class="fas fa-font"></i>
+                </div>
+                <div class="option-label">Lowercase</div>
+              </div>
+              
+              <div class="option-item" data-option="uppercase">
+                <div class="option-icon">
+                  <i class="fas fa-text-height"></i>
+                </div>
+                <div class="option-label">Uppercase</div>
+              </div>
+              
+              <div class="option-item" data-option="titlecase">
+                <div class="option-icon">
+                  <i class="fas fa-heading"></i>
+                </div>
+                <div class="option-label">Title Case</div>
+              </div>
+              
+              <div class="option-item" data-option="sentencecase">
+                <div class="option-icon">
+                  <i class="fas fa-paragraph"></i>
+                </div>
+                <div class="option-label">Sentence Case</div>
+              </div>
+              
+              <div class="option-item" data-option="removespaces">
+                <div class="option-icon">
+                  <i class="fas fa-compress-alt"></i>
+                </div>
+                <div class="option-label">Remove Extra Spaces</div>
+              </div>
+              
+              <div class="option-item" data-option="removelines">
+                <div class="option-icon">
+                  <i class="fas fa-minus-circle"></i>
+                </div>
+                <div class="option-label">Remove Line Breaks</div>
+              </div>
+              
+              <div class="option-item" data-option="reverse">
+                <div class="option-icon">
+                  <i class="fas fa-exchange-alt"></i>
+                </div>
+                <div class="option-label">Reverse Text</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="action-buttons">
+            <button class="btn btn-primary" id="formatBtn">
+              <i class="fas fa-magic"></i> Format Text
+            </button>
+            <button class="btn btn-secondary" id="clearBtn">
+              <i class="fas fa-trash-alt"></i> Clear All
+            </button>
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- Output Text Area -->
-    <div class="text-area-container">
-      <div class="text-area-header">
-        <h3>Formatted Text</h3>
-        <div class="text-counter">
-          <span id="outputCharCount">0</span> characters
+      <!-- Output Card -->
+      <div class="tool-card">
+        <div class="tool-card-header">
+          <h3><i class="fas fa-file-alt"></i> Formatted Text</h3>
+          <p>Your formatted text will appear here</p>
+        </div>
+        <div class="tool-card-body">
+          <div class="textarea-container">
+            <label class="textarea-label">Formatted Result</label>
+            <textarea id="outputText" readonly placeholder="Your formatted text will appear here..."></textarea>
+            <div class="char-count" id="outputCount">Characters: 0 | Words: 0</div>
+          </div>
+          
+          <div class="action-buttons">
+            <button class="btn btn-primary" id="copyBtn">
+              <i class="fas fa-copy"></i> Copy to Clipboard
+            </button>
+            <button class="btn btn-secondary" id="downloadBtn">
+              <i class="fas fa-download"></i> Download as TXT
+            </button>
+          </div>
         </div>
       </div>
-      <textarea id="outputText" placeholder="Your formatted text will appear here..." readonly></textarea>
     </div>
 
     <!-- Tool Information -->
-    <div class="tool-info">
-      <h2>About This Text Formatter</h2>
+    <section class="tool-info">
+      <h2 style="font-size: 2rem; text-align: center; margin-bottom: 10px; color: var(--text-color);">How to Use Text Formatter</h2>
+      <p style="text-align: center; color: var(--gray); max-width: 700px; margin: 0 auto 40px;">Follow these simple steps to format your text perfectly</p>
       
       <div class="info-grid">
         <div class="info-card">
-          <h3><i class="fas fa-shield-alt"></i> Privacy First</h3>
-          <p>All text processing happens in your browser. No data is sent to our servers, ensuring complete privacy and security for your content.</p>
+          <div class="info-icon">
+            <i class="fas fa-paste"></i>
+          </div>
+          <h4>Paste Your Text</h4>
+          <p>Copy and paste any text into the input box. You can paste from documents, emails, websites, or any text source.</p>
         </div>
         
         <div class="info-card">
-          <h3><i class="fas fa-bolt"></i> Instant Results</h3>
-          <p>Get formatted text instantly with no delays. Our tool processes text in real-time as you type or paste.</p>
+          <div class="info-icon">
+            <i class="fas fa-sliders-h"></i>
+          </div>
+          <h4>Choose Format</h4>
+          <p>Select from various formatting options like clean text, uppercase, lowercase, title case, or remove extra spaces.</p>
         </div>
         
         <div class="info-card">
-          <h3><i class="fas fa-infinity"></i> No Limits</h3>
-          <p>Format unlimited text without any restrictions. No file size limits, no character limits, completely free.</p>
+          <div class="info-icon">
+            <i class="fas fa-magic"></i>
+          </div>
+          <h4>Format Instantly</h4>
+          <p>Click "Format Text" to instantly process your text. The formatted result appears immediately with no delay.</p>
         </div>
         
         <div class="info-card">
-          <h3><i class="fas fa-mobile-alt"></i> Mobile Optimized</h3>
-          <p>Works perfectly on all devices - desktop, tablet, and mobile. Touch-friendly interface for on-the-go formatting.</p>
+          <div class="info-icon">
+            <i class="fas fa-clipboard"></i>
+          </div>
+          <h4>Copy or Download</h4>
+          <p>Copy the formatted text to clipboard with one click or download it as a text file for later use.</p>
         </div>
         
         <div class="info-card">
-          <h3><i class="fas fa-code"></i> Clean Output</h3>
-          <p>Get perfectly formatted text ready for websites, documents, emails, or social media posts.</p>
+          <div class="info-icon">
+            <i class="fas fa-user-shield"></i>
+          </div>
+          <h4>Privacy Guaranteed</h4>
+          <p>Your text is processed locally in your browser. We don't store or transmit your data to any servers.</p>
         </div>
         
         <div class="info-card">
-          <h3><i class="fas fa-history"></i> Use Cases</h3>
-          <p>Perfect for writers, students, developers, bloggers, and anyone who works with text regularly.</p>
+          <div class="info-icon">
+            <i class="fas fa-mobile-alt"></i>
+          </div>
+          <h4>Mobile Optimized</h4>
+          <p>Works perfectly on all devices - desktop, tablet, and mobile. No app installation required.</p>
         </div>
       </div>
-    </div>
-  </div>
-
-  <!-- Tool Status Notification -->
-  <div class="tool-status" id="toolStatus">
-    <span id="statusMessage">Text formatted successfully!</span>
-  </div>
+    </section>
+  </main>
 
   <!-- Footer -->
   <footer>
     <div class="footer-content">
       <div class="footer-about">
         <h3 class="footer-logo">Toolsedito</h3>
-        <p class="footer-description">Free online tools for everyday productivity. Fast, secure, and easy to use.</p>
-        <div class="social-links">
-          <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-          <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-          <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-        </div>
+        <p class="footer-description">Toolsedito provides smart online tools for everyday productivity. Our tools are fast, free, and easy to use, helping you accomplish tasks efficiently.</p>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#tools">All Tools</a></li>
+          <li><a href="index.html#blog">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
       </div>
       
       <div class="footer-links">
         <h4>Text Tools</h4>
         <ul>
-          <li><a href="text-formatter.html">Text Formatter</a></li>
+          <li><a href="text-formatter.html" style="color: white; font-weight: 600;">Text Formatter</a></li>
           <li><a href="word-counter.html">Word Counter</a></li>
           <li><a href="case-converter.html">Case Converter</a></li>
           <li><a href="article-rewriter.html">Article Rewriter</a></li>
@@ -900,248 +890,253 @@
       </div>
       
       <div class="footer-links">
-        <h4>Quick Links</h4>
+        <h4>Legal</h4>
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
           <li><a href="privacy-policy.html">Privacy Policy</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-      
-      <div class="footer-links">
-        <h4>Other Tools</h4>
-        <ul>
-          <li><a href="image-tools.html">Image Tools</a></li>
-          <li><a href="pdf-tools.html">PDF Tools</a></li>
-          <li><a href="seo-tools.html">SEO Tools</a></li>
-          <li><a href="ai-tools.html">AI Tools</a></li>
+          <li><a href="terms-of-service.html">Terms of Service</a></li>
+          <li><a href="disclaimer.html">Disclaimer</a></li>
         </ul>
       </div>
     </div>
     
     <div class="footer-bottom">
-      <p>&copy; 2026 Toolsedito. All rights reserved. | Text Formatter Tool</p>
+      <p>&copy; 2026 Toolsedito. All rights reserved. | Tools last updated: January 2026</p>
     </div>
   </footer>
 
   <script>
-    // DOM Elements
-    const inputText = document.getElementById('inputText');
-    const outputText = document.getElementById('outputText');
-    const charCount = document.getElementById('charCount');
-    const wordCount = document.getElementById('wordCount');
-    const outputCharCount = document.getElementById('outputCharCount');
-    const formatBtn = document.getElementById('formatBtn');
-    const copyBtn = document.getElementById('copyBtn');
-    const clearBtn = document.getElementById('clearBtn');
-    const formatOptions = document.getElementById('formatOptions');
-    const toolStatus = document.getElementById('toolStatus');
-    const statusMessage = document.getElementById('statusMessage');
+    // Theme Toggle
     const themeToggle = document.getElementById('themeToggle');
     const body = document.body;
-
-    // Current formatting action
-    let currentAction = 'removespaces';
-
-    // Initialize
-    document.addEventListener('DOMContentLoaded', function() {
-      updateCounters();
-      setupEventListeners();
-      setupTheme();
+    
+    // Check for saved theme preference
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      body.classList.add('dark-theme');
+    }
+    
+    themeToggle.addEventListener('click', () => {
+      body.classList.toggle('dark-theme');
+      localStorage.setItem('theme', body.classList.contains('dark-theme') ? 'dark' : 'light');
     });
 
-    // Update character and word counters
-    function updateCounters() {
-      const input = inputText.value;
-      const output = outputText.value;
-      
-      // Input counters
-      charCount.textContent = input.length;
-      wordCount.textContent = input.trim() === '' ? 0 : input.trim().split(/\s+/).length;
-      
-      // Output counter
-      outputCharCount.textContent = output.length;
+    // Text Formatter Functionality
+    const inputText = document.getElementById('inputText');
+    const outputText = document.getElementById('outputText');
+    const formatBtn = document.getElementById('formatBtn');
+    const clearBtn = document.getElementById('clearBtn');
+    const copyBtn = document.getElementById('copyBtn');
+    const downloadBtn = document.getElementById('downloadBtn');
+    const optionItems = document.querySelectorAll('.option-item');
+    const inputCount = document.getElementById('inputCount');
+    const outputCount = document.getElementById('outputCount');
+    
+    let selectedOption = 'clean';
+    
+    // Update character count
+    function updateCharCount(textarea, countElement) {
+      const text = textarea.value;
+      const charCount = text.length;
+      const wordCount = text.trim() === '' ? 0 : text.trim().split(/\s+/).length;
+      countElement.textContent = `Characters: ${charCount} | Words: ${wordCount}`;
     }
-
-    // Setup event listeners
-    function setupEventListeners() {
-      // Input text changes
-      inputText.addEventListener('input', updateCounters);
-      
-      // Format button
-      formatBtn.addEventListener('click', formatText);
-      
-      // Copy button
-      copyBtn.addEventListener('click', copyToClipboard);
-      
-      // Clear button
-      clearBtn.addEventListener('click', clearAll);
-      
-      // Format option selection
-      formatOptions.addEventListener('click', function(e) {
-        const option = e.target.closest('.format-option');
-        if (option) {
-          // Remove active class from all options
-          document.querySelectorAll('.format-option').forEach(opt => {
-            opt.style.background = '';
-            opt.style.borderColor = '';
-          });
-          
-          // Add active style to selected option
-          option.style.background = 'var(--primary)';
-          option.style.borderColor = 'var(--primary)';
-          option.querySelector('.option-icon').style.background = 'white';
-          option.querySelector('.option-icon').style.color = 'var(--primary)';
-          option.querySelector('.option-label').style.color = 'white';
-          option.querySelector('.option-desc').style.color = 'rgba(255, 255, 255, 0.9)';
-          
-          // Set current action
-          currentAction = option.dataset.action;
-          
-          // Auto-format if there's text
-          if (inputText.value.trim()) {
-            formatText();
-          }
-        }
-      });
-      
-      // Auto-format on Enter key (Ctrl/Cmd + Enter)
-      inputText.addEventListener('keydown', function(e) {
-        if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
-          e.preventDefault();
-          formatText();
-        }
-      });
+    
+    // Format text functions
+    function formatClean(text) {
+      // Remove extra spaces and line breaks
+      let formatted = text.replace(/\s+/g, ' ').trim();
+      // Fix multiple line breaks
+      formatted = formatted.replace(/\n\s*\n/g, '\n\n');
+      // Capitalize first letter of sentences
+      formatted = formatted.replace(/(^\w|\.\s+\w)/g, match => match.toUpperCase());
+      return formatted;
     }
-
-    // Format text based on selected action
+    
+    function formatLowercase(text) {
+      return text.toLowerCase();
+    }
+    
+    function formatUppercase(text) {
+      return text.toUpperCase();
+    }
+    
+    function formatTitleCase(text) {
+      return text.toLowerCase().replace(/\b\w/g, char => char.toUpperCase());
+    }
+    
+    function formatSentenceCase(text) {
+      return text.toLowerCase().replace(/(^\w|\.\s+\w)/g, match => match.toUpperCase());
+    }
+    
+    function removeExtraSpaces(text) {
+      return text.replace(/\s+/g, ' ').trim();
+    }
+    
+    function removeLineBreaks(text) {
+      return text.replace(/\n/g, ' ').replace(/\s+/g, ' ').trim();
+    }
+    
+    function reverseText(text) {
+      return text.split('').reverse().join('');
+    }
+    
+    // Format text based on selected option
     function formatText() {
-      let text = inputText.value;
-      
-      if (!text.trim()) {
-        showStatus('Please enter some text to format', 'error');
-        return;
-      }
-      
+      const text = inputText.value;
       let formattedText = text;
       
-      switch (currentAction) {
-        case 'uppercase':
-          formattedText = text.toUpperCase();
+      switch(selectedOption) {
+        case 'clean':
+          formattedText = formatClean(text);
           break;
-          
         case 'lowercase':
-          formattedText = text.toLowerCase();
+          formattedText = formatLowercase(text);
           break;
-          
+        case 'uppercase':
+          formattedText = formatUppercase(text);
+          break;
         case 'titlecase':
-          formattedText = text.toLowerCase().replace(/\b\w/g, char => char.toUpperCase());
+          formattedText = formatTitleCase(text);
           break;
-          
         case 'sentencecase':
-          formattedText = text.toLowerCase().replace(/(^\s*\w|[.!?]\s+\w)/g, char => char.toUpperCase());
+          formattedText = formatSentenceCase(text);
           break;
-          
         case 'removespaces':
-          formattedText = text.replace(/\s+/g, ' ').trim();
+          formattedText = removeExtraSpaces(text);
           break;
-          
         case 'removelines':
-          formattedText = text.replace(/\n+/g, ' ').replace(/\s+/g, ' ').trim();
+          formattedText = removeLineBreaks(text);
           break;
-          
-        case 'trim':
-          formattedText = text.trim();
-          break;
-          
         case 'reverse':
-          formattedText = text.split('').reverse().join('');
+          formattedText = reverseText(text);
           break;
-          
         default:
-          formattedText = text.replace(/\s+/g, ' ').trim();
+          formattedText = formatClean(text);
       }
       
       outputText.value = formattedText;
-      updateCounters();
-      showStatus('Text formatted successfully!');
+      updateCharCount(outputText, outputCount);
     }
-
-    // Copy formatted text to clipboard
+    
+    // Copy to clipboard
     function copyToClipboard() {
-      if (!outputText.value.trim()) {
-        showStatus('No text to copy', 'error');
+      outputText.select();
+      outputText.setSelectionRange(0, 99999); // For mobile devices
+      
+      try {
+        const successful = document.execCommand('copy');
+        if (successful) {
+          copyBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+          setTimeout(() => {
+            copyBtn.innerHTML = '<i class="fas fa-copy"></i> Copy to Clipboard';
+          }, 2000);
+        }
+      } catch (err) {
+        // Fallback for browsers that don't support execCommand
+        navigator.clipboard.writeText(outputText.value).then(() => {
+          copyBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+          setTimeout(() => {
+            copyBtn.innerHTML = '<i class="fas fa-copy"></i> Copy to Clipboard';
+          }, 2000);
+        });
+      }
+    }
+    
+    // Download as text file
+    function downloadText() {
+      const text = outputText.value;
+      if (!text.trim()) {
+        alert('Please format some text first!');
         return;
       }
       
-      navigator.clipboard.writeText(outputText.value)
-        .then(() => {
-          showStatus('Copied to clipboard!');
-        })
-        .catch(err => {
-          console.error('Failed to copy: ', err);
-          showStatus('Failed to copy text', 'error');
-        });
+      const blob = new Blob([text], { type: 'text/plain' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'formatted-text.txt';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      
+      downloadBtn.innerHTML = '<i class="fas fa-check"></i> Downloaded!';
+      setTimeout(() => {
+        downloadBtn.innerHTML = '<i class="fas fa-download"></i> Download as TXT';
+      }, 2000);
     }
-
+    
     // Clear all text
     function clearAll() {
       inputText.value = '';
       outputText.value = '';
-      updateCounters();
-      showStatus('All text cleared');
+      updateCharCount(inputText, inputCount);
+      updateCharCount(outputText, outputCount);
+      inputText.focus();
     }
-
-    // Show status notification
-    function showStatus(message, type = 'success') {
-      statusMessage.textContent = message;
-      
-      // Set color based on type
-      if (type === 'error') {
-        toolStatus.style.background = '#ef4444';
-      } else {
-        toolStatus.style.background = 'var(--primary)';
-      }
-      
-      // Show notification
-      toolStatus.classList.add('show');
-      
-      // Hide after 3 seconds
-      setTimeout(() => {
-        toolStatus.classList.remove('show');
-      }, 3000);
-    }
-
-    // Theme Toggle Functionality
-    function setupTheme() {
-      // Check for saved theme preference or prefer-color-scheme
-      const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-      const savedTheme = localStorage.getItem('theme');
-      
-      // Set initial theme
-      if (savedTheme === 'dark' || (!savedTheme && prefersDarkScheme.matches)) {
-        body.classList.add('dark-theme');
-      }
-      
-      // Theme toggle event
-      themeToggle.addEventListener('click', function() {
-        const isDark = body.classList.toggle('dark-theme');
-        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    
+    // Event Listeners
+    inputText.addEventListener('input', () => updateCharCount(inputText, inputCount));
+    outputText.addEventListener('input', () => updateCharCount(outputText, outputCount));
+    formatBtn.addEventListener('click', formatText);
+    clearBtn.addEventListener('click', clearAll);
+    copyBtn.addEventListener('click', copyToClipboard);
+    downloadBtn.addEventListener('click', downloadText);
+    
+    // Option selection
+    optionItems.forEach(item => {
+      item.addEventListener('click', () => {
+        optionItems.forEach(opt => opt.classList.remove('active'));
+        item.classList.add('active');
+        selectedOption = item.dataset.option;
         
-        // Add animation to the toggle button
-        themeToggle.style.transform = 'rotate(360deg)';
-        setTimeout(() => {
-          themeToggle.style.transform = '';
-        }, 300);
+        // Auto-format if there's text
+        if (inputText.value.trim()) {
+          formatText();
+        }
       });
-    }
-
-    // Performance optimization: Debounce input events
-    let debounceTimer;
-    inputText.addEventListener('input', function() {
-      clearTimeout(debounceTimer);
-      debounceTimer = setTimeout(updateCounters, 300);
+    });
+    
+    // Initialize counts
+    updateCharCount(inputText, inputCount);
+    updateCharCount(outputText, outputCount);
+    
+    // Auto-format on page load with example text
+    setTimeout(() => {
+      formatText();
+    }, 100);
+    
+    // Mobile menu functionality (simple toggle)
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.querySelector('.nav-links');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      navLinks.style.display = navLinks.style.display === 'block' ? 'none' : 'block';
+      if (navLinks.style.display === 'block') {
+        navLinks.style.position = 'absolute';
+        navLinks.style.top = '100%';
+        navLinks.style.left = '0';
+        navLinks.style.width = '100%';
+        navLinks.style.backgroundColor = 'var(--card-bg)';
+        navLinks.style.padding = '20px';
+        navLinks.style.boxShadow = '0 10px 30px rgba(0,0,0,0.1)';
+        navLinks.style.zIndex = '1000';
+        
+        // Create mobile menu items
+        navLinks.innerHTML = `
+          <li style="margin-bottom: 15px;"><a href="index.html" style="display: block; padding: 10px; color: var(--text-color); text-decoration: none;">Home</a></li>
+          <li style="margin-bottom: 15px;"><a href="index.html#tools" style="display: block; padding: 10px; color: var(--text-color); text-decoration: none;">Tools</a></li>
+          <li style="margin-bottom: 15px;"><a href="index.html#blog" style="display: block; padding: 10px; color: var(--text-color); text-decoration: none;">Blog</a></li>
+          <li><a href="contact.html" style="display: block; padding: 10px; color: var(--text-color); text-decoration: none;">Contact</a></li>
+        `;
+      }
+    });
+    
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (event) => {
+      if (!mobileMenuBtn.contains(event.target) && !navLinks.contains(event.target)) {
+        navLinks.style.display = 'none';
+      }
     });
   </script>
 </body>
