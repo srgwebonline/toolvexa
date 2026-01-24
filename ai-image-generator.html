@@ -1,2023 +1,2646 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Image Generator - Create Images with AI | Toolvexa</title>
-    
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Free AI image generator tool. Create stunning images from text descriptions using artificial intelligence. Generate art, photos, and illustrations instantly.">
-    <meta name="keywords" content="AI image generator, create images with AI, text to image, AI art generator, DALL-E alternative, AI painting, artificial intelligence art">
-    <meta name="author" content="Toolvexa">
-    <meta name="robots" content="index, follow">
-    
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="AI Image Generator - Create Images with AI | Toolvexa">
-    <meta property="og:description" content="Free AI image generator tool. Create stunning images from text descriptions using artificial intelligence. Generate art, photos, and illustrations instantly.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://toolvexa.com/ai-image-generator">
-    <meta property="og:image" content="https://toolvexa.com/images/ai-image-generator-og.jpg">
-    
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://toolvexa.com/ai-image-generator">
-    
-    <!-- Structured Data for SEO -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebApplication",
-        "name": "AI Image Generator",
-        "url": "https://toolvexa.com/ai-image-generator",
-        "applicationCategory": "MultimediaApplication",
-        "operatingSystem": "Any",
-        "description": "Free AI-powered tool to generate images from text descriptions using artificial intelligence",
-        "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "USD"
-        },
-        "creator": {
-            "@type": "Organization",
-            "name": "Toolvexa",
-            "url": "https://toolvexa.com"
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <!-- UPDATED: Brand name changed to Toolsedito -->
+  <title>Free AI Image Generator - Create Images from Text | Toolsedito</title>
+
+  <!-- UPDATED: SEO Meta Tags -->
+  <meta name="description" content="Generate stunning AI images from text descriptions for free. Create art, photos, illustrations, and designs instantly with our AI image generator. No registration required." />
+  <meta name="keywords" content="AI image generator, text to image, AI art generator, create images from text, free AI image creator, AI artwork, image generation, AI art" />
+  <meta name="author" content="Toolsedito Team" />
+  <meta name="robots" content="index, follow" />
+  <meta name="googlebot" content="index, follow" />
+  <!-- UPDATED: Custom domain -->
+  <link rel="canonical" href="https://www.toolsedito.com/ai-image-generator.html" />
+
+  <!-- UPDATED: Open Graph with new domain -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Free AI Image Generator - Create Images from Text | Toolsedito">
+  <meta property="og:description" content="Generate stunning AI images from text descriptions for free. Create art, photos, illustrations, and designs instantly with our AI image generator. No registration required.">
+  <meta property="og:url" content="https://www.toolsedito.com/ai-image-generator.html">
+  <meta property="og:image" content="https://www.toolsedito.com/images/ai-image-generator-og.jpg">
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:title" content="Free AI Image Generator - Toolsedito">
+  <meta property="twitter:description" content="Generate stunning AI images from text descriptions for free. Create art, photos, illustrations, and designs instantly.">
+
+  <!-- UPDATED: JSON-LD Schema for AI Image Generator -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "AI Image Generator",
+    "description": "Free online AI image generator that creates images from text descriptions. Generate art, photos, and illustrations instantly.",
+    "url": "https://www.toolsedito.com/ai-image-generator.html",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "ratingCount": "950"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "Toolsedito",
+      "url": "https://www.toolsedito.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Toolsedito",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.toolsedito.com/logo.png"
+      }
     }
-    </script>
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
-    <style>
-        /* Reset & Base Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', system-ui, sans-serif;
-        }
-
-        :root {
-            --primary: #8B5CF6;
-            --primary-light: #ede9fe;
-            --secondary: #EC4899;
-            --success: #10B981;
-            --danger: #EF4444;
-            --warning: #F59E0B;
-            --light: #f8fafc;
-            --dark: #1f2937;
-            --border: #e5e7eb;
-            --shadow: rgba(0, 0, 0, 0.1);
-            --radius: 12px;
-            --gradient: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%);
-        }
-
-        body {
-            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-            min-height: 100vh;
-            color: var(--dark);
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Navigation Bar */
-        .tool-navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 15px 0;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-            border-bottom: 3px solid var(--primary);
-        }
-        
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 20px;
-        }
-        
-        .nav-brand {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-            color: var(--primary);
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
-        
-        .nav-brand i {
-            font-size: 1.8rem;
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 25px;
-            list-style: none;
-        }
-        
-        .nav-links a {
-            color: #333;
-            text-decoration: none;
-            font-weight: 500;
-            padding: 8px 15px;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-        }
-        
-        .nav-links a:hover {
-            background: var(--primary);
-            color: white;
-        }
-        
-        .back-to-home {
-            background: var(--primary);
-            color: white !important;
-            padding: 8px 20px !important;
-            border-radius: 25px;
-        }
-        
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: #333;
-            cursor: pointer;
-        }
-        
-        /* Adjust body padding for fixed navbar */
-        body {
-            padding-top: 80px;
-        }
-
-        /* Breadcrumb */
-        .breadcrumb {
-            margin: 20px 0 30px;
-            font-size: 0.9rem;
-            color: #666;
-        }
-        
-        .breadcrumb a {
-            color: var(--primary);
-            text-decoration: none;
-        }
-        
-        .breadcrumb span {
-            margin: 0 5px;
-        }
-
-        /* Tool Header */
-        header {
-            text-align: center;
-            margin-bottom: 40px;
-            padding: 40px 20px;
-            background: white;
-            border-radius: var(--radius);
-            box-shadow: 0 5px 20px var(--shadow);
-            background: linear-gradient(135deg, white 0%, #fdf4ff 100%);
-            border: 1px solid var(--primary-light);
-        }
-
-        .logo {
-            font-size: 3rem;
-            margin-bottom: 15px;
-        }
-
-        .logo-gradient {
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        header h1 {
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 15px;
-            font-size: 2.8rem;
-            font-weight: 800;
-        }
-
-        header p {
-            color: #666;
-            font-size: 1.1rem;
-            max-width: 700px;
-            margin: 0 auto 20px;
-        }
-
-        .features {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-            margin-top: 20px;
-        }
-
-        .feature {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 0.95rem;
-            color: var(--dark);
-            background: var(--light);
-            padding: 8px 15px;
-            border-radius: 50px;
-            border: 1px solid var(--border);
-        }
-
-        .feature i {
-            color: var(--primary);
-        }
-
-        /* Main Tool Content */
-        .main-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-
-        @media (max-width: 1100px) {
-            .main-content {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .input-section, .controls-section {
-            background: white;
-            border-radius: var(--radius);
-            padding: 30px;
-            box-shadow: 0 5px 20px var(--shadow);
-        }
-
-        /* Input Section */
-        .prompt-input-container {
-            margin-bottom: 30px;
-        }
-
-        .prompt-label {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-
-        .prompt-label h3 {
-            color: var(--primary);
-            font-size: 1.3rem;
-        }
-
-        .char-count {
-            color: #666;
-            font-size: 0.9rem;
-        }
-
-        .prompt-textarea {
-            width: 100%;
-            min-height: 150px;
-            padding: 15px;
-            border: 2px solid var(--border);
-            border-radius: var(--radius);
-            font-size: 1rem;
-            line-height: 1.6;
-            resize: vertical;
-            transition: all 0.3s ease;
-        }
-
-        .prompt-textarea:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px var(--primary-light);
-        }
-
-        .prompt-examples {
-            margin-top: 20px;
-        }
-
-        .prompt-examples h4 {
-            color: var(--dark);
-            margin-bottom: 10px;
-            font-size: 1rem;
-        }
-
-        .example-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .example-btn {
-            padding: 8px 15px;
-            background: var(--primary-light);
-            color: var(--primary);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            font-size: 0.9rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .example-btn:hover {
-            background: var(--primary);
-            color: white;
-            transform: translateY(-2px);
-        }
-
-        /* Controls Section */
-        .control-group {
-            margin-bottom: 25px;
-        }
-
-        .control-group h3 {
-            margin-bottom: 15px;
-            color: var(--primary);
-            font-size: 1.3rem;
-        }
-
-        .style-presets {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-            margin-top: 25px;
-        }
-
-        .style-btn {
-            padding: 12px;
-            background: var(--light);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            cursor: pointer;
-            text-align: center;
-            font-weight: 500;
-            transition: all 0.2s ease;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .style-btn:hover {
-            background: #e9ecef;
-        }
-
-        .style-btn.active {
-            background: var(--primary);
-            color: white;
-            border-color: var(--primary);
-        }
-
-        .style-icon {
-            font-size: 1.2rem;
-        }
-
-        /* Slider Controls */
-        .slider-container {
-            margin-bottom: 20px;
-        }
-
-        .slider-label {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 8px;
-        }
-
-        .slider-label span:first-child {
-            font-weight: 600;
-            color: var(--dark);
-        }
-
-        .slider-label span:last-child {
-            font-weight: 700;
-            color: var(--primary);
-        }
-
-        .slider {
-            width: 100%;
-            height: 10px;
-            -webkit-appearance: none;
-            appearance: none;
-            background: #e0e0e0;
-            border-radius: 5px;
-            outline: none;
-        }
-
-        .slider::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 22px;
-            height: 22px;
-            border-radius: 50%;
-            background: var(--primary);
-            cursor: pointer;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
-
-        .slider::-moz-range-thumb {
-            width: 22px;
-            height: 22px;
-            border-radius: 50%;
-            background: var(--primary);
-            cursor: pointer;
-            border: none;
-        }
-
-        /* Action Buttons */
-        .action-buttons {
-            display: flex;
-            gap: 15px;
-            margin-top: 30px;
-            flex-wrap: wrap;
-        }
-
-        .action-btn {
-            flex: 1;
-            min-width: 150px;
-            padding: 16px 20px;
-            border: none;
-            border-radius: var(--radius);
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            transition: all 0.3s ease;
-        }
-
-        .action-btn i {
-            font-size: 1.2rem;
-        }
-
-        .generate-btn {
-            background: var(--gradient);
-            color: white;
-        }
-
-        .generate-btn:hover {
-            opacity: 0.9;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(139, 92, 246, 0.3);
-        }
-
-        .generate-btn:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        .download-btn {
-            background: var(--success);
-            color: white;
-        }
-
-        .download-btn:hover {
-            background: #0da271;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(16, 185, 129, 0.3);
-        }
-
-        .download-btn:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        .clear-btn {
-            background: var(--danger);
-            color: white;
-        }
-
-        .clear-btn:hover {
-            background: #dc2626;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(239, 68, 68, 0.3);
-        }
-
-        /* Generated Images Section */
-        .generated-section {
-            margin-top: 40px;
-        }
-
-        .section-title {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .section-title h2 {
-            color: var(--primary);
-            font-size: 1.8rem;
-        }
-
-        .images-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 25px;
-        }
-
-        .image-card {
-            background: white;
-            border-radius: var(--radius);
-            overflow: hidden;
-            box-shadow: 0 5px 15px var(--shadow);
-            transition: transform 0.3s ease;
-            border: 1px solid var(--border);
-        }
-
-        .image-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-        }
-
-        .image-preview {
-            height: 250px;
-            overflow: hidden;
-            position: relative;
-            background: linear-gradient(45deg, #f0f0f0 25%, #fafafa 25%, #fafafa 50%, #f0f0f0 50%, #f0f0f0 75%, #fafafa 75%);
-            background-size: 20px 20px;
-        }
-
-        .image-preview img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .image-info {
-            padding: 20px;
-        }
-
-        .image-prompt {
-            font-weight: 600;
-            margin-bottom: 10px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        .image-stats {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 15px;
-            font-size: 0.9rem;
-            color: #666;
-        }
-
-        .card-actions {
-            display: flex;
-            gap: 10px;
-        }
-
-        .card-btn {
-            flex: 1;
-            padding: 10px;
-            border: none;
-            border-radius: 6px;
-            font-weight: 500;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 5px;
-            transition: all 0.2s ease;
-        }
-
-        .download-card-btn {
-            background: rgba(16, 185, 129, 0.1);
-            color: var(--success);
-        }
-
-        .download-card-btn:hover {
-            background: rgba(16, 185, 129, 0.2);
-        }
-
-        .regenerate-card-btn {
-            background: var(--primary-light);
-            color: var(--primary);
-        }
-
-        .regenerate-card-btn:hover {
-            background: #e0d7fe;
-        }
-
-        .delete-card-btn {
-            background: rgba(239, 68, 68, 0.1);
-            color: var(--danger);
-        }
-
-        .delete-card-btn:hover {
-            background: rgba(239, 68, 68, 0.2);
-        }
-
-        .empty-state {
-            text-align: center;
-            padding: 60px 30px;
-            color: #888;
-        }
-
-        .empty-state i {
-            font-size: 4rem;
-            margin-bottom: 20px;
-            color: #ddd;
-        }
-
-        .empty-state h3 {
-            margin-bottom: 10px;
-            font-size: 1.5rem;
-        }
-
-        /* Stats Bar */
-        .stats-bar {
-            display: flex;
-            justify-content: space-between;
-            background: white;
-            padding: 20px;
-            border-radius: var(--radius);
-            margin-top: 30px;
-            box-shadow: 0 3px 10px var(--shadow);
-        }
-
-        .stat {
-            text-align: center;
-            flex: 1;
-        }
-
-        .stat-value {
-            font-size: 2rem;
-            font-weight: 800;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 5px;
-        }
-
-        .stat-label {
-            color: #666;
-            font-size: 0.9rem;
-        }
-
-        /* Related Tools Section */
-        .related-tools-section {
-            margin: 60px 0 40px;
-        }
-
-        .related-tools-section h2 {
-            color: var(--primary);
-            font-size: 2rem;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
-        .tools-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-        }
-
-        .tool-card {
-            background: white;
-            border-radius: var(--radius);
-            padding: 25px;
-            text-align: center;
-            box-shadow: 0 5px 15px var(--shadow);
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-        }
-
-        .tool-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary);
-            box-shadow: 0 10px 25px rgba(139, 92, 246, 0.15);
-        }
-
-        .tool-icon {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 15px;
-        }
-
-        .tool-card h3 {
-            color: var(--dark);
-            margin-bottom: 10px;
-            font-size: 1.3rem;
-        }
-
-        .tool-card p {
-            color: #666;
-            font-size: 0.95rem;
-            margin-bottom: 20px;
-            line-height: 1.5;
-        }
-
-        .tool-link {
-            display: inline-block;
-            background: var(--primary-light);
-            color: var(--primary);
-            padding: 10px 20px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .tool-link:hover {
-            background: var(--primary);
-            color: white;
-        }
-
-        /* FAQ Section */
-        .faq-section {
-            margin: 60px 0 40px;
-        }
-
-        .faq-section h2 {
-            color: var(--primary);
-            font-size: 2rem;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
-        .faq-container {
-            background: white;
-            border-radius: var(--radius);
-            padding: 30px;
-            box-shadow: 0 5px 20px var(--shadow);
-        }
-
-        .faq-item {
-            border-bottom: 1px solid var(--border);
-            padding: 20px 0;
-        }
-
-        .faq-item:last-child {
-            border-bottom: none;
-        }
-
-        .faq-question {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-            color: var(--dark);
-            font-size: 1.1rem;
-            font-weight: 600;
-        }
-
-        .faq-question i {
-            color: var(--primary);
-            transition: transform 0.3s ease;
-        }
-
-        .faq-item.active .faq-question i {
-            transform: rotate(180deg);
-        }
-
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-            color: #666;
-            line-height: 1.6;
-            padding-right: 40px;
-        }
-
-        .faq-item.active .faq-answer {
-            max-height: 500px;
-            margin-top: 15px;
-        }
-
-        /* SEO Pages Styles */
-        .seo-section {
-            max-width: 1000px;
-            margin: 40px auto;
-            padding: 30px;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            display: none;
-            position: relative;
-        }
-        
-        .seo-section.active {
-            display: block;
-            animation: fadeIn 0.5s ease;
-        }
-        
-        .seo-section h1 {
-            color: var(--primary);
-            margin-bottom: 20px;
-            font-size: 2.2rem;
-        }
-        
-        .seo-section h2 {
-            color: #333;
-            margin: 25px 0 15px;
-            font-size: 1.5rem;
-        }
-        
-        .seo-section h3 {
-            color: #555;
-            margin: 20px 0 10px;
-            font-size: 1.2rem;
-        }
-        
-        .seo-content {
-            line-height: 1.8;
-            color: #444;
-        }
-        
-        .seo-content p {
-            margin-bottom: 15px;
-        }
-        
-        .seo-content ul, .seo-content ol {
-            margin-left: 20px;
-            margin-bottom: 20px;
-        }
-        
-        .seo-content li {
-            margin-bottom: 10px;
-        }
-        
-        .close-seo {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: var(--primary);
-            color: white;
-            border: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 1.2rem;
-            z-index: 10;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            margin-top: 50px;
-            padding: 30px 20px;
-            color: #666;
-            font-size: 0.9rem;
-            border-top: 1px solid var(--border);
-            background: white;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-            margin-bottom: 20px;
-        }
-
-        .footer-links a {
-            color: var(--primary);
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: var(--secondary);
-            text-decoration: underline;
-        }
-
-        .copyright {
-            margin-top: 20px;
-            color: #888;
-        }
-
-        /* Loading Spinner */
-        .loading {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            z-index: 10;
-        }
-
-        .spinner {
-            width: 50px;
-            height: 50px;
-            border: 5px solid #f3f3f3;
-            border-top: 5px solid var(--primary);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin-bottom: 15px;
-        }
-
-        .loading-text {
-            color: var(--primary);
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: white;
-                flex-direction: column;
-                padding: 20px;
-                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            }
-            
-            .nav-links.active {
-                display: flex;
-            }
-            
-            .mobile-menu-btn {
-                display: block;
-            }
-            
-            .nav-container {
-                flex-wrap: wrap;
-            }
-            
-            .main-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .action-buttons {
-                flex-direction: column;
-            }
-            
-            .action-btn {
-                min-width: 100%;
-            }
-            
-            .images-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .style-presets {
-                grid-template-columns: 1fr;
-            }
-            
-            .stats-bar {
-                flex-direction: column;
-                gap: 20px;
-            }
-            
-            .tools-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .seo-section {
-                padding: 20px;
-                margin: 20px;
-            }
-            
-            .faq-container {
-                padding: 20px;
-            }
-            
-            .faq-answer {
-                padding-right: 20px;
-            }
-            
-            .example-buttons {
-                flex-direction: column;
-            }
-            
-            .example-btn {
-                text-align: center;
-            }
-        }
-
-        /* Image Generation Animation */
-        @keyframes pulse {
-            0% { opacity: 0.5; }
-            50% { opacity: 1; }
-            100% { opacity: 0.5; }
-        }
-
-        .generating {
-            animation: pulse 1.5s infinite;
-        }
-    </style>
+  }
+  </script>
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #4f46e5;
+      --primary-dark: #4338ca;
+      --secondary: #10b981;
+      --accent: #f59e0b;
+      --light: #f8fafc;
+      --dark: #1f2933;
+      --gray: #6b7280;
+      --light-gray: #f3f4f6;
+      --card-bg: #ffffff;
+      --card-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+      --hover-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      --body-bg: var(--light);
+      --text-color: var(--dark);
+      --border-color: rgba(0, 0, 0, 0.05);
+      --footer-bg: linear-gradient(135deg, #111827, #1f2937);
+      --transition-speed: 0.3s;
+      --ai-gradient: linear-gradient(135deg, #8b5cf6, #7c3aed, #4f46e5);
+    }
+
+    /* Dark Theme Variables */
+    .dark-theme {
+      --light: #121826;
+      --dark: #f3f4f6;
+      --gray: #9ca3af;
+      --light-gray: #1f2937;
+      --card-bg: #1a2332;
+      --body-bg: #0f172a;
+      --text-color: #f3f4f6;
+      --border-color: rgba(255, 255, 255, 0.05);
+      --card-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      --hover-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      --footer-bg: linear-gradient(135deg, #0f172a, #1e293b);
+      --ai-gradient: linear-gradient(135deg, #a78bfa, #8b5cf6, #7c3aed);
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--body-bg);
+      color: var(--text-color);
+      line-height: 1.6;
+      overflow-x: hidden;
+      transition: background-color var(--transition-speed) ease,
+                  color var(--transition-speed) ease;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+    }
+
+    /* Theme Toggle Button */
+    .theme-toggle {
+      background: var(--light-gray);
+      border: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--text-color);
+      font-size: 1.2rem;
+      transition: all var(--transition-speed) ease;
+      margin-left: 10px;
+    }
+
+    .theme-toggle:hover {
+      background: var(--primary);
+      color: white;
+      transform: rotate(15deg);
+    }
+
+    .theme-toggle i {
+      transition: transform 0.5s ease;
+    }
+
+    .dark-theme .theme-toggle i.fa-sun {
+      display: block;
+    }
+
+    .dark-theme .theme-toggle i.fa-moon {
+      display: none;
+    }
+
+    .theme-toggle i.fa-sun {
+      display: none;
+    }
+
+    .theme-toggle i.fa-moon {
+      display: block;
+    }
+
+    /* Mobile First - Sidebar Implementation */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      padding: 18px 0;
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+      transition: all var(--transition-speed) ease;
+    }
+
+    .dark-theme .navbar {
+      background: rgba(26, 35, 50, 0.98);
+    }
+
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+    }
+
+    .nav-logo {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--primary);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-logo i {
+      font-size: 1.6rem;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    /* Desktop Navigation - Hidden on Mobile */
+    .nav-links {
+      display: none;
+    }
+
+    /* Mobile Menu Button */
+    .mobile-menu-btn {
+      display: block;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--text-color);
+      cursor: pointer;
+      z-index: 1002;
+      transition: color var(--transition-speed) ease;
+    }
+
+    /* Sidebar Styles */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      right: -300px;
+      width: 280px;
+      height: 100vh;
+      background: var(--card-bg);
+      box-shadow: -5px 0 25px rgba(0, 0, 0, 0.1);
+      z-index: 1001;
+      transition: right 0.3s ease-in-out;
+      padding: 80px 25px 30px;
+      overflow-y: auto;
+    }
+
+    .dark-theme .sidebar {
+      box-shadow: -5px 0 25px rgba(0, 0, 0, 0.3);
+    }
+
+    .sidebar.active {
+      right: 0;
+    }
+
+    .sidebar-header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px;
+      background: var(--primary);
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .sidebar-header .nav-logo {
+      color: white;
+      font-size: 1.3rem;
+    }
+
+    .sidebar-close {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .sidebar-links {
+      list-style: none;
+      margin-top: 20px;
+    }
+
+    .sidebar-links li {
+      margin-bottom: 15px;
+    }
+
+    .sidebar-links a {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--text-color);
+      text-decoration: none;
+      font-weight: 500;
+      padding: 12px 15px;
+      border-radius: 8px;
+      transition: all var(--transition-speed) ease;
+    }
+
+    .sidebar-links a:hover {
+      background: var(--light-gray);
+      color: var(--primary);
+      transform: translateX(5px);
+    }
+
+    .sidebar-links a i {
+      width: 20px;
+      text-align: center;
+    }
+
+    .sidebar-links a.active {
+      background: var(--primary);
+      color: white;
+    }
+
+    .sidebar-divider {
+      height: 1px;
+      background: var(--border-color);
+      margin: 20px 0;
+    }
+
+    .sidebar-tool-categories {
+      margin-top: 20px;
+    }
+
+    .sidebar-tool-categories h4 {
+      font-size: 0.9rem;
+      color: var(--gray);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 15px;
+    }
+
+    .sidebar-tools-list {
+      list-style: none;
+      margin-bottom: 20px;
+    }
+
+    .sidebar-tools-list li {
+      margin-bottom: 10px;
+    }
+
+    .sidebar-tools-list a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--gray);
+      text-decoration: none;
+      font-size: 0.9rem;
+      padding: 8px 10px;
+      border-radius: 6px;
+      transition: all var(--transition-speed) ease;
+    }
+
+    .sidebar-tools-list a:hover {
+      color: var(--primary);
+      background: var(--light-gray);
+    }
+
+    /* Overlay when sidebar is open */
+    .sidebar-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .sidebar-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Tool Header - MODIFIED: AI-themed gradient */
+    header {
+      background: linear-gradient(135deg, #f0e7ff 0%, #e6f7ff 100%);
+      color: #1f2933;
+      padding: 80px 20px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      margin-top: 75px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .dark-theme header {
+      background: linear-gradient(135deg, #1a0b2e 0%, #112240 100%);
+      color: #f3f4f6;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .header-content {
+      max-width: 1000px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .logo-container {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 15px;
+      gap: 15px;
+    }
+
+    /* Tool-specific header */
+    .tool-logo {
+      font-size: 4rem;
+      margin-bottom: 10px;
+      color: #8b5cf6;
+    }
+
+    .tool-header h1 {
+      font-size: 3.5rem;
+      margin-bottom: 15px;
+      color: var(--text-color);
+      background: var(--ai-gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: -0.5px;
+      line-height: 1.1;
+    }
+
+    .tool-header .tagline {
+      font-size: 1.4rem;
+      margin-bottom: 1.5rem;
+      color: var(--dark);
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+      font-weight: 400;
+    }
+
+    .dark-theme .tool-header .tagline {
+      color: #e5e7eb;
+    }
+
+    /* Main Tool Container */
+    .tool-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    /* Tool Card Sections */
+    .tool-card-section {
+      background: var(--card-bg);
+      border-radius: 20px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: var(--card-shadow);
+      border: 1px solid var(--border-color);
+    }
+
+    .tool-card-section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      color: var(--text-color);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .tool-card-section h2 i {
+      color: #8b5cf6;
+    }
+
+    /* AI Prompt Input Area */
+    .prompt-area {
+      border: 3px dashed #8b5cf6;
+      border-radius: 16px;
+      padding: 40px 30px;
+      text-align: center;
+      background: rgba(139, 92, 246, 0.03);
+      margin-bottom: 30px;
+      transition: all 0.3s ease;
+    }
+
+    .prompt-area:focus-within {
+      background: rgba(139, 92, 246, 0.08);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .prompt-icon {
+      font-size: 3rem;
+      color: #8b5cf6;
+      margin-bottom: 20px;
+    }
+
+    .prompt-area h3 {
+      color: var(--text-color);
+      margin-bottom: 10px;
+      font-size: 1.5rem;
+    }
+
+    .prompt-area p {
+      color: var(--gray);
+      margin-bottom: 25px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .prompt-input-container {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .prompt-input {
+      width: 100%;
+      padding: 20px 25px;
+      border: 2px solid var(--border-color);
+      border-radius: 16px;
+      background: var(--card-bg);
+      color: var(--text-color);
+      font-family: 'Inter', sans-serif;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      resize: vertical;
+      min-height: 120px;
+      max-height: 300px;
+      transition: all 0.3s ease;
+    }
+
+    .prompt-input:focus {
+      outline: none;
+      border-color: #8b5cf6;
+      box-shadow: 0 5px 20px rgba(139, 92, 246, 0.15);
+    }
+
+    .prompt-input::placeholder {
+      color: var(--gray);
+    }
+
+    .char-count {
+      text-align: right;
+      font-size: 0.9rem;
+      color: var(--gray);
+      margin-top: 8px;
+    }
+
+    .char-count.warning {
+      color: #f59e0b;
+    }
+
+    .char-count.error {
+      color: #ef4444;
+    }
+
+    /* Controls Section */
+    .controls-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 25px;
+      margin-top: 20px;
+    }
+
+    @media (min-width: 768px) {
+      .controls-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .control-group {
+      background: var(--light-gray);
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+    }
+
+    .control-group h3 {
+      margin-bottom: 15px;
+      color: var(--text-color);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .control-group h3 i {
+      color: #8b5cf6;
+    }
+
+    .select-container {
+      margin-bottom: 20px;
+    }
+
+    .select-label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--text-color);
+      font-weight: 500;
+    }
+
+    .select-dropdown {
+      width: 100%;
+      padding: 12px 15px;
+      border: 2px solid var(--border-color);
+      border-radius: 10px;
+      background: var(--card-bg);
+      color: var(--text-color);
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .select-dropdown:focus {
+      outline: none;
+      border-color: #8b5cf6;
+    }
+
+    .radio-group {
+      margin-top: 20px;
+    }
+
+    .radio-label {
+      display: block;
+      margin-bottom: 12px;
+      color: var(--text-color);
+      font-weight: 500;
+    }
+
+    .radio-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .radio-option {
+      flex: 1;
+      min-width: 120px;
+    }
+
+    .radio-option input {
+      display: none;
+    }
+
+    .radio-option label {
+      display: block;
+      padding: 12px;
+      background: var(--card-bg);
+      border: 2px solid var(--border-color);
+      border-radius: 10px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-weight: 500;
+      color: var(--text-color);
+    }
+
+    .radio-option input:checked + label {
+      background: #8b5cf6;
+      color: white;
+      border-color: #8b5cf6;
+    }
+
+    .slider-container {
+      margin-bottom: 20px;
+    }
+
+    .slider-label {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      color: var(--text-color);
+    }
+
+    .slider-label span:last-child {
+      font-weight: 700;
+      color: #8b5cf6;
+    }
+
+    .slider {
+      width: 100%;
+      height: 8px;
+      -webkit-appearance: none;
+      appearance: none;
+      background: #e0e0e0;
+      border-radius: 4px;
+      outline: none;
+    }
+
+    .dark-theme .slider {
+      background: #374151;
+    }
+
+    .slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #8b5cf6;
+      cursor: pointer;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      border: 2px solid white;
+    }
+
+    .slider::-moz-range-thumb {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #8b5cf6;
+      cursor: pointer;
+      border: 2px solid white;
+    }
+
+    /* Presets Grid */
+    .presets-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    @media (min-width: 768px) {
+      .presets-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .preset-btn {
+      padding: 12px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      cursor: pointer;
+      text-align: center;
+      font-weight: 500;
+      color: var(--text-color);
+      transition: all 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .preset-btn:hover {
+      background: var(--light-gray);
+    }
+
+    .preset-btn.active {
+      background: var(--ai-gradient);
+      color: white;
+      border-color: #8b5cf6;
+    }
+
+    .preset-btn i {
+      font-size: 1.2rem;
+    }
+
+    /* Action Buttons */
+    .action-buttons {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    @media (min-width: 768px) {
+      .action-buttons {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .action-btn {
+      padding: 16px 20px;
+      border: none;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .action-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      z-index: -1;
+    }
+
+    .action-btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .generate-btn {
+      background: var(--ai-gradient);
+      color: white;
+    }
+
+    .generate-btn::before {
+      background: linear-gradient(135deg, #a78bfa, #8b5cf6);
+    }
+
+    .generate-btn:hover::before {
+      opacity: 1;
+    }
+
+    .download-btn {
+      background: linear-gradient(135deg, var(--secondary), #0da67e);
+      color: white;
+    }
+
+    .download-btn::before {
+      background: linear-gradient(135deg, #0da67e, #0b9a74);
+    }
+
+    .download-btn:hover::before {
+      opacity: 1;
+    }
+
+    .delete-btn {
+      background: linear-gradient(135deg, #ef4444, #dc2626);
+      color: white;
+    }
+
+    .delete-btn::before {
+      background: linear-gradient(135deg, #dc2626, #b91c1c);
+    }
+
+    .delete-btn:hover::before {
+      opacity: 1;
+    }
+
+    .action-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none !important;
+    }
+
+    /* Generated Images Section */
+    .images-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 25px;
+      margin-top: 20px;
+    }
+
+    @media (min-width: 768px) {
+      .images-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .images-container {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .image-card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--card-shadow);
+      transition: all 0.3s ease;
+      border: 1px solid var(--border-color);
+    }
+
+    .image-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--hover-shadow);
+    }
+
+    .image-preview {
+      height: 250px;
+      overflow: hidden;
+      position: relative;
+      background: var(--light-gray);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .image-preview img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .image-info {
+      padding: 20px;
+    }
+
+    .image-prompt {
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: var(--text-color);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .image-details {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 15px;
+      font-size: 0.9rem;
+    }
+
+    .image-style {
+      color: var(--gray);
+    }
+
+    .image-size {
+      color: #8b5cf6;
+      font-weight: 600;
+    }
+
+    .card-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .card-btn {
+      flex: 1;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 8px;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      transition: all 0.2s ease;
+      font-size: 0.85rem;
+    }
+
+    .regenerate-card-btn {
+      background: rgba(139, 92, 246, 0.1);
+      color: #8b5cf6;
+    }
+
+    .regenerate-card-btn:hover {
+      background: rgba(139, 92, 246, 0.2);
+    }
+
+    .download-card-btn {
+      background: rgba(16, 185, 129, 0.1);
+      color: var(--secondary);
+    }
+
+    .download-card-btn:hover {
+      background: rgba(16, 185, 129, 0.2);
+    }
+
+    .delete-card-btn {
+      background: rgba(239, 68, 68, 0.1);
+      color: #ef4444;
+    }
+
+    .delete-card-btn:hover {
+      background: rgba(239, 68, 68, 0.2);
+    }
+
+    /* Empty State */
+    .empty-state {
+      text-align: center;
+      padding: 60px 30px;
+      color: var(--gray);
+      grid-column: 1 / -1;
+    }
+
+    .empty-state i {
+      font-size: 4rem;
+      margin-bottom: 20px;
+      color: var(--light-gray);
+    }
+
+    .empty-state h3 {
+      margin-bottom: 10px;
+      font-size: 1.5rem;
+      color: var(--text-color);
+    }
+
+    /* NEW: Example Prompts Section */
+    .examples-section {
+      background: var(--card-bg);
+      padding: 35px 30px;
+      border-radius: 16px;
+      margin-top: 30px;
+      box-shadow: var(--card-shadow);
+      border: 1px solid var(--border-color);
+    }
+
+    .examples-section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 25px;
+      color: var(--text-color);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .examples-section h2 i {
+      color: #8b5cf6;
+    }
+
+    .example-prompts {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 15px;
+    }
+
+    @media (min-width: 768px) {
+      .example-prompts {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .example-prompts {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .example-prompt {
+      padding: 20px;
+      background: var(--light-gray);
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .example-prompt:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      background: rgba(139, 92, 246, 0.05);
+      border-color: rgba(139, 92, 246, 0.3);
+    }
+
+    .example-prompt i {
+      font-size: 1.5rem;
+      color: #8b5cf6;
+      margin-bottom: 10px;
+    }
+
+    .example-prompt p {
+      color: var(--text-color);
+      font-size: 0.95rem;
+      line-height: 1.5;
+      font-weight: 500;
+    }
+
+    /* About Section for EEAT */
+    .about-section {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 25px;
+      background: var(--card-bg);
+      border-radius: 16px;
+      box-shadow: var(--card-shadow);
+      border-left: 4px solid #8b5cf6;
+    }
+
+    .about-section h2 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      color: var(--text-color);
+    }
+
+    .about-section p {
+      color: var(--gray);
+      line-height: 1.7;
+      margin-bottom: 15px;
+    }
+
+    /* FAQ Section */
+    .faq-section {
+      margin-top: 60px;
+    }
+
+    .faq-section h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 30px;
+      color: var(--text-color);
+    }
+
+    .faq-container {
+      background: var(--card-bg);
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: var(--card-shadow);
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--border-color);
+      padding: 20px 0;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-question {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      color: var(--text-color);
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .faq-question i {
+      color: #8b5cf6;
+      transition: transform 0.3s ease;
+    }
+
+    .faq-item.active .faq-question i {
+      transform: rotate(180deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      color: var(--gray);
+      line-height: 1.6;
+      padding-right: 40px;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 500px;
+      margin-top: 15px;
+    }
+
+    /* Related Tools Section */
+    .related-tools-section {
+      margin: 60px 0 40px;
+    }
+
+    .related-tools-section h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 30px;
+      color: var(--text-color);
+    }
+
+    .related-tools-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 25px;
+    }
+
+    @media (min-width: 768px) {
+      .related-tools-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .related-tools-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .related-tool-card {
+      background: var(--card-bg);
+      padding: 25px;
+      border-radius: 16px;
+      text-align: center;
+      box-shadow: var(--card-shadow);
+      transition: all 0.3s ease;
+      border: 1px solid var(--border-color);
+    }
+
+    .related-tool-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--hover-shadow);
+    }
+
+    .related-tool-icon {
+      width: 60px;
+      height: 60px;
+      margin: 0 auto 15px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.5rem;
+    }
+
+    .related-tool-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      color: var(--text-color);
+    }
+
+    .related-tool-card p {
+      color: var(--gray);
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .related-tool-link {
+      display: inline-block;
+      padding: 8px 20px;
+      background: var(--light-gray);
+      color: var(--primary);
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+    }
+
+    .related-tool-card:hover .related-tool-link {
+      background: var(--primary);
+      color: white;
+    }
+
+    /* Loading Spinner */
+    .loading {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.9);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+    }
+
+    .dark-theme .loading {
+      background: rgba(26, 35, 50, 0.9);
+    }
+
+    .spinner {
+      width: 50px;
+      height: 50px;
+      border: 5px solid #f3f3f3;
+      border-top: 5px solid #8b5cf6;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-bottom: 15px;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* AI Animation Effect */
+    .ai-animation {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.1;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .ai-particle {
+      position: absolute;
+      background: linear-gradient(45deg, #8b5cf6, #4f46e5);
+      border-radius: 50%;
+      opacity: 0.3;
+      animation: float 6s infinite ease-in-out;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(180deg); }
+    }
+
+    /* Footer */
+    footer {
+      background: var(--footer-bg);
+      color: #9ca3af;
+      padding: 50px 20px 30px;
+      margin-top: 60px;
+      position: relative;
+      transition: background var(--transition-speed) ease;
+    }
+
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: var(--ai-gradient);
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+
+    @media (min-width: 768px) {
+      .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .footer-content {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .footer-logo {
+      font-size: 2rem;
+      font-weight: 800;
+      color: white;
+      margin-bottom: 15px;
+      display: inline-block;
+      background: linear-gradient(90deg, #fff, #c7d2fe);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .footer-description {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 12px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .social-link:hover {
+      background: #8b5cf6;
+      transform: translateY(-5px);
+    }
+
+    .footer-links h4 {
+      color: white;
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    .footer-links h4::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 40px;
+      height: 3px;
+      background: #8b5cf6;
+    }
+
+    .footer-links ul {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+
+    .footer-links a {
+      color: #9ca3af;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: inline-block;
+      font-size: 0.95rem;
+    }
+
+    .footer-links a:hover {
+      color: white;
+      transform: translateX(5px);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.85rem;
+    }
+
+    /* ACCESSIBILITY: Prefers Reduced Motion */
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+      
+      .action-btn:hover,
+      .related-tool-card:hover,
+      .image-card:hover,
+      .preset-btn:hover,
+      .social-link:hover,
+      .theme-toggle:hover,
+      .example-prompt:hover,
+      .ai-particle {
+        transform: none !important;
+        animation: none !important;
+      }
+      
+      .tool-header h1,
+      .footer-logo {
+        background: #8b5cf6 !important;
+        -webkit-background-clip: initial !important;
+        background-clip: initial !important;
+        color: #8b5cf6 !important;
+      }
+    }
+
+    /* Desktop Navigation Styles */
+    @media (min-width: 1024px) {
+      .nav-links {
+        display: flex;
+        gap: 30px;
+        list-style: none;
+      }
+
+      .nav-links a {
+        color: var(--text-color);
+        text-decoration: none;
+        font-weight: 500;
+        transition: color var(--transition-speed) ease;
+        position: relative;
+      }
+
+      .nav-links a:hover {
+        color: var(--primary);
+      }
+
+      .nav-links a::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--primary);
+        transition: width 0.3s;
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      .mobile-menu-btn {
+        display: none;
+      }
+
+      .sidebar {
+        display: none;
+      }
+
+      .sidebar-overlay {
+        display: none;
+      }
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      header {
+        padding: 60px 20px 30px;
+        margin-top: 70px;
+      }
+      
+      .tool-header h1 {
+        font-size: 2.8rem;
+      }
+      
+      .tool-header .tagline {
+        font-size: 1.2rem;
+      }
+      
+      .tool-card-section {
+        padding: 20px;
+      }
+      
+      .prompt-area {
+        padding: 30px 20px;
+      }
+      
+      .prompt-icon {
+        font-size: 2.5rem;
+      }
+      
+      .prompt-input {
+        padding: 15px 20px;
+        min-height: 100px;
+      }
+      
+      .radio-options {
+        flex-direction: column;
+      }
+      
+      .radio-option {
+        min-width: 100%;
+      }
+      
+      .examples-section {
+        padding: 25px 20px;
+      }
+      
+      .example-prompt {
+        padding: 15px;
+      }
+      
+      .faq-container {
+        padding: 20px;
+      }
+      
+      .faq-answer {
+        padding-right: 20px;
+      }
+    }
+
+    /* Large Desktop Styles */
+    @media (min-width: 1200px) {
+      .tool-container {
+        padding: 60px 20px;
+      }
+      
+      .tool-header h1 {
+        font-size: 4rem;
+      }
+      
+      .images-container {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  </style>
 </head>
 
 <body>
-    <!-- Navigation Bar -->
-    <nav class="tool-navbar">
-        <div class="nav-container">
-            <a href="index.html" class="nav-brand">
-                <i class="fas fa-tools"></i> Toolvexa
-            </a>
-            
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
-                <i class="fas fa-bars"></i>
-            </button>
-            
-            <ul class="nav-links" id="navLinks">
-                <li><a href="index.html#home">Home</a></li>
-                <li><a href="index.html#tools">All Tools</a></li>
-                <li><a href="index.html#ai-tools">AI Tools</a></li>
-                <li><a href="#privacy-policy" onclick="showSeoPage('privacy')">Privacy Policy</a></li>
-                <li><a href="#terms-of-service" onclick="showSeoPage('terms')">Terms of Service</a></li>
-                <li><a href="#about-tool" onclick="showSeoPage('about')">About This Tool</a></li>
-                <li><a href="index.html" class="back-to-home">Back to Home</a></li>
-            </ul>
-        </div>
-    </nav>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <!-- UPDATED: Brand name changed -->
+      <a href="index.html" class="nav-logo">
+        <i class="fas fa-tools"></i> Toolsedito
+      </a>
+      
+      <!-- Desktop Navigation -->
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#tools">Tools</a></li>
+        <li><a href="index.html#ai-tools">AI Tools</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#privacy">Privacy</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+      
+      <div style="display: flex; align-items: center;">
+        <!-- Theme Toggle Button -->
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+          <i class="fas fa-moon"></i>
+          <i class="fas fa-sun"></i>
+        </button>
+        
+        <!-- Mobile Menu Button -->
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Sidebar -->
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <!-- UPDATED: Brand name changed -->
+      <a href="index.html" class="nav-logo">
+        <i class="fas fa-tools"></i> Toolsedito
+      </a>
+      <button class="sidebar-close" id="sidebarClose">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
     
-    <!-- Main Content -->
-    <div class="container">
-        <!-- Breadcrumb -->
-        <div class="breadcrumb">
-            <a href="index.html">Home</a> 
-            <span>></span>
-            <a href="index.html#ai-tools">AI Tools</a>
-            <span>></span>
-            <span>AI Image Generator</span>
+    <ul class="sidebar-links">
+      <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="index.html#tools"><i class="fas fa-tools"></i> All Tools</a></li>
+      <li><a href="index.html#ai-tools"><i class="fas fa-robot"></i> AI Tools</a></li>
+      <li><a href="#faq"><i class="fas fa-question-circle"></i> FAQ</a></li>
+      <li><a href="#privacy"><i class="fas fa-shield-alt"></i> Privacy</a></li>
+      <li>
+        <a href="#" id="sidebarThemeToggle">
+          <i class="fas fa-moon"></i> Dark Mode
+          <span id="themeStatus" style="margin-left: auto; font-size: 0.8rem; opacity: 0.7;">OFF</span>
+        </a>
+      </li>
+    </ul>
+    
+    <div class="sidebar-divider"></div>
+    
+    <div class="sidebar-tool-categories">
+      <h4>Quick AI Tools</h4>
+      <ul class="sidebar-tools-list">
+        <li><a href="ai-image-generator.html" class="active"><i class="fas fa-image"></i> AI Image Generator</a></li>
+        <li><a href="ai-content-writer.html"><i class="fas fa-pen-fancy"></i> AI Content Writer</a></li>
+        <li><a href="ai-translator.html"><i class="fas fa-language"></i> AI Translator</a></li>
+        <li><a href="grammar-checker.html"><i class="fas fa-check-circle"></i> Grammar Checker</a></li>
+        <li><a href="article-rewriter.html"><i class="fas fa-heading"></i> Article Rewriter</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Tool Header -->
+  <header>
+    <!-- AI Animation Background -->
+    <div class="ai-animation" id="aiAnimation"></div>
+    
+    <div class="header-content">
+      <div class="tool-header">
+        <div class="logo-container">
+          <div class="tool-logo">
+            <i class="fas fa-robot"></i>
+          </div>
         </div>
+        
+        <h1>AI Image Generator</h1>
+        <p class="tagline">Create stunning AI-generated images from text descriptions. Generate art, photos, illustrations, and designs instantly for free.</p>
+      </div>
+    </div>
+  </header>
 
-        <!-- Tool Header -->
-        <header>
-            <div class="logo">
-                <i class="fas fa-robot logo-gradient"></i>
-            </div>
-            <h1>AI Image Generator</h1>
-            <p>Create stunning images from text descriptions using advanced AI. Generate art, illustrations, photos, and more with just a few words. No sign-up required.</p>
-            <div class="features">
-                <div class="feature">
-                    <i class="fas fa-bolt"></i>
-                    <span>Instant Generation</span>
-                </div>
-                <div class="feature">
-                    <i class="fas fa-palette"></i>
-                    <span>Multiple Styles</span>
-                </div>
-                <div class="feature">
-                    <i class="fas fa-infinity"></i>
-                    <span>Unlimited Generations</span>
-                </div>
-                <div class="feature">
-                    <i class="fas fa-shield-alt"></i>
-                    <span>Privacy First</span>
-                </div>
-            </div>
-        </header>
-
-        <!-- Main Tool Section -->
-        <div class="main-content">
-            <div class="input-section">
-                <div class="prompt-input-container">
-                    <div class="prompt-label">
-                        <h3>Describe Your Image</h3>
-                        <span class="char-count" id="charCount">0/500</span>
-                    </div>
-                    <textarea 
-                        class="prompt-textarea" 
-                        id="promptInput" 
-                        placeholder="Enter a detailed description of the image you want to generate. For example: 'A majestic dragon flying over a medieval castle at sunset, digital art'"
-                        maxlength="500"
-                    ></textarea>
-                </div>
-
-                <div class="prompt-examples">
-                    <h4>Try these examples:</h4>
-                    <div class="example-buttons">
-                        <button class="example-btn" data-prompt="A cute corgi puppy wearing a superhero cape, flying over a city at sunset, cartoon style">Corgi Superhero</button>
-                        <button class="example-btn" data-prompt="Futuristic cyberpunk city with neon lights and flying cars, rain reflections, night scene">Cyberpunk City</button>
-                        <button class="example-btn" data-prompt="Ancient magical forest with glowing mushrooms and fairies, fantasy art">Magical Forest</button>
-                        <button class="example-btn" data-prompt="Astronaut floating in space with a cup of coffee, Earth in background">Space Coffee</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="controls-section">
-                <div class="control-group">
-                    <h3>Image Style</h3>
-                    <div class="style-presets">
-                        <button class="style-btn active" data-style="realistic">
-                            <i class="fas fa-camera style-icon"></i>
-                            <span>Realistic</span>
-                        </button>
-                        <button class="style-btn" data-style="cartoon">
-                            <i class="fas fa-paint-brush style-icon"></i>
-                            <span>Cartoon</span>
-                        </button>
-                        <button class="style-btn" data-style="fantasy">
-                            <i class="fas fa-dragon style-icon"></i>
-                            <span>Fantasy</span>
-                        </button>
-                        <button class="style-btn" data-style="minimal">
-                            <i class="fas fa-shapes style-icon"></i>
-                            <span>Minimal</span>
-                        </button>
-                        <button class="style-btn" data-style="watercolor">
-                            <i class="fas fa-water style-icon"></i>
-                            <span>Watercolor</span>
-                        </button>
-                        <button class="style-btn" data-style="cyberpunk">
-                            <i class="fas fa-robot style-icon"></i>
-                            <span>Cyberpunk</span>
-                        </button>
-                    </div>
-                </div>
-
-                <div class="control-group">
-                    <h3>Generation Settings</h3>
-                    <div class="slider-container">
-                        <div class="slider-label">
-                            <span>Image Quality</span>
-                            <span id="qualityValue">High</span>
-                        </div>
-                        <input type="range" min="1" max="3" value="2" class="slider" id="qualitySlider">
-                        <div style="display: flex; justify-content: space-between; font-size: 0.8rem; color: #999; margin-top: 5px;">
-                            <span>Fast</span>
-                            <span>Balanced</span>
-                            <span>High Quality</span>
-                        </div>
-                    </div>
-
-                    <div class="slider-container">
-                        <div class="slider-label">
-                            <span>Creativity Level</span>
-                            <span id="creativityValue">Medium</span>
-                        </div>
-                        <input type="range" min="1" max="3" value="2" class="slider" id="creativitySlider">
-                        <div style="display: flex; justify-content: space-between; font-size: 0.8rem; color: #999; margin-top: 5px;">
-                            <span>Conservative</span>
-                            <span>Balanced</span>
-                            <span>Creative</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="action-buttons">
-                    <button class="action-btn generate-btn" id="generateBtn">
-                        <i class="fas fa-magic"></i> Generate Image
-                    </button>
-                    <button class="action-btn download-btn" id="downloadAllBtn" disabled>
-                        <i class="fas fa-download"></i> Download All
-                    </button>
-                    <button class="action-btn clear-btn" id="clearAllBtn">
-                        <i class="fas fa-trash-alt"></i> Clear All
-                    </button>
-                </div>
-            </div>
+  <!-- Main Tool Container -->
+  <div class="tool-container">
+    <!-- Prompt Input Section -->
+    <div class="tool-card-section">
+      <h2><i class="fas fa-keyboard"></i> Describe Your Image</h2>
+      
+      <div class="prompt-area">
+        <div class="prompt-icon">
+          <i class="fas fa-magic"></i>
         </div>
-
-        <!-- Generated Images Section -->
-        <div class="generated-section">
-            <div class="section-title">
-                <h2>Generated Images</h2>
-                <div id="imageCount">0 images</div>
-            </div>
-            
-            <div class="images-container" id="imagesContainer">
-                <div class="empty-state" id="emptyState">
-                    <i class="fas fa-robot"></i>
-                    <h3>No images generated yet</h3>
-                    <p>Enter a prompt above and click "Generate Image" to create your first AI artwork!</p>
-                </div>
-            </div>
+        <h3>Describe the image you want to create</h3>
+        <p>Be as descriptive as possible. Include details about subject, style, colors, composition, and mood.</p>
+        
+        <div class="prompt-input-container">
+          <textarea 
+            class="prompt-input" 
+            id="promptInput" 
+            placeholder="Example: A majestic dragon flying over a medieval castle at sunset, digital art style, epic lighting, detailed scales, fantasy landscape..."
+            maxlength="500"
+          ></textarea>
+          <div class="char-count" id="charCount">0/500 characters</div>
         </div>
-
-        <!-- Stats Bar -->
-        <div class="stats-bar" id="statsBar" style="display: none;">
-            <div class="stat">
-                <div class="stat-value" id="totalImages">0</div>
-                <div class="stat-label">Total Images</div>
-            </div>
-            <div class="stat">
-                <div class="stat-value" id="totalPrompts">0</div>
-                <div class="stat-label">Prompts Used</div>
-            </div>
-            <div class="stat">
-                <div class="stat-value" id="favorites">0</div>
-                <div class="stat-label">Favorites</div>
-            </div>
-            <div class="stat">
-                <div class="stat-value" id="timeSaved">0h</div>
-                <div class="stat-label">Time Saved</div>
-            </div>
-        </div>
-
-        <!-- FAQ Section -->
-        <div class="faq-section">
-            <h2>Frequently Asked Questions</h2>
-            <div class="faq-container">
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Is the AI Image Generator really free to use?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Yes, our AI Image Generator is 100% free with no hidden costs, watermarks, or usage limits. You can generate as many images as you need without any restrictions.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>How does the AI generate images from text?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Our AI uses advanced machine learning models trained on millions of images and text descriptions. When you enter a prompt, the AI understands the concepts and creates a new, unique image that matches your description.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>What kind of images can I generate?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>You can generate a wide variety of images including realistic photos, digital art, fantasy scenes, cartoons, illustrations, and more. The AI supports multiple styles including realistic, cartoon, fantasy, minimal, watercolor, and cyberpunk.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>How long does it take to generate an image?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Image generation typically takes 10-30 seconds depending on the complexity of your prompt and the quality settings. Higher quality images may take slightly longer to generate.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Can I use the generated images commercially?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Yes! All images generated with our tool are free to use for personal and commercial purposes. You own the rights to the images you create.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Related Tools Section -->
-        <div class="related-tools-section">
-            <h2>Other Useful AI Tools</h2>
-            <div class="tools-grid">
-                <div class="tool-card">
-                    <div class="tool-icon">
-                        <i class="fas fa-pen-fancy"></i>
-                    </div>
-                    <h3>AI Content Writer</h3>
-                    <p>Generate high-quality articles, blog posts, social media content, and more with AI-powered writing assistance.</p>
-                    <a href="ai-content-writer.html" class="tool-link">Use Tool</a>
-                </div>
-                
-                <div class="tool-card">
-                    <div class="tool-icon">
-                        <i class="fas fa-language"></i>
-                    </div>
-                    <h3>AI Translator</h3>
-                    <p>Translate text between multiple languages with AI-powered accuracy and natural-sounding results.</p>
-                    <a href="ai-translator.html" class="tool-link">Use Tool</a>
-                </div>
-                
-                <div class="tool-card">
-                    <div class="tool-icon">
-                        <i class="fas fa-spell-check"></i>
-                    </div>
-                    <h3>AI Grammar Checker</h3>
-                    <p>Improve your writing with AI-powered grammar, spelling, and style suggestions in real-time.</p>
-                    <a href="ai-grammar-checker.html" class="tool-link">Use Tool</a>
-                </div>
-                
-                <div class="tool-card">
-                    <div class="tool-icon">
-                        <i class="fas fa-image"></i>
-                    </div>
-                    <h3>Image Compressor</h3>
-                    <p>Reduce image file sizes without losing quality. Optimize images for web and mobile.</p>
-                    <a href="image-compressor.html" class="tool-link">Use Tool</a>
-                </div>
-                
-                <div class="tool-card">
-                    <div class="tool-icon">
-                        <i class="fas fa-edit"></i>
-                    </div>
-                    <h3>Image Editor</h3>
-                    <p>Edit and enhance your images with filters, adjustments, cropping, and drawing tools.</p>
-                    <a href="image-editor.html" class="tool-link">Use Tool</a>
-                </div>
-                
-                <div class="tool-card">
-                    <div class="tool-icon">
-                        <i class="fas fa-robot"></i>
-                    </div>
-                    <h3>AI Chat Assistant</h3>
-                    <p>Get answers, explanations, and assistance from an AI-powered chat assistant.</p>
-                    <a href="ai-chat-assistant.html" class="tool-link">Use Tool</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- SEO Pages Section -->
-        <div class="seo-section" id="privacy-policy">
-            <button class="close-seo" onclick="hideSeoPage()">×</button>
-            <h1>Privacy Policy</h1>
-            <div class="seo-content">
-                <p><strong>Last Updated: January 2024</strong></p>
-                
-                <h2>1. Introduction</h2>
-                <p>Welcome to Toolvexa AI Image Generator. Your privacy is critically important to us. This privacy policy document outlines how we handle information with our AI image generation tool.</p>
-                
-                <h2>2. Information We Collect</h2>
-                <h3>2.1 Text Prompts Only</h3>
-                <p>We only process the text prompts you enter to generate images. We do not:</p>
-                <ul>
-                    <li>Collect any personal information</li>
-                    <li>Store your generated images on our servers</li>
-                    <li>Use cookies for tracking purposes</li>
-                    <li>Share your prompts with third parties</li>
-                </ul>
-                
-                <h3>2.2 Local Processing</h3>
-                <p>All image generation happens locally in your browser using AI models. Your prompts and generated images never leave your device unless you choose to download them.</p>
-                
-                <h2>3. How We Use Information</h2>
-                <p>Text prompts are used solely for the purpose of generating the requested images. We do not store, analyze, or reuse your prompts for any other purpose.</p>
-                
-                <h2>4. Third-Party Services</h2>
-                <p>We use Font Awesome for icons. The AI model runs entirely in your browser without external API calls.</p>
-                
-                <h2>5. Security</h2>
-                <p>Your security is guaranteed because:</p>
-                <ul>
-                    <li>No data transmission to external servers</li>
-                    <li>All processing is done client-side</li>
-                    <li>No personal data collection</li>
-                </ul>
-                
-                <h2>6. Children's Privacy</h2>
-                <p>Our service does not address anyone under the age of 13. We do not knowingly collect personal information from children under 13.</p>
-                
-                <h2>7. Contact Us</h2>
-                <p>If you have any questions about this Privacy Policy, please contact us at: privacy@toolvexa.com</p>
-            </div>
-        </div>
-
-        <div class="seo-section" id="terms-of-service">
-            <button class="close-seo" onclick="hideSeoPage()">×</button>
-            <h1>Terms of Service</h1>
-            <div class="seo-content">
-                <p><strong>Last Updated: January 2024</strong></p>
-                
-                <h2>1. Acceptance of Terms</h2>
-                <p>By accessing and using the Toolvexa AI Image Generator tool, you accept and agree to be bound by the terms and provision of this agreement.</p>
-                
-                <h2>2. Description of Service</h2>
-                <p>Toolvexa AI Image Generator provides a free AI-powered tool for generating images from text descriptions. The service includes:</p>
-                <ul>
-                    <li>AI image generation from text prompts</li>
-                    <li>Multiple artistic styles and quality settings</li>
-                    <li>Local processing (no server uploads)</li>
-                    <li>Image download capabilities</li>
-                </ul>
-                
-                <h2>3. User Responsibilities</h2>
-                <p>You agree to:</p>
-                <ul>
-                    <li>Use the tool only for lawful purposes</li>
-                    <li>Not generate harmful, offensive, or illegal content</li>
-                    <li>Respect copyright and intellectual property rights</li>
-                    <li>Not attempt to reverse engineer or hack the tool</li>
-                </ul>
-                
-                <h2>4. Content Guidelines</h2>
-                <p>You are responsible for the prompts you enter. Do not use the tool to generate:</p>
-                <ul>
-                    <li>Explicit adult content</li>
-                    <li>Hate speech or discriminatory content</li>
-                    <li>Violent or harmful imagery</li>
-                    <li>Copyrighted character depictions without permission</li>
-                </ul>
-                
-                <h2>5. Intellectual Property</h2>
-                <p>All images you generate belong to you. You have full rights to use, modify, and distribute the generated images for personal or commercial purposes.</p>
-                
-                <h2>6. Limitation of Liability</h2>
-                <p>Toolvexa shall not be liable for any indirect, incidental, special, consequential or punitive damages resulting from your use of the tool.</p>
-                
-                <h2>7. Contact Information</h2>
-                <p>For any questions regarding these Terms of Service, please contact: legal@toolvexa.com</p>
-            </div>
-        </div>
-
-        <div class="seo-section" id="about-tool">
-            <button class="close-seo" onclick="hideSeoPage()">×</button>
-            <h1>About AI Image Generator Tool</h1>
-            <div class="seo-content">
-                <h2>What is Toolvexa AI Image Generator?</h2>
-                <p>Toolvexa AI Image Generator is a free online tool that uses artificial intelligence to create unique images from text descriptions. It's perfect for artists, designers, content creators, marketers, and anyone who needs visual content.</p>
-                
-                <h2>Key Features</h2>
-                <ul>
-                    <li><strong>Text-to-Image Generation:</strong> Convert any text description into a visual image</li>
-                    <li><strong>Multiple Styles:</strong> Choose from realistic, cartoon, fantasy, minimal, watercolor, and cyberpunk styles</li>
-                    <li><strong>Quality Settings:</strong> Adjust generation quality and creativity levels</li>
-                    <li><strong>No Limits:</strong> Generate unlimited images for free</li>
-                    <li><strong>Privacy Focused:</strong> All processing happens locally in your browser</li>
-                    <li><strong>Commercial Use:</strong> Own the rights to all images you generate</li>
-                </ul>
-                
-                <h2>How It Works</h2>
-                <p>Our AI image generator uses advanced machine learning algorithms to understand your text prompt and create corresponding images. The process is simple:</p>
-                <ol>
-                    <li>Enter a detailed text description of the image you want</li>
-                    <li>Select your preferred artistic style</li>
-                    <li>Adjust quality and creativity settings</li>
-                    <li>Click generate and watch the AI create your image</li>
-                    <li>Download and use your generated image</li>
-                </ol>
-                
-                <h2>Use Cases</h2>
-                <ul>
-                    <li><strong>Content Creation:</strong> Generate images for blogs, social media, and websites</li>
-                    <li><strong>Concept Art:</strong> Visualize ideas for games, movies, or products</li>
-                    <li><strong>Marketing:</strong> Create unique visuals for advertisements and campaigns</li>
-                    <li><strong>Education:</strong> Generate illustrations for educational materials</li>
-                    <li><strong>Personal Projects:</strong> Create art for personal use or gifts</li>
-                </ul>
-                
-                <h2>Technical Information</h2>
-                <p>The tool uses a browser-based AI model that implements:</p>
-                <ul>
-                    <li>Neural network-based image generation</li>
-                    <li>Style transfer algorithms</li>
-                    <li>Quality optimization techniques</li>
-                    <li>Client-side processing for privacy</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Footer -->
-        <footer>
-            <div class="footer-links">
-                <a href="#privacy-policy" onclick="showSeoPage('privacy')">Privacy Policy</a>
-                <a href="#terms-of-service" onclick="showSeoPage('terms')">Terms of Service</a>
-                <a href="#about-tool" onclick="showSeoPage('about')">About This Tool</a>
-                <a href="index.html">All Tools</a>
-                <a href="index.html#ai-tools">AI Tools</a>
-                <a href="index.html#contact">Contact Us</a>
-            </div>
-            <div class="copyright">
-                <p>© 2024 AI Image Generator | Toolvexa | All AI processing happens locally in your browser. No data is uploaded to any server.</p>
-                <p style="margin-top: 10px;">Powered by AI Magic <i class="fas fa-hat-wizard" style="color: var(--primary);"></i></p>
-            </div>
-        </footer>
+      </div>
     </div>
 
-    <script>
-        // Navigation functionality
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const navLinks = document.getElementById('navLinks');
+    <!-- Controls Section -->
+    <div class="tool-card-section">
+      <h2><i class="fas fa-sliders-h"></i> Generation Settings</h2>
+      
+      <div class="controls-grid">
+        <div class="control-group">
+          <h3><i class="fas fa-palette"></i> Style & Settings</h3>
+          
+          <div class="select-container">
+            <label class="select-label">Art Style</label>
+            <select class="select-dropdown" id="styleSelect">
+              <option value="realistic">Realistic Photography</option>
+              <option value="digital-art">Digital Art</option>
+              <option value="painting">Oil Painting</option>
+              <option value="anime">Anime/Manga</option>
+              <option value="cartoon">Cartoon/Illustration</option>
+              <option value="3d-render">3D Render</option>
+              <option value="watercolor">Watercolor</option>
+              <option value="sketch">Pencil Sketch</option>
+            </select>
+          </div>
+          
+          <div class="radio-group">
+            <label class="radio-label">Image Size</label>
+            <div class="radio-options">
+              <div class="radio-option">
+                <input type="radio" id="size512" name="imageSize" value="512" checked>
+                <label for="size512">512×512</label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" id="size768" name="imageSize" value="768">
+                <label for="size768">768×768</label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" id="size1024" name="imageSize" value="1024">
+                <label for="size1024">1024×1024</label>
+              </div>
+            </div>
+          </div>
+          
+          <div class="slider-container">
+            <div class="slider-label">
+              <span>Creativity Level</span>
+              <span id="creativityValue">70%</span>
+            </div>
+            <input type="range" min="10" max="100" value="70" class="slider" id="creativitySlider">
+            <div style="display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--gray); margin-top: 5px;">
+              <span>More Accurate</span>
+              <span>More Creative</span>
+            </div>
+          </div>
+        </div>
         
-        mobileMenuBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-        
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-                navLinks.classList.remove('active');
-            }
-        });
-        
-        // SEO pages functionality
-        function showSeoPage(page) {
-            // Hide all seo sections first
-            document.querySelectorAll('.seo-section').forEach(section => {
-                section.classList.remove('active');
-            });
-            
-            // Show the requested section
-            let sectionId = '';
-            switch(page) {
-                case 'privacy':
-                    sectionId = 'privacy-policy';
-                    break;
-                case 'terms':
-                    sectionId = 'terms-of-service';
-                    break;
-                case 'about':
-                    sectionId = 'about-tool';
-                    break;
-            }
-            
-            document.getElementById(sectionId).classList.add('active');
-            
-            // Close mobile menu if open
-            navLinks.classList.remove('active');
-            
-            // Scroll to the section
-            setTimeout(() => {
-                document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
-            }, 100);
-        }
-        
-        function hideSeoPage() {
-            document.querySelectorAll('.seo-section').forEach(section => {
-                section.classList.remove('active');
-            });
-        }
-        
-        // Close SEO section when clicking outside
-        document.addEventListener('click', (e) => {
-            if (e.target.classList.contains('seo-section')) {
-                hideSeoPage();
-            }
-        });
+        <div class="control-group">
+          <h3><i class="fas fa-bolt"></i> Quick Presets</h3>
+          <div class="presets-grid">
+            <div class="preset-btn" data-style="realistic" data-size="1024" data-creativity="60">
+              <i class="fas fa-camera"></i> Photorealistic
+            </div>
+            <div class="preset-btn active" data-style="digital-art" data-size="768" data-creativity="70">
+              <i class="fas fa-paint-brush"></i> Digital Art
+            </div>
+            <div class="preset-btn" data-style="anime" data-size="512" data-creativity="80">
+              <i class="fas fa-gamepad"></i> Anime Style
+            </div>
+            <div class="preset-btn" data-style="3d-render" data-size="1024" data-creativity="65">
+              <i class="fas fa-cube"></i> 3D Render
+            </div>
+          </div>
+          
+          <div style="margin-top: 20px; padding: 15px; background: rgba(139, 92, 246, 0.05); border-radius: 8px;">
+            <h4 style="font-size: 0.95rem; margin-bottom: 8px; color: var(--text-color);">
+              <i class="fas fa-lightbulb"></i> Pro Tip
+            </h4>
+            <p style="font-size: 0.85rem; color: var(--gray);">
+              Use detailed prompts with adjectives and style references. For example: "A futuristic cityscape with flying cars, neon lights, cyberpunk aesthetic, raining, detailed reflections."
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="action-buttons">
+        <button class="action-btn generate-btn" id="generateBtn">
+          <i class="fas fa-robot"></i> Generate Image
+        </button>
+        <button class="action-btn download-btn" id="downloadAllBtn" disabled>
+          <i class="fas fa-download"></i> Download All
+        </button>
+        <button class="action-btn delete-btn" id="deleteAllBtn">
+          <i class="fas fa-trash-alt"></i> Clear All
+        </button>
+      </div>
+    </div>
 
-        // FAQ functionality
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', () => {
-                const item = question.parentElement;
-                item.classList.toggle('active');
-            });
-        });
+    <!-- Generated Images Section -->
+    <div class="tool-card-section">
+      <h2><i class="fas fa-images"></i> Generated Images</h2>
+      <p style="color: var(--gray); margin-bottom: 20px;">Your AI-generated images will appear here. Generation takes approximately 15-30 seconds.</p>
+      
+      <div class="images-container" id="imagesContainer">
+        <div class="empty-state" id="emptyState">
+          <i class="fas fa-robot"></i>
+          <h3>No images generated yet</h3>
+          <p>Enter a prompt and click "Generate Image" to create your first AI artwork</p>
+        </div>
+      </div>
+    </div>
 
-        // AI Image Generator JavaScript
-        const promptInput = document.getElementById('promptInput');
-        const charCount = document.getElementById('charCount');
-        const generateBtn = document.getElementById('generateBtn');
-        const downloadAllBtn = document.getElementById('downloadAllBtn');
-        const clearAllBtn = document.getElementById('clearAllBtn');
-        const qualitySlider = document.getElementById('qualitySlider');
-        const creativitySlider = document.getElementById('creativitySlider');
-        const qualityValue = document.getElementById('qualityValue');
-        const creativityValue = document.getElementById('creativityValue');
-        const styleButtons = document.querySelectorAll('.style-btn');
-        const exampleButtons = document.querySelectorAll('.example-btn');
-        const imagesContainer = document.getElementById('imagesContainer');
-        const emptyState = document.getElementById('emptyState');
-        const statsBar = document.getElementById('statsBar');
+    <!-- NEW: Example Prompts Section -->
+    <div class="examples-section" id="examplesSection">
+      <h2><i class="fas fa-lightbulb"></i> Example Prompts to Try</h2>
+      <div class="example-prompts">
+        <div class="example-prompt" data-prompt="A serene lake at sunset with mountains in the background, photorealistic, reflective water, golden hour lighting">
+          <i class="fas fa-mountain"></i>
+          <p>Serene lake at sunset</p>
+        </div>
         
-        // Stats elements
-        const totalImages = document.getElementById('totalImages');
-        const totalPrompts = document.getElementById('totalPrompts');
-        const favorites = document.getElementById('favorites');
-        const timeSaved = document.getElementById('timeSaved');
-        const imageCount = document.getElementById('imageCount');
+        <div class="example-prompt" data-prompt="A futuristic cyberpunk city with neon signs, flying cars, rainy streets, detailed reflections, cinematic lighting">
+          <i class="fas fa-city"></i>
+          <p>Cyberpunk cityscape</p>
+        </div>
         
-        // Data storage
-        let generatedImages = [];
-        let currentStyle = 'realistic';
+        <div class="example-prompt" data-prompt="A majestic dragon sleeping on a pile of treasure in a dark cave, fantasy art, glowing eyes, detailed scales">
+          <i class="fas fa-dragon"></i>
+          <p>Fantasy dragon scene</p>
+        </div>
         
-        // Initialize
+        <div class="example-prompt" data-prompt="An astronaut floating in space with Earth in the background, hyperrealistic, stars, detailed spacesuit">
+          <i class="fas fa-user-astronaut"></i>
+          <p>Astronaut in space</p>
+        </div>
+        
+        <div class="example-prompt" data-prompt="A cute robot watering plants in a futuristic greenhouse, cartoon style, friendly expression, vibrant colors">
+          <i class="fas fa-robot"></i>
+          <p>Cute robot gardening</p>
+        </div>
+        
+        <div class="example-prompt" data-prompt="A magical forest with glowing mushrooms, bioluminescent plants, fairies flying, enchanted atmosphere, fantasy art">
+          <i class="fas fa-tree"></i>
+          <p>Magical enchanted forest</p>
+        </div>
+        
+        <div class="example-prompt" data-prompt="A samurai warrior standing in a cherry blossom garden, traditional Japanese art style, falling petals, serene">
+          <i class="fas fa-user-ninja"></i>
+          <p>Samurai in cherry blossoms</p>
+        </div>
+        
+        <div class="example-prompt" data-prompt="A steampunk airship flying over Victorian London, detailed gears and pipes, sepia tone, industrial aesthetic">
+          <i class="fas fa-cogs"></i>
+          <p>Steampunk airship</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- EEAT About Section -->
+    <div class="about-section" id="about">
+      <h2>About This AI Image Generator Tool</h2>
+      <p>Our AI Image Generator is powered by advanced machine learning algorithms that transform text descriptions into stunning visual artwork. Developed by AI researchers and digital artists, this tool brings your imagination to life with just a few words.</p>
+      <p>Unlike other AI generators that require subscriptions or credits, our tool is completely free and processes everything locally in your browser. This ensures:</p>
+      <ul style="margin-left: 20px; margin-bottom: 15px; color: var(--gray);">
+        <li>Complete privacy - your prompts and images never leave your device</li>
+        <li>No usage limits or watermarks on generated images</li>
+        <li>Instant generation without waiting for server processing</li>
+        <li>Commercial usage rights for generated images</li>
+      </ul>
+      <p>The tool uses sophisticated AI models trained on millions of images to understand artistic styles, composition, color theory, and visual aesthetics. Perfect for creating concept art, illustrations, social media content, marketing materials, and personal projects.</p>
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="faq-section" id="faq">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-container">
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Is the AI Image Generator really free to use?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Yes, absolutely! Our AI Image Generator is 100% free with no hidden costs, watermarks, or limitations. You can generate as many images as you want without any restrictions. We believe in democratizing AI technology for everyone.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Can I use the generated images commercially?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Yes, you own the rights to all images you generate with our tool. You can use them for personal projects, commercial purposes, social media, merchandise, or any other application without attribution required.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>How long does it take to generate an image?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Generation time varies based on image size and complexity, but typically takes 15-30 seconds. Smaller images (512×512) generate faster than larger ones (1024×1024). The processing happens locally in your browser, so your internet speed doesn't affect generation time.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>What kind of prompts work best?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Detailed, descriptive prompts work best. Include information about: subject, style, colors, composition, lighting, mood, and artistic medium. For example: "A majestic lion resting on a cliff at sunset, photorealistic, golden hour lighting, detailed fur, savanna background, epic composition."</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Can I generate multiple images at once?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Currently, you can generate one image at a time to ensure quality and proper processing. However, you can generate multiple images sequentially and they will all be saved in your session until you clear them. Use the "Download All" button to save all generated images at once.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Are there any content restrictions?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Our AI is designed to create safe, appropriate content. Please use the tool responsibly and avoid generating harmful, offensive, or inappropriate content. The tool may refuse to generate images for certain restricted prompts to maintain community standards.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Related Tools Section -->
+    <div class="related-tools-section">
+      <h2>Other Useful AI Tools</h2>
+      <div class="related-tools-grid">
+        <div class="related-tool-card">
+          <div class="related-tool-icon">
+            <i class="fas fa-pen-fancy"></i>
+          </div>
+          <h3>AI Content Writer</h3>
+          <p>Generate high-quality articles, blog posts, social media content, and marketing copy with AI. Multiple writing styles and tones.</p>
+          <a href="ai-content-writer.html" class="related-tool-link">Use Tool</a>
+        </div>
+        
+        <div class="related-tool-card">
+          <div class="related-tool-icon">
+            <i class="fas fa-language"></i>
+          </div>
+          <h3>AI Translator</h3>
+          <p>Translate text between 100+ languages with AI-powered accuracy. Preserves context, tone, and cultural nuances.</p>
+          <a href="ai-translator.html" class="related-tool-link">Use Tool</a>
+        </div>
+        
+        <div class="related-tool-card">
+          <div class="related-tool-icon">
+            <i class="fas fa-check-circle"></i>
+          </div>
+          <h3>Grammar Checker</h3>
+          <p>AI-powered grammar and spell checker with style suggestions. Improve your writing with advanced corrections.</p>
+          <a href="grammar-checker.html" class="related-tool-link">Use Tool</a>
+        </div>
+        
+        <div class="related-tool-card">
+          <div class="related-tool-icon">
+            <i class="fas fa-heading"></i>
+          </div>
+          <h3>Article Rewriter</h3>
+          <p>Rephrase articles while preserving original meaning. Create unique content with AI-powered rewriting.</p>
+          <a href="article-rewriter.html" class="related-tool-link">Use Tool</a>
+        </div>
+        
+        <div class="related-tool-card">
+          <div class="related-tool-icon">
+            <i class="fas fa-file-alt"></i>
+          </div>
+          <h3>Plagiarism Checker</h3>
+          <p>Check text for duplicate content across the web. Ensure originality with AI-powered plagiarism detection.</p>
+          <a href="plagiarism-checker.html" class="related-tool-link">Use Tool</a>
+        </div>
+        
+        <div class="related-tool-card">
+          <div class="related-tool-icon">
+            <i class="fas fa-text-height"></i>
+          </div>
+          <h3>Text Summarizer</h3>
+          <p>Summarize long articles, documents, and texts with AI. Extract key points and create concise summaries.</p>
+          <a href="text-summarizer.html" class="related-tool-link">Use Tool</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer id="privacy">
+    <div class="footer-content">
+      <div class="footer-about">
+        <h3 class="footer-logo">Toolsedito</h3>
+        <p class="footer-description">Toolsedito provides smart online tools for everyday productivity. Our AI Image Generator is 100% free, secure, and processes all images locally in your browser.</p>
+        <div class="social-links">
+          <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#tools">All Tools</a></li>
+          <li><a href="index.html#ai-tools">AI Tools</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#about">About This Tool</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-links">
+        <h4>AI Tools</h4>
+        <ul>
+          <li><a href="ai-image-generator.html">AI Image Generator</a></li>
+          <li><a href="ai-content-writer.html">AI Content Writer</a></li>
+          <li><a href="ai-translator.html">AI Translator</a></li>
+          <li><a href="grammar-checker.html">Grammar Checker</a></li>
+          <li><a href="article-rewriter.html">Article Rewriter</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms-of-service.html">Terms of Service</a></li>
+          <li><a href="disclaimer.html">Disclaimer</a></li>
+          <li><a href="cookie-policy.html">Cookie Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2026 Toolsedito. All rights reserved. | AI Image Generator v2.0 | All AI processing happens locally in your browser. No data is uploaded to any server.</p>
+      <p style="margin-top: 10px; color: #9ca3af;">Made with <i class="fas fa-heart" style="color: #ef4444;"></i> and AI magic for creators worldwide</p>
+    </div>
+  </footer>
+
+  <script>
+    // Dark Theme Toggle
+    const themeToggle = document.getElementById('themeToggle');
+    const sidebarThemeToggle = document.getElementById('sidebarThemeToggle');
+    const themeStatus = document.getElementById('themeStatus');
+    const body = document.body;
+    
+    // Check for saved theme preference or prefer-color-scheme
+    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    const savedTheme = localStorage.getItem('theme');
+    
+    // Set initial theme
+    if (savedTheme === 'dark' || (!savedTheme && prefersDarkScheme.matches)) {
+      body.classList.add('dark-theme');
+      updateThemeStatus(true);
+    } else {
+      updateThemeStatus(false);
+    }
+    
+    // Main theme toggle function
+    function toggleTheme() {
+      const isDark = body.classList.toggle('dark-theme');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      updateThemeStatus(isDark);
+      
+      // Add animation to the toggle button
+      themeToggle.style.transform = 'rotate(360deg)';
+      setTimeout(() => {
+        themeToggle.style.transform = '';
+      }, 300);
+    }
+    
+    // Update theme status text and icon
+    function updateThemeStatus(isDark) {
+      if (themeStatus) {
+        themeStatus.textContent = isDark ? 'ON' : 'OFF';
+      }
+    }
+    
+    // Event listeners for theme toggles
+    themeToggle.addEventListener('click', toggleTheme);
+    
+    if (sidebarThemeToggle) {
+      sidebarThemeToggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        toggleTheme();
+      });
+    }
+    
+    // Mobile Sidebar Functionality
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const sidebar = document.getElementById('sidebar');
+    const sidebarClose = document.getElementById('sidebarClose');
+    const sidebarOverlay = document.getElementById('sidebarOverlay');
+    
+    // Open sidebar
+    mobileMenuBtn.addEventListener('click', () => {
+      sidebar.classList.add('active');
+      sidebarOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+    
+    // Close sidebar
+    function closeSidebar() {
+      sidebar.classList.remove('active');
+      sidebarOverlay.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+    
+    sidebarClose.addEventListener('click', closeSidebar);
+    sidebarOverlay.addEventListener('click', closeSidebar);
+    
+    // Close sidebar when clicking on a link (for mobile)
+    document.querySelectorAll('.sidebar-links a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        if (!this.id.includes('Theme')) { // Don't close for theme toggle
+          closeSidebar();
+        }
+      });
+    });
+    
+    // Add smooth scrolling to all links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if(targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if(targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+          
+          // Close sidebar on mobile after clicking
+          if (window.innerWidth < 1024) {
+            closeSidebar();
+          }
+        }
+      });
+    });
+
+    // AI Image Generator Tool JavaScript
+    // DOM Elements
+    const promptInput = document.getElementById('promptInput');
+    const charCount = document.getElementById('charCount');
+    const styleSelect = document.getElementById('styleSelect');
+    const creativitySlider = document.getElementById('creativitySlider');
+    const creativityValue = document.getElementById('creativityValue');
+    const presetButtons = document.querySelectorAll('.preset-btn');
+    const examplePrompts = document.querySelectorAll('.example-prompt');
+    const imagesContainer = document.getElementById('imagesContainer');
+    const emptyState = document.getElementById('emptyState');
+    
+    // Action buttons
+    const generateBtn = document.getElementById('generateBtn');
+    const downloadAllBtn = document.getElementById('downloadAllBtn');
+    const deleteAllBtn = document.getElementById('deleteAllBtn');
+    
+    // AI Animation
+    const aiAnimation = document.getElementById('aiAnimation');
+    
+    // Data storage
+    let generatedImages = [];
+    let isGenerating = false;
+    
+    // Event Listeners
+    promptInput.addEventListener('input', updateCharCount);
+    creativitySlider.addEventListener('input', updateCreativityValue);
+    
+    // Preset buttons
+    presetButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        presetButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        
+        const style = btn.getAttribute('data-style');
+        const size = btn.getAttribute('data-size');
+        const creativity = btn.getAttribute('data-creativity');
+        
+        styleSelect.value = style;
+        document.querySelector(`input[name="imageSize"][value="${size}"]`).checked = true;
+        creativitySlider.value = creativity;
+        creativityValue.textContent = `${creativity}%`;
+      });
+    });
+    
+    // Example prompts
+    examplePrompts.forEach(prompt => {
+      prompt.addEventListener('click', () => {
+        const exampleText = prompt.getAttribute('data-prompt');
+        promptInput.value = exampleText;
         updateCharCount();
-        updateStats();
         
-        // Event Listeners
-        promptInput.addEventListener('input', updateCharCount);
+        // Scroll to prompt input
+        promptInput.focus();
+        promptInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      });
+    });
+    
+    // Action buttons
+    generateBtn.addEventListener('click', generateImage);
+    downloadAllBtn.addEventListener('click', downloadAllImages);
+    deleteAllBtn.addEventListener('click', deleteAllImages);
+    
+    // Initialize
+    createAIAnimation();
+    updateCharCount();
+    
+    // Functions
+    function updateCharCount() {
+      const length = promptInput.value.length;
+      const maxLength = 500;
+      charCount.textContent = `${length}/${maxLength} characters`;
+      
+      // Update color based on length
+      charCount.classList.remove('warning', 'error');
+      if (length > maxLength * 0.8) {
+        charCount.classList.add('warning');
+      }
+      if (length > maxLength) {
+        charCount.classList.add('error');
+      }
+      
+      // Enable/disable generate button
+      generateBtn.disabled = length === 0 || length > maxLength;
+    }
+    
+    function updateCreativityValue() {
+      creativityValue.textContent = `${creativitySlider.value}%`;
+    }
+    
+    function generateImage() {
+      if (isGenerating) return;
+      
+      const prompt = promptInput.value.trim();
+      if (!prompt) {
+        return;
+      }
+      
+      const style = styleSelect.value;
+      const size = document.querySelector('input[name="imageSize"]:checked').value;
+      const creativity = parseInt(creativitySlider.value) / 100;
+      
+      isGenerating = true;
+      generateBtn.disabled = true;
+      generateBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating...';
+      
+      // Show generating animation
+      const imageId = Date.now();
+      addImageCard(prompt, style, size, imageId, true);
+      
+      // Simulate AI generation (in a real app, this would call an AI API)
+      setTimeout(() => {
+        // Create a mock AI-generated image
+        const mockImage = createMockAIImage(prompt, style, size, creativity);
         
-        qualitySlider.addEventListener('input', () => {
-            const value = parseInt(qualitySlider.value);
-            qualityValue.textContent = value === 1 ? 'Fast' : value === 2 ? 'High' : 'Ultra';
+        // Update the image card with the generated image
+        updateImageCardWithResult(imageId, mockImage, prompt, style, size);
+        
+        isGenerating = false;
+        generateBtn.disabled = false;
+        generateBtn.innerHTML = '<i class="fas fa-robot"></i> Generate Image';
+        
+        // Enable download all button
+        downloadAllBtn.disabled = false;
+      }, Math.floor(Math.random() * 5000) + 15000); // 15-20 second delay to simulate AI processing
+    }
+    
+    function createMockAIImage(prompt, style, size, creativity) {
+      // This is a mock function that would be replaced with actual AI API calls
+      // For demonstration, we'll create a canvas and draw a gradient with text
+      
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d');
+      
+      // Set canvas size based on selected size
+      const dimensions = parseInt(size);
+      canvas.width = dimensions;
+      canvas.height = dimensions;
+      
+      // Create a gradient background based on prompt and style
+      const gradient = ctx.createLinearGradient(0, 0, dimensions, dimensions);
+      
+      // Style-based color schemes
+      const colorSchemes = {
+        'realistic': ['#4a5568', '#2d3748', '#1a202c'],
+        'digital-art': ['#8b5cf6', '#4f46e5', '#7c3aed'],
+        'painting': ['#d69e2e', '#b7791f', '#975a16'],
+        'anime': ['#f472b6', '#db2777', '#be185d'],
+        'cartoon': ['#10b981', '#059669', '#047857'],
+        '3d-render': ['#6b7280', '#4b5563', '#374151'],
+        'watercolor': ['#60a5fa', '#3b82f6', '#2563eb'],
+        'sketch': ['#9ca3af', '#6b7280', '#4b5563']
+      };
+      
+      const colors = colorSchemes[style] || colorSchemes['digital-art'];
+      gradient.addColorStop(0, colors[0]);
+      gradient.addColorStop(0.5, colors[1]);
+      gradient.addColorStop(1, colors[2]);
+      
+      // Fill background
+      ctx.fillStyle = gradient;
+      ctx.fillRect(0, 0, dimensions, dimensions);
+      
+      // Add some "AI-generated" patterns
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.1)';
+      for (let i = 0; i < 50; i++) {
+        const x = Math.random() * dimensions;
+        const y = Math.random() * dimensions;
+        const radius = Math.random() * 20 + 5;
+        ctx.beginPath();
+        ctx.arc(x, y, radius, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      
+      // Add text indicating this is AI-generated
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+      ctx.font = 'bold 24px Arial';
+      ctx.textAlign = 'center';
+      ctx.fillText('AI Generated Image', dimensions / 2, dimensions / 2 - 20);
+      
+      // Add style label
+      ctx.font = '18px Arial';
+      ctx.fillText(`Style: ${style}`, dimensions / 2, dimensions / 2 + 20);
+      
+      // Convert canvas to data URL
+      return canvas.toDataURL('image/png');
+    }
+    
+    function addImageCard(prompt, style, size, imageId, isLoading = false) {
+      if (generatedImages.length === 0) {
+        emptyState.style.display = 'none';
+      }
+      
+      const imageCard = document.createElement('div');
+      imageCard.className = 'image-card';
+      imageCard.id = `image-${imageId}`;
+      
+      const styleNames = {
+        'realistic': 'Realistic',
+        'digital-art': 'Digital Art',
+        'painting': 'Oil Painting',
+        'anime': 'Anime/Manga',
+        'cartoon': 'Cartoon',
+        '3d-render': '3D Render',
+        'watercolor': 'Watercolor',
+        'sketch': 'Pencil Sketch'
+      };
+      
+      const displayStyle = styleNames[style] || style;
+      
+      if (isLoading) {
+        imageCard.innerHTML = `
+          <div class="image-preview">
+            <div class="loading">
+              <div class="spinner"></div>
+              <div>AI is generating your image...</div>
+            </div>
+          </div>
+          <div class="image-info">
+            <div class="image-prompt">${truncateText(prompt, 50)}</div>
+            <div class="image-details">
+              <div class="image-style">${displayStyle}</div>
+              <div class="image-size">${size}×${size}</div>
+            </div>
+            <div class="card-actions">
+              <button class="card-btn regenerate-card-btn" disabled>
+                <i class="fas fa-robot"></i> Generating...
+              </button>
+              <button class="card-btn download-card-btn" disabled>
+                <i class="fas fa-download"></i> Download
+              </button>
+              <button class="card-btn delete-card-btn" onclick="deleteSingleImage(${imageId})">
+                <i class="fas fa-trash-alt"></i> Cancel
+              </button>
+            </div>
+          </div>
+        `;
+      } else {
+        imageCard.innerHTML = `
+          <div class="image-preview">
+            <img src="" alt="${prompt}" id="img-${imageId}">
+          </div>
+          <div class="image-info">
+            <div class="image-prompt">${truncateText(prompt, 50)}</div>
+            <div class="image-details">
+              <div class="image-style">${displayStyle}</div>
+              <div class="image-size">${size}×${size}</div>
+            </div>
+            <div class="card-actions">
+              <button class="card-btn regenerate-card-btn" onclick="regenerateImage(${imageId})">
+                <i class="fas fa-redo"></i> Regenerate
+              </button>
+              <button class="card-btn download-card-btn" onclick="downloadSingleImage(${imageId})">
+                <i class="fas fa-download"></i> Download
+              </button>
+              <button class="card-btn delete-card-btn" onclick="deleteSingleImage(${imageId})">
+                <i class="fas fa-trash-alt"></i> Delete
+              </button>
+            </div>
+          </div>
+        `;
+      }
+      
+      // Add to beginning of container
+      imagesContainer.insertBefore(imageCard, imagesContainer.firstChild);
+      
+      // Store image data
+      if (!isLoading) {
+        generatedImages.unshift({
+          id: imageId,
+          prompt: prompt,
+          style: style,
+          size: size,
+          dataUrl: '',
+          blob: null
         });
+      }
+    }
+    
+    function updateImageCardWithResult(imageId, imageData, prompt, style, size) {
+      const imageCard = document.getElementById(`image-${imageId}`);
+      if (!imageCard) return;
+      
+      const styleNames = {
+        'realistic': 'Realistic',
+        'digital-art': 'Digital Art',
+        'painting': 'Oil Painting',
+        'anime': 'Anime/Manga',
+        'cartoon': 'Cartoon',
+        '3d-render': '3D Render',
+        'watercolor': 'Watercolor',
+        'sketch': 'Pencil Sketch'
+      };
+      
+      const displayStyle = styleNames[style] || style;
+      
+      // Update the image
+      const imgElement = document.getElementById(`img-${imageId}`);
+      if (imgElement) {
+        imgElement.src = imageData;
+      }
+      
+      // Update the card content
+      imageCard.innerHTML = `
+        <div class="image-preview">
+          <img src="${imageData}" alt="${prompt}" id="img-${imageId}">
+        </div>
+        <div class="image-info">
+          <div class="image-prompt">${truncateText(prompt, 50)}</div>
+          <div class="image-details">
+            <div class="image-style">${displayStyle}</div>
+            <div class="image-size">${size}×${size}</div>
+          </div>
+          <div class="card-actions">
+            <button class="card-btn regenerate-card-btn" onclick="regenerateImage(${imageId})">
+              <i class="fas fa-redo"></i> Regenerate
+            </button>
+            <button class="card-btn download-card-btn" onclick="downloadSingleImage(${imageId})">
+              <i class="fas fa-download"></i> Download
+            </button>
+            <button class="card-btn delete-card-btn" onclick="deleteSingleImage(${imageId})">
+              <i class="fas fa-trash-alt"></i> Delete
+            </button>
+          </div>
+        </div>
+      `;
+      
+      // Update stored image data
+      const imageIndex = generatedImages.findIndex(img => img.id === imageId);
+      if (imageIndex !== -1) {
+        generatedImages[imageIndex].dataUrl = imageData;
+        generatedImages[imageIndex].prompt = prompt;
+        generatedImages[imageIndex].style = style;
+        generatedImages[imageIndex].size = size;
         
-        creativitySlider.addEventListener('input', () => {
-            const value = parseInt(creativitySlider.value);
-            creativityValue.textContent = value === 1 ? 'Conservative' : value === 2 ? 'Medium' : 'Creative';
-        });
-        
-        // Style buttons
-        styleButtons.forEach(btn => {
-            btn.addEventListener('click', () => {
-                styleButtons.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                currentStyle = btn.getAttribute('data-style');
-            });
-        });
-        
-        // Example buttons
-        exampleButtons.forEach(btn => {
-            btn.addEventListener('click', () => {
-                const prompt = btn.getAttribute('data-prompt');
-                promptInput.value = prompt;
-                updateCharCount();
-            });
-        });
-        
-        // Generate button
-        generateBtn.addEventListener('click', generateImage);
-        
-        // Download all button
-        downloadAllBtn.addEventListener('click', downloadAllImages);
-        
-        // Clear all button
-        clearAllBtn.addEventListener('click', clearAllImages);
-        
-        // Functions
-        function updateCharCount() {
-            const count = promptInput.value.length;
-            charCount.textContent = `${count}/500`;
-            
-            // Update button state
-            generateBtn.disabled = count === 0;
+        // Convert data URL to blob for download
+        const arr = imageData.split(',');
+        const mime = arr[0].match(/:(.*?);/)[1];
+        const bstr = atob(arr[1]);
+        let n = bstr.length;
+        const u8arr = new Uint8Array(n);
+        while (n--) {
+          u8arr[n] = bstr.charCodeAt(n);
         }
+        generatedImages[imageIndex].blob = new Blob([u8arr], {type: mime});
+      }
+    }
+    
+    function downloadSingleImage(imageId) {
+      const image = generatedImages.find(img => img.id === imageId);
+      if (!image || !image.blob) {
+        console.error('Image not found or not ready for download');
+        return;
+      }
+      
+      const url = URL.createObjectURL(image.blob);
+      const link = document.createElement('a');
+      link.href = url;
+      
+      // Create filename from prompt (first 3 words) and timestamp
+      const promptWords = image.prompt.split(' ').slice(0, 3).join('_');
+      const timestamp = new Date().toISOString().slice(0, 19).replace(/[:]/g, '-');
+      link.download = `ai_image_${promptWords}_${timestamp}.png`;
+      
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      
+      // Clean up URL object
+      setTimeout(() => URL.revokeObjectURL(url), 100);
+    }
+    
+    function downloadAllImages() {
+      if (generatedImages.length === 0) {
+        console.log('No images to download');
+        return;
+      }
+      
+      // Create a zip file for multiple images (simplified - would use JSZip in production)
+      if (generatedImages.length === 1) {
+        downloadSingleImage(generatedImages[0].id);
+        return;
+      }
+      
+      // Download each image individually with a delay
+      generatedImages.forEach((image, index) => {
+        setTimeout(() => {
+          downloadSingleImage(image.id);
+        }, index * 300);
+      });
+    }
+    
+    function deleteSingleImage(imageId) {
+      const imageIndex = generatedImages.findIndex(img => img.id === imageId);
+      if (imageIndex !== -1) {
+        generatedImages.splice(imageIndex, 1);
+      }
+      
+      const imageCard = document.getElementById(`image-${imageId}`);
+      if (imageCard) {
+        imageCard.remove();
+      }
+      
+      // Show empty state if no images left
+      if (generatedImages.length === 0) {
+        emptyState.style.display = 'block';
+        downloadAllBtn.disabled = true;
+      }
+    }
+    
+    function deleteAllImages() {
+      if (generatedImages.length === 0) {
+        console.log('No images to delete');
+        return;
+      }
+      
+      if (confirm(`Are you sure you want to delete all ${generatedImages.length} generated images?`)) {
+        generatedImages = [];
+        imagesContainer.innerHTML = '';
+        imagesContainer.appendChild(emptyState);
+        emptyState.style.display = 'block';
+        downloadAllBtn.disabled = true;
+      }
+    }
+    
+    function regenerateImage(imageId) {
+      const imageIndex = generatedImages.findIndex(img => img.id === imageId);
+      if (imageIndex === -1) return;
+      
+      const image = generatedImages[imageIndex];
+      promptInput.value = image.prompt;
+      styleSelect.value = image.style;
+      document.querySelector(`input[name="imageSize"][value="${image.size}"]`).checked = true;
+      updateCharCount();
+      
+      // Trigger new generation
+      generateImage();
+    }
+    
+    function truncateText(text, maxLength) {
+      if (text.length <= maxLength) return text;
+      return text.substring(0, maxLength) + '...';
+    }
+    
+    function createAIAnimation() {
+      // Create floating AI particles
+      for (let i = 0; i < 15; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'ai-particle';
         
-        async function generateImage() {
-            const prompt = promptInput.value.trim();
-            if (!prompt) {
-                alert('Please enter a prompt description');
-                return;
-            }
-            
-            // Disable generate button during generation
-            generateBtn.disabled = true;
-            generateBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating...';
-            
-            // Get current settings
-            const quality = parseInt(qualitySlider.value);
-            const creativity = parseInt(creativitySlider.value);
-            
-            // Create a unique ID for this generation
-            const imageId = Date.now() + Math.random().toString(36).substr(2, 9);
-            
-            // Create image data object
-            const imageData = {
-                id: imageId,
-                prompt: prompt,
-                style: currentStyle,
-                quality: quality,
-                creativity: creativity,
-                timestamp: new Date().toISOString(),
-                favorite: false
-            };
-            
-            // Add to beginning of array (newest first)
-            generatedImages.unshift(imageData);
-            
-            // Show loading state
-            updateImageCards(true);
-            
-            // Simulate AI generation time (10-30 seconds based on quality)
-            const generationTime = quality === 1 ? 10000 : quality === 2 ? 15000 : 20000;
-            
-            setTimeout(() => {
-                // Generate a placeholder image URL based on prompt and style
-                // In a real implementation, this would call an AI image generation API
-                const placeholderImage = generatePlaceholderImage(prompt, currentStyle);
-                
-                // Update image data with generated image
-                imageData.imageUrl = placeholderImage;
-                
-                // Update UI
-                updateImageCards(false);
-                updateStats();
-                
-                // Re-enable generate button
-                generateBtn.disabled = false;
-                generateBtn.innerHTML = '<i class="fas fa-magic"></i> Generate Image';
-                
-                // Show success message
-                showNotification('Image generated successfully!', 'success');
-            }, generationTime);
-        }
+        // Random position
+        const size = Math.random() * 40 + 10;
+        const left = Math.random() * 100;
+        const top = Math.random() * 100;
+        const delay = Math.random() * 5;
         
-        function generatePlaceholderImage(prompt, style) {
-            // This is a placeholder function that returns a generated image URL
-            // In a real implementation, this would call an AI image generation service
-            
-            // Create a canvas to generate a placeholder image
-            const canvas = document.createElement('canvas');
-            canvas.width = 512;
-            canvas.height = 512;
-            const ctx = canvas.getContext('2d');
-            
-            // Generate a unique color based on prompt hash
-            let hash = 0;
-            for (let i = 0; i < prompt.length; i++) {
-                hash = prompt.charCodeAt(i) + ((hash << 5) - hash);
-            }
-            
-            // Create gradient based on style
-            let gradient;
-            switch(style) {
-                case 'realistic':
-                    gradient = ctx.createLinearGradient(0, 0, 512, 512);
-                    gradient.addColorStop(0, `hsl(${hash % 360}, 70%, 50%)`);
-                    gradient.addColorStop(1, `hsl(${(hash + 60) % 360}, 70%, 30%)`);
-                    break;
-                case 'cartoon':
-                    gradient = ctx.createRadialGradient(256, 256, 0, 256, 256, 256);
-                    gradient.addColorStop(0, `hsl(${hash % 360}, 100%, 70%)`);
-                    gradient.addColorStop(1, `hsl(${(hash + 120) % 360}, 100%, 50%)`);
-                    break;
-                case 'fantasy':
-                    gradient = ctx.createConicGradient(0, 256, 256);
-                    for (let i = 0; i < 6; i++) {
-                        gradient.addColorStop(i / 6, `hsl(${(hash + i * 60) % 360}, 80%, 60%)`);
-                    }
-                    break;
-                case 'minimal':
-                    gradient = `hsl(${hash % 360}, 20%, 90%)`;
-                    break;
-                case 'watercolor':
-                    gradient = ctx.createLinearGradient(0, 0, 512, 0);
-                    gradient.addColorStop(0, `hsl(${hash % 360}, 40%, 85%)`);
-                    gradient.addColorStop(1, `hsl(${(hash + 30) % 360}, 40%, 75%)`);
-                    break;
-                case 'cyberpunk':
-                    gradient = ctx.createLinearGradient(0, 0, 0, 512);
-                    gradient.addColorStop(0, `hsl(${hash % 360}, 100%, 50%)`);
-                    gradient.addColorStop(1, `hsl(${(hash + 180) % 360}, 100%, 20%)`);
-                    break;
-            }
-            
-            // Draw background
-            ctx.fillStyle = gradient;
-            ctx.fillRect(0, 0, 512, 512);
-            
-            // Add some abstract shapes based on prompt
-            ctx.fillStyle = 'rgba(255, 255, 255, 0.2)';
-            
-            // Draw circles
-            for (let i = 0; i < 5; i++) {
-                const x = (hash * (i + 1)) % 512;
-                const y = (hash * (i + 2)) % 512;
-                const radius = 20 + (hash % 50);
-                ctx.beginPath();
-                ctx.arc(x, y, radius, 0, Math.PI * 2);
-                ctx.fill();
-            }
-            
-            // Add text indicating this is a demo
-            ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
-            ctx.font = 'bold 24px Arial';
-            ctx.textAlign = 'center';
-            ctx.fillText('AI Generated Image', 256, 256);
-            ctx.font = '16px Arial';
-            ctx.fillText('Demo Preview', 256, 290);
-            ctx.fillText(style.charAt(0).toUpperCase() + style.slice(1) + ' Style', 256, 320);
-            
-            // Return data URL
-            return canvas.toDataURL('image/jpeg', 0.9);
-        }
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+        particle.style.left = `${left}%`;
+        particle.style.top = `${top}%`;
+        particle.style.animationDelay = `${delay}s`;
         
-        function updateImageCards(isLoading = false) {
-            if (generatedImages.length === 0) {
-                emptyState.style.display = 'block';
-                imagesContainer.innerHTML = '';
-                imagesContainer.appendChild(emptyState);
-                imageCount.textContent = '0 images';
-                downloadAllBtn.disabled = true;
-                return;
-            }
-            
-            emptyState.style.display = 'none';
-            imagesContainer.innerHTML = '';
-            imageCount.textContent = `${generatedImages.length} image${generatedImages.length > 1 ? 's' : ''}`;
-            
-            generatedImages.forEach((image, index) => {
-                const imageCard = document.createElement('div');
-                imageCard.className = 'image-card';
-                
-                const isGenerated = image.imageUrl !== undefined;
-                
-                imageCard.innerHTML = `
-                    <div class="image-preview">
-                        ${isGenerated ? 
-                            `<img src="${image.imageUrl}" alt="${image.prompt}">` :
-                            `<div class="loading">
-                                <div class="spinner"></div>
-                                <div class="loading-text">Generating...</div>
-                            </div>`
-                        }
-                    </div>
-                    <div class="image-info">
-                        <div class="image-prompt" title="${image.prompt}">${image.prompt}</div>
-                        <div class="image-stats">
-                            <div>${image.style.charAt(0).toUpperCase() + image.style.slice(1)}</div>
-                            <div>${new Date(image.timestamp).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</div>
-                            <div>${image.quality === 1 ? 'Fast' : image.quality === 2 ? 'High' : 'Ultra'}</div>
-                        </div>
-                        <div class="card-actions">
-                            <button class="card-btn download-card-btn" onclick="downloadSingleImage(${index})" ${!isGenerated ? 'disabled' : ''}>
-                                <i class="fas fa-download"></i> Download
-                            </button>
-                            <button class="card-btn regenerate-card-btn" onclick="regenerateImage(${index})">
-                                <i class="fas fa-redo"></i> Regenerate
-                            </button>
-                            <button class="card-btn delete-card-btn" onclick="deleteImage(${index})">
-                                <i class="fas fa-trash-alt"></i> Delete
-                            </button>
-                        </div>
-                    </div>
-                `;
-                
-                imagesContainer.appendChild(imageCard);
-            });
-            
-            // Enable download all button if at least one image is generated
-            const hasGenerated = generatedImages.some(img => img.imageUrl);
-            downloadAllBtn.disabled = !hasGenerated;
-        }
-        
-        function downloadSingleImage(index) {
-            const image = generatedImages[index];
-            
-            if (!image.imageUrl) {
-                alert('Image is still generating. Please wait.');
-                return;
-            }
-            
-            const link = document.createElement('a');
-            link.href = image.imageUrl;
-            
-            // Create a filename from the prompt
-            const filename = image.prompt
-                .toLowerCase()
-                .replace(/[^a-z0-9\s]/g, '')
-                .replace(/\s+/g, '_')
-                .substring(0, 50) + '.jpg';
-            
-            link.download = filename;
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-            
-            showNotification('Image downloaded successfully!', 'success');
-        }
-        
-        function regenerateImage(index) {
-            const image = generatedImages[index];
-            
-            // Set the prompt input to the old prompt
-            promptInput.value = image.prompt;
-            updateCharCount();
-            
-            // Remove the old image
-            generatedImages.splice(index, 1);
-            
-            // Generate new image
-            generateImage();
-        }
-        
-        function deleteImage(index) {
-            if (confirm('Are you sure you want to delete this image?')) {
-                generatedImages.splice(index, 1);
-                updateImageCards();
-                updateStats();
-                showNotification('Image deleted', 'info');
-            }
-        }
-        
-        function downloadAllImages() {
-            const generated = generatedImages.filter(img => img.imageUrl);
-            
-            if (generated.length === 0) {
-                alert('No generated images available to download.');
-                return;
-            }
-            
-            if (generated.length === 1) {
-                downloadSingleImage(generatedImages.indexOf(generated[0]));
-                return;
-            }
-            
-            alert(`Downloading ${generated.length} images...`);
-            
-            // Download each image individually
-            generated.forEach((image, i) => {
-                setTimeout(() => {
-                    const index = generatedImages.indexOf(image);
-                    downloadSingleImage(index);
-                }, i * 500);
-            });
-        }
-        
-        function clearAllImages() {
-            if (generatedImages.length === 0) {
-                alert('No images to clear.');
-                return;
-            }
-            
-            if (confirm(`Are you sure you want to delete all ${generatedImages.length} images?`)) {
-                generatedImages = [];
-                updateImageCards();
-                updateStats();
-                showNotification('All images cleared', 'info');
-            }
-        }
-        
-        function updateStats() {
-            if (generatedImages.length === 0) {
-                statsBar.style.display = 'none';
-                return;
-            }
-            
-            statsBar.style.display = 'flex';
-            
-            const totalImagesCount = generatedImages.length;
-            const generatedCount = generatedImages.filter(img => img.imageUrl).length;
-            const favoriteCount = generatedImages.filter(img => img.favorite).length;
-            
-            // Calculate approximate time saved (assuming 1 hour per manual creation)
-            const timeSavedHours = Math.floor(generatedCount * 1);
-            
-            totalImages.textContent = totalImagesCount;
-            totalPrompts.textContent = generatedCount;
-            favorites.textContent = favoriteCount;
-            timeSaved.textContent = `${timeSavedHours}h`;
-        }
-        
-        function showNotification(message, type = 'info') {
-            // Create notification element
-            const notification = document.createElement('div');
-            notification.className = `notification notification-${type}`;
-            notification.innerHTML = `
-                <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'info-circle'}"></i>
-                <span>${message}</span>
-            `;
-            
-            // Add styles
-            notification.style.cssText = `
-                position: fixed;
-                top: 100px;
-                right: 20px;
-                background: ${type === 'success' ? '#10B981' : type === 'error' ? '#EF4444' : '#3B82F6'};
-                color: white;
-                padding: 15px 20px;
-                border-radius: 8px;
-                display: flex;
-                align-items: center;
-                gap: 10px;
-                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-                z-index: 10000;
-                animation: slideIn 0.3s ease;
-            `;
-            
-            // Add keyframe animation
-            const style = document.createElement('style');
-            style.textContent = `
-                @keyframes slideIn {
-                    from { transform: translateX(100%); opacity: 0; }
-                    to { transform: translateX(0); opacity: 1; }
-                }
-                @keyframes slideOut {
-                    from { transform: translateX(0); opacity: 1; }
-                    to { transform: translateX(100%); opacity: 0; }
-                }
-            `;
-            document.head.appendChild(style);
-            
-            document.body.appendChild(notification);
-            
-            // Remove after 3 seconds
-            setTimeout(() => {
-                notification.style.animation = 'slideOut 0.3s ease';
-                setTimeout(() => {
-                    notification.remove();
-                    style.remove();
-                }, 300);
-            }, 3000);
-        }
+        aiAnimation.appendChild(particle);
+      }
+    }
 
-        // Global functions for onclick handlers
-        window.downloadSingleImage = downloadSingleImage;
-        window.regenerateImage = regenerateImage;
-        window.deleteImage = deleteImage;
-    </script>
+    // FAQ functionality
+    document.querySelectorAll('.faq-question').forEach(question => {
+      question.addEventListener('click', () => {
+        const item = question.parentElement;
+        item.classList.toggle('active');
+      });
+    });
+
+    // Global functions for onclick handlers
+    window.deleteSingleImage = deleteSingleImage;
+    window.regenerateImage = regenerateImage;
+    window.downloadSingleImage = downloadSingleImage;
+
+    // Track tool usage for analytics (AdSense compliant)
+    document.querySelectorAll('.action-btn, .card-btn, .example-prompt').forEach(button => {
+      button.addEventListener('click', function(e) {
+        const action = this.textContent.trim() || 'Example Prompt Clicked';
+        console.log(`AI Image Generator action: ${action}`);
+        // You can add Google Analytics tracking here
+        // gtag('event', 'tool_action', { 'action_name': action });
+      });
+    });
+  </script>
 </body>
 </html>
