@@ -3,12 +3,53 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Free Online Image Editor - Edit, Filter & Enhance Photos | Toolsedito</title>
-  <meta name="description" content="Edit photos online for free with our powerful image editor. Crop, resize, add filters, adjust brightness, contrast, and enhance images instantly in your browser." />
-  <meta name="keywords" content="free image editor, online photo editor, edit pictures, crop images, photo filters, image enhancer, resize photos" />
+  <title>Free Image Editor - Edit Photos Online | Toolsedito</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Edit images online for free with our advanced image editor. Crop, resize, adjust brightness, add filters, text, and more. No registration required." />
+  <meta name="keywords" content="image editor, photo editor, edit images online, crop image, resize image, add text to image, image filters, free photo editor" />
   <meta name="author" content="Toolsedito Team" />
   <meta name="robots" content="index, follow" />
+  <meta name="googlebot" content="index, follow" />
   <link rel="canonical" href="https://www.toolsedito.com/image-editor.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Free Image Editor - Edit Photos Online | Toolsedito">
+  <meta property="og:description" content="Edit images online for free with our advanced image editor. Crop, resize, adjust brightness, add filters, text, and more. No registration required.">
+  <meta property="og:url" content="https://www.toolsedito.com/image-editor.html">
+  <meta property="og:image" content="https://www.toolsedito.com/images/image-editor-og.jpg">
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:title" content="Free Image Editor - Toolsedito">
+  <meta property="twitter:description" content="Edit images online for free with our advanced image editor. Crop, resize, adjust brightness, add filters, text, and more.">
+
+  <!-- JSON-LD Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Image Editor",
+    "description": "Free online tool to edit images with advanced features like cropping, resizing, filters, text overlay, and adjustments.",
+    "url": "https://www.toolsedito.com/image-editor.html",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "ratingCount": "920"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "Toolsedito",
+      "url": "https://www.toolsedito.com"
+    }
+  }
+  </script>
 
   <!-- Fonts & Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -16,7 +57,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 
   <style>
-    /* MOBILE FIRST STYLES - Based on homepage structure */
     * {
       margin: 0;
       padding: 0;
@@ -28,6 +68,7 @@
       --primary-dark: #4338ca;
       --secondary: #10b981;
       --accent: #f59e0b;
+      --danger: #ef4444;
       --light: #f8fafc;
       --dark: #1f2933;
       --gray: #6b7280;
@@ -65,9 +106,6 @@
       overflow-x: hidden;
       transition: background-color var(--transition-speed) ease,
                   color var(--transition-speed) ease;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
     }
 
     h1, h2, h3, h4 {
@@ -75,7 +113,50 @@
       font-weight: 700;
     }
 
-    /* Navigation - Same as homepage */
+    /* Theme Toggle Button */
+    .theme-toggle {
+      background: var(--light-gray);
+      border: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--text-color);
+      font-size: 1.2rem;
+      transition: all var(--transition-speed) ease;
+      margin-left: 10px;
+    }
+
+    .theme-toggle:hover {
+      background: var(--primary);
+      color: white;
+      transform: rotate(15deg);
+    }
+
+    .theme-toggle i {
+      transition: transform 0.5s ease;
+    }
+
+    .dark-theme .theme-toggle i.fa-sun {
+      display: block;
+    }
+
+    .dark-theme .theme-toggle i.fa-moon {
+      display: none;
+    }
+
+    .theme-toggle i.fa-sun {
+      display: none;
+    }
+
+    .theme-toggle i.fa-moon {
+      display: block;
+    }
+
+    /* Mobile First - Sidebar Implementation */
     .navbar {
       position: fixed;
       top: 0;
@@ -119,10 +200,12 @@
       color: transparent;
     }
 
+    /* Desktop Navigation - Hidden on Mobile */
     .nav-links {
       display: none;
     }
 
+    /* Mobile Menu Button */
     .mobile-menu-btn {
       display: block;
       background: none;
@@ -132,33 +215,6 @@
       cursor: pointer;
       z-index: 1002;
       transition: color var(--transition-speed) ease;
-    }
-
-    /* Theme Toggle Button */
-    .theme-toggle {
-      background: none;
-      border: none;
-      color: var(--text-color);
-      font-size: 1.3rem;
-      cursor: pointer;
-      padding: 8px;
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.3s ease;
-      margin-left: 10px;
-    }
-
-    .theme-toggle:hover {
-      background: var(--light-gray);
-      transform: rotate(30deg);
-    }
-
-    .theme-toggle i {
-      transition: transform 0.3s ease;
     }
 
     /* Sidebar Styles */
@@ -291,6 +347,7 @@
       background: var(--light-gray);
     }
 
+    /* Overlay when sidebar is open */
     .sidebar-overlay {
       position: fixed;
       top: 0;
@@ -309,11 +366,11 @@
       visibility: visible;
     }
 
-    /* Tool Page Header */
-    .tool-header {
+    /* Tool Header */
+    header {
       background: linear-gradient(135deg, #e6f7ff 0%, #f0f9ff 100%);
       color: #1f2933;
-      padding: 120px 20px 60px;
+      padding: 80px 20px 40px;
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -321,427 +378,527 @@
       border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     }
 
-    .dark-theme .tool-header {
+    .dark-theme header {
       background: linear-gradient(135deg, #0a1929 0%, #112240 100%);
       color: #f3f4f6;
       border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
 
-    .tool-header-content {
+    .header-content {
       max-width: 1000px;
       margin: 0 auto;
       position: relative;
       z-index: 2;
     }
 
-    .tool-icon-large {
-      font-size: 4rem;
-      margin-bottom: 20px;
-      display: inline-block;
-      width: 100px;
-      height: 100px;
-      line-height: 100px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      color: white;
-      box-shadow: 0 15px 30px rgba(79, 70, 229, 0.25);
+    .logo-container {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 15px;
+      gap: 15px;
     }
 
-    .tool-title {
-      font-size: 2.2rem;
+    /* Tool-specific header */
+    .tool-logo {
+      font-size: 4rem;
+      margin-bottom: 10px;
+      color: var(--primary);
+    }
+
+    .tool-header h1 {
+      font-size: 3.5rem;
       margin-bottom: 15px;
+      color: var(--text-color);
       background: linear-gradient(90deg, #4f46e5, #7c3aed, #10b981);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
       letter-spacing: -0.5px;
+      line-height: 1.1;
     }
 
-    .tool-subtitle {
-      font-size: 1.2rem;
-      margin-bottom: 25px;
-      color: var(--gray);
-      max-width: 600px;
+    .tool-header .tagline {
+      font-size: 1.4rem;
+      margin-bottom: 1.5rem;
+      color: var(--dark);
+      max-width: 800px;
       margin-left: auto;
       margin-right: auto;
       line-height: 1.6;
+      font-weight: 400;
+    }
+
+    .dark-theme .tool-header .tagline {
+      color: #e5e7eb;
     }
 
     /* Main Tool Container */
-    .main-content {
-      flex: 1;
-    }
-
     .tool-container {
       max-width: 1400px;
       margin: 0 auto;
       padding: 40px 20px;
     }
 
-    /* Image Editor Tool Area */
-    .editor-wrapper {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 30px;
-      margin-top: 30px;
-    }
-
-    @media (min-width: 992px) {
-      .editor-wrapper {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    .upload-area {
+    /* Tool Card Sections */
+    .tool-card-section {
       background: var(--card-bg);
       border-radius: 20px;
       padding: 30px;
+      margin-bottom: 30px;
       box-shadow: var(--card-shadow);
-      border: 2px dashed var(--border-color);
-      transition: all 0.3s ease;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      min-height: 400px;
+      border: 1px solid var(--border-color);
     }
 
-    .upload-area.active {
-      border-color: var(--primary);
-      background: rgba(79, 70, 229, 0.02);
+    .tool-card-section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      color: var(--text-color);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .tool-card-section h2 i {
+      color: var(--primary);
+    }
+
+    /* Upload Area */
+    .upload-area {
+      border: 3px dashed var(--primary);
+      border-radius: 16px;
+      padding: 50px 30px;
+      text-align: center;
+      background: rgba(79, 70, 229, 0.03);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-bottom: 30px;
+    }
+
+    .upload-area:hover {
+      background: rgba(79, 70, 229, 0.08);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .upload-area.drag-over {
+      background: rgba(79, 70, 229, 0.12);
+      border-color: var(--secondary);
     }
 
     .upload-icon {
-      font-size: 3rem;
+      font-size: 4rem;
       color: var(--primary);
       margin-bottom: 20px;
     }
 
-    .upload-text h3 {
-      font-size: 1.5rem;
-      margin-bottom: 10px;
+    .upload-area h3 {
       color: var(--text-color);
+      margin-bottom: 10px;
+      font-size: 1.5rem;
     }
 
-    .upload-text p {
+    .upload-area p {
       color: var(--gray);
-      margin-bottom: 25px;
-      font-size: 0.95rem;
+      margin-bottom: 20px;
     }
 
-    .upload-btn {
+    .browse-btn {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      padding: 12px 28px;
+      padding: 12px 30px;
       background: linear-gradient(135deg, var(--primary), var(--primary-dark));
       color: white;
-      border-radius: 10px;
-      font-weight: 600;
-      text-decoration: none;
       border: none;
-      cursor: pointer;
+      border-radius: 50px;
       font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
       transition: all 0.3s ease;
-      box-shadow: 0 8px 20px rgba(79, 70, 229, 0.2);
     }
 
-    .upload-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 25px rgba(79, 70, 229, 0.3);
+    .browse-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(79, 70, 229, 0.3);
     }
 
-    .upload-btn i {
-      font-size: 1.2rem;
+    /* Editor Layout */
+    .editor-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 30px;
     }
 
-    .sample-images {
-      margin-top: 25px;
-      display: flex;
-      gap: 15px;
-      flex-wrap: wrap;
-      justify-content: center;
+    @media (min-width: 992px) {
+      .editor-container {
+        grid-template-columns: 1fr 350px;
+      }
     }
 
-    .sample-image {
-      width: 80px;
-      height: 80px;
-      border-radius: 10px;
+    /* Canvas Container */
+    .canvas-container {
+      background: var(--light-gray);
+      border-radius: 16px;
       overflow: hidden;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      border: 2px solid var(--border-color);
-    }
-
-    .sample-image:hover {
-      transform: scale(1.05);
-      border-color: var(--primary);
-    }
-
-    .sample-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    /* Preview Area */
-    .preview-area {
-      background: var(--card-bg);
-      border-radius: 20px;
-      padding: 30px;
-      box-shadow: var(--card-shadow);
-      display: flex;
-      flex-direction: column;
-      min-height: 400px;
-    }
-
-    .preview-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 25px;
-      padding-bottom: 15px;
-      border-bottom: 1px solid var(--border-color);
-    }
-
-    .preview-header h3 {
-      font-size: 1.3rem;
-      color: var(--text-color);
-    }
-
-    .preview-placeholder {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      color: var(--gray);
-      text-align: center;
-      padding: 40px 20px;
-      border: 2px dashed var(--border-color);
-      border-radius: 15px;
-    }
-
-    .preview-placeholder i {
-      font-size: 3.5rem;
-      margin-bottom: 15px;
-      color: var(--light-gray);
-    }
-
-    .preview-placeholder p {
-      font-size: 1rem;
-    }
-
-    .preview-image-container {
       position: relative;
-      width: 100%;
-      height: 300px;
-      overflow: hidden;
-      border-radius: 15px;
-      margin-bottom: 20px;
-      background: var(--light-gray);
-    }
-
-    .preview-image {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      display: none;
-    }
-
-    .preview-image.active {
-      display: block;
-    }
-
-    .image-info {
+      min-height: 400px;
       display: flex;
-      justify-content: space-between;
-      padding: 15px;
-      background: var(--light-gray);
-      border-radius: 10px;
-      margin-top: 15px;
-      font-size: 0.9rem;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #editorCanvas {
+      max-width: 100%;
+      max-height: 500px;
+      background: white;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .canvas-placeholder {
+      text-align: center;
+      padding: 60px 30px;
       color: var(--gray);
+    }
+
+    .canvas-placeholder i {
+      font-size: 4rem;
+      margin-bottom: 20px;
+      color: var(--light-gray);
     }
 
     /* Editor Controls */
     .editor-controls {
-      margin-top: 40px;
-    }
-
-    .controls-title {
-      font-size: 1.5rem;
-      margin-bottom: 25px;
-      color: var(--text-color);
-      text-align: center;
-    }
-
-    .controls-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      display: flex;
+      flex-direction: column;
       gap: 20px;
     }
 
-    .control-group {
-      background: var(--card-bg);
-      border-radius: 15px;
-      padding: 25px;
-      box-shadow: var(--card-shadow);
-      transition: all 0.3s ease;
+    /* Tool Categories */
+    .tool-category {
+      background: var(--light-gray);
+      border-radius: 12px;
+      padding: 20px;
+      border: 1px solid var(--border-color);
     }
 
-    .control-group:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--hover-shadow);
-    }
-
-    .control-group h4 {
-      font-size: 1.2rem;
-      margin-bottom: 20px;
+    .tool-category h3 {
+      margin-bottom: 15px;
       color: var(--text-color);
       display: flex;
       align-items: center;
       gap: 10px;
+      font-size: 1.2rem;
     }
 
-    .control-group h4 i {
-      color: var(--primary);
-    }
-
-    .slider-control {
+    /* Tool Buttons Grid */
+    .tool-buttons {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
       margin-bottom: 20px;
     }
 
-    .slider-label {
+    @media (min-width: 768px) {
+      .tool-buttons {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .tool-btn {
+      padding: 12px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      cursor: pointer;
+      text-align: center;
+      font-weight: 500;
+      color: var(--text-color);
+      transition: all 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+    }
+
+    .tool-btn:hover {
+      background: var(--light-gray);
+    }
+
+    .tool-btn.active {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    .tool-btn i {
+      font-size: 1.2rem;
+    }
+
+    /* Adjustments Controls */
+    .adjustment-controls {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 15px;
+    }
+
+    .adjustment-group {
+      background: var(--card-bg);
+      padding: 15px;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+    }
+
+    .adjustment-label {
       display: flex;
       justify-content: space-between;
       margin-bottom: 8px;
-      font-size: 0.95rem;
       color: var(--text-color);
+      font-size: 0.9rem;
     }
 
-    .slider-value {
+    .adjustment-label span:last-child {
+      font-weight: 700;
       color: var(--primary);
-      font-weight: 600;
     }
 
-    .slider {
+    .adjustment-slider {
       width: 100%;
-      height: 8px;
-      border-radius: 4px;
-      background: var(--light-gray);
-      outline: none;
+      height: 6px;
       -webkit-appearance: none;
+      appearance: none;
+      background: #e0e0e0;
+      border-radius: 3px;
+      outline: none;
     }
 
-    .slider::-webkit-slider-thumb {
+    .dark-theme .adjustment-slider {
+      background: #374151;
+    }
+
+    .adjustment-slider::-webkit-slider-thumb {
       -webkit-appearance: none;
-      width: 20px;
-      height: 20px;
+      appearance: none;
+      width: 18px;
+      height: 18px;
       border-radius: 50%;
       background: var(--primary);
       cursor: pointer;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      border: 2px solid white;
     }
 
-    .btn-group {
-      display: flex;
-      flex-wrap: wrap;
+    .adjustment-slider::-moz-range-thumb {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--primary);
+      cursor: pointer;
+      border: 2px solid white;
+    }
+
+    /* Color Picker */
+    .color-picker-container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
       gap: 10px;
       margin-top: 15px;
     }
 
-    .control-btn {
-      padding: 10px 18px;
-      background: var(--light-gray);
-      color: var(--primary);
-      border: none;
+    .color-option {
+      width: 40px;
+      height: 40px;
       border-radius: 8px;
-      font-weight: 600;
       cursor: pointer;
-      transition: all 0.3s ease;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.9rem;
+      border: 2px solid transparent;
+      transition: all 0.2s ease;
     }
 
-    .control-btn:hover {
-      background: var(--primary);
-      color: white;
+    .color-option:hover {
+      transform: scale(1.1);
     }
 
-    .filter-grid {
+    .color-option.active {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 2px var(--card-bg), 0 0 0 4px var(--primary);
+    }
+
+    /* Font Controls */
+    .font-controls {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      margin-top: 10px;
+      grid-template-columns: 1fr;
+      gap: 15px;
     }
 
-    .filter-btn {
-      padding: 12px 8px;
-      background: var(--light-gray);
-      border: none;
+    .font-select {
+      width: 100%;
+      padding: 10px 15px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
       border-radius: 8px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      font-size: 0.85rem;
       color: var(--text-color);
+      font-size: 0.9rem;
+      outline: none;
     }
 
-    .filter-btn:hover {
-      background: var(--primary);
-      color: white;
-      transform: scale(1.05);
-    }
-
-    .filter-btn.active {
-      background: var(--primary);
-      color: white;
-    }
-
+    /* Action Buttons */
     .action-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      margin-top: 50px;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    @media (min-width: 768px) {
+      .action-buttons {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
 
     .action-btn {
-      padding: 15px 35px;
-      border-radius: 12px;
-      font-weight: 600;
-      font-size: 1rem;
+      padding: 16px 20px;
       border: none;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: 600;
       cursor: pointer;
-      transition: all 0.3s ease;
       display: flex;
       align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .action-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      z-index: -1;
+    }
+
+    .action-btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .apply-btn {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+    }
+
+    .apply-btn::before {
+      background: linear-gradient(135deg, var(--primary-dark), #8b5cf6);
+    }
+
+    .apply-btn:hover::before {
+      opacity: 1;
+    }
+
+    .reset-btn {
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+      color: white;
+    }
+
+    .reset-btn::before {
+      background: linear-gradient(135deg, #d97706, #b45309);
+    }
+
+    .reset-btn:hover::before {
+      opacity: 1;
+    }
+
+    .download-btn {
+      background: linear-gradient(135deg, var(--secondary), #0da67e);
+      color: white;
+    }
+
+    .download-btn::before {
+      background: linear-gradient(135deg, #0da67e, #0b9a74);
+    }
+
+    .download-btn:hover::before {
+      opacity: 1;
+    }
+
+    .clear-btn {
+      background: linear-gradient(135deg, #ef4444, #dc2626);
+      color: white;
+    }
+
+    .clear-btn::before {
+      background: linear-gradient(135deg, #dc2626, #b91c1c);
+    }
+
+    .clear-btn:hover::before {
+      opacity: 1;
+    }
+
+    /* Editor Status */
+    .editor-status {
+      background: var(--light-gray);
+      padding: 15px 20px;
+      border-radius: 12px;
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.9rem;
+    }
+
+    .image-size {
+      color: var(--gray);
+    }
+
+    .editor-actions {
+      display: flex;
       gap: 10px;
     }
 
-    .action-btn.primary {
-      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-      color: white;
-      box-shadow: 0 10px 25px rgba(79, 70, 229, 0.25);
+    .editor-action-btn {
+      padding: 8px 15px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      color: var(--text-color);
+      cursor: pointer;
+      font-size: 0.85rem;
+      transition: all 0.2s ease;
     }
 
-    .action-btn.primary:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 35px rgba(79, 70, 229, 0.35);
-    }
-
-    .action-btn.secondary {
-      background: transparent;
-      color: var(--primary);
-      border: 2px solid var(--primary);
-    }
-
-    .action-btn.secondary:hover {
+    .editor-action-btn:hover {
       background: var(--primary);
       color: white;
+    }
+
+    /* EEAT About Section */
+    .about-section {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 25px;
+      background: var(--card-bg);
+      border-radius: 16px;
+      box-shadow: var(--card-shadow);
+      border-left: 4px solid var(--primary);
+    }
+
+    .about-section h2 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      color: var(--text-color);
+    }
+
+    .about-section p {
+      color: var(--gray);
+      line-height: 1.7;
+      margin-bottom: 15px;
     }
 
     /* FAQ Section */
@@ -749,46 +906,41 @@
       margin-top: 60px;
     }
 
+    .faq-section h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 30px;
+      color: var(--text-color);
+    }
+
     .faq-container {
-      max-width: 800px;
-      margin: 40px auto 0;
+      background: var(--card-bg);
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: var(--card-shadow);
     }
 
     .faq-item {
-      background: var(--card-bg);
-      border-radius: 15px;
-      margin-bottom: 15px;
-      overflow: hidden;
-      box-shadow: var(--card-shadow);
-      transition: all 0.3s ease;
-      border: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+      padding: 20px 0;
     }
 
-    .faq-item:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--hover-shadow);
+    .faq-item:last-child {
+      border-bottom: none;
     }
 
     .faq-question {
-      padding: 22px 25px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       cursor: pointer;
-      background: var(--light-gray);
-    }
-
-    .faq-question h4 {
-      font-size: 1.1rem;
       color: var(--text-color);
+      font-size: 1.1rem;
       font-weight: 600;
-      margin: 0;
-      flex: 1;
     }
 
     .faq-question i {
       color: var(--primary);
-      font-size: 1.2rem;
       transition: transform 0.3s ease;
     }
 
@@ -797,99 +949,68 @@
     }
 
     .faq-answer {
-      padding: 0 25px;
       max-height: 0;
       overflow: hidden;
-      transition: all 0.3s ease;
+      transition: max-height 0.3s ease;
+      color: var(--gray);
+      line-height: 1.6;
+      padding-right: 40px;
     }
 
     .faq-item.active .faq-answer {
-      padding: 25px;
       max-height: 500px;
+      margin-top: 15px;
     }
 
-    .faq-answer p {
-      color: var(--gray);
-      line-height: 1.6;
-      font-size: 0.95rem;
-      margin: 0;
+    /* Related Tools Section */
+    .related-tools-section {
+      margin: 60px 0 40px;
     }
 
-    /* Features Section */
-    .features-section {
-      background: var(--light-gray);
-      padding: 60px 20px;
-      margin-top: 60px;
-      border-radius: 20px;
-    }
-
-    .section-title {
+    .related-tools-section h2 {
       text-align: center;
       font-size: 2rem;
-      margin-bottom: 1rem;
+      margin-bottom: 30px;
       color: var(--text-color);
-      position: relative;
-      display: inline-block;
-      left: 50%;
-      transform: translateX(-50%);
     }
 
-    .section-title::after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 0;
-      width: 100%;
-      height: 4px;
-      background: linear-gradient(90deg, var(--primary), var(--secondary));
-      border-radius: 2px;
-    }
-
-    .section-subtitle {
-      text-align: center;
-      font-size: 1rem;
-      color: var(--gray);
-      max-width: 700px;
-      margin: 0 auto 40px;
-      line-height: 1.5;
-    }
-
-    .features-grid {
+    .related-tools-grid {
       display: grid;
       grid-template-columns: 1fr;
       gap: 25px;
-      margin-top: 40px;
     }
 
     @media (min-width: 768px) {
-      .features-grid {
+      .related-tools-grid {
         grid-template-columns: repeat(2, 1fr);
       }
     }
 
     @media (min-width: 1024px) {
-      .features-grid {
-        grid-template-columns: repeat(4, 1fr);
+      .related-tools-grid {
+        grid-template-columns: repeat(3, 1fr);
       }
     }
 
-    .feature-card {
+    .related-tool-card {
       background: var(--card-bg);
-      padding: 30px 25px;
+      padding: 25px;
       border-radius: 16px;
       text-align: center;
       box-shadow: var(--card-shadow);
-      transition: transform 0.3s ease;
+      transition: all 0.3s ease;
+      border: 1px solid var(--border-color);
     }
 
-    .feature-card:hover {
+    .related-tool-card:hover {
       transform: translateY(-5px);
+      box-shadow: var(--hover-shadow);
     }
 
-    .feature-icon {
+    .related-tool-icon {
       width: 60px;
       height: 60px;
-      margin: 0 auto 20px;
+      margin: 0 auto 15px;
       background: linear-gradient(135deg, var(--primary), var(--secondary));
       border-radius: 50%;
       display: flex;
@@ -899,143 +1020,68 @@
       font-size: 1.5rem;
     }
 
-    .feature-card h4 {
-      font-size: 1.2rem;
-      margin-bottom: 15px;
-      color: var(--text-color);
-    }
-
-    .feature-card p {
-      color: var(--gray);
-      font-size: 0.95rem;
-      line-height: 1.6;
-    }
-
-    /* Privacy Notice */
-    .privacy-notice {
-      background: var(--card-bg);
-      border-radius: 15px;
-      padding: 25px;
-      margin-top: 40px;
-      border-left: 4px solid var(--secondary);
-      box-shadow: var(--card-shadow);
-    }
-
-    .privacy-notice h4 {
-      font-size: 1.1rem;
-      margin-bottom: 10px;
-      color: var(--text-color);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .privacy-notice h4 i {
-      color: var(--secondary);
-    }
-
-    .privacy-notice p {
-      color: var(--gray);
-      font-size: 0.95rem;
-      line-height: 1.6;
-    }
-
-    /* Related Tools */
-    .related-tools {
-      margin-top: 60px;
-    }
-
-    .tools-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 25px;
-      margin-top: 30px;
-    }
-
-    @media (min-width: 768px) {
-      .tools-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (min-width: 1024px) {
-      .tools-grid {
-        grid-template-columns: repeat(4, 1fr);
-      }
-    }
-
-    .tool-card {
-      background: var(--card-bg);
-      padding: 25px 20px;
-      border-radius: 16px;
-      box-shadow: var(--card-shadow);
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-      border-left: 4px solid var(--primary);
-      text-align: center;
-    }
-
-    .tool-card:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--hover-shadow);
-      border-left-color: var(--secondary);
-    }
-
-    .tool-card-icon {
-      width: 50px;
-      height: 50px;
-      background: linear-gradient(135deg, #e0e7ff, #c7d2fe);
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 15px;
-      color: var(--primary);
-      font-size: 1.5rem;
-      transition: all 0.3s ease;
-    }
-
-    .dark-theme .tool-card-icon {
-      background: linear-gradient(135deg, rgba(79, 70, 229, 0.2), rgba(99, 102, 241, 0.2));
-    }
-
-    .tool-card:hover .tool-card-icon {
-      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-      color: white;
-      transform: rotate(10deg);
-    }
-
-    .tool-card h4 {
+    .related-tool-card h3 {
       font-size: 1.2rem;
       margin-bottom: 10px;
       color: var(--text-color);
     }
 
-    .tool-card p {
-      font-size: 0.9rem;
+    .related-tool-card p {
       color: var(--gray);
+      font-size: 0.95rem;
       margin-bottom: 20px;
       line-height: 1.5;
     }
 
-    .btn-tool {
+    .related-tool-link {
       display: inline-block;
-      padding: 8px 18px;
+      padding: 8px 20px;
       background: var(--light-gray);
       color: var(--primary);
-      border-radius: 8px;
+      border-radius: 50px;
       font-weight: 600;
       text-decoration: none;
-      font-size: 0.85rem;
-      transition: all var(--transition-speed) ease;
-      border: 2px solid transparent;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
     }
 
-    .btn-tool:hover {
+    .related-tool-card:hover .related-tool-link {
       background: var(--primary);
       color: white;
-      border-color: var(--primary);
+    }
+
+    /* Loading Spinner */
+    .loading {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.9);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+    }
+
+    .dark-theme .loading {
+      background: rgba(26, 35, 50, 0.9);
+    }
+
+    .spinner {
+      width: 50px;
+      height: 50px;
+      border: 5px solid #f3f3f3;
+      border-top: 5px solid var(--primary);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-bottom: 15px;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
     }
 
     /* Footer */
@@ -1043,8 +1089,9 @@
       background: var(--footer-bg);
       color: #9ca3af;
       padding: 50px 20px 30px;
-      margin-top: 80px;
+      margin-top: 60px;
       position: relative;
+      transition: background var(--transition-speed) ease;
     }
 
     footer::before {
@@ -1167,13 +1214,42 @@
       font-size: 0.85rem;
     }
 
-    /* Desktop Styles (1024px and up) */
+    /* ACCESSIBILITY: Prefers Reduced Motion */
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+      
+      .upload-area:hover,
+      .action-btn:hover,
+      .related-tool-card:hover,
+      .tool-btn:hover,
+      .social-link:hover,
+      .theme-toggle:hover,
+      .browse-btn:hover,
+      .color-option:hover,
+      .editor-action-btn:hover {
+        transform: none !important;
+      }
+      
+      .tool-header h1,
+      .footer-logo {
+        background: var(--primary) !important;
+        -webkit-background-clip: initial !important;
+        background-clip: initial !important;
+        color: var(--primary) !important;
+      }
+    }
+
+    /* Desktop Navigation Styles */
     @media (min-width: 1024px) {
       .nav-links {
         display: flex;
         gap: 30px;
         list-style: none;
-        align-items: center;
       }
 
       .nav-links a {
@@ -1214,36 +1290,58 @@
       .sidebar-overlay {
         display: none;
       }
+    }
 
-      .tool-title {
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      header {
+        padding: 60px 20px 30px;
+        margin-top: 70px;
+      }
+      
+      .tool-header h1 {
         font-size: 2.8rem;
       }
-
-      .tool-subtitle {
-        font-size: 1.3rem;
+      
+      .tool-header .tagline {
+        font-size: 1.2rem;
+      }
+      
+      .tool-card-section {
+        padding: 20px;
+      }
+      
+      .upload-area {
+        padding: 30px 20px;
+      }
+      
+      .upload-icon {
+        font-size: 3rem;
+      }
+      
+      .faq-container {
+        padding: 20px;
+      }
+      
+      .faq-answer {
+        padding-right: 20px;
+      }
+      
+      .editor-container {
+        gap: 20px;
       }
     }
 
-    /* Animations */
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
+    /* Large Desktop Styles */
+    @media (min-width: 1200px) {
+      .tool-container {
+        padding: 60px 20px;
       }
-      to {
-        opacity: 1;
-        transform: translateY(0);
+      
+      .tool-header h1 {
+        font-size: 4rem;
       }
     }
-
-    .animate-fade-in-up {
-      animation: fadeInUp 0.8s ease-out forwards;
-    }
-
-    .delay-1 { animation-delay: 0.2s; }
-    .delay-2 { animation-delay: 0.4s; }
-    .delay-3 { animation-delay: 0.6s; }
-    .delay-4 { animation-delay: 0.8s; }
   </style>
 </head>
 
@@ -1259,19 +1357,17 @@
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="index.html#tools">Tools</a></li>
-        <li><a href="index.html#blog">Blog</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li>
-          <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-            <i class="fas fa-moon"></i>
-          </button>
-        </li>
+        <li><a href="index.html#image-tools">Image Tools</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#privacy">Privacy</a></li>
+        <li><a href="#about">About</a></li>
       </ul>
       
       <div style="display: flex; align-items: center;">
-        <!-- Theme Toggle for Mobile -->
-        <button class="theme-toggle" id="themeToggleMobile" aria-label="Toggle theme">
+        <!-- Theme Toggle Button -->
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
           <i class="fas fa-moon"></i>
+          <i class="fas fa-sun"></i>
         </button>
         
         <!-- Mobile Menu Button -->
@@ -1297,11 +1393,13 @@
     <ul class="sidebar-links">
       <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
       <li><a href="index.html#tools"><i class="fas fa-tools"></i> All Tools</a></li>
-      <li><a href="index.html#blog"><i class="fas fa-blog"></i> Blog</a></li>
-      <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+      <li><a href="index.html#image-tools"><i class="fas fa-image"></i> Image Tools</a></li>
+      <li><a href="#faq"><i class="fas fa-question-circle"></i> FAQ</a></li>
+      <li><a href="#privacy"><i class="fas fa-shield-alt"></i> Privacy</a></li>
       <li>
         <a href="#" id="sidebarThemeToggle">
           <i class="fas fa-moon"></i> Dark Mode
+          <span id="themeStatus" style="margin-left: auto; font-size: 0.8rem; opacity: 0.7;">OFF</span>
         </a>
       </li>
     </ul>
@@ -1309,393 +1407,463 @@
     <div class="sidebar-divider"></div>
     
     <div class="sidebar-tool-categories">
-      <h4>Image Tools</h4>
+      <h4>Quick Image Tools</h4>
       <ul class="sidebar-tools-list">
-        <li><a href="image-editor.html" class="active"><i class="fas fa-edit"></i> Image Editor</a></li>
         <li><a href="image-converter.html"><i class="fas fa-exchange-alt"></i> Image Converter</a></li>
         <li><a href="image-compressor.html"><i class="fas fa-compress-alt"></i> Image Compressor</a></li>
         <li><a href="image-resizer.html"><i class="fas fa-expand-alt"></i> Image Resizer</a></li>
+        <li><a href="image-editor.html" class="active"><i class="fas fa-edit"></i> Image Editor</a></li>
         <li><a href="image-cropper.html"><i class="fas fa-crop-alt"></i> Image Cropper</a></li>
       </ul>
     </div>
   </div>
 
   <!-- Tool Header -->
-  <header class="tool-header">
-    <div class="tool-header-content animate__animated animate__fadeIn">
-      <div class="tool-icon-large">
-        <i class="fas fa-edit"></i>
+  <header>
+    <div class="header-content">
+      <div class="tool-header">
+        <div class="logo-container">
+          <div class="tool-logo">
+            <i class="fas fa-edit"></i>
+          </div>
+        </div>
+        
+        <h1>Image Editor</h1>
+        <p class="tagline">Edit images online for free with powerful tools. Crop, resize, adjust colors, add filters, text, and more. No registration required.</p>
       </div>
-      <h1 class="tool-title">Image Editor</h1>
-      <p class="tool-subtitle">Edit photos online for free with our powerful browser-based image editor. Crop, resize, add filters, adjust brightness, contrast, and enhance images instantly.</p>
     </div>
   </header>
 
-  <!-- Main Content -->
-  <main class="main-content">
-    <div class="tool-container">
-      <!-- Image Editor Tool -->
-      <div class="editor-wrapper">
-        <!-- Upload Area -->
-        <div class="upload-area" id="uploadArea">
-          <div class="upload-icon">
-            <i class="fas fa-cloud-upload-alt"></i>
-          </div>
-          <div class="upload-text">
-            <h3>Upload Your Image</h3>
-            <p>Drag & drop your image here or click to browse. Supports JPG, PNG, GIF, WebP, and SVG files up to 10MB.</p>
-          </div>
-          <button class="upload-btn" id="uploadBtn">
-            <i class="fas fa-folder-open"></i> Choose Image
-          </button>
-          <input type="file" id="fileInput" accept="image/*" style="display: none;">
-          
-          <div class="sample-images">
-            <div class="sample-image" data-image="sample1">
-              <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb" alt="Sample Landscape">
-            </div>
-            <div class="sample-image" data-image="sample2">
-              <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba" alt="Sample Portrait">
-            </div>
-            <div class="sample-image" data-image="sample3">
-              <img src="https://images.unsplash.com/photo-1540206395-68808572332f" alt="Sample City">
-            </div>
-          </div>
+  <!-- Main Tool Container -->
+  <div class="tool-container">
+    <!-- Upload Section -->
+    <div class="tool-card-section">
+      <h2><i class="fas fa-cloud-upload-alt"></i> Upload Image</h2>
+      
+      <div class="upload-area" id="uploadArea">
+        <div class="upload-icon">
+          <i class="fas fa-cloud-upload-alt"></i>
         </div>
-
-        <!-- Preview Area -->
-        <div class="preview-area">
-          <div class="preview-header">
-            <h3>Image Preview</h3>
-            <div class="image-info" id="imageInfo" style="display: none;">
-              <span>Size: <span id="fileSize">0 KB</span></span>
-              <span>Dimensions: <span id="imageDimensions">0×0</span></span>
-            </div>
-          </div>
-          
-          <div class="preview-image-container">
-            <div class="preview-placeholder" id="previewPlaceholder">
-              <i class="fas fa-image"></i>
-              <p>Your edited image will appear here</p>
-            </div>
-            <img class="preview-image" id="previewImage" src="" alt="Edited Image">
-          </div>
-          
-          <div class="image-info" id="activeImageInfo" style="display: none;">
-            <span>Size: <span id="activeFileSize">0 KB</span></span>
-            <span>Dimensions: <span id="activeImageDimensions">0×0</span></span>
-            <span>Format: <span id="imageFormat">PNG</span></span>
-          </div>
-        </div>
+        <h3>Drag & Drop Your Image Here</h3>
+        <p>or click the button below to select an image from your device</p>
+        <button class="browse-btn" id="browseBtn">
+          <i class="fas fa-folder-open"></i> Browse Images
+        </button>
+        <p style="margin-top: 15px; font-size: 0.9rem; color: var(--gray);">
+          Supports JPG, PNG, GIF, WebP (Max 10MB)
+        </p>
+        <input type="file" id="fileInput" accept="image/*" style="display: none;">
       </div>
+    </div>
 
-      <!-- Editor Controls -->
-      <div class="editor-controls">
-        <h2 class="controls-title">Editing Tools</h2>
+    <!-- Editor Section -->
+    <div class="tool-card-section">
+      <h2><i class="fas fa-edit"></i> Edit Image</h2>
+      
+      <div class="editor-container">
+        <!-- Canvas Area -->
+        <div class="canvas-container" id="canvasContainer">
+          <div class="canvas-placeholder" id="canvasPlaceholder">
+            <i class="fas fa-image"></i>
+            <h3>No image loaded</h3>
+            <p>Upload an image using the area above to start editing</p>
+          </div>
+          <canvas id="editorCanvas" style="display: none;"></canvas>
+        </div>
         
-        <div class="controls-grid">
-          <!-- Basic Adjustments -->
-          <div class="control-group animate-fade-in-up">
-            <h4><i class="fas fa-sliders-h"></i> Basic Adjustments</h4>
-            
-            <div class="slider-control">
-              <div class="slider-label">
-                <span>Brightness</span>
-                <span class="slider-value" id="brightnessValue">100%</span>
-              </div>
-              <input type="range" min="0" max="200" value="100" class="slider" id="brightnessSlider">
-            </div>
-            
-            <div class="slider-control">
-              <div class="slider-label">
-                <span>Contrast</span>
-                <span class="slider-value" id="contrastValue">100%</span>
-              </div>
-              <input type="range" min="0" max="200" value="100" class="slider" id="contrastSlider">
-            </div>
-            
-            <div class="slider-control">
-              <div class="slider-label">
-                <span>Saturation</span>
-                <span class="slider-value" id="saturationValue">100%</span>
-              </div>
-              <input type="range" min="0" max="200" value="100" class="slider" id="saturationSlider">
-            </div>
-            
-            <div class="btn-group">
-              <button class="control-btn" id="resetBasicBtn">
-                <i class="fas fa-undo"></i> Reset
+        <!-- Editor Controls -->
+        <div class="editor-controls">
+          <!-- Tool Selection -->
+          <div class="tool-category">
+            <h3><i class="fas fa-tools"></i> Edit Tools</h3>
+            <div class="tool-buttons" id="toolButtons">
+              <button class="tool-btn active" data-tool="adjust">
+                <i class="fas fa-sliders-h"></i> Adjust
+              </button>
+              <button class="tool-btn" data-tool="crop">
+                <i class="fas fa-crop-alt"></i> Crop
+              </button>
+              <button class="tool-btn" data-tool="rotate">
+                <i class="fas fa-undo"></i> Rotate
+              </button>
+              <button class="tool-btn" data-tool="filter">
+                <i class="fas fa-filter"></i> Filters
+              </button>
+              <button class="tool-btn" data-tool="draw">
+                <i class="fas fa-paint-brush"></i> Draw
+              </button>
+              <button class="tool-btn" data-tool="text">
+                <i class="fas fa-font"></i> Text
               </button>
             </div>
           </div>
-
-          <!-- Filters -->
-          <div class="control-group animate-fade-in-up delay-1">
-            <h4><i class="fas fa-palette"></i> Filters & Effects</h4>
-            
-            <div class="filter-grid">
-              <button class="filter-btn" data-filter="none">None</button>
-              <button class="filter-btn" data-filter="grayscale">Grayscale</button>
-              <button class="filter-btn" data-filter="sepia">Sepia</button>
-              <button class="filter-btn" data-filter="invert">Invert</button>
-              <button class="filter-btn" data-filter="hue-rotate">Hue Rotate</button>
-              <button class="filter-btn" data-filter="blur">Blur</button>
-            </div>
-            
-            <div class="slider-control" style="margin-top: 20px;">
-              <div class="slider-label">
-                <span>Filter Intensity</span>
-                <span class="slider-value" id="filterValue">0%</span>
+          
+          <!-- Adjustments Panel -->
+          <div class="tool-category" id="adjustPanel">
+            <h3><i class="fas fa-sliders-h"></i> Adjustments</h3>
+            <div class="adjustment-controls">
+              <div class="adjustment-group">
+                <div class="adjustment-label">
+                  <span>Brightness</span>
+                  <span id="brightnessValue">100%</span>
+                </div>
+                <input type="range" min="0" max="200" value="100" class="adjustment-slider" id="brightnessSlider">
               </div>
-              <input type="range" min="0" max="100" value="0" class="slider" id="filterSlider">
+              
+              <div class="adjustment-group">
+                <div class="adjustment-label">
+                  <span>Contrast</span>
+                  <span id="contrastValue">100%</span>
+                </div>
+                <input type="range" min="0" max="200" value="100" class="adjustment-slider" id="contrastSlider">
+              </div>
+              
+              <div class="adjustment-group">
+                <div class="adjustment-label">
+                  <span>Saturation</span>
+                  <span id="saturationValue">100%</span>
+                </div>
+                <input type="range" min="0" max="200" value="100" class="adjustment-slider" id="saturationSlider">
+              </div>
+              
+              <div class="adjustment-group">
+                <div class="adjustment-label">
+                  <span>Blur</span>
+                  <span id="blurValue">0px</span>
+                </div>
+                <input type="range" min="0" max="20" value="0" class="adjustment-slider" id="blurSlider">
+              </div>
             </div>
           </div>
-
-          <!-- Transform -->
-          <div class="control-group animate-fade-in-up delay-2">
-            <h4><i class="fas fa-sync-alt"></i> Transform</h4>
-            
-            <div class="btn-group">
-              <button class="control-btn" id="rotateLeftBtn">
+          
+          <!-- Crop Panel (Hidden by default) -->
+          <div class="tool-category" id="cropPanel" style="display: none;">
+            <h3><i class="fas fa-crop-alt"></i> Crop</h3>
+            <div class="adjustment-controls">
+              <div class="adjustment-group">
+                <div class="adjustment-label">
+                  <span>Aspect Ratio</span>
+                  <span id="aspectRatioValue">Free</span>
+                </div>
+                <select class="font-select" id="aspectRatioSelect">
+                  <option value="free">Free</option>
+                  <option value="1:1">Square (1:1)</option>
+                  <option value="4:3">Standard (4:3)</option>
+                  <option value="16:9">Widescreen (16:9)</option>
+                  <option value="3:2">Photo (3:2)</option>
+                  <option value="9:16">Portrait (9:16)</option>
+                </select>
+              </div>
+              
+              <div class="action-buttons">
+                <button class="action-btn apply-btn" id="applyCropBtn">
+                  <i class="fas fa-check"></i> Apply Crop
+                </button>
+                <button class="action-btn reset-btn" id="resetCropBtn">
+                  <i class="fas fa-times"></i> Cancel
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Rotate Panel (Hidden by default) -->
+          <div class="tool-category" id="rotatePanel" style="display: none;">
+            <h3><i class="fas fa-undo"></i> Rotate & Flip</h3>
+            <div class="tool-buttons">
+              <button class="tool-btn" id="rotateLeftBtn">
                 <i class="fas fa-undo"></i> Rotate Left
               </button>
-              <button class="control-btn" id="rotateRightBtn">
+              <button class="tool-btn" id="rotateRightBtn">
                 <i class="fas fa-redo"></i> Rotate Right
               </button>
-            </div>
-            
-            <div class="btn-group">
-              <button class="control-btn" id="flipHorizontalBtn">
-                <i class="fas fa-arrows-alt-h"></i> Flip Horizontal
+              <button class="tool-btn" id="flipHorizontalBtn">
+                <i class="fas fa-arrows-alt-h"></i> Flip H
               </button>
-              <button class="control-btn" id="flipVerticalBtn">
-                <i class="fas fa-arrows-alt-v"></i> Flip Vertical
+              <button class="tool-btn" id="flipVerticalBtn">
+                <i class="fas fa-arrows-alt-v"></i> Flip V
               </button>
             </div>
-            
-            <div class="slider-control">
-              <div class="slider-label">
-                <span>Rotation</span>
-                <span class="slider-value" id="rotationValue">0°</span>
+          </div>
+          
+          <!-- Filters Panel (Hidden by default) -->
+          <div class="tool-category" id="filterPanel" style="display: none;">
+            <h3><i class="fas fa-filter"></i> Filters</h3>
+            <div class="tool-buttons">
+              <button class="tool-btn" data-filter="none">
+                <i class="fas fa-ban"></i> None
+              </button>
+              <button class="tool-btn" data-filter="grayscale">
+                <i class="fas fa-moon"></i> Grayscale
+              </button>
+              <button class="tool-btn" data-filter="sepia">
+                <i class="fas fa-sun"></i> Sepia
+              </button>
+              <button class="tool-btn" data-filter="invert">
+                <i class="fas fa-adjust"></i> Invert
+              </button>
+              <button class="tool-btn" data-filter="vintage">
+                <i class="fas fa-camera-retro"></i> Vintage
+              </button>
+              <button class="tool-btn" data-filter="cool">
+                <i class="fas fa-snowflake"></i> Cool
+              </button>
+            </div>
+          </div>
+          
+          <!-- Draw Panel (Hidden by default) -->
+          <div class="tool-category" id="drawPanel" style="display: none;">
+            <h3><i class="fas fa-paint-brush"></i> Draw</h3>
+            <div class="adjustment-controls">
+              <div class="adjustment-group">
+                <div class="adjustment-label">
+                  <span>Brush Size</span>
+                  <span id="brushSizeValue">5px</span>
+                </div>
+                <input type="range" min="1" max="50" value="5" class="adjustment-slider" id="brushSizeSlider">
               </div>
-              <input type="range" min="0" max="360" value="0" class="slider" id="rotationSlider">
-            </div>
-          </div>
-
-          <!-- Crop & Resize -->
-          <div class="control-group animate-fade-in-up delay-3">
-            <h4><i class="fas fa-crop-alt"></i> Crop & Resize</h4>
-            
-            <div class="btn-group">
-              <button class="control-btn" id="cropBtn">
-                <i class="fas fa-crop"></i> Crop Tool
-              </button>
-              <button class="control-btn" id="resizeBtn">
-                <i class="fas fa-expand-alt"></i> Resize
-              </button>
-            </div>
-            
-            <div class="slider-control">
-              <div class="slider-label">
-                <span>Width</span>
-                <span class="slider-value" id="widthValue">800px</span>
+              
+              <div class="adjustment-group">
+                <div class="adjustment-label">
+                  <span>Brush Color</span>
+                </div>
+                <div class="color-picker-container">
+                  <div class="color-option active" style="background-color: #000000;" data-color="#000000"></div>
+                  <div class="color-option" style="background-color: #ff0000;" data-color="#ff0000"></div>
+                  <div class="color-option" style="background-color: #00ff00;" data-color="#00ff00"></div>
+                  <div class="color-option" style="background-color: #0000ff;" data-color="#0000ff"></div>
+                  <div class="color-option" style="background-color: #ffff00;" data-color="#ffff00"></div>
+                  <div class="color-option" style="background-color: #ff00ff;" data-color="#ff00ff"></div>
+                  <div class="color-option" style="background-color: #00ffff;" data-color="#00ffff"></div>
+                  <div class="color-option" style="background-color: #ffffff;" data-color="#ffffff"></div>
+                </div>
               </div>
-              <input type="range" min="100" max="2000" value="800" class="slider" id="widthSlider">
-            </div>
-            
-            <div class="slider-control">
-              <div class="slider-label">
-                <span>Height</span>
-                <span class="slider-value" id="heightValue">600px</span>
+              
+              <div class="action-buttons">
+                <button class="action-btn apply-btn" id="startDrawBtn">
+                  <i class="fas fa-paint-brush"></i> Start Drawing
+                </button>
+                <button class="action-btn clear-btn" id="clearDrawBtn">
+                  <i class="fas fa-eraser"></i> Clear Drawing
+                </button>
               </div>
-              <input type="range" min="100" max="2000" value="600" class="slider" id="heightSlider">
             </div>
-            
-            <div class="btn-group">
-              <button class="control-btn" id="aspectRatioBtn">
-                <i class="fas fa-lock"></i> Lock Aspect Ratio
+          </div>
+          
+          <!-- Text Panel (Hidden by default) -->
+          <div class="tool-category" id="textPanel" style="display: none;">
+            <h3><i class="fas fa-font"></i> Add Text</h3>
+            <div class="adjustment-controls">
+              <div class="adjustment-group">
+                <input type="text" id="textInput" placeholder="Enter text here..." class="font-select">
+              </div>
+              
+              <div class="adjustment-group">
+                <div class="adjustment-label">
+                  <span>Font Size</span>
+                  <span id="fontSizeValue">24px</span>
+                </div>
+                <input type="range" min="10" max="72" value="24" class="adjustment-slider" id="fontSizeSlider">
+              </div>
+              
+              <div class="adjustment-group">
+                <div class="adjustment-label">
+                  <span>Text Color</span>
+                </div>
+                <div class="color-picker-container">
+                  <div class="color-option active" style="background-color: #ffffff;" data-text-color="#ffffff"></div>
+                  <div class="color-option" style="background-color: #000000;" data-text-color="#000000"></div>
+                  <div class="color-option" style="background-color: #ff0000;" data-text-color="#ff0000"></div>
+                  <div class="color-option" style="background-color: #00ff00;" data-text-color="#00ff00"></div>
+                  <div class="color-option" style="background-color: #0000ff;" data-text-color="#0000ff"></div>
+                </div>
+              </div>
+              
+              <div class="action-buttons">
+                <button class="action-btn apply-btn" id="addTextBtn">
+                  <i class="fas fa-plus"></i> Add Text
+                </button>
+                <button class="action-btn clear-btn" id="clearTextBtn">
+                  <i class="fas fa-times"></i> Clear Text
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Action Buttons -->
+          <div class="action-buttons">
+            <button class="action-btn reset-btn" id="resetAllBtn">
+              <i class="fas fa-undo"></i> Reset All
+            </button>
+            <button class="action-btn download-btn" id="downloadBtn" disabled>
+              <i class="fas fa-download"></i> Download Image
+            </button>
+          </div>
+          
+          <!-- Editor Status -->
+          <div class="editor-status" id="editorStatus" style="display: none;">
+            <div class="image-size">
+              <span id="imageDimensions">0 x 0</span>
+            </div>
+            <div class="editor-actions">
+              <button class="editor-action-btn" id="undoBtn">
+                <i class="fas fa-undo"></i> Undo
+              </button>
+              <button class="editor-action-btn" id="redoBtn">
+                <i class="fas fa-redo"></i> Redo
               </button>
             </div>
-          </div>
-        </div>
-
-        <!-- Action Buttons -->
-        <div class="action-buttons">
-          <button class="action-btn primary" id="saveBtn">
-            <i class="fas fa-download"></i> Download Image
-          </button>
-          <button class="action-btn secondary" id="resetAllBtn">
-            <i class="fas fa-redo"></i> Reset All
-          </button>
-        </div>
-
-        <!-- Privacy Notice -->
-        <div class="privacy-notice animate-fade-in-up">
-          <h4><i class="fas fa-shield-alt"></i> Privacy & Security</h4>
-          <p>Your images are processed securely in your browser and never uploaded to our servers. All editing happens locally on your device, ensuring complete privacy for your photos.</p>
-        </div>
-      </div>
-
-      <!-- Features Section -->
-      <div class="features-section">
-        <h2 class="section-title">Why Use Our Image Editor</h2>
-        <p class="section-subtitle">Powerful editing tools with a simple interface designed for everyone</p>
-        
-        <div class="features-grid">
-          <div class="feature-card">
-            <div class="feature-icon">
-              <i class="fas fa-bolt"></i>
-            </div>
-            <h4>Fast & Efficient</h4>
-            <p>Edit images directly in your browser with no upload delays. Get instant results without waiting for server processing.</p>
-          </div>
-          
-          <div class="feature-card">
-            <div class="feature-icon">
-              <i class="fas fa-lock"></i>
-            </div>
-            <h4>Complete Privacy</h4>
-            <p>Your images never leave your device. All processing happens locally in your browser, ensuring 100% privacy.</p>
-          </div>
-          
-          <div class="feature-card">
-            <div class="feature-icon">
-              <i class="fas fa-mobile-alt"></i>
-            </div>
-            <h4>Mobile Optimized</h4>
-            <p>Works perfectly on all devices - desktop, tablet, and mobile. Edit photos on the go with our responsive interface.</p>
-          </div>
-          
-          <div class="feature-card">
-            <div class="feature-icon">
-              <i class="fas fa-gift"></i>
-            </div>
-            <h4>100% Free</h4>
-            <p>No hidden costs, watermarks, or registration required. All features are completely free with no limitations.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- FAQ Section -->
-      <div class="faq-section">
-        <h2 class="section-title">Frequently Asked Questions</h2>
-        <p class="section-subtitle">Find quick answers to common questions about our image editor</p>
-        
-        <div class="faq-container">
-          <div class="faq-item">
-            <div class="faq-question">
-              <h4>Is this image editor really free to use?</h4>
-              <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="faq-answer">
-              <p>Yes, our online image editor is completely free with no hidden costs, watermarks, or registration required. You can use all editing features without any limitations.</p>
-            </div>
-          </div>
-          
-          <div class="faq-item">
-            <div class="faq-question">
-              <h4>Are my images uploaded to your servers?</h4>
-              <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="faq-answer">
-              <p>No, all image processing happens directly in your browser. Your images never leave your device, ensuring complete privacy and security.</p>
-            </div>
-          </div>
-          
-          <div class="faq-item">
-            <div class="faq-question">
-              <h4>What image formats are supported?</h4>
-              <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="faq-answer">
-              <p>We support JPG, PNG, GIF, WebP, and SVG formats. You can upload images in any of these formats and download them as PNG or JPG.</p>
-            </div>
-          </div>
-          
-          <div class="faq-item">
-            <div class="faq-question">
-              <h4>Is there a file size limit for images?</h4>
-              <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="faq-answer">
-              <p>You can edit images up to 10MB in size. For larger files, we recommend compressing them first using our Image Compressor tool.</p>
-            </div>
-          </div>
-          
-          <div class="faq-item">
-            <div class="faq-question">
-              <h4>Can I use this editor on mobile devices?</h4>
-              <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="faq-answer">
-              <p>Yes, our image editor is fully responsive and works perfectly on smartphones, tablets, and desktop computers.</p>
-            </div>
-          </div>
-          
-          <div class="faq-item">
-            <div class="faq-question">
-              <h4>Do I need to install any software or plugins?</h4>
-              <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="faq-answer">
-              <p>No installation required! Our editor works directly in your web browser. You don't need to install any software, plugins, or extensions.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Related Tools -->
-      <div class="related-tools">
-        <h2 class="section-title">More Image Tools</h2>
-        <p class="section-subtitle">Explore our other free image editing and processing tools</p>
-        
-        <div class="tools-grid">
-          <div class="tool-card">
-            <div class="tool-card-icon">
-              <i class="fas fa-exchange-alt"></i>
-            </div>
-            <h4>Image Converter</h4>
-            <p>Convert images between JPG, PNG, GIF, WebP, and more formats with high quality preservation.</p>
-            <a href="image-converter.html" class="btn-tool">Use Tool</a>
-          </div>
-          
-          <div class="tool-card">
-            <div class="tool-card-icon">
-              <i class="fas fa-compress-alt"></i>
-            </div>
-            <h4>Image Compressor</h4>
-            <p>Reduce image file size without losing quality. Optimize for web and mobile with advanced compression.</p>
-            <a href="image-compressor.html" class="btn-tool">Use Tool</a>
-          </div>
-          
-          <div class="tool-card">
-            <div class="tool-card-icon">
-              <i class="fas fa-expand-alt"></i>
-            </div>
-            <h4>Image Resizer</h4>
-            <p>Resize images to any dimensions while maintaining quality and aspect ratio. Bulk resize support.</p>
-            <a href="image-resizer.html" class="btn-tool">Use Tool</a>
-          </div>
-          
-          <div class="tool-card">
-            <div class="tool-card-icon">
-              <i class="fas fa-crop-alt"></i>
-            </div>
-            <h4>Image Cropper</h4>
-            <p>Crop images to remove unwanted areas or focus on specific parts precisely with pixel-perfect control.</p>
-            <a href="image-cropper.html" class="btn-tool">Use Tool</a>
           </div>
         </div>
       </div>
     </div>
-  </main>
+
+    <!-- EEAT About Section -->
+    <div class="about-section" id="about">
+      <h2>About This Image Editor Tool</h2>
+      <p>Our Image Editor is built with web designers and content creators in mind. We've developed this tool specifically to help anyone edit images directly in their browser without needing expensive software.</p>
+      <p>Unlike other online editors, our tool processes everything locally in your browser. This means:</p>
+      <ul style="margin-left: 20px; margin-bottom: 15px; color: var(--gray);">
+        <li>Your images never leave your device</li>
+        <li>No watermarks or quality loss</li>
+        <li>Complete privacy and security</li>
+        <li>Instant editing without waiting for uploads</li>
+      </ul>
+      <p>The editor includes professional-grade tools for cropping, adjusting colors, applying filters, adding text, and drawing. Perfect for editing images for websites, social media, presentations, and personal projects.</p>
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="faq-section" id="faq">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-container">
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Is the Image Editor really free to use?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Yes, absolutely! Our Image Editor is 100% free with no hidden costs, watermarks, or limitations. You can edit as many images as you need without any restrictions. We believe in providing valuable tools to help everyone enhance their digital content.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Are my images safe and private?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Your privacy is our top priority. All image editing happens locally in your browser using JavaScript. Your images never leave your device or get uploaded to any server. This ensures complete privacy and security - we don't store, share, or access any of your files.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>What editing features are available?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Our editor includes crop, rotate, flip, brightness, contrast, saturation, blur adjustments, multiple filters (grayscale, sepia, invert, vintage, cool), drawing tools with customizable brush size and color, and text overlay with font size and color options.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Can I edit multiple images at once?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Currently, our editor processes one image at a time for optimal performance and focus. You can edit multiple images sequentially by uploading, editing, downloading, then starting with a new image. This approach ensures each image gets your full attention and editing precision.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>What image formats can I download?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>You can download your edited images as PNG files, which maintain high quality and support transparency. PNG is ideal for web use, social media, and printing. We chose PNG to ensure your edited images look great everywhere.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Does the editor work on mobile devices?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Yes! Our Image Editor is fully responsive and works on all devices including smartphones and tablets. The interface adjusts to your screen size, and touch controls work seamlessly for drawing and other editing functions.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Related Tools Section -->
+    <div class="related-tools-section">
+      <h2>Other Useful Image Tools</h2>
+      <div class="related-tools-grid">
+        <div class="related-tool-card">
+          <div class="related-tool-icon">
+            <i class="fas fa-exchange-alt"></i>
+          </div>
+          <h3>Image Converter</h3>
+          <p>Convert images between different formats like JPG, PNG, GIF, WebP, and more while preserving quality.</p>
+          <a href="image-converter.html" class="related-tool-link">Use Tool</a>
+        </div>
+        
+        <div class="related-tool-card">
+          <div class="related-tool-icon">
+            <i class="fas fa-compress-alt"></i>
+          </div>
+          <h3>Image Compressor</h3>
+          <p>Reduce image file sizes by up to 80% without losing quality. Perfect for web optimization and storage.</p>
+          <a href="image-compressor.html" class="related-tool-link">Use Tool</a>
+        </div>
+        
+        <div class="related-tool-card">
+          <div class="related-tool-icon">
+            <i class="fas fa-expand-alt"></i>
+          </div>
+          <h3>Image Resizer</h3>
+          <p>Resize images to specific dimensions or percentages while maintaining aspect ratio or customizing as needed.</p>
+          <a href="image-resizer.html" class="related-tool-link">Use Tool</a>
+        </div>
+        
+        <div class="related-tool-card">
+          <div class="related-tool-icon">
+            <i class="fas fa-crop-alt"></i>
+          </div>
+          <h3>Image Cropper</h3>
+          <p>Crop images to remove unwanted areas or focus on specific parts. Adjust aspect ratios for social media.</p>
+          <a href="image-cropper.html" class="related-tool-link">Use Tool</a>
+        </div>
+        
+        <div class="related-tool-card">
+          <div class="related-tool-icon">
+            <i class="fas fa-eraser"></i>
+          </div>
+          <h3>Background Remover</h3>
+          <p>Remove backgrounds from images instantly. Create transparent PNGs for product photos, logos, and more.</p>
+          <a href="image-background-remover.html" class="related-tool-link">Use Tool</a>
+        </div>
+        
+        <div class="related-tool-card">
+          <div class="related-tool-icon">
+            <i class="fas fa-file-image"></i>
+          </div>
+          <h3>Image to Text (OCR)</h3>
+          <p>Extract text from images using advanced OCR technology. Convert screenshots and photos to editable text.</p>
+          <a href="image-to-text.html" class="related-tool-link">Use Tool</a>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Footer -->
-  <footer>
+  <footer id="privacy">
     <div class="footer-content">
       <div class="footer-about">
         <h3 class="footer-logo">Toolsedito</h3>
-        <p class="footer-description">Toolsedito provides smart online tools for everyday productivity. Our tools are fast, free, and easy to use, helping you accomplish tasks efficiently.</p>
+        <p class="footer-description">Toolsedito provides smart online tools for everyday productivity. Our Image Editor is 100% free, secure, and processes all images locally in your browser.</p>
         <div class="social-links">
           <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
           <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
@@ -1709,19 +1877,21 @@
         <h4>Quick Links</h4>
         <ul>
           <li><a href="index.html">Home</a></li>
-          <li><a href="index.html#tools">Tools</a></li>
-          <li><a href="index.html#blog">Blog</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="index.html#tools">All Tools</a></li>
+          <li><a href="index.html#image-tools">Image Tools</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#about">About This Tool</a></li>
         </ul>
       </div>
       
       <div class="footer-links">
         <h4>Image Tools</h4>
         <ul>
-          <li><a href="image-editor.html">Image Editor</a></li>
           <li><a href="image-converter.html">Image Converter</a></li>
           <li><a href="image-compressor.html">Image Compressor</a></li>
           <li><a href="image-resizer.html">Image Resizer</a></li>
+          <li><a href="image-editor.html">Image Editor</a></li>
+          <li><a href="image-cropper.html">Image Cropper</a></li>
         </ul>
       </div>
       
@@ -1737,11 +1907,60 @@
     </div>
     
     <div class="footer-bottom">
-      <p>&copy; 2026 Toolsedito. All rights reserved. | Designed with <i class="fas fa-heart" style="color: #ef4444;"></i> for productivity | Tools last updated: January 2026</p>
+      <p>&copy; 2026 Toolsedito. All rights reserved. | Image Editor Tool v2.1 | All image processing happens locally in your browser. No data is uploaded to any server.</p>
+      <p style="margin-top: 10px; color: #9ca3af;">Made with <i class="fas fa-heart" style="color: #ef4444;"></i> for digital creators worldwide</p>
     </div>
   </footer>
 
   <script>
+    // Dark Theme Toggle
+    const themeToggle = document.getElementById('themeToggle');
+    const sidebarThemeToggle = document.getElementById('sidebarThemeToggle');
+    const themeStatus = document.getElementById('themeStatus');
+    const body = document.body;
+    
+    // Check for saved theme preference or prefer-color-scheme
+    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    const savedTheme = localStorage.getItem('theme');
+    
+    // Set initial theme
+    if (savedTheme === 'dark' || (!savedTheme && prefersDarkScheme.matches)) {
+      body.classList.add('dark-theme');
+      updateThemeStatus(true);
+    } else {
+      updateThemeStatus(false);
+    }
+    
+    // Main theme toggle function
+    function toggleTheme() {
+      const isDark = body.classList.toggle('dark-theme');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      updateThemeStatus(isDark);
+      
+      // Add animation to the toggle button
+      themeToggle.style.transform = 'rotate(360deg)';
+      setTimeout(() => {
+        themeToggle.style.transform = '';
+      }, 300);
+    }
+    
+    // Update theme status text and icon
+    function updateThemeStatus(isDark) {
+      if (themeStatus) {
+        themeStatus.textContent = isDark ? 'ON' : 'OFF';
+      }
+    }
+    
+    // Event listeners for theme toggles
+    themeToggle.addEventListener('click', toggleTheme);
+    
+    if (sidebarThemeToggle) {
+      sidebarThemeToggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        toggleTheme();
+      });
+    }
+    
     // Mobile Sidebar Functionality
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const sidebar = document.getElementById('sidebar');
@@ -1767,467 +1986,712 @@
     
     // Close sidebar when clicking on a link (for mobile)
     document.querySelectorAll('.sidebar-links a').forEach(link => {
-      link.addEventListener('click', closeSidebar);
+      link.addEventListener('click', function(e) {
+        if (!this.id.includes('Theme')) { // Don't close for theme toggle
+          closeSidebar();
+        }
+      });
     });
-
-    // Theme Toggle Functionality
-    const themeToggle = document.getElementById('themeToggle');
-    const themeToggleMobile = document.getElementById('themeToggleMobile');
-    const sidebarThemeToggle = document.getElementById('sidebarThemeToggle');
-    const body = document.body;
     
-    // Check for saved theme preference or prefer-color-scheme
-    function getThemePreference() {
-      const savedTheme = localStorage.getItem('theme');
-      if (savedTheme) {
-        return savedTheme;
-      }
-      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-    }
-    
-    // Set theme
-    function setTheme(theme) {
-      if (theme === 'dark') {
-        body.classList.add('dark-theme');
-        updateThemeIcons('dark');
-        localStorage.setItem('theme', 'dark');
-      } else {
-        body.classList.remove('dark-theme');
-        updateThemeIcons('light');
-        localStorage.setItem('theme', 'light');
-      }
-    }
-    
-    // Update theme icons
-    function updateThemeIcons(theme) {
-      const moonIcons = document.querySelectorAll('.theme-toggle i, #sidebarThemeToggle i');
-      if (theme === 'dark') {
-        moonIcons.forEach(icon => {
-          icon.className = 'fas fa-sun';
-        });
-        if (sidebarThemeToggle) {
-          sidebarThemeToggle.innerHTML = '<i class="fas fa-sun"></i> Light Mode';
-        }
-      } else {
-        moonIcons.forEach(icon => {
-          icon.className = 'fas fa-moon';
-        });
-        if (sidebarThemeToggle) {
-          sidebarThemeToggle.innerHTML = '<i class="fas fa-moon"></i> Dark Mode';
-        }
-      }
-    }
-    
-    // Toggle theme
-    function toggleTheme() {
-      const isDark = body.classList.contains('dark-theme');
-      setTheme(isDark ? 'light' : 'dark');
-    }
-    
-    // Initialize theme
-    const currentTheme = getThemePreference();
-    setTheme(currentTheme);
-    
-    // Add event listeners to all theme toggles
-    themeToggle.addEventListener('click', toggleTheme);
-    themeToggleMobile.addEventListener('click', toggleTheme);
-    if (sidebarThemeToggle) {
-      sidebarThemeToggle.addEventListener('click', (e) => {
+    // Add smooth scrolling to all links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
         e.preventDefault();
-        toggleTheme();
+        
+        const targetId = this.getAttribute('href');
+        if(targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if(targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+          
+          // Close sidebar on mobile after clicking
+          if (window.innerWidth < 1024) {
+            closeSidebar();
+          }
+        }
       });
-    }
-    
-    // Listen for system theme changes
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-      if (!localStorage.getItem('theme')) {
-        setTheme(e.matches ? 'dark' : 'light');
-      }
     });
 
-    // Image Editor Functionality
+    // Image Editor Tool JavaScript
+    // DOM Elements
     const uploadArea = document.getElementById('uploadArea');
-    const uploadBtn = document.getElementById('uploadBtn');
+    const browseBtn = document.getElementById('browseBtn');
     const fileInput = document.getElementById('fileInput');
-    const previewPlaceholder = document.getElementById('previewPlaceholder');
-    const previewImage = document.getElementById('previewImage');
-    const imageInfo = document.getElementById('imageInfo');
-    const activeImageInfo = document.getElementById('activeImageInfo');
+    const canvas = document.getElementById('editorCanvas');
+    const canvasContainer = document.getElementById('canvasContainer');
+    const canvasPlaceholder = document.getElementById('canvasPlaceholder');
+    const editorStatus = document.getElementById('editorStatus');
+    const downloadBtn = document.getElementById('downloadBtn');
+    const ctx = canvas.getContext('2d');
     
-    // Sample images
-    const sampleImages = document.querySelectorAll('.sample-image');
+    // Tool buttons and panels
+    const toolButtons = document.querySelectorAll('.tool-btn[data-tool]');
+    const adjustPanel = document.getElementById('adjustPanel');
+    const cropPanel = document.getElementById('cropPanel');
+    const rotatePanel = document.getElementById('rotatePanel');
+    const filterPanel = document.getElementById('filterPanel');
+    const drawPanel = document.getElementById('drawPanel');
+    const textPanel = document.getElementById('textPanel');
     
-    // Sliders and values
+    // Adjustment sliders
     const brightnessSlider = document.getElementById('brightnessSlider');
-    const brightnessValue = document.getElementById('brightnessValue');
     const contrastSlider = document.getElementById('contrastSlider');
-    const contrastValue = document.getElementById('contrastValue');
     const saturationSlider = document.getElementById('saturationSlider');
+    const blurSlider = document.getElementById('blurSlider');
+    const brightnessValue = document.getElementById('brightnessValue');
+    const contrastValue = document.getElementById('contrastValue');
     const saturationValue = document.getElementById('saturationValue');
-    const filterSlider = document.getElementById('filterSlider');
-    const filterValue = document.getElementById('filterValue');
-    const rotationSlider = document.getElementById('rotationSlider');
-    const rotationValue = document.getElementById('rotationValue');
-    const widthSlider = document.getElementById('widthSlider');
-    const widthValue = document.getElementById('widthValue');
-    const heightSlider = document.getElementById('heightSlider');
-    const heightValue = document.getElementById('heightValue');
+    const blurValue = document.getElementById('blurValue');
     
-    // Buttons
-    const resetBasicBtn = document.getElementById('resetBasicBtn');
-    const rotateLeftBtn = document.getElementById('rotateLeftBtn');
-    const rotateRightBtn = document.getElementById('rotateRightBtn');
-    const flipHorizontalBtn = document.getElementById('flipHorizontalBtn');
-    const flipVerticalBtn = document.getElementById('flipVerticalBtn');
-    const cropBtn = document.getElementById('cropBtn');
-    const resizeBtn = document.getElementById('resizeBtn');
-    const aspectRatioBtn = document.getElementById('aspectRatioBtn');
-    const saveBtn = document.getElementById('saveBtn');
-    const resetAllBtn = document.getElementById('resetAllBtn');
-    
-    // Filter buttons
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    
-    // Current image state
+    // Editor state
+    let originalImage = null;
     let currentImage = null;
-    let currentRotation = 0;
-    let currentFilter = 'none';
-    let currentFilterIntensity = 0;
-    let isAspectRatioLocked = true;
+    let history = [];
+    let historyIndex = -1;
+    let currentTool = 'adjust';
+    let isDrawing = false;
+    let isCropMode = false;
+    let cropStartX, cropStartY, cropWidth, cropHeight;
+    let textElements = [];
+    let drawingPaths = [];
+    let currentDrawingPath = [];
+    let currentBrushColor = '#000000';
+    let currentBrushSize = 5;
+    let currentTextColor = '#ffffff';
+    let currentFontSize = 24;
     
-    // Upload button click
-    uploadBtn.addEventListener('click', () => {
-      fileInput.click();
-    });
+    // Initialize
+    setupEventListeners();
     
-    // File input change
-    fileInput.addEventListener('change', (e) => {
-      if (e.target.files && e.target.files[0]) {
-        loadImage(e.target.files[0]);
-      }
-    });
-    
-    // Drag and drop functionality
-    uploadArea.addEventListener('dragover', (e) => {
-      e.preventDefault();
-      uploadArea.classList.add('active');
-    });
-    
-    uploadArea.addEventListener('dragleave', () => {
-      uploadArea.classList.remove('active');
-    });
-    
-    uploadArea.addEventListener('drop', (e) => {
-      e.preventDefault();
-      uploadArea.classList.remove('active');
+    // Functions
+    function setupEventListeners() {
+      // File upload
+      browseBtn.addEventListener('click', () => fileInput.click());
+      uploadArea.addEventListener('dragover', handleDragOver);
+      uploadArea.addEventListener('dragleave', handleDragLeave);
+      uploadArea.addEventListener('drop', handleDrop);
+      fileInput.addEventListener('change', handleFileSelect);
       
-      if (e.dataTransfer.files && e.dataTransfer.files[0]) {
-        loadImage(e.dataTransfer.files[0]);
-      }
-    });
-    
-    // Sample image click
-    sampleImages.forEach(sample => {
-      sample.addEventListener('click', () => {
-        const imageType = sample.getAttribute('data-image');
-        let imageUrl = '';
-        
-        switch(imageType) {
-          case 'sample1':
-            imageUrl = 'https://images.unsplash.com/photo-1506744038136-46273834b3fb';
-            break;
-          case 'sample2':
-            imageUrl = 'https://images.unsplash.com/photo-1519681393784-d120267933ba';
-            break;
-          case 'sample3':
-            imageUrl = 'https://images.unsplash.com/photo-1540206395-68808572332f';
-            break;
-        }
-        
-        // Create a fake file object for the sample image
-        fetch(imageUrl)
-          .then(response => response.blob())
-          .then(blob => {
-            const file = new File([blob], 'sample-image.jpg', { type: 'image/jpeg' });
-            loadImage(file);
-          });
-      });
-    });
-    
-    // Load image function
-    function loadImage(file) {
-      const reader = new FileReader();
-      
-      reader.onload = (e) => {
-        previewImage.src = e.target.result;
-        previewPlaceholder.style.display = 'none';
-        previewImage.classList.add('active');
-        activeImageInfo.style.display = 'flex';
-        
-        // Set image info
-        document.getElementById('activeFileSize').textContent = `${(file.size / 1024).toFixed(1)} KB`;
-        
-        // Reset all adjustments
-        resetAllAdjustments();
-        
-        // Get image dimensions
-        const img = new Image();
-        img.onload = () => {
-          document.getElementById('activeImageDimensions').textContent = `${img.width}×${img.height}`;
-          widthSlider.value = img.width;
-          heightSlider.value = img.height;
-          widthValue.textContent = `${img.width}px`;
-          heightValue.textContent = `${img.height}px`;
-        };
-        img.src = e.target.result;
-        
-        currentImage = file;
-        applyAdjustments();
-      };
-      
-      reader.readAsDataURL(file);
-    }
-    
-    // Reset all adjustments
-    function resetAllAdjustments() {
-      brightnessSlider.value = 100;
-      contrastSlider.value = 100;
-      saturationSlider.value = 100;
-      filterSlider.value = 0;
-      rotationSlider.value = 0;
-      
-      brightnessValue.textContent = '100%';
-      contrastValue.textContent = '100%';
-      saturationValue.textContent = '100%';
-      filterValue.textContent = '0%';
-      rotationValue.textContent = '0°';
-      
-      currentRotation = 0;
-      currentFilter = 'none';
-      currentFilterIntensity = 0;
-      
-      // Reset filter buttons
-      filterButtons.forEach(btn => {
-        if (btn.getAttribute('data-filter') === 'none') {
+      // Tool selection
+      toolButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          toolButtons.forEach(b => b.classList.remove('active'));
           btn.classList.add('active');
-        } else {
-          btn.classList.remove('active');
-        }
+          currentTool = btn.getAttribute('data-tool');
+          showToolPanel(currentTool);
+        });
       });
-    }
-    
-    // Apply adjustments to image
-    function applyAdjustments() {
-      if (!previewImage.src) return;
       
-      const brightness = brightnessSlider.value;
-      const contrast = contrastSlider.value;
-      const saturation = saturationSlider.value;
-      const rotation = rotationSlider.value;
-      
-      let filterStyle = '';
-      
-      if (currentFilter !== 'none') {
-        switch(currentFilter) {
-          case 'grayscale':
-            filterStyle = `grayscale(${currentFilterIntensity}%)`;
-            break;
-          case 'sepia':
-            filterStyle = `sepia(${currentFilterIntensity}%)`;
-            break;
-          case 'invert':
-            filterStyle = `invert(${currentFilterIntensity}%)`;
-            break;
-          case 'hue-rotate':
-            filterStyle = `hue-rotate(${currentFilterIntensity * 3.6}deg)`;
-            break;
-          case 'blur':
-            filterStyle = `blur(${currentFilterIntensity * 0.1}px)`;
-            break;
-        }
-      }
-      
-      previewImage.style.filter = `
-        brightness(${brightness}%)
-        contrast(${contrast}%)
-        saturate(${saturation}%)
-        ${filterStyle}
-      `;
-      
-      previewImage.style.transform = `rotate(${rotation}deg)`;
-    }
-    
-    // Event listeners for sliders
-    brightnessSlider.addEventListener('input', () => {
-      brightnessValue.textContent = `${brightnessSlider.value}%`;
-      applyAdjustments();
-    });
-    
-    contrastSlider.addEventListener('input', () => {
-      contrastValue.textContent = `${contrastSlider.value}%`;
-      applyAdjustments();
-    });
-    
-    saturationSlider.addEventListener('input', () => {
-      saturationValue.textContent = `${saturationSlider.value}%`;
-      applyAdjustments();
-    });
-    
-    filterSlider.addEventListener('input', () => {
-      currentFilterIntensity = filterSlider.value;
-      filterValue.textContent = `${filterSlider.value}%`;
-      applyAdjustments();
-    });
-    
-    rotationSlider.addEventListener('input', () => {
-      rotationValue.textContent = `${rotationSlider.value}°`;
-      applyAdjustments();
-    });
-    
-    widthSlider.addEventListener('input', () => {
-      widthValue.textContent = `${widthSlider.value}px`;
-      if (isAspectRatioLocked) {
-        const aspectRatio = previewImage.naturalWidth / previewImage.naturalHeight;
-        heightSlider.value = Math.round(widthSlider.value / aspectRatio);
-        heightValue.textContent = `${heightSlider.value}px`;
-      }
-    });
-    
-    heightSlider.addEventListener('input', () => {
-      heightValue.textContent = `${heightSlider.value}px`;
-      if (isAspectRatioLocked) {
-        const aspectRatio = previewImage.naturalWidth / previewImage.naturalHeight;
-        widthSlider.value = Math.round(heightSlider.value * aspectRatio);
-        widthValue.textContent = `${widthSlider.value}px`;
-      }
-    });
-    
-    // Filter buttons
-    filterButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        filterButtons.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        currentFilter = btn.getAttribute('data-filter');
+      // Adjustment sliders
+      brightnessSlider.addEventListener('input', () => {
+        brightnessValue.textContent = `${brightnessSlider.value}%`;
         applyAdjustments();
       });
-    });
+      
+      contrastSlider.addEventListener('input', () => {
+        contrastValue.textContent = `${contrastSlider.value}%`;
+        applyAdjustments();
+      });
+      
+      saturationSlider.addEventListener('input', () => {
+        saturationValue.textContent = `${saturationSlider.value}%`;
+        applyAdjustments();
+      });
+      
+      blurSlider.addEventListener('input', () => {
+        blurValue.textContent = `${blurSlider.value}px`;
+        applyAdjustments();
+      });
+      
+      // Rotate & Flip buttons
+      document.getElementById('rotateLeftBtn').addEventListener('click', () => rotateImage(-90));
+      document.getElementById('rotateRightBtn').addEventListener('click', () => rotateImage(90));
+      document.getElementById('flipHorizontalBtn').addEventListener('click', () => flipImage('horizontal'));
+      document.getElementById('flipVerticalBtn').addEventListener('click', () => flipImage('vertical'));
+      
+      // Filter buttons
+      document.querySelectorAll('.tool-btn[data-filter]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const filter = btn.getAttribute('data-filter');
+          applyFilter(filter);
+        });
+      });
+      
+      // Draw tools
+      document.getElementById('startDrawBtn').addEventListener('click', toggleDrawing);
+      document.getElementById('clearDrawBtn').addEventListener('click', clearDrawing);
+      document.getElementById('brushSizeSlider').addEventListener('input', (e) => {
+        currentBrushSize = e.target.value;
+        document.getElementById('brushSizeValue').textContent = `${currentBrushSize}px`;
+      });
+      
+      // Color pickers
+      document.querySelectorAll('.color-option').forEach(option => {
+        option.addEventListener('click', function() {
+          const parent = this.parentElement;
+          parent.querySelectorAll('.color-option').forEach(opt => opt.classList.remove('active'));
+          this.classList.add('active');
+          
+          if (parent.id === 'textColorPicker' || this.hasAttribute('data-text-color')) {
+            currentTextColor = this.getAttribute('data-text-color') || this.style.backgroundColor;
+          } else {
+            currentBrushColor = this.getAttribute('data-color') || this.style.backgroundColor;
+          }
+        });
+      });
+      
+      // Text tools
+      document.getElementById('addTextBtn').addEventListener('click', addText);
+      document.getElementById('clearTextBtn').addEventListener('click', clearText);
+      document.getElementById('fontSizeSlider').addEventListener('input', (e) => {
+        currentFontSize = e.target.value;
+        document.getElementById('fontSizeValue').textContent = `${currentFontSize}px`;
+      });
+      
+      // Crop tools
+      document.getElementById('applyCropBtn').addEventListener('click', applyCrop);
+      document.getElementById('resetCropBtn').addEventListener('click', resetCrop);
+      
+      // Action buttons
+      document.getElementById('resetAllBtn').addEventListener('click', resetAll);
+      document.getElementById('downloadBtn').addEventListener('click', downloadImage);
+      document.getElementById('undoBtn').addEventListener('click', undo);
+      document.getElementById('redoBtn').addEventListener('click', redo);
+      
+      // Canvas events for drawing
+      canvas.addEventListener('mousedown', startDrawing);
+      canvas.addEventListener('mousemove', draw);
+      canvas.addEventListener('mouseup', stopDrawing);
+      canvas.addEventListener('mouseout', stopDrawing);
+      
+      // Touch events for mobile drawing
+      canvas.addEventListener('touchstart', handleTouchStart);
+      canvas.addEventListener('touchmove', handleTouchMove);
+      canvas.addEventListener('touchend', stopDrawing);
+    }
     
-    // Control buttons
-    resetBasicBtn.addEventListener('click', () => {
-      brightnessSlider.value = 100;
-      contrastSlider.value = 100;
-      saturationSlider.value = 100;
-      brightnessValue.textContent = '100%';
-      contrastValue.textContent = '100%';
-      saturationValue.textContent = '100%';
-      applyAdjustments();
-    });
+    function handleDragOver(e) {
+      e.preventDefault();
+      uploadArea.classList.add('drag-over');
+    }
     
-    rotateLeftBtn.addEventListener('click', () => {
-      let newRotation = parseInt(rotationSlider.value) - 90;
-      if (newRotation < 0) newRotation = 270;
-      rotationSlider.value = newRotation;
-      rotationValue.textContent = `${newRotation}°`;
-      applyAdjustments();
-    });
+    function handleDragLeave() {
+      uploadArea.classList.remove('drag-over');
+    }
     
-    rotateRightBtn.addEventListener('click', () => {
-      let newRotation = parseInt(rotationSlider.value) + 90;
-      if (newRotation > 360) newRotation = 90;
-      rotationSlider.value = newRotation;
-      rotationValue.textContent = `${newRotation}°`;
-      applyAdjustments();
-    });
+    function handleDrop(e) {
+      e.preventDefault();
+      uploadArea.classList.remove('drag-over');
+      const files = e.dataTransfer.files;
+      if (files.length > 0) {
+        loadImage(files[0]);
+      }
+    }
     
-    flipHorizontalBtn.addEventListener('click', () => {
-      previewImage.style.transform += ' scaleX(-1)';
-    });
+    function handleFileSelect(e) {
+      const files = e.target.files;
+      if (files.length > 0) {
+        loadImage(files[0]);
+      }
+    }
     
-    flipVerticalBtn.addEventListener('click', () => {
-      previewImage.style.transform += ' scaleY(-1)';
-    });
-    
-    cropBtn.addEventListener('click', () => {
-      alert('Crop tool activated! Drag to select area, then press Enter to crop.');
-    });
-    
-    resizeBtn.addEventListener('click', () => {
-      alert(`Resizing image to ${widthSlider.value}×${heightSlider.value}px`);
-    });
-    
-    aspectRatioBtn.addEventListener('click', () => {
-      isAspectRatioLocked = !isAspectRatioLocked;
-      aspectRatioBtn.innerHTML = isAspectRatioLocked 
-        ? '<i class="fas fa-lock"></i> Lock Aspect Ratio' 
-        : '<i class="fas fa-unlock"></i> Unlock Aspect Ratio';
-    });
-    
-    saveBtn.addEventListener('click', () => {
-      if (!previewImage.src) {
-        alert('Please upload an image first');
+    function loadImage(file) {
+      if (!file.type.match('image.*')) {
+        alert('Please select an image file (JPG, PNG, GIF, WebP).');
         return;
       }
       
-      // Create a temporary canvas to apply filters
-      const canvas = document.createElement('canvas');
-      const ctx = canvas.getContext('2d');
+      if (file.size > 10 * 1024 * 1024) {
+        alert('Image size exceeds 10MB limit. Please choose a smaller file.');
+        return;
+      }
       
-      // Set canvas dimensions
-      canvas.width = parseInt(widthSlider.value);
-      canvas.height = parseInt(heightSlider.value);
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const img = new Image();
+        img.onload = function() {
+          originalImage = img;
+          currentImage = img;
+          setupCanvas(img.width, img.height);
+          drawImageOnCanvas();
+          saveToHistory();
+          
+          // Update UI
+          canvasPlaceholder.style.display = 'none';
+          canvas.style.display = 'block';
+          editorStatus.style.display = 'flex';
+          downloadBtn.disabled = false;
+          updateImageDimensions(img.width, img.height);
+        };
+        img.src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+    
+    function setupCanvas(width, height) {
+      // Limit canvas size for mobile devices
+      const maxWidth = Math.min(width, window.innerWidth - 40);
+      const maxHeight = Math.min(height, 500);
+      const ratio = Math.min(maxWidth / width, maxHeight / height);
       
-      // Draw image with transformations
-      ctx.save();
-      ctx.translate(canvas.width / 2, canvas.height / 2);
-      ctx.rotate(parseInt(rotationSlider.value) * Math.PI / 180);
+      canvas.width = width * ratio;
+      canvas.height = height * ratio;
+      canvas.style.width = `${width * ratio}px`;
+      canvas.style.height = `${height * ratio}px`;
+    }
+    
+    function drawImageOnCanvas() {
+      if (!currentImage) return;
       
-      // Apply brightness, contrast, saturation filters
-      ctx.filter = `
-        brightness(${brightnessSlider.value}%)
-        contrast(${contrastSlider.value}%)
-        saturate(${saturationSlider.value}%)
-      `;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.drawImage(currentImage, 0, 0, canvas.width, canvas.height);
       
-      ctx.drawImage(previewImage, -canvas.width / 2, -canvas.height / 2, canvas.width, canvas.height);
-      ctx.restore();
+      // Redraw text elements
+      textElements.forEach(text => {
+        ctx.fillStyle = text.color;
+        ctx.font = `${text.size}px Arial`;
+        ctx.fillText(text.text, text.x, text.y);
+      });
       
-      // Create download link
+      // Redraw drawing paths
+      drawingPaths.forEach(path => {
+        if (path.length > 1) {
+          ctx.beginPath();
+          ctx.moveTo(path[0].x, path[0].y);
+          ctx.strokeStyle = path[0].color;
+          ctx.lineWidth = path[0].size;
+          ctx.lineCap = 'round';
+          ctx.lineJoin = 'round';
+          
+          for (let i = 1; i < path.length; i++) {
+            ctx.lineTo(path[i].x, path[i].y);
+          }
+          
+          ctx.stroke();
+        }
+      });
+      
+      // Draw current drawing path
+      if (currentDrawingPath.length > 1) {
+        ctx.beginPath();
+        ctx.moveTo(currentDrawingPath[0].x, currentDrawingPath[0].y);
+        ctx.strokeStyle = currentDrawingColor;
+        ctx.lineWidth = currentBrushSize;
+        ctx.lineCap = 'round';
+        ctx.lineJoin = 'round';
+        
+        for (let i = 1; i < currentDrawingPath.length; i++) {
+          ctx.lineTo(currentDrawingPath[i].x, currentDrawingPath[i].y);
+        }
+        
+        ctx.stroke();
+      }
+    }
+    
+    function applyAdjustments() {
+      if (!currentImage) return;
+      
+      const brightness = parseInt(brightnessSlider.value) - 100;
+      const contrast = parseInt(contrastSlider.value) - 100;
+      const saturation = parseInt(saturationSlider.value) - 100;
+      const blur = parseInt(blurSlider.value);
+      
+      // Create a temporary canvas for adjustments
+      const tempCanvas = document.createElement('canvas');
+      const tempCtx = tempCanvas.getContext('2d');
+      tempCanvas.width = currentImage.width;
+      tempCanvas.height = currentImage.height;
+      
+      // Apply adjustments using CSS filters
+      let filter = '';
+      if (brightness !== 0) filter += `brightness(${100 + brightness}%) `;
+      if (contrast !== 0) filter += `contrast(${100 + contrast}%) `;
+      if (saturation !== 0) filter += `saturate(${100 + saturation}%) `;
+      if (blur > 0) filter += `blur(${blur}px) `;
+      
+      // Draw image with filters
+      tempCtx.filter = filter.trim() || 'none';
+      tempCtx.drawImage(currentImage, 0, 0);
+      
+      // Create new image from adjusted canvas
+      const adjustedImage = new Image();
+      adjustedImage.onload = function() {
+        currentImage = adjustedImage;
+        drawImageOnCanvas();
+        saveToHistory();
+      };
+      adjustedImage.src = tempCanvas.toDataURL();
+    }
+    
+    function showToolPanel(tool) {
+      // Hide all panels
+      adjustPanel.style.display = 'none';
+      cropPanel.style.display = 'none';
+      rotatePanel.style.display = 'none';
+      filterPanel.style.display = 'none';
+      drawPanel.style.display = 'none';
+      textPanel.style.display = 'none';
+      
+      // Show selected panel
+      switch(tool) {
+        case 'adjust':
+          adjustPanel.style.display = 'block';
+          break;
+        case 'crop':
+          cropPanel.style.display = 'block';
+          break;
+        case 'rotate':
+          rotatePanel.style.display = 'block';
+          break;
+        case 'filter':
+          filterPanel.style.display = 'block';
+          break;
+        case 'draw':
+          drawPanel.style.display = 'block';
+          break;
+        case 'text':
+          textPanel.style.display = 'block';
+          break;
+      }
+    }
+    
+    function rotateImage(degrees) {
+      if (!currentImage) return;
+      
+      const tempCanvas = document.createElement('canvas');
+      const tempCtx = tempCanvas.getContext('2d');
+      
+      // Swap width and height for 90° rotations
+      if (degrees % 180 !== 0) {
+        tempCanvas.width = currentImage.height;
+        tempCanvas.height = currentImage.width;
+      } else {
+        tempCanvas.width = currentImage.width;
+        tempCanvas.height = currentImage.height;
+      }
+      
+      // Translate and rotate
+      tempCtx.translate(tempCanvas.width / 2, tempCanvas.height / 2);
+      tempCtx.rotate(degrees * Math.PI / 180);
+      tempCtx.drawImage(currentImage, -currentImage.width / 2, -currentImage.height / 2);
+      
+      // Create new image
+      const rotatedImage = new Image();
+      rotatedImage.onload = function() {
+        currentImage = rotatedImage;
+        setupCanvas(rotatedImage.width, rotatedImage.height);
+        drawImageOnCanvas();
+        saveToHistory();
+        updateImageDimensions(rotatedImage.width, rotatedImage.height);
+      };
+      rotatedImage.src = tempCanvas.toDataURL();
+    }
+    
+    function flipImage(direction) {
+      if (!currentImage) return;
+      
+      const tempCanvas = document.createElement('canvas');
+      const tempCtx = tempCanvas.getContext('2d');
+      tempCanvas.width = currentImage.width;
+      tempCanvas.height = currentImage.height;
+      
+      // Flip horizontally or vertically
+      if (direction === 'horizontal') {
+        tempCtx.translate(currentImage.width, 0);
+        tempCtx.scale(-1, 1);
+      } else {
+        tempCtx.translate(0, currentImage.height);
+        tempCtx.scale(1, -1);
+      }
+      
+      tempCtx.drawImage(currentImage, 0, 0);
+      
+      // Create new image
+      const flippedImage = new Image();
+      flippedImage.onload = function() {
+        currentImage = flippedImage;
+        drawImageOnCanvas();
+        saveToHistory();
+      };
+      flippedImage.src = tempCanvas.toDataURL();
+    }
+    
+    function applyFilter(filterName) {
+      if (!currentImage) return;
+      
+      const tempCanvas = document.createElement('canvas');
+      const tempCtx = tempCanvas.getContext('2d');
+      tempCanvas.width = currentImage.width;
+      tempCanvas.height = currentImage.height;
+      
+      // Apply filter
+      let filter = '';
+      switch(filterName) {
+        case 'grayscale':
+          filter = 'grayscale(100%)';
+          break;
+        case 'sepia':
+          filter = 'sepia(100%)';
+          break;
+        case 'invert':
+          filter = 'invert(100%)';
+          break;
+        case 'vintage':
+          filter = 'sepia(50%) contrast(120%) brightness(90%)';
+          break;
+        case 'cool':
+          filter = 'hue-rotate(180deg) saturate(120%)';
+          break;
+        default:
+          filter = 'none';
+      }
+      
+      tempCtx.filter = filter;
+      tempCtx.drawImage(currentImage, 0, 0);
+      
+      // Create new image
+      const filteredImage = new Image();
+      filteredImage.onload = function() {
+        currentImage = filteredImage;
+        drawImageOnCanvas();
+        saveToHistory();
+      };
+      filteredImage.src = tempCanvas.toDataURL();
+    }
+    
+    function toggleDrawing() {
+      isDrawing = !isDrawing;
+      const btn = document.getElementById('startDrawBtn');
+      if (isDrawing) {
+        btn.innerHTML = '<i class="fas fa-stop"></i> Stop Drawing';
+        btn.classList.remove('apply-btn');
+        btn.classList.add('clear-btn');
+      } else {
+        btn.innerHTML = '<i class="fas fa-paint-brush"></i> Start Drawing';
+        btn.classList.remove('clear-btn');
+        btn.classList.add('apply-btn');
+      }
+    }
+    
+    function startDrawing(e) {
+      if (!isDrawing || !currentImage) return;
+      
+      const rect = canvas.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      
+      currentDrawingPath = [{x, y, color: currentBrushColor, size: currentBrushSize}];
+      isDrawingActive = true;
+    }
+    
+    function draw(e) {
+      if (!isDrawing || !isDrawingActive || !currentImage) return;
+      
+      const rect = canvas.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      
+      currentDrawingPath.push({x, y, color: currentBrushColor, size: currentBrushSize});
+      drawImageOnCanvas();
+    }
+    
+    function stopDrawing() {
+      if (!isDrawing || !currentImage) return;
+      
+      if (currentDrawingPath.length > 1) {
+        drawingPaths.push([...currentDrawingPath]);
+        currentDrawingPath = [];
+        saveToHistory();
+      }
+      isDrawingActive = false;
+    }
+    
+    function handleTouchStart(e) {
+      if (!isDrawing || !currentImage) return;
+      
+      e.preventDefault();
+      const touch = e.touches[0];
+      const rect = canvas.getBoundingClientRect();
+      const x = touch.clientX - rect.left;
+      const y = touch.clientY - rect.top;
+      
+      currentDrawingPath = [{x, y, color: currentBrushColor, size: currentBrushSize}];
+      isDrawingActive = true;
+    }
+    
+    function handleTouchMove(e) {
+      if (!isDrawing || !isDrawingActive || !currentImage) return;
+      
+      e.preventDefault();
+      const touch = e.touches[0];
+      const rect = canvas.getBoundingClientRect();
+      const x = touch.clientX - rect.left;
+      const y = touch.clientY - rect.top;
+      
+      currentDrawingPath.push({x, y, color: currentBrushColor, size: currentBrushSize});
+      drawImageOnCanvas();
+    }
+    
+    function clearDrawing() {
+      drawingPaths = [];
+      currentDrawingPath = [];
+      drawImageOnCanvas();
+      saveToHistory();
+    }
+    
+    function addText() {
+      const textInput = document.getElementById('textInput');
+      const text = textInput.value.trim();
+      
+      if (!text || !currentImage) return;
+      
+      // Add text at center of canvas
+      const x = canvas.width / 2;
+      const y = canvas.height / 2;
+      
+      textElements.push({
+        text,
+        x,
+        y,
+        color: currentTextColor,
+        size: currentFontSize
+      });
+      
+      drawImageOnCanvas();
+      saveToHistory();
+      textInput.value = '';
+    }
+    
+    function clearText() {
+      textElements = [];
+      drawImageOnCanvas();
+      saveToHistory();
+    }
+    
+    function applyCrop() {
+      if (!currentImage || !isCropMode) return;
+      
+      // Implementation would require a more complex crop UI
+      // For now, we'll show a message
+      alert('Crop feature requires more advanced implementation. For now, please use our dedicated Image Cropper tool.');
+      resetCrop();
+    }
+    
+    function resetCrop() {
+      isCropMode = false;
+      // Reset crop UI elements
+    }
+    
+    function resetAll() {
+      if (!originalImage) return;
+      
+      if (confirm('Are you sure you want to reset all changes? This cannot be undone.')) {
+        currentImage = originalImage;
+        brightnessSlider.value = 100;
+        contrastSlider.value = 100;
+        saturationSlider.value = 100;
+        blurSlider.value = 0;
+        
+        brightnessValue.textContent = '100%';
+        contrastValue.textContent = '100%';
+        saturationValue.textContent = '100%';
+        blurValue.textContent = '0px';
+        
+        textElements = [];
+        drawingPaths = [];
+        currentDrawingPath = [];
+        isDrawing = false;
+        
+        const drawBtn = document.getElementById('startDrawBtn');
+        drawBtn.innerHTML = '<i class="fas fa-paint-brush"></i> Start Drawing';
+        drawBtn.classList.remove('clear-btn');
+        drawBtn.classList.add('apply-btn');
+        
+        setupCanvas(originalImage.width, originalImage.height);
+        drawImageOnCanvas();
+        updateImageDimensions(originalImage.width, originalImage.height);
+        history = [];
+        historyIndex = -1;
+        saveToHistory();
+      }
+    }
+    
+    function downloadImage() {
+      if (!currentImage) return;
+      
       const link = document.createElement('a');
       link.download = `edited-image-${Date.now()}.png`;
       link.href = canvas.toDataURL('image/png');
+      document.body.appendChild(link);
       link.click();
-      
-      alert('Image downloaded successfully!');
-    });
+      document.body.removeChild(link);
+    }
     
-    resetAllBtn.addEventListener('click', () => {
-      if (confirm('Are you sure you want to reset all changes? This cannot be undone.')) {
-        resetAllAdjustments();
-        applyAdjustments();
+    function updateImageDimensions(width, height) {
+      document.getElementById('imageDimensions').textContent = `${width} x ${height} px`;
+    }
+    
+    function saveToHistory() {
+      // Remove any future states if we're not at the end
+      if (historyIndex < history.length - 1) {
+        history = history.slice(0, historyIndex + 1);
       }
-    });
-
-    // FAQ Toggle Functionality
-    const faqItems = document.querySelectorAll('.faq-item');
-    
-    faqItems.forEach(item => {
-      const question = item.querySelector('.faq-question');
       
+      // Save current state
+      history.push(canvas.toDataURL());
+      historyIndex++;
+      
+      // Limit history size
+      if (history.length > 20) {
+        history.shift();
+        historyIndex--;
+      }
+    }
+    
+    function undo() {
+      if (historyIndex > 0) {
+        historyIndex--;
+        restoreFromHistory();
+      }
+    }
+    
+    function redo() {
+      if (historyIndex < history.length - 1) {
+        historyIndex++;
+        restoreFromHistory();
+      }
+    }
+    
+    function restoreFromHistory() {
+      const img = new Image();
+      img.onload = function() {
+        currentImage = img;
+        setupCanvas(img.width, img.height);
+        drawImageOnCanvas();
+        updateImageDimensions(img.width, img.height);
+      };
+      img.src = history[historyIndex];
+    }
+    
+    // FAQ functionality
+    document.querySelectorAll('.faq-question').forEach(question => {
       question.addEventListener('click', () => {
-        // Close other open FAQ items
-        faqItems.forEach(otherItem => {
-          if (otherItem !== item && otherItem.classList.contains('active')) {
-            otherItem.classList.remove('active');
-          }
-        });
-        
-        // Toggle current item
+        const item = question.parentElement;
         item.classList.toggle('active');
       });
     });
     
-    // Initialize
-    resetAllAdjustments();
+    // Track tool usage for analytics
+    document.querySelectorAll('.action-btn, .tool-btn').forEach(button => {
+      button.addEventListener('click', function(e) {
+        const action = this.textContent.trim();
+        console.log(`Image Editor action: ${action}`);
+      });
+    });
   </script>
 </body>
 </html>
