@@ -3,17 +3,48 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Text Formatter Tool - Format & Beautify Text Online | Toolsedito</title>
+  <title>Text Formatter Tool - Format, Beautify & Clean Text Online | Toolsedito</title>
   
-  <meta name="description" content="Free online Text Formatter tool to format, beautify and clean up text. Remove extra spaces, line breaks, format case, and optimize text for better readability." />
-  <meta name="keywords" content="text formatter, text beautifier, remove extra spaces, text cleaner, case converter, text formatting tool" />
+  <!-- SEO Meta -->
+  <meta name="description" content="Free online text formatter tool. Clean, format, and beautify text instantly. Remove extra spaces, line breaks, format case, and more. No registration required." />
+  <meta name="keywords" content="text formatter, text cleaner, format text online, remove extra spaces, text beautifier, case converter, text tools" />
   <meta name="author" content="Toolsedito Team" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.toolsedito.com/text-formatter.html" />
   
+  <!-- Open Graph -->
+  <meta property="og:title" content="Text Formatter Tool - Free Online Text Formatting">
+  <meta property="og:description" content="Clean and format text instantly with our free online text formatter. Remove extra spaces, fix line breaks, convert case, and beautify text.">
+  <meta property="og:url" content="https://www.toolsedito.com/text-formatter.html">
+  <meta property="og:type" content="website">
+  
+  <!-- JSON-LD Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Text Formatter Tool",
+    "description": "Online tool to format, clean, and beautify text by removing extra spaces, fixing line breaks, converting case, and more.",
+    "url": "https://www.toolsedito.com/text-formatter.html",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "Toolsedito"
+    }
+  }
+  </script>
+
   <!-- Fonts & Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
   <style>
+    /* Reset and Base Styles - Mobile First */
     * {
       margin: 0;
       padding: 0;
@@ -39,7 +70,6 @@
       --transition-speed: 0.3s;
     }
 
-    /* Dark Theme Variables */
     .dark-theme {
       --light: #121826;
       --dark: #f3f4f6;
@@ -62,6 +92,9 @@
       overflow-x: hidden;
       transition: background-color var(--transition-speed) ease,
                   color var(--transition-speed) ease;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
     h1, h2, h3, h4 {
@@ -96,17 +129,17 @@
     }
 
     .nav-logo {
-      font-size: 1.8rem;
+      font-size: 1.5rem;
       font-weight: 800;
       color: var(--primary);
       text-decoration: none;
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
     }
 
     .nav-logo i {
-      font-size: 1.6rem;
+      font-size: 1.4rem;
       background: linear-gradient(135deg, var(--primary), var(--secondary));
       -webkit-background-clip: text;
       background-clip: text;
@@ -115,7 +148,6 @@
 
     /* Mobile Menu Button */
     .mobile-menu-btn {
-      display: block;
       background: none;
       border: none;
       font-size: 1.5rem;
@@ -125,334 +157,511 @@
       transition: color var(--transition-speed) ease;
     }
 
-    /* Desktop Navigation - Hidden on Mobile */
-    .nav-links {
-      display: none;
+    .mobile-menu-btn i {
+      display: block;
+    }
+
+    /* Sidebar */
+    .sidebar-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .sidebar-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 0;
+      right: -300px;
+      width: 280px;
+      height: 100vh;
+      background: var(--card-bg);
+      box-shadow: -5px 0 25px rgba(0, 0, 0, 0.1);
+      z-index: 1001;
+      transition: right 0.3s ease-in-out;
+      padding: 80px 25px 30px;
+      overflow-y: auto;
+    }
+
+    .dark-theme .sidebar {
+      box-shadow: -5px 0 25px rgba(0, 0, 0, 0.3);
+    }
+
+    .sidebar.active {
+      right: 0;
+    }
+
+    .sidebar-header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px;
+      background: var(--primary);
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .sidebar-header .nav-logo {
+      color: white;
+      font-size: 1.3rem;
+    }
+
+    .sidebar-close {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .sidebar-links {
+      list-style: none;
+      margin-top: 20px;
+    }
+
+    .sidebar-links li {
+      margin-bottom: 15px;
+    }
+
+    .sidebar-links a {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--text-color);
+      text-decoration: none;
+      font-weight: 500;
+      padding: 12px 15px;
+      border-radius: 8px;
+      transition: all var(--transition-speed) ease;
+    }
+
+    .sidebar-links a:hover {
+      background: var(--light-gray);
+      color: var(--primary);
+      transform: translateX(5px);
+    }
+
+    .sidebar-links a.active {
+      background: var(--primary);
+      color: white;
+    }
+
+    .sidebar-divider {
+      height: 1px;
+      background: var(--border-color);
+      margin: 20px 0;
+    }
+
+    .sidebar-tool-categories {
+      margin-top: 20px;
+    }
+
+    .sidebar-tool-categories h4 {
+      font-size: 0.9rem;
+      color: var(--gray);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 15px;
+    }
+
+    .sidebar-tools-list {
+      list-style: none;
+      margin-bottom: 20px;
+    }
+
+    .sidebar-tools-list li {
+      margin-bottom: 10px;
+    }
+
+    .sidebar-tools-list a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--gray);
+      text-decoration: none;
+      font-size: 0.9rem;
+      padding: 8px 10px;
+      border-radius: 6px;
+      transition: all var(--transition-speed) ease;
+    }
+
+    .sidebar-tools-list a:hover {
+      color: var(--primary);
+      background: var(--light-gray);
+    }
+
+    /* Main Content */
+    .main-content {
+      flex: 1;
+      padding-top: 80px;
+      padding-bottom: 60px;
+      max-width: 1400px;
+      margin: 0 auto;
+      width: 100%;
+      padding-left: 20px;
+      padding-right: 20px;
     }
 
     /* Tool Header */
     .tool-header {
-      background: linear-gradient(135deg, #e6f7ff 0%, #f0f9ff 100%);
-      color: #1f2933;
-      padding: 100px 20px 50px;
       text-align: center;
-      position: relative;
-      overflow: hidden;
-      margin-top: 75px;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      margin-bottom: 30px;
+      padding-top: 20px;
     }
 
-    .dark-theme .tool-header {
-      background: linear-gradient(135deg, #0a1929 0%, #112240 100%);
-      color: #f3f4f6;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    .tool-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border-radius: 50%;
+      margin-bottom: 20px;
+      color: white;
+      font-size: 1.8rem;
+      box-shadow: 0 10px 25px rgba(79, 70, 229, 0.25);
     }
 
     .tool-title {
-      font-size: 2.5rem;
+      font-size: 2.2rem;
       margin-bottom: 15px;
-      color: var(--text-color);
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
     }
 
-    .tool-subtitle {
+    .tool-description {
       font-size: 1.1rem;
       color: var(--gray);
       max-width: 700px;
-      margin: 0 auto 20px;
+      margin: 0 auto;
       line-height: 1.6;
     }
 
-    .tool-breadcrumb {
-      font-size: 0.9rem;
-      color: var(--gray);
-      margin-top: 10px;
-    }
-
-    .tool-breadcrumb a {
-      color: var(--primary);
-      text-decoration: none;
-    }
-
-    /* Main Tool Container */
+    /* Tool Container */
     .tool-container {
-      max-width: 1200px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
-
-    /* Tool Grid */
-    .tool-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 30px;
+      gap: 25px;
+      margin-bottom: 40px;
     }
 
-    @media (min-width: 1024px) {
-      .tool-grid {
+    @media (min-width: 768px) {
+      .tool-container {
         grid-template-columns: 1fr 1fr;
       }
     }
 
-    /* Tool Card */
-    .tool-card {
+    /* Input/Output Areas */
+    .input-section, .output-section {
       background: var(--card-bg);
       border-radius: 16px;
+      padding: 25px;
       box-shadow: var(--card-shadow);
-      transition: all 0.3s ease;
-      overflow: hidden;
       border: 1px solid var(--border-color);
+      display: flex;
+      flex-direction: column;
+      height: 500px;
     }
 
-    .tool-card-header {
-      padding: 25px 25px 20px;
-      border-bottom: 1px solid var(--border-color);
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 2px solid var(--light-gray);
     }
 
-    .tool-card-header h3 {
+    .section-title {
+      font-size: 1.3rem;
+      color: var(--text-color);
       display: flex;
       align-items: center;
-      gap: 12px;
-      font-size: 1.3rem;
-      margin-bottom: 8px;
+      gap: 10px;
     }
 
-    .tool-card-header p {
+    .section-title i {
+      color: var(--primary);
+    }
+
+    .text-counter {
+      font-size: 0.85rem;
       color: var(--gray);
-      font-size: 0.95rem;
-    }
-
-    .tool-card-body {
-      padding: 25px;
-    }
-
-    /* Text Areas */
-    .textarea-container {
-      position: relative;
-      margin-bottom: 20px;
-    }
-
-    .textarea-label {
-      display: block;
-      font-weight: 600;
-      margin-bottom: 10px;
-      color: var(--text-color);
-      font-size: 0.95rem;
-    }
-
-    textarea {
-      width: 100%;
-      min-height: 200px;
-      padding: 15px;
-      border: 2px solid var(--border-color);
-      border-radius: 10px;
       background: var(--light-gray);
-      color: var(--text-color);
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+
+    .text-area-container {
+      flex: 1;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .text-area {
+      flex: 1;
+      width: 100%;
+      min-height: 300px;
+      padding: 20px;
+      background: var(--light-gray);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
       font-family: 'Inter', sans-serif;
       font-size: 1rem;
-      line-height: 1.5;
-      resize: vertical;
+      line-height: 1.6;
+      color: var(--text-color);
+      resize: none;
       transition: all var(--transition-speed) ease;
     }
 
-    textarea:focus {
+    .text-area:focus {
       outline: none;
       border-color: var(--primary);
       box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
     }
 
-    .char-count {
-      position: absolute;
-      bottom: 10px;
-      right: 15px;
-      font-size: 0.8rem;
+    .text-area::placeholder {
       color: var(--gray);
-      background: var(--light-gray);
-      padding: 2px 8px;
-      border-radius: 10px;
     }
 
-    /* Format Options */
-    .format-options {
-      margin: 30px 0;
+    /* Formatting Options */
+    .formatting-options {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 25px;
+      box-shadow: var(--card-shadow);
+      border: 1px solid var(--border-color);
+      margin-bottom: 40px;
     }
 
-    .format-options h4 {
-      font-size: 1.1rem;
+    .options-title {
+      font-size: 1.3rem;
       margin-bottom: 20px;
       color: var(--text-color);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .options-title i {
+      color: var(--primary);
     }
 
     .options-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
       gap: 15px;
+      margin-bottom: 25px;
     }
 
-    .option-item {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 12px 15px;
+    .option-btn {
       background: var(--light-gray);
-      border-radius: 8px;
-      cursor: pointer;
-      transition: all var(--transition-speed) ease;
-      user-select: none;
-    }
-
-    .option-item:hover {
-      background: var(--primary);
-      color: white;
-    }
-
-    .option-item:hover .option-icon {
-      color: white;
-    }
-
-    .option-item.active {
-      background: var(--primary);
-      color: white;
-    }
-
-    .option-item.active .option-icon {
-      color: white;
-    }
-
-    .option-icon {
-      font-size: 1.2rem;
-      color: var(--primary);
-      transition: color var(--transition-speed) ease;
-      width: 24px;
-      text-align: center;
-    }
-
-    .option-label {
+      border: 2px solid var(--border-color);
+      border-radius: 10px;
+      padding: 15px;
+      font-family: 'Inter', sans-serif;
       font-size: 0.95rem;
       font-weight: 500;
-    }
-
-    /* Buttons */
-    .action-buttons {
-      display: flex;
-      gap: 15px;
-      margin-top: 30px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      padding: 14px 28px;
-      border: none;
-      border-radius: 10px;
-      font-weight: 600;
-      font-size: 1rem;
+      color: var(--text-color);
       cursor: pointer;
       transition: all var(--transition-speed) ease;
-      display: inline-flex;
+      display: flex;
       align-items: center;
       justify-content: center;
       gap: 10px;
-      text-decoration: none;
+      text-align: center;
+    }
+
+    .option-btn:hover {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(79, 70, 229, 0.2);
+    }
+
+    .option-btn.active {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    .option-btn i {
+      font-size: 1.1rem;
+    }
+
+    .action-buttons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary, .btn-secondary {
+      padding: 14px 28px;
+      border-radius: 10px;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all var(--transition-speed) ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border: none;
+      flex: 1;
+      min-width: 150px;
     }
 
     .btn-primary {
-      background: var(--primary);
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
       color: white;
-      flex: 1;
-      min-width: 180px;
+      box-shadow: 0 5px 15px rgba(79, 70, 229, 0.25);
     }
 
     .btn-primary:hover {
-      background: var(--primary-dark);
-      transform: translateY(-2px);
-      box-shadow: 0 10px 25px rgba(79, 70, 229, 0.25);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(79, 70, 229, 0.35);
     }
 
     .btn-secondary {
       background: var(--light-gray);
       color: var(--text-color);
-      flex: 1;
-      min-width: 180px;
+      border: 2px solid var(--border-color);
     }
 
     .btn-secondary:hover {
-      background: var(--gray);
+      background: var(--primary);
       color: white;
-      transform: translateY(-2px);
+      border-color: var(--primary);
+      transform: translateY(-3px);
     }
 
-    .btn-small {
-      padding: 8px 16px;
-      font-size: 0.9rem;
-      min-width: auto;
+    .btn-copy {
+      margin-top: 15px;
+      width: 100%;
+      padding: 12px;
+      background: var(--secondary);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all var(--transition-speed) ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
     }
 
-    /* Tool Info Section */
-    .tool-info {
-      margin-top: 60px;
+    .btn-copy:hover {
+      background: #0da271;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(16, 185, 129, 0.25);
     }
 
-    .info-grid {
+    .btn-copy.copied {
+      background: #10b981;
+    }
+
+    /* Features Section */
+    .features-section {
+      background: var(--light-gray);
+      border-radius: 16px;
+      padding: 30px;
+      margin-bottom: 40px;
+    }
+
+    .features-title {
+      text-align: center;
+      font-size: 1.8rem;
+      margin-bottom: 30px;
+      color: var(--text-color);
+    }
+
+    .features-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 30px;
-      margin-top: 30px;
+      gap: 20px;
     }
 
     @media (min-width: 768px) {
-      .info-grid {
+      .features-grid {
         grid-template-columns: repeat(2, 1fr);
       }
     }
 
     @media (min-width: 1024px) {
-      .info-grid {
-        grid-template-columns: repeat(3, 1fr);
+      .features-grid {
+        grid-template-columns: repeat(4, 1fr);
       }
     }
 
-    .info-card {
+    .feature-card {
       background: var(--card-bg);
-      padding: 30px 25px;
-      border-radius: 16px;
+      padding: 25px;
+      border-radius: 12px;
+      text-align: center;
       box-shadow: var(--card-shadow);
       transition: transform 0.3s ease;
     }
 
-    .info-card:hover {
+    .feature-card:hover {
       transform: translateY(-5px);
     }
 
-    .info-icon {
-      width: 60px;
-      height: 60px;
-      margin-bottom: 20px;
+    .feature-icon {
+      width: 50px;
+      height: 50px;
+      margin: 0 auto 15px;
       background: linear-gradient(135deg, var(--primary), var(--secondary));
-      border-radius: 12px;
+      border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       color: white;
-      font-size: 1.5rem;
+      font-size: 1.3rem;
     }
 
-    .info-card h4 {
-      font-size: 1.2rem;
-      margin-bottom: 15px;
+    .feature-card h4 {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
       color: var(--text-color);
     }
 
-    .info-card p {
+    .feature-card p {
+      font-size: 0.9rem;
       color: var(--gray);
-      font-size: 0.95rem;
-      line-height: 1.6;
+      line-height: 1.5;
     }
 
     /* Footer */
     footer {
       background: var(--footer-bg);
       color: #9ca3af;
-      padding: 50px 20px 30px;
-      margin-top: 80px;
+      padding: 40px 20px 25px;
+      margin-top: auto;
       position: relative;
     }
 
@@ -487,7 +696,7 @@
     }
 
     .footer-logo {
-      font-size: 2rem;
+      font-size: 1.8rem;
       font-weight: 800;
       color: white;
       margin-bottom: 15px;
@@ -499,9 +708,34 @@
     }
 
     .footer-description {
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       line-height: 1.7;
       margin-bottom: 20px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 12px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .social-link:hover {
+      background: var(--primary);
+      transform: translateY(-5px);
     }
 
     .footer-links h4 {
@@ -535,7 +769,7 @@
       text-decoration: none;
       transition: all 0.3s ease;
       display: inline-block;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
     }
 
     .footer-links a:hover {
@@ -551,7 +785,7 @@
       font-size: 0.85rem;
     }
 
-    /* Theme Toggle */
+    /* Theme Toggle Button */
     .theme-toggle {
       background: var(--light-gray);
       border: none;
@@ -574,65 +808,72 @@
       transform: rotate(15deg);
     }
 
-    /* Responsive Design */
-    @media (max-width: 768px) {
+    /* Utility Classes */
+    .hidden {
+      display: none !important;
+    }
+
+    .success-message {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--secondary);
+      color: white;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-weight: 500;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s ease;
+    }
+
+    .success-message.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 480px) {
       .tool-title {
-        font-size: 2rem;
+        font-size: 1.8rem;
+      }
+      
+      .tool-description {
+        font-size: 1rem;
       }
       
       .options-grid {
         grid-template-columns: 1fr;
       }
       
+      .btn-primary, .btn-secondary {
+        min-width: 100%;
+      }
+      
       .action-buttons {
         flex-direction: column;
       }
+    }
+
+    @media (min-width: 768px) {
+      .nav-logo {
+        font-size: 1.8rem;
+      }
       
-      .btn {
-        width: 100%;
+      .mobile-menu-btn {
+        display: none;
+      }
+      
+      .sidebar, .sidebar-overlay {
+        display: none;
       }
     }
 
-    @media (max-width: 480px) {
-      .nav-container {
-        padding: 0 15px;
-      }
-      
-      .tool-header {
-        padding: 90px 15px 40px;
-      }
-      
-      .tool-container {
-        padding: 0 15px;
-      }
-      
-      .tool-card-body {
-        padding: 20px;
-      }
-    }
-
-    /* Print Styles */
-    @media print {
-      .navbar, .theme-toggle, .action-buttons, footer {
-        display: none !important;
-      }
-      
-      body {
-        background: white !important;
-        color: black !important;
-      }
-      
-      .tool-header {
-        background: white !important;
-        color: black;
-        padding: 20px;
-        margin-top: 0;
-      }
-      
-      textarea {
-        background: white !important;
-        color: black !important;
-        border: 1px solid #ccc !important;
+    @media (min-width: 1024px) {
+      .tool-title {
+        font-size: 2.5rem;
       }
     }
   </style>
@@ -645,22 +886,12 @@
         <i class="fas fa-tools"></i> Toolsedito
       </a>
       
-      <!-- Desktop Navigation -->
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="index.html#tools">Tools</a></li>
-        <li><a href="index.html#blog">Blog</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-      
       <div style="display: flex; align-items: center;">
-        <!-- Theme Toggle Button -->
         <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
           <i class="fas fa-moon"></i>
           <i class="fas fa-sun"></i>
         </button>
         
-        <!-- Mobile Menu Button -->
         <button class="mobile-menu-btn" id="mobileMenuBtn">
           <i class="fas fa-bars"></i>
         </button>
@@ -668,198 +899,179 @@
     </div>
   </nav>
 
-  <!-- Tool Header -->
-  <header class="tool-header">
-    <div class="header-content">
+  <!-- Mobile Sidebar -->
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <a href="index.html" class="nav-logo">
+        <i class="fas fa-tools"></i> Toolsedito
+      </a>
+      <button class="sidebar-close" id="sidebarClose">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    
+    <ul class="sidebar-links">
+      <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="index.html#tools"><i class="fas fa-tools"></i> All Tools</a></li>
+      <li><a href="index.html#blog"><i class="fas fa-blog"></i> Blog</a></li>
+      <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+      <li>
+        <a href="#" id="sidebarThemeToggle">
+          <i class="fas fa-moon"></i> Dark Mode
+          <span id="themeStatus" style="margin-left: auto; font-size: 0.8rem; opacity: 0.7;">OFF</span>
+        </a>
+      </li>
+    </ul>
+    
+    <div class="sidebar-divider"></div>
+    
+    <div class="sidebar-tool-categories">
+      <h4>Text Tools</h4>
+      <ul class="sidebar-tools-list">
+        <li><a href="text-formatter.html" class="active"><i class="fas fa-clipboard"></i> Text Formatter</a></li>
+        <li><a href="word-counter.html"><i class="fas fa-sort-numeric-down"></i> Word Counter</a></li>
+        <li><a href="case-converter.html"><i class="fas fa-text-height"></i> Case Converter</a></li>
+        <li><a href="article-rewriter.html"><i class="fas fa-heading"></i> Article Rewriter</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <!-- Tool Header -->
+    <section class="tool-header">
+      <div class="tool-icon">
+        <i class="fas fa-clipboard"></i>
+      </div>
       <h1 class="tool-title">Text Formatter Tool</h1>
-      <p class="tool-subtitle">Format, beautify and clean up your text instantly. Remove extra spaces, line breaks, format case, and optimize text for better readability.</p>
-      <div class="tool-breadcrumb">
-        <a href="index.html">Home</a> &gt; <a href="index.html#text-tools">Text Tools</a> &gt; Text Formatter
-      </div>
-    </div>
-  </header>
+      <p class="tool-description">Clean, format, and beautify your text instantly. Remove extra spaces, fix line breaks, convert text case, and more with this free online text formatter.</p>
+    </section>
 
-  <!-- Main Tool Container -->
-  <main class="tool-container">
-    <div class="tool-grid">
-      <!-- Input Card -->
-      <div class="tool-card">
-        <div class="tool-card-header">
-          <h3><i class="fas fa-keyboard"></i> Input Text</h3>
-          <p>Paste or type your text here to format</p>
+    <!-- Tool Container -->
+    <div class="tool-container">
+      <!-- Input Section -->
+      <section class="input-section">
+        <div class="section-header">
+          <h3 class="section-title"><i class="fas fa-keyboard"></i> Input Text</h3>
+          <span class="text-counter" id="inputCounter">Characters: 0 | Words: 0</span>
         </div>
-        <div class="tool-card-body">
-          <div class="textarea-container">
-            <label class="textarea-label">Original Text</label>
-            <textarea id="inputText" placeholder="Paste your text here... For example: This  is  a  sample  text  with  extra  spaces  and  
-            
-            unnecessary 
-            
-            line  
-            
-            breaks.">This  is  a  sample  text  with  extra  spaces  and  
-
-unnecessary 
-
-line  
-
-breaks. It also has MIXED CASE and needs proper formatting.</textarea>
-            <div class="char-count" id="inputCount">Characters: 0 | Words: 0</div>
-          </div>
-          
-          <div class="format-options">
-            <h4>Formatting Options</h4>
-            <div class="options-grid">
-              <div class="option-item active" data-option="clean">
-                <div class="option-icon">
-                  <i class="fas fa-broom"></i>
-                </div>
-                <div class="option-label">Clean & Format</div>
-              </div>
-              
-              <div class="option-item" data-option="lowercase">
-                <div class="option-icon">
-                  <i class="fas fa-font"></i>
-                </div>
-                <div class="option-label">Lowercase</div>
-              </div>
-              
-              <div class="option-item" data-option="uppercase">
-                <div class="option-icon">
-                  <i class="fas fa-text-height"></i>
-                </div>
-                <div class="option-label">Uppercase</div>
-              </div>
-              
-              <div class="option-item" data-option="titlecase">
-                <div class="option-icon">
-                  <i class="fas fa-heading"></i>
-                </div>
-                <div class="option-label">Title Case</div>
-              </div>
-              
-              <div class="option-item" data-option="sentencecase">
-                <div class="option-icon">
-                  <i class="fas fa-paragraph"></i>
-                </div>
-                <div class="option-label">Sentence Case</div>
-              </div>
-              
-              <div class="option-item" data-option="removespaces">
-                <div class="option-icon">
-                  <i class="fas fa-compress-alt"></i>
-                </div>
-                <div class="option-label">Remove Extra Spaces</div>
-              </div>
-              
-              <div class="option-item" data-option="removelines">
-                <div class="option-icon">
-                  <i class="fas fa-minus-circle"></i>
-                </div>
-                <div class="option-label">Remove Line Breaks</div>
-              </div>
-              
-              <div class="option-item" data-option="reverse">
-                <div class="option-icon">
-                  <i class="fas fa-exchange-alt"></i>
-                </div>
-                <div class="option-label">Reverse Text</div>
-              </div>
-            </div>
-          </div>
-          
-          <div class="action-buttons">
-            <button class="btn btn-primary" id="formatBtn">
-              <i class="fas fa-magic"></i> Format Text
-            </button>
-            <button class="btn btn-secondary" id="clearBtn">
-              <i class="fas fa-trash-alt"></i> Clear All
-            </button>
-          </div>
+        <div class="text-area-container">
+          <textarea class="text-area" id="inputText" placeholder="Paste or type your text here..."></textarea>
         </div>
-      </div>
+      </section>
 
-      <!-- Output Card -->
-      <div class="tool-card">
-        <div class="tool-card-header">
-          <h3><i class="fas fa-file-alt"></i> Formatted Text</h3>
-          <p>Your formatted text will appear here</p>
+      <!-- Output Section -->
+      <section class="output-section">
+        <div class="section-header">
+          <h3 class="section-title"><i class="fas fa-file-alt"></i> Formatted Text</h3>
+          <span class="text-counter" id="outputCounter">Characters: 0 | Words: 0</span>
         </div>
-        <div class="tool-card-body">
-          <div class="textarea-container">
-            <label class="textarea-label">Formatted Result</label>
-            <textarea id="outputText" readonly placeholder="Your formatted text will appear here..."></textarea>
-            <div class="char-count" id="outputCount">Characters: 0 | Words: 0</div>
-          </div>
-          
-          <div class="action-buttons">
-            <button class="btn btn-primary" id="copyBtn">
-              <i class="fas fa-copy"></i> Copy to Clipboard
-            </button>
-            <button class="btn btn-secondary" id="downloadBtn">
-              <i class="fas fa-download"></i> Download as TXT
-            </button>
-          </div>
+        <div class="text-area-container">
+          <textarea class="text-area" id="outputText" placeholder="Formatted text will appear here..." readonly></textarea>
+          <button class="btn-copy" id="copyBtn">
+            <i class="fas fa-copy"></i> Copy to Clipboard
+          </button>
         </div>
-      </div>
+      </section>
     </div>
 
-    <!-- Tool Information -->
-    <section class="tool-info">
-      <h2 style="font-size: 2rem; text-align: center; margin-bottom: 10px; color: var(--text-color);">How to Use Text Formatter</h2>
-      <p style="text-align: center; color: var(--gray); max-width: 700px; margin: 0 auto 40px;">Follow these simple steps to format your text perfectly</p>
+    <!-- Formatting Options -->
+    <section class="formatting-options">
+      <h3 class="options-title"><i class="fas fa-sliders-h"></i> Formatting Options</h3>
       
-      <div class="info-grid">
-        <div class="info-card">
-          <div class="info-icon">
-            <i class="fas fa-paste"></i>
+      <div class="options-grid">
+        <button class="option-btn" data-format="trim">
+          <i class="fas fa-cut"></i> Trim Spaces
+        </button>
+        <button class="option-btn" data-format="uppercase">
+          <i class="fas fa-text-height"></i> UPPERCASE
+        </button>
+        <button class="option-btn" data-format="lowercase">
+          <i class="fas fa-text-height"></i> lowercase
+        </button>
+        <button class="option-btn" data-format="titlecase">
+          <i class="fas fa-heading"></i> Title Case
+        </button>
+        <button class="option-btn" data-format="sentencecase">
+          <i class="fas fa-paragraph"></i> Sentence Case
+        </button>
+        <button class="option-btn" data-format="invertcase">
+          <i class="fas fa-exchange-alt"></i> Invert Case
+        </button>
+        <button class="option-btn" data-format="removelines">
+          <i class="fas fa-minus"></i> Remove Line Breaks
+        </button>
+        <button class="option-btn" data-format="removespaces">
+          <i class="fas fa-ban"></i> Remove All Spaces
+        </button>
+        <button class="option-btn" data-format="singleline">
+          <i class="fas fa-arrows-alt-h"></i> Single Line
+        </button>
+        <button class="option-btn" data-format="reverse">
+          <i class="fas fa-retweet"></i> Reverse Text
+        </button>
+        <button class="option-btn" data-format="removenumbers">
+          <i class="fas fa-sort-numeric-down"></i> Remove Numbers
+        </button>
+        <button class="option-btn" data-format="removespecial">
+          <i class="fas fa-asterisk"></i> Remove Special Chars
+        </button>
+      </div>
+
+      <div class="action-buttons">
+        <button class="btn-primary" id="formatBtn">
+          <i class="fas fa-magic"></i> Format Text
+        </button>
+        <button class="btn-secondary" id="clearBtn">
+          <i class="fas fa-eraser"></i> Clear All
+        </button>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+      <h3 class="features-title">Why Use Our Text Formatter?</h3>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-bolt"></i>
           </div>
-          <h4>Paste Your Text</h4>
-          <p>Copy and paste any text into the input box. You can paste from documents, emails, websites, or any text source.</p>
+          <h4>Instant Results</h4>
+          <p>Format text in real-time with no delays or waiting. See changes immediately as you apply formatting options.</p>
         </div>
         
-        <div class="info-card">
-          <div class="info-icon">
-            <i class="fas fa-sliders-h"></i>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-shield-alt"></i>
           </div>
-          <h4>Choose Format</h4>
-          <p>Select from various formatting options like clean text, uppercase, lowercase, title case, or remove extra spaces.</p>
+          <h4>Privacy Safe</h4>
+          <p>Your text is processed locally in your browser. We never store or transmit your data to any servers.</p>
         </div>
         
-        <div class="info-card">
-          <div class="info-icon">
-            <i class="fas fa-magic"></i>
-          </div>
-          <h4>Format Instantly</h4>
-          <p>Click "Format Text" to instantly process your text. The formatted result appears immediately with no delay.</p>
-        </div>
-        
-        <div class="info-card">
-          <div class="info-icon">
-            <i class="fas fa-clipboard"></i>
-          </div>
-          <h4>Copy or Download</h4>
-          <p>Copy the formatted text to clipboard with one click or download it as a text file for later use.</p>
-        </div>
-        
-        <div class="info-card">
-          <div class="info-icon">
-            <i class="fas fa-user-shield"></i>
-          </div>
-          <h4>Privacy Guaranteed</h4>
-          <p>Your text is processed locally in your browser. We don't store or transmit your data to any servers.</p>
-        </div>
-        
-        <div class="info-card">
-          <div class="info-icon">
+        <div class="feature-card">
+          <div class="feature-icon">
             <i class="fas fa-mobile-alt"></i>
           </div>
           <h4>Mobile Optimized</h4>
           <p>Works perfectly on all devices - desktop, tablet, and mobile. No app installation required.</p>
         </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-gift"></i>
+          </div>
+          <h4>Completely Free</h4>
+          <p>No limits, no registrations, no hidden costs. Use all formatting features 100% free forever.</p>
+        </div>
       </div>
     </section>
   </main>
+
+  <!-- Success Message -->
+  <div class="success-message" id="successMessage">
+    <i class="fas fa-check-circle"></i> Text copied to clipboard!
+  </div>
 
   <!-- Footer -->
   <footer>
@@ -867,6 +1079,12 @@ breaks. It also has MIXED CASE and needs proper formatting.</textarea>
       <div class="footer-about">
         <h3 class="footer-logo">Toolsedito</h3>
         <p class="footer-description">Toolsedito provides smart online tools for everyday productivity. Our tools are fast, free, and easy to use, helping you accomplish tasks efficiently.</p>
+        <div class="social-links">
+          <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+        </div>
       </div>
       
       <div class="footer-links">
@@ -882,7 +1100,7 @@ breaks. It also has MIXED CASE and needs proper formatting.</textarea>
       <div class="footer-links">
         <h4>Text Tools</h4>
         <ul>
-          <li><a href="text-formatter.html" style="color: white; font-weight: 600;">Text Formatter</a></li>
+          <li><a href="text-formatter.html">Text Formatter</a></li>
           <li><a href="word-counter.html">Word Counter</a></li>
           <li><a href="case-converter.html">Case Converter</a></li>
           <li><a href="article-rewriter.html">Article Rewriter</a></li>
@@ -895,6 +1113,7 @@ breaks. It also has MIXED CASE and needs proper formatting.</textarea>
           <li><a href="privacy-policy.html">Privacy Policy</a></li>
           <li><a href="terms-of-service.html">Terms of Service</a></li>
           <li><a href="disclaimer.html">Disclaimer</a></li>
+          <li><a href="cookie-policy.html">Cookie Policy</a></li>
         </ul>
       </div>
     </div>
@@ -905,121 +1124,197 @@ breaks. It also has MIXED CASE and needs proper formatting.</textarea>
   </footer>
 
   <script>
-    // Theme Toggle
-    const themeToggle = document.getElementById('themeToggle');
-    const body = document.body;
-    
-    // Check for saved theme preference
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-      body.classList.add('dark-theme');
-    }
-    
-    themeToggle.addEventListener('click', () => {
-      body.classList.toggle('dark-theme');
-      localStorage.setItem('theme', body.classList.contains('dark-theme') ? 'dark' : 'light');
-    });
-
-    // Text Formatter Functionality
+    // DOM Elements
     const inputText = document.getElementById('inputText');
     const outputText = document.getElementById('outputText');
+    const inputCounter = document.getElementById('inputCounter');
+    const outputCounter = document.getElementById('outputCounter');
     const formatBtn = document.getElementById('formatBtn');
     const clearBtn = document.getElementById('clearBtn');
     const copyBtn = document.getElementById('copyBtn');
-    const downloadBtn = document.getElementById('downloadBtn');
-    const optionItems = document.querySelectorAll('.option-item');
-    const inputCount = document.getElementById('inputCount');
-    const outputCount = document.getElementById('outputCount');
+    const optionBtns = document.querySelectorAll('.option-btn');
+    const successMessage = document.getElementById('successMessage');
     
-    let selectedOption = 'clean';
+    // Theme Toggle
+    const themeToggle = document.getElementById('themeToggle');
+    const sidebarThemeToggle = document.getElementById('sidebarThemeToggle');
+    const themeStatus = document.getElementById('themeStatus');
+    const body = document.body;
     
-    // Update character count
-    function updateCharCount(textarea, countElement) {
-      const text = textarea.value;
-      const charCount = text.length;
-      const wordCount = text.trim() === '' ? 0 : text.trim().split(/\s+/).length;
-      countElement.textContent = `Characters: ${charCount} | Words: ${wordCount}`;
-    }
+    // Mobile Sidebar
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const sidebar = document.getElementById('sidebar');
+    const sidebarClose = document.getElementById('sidebarClose');
+    const sidebarOverlay = document.getElementById('sidebarOverlay');
     
-    // Format text functions
-    function formatClean(text) {
-      // Remove extra spaces and line breaks
-      let formatted = text.replace(/\s+/g, ' ').trim();
-      // Fix multiple line breaks
-      formatted = formatted.replace(/\n\s*\n/g, '\n\n');
-      // Capitalize first letter of sentences
-      formatted = formatted.replace(/(^\w|\.\s+\w)/g, match => match.toUpperCase());
-      return formatted;
-    }
+    // Active formatting options
+    let activeFormats = new Set(['trim']);
     
-    function formatLowercase(text) {
-      return text.toLowerCase();
-    }
-    
-    function formatUppercase(text) {
-      return text.toUpperCase();
-    }
-    
-    function formatTitleCase(text) {
-      return text.toLowerCase().replace(/\b\w/g, char => char.toUpperCase());
-    }
-    
-    function formatSentenceCase(text) {
-      return text.toLowerCase().replace(/(^\w|\.\s+\w)/g, match => match.toUpperCase());
-    }
-    
-    function removeExtraSpaces(text) {
-      return text.replace(/\s+/g, ' ').trim();
-    }
-    
-    function removeLineBreaks(text) {
-      return text.replace(/\n/g, ' ').replace(/\s+/g, ' ').trim();
-    }
-    
-    function reverseText(text) {
-      return text.split('').reverse().join('');
-    }
-    
-    // Format text based on selected option
-    function formatText() {
-      const text = inputText.value;
-      let formattedText = text;
+    // Initialize
+    document.addEventListener('DOMContentLoaded', function() {
+      // Set up theme
+      const savedTheme = localStorage.getItem('theme');
+      const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
       
-      switch(selectedOption) {
-        case 'clean':
-          formattedText = formatClean(text);
-          break;
-        case 'lowercase':
-          formattedText = formatLowercase(text);
-          break;
-        case 'uppercase':
-          formattedText = formatUppercase(text);
-          break;
-        case 'titlecase':
-          formattedText = formatTitleCase(text);
-          break;
-        case 'sentencecase':
-          formattedText = formatSentenceCase(text);
-          break;
-        case 'removespaces':
-          formattedText = removeExtraSpaces(text);
-          break;
-        case 'removelines':
-          formattedText = removeLineBreaks(text);
-          break;
-        case 'reverse':
-          formattedText = reverseText(text);
-          break;
-        default:
-          formattedText = formatClean(text);
+      if (savedTheme === 'dark' || (!savedTheme && prefersDarkScheme.matches)) {
+        body.classList.add('dark-theme');
+        updateThemeStatus(true);
+      } else {
+        updateThemeStatus(false);
       }
       
-      outputText.value = formattedText;
-      updateCharCount(outputText, outputCount);
+      // Set active option for trim
+      document.querySelector('[data-format="trim"]').classList.add('active');
+      
+      // Add example text
+      inputText.value = `   Welcome   to the   Text Formatter Tool!
+
+This   is   an   example   text   with   extra   spaces   and   inconsistent   formatting.
+
+You can:
+- Remove extra spaces
+- Convert to UPPERCASE or lowercase
+- Format as Title Case or Sentence case
+- Remove line breaks
+- And much more!
+
+Try it out by clicking the "Format Text" button.   `;
+      
+      updateTextCounters();
+    });
+    
+    // Theme Functions
+    function toggleTheme() {
+      const isDark = body.classList.toggle('dark-theme');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      updateThemeStatus(isDark);
+      
+      themeToggle.style.transform = 'rotate(360deg)';
+      setTimeout(() => {
+        themeToggle.style.transform = '';
+      }, 300);
     }
     
-    // Copy to clipboard
+    function updateThemeStatus(isDark) {
+      if (themeStatus) {
+        themeStatus.textContent = isDark ? 'ON' : 'OFF';
+      }
+    }
+    
+    // Mobile Sidebar Functions
+    function openSidebar() {
+      sidebar.classList.add('active');
+      sidebarOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    
+    function closeSidebar() {
+      sidebar.classList.remove('active');
+      sidebarOverlay.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+    
+    // Text Formatting Functions
+    function updateTextCounters() {
+      const input = inputText.value;
+      const output = outputText.value;
+      
+      const inputChars = input.length;
+      const inputWords = input.trim() === '' ? 0 : input.trim().split(/\s+/).length;
+      
+      const outputChars = output.length;
+      const outputWords = output.trim() === '' ? 0 : output.trim().split(/\s+/).length;
+      
+      inputCounter.textContent = `Characters: ${inputChars} | Words: ${inputWords}`;
+      outputCounter.textContent = `Characters: ${outputChars} | Words: ${outputWords}`;
+    }
+    
+    function formatText() {
+      let text = inputText.value;
+      
+      if (!text.trim()) {
+        outputText.value = '';
+        updateTextCounters();
+        return;
+      }
+      
+      // Apply all active formats in order
+      activeFormats.forEach(format => {
+        switch(format) {
+          case 'trim':
+            text = text.trim();
+            text = text.replace(/\s+/g, ' ');
+            break;
+          case 'uppercase':
+            text = text.toUpperCase();
+            break;
+          case 'lowercase':
+            text = text.toLowerCase();
+            break;
+          case 'titlecase':
+            text = text.toLowerCase().replace(/\b\w/g, char => char.toUpperCase());
+            break;
+          case 'sentencecase':
+            text = text.toLowerCase().replace(/(^\s*\w|[.!?]\s+\w)/g, char => char.toUpperCase());
+            break;
+          case 'invertcase':
+            text = text.split('').map(char => {
+              if (char === char.toUpperCase()) {
+                return char.toLowerCase();
+              } else {
+                return char.toUpperCase();
+              }
+            }).join('');
+            break;
+          case 'removelines':
+            text = text.replace(/\n/g, ' ');
+            text = text.replace(/\r/g, ' ');
+            break;
+          case 'removespaces':
+            text = text.replace(/\s/g, '');
+            break;
+          case 'singleline':
+            text = text.replace(/\n/g, ' ');
+            text = text.replace(/\r/g, ' ');
+            text = text.replace(/\s+/g, ' ');
+            break;
+          case 'reverse':
+            text = text.split('').reverse().join('');
+            break;
+          case 'removenumbers':
+            text = text.replace(/[0-9]/g, '');
+            break;
+          case 'removespecial':
+            text = text.replace(/[^\w\s]/g, '');
+            break;
+        }
+      });
+      
+      outputText.value = text;
+      updateTextCounters();
+    }
+    
+    function clearAll() {
+      inputText.value = '';
+      outputText.value = '';
+      activeFormats.clear();
+      activeFormats.add('trim');
+      
+      // Reset all option buttons
+      optionBtns.forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.dataset.format === 'trim') {
+          btn.classList.add('active');
+        }
+      });
+      
+      updateTextCounters();
+      inputText.focus();
+    }
+    
     function copyToClipboard() {
+      if (!outputText.value.trim()) return;
+      
       outputText.select();
       outputText.setSelectionRange(0, 99999); // For mobile devices
       
@@ -1027,117 +1322,107 @@ breaks. It also has MIXED CASE and needs proper formatting.</textarea>
         const successful = document.execCommand('copy');
         if (successful) {
           copyBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+          copyBtn.classList.add('copied');
+          
+          // Show success message
+          successMessage.classList.add('show');
+          setTimeout(() => {
+            successMessage.classList.remove('show');
+          }, 3000);
+          
+          // Reset button after 2 seconds
           setTimeout(() => {
             copyBtn.innerHTML = '<i class="fas fa-copy"></i> Copy to Clipboard';
+            copyBtn.classList.remove('copied');
           }, 2000);
         }
       } catch (err) {
         // Fallback for browsers that don't support execCommand
         navigator.clipboard.writeText(outputText.value).then(() => {
           copyBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+          copyBtn.classList.add('copied');
+          
+          successMessage.classList.add('show');
+          setTimeout(() => {
+            successMessage.classList.remove('show');
+          }, 3000);
+          
           setTimeout(() => {
             copyBtn.innerHTML = '<i class="fas fa-copy"></i> Copy to Clipboard';
+            copyBtn.classList.remove('copied');
           }, 2000);
         });
       }
     }
     
-    // Download as text file
-    function downloadText() {
-      const text = outputText.value;
-      if (!text.trim()) {
-        alert('Please format some text first!');
+    function toggleFormatOption(btn) {
+      const format = btn.dataset.format;
+      
+      if (format === 'trim') {
+        // Trim is always active and can't be toggled off
         return;
       }
       
-      const blob = new Blob([text], { type: 'text/plain' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = 'formatted-text.txt';
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
-      
-      downloadBtn.innerHTML = '<i class="fas fa-check"></i> Downloaded!';
-      setTimeout(() => {
-        downloadBtn.innerHTML = '<i class="fas fa-download"></i> Download as TXT';
-      }, 2000);
-    }
-    
-    // Clear all text
-    function clearAll() {
-      inputText.value = '';
-      outputText.value = '';
-      updateCharCount(inputText, inputCount);
-      updateCharCount(outputText, outputCount);
-      inputText.focus();
+      if (btn.classList.contains('active')) {
+        btn.classList.remove('active');
+        activeFormats.delete(format);
+      } else {
+        btn.classList.add('active');
+        activeFormats.add(format);
+      }
     }
     
     // Event Listeners
-    inputText.addEventListener('input', () => updateCharCount(inputText, inputCount));
-    outputText.addEventListener('input', () => updateCharCount(outputText, outputCount));
-    formatBtn.addEventListener('click', formatText);
-    clearBtn.addEventListener('click', clearAll);
-    copyBtn.addEventListener('click', copyToClipboard);
-    downloadBtn.addEventListener('click', downloadText);
+    themeToggle.addEventListener('click', toggleTheme);
     
-    // Option selection
-    optionItems.forEach(item => {
-      item.addEventListener('click', () => {
-        optionItems.forEach(opt => opt.classList.remove('active'));
-        item.classList.add('active');
-        selectedOption = item.dataset.option;
-        
-        // Auto-format if there's text
-        if (inputText.value.trim()) {
-          formatText();
+    if (sidebarThemeToggle) {
+      sidebarThemeToggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        toggleTheme();
+      });
+    }
+    
+    // Mobile sidebar events
+    mobileMenuBtn.addEventListener('click', openSidebar);
+    sidebarClose.addEventListener('click', closeSidebar);
+    sidebarOverlay.addEventListener('click', closeSidebar);
+    
+    // Close sidebar when clicking on a link
+    document.querySelectorAll('.sidebar-links a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        if (!this.id.includes('Theme')) {
+          closeSidebar();
         }
       });
     });
     
-    // Initialize counts
-    updateCharCount(inputText, inputCount);
-    updateCharCount(outputText, outputCount);
+    // Text formatting events
+    inputText.addEventListener('input', updateTextCounters);
+    outputText.addEventListener('input', updateTextCounters);
     
-    // Auto-format on page load with example text
+    formatBtn.addEventListener('click', formatText);
+    clearBtn.addEventListener('click', clearAll);
+    copyBtn.addEventListener('click', copyToClipboard);
+    
+    // Option button events
+    optionBtns.forEach(btn => {
+      btn.addEventListener('click', function() {
+        toggleFormatOption(this);
+      });
+    });
+    
+    // Auto-format on Enter key in input (with Ctrl/Cmd)
+    inputText.addEventListener('keydown', function(e) {
+      if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+        e.preventDefault();
+        formatText();
+      }
+    });
+    
+    // Initialize with example formatting
     setTimeout(() => {
       formatText();
     }, 100);
-    
-    // Mobile menu functionality (simple toggle)
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const navLinks = document.querySelector('.nav-links');
-    
-    mobileMenuBtn.addEventListener('click', () => {
-      navLinks.style.display = navLinks.style.display === 'block' ? 'none' : 'block';
-      if (navLinks.style.display === 'block') {
-        navLinks.style.position = 'absolute';
-        navLinks.style.top = '100%';
-        navLinks.style.left = '0';
-        navLinks.style.width = '100%';
-        navLinks.style.backgroundColor = 'var(--card-bg)';
-        navLinks.style.padding = '20px';
-        navLinks.style.boxShadow = '0 10px 30px rgba(0,0,0,0.1)';
-        navLinks.style.zIndex = '1000';
-        
-        // Create mobile menu items
-        navLinks.innerHTML = `
-          <li style="margin-bottom: 15px;"><a href="index.html" style="display: block; padding: 10px; color: var(--text-color); text-decoration: none;">Home</a></li>
-          <li style="margin-bottom: 15px;"><a href="index.html#tools" style="display: block; padding: 10px; color: var(--text-color); text-decoration: none;">Tools</a></li>
-          <li style="margin-bottom: 15px;"><a href="index.html#blog" style="display: block; padding: 10px; color: var(--text-color); text-decoration: none;">Blog</a></li>
-          <li><a href="contact.html" style="display: block; padding: 10px; color: var(--text-color); text-decoration: none;">Contact</a></li>
-        `;
-      }
-    });
-    
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', (event) => {
-      if (!mobileMenuBtn.contains(event.target) && !navLinks.contains(event.target)) {
-        navLinks.style.display = 'none';
-      }
-    });
   </script>
 </body>
 </html>
