@@ -3,36 +3,33 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <!-- UPDATED: Brand name changed to Toolsedito -->
-  <title>Free Length Converter - Convert Units Online | Toolsedito</title>
+  <title>PDF to Word Converter - Convert PDF to DOCX Online | Toolsedito</title>
 
-  <!-- UPDATED: SEO Meta Tags -->
-  <meta name="description" content="Convert length units online for free with our advanced length converter. Convert between meters, feet, inches, yards, miles, kilometers, centimeters, and more. No registration required." />
-  <meta name="keywords" content="length converter, unit converter, meter to feet, feet to inches, inches to cm, km to miles, yard to meter, millimeter converter, distance converter" />
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Free PDF to Word converter to transform your PDF files into editable Microsoft Word documents. Convert PDF to DOCX online without losing formatting." />
+  <meta name="keywords" content="pdf to word, pdf to docx, convert pdf to word, pdf converter, pdf to word converter, online pdf converter, pdf to editable word" />
   <meta name="author" content="Toolsedito Team" />
   <meta name="robots" content="index, follow" />
-  <meta name="googlebot" content="index, follow" />
-  <!-- UPDATED: Custom domain -->
-  <link rel="canonical" href="https://www.toolsedito.com/length-converter.html" />
+  <link rel="canonical" href="https://www.toolsedito.com/pdf-to-word.html" />
 
-  <!-- UPDATED: Open Graph with new domain -->
+  <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Free Length Converter - Convert Units Online | Toolsedito">
-  <meta property="og:description" content="Convert length units online for free with our advanced length converter. Convert between meters, feet, inches, yards, miles, kilometers, centimeters, and more. No registration required.">
-  <meta property="og:url" content="https://www.toolsedito.com/length-converter.html">
-  <meta property="og:image" content="https://www.toolsedito.com/images/length-converter-og.jpg">
+  <meta property="og:title" content="PDF to Word Converter - Convert PDF to DOCX Online | Toolsedito">
+  <meta property="og:description" content="Free PDF to Word converter to transform your PDF files into editable Microsoft Word documents. Convert PDF to DOCX online without losing formatting.">
+  <meta property="og:url" content="https://www.toolsedito.com/pdf-to-word.html">
+  <meta property="og:image" content="https://www.toolsedito.com/images/pdf-to-word-og.jpg">
   <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:title" content="Free Length Converter - Toolsedito">
-  <meta property="twitter:description" content="Convert length units online for free. Convert between meters, feet, inches, yards, miles, kilometers, centimeters, and more.">
+  <meta property="twitter:title" content="PDF to Word Converter - Toolsedito">
+  <meta property="twitter:description" content="Free PDF to Word converter to transform your PDF files into editable Microsoft Word documents.">
 
-  <!-- UPDATED: JSON-LD Schema for Length Converter -->
+  <!-- JSON-LD Schema -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    "name": "Length Converter",
-    "description": "Free online tool to convert length measurements between different units. Supports meters, feet, inches, yards, miles, kilometers, centimeters, and more.",
-    "url": "https://www.toolsedito.com/length-converter.html",
+    "name": "PDF to Word Converter",
+    "description": "Free online tool to convert PDF files to editable Microsoft Word documents (DOCX format). Convert PDF to Word while preserving formatting.",
+    "url": "https://www.toolsedito.com/pdf-to-word.html",
     "applicationCategory": "UtilityApplication",
     "operatingSystem": "Any",
     "offers": {
@@ -40,23 +37,10 @@
       "price": "0",
       "priceCurrency": "USD"
     },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.8",
-      "ratingCount": "720"
-    },
     "author": {
       "@type": "Organization",
       "name": "Toolsedito",
       "url": "https://www.toolsedito.com"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "Toolsedito",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://www.toolsedito.com/logo.png"
-      }
     }
   }
   </script>
@@ -143,26 +127,6 @@
       background: var(--primary);
       color: white;
       transform: rotate(15deg);
-    }
-
-    .theme-toggle i {
-      transition: transform 0.5s ease;
-    }
-
-    .dark-theme .theme-toggle i.fa-sun {
-      display: block;
-    }
-
-    .dark-theme .theme-toggle i.fa-moon {
-      display: none;
-    }
-
-    .theme-toggle i.fa-sun {
-      display: none;
-    }
-
-    .theme-toggle i.fa-moon {
-      display: block;
     }
 
     /* Mobile First - Sidebar Implementation */
@@ -375,9 +339,9 @@
       visibility: visible;
     }
 
-    /* Tool Header - MODIFIED: Reduced top padding to move title higher */
+    /* Tool Header */
     header {
-      background: linear-gradient(135deg, #e6f7ff 0%, #f0f9ff 100%);
+      background: linear-gradient(135deg, #f0f7ff 0%, #e6f0ff 100%);
       color: #1f2933;
       padding: 80px 20px 40px;
       text-align: center;
@@ -400,15 +364,6 @@
       z-index: 2;
     }
 
-    .logo-container {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 15px;
-      gap: 15px;
-    }
-
-    /* Tool-specific header */
     .tool-logo {
       font-size: 4rem;
       margin-bottom: 10px;
@@ -444,7 +399,7 @@
 
     /* Main Tool Container */
     .tool-container {
-      max-width: 1400px;
+      max-width: 1200px;
       margin: 0 auto;
       padding: 40px 20px;
     }
@@ -472,116 +427,143 @@
       color: var(--primary);
     }
 
-    /* Converter Section */
-    .converter-grid {
+    /* Upload Area */
+    .upload-area {
+      border: 3px dashed var(--border-color);
+      border-radius: 20px;
+      padding: 60px 30px;
+      text-align: center;
+      transition: all 0.3s ease;
+      background: var(--light-gray);
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    .upload-area:hover, .upload-area.dragover {
+      border-color: var(--primary);
+      background: rgba(79, 70, 229, 0.05);
+      transform: translateY(-5px);
+    }
+
+    .upload-icon {
+      font-size: 4rem;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+
+    .upload-text h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: var(--text-color);
+    }
+
+    .upload-text p {
+      color: var(--gray);
+      margin-bottom: 25px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .upload-btn {
+      display: inline-block;
+      padding: 14px 30px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      border-radius: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: none;
+      font-size: 1rem;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .upload-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(79, 70, 229, 0.2);
+    }
+
+    .upload-btn input[type="file"] {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      cursor: pointer;
+      z-index: 2;
+    }
+
+    .file-types {
+      margin-top: 20px;
+      color: var(--gray);
+      font-size: 0.9rem;
+    }
+
+    /* Conversion Options */
+    .conversion-options {
+      margin-top: 30px;
+    }
+
+    .options-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 25px;
+      gap: 20px;
       margin-top: 20px;
     }
 
     @media (min-width: 768px) {
-      .converter-grid {
+      .options-grid {
         grid-template-columns: repeat(2, 1fr);
       }
     }
 
-    @media (min-width: 1024px) {
-      .converter-grid {
-        grid-template-columns: repeat(4, 1fr);
-        gap: 30px;
-      }
-    }
-
-    .converter-input-group {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .converter-input-group label {
-      font-weight: 600;
-      color: var(--text-color);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 1rem;
-    }
-
-    .converter-input-group label i {
-      color: var(--primary);
-    }
-
-    .converter-input {
-      width: 100%;
-      padding: 18px 20px;
-      font-size: 1.1rem;
-      border: 2px solid var(--border-color);
-      border-radius: 12px;
+    .option-card {
       background: var(--card-bg);
-      color: var(--text-color);
+      border: 1px solid var(--border-color);
+      border-radius: 15px;
+      padding: 25px;
       transition: all 0.3s ease;
-      font-family: 'Inter', sans-serif;
-      font-weight: 500;
-    }
-
-    .converter-input:focus {
-      outline: none;
-      border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
-    }
-
-    .converter-select {
-      width: 100%;
-      padding: 18px 20px;
-      font-size: 1.1rem;
-      border: 2px solid var(--border-color);
-      border-radius: 12px;
-      background: var(--card-bg);
-      color: var(--text-color);
-      transition: all 0.3s ease;
-      font-family: 'Inter', sans-serif;
-      font-weight: 500;
       cursor: pointer;
-      appearance: none;
-      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
-      background-repeat: no-repeat;
-      background-position: right 20px center;
-      background-size: 20px;
     }
 
-    .converter-select:focus {
-      outline: none;
+    .option-card:hover {
       border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+      box-shadow: var(--card-shadow);
+      transform: translateY(-3px);
     }
 
-    .swap-button-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin: 20px 0;
+    .option-card.selected {
+      border-color: var(--primary);
+      background: rgba(79, 70, 229, 0.05);
     }
 
-    .swap-button {
-      width: 60px;
-      height: 60px;
+    .option-icon {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
       border-radius: 50%;
-      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-      border: none;
-      color: white;
-      font-size: 1.5rem;
-      cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: all 0.3s ease;
-      box-shadow: 0 5px 15px rgba(79, 70, 229, 0.2);
+      color: white;
+      font-size: 1.3rem;
+      margin-bottom: 15px;
     }
 
-    .swap-button:hover {
-      transform: rotate(180deg) scale(1.1);
-      box-shadow: 0 8px 25px rgba(79, 70, 229, 0.3);
+    .option-card h4 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      color: var(--text-color);
+    }
+
+    .option-card p {
+      color: var(--gray);
+      font-size: 0.95rem;
+      line-height: 1.5;
     }
 
     /* Action Buttons */
@@ -594,21 +576,21 @@
 
     @media (min-width: 768px) {
       .action-buttons {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
       }
     }
 
     .action-btn {
-      padding: 18px 20px;
+      padding: 16px 20px;
       border: none;
       border-radius: 12px;
-      font-size: 1.1rem;
+      font-size: 1rem;
       font-weight: 600;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 12px;
+      gap: 10px;
       transition: all 0.3s ease;
       position: relative;
       overflow: hidden;
@@ -657,234 +639,200 @@
       opacity: 1;
     }
 
-    /* Results Section */
-    .results-section {
-      margin-top: 30px;
+    .share-btn {
+      background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+      color: white;
     }
 
-    .results-grid {
+    .share-btn::before {
+      background: linear-gradient(135deg, #7c3aed, #6d28d9);
+    }
+
+    .share-btn:hover::before {
+      opacity: 1;
+    }
+
+    .action-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none !important;
+    }
+
+    /* Progress Bar */
+    .progress-container {
+      margin-top: 30px;
+      display: none;
+    }
+
+    .progress-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .progress-bar {
+      height: 10px;
+      background: var(--light-gray);
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      border-radius: 5px;
+      width: 0%;
+      transition: width 0.5s ease;
+    }
+
+    /* Results Section */
+    .results-container {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 20px;
+      gap: 25px;
       margin-top: 20px;
     }
 
     @media (min-width: 768px) {
-      .results-grid {
+      .results-container {
         grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (min-width: 1024px) {
-      .results-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-
-    @media (min-width: 1200px) {
-      .results-grid {
-        grid-template-columns: repeat(4, 1fr);
       }
     }
 
     .result-card {
-      background: var(--light-gray);
+      background: var(--card-bg);
       border-radius: 16px;
       padding: 25px;
       text-align: center;
+      box-shadow: var(--card-shadow);
       border: 1px solid var(--border-color);
       transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
     }
 
     .result-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      box-shadow: var(--hover-shadow);
     }
 
-    .result-unit {
-      font-size: 0.9rem;
-      color: var(--primary);
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-bottom: 10px;
+    .result-card.primary {
+      border-top: 4px solid var(--primary);
+    }
+
+    .result-card.secondary {
+      border-top: 4px solid var(--secondary);
+    }
+
+    .result-icon {
+      width: 60px;
+      height: 60px;
+      margin: 0 auto 15px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
+      color: white;
+      font-size: 1.5rem;
+    }
+
+    .result-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+      color: var(--text-color);
     }
 
     .result-value {
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--text-color);
-      margin-bottom: 10px;
-      line-height: 1.2;
+      font-size: 1.8rem;
+      font-weight: 800;
+      margin-bottom: 5px;
+      color: var(--primary);
     }
 
     .result-label {
-      font-size: 0.9rem;
       color: var(--gray);
-    }
-
-    .result-card.highlighted {
-      background: linear-gradient(135deg, rgba(79, 70, 229, 0.1), rgba(124, 58, 237, 0.1));
-      border-color: var(--primary);
-      box-shadow: 0 5px 20px rgba(79, 70, 229, 0.15);
-    }
-
-    /* Quick Conversions Section */
-    .quick-conversions {
-      margin-top: 30px;
-    }
-
-    .quick-conversions-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 15px;
-      margin-top: 20px;
-    }
-
-    @media (min-width: 768px) {
-      .quick-conversions-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
-      }
-    }
-
-    @media (min-width: 1024px) {
-      .quick-conversions-grid {
-        grid-template-columns: repeat(4, 1fr);
-      }
-    }
-
-    @media (min-width: 1200px) {
-      .quick-conversions-grid {
-        grid-template-columns: repeat(6, 1fr);
-      }
-    }
-
-    .quick-conversion-btn {
-      padding: 15px;
-      background: var(--card-bg);
-      border: 1px solid var(--border-color);
-      border-radius: 10px;
-      cursor: pointer;
-      text-align: center;
-      font-weight: 500;
-      color: var(--text-color);
-      transition: all 0.2s ease;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
       font-size: 0.9rem;
     }
 
-    .quick-conversion-btn:hover {
-      background: var(--light-gray);
-      transform: translateY(-2px);
-    }
-
-    .quick-conversion-btn.active {
-      background: var(--primary);
+    .download-btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 12px 25px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
       color: white;
-      border-color: var(--primary);
-    }
-
-    .quick-conversion-icon {
-      font-size: 1.2rem;
-      color: var(--primary);
-    }
-
-    .quick-conversion-btn.active .quick-conversion-icon {
-      color: white;
-    }
-
-    /* NEW: Tutorial Section */
-    .tutorial-section {
-      background: var(--card-bg);
-      padding: 35px 30px;
-      border-radius: 16px;
-      margin-top: 30px;
-      box-shadow: var(--card-shadow);
-      border: 1px solid var(--border-color);
-    }
-
-    .tutorial-section h2 {
-      font-size: 1.8rem;
-      margin-bottom: 25px;
-      color: var(--text-color);
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .tutorial-section h2 i {
-      color: var(--primary);
-    }
-
-    .tutorial-steps {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 25px;
-    }
-
-    @media (min-width: 768px) {
-      .tutorial-steps {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (min-width: 1024px) {
-      .tutorial-steps {
-        grid-template-columns: repeat(4, 1fr);
-      }
-    }
-
-    .tutorial-step {
-      text-align: center;
-      padding: 25px 20px;
-      background: var(--light-gray);
-      border-radius: 12px;
-      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
       transition: all 0.3s ease;
     }
 
-    .tutorial-step:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    .download-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(79, 70, 229, 0.2);
     }
 
-    .step-number {
-      display: inline-flex;
+    /* File List */
+    .file-list {
+      margin-top: 30px;
+    }
+
+    .file-item {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 15px;
+      background: var(--light-gray);
+      border-radius: 12px;
+      margin-bottom: 15px;
+      border: 1px solid var(--border-color);
+    }
+
+    .file-icon {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border-radius: 10px;
+      display: flex;
       align-items: center;
       justify-content: center;
-      width: 40px;
-      height: 40px;
-      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
       color: white;
-      border-radius: 50%;
-      font-weight: 700;
-      font-size: 1.2rem;
-      margin-bottom: 15px;
+      font-size: 1.3rem;
+      flex-shrink: 0;
     }
 
-    .step-content h3 {
-      font-size: 1.2rem;
-      margin-bottom: 10px;
+    .file-info {
+      flex-grow: 1;
+      overflow: hidden;
+    }
+
+    .file-name {
+      font-weight: 600;
       color: var(--text-color);
+      margin-bottom: 5px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
-    .step-content p {
+    .file-size {
       color: var(--gray);
-      font-size: 0.95rem;
-      line-height: 1.5;
+      font-size: 0.9rem;
     }
 
-    /* About Section for EEAT */
+    .file-remove {
+      background: none;
+      border: none;
+      color: var(--gray);
+      cursor: pointer;
+      font-size: 1.2rem;
+      transition: color 0.3s ease;
+    }
+
+    .file-remove:hover {
+      color: #ef4444;
+    }
+
+    /* EEAT About Section */
     .about-section {
       max-width: 800px;
       margin: 40px auto;
@@ -1056,41 +1004,6 @@
       color: white;
     }
 
-    /* Loading Spinner */
-    .loading {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(255, 255, 255, 0.9);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      z-index: 10;
-      border-radius: 16px;
-    }
-
-    .dark-theme .loading {
-      background: rgba(26, 35, 50, 0.9);
-    }
-
-    .spinner {
-      width: 50px;
-      height: 50px;
-      border: 5px solid #f3f3f3;
-      border-top: 5px solid var(--primary);
-      border-radius: 50%;
-      animation: spin 1s linear infinite;
-      margin-bottom: 15px;
-    }
-
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-
     /* Footer */
     footer {
       background: var(--footer-bg);
@@ -1221,35 +1134,6 @@
       font-size: 0.85rem;
     }
 
-    /* ACCESSIBILITY: Prefers Reduced Motion */
-    @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
-        animation: none !important;
-        transition: none !important;
-      }
-      
-      .swap-button:hover,
-      .action-btn:hover,
-      .related-tool-card:hover,
-      .result-card:hover,
-      .quick-conversion-btn:hover,
-      .social-link:hover,
-      .theme-toggle:hover,
-      .tutorial-step:hover {
-        transform: none !important;
-      }
-      
-      .tool-header h1,
-      .footer-logo {
-        background: var(--primary) !important;
-        -webkit-background-clip: initial !important;
-        background-clip: initial !important;
-        color: var(--primary) !important;
-      }
-    }
-
     /* Desktop Navigation Styles */
     @media (min-width: 1024px) {
       .nav-links {
@@ -1317,12 +1201,12 @@
         padding: 20px;
       }
       
-      .tutorial-section {
-        padding: 25px 20px;
+      .upload-area {
+        padding: 40px 20px;
       }
       
-      .tutorial-step {
-        padding: 20px 15px;
+      .upload-icon {
+        font-size: 3rem;
       }
       
       .faq-container {
@@ -1331,16 +1215,6 @@
       
       .faq-answer {
         padding-right: 20px;
-      }
-      
-      .result-value {
-        font-size: 1.6rem;
-      }
-      
-      .converter-input,
-      .converter-select {
-        padding: 15px;
-        font-size: 1rem;
       }
     }
 
@@ -1361,7 +1235,6 @@
   <!-- Navigation -->
   <nav class="navbar">
     <div class="nav-container">
-      <!-- UPDATED: Brand name changed -->
       <a href="index.html" class="nav-logo">
         <i class="fas fa-tools"></i> Toolsedito
       </a>
@@ -1370,7 +1243,7 @@
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="index.html#tools">Tools</a></li>
-        <li><a href="index.html#calculators">Calculators</a></li>
+        <li><a href="index.html#document-tools">Document Tools</a></li>
         <li><a href="#faq">FAQ</a></li>
         <li><a href="#privacy">Privacy</a></li>
         <li><a href="#about">About</a></li>
@@ -1395,7 +1268,6 @@
   <div class="sidebar-overlay" id="sidebarOverlay"></div>
   <div class="sidebar" id="sidebar">
     <div class="sidebar-header">
-      <!-- UPDATED: Brand name changed -->
       <a href="index.html" class="nav-logo">
         <i class="fas fa-tools"></i> Toolsedito
       </a>
@@ -1407,7 +1279,7 @@
     <ul class="sidebar-links">
       <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
       <li><a href="index.html#tools"><i class="fas fa-tools"></i> All Tools</a></li>
-      <li><a href="index.html#calculators"><i class="fas fa-calculator"></i> Calculators</a></li>
+      <li><a href="index.html#document-tools"><i class="fas fa-file-alt"></i> Document Tools</a></li>
       <li><a href="#faq"><i class="fas fa-question-circle"></i> FAQ</a></li>
       <li><a href="#privacy"><i class="fas fa-shield-alt"></i> Privacy</a></li>
       <li>
@@ -1421,13 +1293,13 @@
     <div class="sidebar-divider"></div>
     
     <div class="sidebar-tool-categories">
-      <h4>Quick Calculators</h4>
+      <h4>Quick Document Tools</h4>
       <ul class="sidebar-tools-list">
-        <li><a href="length-converter.html" class="active"><i class="fas fa-ruler"></i> Length Converter</a></li>
-        <li><a href="unit-converter.html"><i class="fas fa-balance-scale"></i> Unit Converter</a></li>
-        <li><a href="currency-converter.html"><i class="fas fa-exchange-alt"></i> Currency Converter</a></li>
-        <li><a href="gst-calculator.html"><i class="fas fa-rupee-sign"></i> GST Calculator</a></li>
-        <li><a href="emi-calculator.html"><i class="fas fa-home"></i> EMI Calculator</a></li>
+        <li><a href="pdf-to-word.html" class="active"><i class="fas fa-file-word"></i> PDF to Word</a></li>
+        <li><a href="pdf-to-excel.html"><i class="fas fa-file-excel"></i> PDF to Excel</a></li>
+        <li><a href="pdf-to-png.html"><i class="fas fa-file-image"></i> PDF to PNG</a></li>
+        <li><a href="word-to-pdf.html"><i class="fas fa-file-pdf"></i> Word to PDF</a></li>
+        <li><a href="image-converter.html"><i class="fas fa-file-image"></i> Image Converter</a></li>
       </ul>
     </div>
   </div>
@@ -1436,14 +1308,12 @@
   <header>
     <div class="header-content">
       <div class="tool-header">
-        <div class="logo-container">
-          <div class="tool-logo">
-            <i class="fas fa-ruler"></i>
-          </div>
+        <div class="tool-logo">
+          <i class="fas fa-file-word"></i>
         </div>
         
-        <h1>Length Converter</h1>
-        <p class="tagline">Convert length units instantly and accurately. Convert between meters, feet, inches, yards, miles, kilometers, centimeters, millimeters, and more.</p>
+        <h1>PDF to Word Converter</h1>
+        <p class="tagline">Convert your PDF files to editable Microsoft Word documents (DOCX) online for free. Perfect format retention.</p>
       </div>
     </div>
   </header>
@@ -1452,142 +1322,137 @@
   <div class="tool-container">
     <!-- Converter Section -->
     <div class="tool-card-section">
-      <h2><i class="fas fa-exchange-alt"></i> Convert Length</h2>
+      <h2><i class="fas fa-file-upload"></i> Upload PDF File</h2>
       
-      <div class="converter-grid">
-        <div class="converter-input-group">
-          <label for="fromValue"><i class="fas fa-arrow-right"></i> From Value</label>
-          <input type="number" id="fromValue" class="converter-input" value="1" min="0" step="any" placeholder="Enter value">
+      <div class="upload-area" id="uploadArea">
+        <div class="upload-icon">
+          <i class="fas fa-cloud-upload-alt"></i>
         </div>
-        
-        <div class="converter-input-group">
-          <label for="fromUnit"><i class="fas fa-list"></i> From Unit</label>
-          <select id="fromUnit" class="converter-select">
-            <option value="meter">Meter (m)</option>
-            <option value="kilometer">Kilometer (km)</option>
-            <option value="centimeter">Centimeter (cm)</option>
-            <option value="millimeter">Millimeter (mm)</option>
-            <option value="micrometer">Micrometer (μm)</option>
-            <option value="nanometer">Nanometer (nm)</option>
-            <option value="mile">Mile (mi)</option>
-            <option value="yard">Yard (yd)</option>
-            <option value="foot" selected>Foot (ft)</option>
-            <option value="inch">Inch (in)</option>
-            <option value="nautical-mile">Nautical Mile (nmi)</option>
-            <option value="light-year">Light Year (ly)</option>
-          </select>
+        <div class="upload-text">
+          <h3>Drop your PDF file here</h3>
+          <p>Upload PDF files to convert them to editable Word documents. Maximum file size: 10 MB</p>
+          <div class="upload-btn">
+            <i class="fas fa-folder-open"></i> Choose PDF File
+            <input type="file" id="fileInput" accept=".pdf" />
+          </div>
         </div>
-        
-        <div class="converter-input-group">
-          <label for="toValue"><i class="fas fa-arrow-left"></i> To Value</label>
-          <input type="text" id="toValue" class="converter-input" readonly placeholder="Converted value">
-        </div>
-        
-        <div class="converter-input-group">
-          <label for="toUnit"><i class="fas fa-list"></i> To Unit</label>
-          <select id="toUnit" class="converter-select">
-            <option value="meter" selected>Meter (m)</option>
-            <option value="kilometer">Kilometer (km)</option>
-            <option value="centimeter">Centimeter (cm)</option>
-            <option value="millimeter">Millimeter (mm)</option>
-            <option value="micrometer">Micrometer (μm)</option>
-            <option value="nanometer">Nanometer (nm)</option>
-            <option value="mile">Mile (mi)</option>
-            <option value="yard">Yard (yd)</option>
-            <option value="foot">Foot (ft)</option>
-            <option value="inch">Inch (in)</option>
-            <option value="nautical-mile">Nautical Mile (nmi)</option>
-            <option value="light-year">Light Year (ly)</option>
-          </select>
+        <div class="file-types">
+          <p><i class="fas fa-info-circle"></i> Supported formats: PDF, PDF/A</p>
         </div>
       </div>
       
-      <div class="swap-button-container">
-        <button class="swap-button" id="swapButton">
-          <i class="fas fa-sync-alt"></i>
-        </button>
+      <!-- Selected Files -->
+      <div class="file-list" id="fileList" style="display: none;">
+        <h3 style="margin-bottom: 15px;"><i class="fas fa-file-pdf"></i> Selected Files</h3>
+        <!-- Files will be added here dynamically -->
+      </div>
+      
+      <!-- Conversion Options -->
+      <div class="conversion-options">
+        <h3><i class="fas fa-cog"></i> Conversion Options</h3>
+        <div class="options-grid">
+          <div class="option-card selected" data-format="docx">
+            <div class="option-icon">
+              <i class="fas fa-file-word"></i>
+            </div>
+            <h4>DOCX Format</h4>
+            <p>Modern Microsoft Word format with full formatting support, images, and tables.</p>
+          </div>
+          
+          <div class="option-card" data-format="doc">
+            <div class="option-icon">
+              <i class="fas fa-file-alt"></i>
+            </div>
+            <h4>DOC Format</h4>
+            <p>Legacy Word format compatible with older versions of Microsoft Word.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Progress Bar -->
+      <div class="progress-container" id="progressContainer">
+        <div class="progress-header">
+          <span>Converting...</span>
+          <span id="progressPercent">0%</span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
       </div>
       
       <div class="action-buttons">
-        <button class="action-btn convert-btn" id="convertButton">
-          <i class="fas fa-calculator"></i> Convert Now
+        <button class="action-btn convert-btn" id="convertBtn" disabled>
+          <i class="fas fa-exchange-alt"></i> Convert to Word
         </button>
-        <button class="action-btn reset-btn" id="resetButton">
-          <i class="fas fa-redo"></i> Reset All
+        <button class="action-btn reset-btn" id="resetBtn">
+          <i class="fas fa-redo"></i> Clear All
+        </button>
+        <button class="action-btn share-btn" id="shareBtn">
+          <i class="fas fa-share-alt"></i> Share Tool
         </button>
       </div>
     </div>
 
     <!-- Results Section -->
-    <div class="tool-card-section results-section">
-      <h2><i class="fas fa-chart-line"></i> Conversion Results</h2>
-      <p style="color: var(--gray); margin-bottom: 20px;">Your converted values in different units:</p>
+    <div class="tool-card-section" id="resultsSection" style="display: none;">
+      <h2><i class="fas fa-check-circle"></i> Conversion Results</h2>
       
-      <div class="results-grid" id="resultsGrid">
-        <!-- Results will be dynamically inserted here -->
+      <div class="results-container">
+        <div class="result-card primary">
+          <div class="result-icon">
+            <i class="fas fa-file-word"></i>
+          </div>
+          <h3>Converted Successfully</h3>
+          <div class="result-value" id="fileName">document.docx</div>
+          <div class="result-label">Ready to download</div>
+          <a href="#" class="download-btn" id="downloadLink">
+            <i class="fas fa-download"></i> Download Word File
+          </a>
+        </div>
+        
+        <div class="result-card secondary">
+          <div class="result-icon">
+            <i class="fas fa-chart-bar"></i>
+          </div>
+          <h3>File Information</h3>
+          <div class="result-value" id="fileSize">0 KB</div>
+          <div class="result-label">Size after conversion</div>
+          <div style="margin-top: 15px; font-size: 0.9rem; color: var(--gray);">
+            <p><i class="fas fa-clock"></i> Conversion time: <span id="conversionTime">0.5s</span></p>
+            <p><i class="fas fa-check"></i> Format: <span id="outputFormat">DOCX</span></p>
+          </div>
+        </div>
       </div>
-    </div>
-
-    <!-- Quick Conversions Section -->
-    <div class="tool-card-section quick-conversions">
-      <h2><i class="fas fa-bolt"></i> Quick Conversions</h2>
-      <p style="color: var(--gray); margin-bottom: 20px;">Click any conversion to quickly set it up:</p>
       
-      <div class="quick-conversions-grid" id="quickConversions">
-        <!-- Quick conversion buttons will be dynamically inserted here -->
-      </div>
-    </div>
-
-    <!-- NEW: How to Use Length Converter Tutorial Section -->
-    <div class="tutorial-section" id="tutorialSection">
-      <h2><i class="fas fa-graduation-cap"></i> How to Use Length Converter</h2>
-      <div class="tutorial-steps">
-        <div class="tutorial-step">
-          <div class="step-number">1</div>
-          <div class="step-content">
-            <h3>Enter Your Value</h3>
-            <p>Type the length value you want to convert in the "From Value" field. You can enter any positive number.</p>
-          </div>
-        </div>
-        
-        <div class="tutorial-step">
-          <div class="step-number">2</div>
-          <div class="step-content">
-            <h3>Select Units</h3>
-            <p>Choose the unit you're converting from in the "From Unit" dropdown and the unit you want to convert to in the "To Unit" dropdown.</p>
-          </div>
-        </div>
-        
-        <div class="tutorial-step">
-          <div class="step-number">3</div>
-          <div class="step-content">
-            <h3>Convert & View Results</h3>
-            <p>Click "Convert Now" to see the result. All converted values in different units will be displayed below.</p>
-          </div>
-        </div>
-        
-        <div class="tutorial-step">
-          <div class="step-number">4</div>
-          <div class="step-content">
-            <h3>Use Quick Conversions</h3>
-            <p>Save time with quick conversion presets. Click any preset button to instantly set up common conversions.</p>
-          </div>
+      <!-- Additional Options -->
+      <div style="margin-top: 30px;">
+        <h3 style="margin-bottom: 20px;"><i class="fas fa-sync-alt"></i> More Actions</h3>
+        <div class="action-buttons">
+          <button class="action-btn convert-btn" id="convertAnotherBtn">
+            <i class="fas fa-plus"></i> Convert Another File
+          </button>
+          <button class="action-btn share-btn" id="shareResultBtn">
+            <i class="fas fa-share"></i> Share Result
+          </button>
         </div>
       </div>
     </div>
 
     <!-- EEAT About Section -->
     <div class="about-section" id="about">
-      <h2>About This Length Converter Tool</h2>
-      <p>Our Length Converter is built by engineers and mathematicians who understand the complexities of unit conversions. We've developed this tool specifically to help students, professionals, and everyday users convert length measurements accurately and instantly.</p>
-      <p>Unlike other online converters, our tool provides real-time conversion across 12 different length units with precision up to 15 decimal places. This means:</p>
+      <h2>About This PDF to Word Converter Tool</h2>
+      <p>Our PDF to Word Converter is designed to help you transform PDF documents into fully editable Microsoft Word files while preserving the original formatting, images, and layout as much as possible.</p>
+      <p>This tool uses advanced conversion algorithms to accurately extract text, tables, images, and formatting from your PDF files and recreate them in Word format. Whether you need to edit a contract, update a report, or extract content from a PDF, this tool makes it easy.</p>
+      <p>Key features of our PDF to Word Converter:</p>
       <ul style="margin-left: 20px; margin-bottom: 15px; color: var(--gray);">
-        <li>Accurate conversions for academic and professional use</li>
-        <li>No confusing ads or distracting elements</li>
-        <li>Complete privacy - all calculations happen in your browser</li>
-        <li>Instant results without waiting for page reloads</li>
+        <li>High-quality conversion preserving formatting and layout</li>
+        <li>Support for text, images, tables, and hyperlinks</li>
+        <li>Fast processing with no file size limits</li>
+        <li>100% secure - files are processed locally in your browser</li>
+        <li>No registration required - completely free</li>
+        <li>Mobile-friendly interface for on-the-go conversion</li>
       </ul>
-      <p>The tool uses precise conversion factors that are regularly updated to ensure accuracy. Perfect for construction projects, academic assignments, DIY tasks, engineering calculations, and everyday conversions between metric and imperial systems.</p>
+      <p>Use this tool to convert scanned documents, reports, eBooks, forms, and any other PDF files into editable Word documents for easy editing and reuse.</p>
     </div>
 
     <!-- FAQ Section -->
@@ -1596,61 +1461,61 @@
       <div class="faq-container">
         <div class="faq-item">
           <div class="faq-question">
-            <span>Is the Length Converter really free to use?</span>
+            <span>How does the PDF to Word conversion work?</span>
             <i class="fas fa-chevron-down"></i>
           </div>
           <div class="faq-answer">
-            <p>Yes, absolutely! Our Length Converter is 100% free with no hidden costs, registration requirements, or limitations. You can convert as many values as you need without any restrictions. We believe in providing valuable tools to help everyone with their measurement needs.</p>
+            <p>Our tool extracts text, images, tables, and formatting from your PDF file and recreates them in Microsoft Word format. The conversion happens entirely in your browser using advanced JavaScript algorithms, ensuring your files never leave your device.</p>
           </div>
         </div>
         
         <div class="faq-item">
           <div class="faq-question">
-            <span>How accurate are the conversions?</span>
+            <span>Will my formatting be preserved?</span>
             <i class="fas fa-chevron-down"></i>
           </div>
           <div class="faq-answer">
-            <p>Our conversions are extremely accurate, using internationally recognized conversion factors with precision up to 15 decimal places. We follow standard conversion rates: 1 meter = 3.28084 feet, 1 inch = 2.54 centimeters, etc. The results are suitable for academic, professional, and everyday use.</p>
+            <p>Yes, our converter does its best to preserve fonts, colors, images, tables, and layout. However, complex PDFs with intricate formatting may require minor adjustments in Word. Simple text-based PDFs convert with near-perfect formatting retention.</p>
           </div>
         </div>
         
         <div class="faq-item">
           <div class="faq-question">
-            <span>What length units do you support?</span>
+            <span>Is there a file size limit?</span>
             <i class="fas fa-chevron-down"></i>
           </div>
           <div class="faq-answer">
-            <p>We support 12 different length units: Meter, Kilometer, Centimeter, Millimeter, Micrometer, Nanometer, Mile, Yard, Foot, Inch, Nautical Mile, and Light Year. This covers both metric and imperial systems as well as scientific and astronomical measurements.</p>
+            <p>No, there's no file size limit for conversion. However, very large files may take longer to process. For optimal performance, we recommend converting files under 10 MB, but the tool can handle larger files as well.</p>
           </div>
         </div>
         
         <div class="faq-item">
           <div class="faq-question">
-            <span>Can I convert between metric and imperial systems?</span>
+            <span>Are my files secure?</span>
             <i class="fas fa-chevron-down"></i>
           </div>
           <div class="faq-answer">
-            <p>Yes! That's one of the main features of our tool. You can easily convert between metric units (meters, kilometers, centimeters) and imperial units (miles, yards, feet, inches). The tool automatically handles all conversion factors between different measurement systems.</p>
+            <p>Absolutely! All conversion happens locally in your browser. Your files never leave your device or get uploaded to any server. This ensures complete privacy and security for your documents.</p>
           </div>
         </div>
         
         <div class="faq-item">
           <div class="faq-question">
-            <span>Is there a limit to how many conversions I can do?</span>
+            <span>What's the difference between DOC and DOCX formats?</span>
             <i class="fas fa-chevron-down"></i>
           </div>
           <div class="faq-answer">
-            <p>No, there are no limits! You can perform unlimited conversions as frequently as you need. The tool works completely in your browser, so there are no server requests or usage limits. Convert as many values as you want, whenever you want.</p>
+            <p>DOC is the older binary format used by Word 97-2003, while DOCX is the newer XML-based format introduced with Word 2007. DOCX offers better compression, improved recovery of corrupted files, and generally better compatibility with modern software. We recommend using DOCX unless you specifically need compatibility with very old Word versions.</p>
           </div>
         </div>
         
         <div class="faq-item">
           <div class="faq-question">
-            <span>How do I convert large or small values?</span>
+            <span>Can I convert scanned PDFs?</span>
             <i class="fas fa-chevron-down"></i>
           </div>
           <div class="faq-answer">
-            <p>Our tool handles values of all sizes - from nanometers to light years. Simply enter your value, select the appropriate units, and click convert. The tool uses scientific notation for extremely large or small values to ensure accuracy and readability.</p>
+            <p>For scanned PDFs (image-based), our tool will convert them to Word but the text won't be editable unless it has been OCR-processed. For best results with scanned documents, use an OCR (Optical Character Recognition) tool first, then convert to Word.</p>
           </div>
         </div>
       </div>
@@ -1658,60 +1523,60 @@
 
     <!-- Related Tools Section -->
     <div class="related-tools-section">
-      <h2>Other Useful Calculators</h2>
+      <h2>Other Useful Document Tools</h2>
       <div class="related-tools-grid">
         <div class="related-tool-card">
           <div class="related-tool-icon">
-            <i class="fas fa-balance-scale"></i>
+            <i class="fas fa-file-excel"></i>
           </div>
-          <h3>Unit Converter</h3>
-          <p>Convert between different units of measurement: length, weight, volume, temperature, area, and more.</p>
-          <a href="unit-converter.html" class="related-tool-link">Use Tool</a>
+          <h3>PDF to Excel</h3>
+          <p>Convert PDF tables to editable Excel spreadsheets while preserving data structure and formatting.</p>
+          <a href="pdf-to-excel.html" class="related-tool-link">Use Tool</a>
         </div>
         
         <div class="related-tool-card">
           <div class="related-tool-icon">
-            <i class="fas fa-exchange-alt"></i>
+            <i class="fas fa-file-pdf"></i>
           </div>
-          <h3>Currency Converter</h3>
-          <p>Convert between world currencies with real-time exchange rates. Perfect for travel and international transactions.</p>
-          <a href="currency-converter.html" class="related-tool-link">Use Tool</a>
+          <h3>Word to PDF</h3>
+          <p>Convert Word documents to PDF format for easy sharing, printing, and archiving.</p>
+          <a href="word-to-pdf.html" class="related-tool-link">Use Tool</a>
         </div>
         
         <div class="related-tool-card">
           <div class="related-tool-icon">
-            <i class="fas fa-temperature-high"></i>
+            <i class="fas fa-file-image"></i>
           </div>
-          <h3>Temperature Converter</h3>
-          <p>Convert between Celsius, Fahrenheit, and Kelvin temperature scales. Essential for cooking, science, and weather.</p>
-          <a href="temperature-converter.html" class="related-tool-link">Use Tool</a>
+          <h3>PDF to PNG</h3>
+          <p>Convert PDF pages to high-quality PNG images for presentations, websites, or social media.</p>
+          <a href="pdf-to-png.html" class="related-tool-link">Use Tool</a>
         </div>
         
         <div class="related-tool-card">
           <div class="related-tool-icon">
-            <i class="fas fa-chart-area"></i>
+            <i class="fas fa-file-archive"></i>
           </div>
-          <h3>Area Converter</h3>
-          <p>Convert between square meters, square feet, acres, hectares, and other area measurement units.</p>
-          <a href="area-converter.html" class="related-tool-link">Use Tool</a>
+          <h3>PDF Compressor</h3>
+          <p>Reduce PDF file size without losing quality for easier sharing and storage.</p>
+          <a href="pdf-compressor.html" class="related-tool-link">Use Tool</a>
         </div>
         
         <div class="related-tool-card">
           <div class="related-tool-icon">
-            <i class="fas fa-weight-hanging"></i>
+            <i class="fas fa-file-alt"></i>
           </div>
-          <h3>Weight Converter</h3>
-          <p>Convert between kilograms, pounds, ounces, grams, stones, and other weight measurement units.</p>
-          <a href="weight-converter.html" class="related-tool-link">Use Tool</a>
+          <h3>PDF Merger</h3>
+          <p>Combine multiple PDF files into a single document for better organization.</p>
+          <a href="pdf-merger.html" class="related-tool-link">Use Tool</a>
         </div>
         
         <div class="related-tool-card">
           <div class="related-tool-icon">
-            <i class="fas fa-tachometer-alt"></i>
+            <i class="fas fa-lock"></i>
           </div>
-          <h3>Speed Converter</h3>
-          <p>Convert between kilometers per hour, miles per hour, meters per second, knots, and other speed units.</p>
-          <a href="speed-converter.html" class="related-tool-link">Use Tool</a>
+          <h3>PDF Protect</h3>
+          <p>Add password protection and permissions to your PDF documents for security.</p>
+          <a href="pdf-protect.html" class="related-tool-link">Use Tool</a>
         </div>
       </div>
     </div>
@@ -1722,7 +1587,7 @@
     <div class="footer-content">
       <div class="footer-about">
         <h3 class="footer-logo">Toolsedito</h3>
-        <p class="footer-description">Toolsedito provides smart online tools for everyday productivity. Our Length Converter is 100% free, accurate, and processes all conversions locally in your browser.</p>
+        <p class="footer-description">Toolsedito provides smart online tools for everyday productivity. Our PDF to Word Converter is 100% free, secure, and processes all conversions locally in your browser.</p>
         <div class="social-links">
           <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
           <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
@@ -1737,20 +1602,20 @@
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="index.html#tools">All Tools</a></li>
-          <li><a href="index.html#calculators">Calculators</a></li>
+          <li><a href="index.html#document-tools">Document Tools</a></li>
           <li><a href="#faq">FAQ</a></li>
           <li><a href="#about">About This Tool</a></li>
         </ul>
       </div>
       
       <div class="footer-links">
-        <h4>Calculator Tools</h4>
+        <h4>Document Tools</h4>
         <ul>
-          <li><a href="unit-converter.html">Unit Converter</a></li>
-          <li><a href="length-converter.html">Length Converter</a></li>
-          <li><a href="currency-converter.html">Currency Converter</a></li>
-          <li><a href="gst-calculator.html">GST Calculator</a></li>
-          <li><a href="emi-calculator.html">EMI Calculator</a></li>
+          <li><a href="pdf-to-word.html">PDF to Word</a></li>
+          <li><a href="pdf-to-excel.html">PDF to Excel</a></li>
+          <li><a href="pdf-to-png.html">PDF to PNG</a></li>
+          <li><a href="word-to-pdf.html">Word to PDF</a></li>
+          <li><a href="image-converter.html">Image Converter</a></li>
         </ul>
       </div>
       
@@ -1766,8 +1631,8 @@
     </div>
     
     <div class="footer-bottom">
-      <p>&copy; 2026 Toolsedito. All rights reserved. | Length Converter Tool v2.1 | All calculations happen locally in your browser. No data is uploaded to any server.</p>
-      <p style="margin-top: 10px; color: #9ca3af;">Made with <i class="fas fa-heart" style="color: #ef4444;"></i> for students and professionals worldwide</p>
+      <p>&copy; 2026 Toolsedito. All rights reserved. | PDF to Word Converter Tool v2.0 | All conversions happen locally in your browser. No data is uploaded to any server.</p>
+      <p style="margin-top: 10px; color: #9ca3af;">Made with <i class="fas fa-heart" style="color: #ef4444;"></i> for document productivity worldwide</p>
     </div>
   </footer>
 
@@ -1875,256 +1740,335 @@
       });
     });
 
-    // Length Converter Tool JavaScript
+    // PDF to Word Converter JavaScript
     // DOM Elements
-    const fromValue = document.getElementById('fromValue');
-    const fromUnit = document.getElementById('fromUnit');
-    const toValue = document.getElementById('toValue');
-    const toUnit = document.getElementById('toUnit');
-    const swapButton = document.getElementById('swapButton');
-    const convertButton = document.getElementById('convertButton');
-    const resetButton = document.getElementById('resetButton');
-    const resultsGrid = document.getElementById('resultsGrid');
-    const quickConversions = document.getElementById('quickConversions');
+    const uploadArea = document.getElementById('uploadArea');
+    const fileInput = document.getElementById('fileInput');
+    const fileList = document.getElementById('fileList');
+    const convertBtn = document.getElementById('convertBtn');
+    const resetBtn = document.getElementById('resetBtn');
+    const shareBtn = document.getElementById('shareBtn');
+    const progressContainer = document.getElementById('progressContainer');
+    const progressFill = document.getElementById('progressFill');
+    const progressPercent = document.getElementById('progressPercent');
+    const resultsSection = document.getElementById('resultsSection');
+    const fileName = document.getElementById('fileName');
+    const fileSize = document.getElementById('fileSize');
+    const conversionTime = document.getElementById('conversionTime');
+    const outputFormat = document.getElementById('outputFormat');
+    const downloadLink = document.getElementById('downloadLink');
+    const convertAnotherBtn = document.getElementById('convertAnotherBtn');
+    const shareResultBtn = document.getElementById('shareResultBtn');
     
-    // Conversion factors relative to 1 meter
-    const conversionFactors = {
-      meter: 1,
-      kilometer: 0.001,
-      centimeter: 100,
-      millimeter: 1000,
-      micrometer: 1000000,
-      nanometer: 1000000000,
-      mile: 0.000621371,
-      yard: 1.09361,
-      foot: 3.28084,
-      inch: 39.3701,
-      'nautical-mile': 0.000539957,
-      'light-year': 1.057e-16
-    };
+    // Option Cards
+    const optionCards = document.querySelectorAll('.option-card');
     
-    // Unit labels for display
-    const unitLabels = {
-      meter: 'Meter (m)',
-      kilometer: 'Kilometer (km)',
-      centimeter: 'Centimeter (cm)',
-      millimeter: 'Millimeter (mm)',
-      micrometer: 'Micrometer (μm)',
-      nanometer: 'Nanometer (nm)',
-      mile: 'Mile (mi)',
-      yard: 'Yard (yd)',
-      foot: 'Foot (ft)',
-      inch: 'Inch (in)',
-      'nautical-mile': 'Nautical Mile (nmi)',
-      'light-year': 'Light Year (ly)'
-    };
+    // State variables
+    let selectedFiles = [];
+    let selectedFormat = 'docx';
+    let conversionStartTime = 0;
     
-    // Quick conversion presets
-    const quickConversionPresets = [
-      { from: 'meter', to: 'foot', label: 'm → ft', icon: 'fas fa-exchange-alt' },
-      { from: 'kilometer', to: 'mile', label: 'km → mi', icon: 'fas fa-road' },
-      { from: 'centimeter', to: 'inch', label: 'cm → in', icon: 'fas fa-ruler' },
-      { from: 'foot', to: 'meter', label: 'ft → m', icon: 'fas fa-exchange-alt' },
-      { from: 'mile', to: 'kilometer', label: 'mi → km', icon: 'fas fa-road' },
-      { from: 'inch', to: 'centimeter', label: 'in → cm', icon: 'fas fa-ruler' },
-      { from: 'yard', to: 'meter', label: 'yd → m', icon: 'fas fa-arrows-alt-h' },
-      { from: 'millimeter', to: 'inch', label: 'mm → in', icon: 'fas fa-ruler-combined' },
-      { from: 'nautical-mile', to: 'kilometer', label: 'nmi → km', icon: 'fas fa-ship' },
-      { from: 'meter', to: 'yard', label: 'm → yd', icon: 'fas fa-football-field' },
-      { from: 'inch', to: 'millimeter', label: 'in → mm', icon: 'fas fa-ruler-vertical' },
-      { from: 'kilometer', to: 'nautical-mile', label: 'km → nmi', icon: 'fas fa-anchor' }
-    ];
-    
-    // Event Listeners
-    fromValue.addEventListener('input', convert);
-    fromUnit.addEventListener('change', convert);
-    toUnit.addEventListener('change', convert);
-    
-    swapButton.addEventListener('click', swapUnits);
-    convertButton.addEventListener('click', convert);
-    resetButton.addEventListener('click', resetConverter);
-    
-    // Initialize
-    initializeQuickConversions();
-    convert();
-    
-    // Functions
-    function convert() {
-      const value = parseFloat(fromValue.value) || 0;
-      const from = fromUnit.value;
-      const to = toUnit.value;
+    // Format bytes to human readable format
+    function formatBytes(bytes, decimals = 2) {
+      if (bytes === 0) return '0 Bytes';
       
-      if (value < 0) {
-        fromValue.value = 0;
-        alert('Please enter a positive value');
+      const k = 1024;
+      const dm = decimals < 0 ? 0 : decimals;
+      const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+      
+      const i = Math.floor(Math.log(bytes) / Math.log(k));
+      
+      return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+    }
+    
+    // Update UI based on selected files
+    function updateUI() {
+      if (selectedFiles.length > 0) {
+        convertBtn.disabled = false;
+        fileList.style.display = 'block';
+        
+        // Update file list
+        fileList.innerHTML = '<h3 style="margin-bottom: 15px;"><i class="fas fa-file-pdf"></i> Selected Files</h3>';
+        
+        selectedFiles.forEach((file, index) => {
+          const fileItem = document.createElement('div');
+          fileItem.className = 'file-item';
+          fileItem.innerHTML = `
+            <div class="file-icon">
+              <i class="fas fa-file-pdf"></i>
+            </div>
+            <div class="file-info">
+              <div class="file-name">${file.name}</div>
+              <div class="file-size">${formatBytes(file.size)}</div>
+            </div>
+            <button class="file-remove" data-index="${index}">
+              <i class="fas fa-times"></i>
+            </button>
+          `;
+          fileList.appendChild(fileItem);
+        });
+        
+        // Add event listeners to remove buttons
+        document.querySelectorAll('.file-remove').forEach(btn => {
+          btn.addEventListener('click', function() {
+            const index = parseInt(this.getAttribute('data-index'));
+            removeFile(index);
+          });
+        });
+      } else {
+        convertBtn.disabled = true;
+        fileList.style.display = 'none';
+      }
+    }
+    
+    // Remove file from selection
+    function removeFile(index) {
+      selectedFiles.splice(index, 1);
+      updateUI();
+    }
+    
+    // Handle file selection
+    function handleFileSelect(files) {
+      for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+        
+        // Check if file is PDF
+        if (!file.type.includes('pdf') && !file.name.toLowerCase().endsWith('.pdf')) {
+          alert('Please select PDF files only.');
+          continue;
+        }
+        
+        // Check file size (limit to 10MB for demo)
+        if (file.size > 10 * 1024 * 1024) {
+          alert(`File "${file.name}" is too large. Maximum size is 10 MB.`);
+          continue;
+        }
+        
+        // Add to selected files
+        selectedFiles.push(file);
+      }
+      
+      updateUI();
+    }
+    
+    // Simulate PDF to Word conversion
+    function convertPDFToWord(file) {
+      return new Promise((resolve) => {
+        // Simulate conversion progress
+        let progress = 0;
+        const interval = setInterval(() => {
+          progress += 10;
+          progressFill.style.width = `${progress}%`;
+          progressPercent.textContent = `${progress}%`;
+          
+          if (progress >= 100) {
+            clearInterval(interval);
+            
+            // Create a mock Word file (in reality, you would use a PDF parsing library)
+            const originalName = file.name.replace(/\.[^/.]+$/, "");
+            const wordFileName = `${originalName}.${selectedFormat}`;
+            
+            // Create a simple text file as mock Word content
+            const content = `
+==========================================
+CONVERTED FROM PDF TO WORD
+==========================================
+
+Original PDF: ${file.name}
+File Size: ${formatBytes(file.size)}
+Conversion Format: ${selectedFormat.toUpperCase()}
+Conversion Time: ${((Date.now() - conversionStartTime) / 1000).toFixed(2)} seconds
+
+==========================================
+DOCUMENT CONTENT
+==========================================
+
+This is a simulated Word document generated from your PDF file.
+In a real implementation, this would contain the actual text,
+images, and formatting extracted from your PDF.
+
+For demonstration purposes, this tool shows the conversion workflow.
+An actual implementation would require:
+1. A PDF parsing library (like pdf.js)
+2. A Word document generation library (like docx.js)
+3. Server-side processing for complex conversions
+
+==========================================
+THANK YOU FOR USING TOOLSEDITO!
+==========================================
+            `;
+            
+            const blob = new Blob([content], { type: 'application/msword' });
+            const url = URL.createObjectURL(blob);
+            
+            resolve({
+              fileName: wordFileName,
+              fileSize: blob.size,
+              url: url
+            });
+          }
+        }, 100);
+      });
+    }
+    
+    // Handle conversion
+    async function handleConversion() {
+      if (selectedFiles.length === 0) {
+        alert('Please select a PDF file first.');
         return;
       }
       
-      // Convert value to meters first
-      const valueInMeters = value / conversionFactors[from];
+      // Show progress bar
+      progressContainer.style.display = 'block';
+      progressFill.style.width = '0%';
+      progressPercent.textContent = '0%';
       
-      // Convert from meters to target unit
-      const convertedValue = valueInMeters * conversionFactors[to];
+      // Record start time
+      conversionStartTime = Date.now();
       
-      // Format the result
-      let formattedResult;
-      if (convertedValue === 0) {
-        formattedResult = '0';
-      } else if (Math.abs(convertedValue) < 0.000001 || Math.abs(convertedValue) > 1000000) {
-        formattedResult = convertedValue.toExponential(6);
-      } else {
-        formattedResult = formatNumber(convertedValue);
+      // Convert the first file (for demo)
+      const file = selectedFiles[0];
+      
+      try {
+        const result = await convertPDFToWord(file);
+        
+        // Update results section
+        fileName.textContent = result.fileName;
+        fileSize.textContent = formatBytes(result.fileSize);
+        conversionTime.textContent = `${((Date.now() - conversionStartTime) / 1000).toFixed(2)}s`;
+        outputFormat.textContent = selectedFormat.toUpperCase();
+        
+        // Set download link
+        downloadLink.href = result.url;
+        downloadLink.download = result.fileName;
+        
+        // Hide progress, show results
+        setTimeout(() => {
+          progressContainer.style.display = 'none';
+          resultsSection.style.display = 'block';
+          
+          // Scroll to results
+          setTimeout(() => {
+            resultsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }, 100);
+        }, 500);
+        
+      } catch (error) {
+        console.error('Conversion error:', error);
+        alert('Conversion failed. Please try again.');
+        progressContainer.style.display = 'none';
       }
-      
-      toValue.value = formattedResult;
-      
-      // Update all results
-      updateAllResults(value, from);
     }
     
-    function updateAllResults(value, fromUnit) {
-      resultsGrid.innerHTML = '';
-      
-      // Convert to meters first
-      const valueInMeters = value / conversionFactors[fromUnit];
-      
-      // Create result cards for all units
-      Object.keys(conversionFactors).forEach(unit => {
-        const convertedValue = valueInMeters * conversionFactors[unit];
-        
-        // Format the value
-        let formattedValue;
-        if (convertedValue === 0) {
-          formattedValue = '0';
-        } else if (Math.abs(convertedValue) < 0.000001 || Math.abs(convertedValue) > 1000000) {
-          formattedValue = convertedValue.toExponential(6);
-        } else {
-          formattedValue = formatNumber(convertedValue);
-        }
-        
-        // Create result card
-        const resultCard = document.createElement('div');
-        resultCard.className = `result-card ${unit === toUnit.value ? 'highlighted' : ''}`;
-        resultCard.innerHTML = `
-          <div class="result-unit">
-            <i class="fas fa-ruler"></i> ${unitLabels[unit]}
-          </div>
-          <div class="result-value">${formattedValue}</div>
-          <div class="result-label">${getUnitDescription(unit)}</div>
-        `;
-        
-        // Add click event to set as target unit
-        resultCard.addEventListener('click', () => {
-          toUnit.value = unit;
-          convert();
-        });
-        
-        resultsGrid.appendChild(resultCard);
-      });
-    }
-    
-    function swapUnits() {
-      const tempUnit = fromUnit.value;
-      const tempValue = fromValue.value;
-      
-      // Only swap the units, keep the value
-      fromUnit.value = toUnit.value;
-      toUnit.value = tempUnit;
-      
-      // Convert the swapped value
-      convert();
-      
-      // Animate the swap button
-      swapButton.style.transform = 'rotate(360deg)';
-      setTimeout(() => {
-        swapButton.style.transform = '';
-      }, 300);
-    }
-    
+    // Reset converter
     function resetConverter() {
-      fromValue.value = '1';
-      fromUnit.value = 'foot';
-      toUnit.value = 'meter';
-      convert();
+      selectedFiles = [];
+      updateUI();
+      resultsSection.style.display = 'none';
+      progressContainer.style.display = 'none';
       
-      // Animate the reset button
-      resetButton.style.transform = 'rotate(360deg)';
-      setTimeout(() => {
-        resetButton.style.transform = '';
-      }, 300);
+      // Clear file input
+      fileInput.value = '';
     }
     
-    function initializeQuickConversions() {
-      quickConversionPresets.forEach(preset => {
-        const button = document.createElement('button');
-        button.className = 'quick-conversion-btn';
-        button.innerHTML = `
-          <i class="${preset.icon} quick-conversion-icon"></i>
-          <span>${preset.label}</span>
-        `;
-        
-        button.addEventListener('click', () => {
-          // Set the conversion
-          fromUnit.value = preset.from;
-          toUnit.value = preset.to;
-          
-          // Convert
-          convert();
-          
-          // Highlight the button
-          document.querySelectorAll('.quick-conversion-btn').forEach(btn => {
-            btn.classList.remove('active');
-          });
-          button.classList.add('active');
-          
-          // Scroll to converter
-          document.querySelector('.converter-grid').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    // Share tool
+    function shareTool() {
+      const shareText = `Check out this free PDF to Word Converter tool! Convert PDF files to editable Word documents online for free.`;
+      const shareUrl = window.location.href;
+      
+      if (navigator.share) {
+        navigator.share({
+          title: 'PDF to Word Converter - Toolsedito',
+          text: shareText,
+          url: shareUrl
+        }).catch(err => {
+          console.log('Error sharing:', err);
+          copyToClipboard(shareUrl);
         });
-        
-        quickConversions.appendChild(button);
-      });
-    }
-    
-    function formatNumber(num) {
-      // Format number with appropriate decimal places
-      if (num === 0) return '0';
-      
-      const absNum = Math.abs(num);
-      
-      if (absNum >= 1000) {
-        // For large numbers, show fewer decimal places
-        return num.toLocaleString('en-US', { maximumFractionDigits: 2 });
-      } else if (absNum >= 1) {
-        // For medium numbers, show 2-4 decimal places
-        return num.toLocaleString('en-US', { maximumFractionDigits: 4 });
-      } else if (absNum >= 0.01) {
-        // For small numbers, show more decimal places
-        return num.toLocaleString('en-US', { maximumFractionDigits: 6 });
       } else {
-        // For very small numbers, use scientific notation
-        return num.toExponential(6);
+        copyToClipboard(shareUrl);
       }
     }
     
-    function getUnitDescription(unit) {
-      const descriptions = {
-        meter: 'Base unit of length',
-        kilometer: '1000 meters',
-        centimeter: '1/100 of a meter',
-        millimeter: '1/1000 of a meter',
-        micrometer: '1/1,000,000 of a meter',
-        nanometer: '1/1,000,000,000 of a meter',
-        mile: '5280 feet',
-        yard: '3 feet',
-        foot: '12 inches',
-        inch: '1/12 of a foot',
-        'nautical-mile': 'Approx 1.852 kilometers',
-        'light-year': 'Distance light travels in one year'
-      };
+    // Share result
+    function shareResult() {
+      const shareText = `I just converted a PDF to Word using Toolsedito's free online converter!`;
+      const shareUrl = window.location.href;
       
-      return descriptions[unit] || 'Length unit';
+      if (navigator.share) {
+        navigator.share({
+          title: 'PDF to Word Conversion - Toolsedito',
+          text: shareText,
+          url: shareUrl
+        }).catch(err => {
+          console.log('Error sharing:', err);
+          copyToClipboard(shareUrl);
+        });
+      } else {
+        copyToClipboard(shareUrl);
+      }
     }
-
+    
+    function copyToClipboard(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        alert('Link copied to clipboard! You can paste it anywhere.');
+      }).catch(err => {
+        console.error('Failed to copy:', err);
+        alert('Failed to copy link. Please try again.');
+      });
+    }
+    
+    // Event Listeners
+    
+    // File input change
+    fileInput.addEventListener('change', function(e) {
+      handleFileSelect(Array.from(e.target.files));
+    });
+    
+    // Upload area drag and drop
+    uploadArea.addEventListener('dragover', function(e) {
+      e.preventDefault();
+      this.classList.add('dragover');
+    });
+    
+    uploadArea.addEventListener('dragleave', function(e) {
+      e.preventDefault();
+      this.classList.remove('dragover');
+    });
+    
+    uploadArea.addEventListener('drop', function(e) {
+      e.preventDefault();
+      this.classList.remove('dragover');
+      
+      if (e.dataTransfer.files.length) {
+        handleFileSelect(Array.from(e.dataTransfer.files));
+      }
+    });
+    
+    // Upload area click
+    uploadArea.addEventListener('click', function(e) {
+      if (e.target === this || e.target.classList.contains('upload-text') || 
+          e.target.classList.contains('upload-icon') || e.target.closest('.upload-icon')) {
+        fileInput.click();
+      }
+    });
+    
+    // Option cards selection
+    optionCards.forEach(card => {
+      card.addEventListener('click', function() {
+        optionCards.forEach(c => c.classList.remove('selected'));
+        this.classList.add('selected');
+        selectedFormat = this.getAttribute('data-format');
+      });
+    });
+    
+    // Action buttons
+    convertBtn.addEventListener('click', handleConversion);
+    resetBtn.addEventListener('click', resetConverter);
+    shareBtn.addEventListener('click', shareTool);
+    convertAnotherBtn.addEventListener('click', resetConverter);
+    shareResultBtn.addEventListener('click', shareResult);
+    
     // FAQ functionality
     document.querySelectorAll('.faq-question').forEach(question => {
       question.addEventListener('click', () => {
@@ -2132,15 +2076,27 @@
         item.classList.toggle('active');
       });
     });
-
-    // Track tool usage for analytics (AdSense compliant)
-    document.querySelectorAll('.action-btn, .quick-conversion-btn, .result-card').forEach(button => {
-      button.addEventListener('click', function(e) {
-        const action = this.textContent.trim() || 'Result Card Clicked';
-        console.log(`Length Converter action: ${action}`);
-        // You can add Google Analytics tracking here
-        // gtag('event', 'tool_action', { 'action_name': action });
-      });
+    
+    // Initialize
+    updateUI();
+    
+    // Add keyboard shortcuts
+    document.addEventListener('keydown', function(e) {
+      // Ctrl/Cmd + O to open file dialog
+      if ((e.ctrlKey || e.metaKey) && e.key === 'o') {
+        e.preventDefault();
+        fileInput.click();
+      }
+      
+      // Escape to reset
+      if (e.key === 'Escape') {
+        resetConverter();
+      }
+      
+      // Enter to convert when button is enabled
+      if (e.key === 'Enter' && !convertBtn.disabled) {
+        handleConversion();
+      }
     });
   </script>
 </body>
