@@ -1,1680 +1,1379 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Area Converter - Convert Area Units Online | Toolvexa</title>
-    
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Free online area converter tool. Convert between square meters, square kilometers, square miles, acres, hectares, square feet, square yards and more. Fast and accurate conversions.">
-    <meta name="keywords" content="area converter, convert area, square meters to acres, hectares to acres, square feet to square meters, land area calculator, measurement converter">
-    <meta name="author" content="Toolvexa">
-    <meta name="robots" content="index, follow">
-    
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Area Converter - Convert Area Units Online | Toolvexa">
-    <meta property="og:description" content="Free online area converter tool. Convert between square meters, square kilometers, square miles, acres, hectares, square feet, square yards and more.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://toolvexa.com/area-converter">
-    <meta property="og:image" content="https://toolvexa.com/images/area-converter-og.jpg">
-    
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://toolvexa.com/area-converter">
-    
-    <!-- Structured Data for SEO -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebApplication",
-        "name": "Area Converter",
-        "url": "https://toolvexa.com/area-converter",
-        "applicationCategory": "UtilityApplication",
-        "operatingSystem": "Any",
-        "description": "Free online tool to convert between different area measurement units",
-        "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "USD"
-        },
-        "creator": {
-            "@type": "Organization",
-            "name": "Toolvexa",
-            "url": "https://toolvexa.com"
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Area Converter - Convert Square Meters, Feet, Acres, Hectares | Toolsedito</title>
+  <meta name="description" content="Free online area converter tool. Instantly convert between square meters, square feet, acres, hectares, square miles, and 15+ other area units. No registration required." />
+  <meta name="keywords" content="area converter, square meters to square feet, acres to hectares, land area calculator, square feet converter, hectare calculator" />
+  <meta name="author" content="Toolsedito Team" />
+  <meta name="robots" content="index, follow" />
+  
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    /* Mobile First CSS - Same as homepage with converter-specific styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-    </script>
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
-    <style>
-        /* Reset & Base Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', system-ui, sans-serif;
-        }
-
-        :root {
-            --primary: #4361ee;
-            --primary-light: #e6f0ff;
-            --secondary: #7209b7;
-            --success: #2ec4b6;
-            --danger: #e63946;
-            --warning: #ff9e00;
-            --light: #f8f9fa;
-            --dark: #212529;
-            --border: #dee2e6;
-            --shadow: rgba(0, 0, 0, 0.1);
-            --radius: 12px;
-        }
-
-        body {
-            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
-            min-height: 100vh;
-            color: var(--dark);
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Navigation Bar */
-        .tool-navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 15px 0;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-            border-bottom: 3px solid #4361ee;
-        }
-        
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 20px;
-        }
-        
-        .nav-brand {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-            color: #4361ee;
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
-        
-        .nav-brand i {
-            font-size: 1.8rem;
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 25px;
-            list-style: none;
-        }
-        
-        .nav-links a {
-            color: #333;
-            text-decoration: none;
-            font-weight: 500;
-            padding: 8px 15px;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-        }
-        
-        .nav-links a:hover {
-            background: #4361ee;
-            color: white;
-        }
-        
-        .back-to-home {
-            background: #4361ee;
-            color: white !important;
-            padding: 8px 20px !important;
-            border-radius: 25px;
-        }
-        
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: #333;
-            cursor: pointer;
-        }
-        
-        /* Adjust body padding for fixed navbar */
-        body {
-            padding-top: 80px;
-        }
-
-        /* Breadcrumb */
-        .breadcrumb {
-            margin: 20px 0 30px;
-            font-size: 0.9rem;
-            color: #666;
-        }
-        
-        .breadcrumb a {
-            color: #4361ee;
-            text-decoration: none;
-        }
-        
-        .breadcrumb span {
-            margin: 0 5px;
-        }
-
-        /* Tool Header */
-        header {
-            text-align: center;
-            margin-bottom: 40px;
-            padding: 30px 20px;
-            background: white;
-            border-radius: var(--radius);
-            box-shadow: 0 5px 20px var(--shadow);
-        }
-
-        .logo {
-            font-size: 3rem;
-            color: var(--primary);
-            margin-bottom: 15px;
-        }
-
-        header h1 {
-            color: var(--primary);
-            font-size: 2.8rem;
-            margin-bottom: 15px;
-            font-weight: 800;
-        }
-
-        header p {
-            color: #666;
-            font-size: 1.1rem;
-            max-width: 700px;
-            margin: 0 auto 20px;
-        }
-
-        .features {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-            margin-top: 20px;
-        }
-
-        .feature {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 0.95rem;
-            color: var(--dark);
-            background: var(--light);
-            padding: 8px 15px;
-            border-radius: 50px;
-        }
-
-        .feature i {
-            color: var(--success);
-        }
-
-        /* Main Converter Section */
-        .converter-section {
-            background: white;
-            border-radius: var(--radius);
-            padding: 40px;
-            box-shadow: 0 5px 20px var(--shadow);
-            margin-bottom: 40px;
-        }
-
-        .converter-grid {
-            display: grid;
-            grid-template-columns: 1fr auto 1fr;
-            gap: 30px;
-            align-items: center;
-        }
-
-        @media (max-width: 768px) {
-            .converter-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .input-group {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .input-group label {
-            font-weight: 600;
-            color: var(--dark);
-            font-size: 1.1rem;
-        }
-
-        .input-field {
-            display: flex;
-            border: 2px solid var(--border);
-            border-radius: var(--radius);
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .input-field:focus-within {
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.1);
-        }
-
-        .input-field input {
-            flex: 1;
-            border: none;
-            padding: 15px;
-            font-size: 1.2rem;
-            outline: none;
-            background: white;
-        }
-
-        .unit-select {
-            background: var(--light);
-            border: none;
-            padding: 0 20px;
-            font-size: 1rem;
-            font-weight: 500;
-            color: var(--dark);
-            outline: none;
-            cursor: pointer;
-            min-width: 140px;
-            border-left: 2px solid var(--border);
-        }
-
-        .swap-btn {
-            background: var(--primary);
-            color: white;
-            border: none;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 1.5rem;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto;
-        }
-
-        .swap-btn:hover {
-            background: #3a56d4;
-            transform: rotate(180deg);
-        }
-
-        /* Quick Conversions */
-        .quick-conversions {
-            margin: 40px 0;
-        }
-
-        .quick-conversions h3 {
-            color: var(--primary);
-            margin-bottom: 20px;
-            font-size: 1.5rem;
-        }
-
-        .conversion-buttons {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 15px;
-        }
-
-        .conversion-btn {
-            background: white;
-            border: 2px solid var(--border);
-            border-radius: var(--radius);
-            padding: 15px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-align: center;
-        }
-
-        .conversion-btn:hover {
-            border-color: var(--primary);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px var(--shadow);
-        }
-
-        .conversion-btn.active {
-            background: var(--primary);
-            color: white;
-            border-color: var(--primary);
-        }
-
-        /* Conversion History */
-        .history-section {
-            margin: 40px 0;
-            display: none;
-        }
-
-        .history-section.active {
-            display: block;
-        }
-
-        .history-section h3 {
-            color: var(--primary);
-            margin-bottom: 20px;
-            font-size: 1.5rem;
-        }
-
-        .history-list {
-            background: white;
-            border-radius: var(--radius);
-            padding: 20px;
-            max-height: 300px;
-            overflow-y: auto;
-            box-shadow: 0 3px 10px var(--shadow);
-        }
-
-        .history-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 12px 0;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .history-item:last-child {
-            border-bottom: none;
-        }
-
-        .history-from, .history-to {
-            font-weight: 500;
-        }
-
-        .history-value {
-            color: var(--success);
-            font-weight: 600;
-        }
-
-        .history-date {
-            color: #888;
-            font-size: 0.85rem;
-        }
-
-        .clear-history {
-            background: var(--danger);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: var(--radius);
-            cursor: pointer;
-            margin-top: 15px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        .clear-history:hover {
-            background: #d32f3a;
-        }
-
-        /* Unit Categories */
-        .unit-categories {
-            margin: 40px 0;
-        }
-
-        .unit-categories h3 {
-            color: var(--primary);
-            margin-bottom: 20px;
-            font-size: 1.5rem;
-        }
-
-        .category-tabs {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-        }
-
-        .category-tab {
-            background: var(--light);
-            border: 2px solid var(--border);
-            border-radius: var(--radius);
-            padding: 10px 20px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: 500;
-        }
-
-        .category-tab:hover {
-            border-color: var(--primary);
-        }
-
-        .category-tab.active {
-            background: var(--primary);
-            color: white;
-            border-color: var(--primary);
-        }
-
-        .category-content {
-            display: none;
-            background: white;
-            border-radius: var(--radius);
-            padding: 25px;
-            box-shadow: 0 3px 10px var(--shadow);
-        }
-
-        .category-content.active {
-            display: block;
-            animation: fadeIn 0.5s ease;
-        }
-
-        .category-content h4 {
-            color: var(--dark);
-            margin-bottom: 15px;
-            font-size: 1.2rem;
-        }
-
-        .unit-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 15px;
-        }
-
-        .unit-item {
-            background: var(--light);
-            border-radius: 8px;
-            padding: 15px;
-            text-align: center;
-        }
-
-        .unit-name {
-            font-weight: 600;
-            color: var(--dark);
-            margin-bottom: 5px;
-        }
-
-        .unit-symbol {
-            color: var(--primary);
-            font-weight: 500;
-            font-size: 0.9rem;
-        }
-
-        .unit-value {
-            color: #666;
-            font-size: 0.85rem;
-            margin-top: 5px;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* FAQ Section */
-        .faq-section {
-            margin: 60px 0 40px;
-        }
-
-        .faq-section h2 {
-            color: var(--primary);
-            font-size: 2rem;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
-        .faq-container {
-            background: white;
-            border-radius: var(--radius);
-            padding: 30px;
-            box-shadow: 0 5px 20px var(--shadow);
-        }
-
-        .faq-item {
-            border-bottom: 1px solid var(--border);
-            padding: 20px 0;
-        }
-
-        .faq-item:last-child {
-            border-bottom: none;
-        }
-
-        .faq-question {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-            color: var(--dark);
-            font-size: 1.1rem;
-            font-weight: 600;
-        }
-
-        .faq-question i {
-            color: var(--primary);
-            transition: transform 0.3s ease;
-        }
-
-        .faq-item.active .faq-question i {
-            transform: rotate(180deg);
-        }
-
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-            color: #666;
-            line-height: 1.6;
-            padding-right: 40px;
-        }
-
-        .faq-item.active .faq-answer {
-            max-height: 500px;
-            margin-top: 15px;
-        }
-
-        /* Related Tools Section */
-        .related-tools-section {
-            margin: 60px 0 40px;
-        }
-
-        .related-tools-section h2 {
-            color: var(--primary);
-            font-size: 2rem;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
-        .tools-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-        }
-
-        .tool-card {
-            background: white;
-            border-radius: var(--radius);
-            padding: 25px;
-            text-align: center;
-            box-shadow: 0 5px 15px var(--shadow);
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-        }
-
-        .tool-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary);
-            box-shadow: 0 10px 25px rgba(67, 97, 238, 0.15);
-        }
-
-        .tool-icon {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 15px;
-        }
-
-        .tool-card h3 {
-            color: var(--dark);
-            margin-bottom: 10px;
-            font-size: 1.3rem;
-        }
-
-        .tool-card p {
-            color: #666;
-            font-size: 0.95rem;
-            margin-bottom: 20px;
-            line-height: 1.5;
-        }
-
-        .tool-link {
-            display: inline-block;
-            background: var(--primary-light);
-            color: var(--primary);
-            padding: 10px 20px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .tool-link:hover {
-            background: var(--primary);
-            color: white;
-        }
-
-        /* SEO Pages Styles */
-        .seo-section {
-            max-width: 1000px;
-            margin: 40px auto;
-            padding: 30px;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            display: none;
-            position: relative;
-        }
-        
-        .seo-section.active {
-            display: block;
-            animation: fadeIn 0.5s ease;
-        }
-        
-        .seo-section h1 {
-            color: #4361ee;
-            margin-bottom: 20px;
-            font-size: 2.2rem;
-        }
-        
-        .seo-section h2 {
-            color: #333;
-            margin: 25px 0 15px;
-            font-size: 1.5rem;
-        }
-        
-        .seo-section h3 {
-            color: #555;
-            margin: 20px 0 10px;
-            font-size: 1.2rem;
-        }
-        
-        .seo-content {
-            line-height: 1.8;
-            color: #444;
-        }
-        
-        .seo-content p {
-            margin-bottom: 15px;
-        }
-        
-        .seo-content ul, .seo-content ol {
-            margin-left: 20px;
-            margin-bottom: 20px;
-        }
-        
-        .seo-content li {
-            margin-bottom: 10px;
-        }
-        
-        .close-seo {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: #4361ee;
-            color: white;
-            border: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 1.2rem;
-            z-index: 10;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            margin-top: 50px;
-            padding: 30px 20px;
-            color: #666;
-            font-size: 0.9rem;
-            border-top: 1px solid var(--border);
-            background: white;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-            margin-bottom: 20px;
-        }
-
-        .footer-links a {
-            color: #4361ee;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: var(--secondary);
-            text-decoration: underline;
-        }
-
-        .copyright {
-            margin-top: 20px;
-            color: #888;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: white;
-                flex-direction: column;
-                padding: 20px;
-                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            }
-            
-            .nav-links.active {
-                display: flex;
-            }
-            
-            .mobile-menu-btn {
-                display: block;
-            }
-            
-            .nav-container {
-                flex-wrap: wrap;
-            }
-            
-            .converter-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-            
-            .swap-btn {
-                margin: 20px auto;
-                transform: rotate(90deg);
-            }
-            
-            .conversion-buttons {
-                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            }
-            
-            .unit-list {
-                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            }
-            
-            .tools-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .seo-section {
-                padding: 20px;
-                margin: 20px;
-            }
-            
-            .faq-container {
-                padding: 20px;
-            }
-            
-            .faq-answer {
-                padding-right: 20px;
-            }
-            
-            .converter-section {
-                padding: 25px;
-            }
-        }
-
-        /* Utility Classes */
-        .section-title {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 25px;
-        }
-
-        .section-title h2 {
-            color: var(--primary);
-            font-size: 1.8rem;
-        }
-
-        .toggle-history {
-            background: var(--primary-light);
-            color: var(--primary);
-            border: none;
-            padding: 10px 20px;
-            border-radius: var(--radius);
-            cursor: pointer;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        .toggle-history:hover {
-            background: var(--primary);
-            color: white;
-        }
-
-        .precision-control {
-            margin: 20px 0;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .precision-control label {
-            font-weight: 500;
-            color: var(--dark);
-        }
-
-        .precision-select {
-            padding: 8px 15px;
-            border: 2px solid var(--border);
-            border-radius: var(--radius);
-            background: white;
-            font-weight: 500;
-            cursor: pointer;
-        }
-    </style>
+
+    :root {
+      --primary: #4f46e5;
+      --primary-dark: #4338ca;
+      --secondary: #10b981;
+      --accent: #f59e0b;
+      --light: #f8fafc;
+      --dark: #1f2933;
+      --gray: #6b7280;
+      --light-gray: #f3f4f6;
+      --card-bg: #ffffff;
+      --card-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+      --hover-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      --body-bg: var(--light);
+      --text-color: var(--dark);
+      --border-color: rgba(0, 0, 0, 0.05);
+      --footer-bg: linear-gradient(135deg, #111827, #1f2937);
+      --transition-speed: 0.3s;
+    }
+
+    /* Dark Theme Variables */
+    .dark-theme {
+      --light: #121826;
+      --dark: #f3f4f6;
+      --gray: #9ca3af;
+      --light-gray: #1f2937;
+      --card-bg: #1a2332;
+      --body-bg: #0f172a;
+      --text-color: #f3f4f6;
+      --border-color: rgba(255, 255, 255, 0.05);
+      --card-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      --hover-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      --footer-bg: linear-gradient(135deg, #0f172a, #1e293b);
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--body-bg);
+      color: var(--text-color);
+      line-height: 1.6;
+      overflow-x: hidden;
+      transition: background-color var(--transition-speed) ease,
+                  color var(--transition-speed) ease;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+    }
+
+    /* Navigation - Same as homepage */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      padding: 18px 0;
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+      transition: all var(--transition-speed) ease;
+    }
+
+    .dark-theme .navbar {
+      background: rgba(26, 35, 50, 0.98);
+    }
+
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+    }
+
+    .nav-logo {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--primary);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-logo i {
+      font-size: 1.4rem;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    /* Mobile Menu Button */
+    .mobile-menu-btn {
+      display: block;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--text-color);
+      cursor: pointer;
+      z-index: 1002;
+      transition: color var(--transition-speed) ease;
+    }
+
+    /* Sidebar Styles */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      right: -300px;
+      width: 280px;
+      height: 100vh;
+      background: var(--card-bg);
+      box-shadow: -5px 0 25px rgba(0, 0, 0, 0.1);
+      z-index: 1001;
+      transition: right 0.3s ease-in-out;
+      padding: 80px 25px 30px;
+      overflow-y: auto;
+    }
+
+    .dark-theme .sidebar {
+      box-shadow: -5px 0 25px rgba(0, 0, 0, 0.3);
+    }
+
+    .sidebar.active {
+      right: 0;
+    }
+
+    .sidebar-header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px;
+      background: var(--primary);
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .sidebar-header .nav-logo {
+      color: white;
+      font-size: 1.3rem;
+    }
+
+    .sidebar-close {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .sidebar-links {
+      list-style: none;
+      margin-top: 20px;
+    }
+
+    .sidebar-links li {
+      margin-bottom: 15px;
+    }
+
+    .sidebar-links a {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--text-color);
+      text-decoration: none;
+      font-weight: 500;
+      padding: 12px 15px;
+      border-radius: 8px;
+      transition: all var(--transition-speed) ease;
+    }
+
+    .sidebar-links a:hover {
+      background: var(--light-gray);
+      color: var(--primary);
+      transform: translateX(5px);
+    }
+
+    .sidebar-links a i {
+      width: 20px;
+      text-align: center;
+    }
+
+    .sidebar-links a.active {
+      background: var(--primary);
+      color: white;
+    }
+
+    .sidebar-divider {
+      height: 1px;
+      background: var(--border-color);
+      margin: 20px 0;
+    }
+
+    .sidebar-tool-categories {
+      margin-top: 20px;
+    }
+
+    .sidebar-tool-categories h4 {
+      font-size: 0.9rem;
+      color: var(--gray);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 15px;
+    }
+
+    .sidebar-tools-list {
+      list-style: none;
+      margin-bottom: 20px;
+    }
+
+    .sidebar-tools-list li {
+      margin-bottom: 10px;
+    }
+
+    .sidebar-tools-list a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--gray);
+      text-decoration: none;
+      font-size: 0.9rem;
+      padding: 8px 10px;
+      border-radius: 6px;
+      transition: all var(--transition-speed) ease;
+    }
+
+    .sidebar-tools-list a:hover {
+      color: var(--primary);
+      background: var(--light-gray);
+    }
+
+    /* Overlay when sidebar is open */
+    .sidebar-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .sidebar-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Tool Page Header */
+    .tool-header {
+      background: linear-gradient(135deg, #e6f7ff 0%, #f0f9ff 100%);
+      color: #1f2933;
+      padding: 100px 20px 40px;
+      text-align: center;
+      margin-top: 75px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .dark-theme .tool-header {
+      background: linear-gradient(135deg, #0a1929 0%, #112240 100%);
+      color: #f3f4f6;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .tool-header-content {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .tool-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      background: linear-gradient(90deg, #4f46e5, #7c3aed, #10b981);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: -0.5px;
+      line-height: 1;
+      margin-bottom: 15px;
+    }
+
+    .tool-subtitle {
+      font-size: 1.1rem;
+      color: var(--gray);
+      max-width: 700px;
+      margin: 0 auto 25px;
+      line-height: 1.6;
+    }
+
+    /* Main Tool Container */
+    .tool-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    /* Converter Card */
+    .converter-card {
+      background: var(--card-bg);
+      border-radius: 20px;
+      box-shadow: var(--card-shadow);
+      padding: 30px;
+      margin-bottom: 40px;
+      transition: all var(--transition-speed) ease;
+    }
+
+    /* Converter Form */
+    .converter-form {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .input-group label {
+      font-weight: 600;
+      color: var(--text-color);
+      font-size: 1rem;
+    }
+
+    .input-with-unit {
+      display: flex;
+      border: 2px solid var(--border-color);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      background: var(--light-gray);
+    }
+
+    .input-with-unit:focus-within {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+    }
+
+    .input-with-unit input {
+      flex: 1;
+      padding: 18px 20px;
+      border: none;
+      background: transparent;
+      color: var(--text-color);
+      font-size: 1.2rem;
+      font-weight: 600;
+      outline: none;
+      width: 100%;
+    }
+
+    .input-with-unit select {
+      padding: 0 20px;
+      border: none;
+      background: var(--light-gray);
+      color: var(--text-color);
+      font-size: 1rem;
+      font-weight: 500;
+      border-left: 2px solid var(--border-color);
+      cursor: pointer;
+      outline: none;
+      min-width: 150px;
+    }
+
+    /* Swap Button */
+    .swap-button-container {
+      display: flex;
+      justify-content: center;
+      margin: 10px 0;
+    }
+
+    .swap-button {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: white;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(79, 70, 229, 0.2);
+    }
+
+    .swap-button:hover {
+      background: var(--primary-dark);
+      transform: rotate(180deg);
+      box-shadow: 0 8px 20px rgba(79, 70, 229, 0.3);
+    }
+
+    /* Quick Conversion Buttons */
+    .quick-conversions {
+      margin-top: 30px;
+    }
+
+    .quick-conversions h3 {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      color: var(--text-color);
+      text-align: center;
+    }
+
+    .quick-buttons {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .quick-btn {
+      padding: 14px 10px;
+      background: var(--light-gray);
+      border: 2px solid var(--border-color);
+      border-radius: 10px;
+      color: var(--text-color);
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-align: center;
+    }
+
+    .quick-btn:hover {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    .quick-btn.active {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    /* Info Section */
+    .info-section {
+      background: var(--light-gray);
+      border-radius: 20px;
+      padding: 30px;
+      margin-top: 40px;
+    }
+
+    .info-section h3 {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      color: var(--text-color);
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 25px;
+      margin-top: 20px;
+    }
+
+    .info-card {
+      background: var(--card-bg);
+      padding: 25px;
+      border-radius: 16px;
+      box-shadow: var(--card-shadow);
+      transition: transform 0.3s ease;
+    }
+
+    .info-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .info-card h4 {
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+      color: var(--text-color);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .info-card h4 i {
+      color: var(--primary);
+    }
+
+    .info-card p {
+      color: var(--gray);
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+
+    /* Area Unit Table */
+    .unit-table-container {
+      overflow-x: auto;
+      margin-top: 30px;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+    }
+
+    .unit-table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 600px;
+    }
+
+    .unit-table thead {
+      background: var(--light-gray);
+    }
+
+    .unit-table th {
+      padding: 18px 15px;
+      text-align: left;
+      font-weight: 600;
+      color: var(--text-color);
+      border-bottom: 2px solid var(--border-color);
+    }
+
+    .unit-table td {
+      padding: 15px;
+      border-bottom: 1px solid var(--border-color);
+      color: var(--text-color);
+    }
+
+    .unit-table tbody tr:hover {
+      background: var(--light-gray);
+    }
+
+    .unit-name {
+      font-weight: 500;
+    }
+
+    .unit-symbol {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    /* Related Tools */
+    .related-tools {
+      margin-top: 50px;
+    }
+
+    .related-tools h3 {
+      font-size: 1.8rem;
+      margin-bottom: 30px;
+      color: var(--text-color);
+      text-align: center;
+    }
+
+    .tools-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 25px;
+    }
+
+    .tool-card {
+      background: var(--card-bg);
+      padding: 25px;
+      border-radius: 16px;
+      box-shadow: var(--card-shadow);
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: block;
+      color: var(--text-color);
+      border-left: 4px solid var(--primary);
+    }
+
+    .tool-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--hover-shadow);
+      border-left-color: var(--secondary);
+    }
+
+    .tool-card h4 {
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .tool-card h4 i {
+      color: var(--primary);
+    }
+
+    .tool-card p {
+      color: var(--gray);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--footer-bg);
+      color: #9ca3af;
+      padding: 50px 20px 30px;
+      margin-top: 60px;
+      position: relative;
+    }
+
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+
+    .footer-logo {
+      font-size: 2rem;
+      font-weight: 800;
+      color: white;
+      margin-bottom: 15px;
+      display: inline-block;
+      background: linear-gradient(90deg, #fff, #c7d2fe);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .footer-description {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 12px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .social-link:hover {
+      background: var(--primary);
+      transform: translateY(-5px);
+    }
+
+    .footer-links h4 {
+      color: white;
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    .footer-links h4::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 40px;
+      height: 3px;
+      background: var(--primary);
+    }
+
+    .footer-links ul {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+
+    .footer-links a {
+      color: #9ca3af;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: inline-block;
+      font-size: 0.95rem;
+    }
+
+    .footer-links a:hover {
+      color: white;
+      transform: translateX(5px);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.85rem;
+    }
+
+    /* Theme Toggle */
+    .theme-toggle {
+      background: var(--light-gray);
+      border: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--text-color);
+      font-size: 1.2rem;
+      transition: all var(--transition-speed) ease;
+      margin-left: 10px;
+    }
+
+    .theme-toggle:hover {
+      background: var(--primary);
+      color: white;
+      transform: rotate(15deg);
+    }
+
+    /* Responsive Styles */
+    @media (min-width: 640px) {
+      .quick-buttons {
+        grid-template-columns: repeat(4, 1fr);
+      }
+      
+      .info-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .tools-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 768px) {
+      .tool-title {
+        font-size: 3rem;
+      }
+      
+      .tool-subtitle {
+        font-size: 1.2rem;
+      }
+      
+      .converter-form {
+        flex-direction: row;
+        align-items: center;
+        gap: 20px;
+      }
+      
+      .input-group {
+        flex: 1;
+      }
+      
+      .swap-button-container {
+        margin: 0;
+        order: 2;
+      }
+      
+      .swap-button {
+        width: 60px;
+        height: 60px;
+      }
+      
+      .quick-buttons {
+        grid-template-columns: repeat(4, 1fr);
+      }
+      
+      .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .tools-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+      
+      .info-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      
+      .footer-content {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    /* Print Styles */
+    @media print {
+      .navbar, .sidebar, .sidebar-overlay, .mobile-menu-btn,
+      .swap-button, .quick-buttons, .social-links, .theme-toggle {
+        display: none !important;
+      }
+      
+      body {
+        background: white;
+        color: black;
+      }
+      
+      .tool-header {
+        background: white !important;
+        color: black;
+        padding: 20px;
+        margin-top: 0;
+      }
+      
+      .tool-title {
+        background: black !important;
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: black;
+      }
+    }
+  </style>
 </head>
-
 <body>
-    <!-- Navigation Bar -->
-    <nav class="tool-navbar">
-        <div class="nav-container">
-            <a href="index.html" class="nav-brand">
-                <i class="fas fa-tools"></i> Toolvexa
-            </a>
-            
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
-                <i class="fas fa-bars"></i>
-            </button>
-            
-            <ul class="nav-links" id="navLinks">
-                <li><a href="index.html#home">Home</a></li>
-                <li><a href="index.html#tools">All Tools</a></li>
-                <li><a href="index.html#calculators">Calculators</a></li>
-                <li><a href="#privacy-policy" onclick="showSeoPage('privacy')">Privacy Policy</a></li>
-                <li><a href="#terms-of-service" onclick="showSeoPage('terms')">Terms of Service</a></li>
-                <li><a href="#about-tool" onclick="showSeoPage('about')">About This Tool</a></li>
-                <li><a href="index.html" class="back-to-home">Back to Home</a></li>
-            </ul>
-        </div>
-    </nav>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <i class="fas fa-tools"></i> Toolsedito
+      </a>
+      
+      <div style="display: flex; align-items: center;">
+        <!-- Theme Toggle Button -->
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+          <i class="fas fa-moon"></i>
+          <i class="fas fa-sun"></i>
+        </button>
+        
+        <!-- Mobile Menu Button -->
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Sidebar -->
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <a href="index.html" class="nav-logo">
+        <i class="fas fa-tools"></i> Toolsedito
+      </a>
+      <button class="sidebar-close" id="sidebarClose">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
     
-    <!-- Main Content -->
-    <div class="container">
-        <!-- Breadcrumb -->
-        <div class="breadcrumb">
-            <a href="index.html">Home</a> 
-            <span>></span>
-            <a href="index.html#calculator-tools">Calculator Tools</a>
-            <span>></span>
-            <span>Area Converter</span>
+    <ul class="sidebar-links">
+      <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="area-converter.html" class="active"><i class="fas fa-chart-area"></i> Area Converter</a></li>
+      <li><a href="length-converter.html"><i class="fas fa-ruler"></i> Length Converter</a></li>
+      <li><a href="weight-converter.html"><i class="fas fa-balance-scale"></i> Weight Converter</a></li>
+      <li><a href="temperature-converter.html"><i class="fas fa-temperature-high"></i> Temperature Converter</a></li>
+      <li>
+        <a href="#" id="sidebarThemeToggle">
+          <i class="fas fa-moon"></i> Dark Mode
+          <span id="themeStatus" style="margin-left: auto; font-size: 0.8rem; opacity: 0.7;">OFF</span>
+        </a>
+      </li>
+    </ul>
+    
+    <div class="sidebar-divider"></div>
+    
+    <div class="sidebar-tool-categories">
+      <h4>More Tools</h4>
+      <ul class="sidebar-tools-list">
+        <li><a href="unit-converter.html"><i class="fas fa-exchange-alt"></i> Unit Converter</a></li>
+        <li><a href="currency-converter.html"><i class="fas fa-money-bill-wave"></i> Currency Converter</a></li>
+        <li><a href="time-converter.html"><i class="fas fa-clock"></i> Time Converter</a></li>
+        <li><a href="speed-converter.html"><i class="fas fa-tachometer-alt"></i> Speed Converter</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Tool Header -->
+  <header class="tool-header">
+    <div class="tool-header-content">
+      <h1 class="tool-title">Area Converter</h1>
+      <p class="tool-subtitle">Convert between square meters, square feet, acres, hectares, square miles, and 15+ other area units instantly. Fast, accurate, and completely free.</p>
+    </div>
+  </header>
+
+  <!-- Main Tool Container -->
+  <main class="tool-container">
+    <!-- Converter Card -->
+    <div class="converter-card">
+      <div class="converter-form">
+        <!-- From Input -->
+        <div class="input-group">
+          <label for="fromValue">From:</label>
+          <div class="input-with-unit">
+            <input type="number" id="fromValue" value="1" placeholder="Enter value">
+            <select id="fromUnit">
+              <option value="sq_meter">Square Meter (m²)</option>
+              <option value="sq_kilometer">Square Kilometer (km²)</option>
+              <option value="sq_centimeter">Square Centimeter (cm²)</option>
+              <option value="sq_millimeter">Square Millimeter (mm²)</option>
+              <option value="sq_mile">Square Mile (mi²)</option>
+              <option value="sq_yard">Square Yard (yd²)</option>
+              <option value="sq_foot" selected>Square Foot (ft²)</option>
+              <option value="sq_inch">Square Inch (in²)</option>
+              <option value="acre">Acre (ac)</option>
+              <option value="hectare">Hectare (ha)</option>
+              <option value="are">Are (a)</option>
+              <option value="barn">Barn (b)</option>
+              <option value="square">Square (sq)</option>
+            </select>
+          </div>
         </div>
 
-        <!-- Tool Header -->
-        <header>
-            <div class="logo">
-                <i class="fas fa-chart-area"></i>
-            </div>
-            <h1>Area Converter</h1>
-            <p>Convert between different area measurement units instantly. Supports square meters, square kilometers, acres, hectares, square miles, square feet, square yards and more.</p>
-            <div class="features">
-                <div class="feature">
-                    <i class="fas fa-bolt"></i>
-                    <span>Real-time Conversion</span>
-                </div>
-                <div class="feature">
-                    <i class="fas fa-shield-alt"></i>
-                    <span>No Data Storage</span>
-                </div>
-                <div class="feature">
-                    <i class="fas fa-globe"></i>
-                    <span>International Units</span>
-                </div>
-                <div class="feature">
-                    <i class="fas fa-history"></i>
-                    <span>Conversion History</span>
-                </div>
-            </div>
-        </header>
-
-        <!-- Main Converter -->
-        <section class="converter-section">
-            <div class="converter-grid">
-                <!-- From Input -->
-                <div class="input-group">
-                    <label for="fromValue">From:</label>
-                    <div class="input-field">
-                        <input type="number" id="fromValue" value="1" step="any" placeholder="Enter value">
-                        <select id="fromUnit" class="unit-select">
-                            <option value="m2">Square Meter (m²)</option>
-                            <option value="km2">Square Kilometer (km²)</option>
-                            <option value="cm2">Square Centimeter (cm²)</option>
-                            <option value="mm2">Square Millimeter (mm²)</option>
-                            <option value="ha">Hectare (ha)</option>
-                            <option value="acre" selected>Acre</option>
-                            <option value="mile2">Square Mile (mi²)</option>
-                            <option value="yard2">Square Yard (yd²)</option>
-                            <option value="foot2">Square Foot (ft²)</option>
-                            <option value="inch2">Square Inch (in²)</option>
-                        </select>
-                    </div>
-                </div>
-
-                <!-- Swap Button -->
-                <button class="swap-btn" id="swapBtn">
-                    <i class="fas fa-exchange-alt"></i>
-                </button>
-
-                <!-- To Input -->
-                <div class="input-group">
-                    <label for="toValue">To:</label>
-                    <div class="input-field">
-                        <input type="number" id="toValue" placeholder="Converted value" readonly>
-                        <select id="toUnit" class="unit-select">
-                            <option value="m2">Square Meter (m²)</option>
-                            <option value="km2">Square Kilometer (km²)</option>
-                            <option value="cm2">Square Centimeter (cm²)</option>
-                            <option value="mm2">Square Millimeter (mm²)</option>
-                            <option value="ha">Hectare (ha)</option>
-                            <option value="acre">Acre</option>
-                            <option value="mile2" selected>Square Mile (mi²)</option>
-                            <option value="yard2">Square Yard (yd²)</option>
-                            <option value="foot2">Square Foot (ft²)</option>
-                            <option value="inch2">Square Inch (in²)</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Precision Control -->
-            <div class="precision-control">
-                <label for="precision">Decimal Places:</label>
-                <select id="precision" class="precision-select">
-                    <option value="0">0</option>
-                    <option value="1">1</option>
-                    <option value="2" selected>2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                </select>
-            </div>
-
-            <!-- Quick Conversions -->
-            <div class="quick-conversions">
-                <h3>Quick Conversions</h3>
-                <div class="conversion-buttons" id="quickConversions">
-                    <!-- Quick conversion buttons will be generated by JavaScript -->
-                </div>
-            </div>
-        </section>
-
-        <!-- History Section -->
-        <div class="history-section" id="historySection">
-            <div class="section-title">
-                <h3>Conversion History</h3>
-                <button class="clear-history" id="clearHistory">Clear History</button>
-            </div>
-            <div class="history-list" id="historyList">
-                <!-- History items will be added by JavaScript -->
-            </div>
+        <!-- Swap Button -->
+        <div class="swap-button-container">
+          <button class="swap-button" id="swapButton" aria-label="Swap units">
+            <i class="fas fa-exchange-alt"></i>
+          </button>
         </div>
 
-        <!-- Show History Button -->
-        <div style="text-align: center; margin: 20px 0;">
-            <button class="toggle-history" id="toggleHistory">
-                <i class="fas fa-history"></i> Show Conversion History
-            </button>
+        <!-- To Input -->
+        <div class="input-group">
+          <label for="toValue">To:</label>
+          <div class="input-with-unit">
+            <input type="number" id="toValue" placeholder="Result" readonly>
+            <select id="toUnit">
+              <option value="sq_meter" selected>Square Meter (m²)</option>
+              <option value="sq_kilometer">Square Kilometer (km²)</option>
+              <option value="sq_centimeter">Square Centimeter (cm²)</option>
+              <option value="sq_millimeter">Square Millimeter (mm²)</option>
+              <option value="sq_mile">Square Mile (mi²)</option>
+              <option value="sq_yard">Square Yard (yd²)</option>
+              <option value="sq_foot">Square Foot (ft²)</option>
+              <option value="sq_inch">Square Inch (in²)</option>
+              <option value="acre">Acre (ac)</option>
+              <option value="hectare">Hectare (ha)</option>
+              <option value="are">Are (a)</option>
+              <option value="barn">Barn (b)</option>
+              <option value="square">Square (sq)</option>
+            </select>
+          </div>
         </div>
+      </div>
 
-        <!-- Unit Categories -->
-        <div class="unit-categories">
-            <h3>Area Unit Categories</h3>
-            <div class="category-tabs">
-                <button class="category-tab active" data-category="metric">Metric Units</button>
-                <button class="category-tab" data-category="imperial">Imperial/US Units</button>
-                <button class="category-tab" data-category="other">Other Units</button>
-            </div>
-            
-            <div class="category-content active" id="metricContent">
-                <h4>Metric Area Units</h4>
-                <div class="unit-list">
-                    <div class="unit-item">
-                        <div class="unit-name">Square Meter</div>
-                        <div class="unit-symbol">m²</div>
-                        <div class="unit-value">Base SI unit</div>
-                    </div>
-                    <div class="unit-item">
-                        <div class="unit-name">Square Kilometer</div>
-                        <div class="unit-symbol">km²</div>
-                        <div class="unit-value">1,000,000 m²</div>
-                    </div>
-                    <div class="unit-item">
-                        <div class="unit-name">Hectare</div>
-                        <div class="unit-symbol">ha</div>
-                        <div class="unit-value">10,000 m²</div>
-                    </div>
-                    <div class="unit-item">
-                        <div class="unit-name">Are</div>
-                        <div class="unit-symbol">a</div>
-                        <div class="unit-value">100 m²</div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="category-content" id="imperialContent">
-                <h4>Imperial/US Area Units</h4>
-                <div class="unit-list">
-                    <div class="unit-item">
-                        <div class="unit-name">Square Mile</div>
-                        <div class="unit-symbol">mi²</div>
-                        <div class="unit-value">2,589,988 m²</div>
-                    </div>
-                    <div class="unit-item">
-                        <div class="unit-name">Acre</div>
-                        <div class="unit-symbol">ac</div>
-                        <div class="unit-value">4,046.86 m²</div>
-                    </div>
-                    <div class="unit-item">
-                        <div class="unit-name">Square Yard</div>
-                        <div class="unit-symbol">yd²</div>
-                        <div class="unit-value">0.836127 m²</div>
-                    </div>
-                    <div class="unit-item">
-                        <div class="unit-name">Square Foot</div>
-                        <div class="unit-symbol">ft²</div>
-                        <div class="unit-value">0.092903 m²</div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="category-content" id="otherContent">
-                <h4>Other Area Units</h4>
-                <div class="unit-list">
-                    <div class="unit-item">
-                        <div class="unit-name">Football Field</div>
-                        <div class="unit-symbol">-</div>
-                        <div class="unit-value">≈ 5,350 m²</div>
-                    </div>
-                    <div class="unit-item">
-                        <div class="unit-name">Tennis Court</div>
-                        <div class="unit-symbol">-</div>
-                        <div class="unit-value">≈ 260 m²</div>
-                    </div>
-                    <div class="unit-item">
-                        <div class="unit-name">Basketball Court</div>
-                        <div class="unit-symbol">-</div>
-                        <div class="unit-value">≈ 420 m²</div>
-                    </div>
-                    <div class="unit-item">
-                        <div class="unit-name">Olympic Pool</div>
-                        <div class="unit-symbol">-</div>
-                        <div class="unit-value">≈ 1,250 m²</div>
-                    </div>
-                </div>
-            </div>
+      <!-- Quick Conversions -->
+      <div class="quick-conversions">
+        <h3>Quick Conversions:</h3>
+        <div class="quick-buttons" id="quickButtons">
+          <!-- Quick conversion buttons will be populated by JavaScript -->
         </div>
-
-        <!-- FAQ Section -->
-        <div class="faq-section">
-            <h2>Frequently Asked Questions</h2>
-            <div class="faq-container">
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>How accurate is the area converter?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Our area converter uses precise conversion factors based on international standards. The accuracy is maintained up to 6 decimal places, but you can adjust the precision using the decimal places selector.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>What area units are supported?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>We support all major area units including metric units (square meters, square kilometers, hectares), imperial units (square miles, acres, square yards, square feet), and some practical units for comparison (football fields, tennis courts, etc.).</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Can I convert between metric and imperial units?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Yes! Our converter seamlessly converts between metric and imperial units. For example, you can easily convert acres to hectares, square meters to square feet, or square kilometers to square miles.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>How do I use the quick conversion buttons?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>The quick conversion buttons provide one-click conversions for common scenarios like acres to hectares or square meters to square feet. Just click any button to instantly set up that conversion.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Is my conversion history saved?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Your conversion history is stored locally in your browser. This means it's only accessible on your device and won't be shared with anyone. You can clear it anytime using the "Clear History" button.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Related Tools Section -->
-        <div class="related-tools-section">
-            <h2>Other Useful Tools</h2>
-            <div class="tools-grid">
-                <div class="tool-card">
-                    <div class="tool-icon">
-                        <i class="fas fa-compress-alt"></i>
-                    </div>
-                    <h3>Image Compressor</h3>
-                    <p>Compress images to reduce file size while maintaining quality. Perfect for web optimization and storage saving.</p>
-                    <a href="image-compressor.html" class="tool-link">Use Tool</a>
-                </div>
-                
-                <div class="tool-card">
-                    <div class="tool-icon">
-                        <i class="fas fa-calculator"></i>
-                    </div>
-                    <h3>Unit Converter</h3>
-                    <p>Convert between different measurement units including length, weight, temperature, volume, and more.</p>
-                    <a href="unit-converter.html" class="tool-link">Use Tool</a>
-                </div>
-                
-                <div class="tool-card">
-                    <div class="tool-icon">
-                        <i class="fas fa-ruler"></i>
-                    </div>
-                    <h3>Length Converter</h3>
-                    <p>Convert length measurements between meters, kilometers, miles, feet, inches, yards, and more.</p>
-                    <a href="length-converter.html" class="tool-link">Use Tool</a>
-                </div>
-                
-                <div class="tool-card">
-                    <div class="tool-icon">
-                        <i class="fas fa-weight"></i>
-                    </div>
-                    <h3>Weight Converter</h3>
-                    <p>Convert weight measurements between kilograms, pounds, ounces, grams, tons, and more.</p>
-                    <a href="weight-converter.html" class="tool-link">Use Tool</a>
-                </div>
-                
-                <div class="tool-card">
-                    <div class="tool-icon">
-                        <i class="fas fa-temperature-high"></i>
-                    </div>
-                    <h3>Temperature Converter</h3>
-                    <p>Convert between Celsius, Fahrenheit, and Kelvin temperature scales with accurate calculations.</p>
-                    <a href="temperature-converter.html" class="tool-link">Use Tool</a>
-                </div>
-                
-                <div class="tool-card">
-                    <div class="tool-icon">
-                        <i class="fas fa-tachometer-alt"></i>
-                    </div>
-                    <h3>Speed Converter</h3>
-                    <p>Convert speed measurements between km/h, mph, m/s, knots, and other speed units.</p>
-                    <a href="speed-converter.html" class="tool-link">Use Tool</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- SEO Pages Section -->
-        <div class="seo-section" id="privacy-policy">
-            <button class="close-seo" onclick="hideSeoPage()">×</button>
-            <h1>Privacy Policy</h1>
-            <div class="seo-content">
-                <p><strong>Last Updated: January 2024</strong></p>
-                
-                <h2>1. Introduction</h2>
-                <p>Welcome to Toolvexa Area Converter. Your privacy is critically important to us. This privacy policy document outlines the types of personal information that is received and collected by our tool and how it is used.</p>
-                
-                <h2>2. Information We Collect</h2>
-                <h3>2.1 No Personal Data Collection</h3>
-                <p>Our Area Converter tool operates entirely in your browser. We do not:</p>
-                <ul>
-                    <li>Collect any personal information</li>
-                    <li>Upload your data to our servers</li>
-                    <li>Store any information about your usage</li>
-                    <li>Use cookies for tracking purposes</li>
-                </ul>
-                
-                <h3>2.2 Local Processing</h3>
-                <p>All conversions happen locally on your device using JavaScript. Your conversion data never leaves your computer or mobile device.</p>
-                
-                <h2>3. How We Use Information</h2>
-                <p>Since we don't collect any personal data, there's no information to use or share. The tool functions completely offline once loaded in your browser.</p>
-                
-                <h2>4. Third-Party Services</h2>
-                <p>We only use Font Awesome for icons and Google Fonts for typography. These services may collect limited data as per their own privacy policies.</p>
-                
-                <h2>5. Security</h2>
-                <p>Your security is guaranteed because:</p>
-                <ul>
-                    <li>No data transmission occurs</li>
-                    <li>All processing is done client-side</li>
-                    <li>No server-side storage exists</li>
-                </ul>
-                
-                <h2>6. Changes to This Policy</h2>
-                <p>We may update this privacy policy from time to time. We will notify you of any changes by posting the new privacy policy on this page.</p>
-                
-                <h2>7. Contact Us</h2>
-                <p>If you have any questions about this Privacy Policy, please contact us at: privacy@toolvexa.com</p>
-            </div>
-        </div>
-
-        <div class="seo-section" id="terms-of-service">
-            <button class="close-seo" onclick="hideSeoPage()">×</button>
-            <h1>Terms of Service</h1>
-            <div class="seo-content">
-                <p><strong>Last Updated: January 2024</strong></p>
-                
-                <h2>1. Acceptance of Terms</h2>
-                <p>By accessing and using the Toolvexa Area Converter tool, you accept and agree to be bound by the terms and provision of this agreement.</p>
-                
-                <h2>2. Description of Service</h2>
-                <p>Toolvexa Area Converter provides a free online tool for converting between different area measurement units. The service includes:</p>
-                <ul>
-                    <li>Real-time area conversions</li>
-                    <li>Support for metric and imperial units</li>
-                    <li>Conversion history tracking</li>
-                    <li>Quick conversion presets</li>
-                    <li>Precision control options</li>
-                </ul>
-                
-                <h2>3. User Responsibilities</h2>
-                <p>You agree to:</p>
-                <ul>
-                    <li>Use the tool only for lawful purposes</li>
-                    <li>Not attempt to abuse or exploit the tool</li>
-                    <li>Understand that results are for reference only</li>
-                    <li>Not attempt to reverse engineer or hack the tool</li>
-                </ul>
-                
-                <h2>4. Service Limitations</h2>
-                <p>The service is provided "as is" without warranties of any kind. We do not guarantee:</p>
-                <ul>
-                    <li>Uninterrupted service availability</li>
-                    <li>100% accuracy in all conversions</li>
-                    <li>Compatibility with all browsers or devices</li>
-                    <li>Suitability for critical applications</li>
-                </ul>
-                
-                <h2>5. Intellectual Property</h2>
-                <p>The tool's code and design are protected by copyright. You may use the tool freely but may not copy or redistribute the code without permission.</p>
-                
-                <h2>6. Limitation of Liability</h2>
-                <p>Toolvexa shall not be liable for any indirect, incidental, special, consequential or punitive damages resulting from your use of the tool.</p>
-                
-                <h2>7. Changes to Terms</h2>
-                <p>We reserve the right to modify these terms at any time. Continued use of the tool constitutes acceptance of modified terms.</p>
-                
-                <h2>8. Contact Information</h2>
-                <p>For any questions regarding these Terms of Service, please contact: legal@toolvexa.com</p>
-            </div>
-        </div>
-
-        <div class="seo-section" id="about-tool">
-            <button class="close-seo" onclick="hideSeoPage()">×</button>
-            <h1>About Area Converter Tool</h1>
-            <div class="seo-content">
-                <h2>What is Toolvexa Area Converter?</h2>
-                <p>Toolvexa Area Converter is a free online tool that helps you convert between different area measurement units instantly. It's perfect for students, professionals, real estate agents, architects, and anyone who needs to work with area measurements.</p>
-                
-                <h2>Key Features</h2>
-                <ul>
-                    <li><strong>Real-time Conversion:</strong> See results instantly as you type</li>
-                    <li><strong>Wide Unit Support:</strong> All major metric and imperial units</li>
-                    <li><strong>Precision Control:</strong> Adjust decimal places as needed</li>
-                    <li><strong>Conversion History:</strong> Track your recent conversions</li>
-                    <li><strong>Quick Conversions:</strong> One-click common conversions</li>
-                    <li><strong>Privacy Guaranteed:</strong> All processing happens locally</li>
-                </ul>
-                
-                <h2>Common Use Cases</h2>
-                <ul>
-                    <li><strong>Real Estate:</strong> Convert between acres and hectares for property measurements</li>
-                    <li><strong>Construction:</strong> Calculate material requirements in different units</li>
-                    <li><strong>Education:</strong> Learn and practice unit conversions</li>
-                    <li><strong>Agriculture:</strong> Measure land areas for farming purposes</li>
-                    <li><strong>International Projects:</strong> Convert between metric and imperial systems</li>
-                </ul>
-                
-                <h2>Technical Information</h2>
-                <p>The tool uses precise conversion factors based on international standards:</p>
-                <ul>
-                    <li>1 square meter = 10.7639 square feet</li>
-                    <li>1 acre = 4046.86 square meters</li>
-                    <li>1 hectare = 2.47105 acres</li>
-                    <li>1 square mile = 640 acres</li>
-                    <li>1 square kilometer = 247.105 acres</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Footer -->
-        <footer>
-            <div class="footer-links">
-                <a href="#privacy-policy" onclick="showSeoPage('privacy')">Privacy Policy</a>
-                <a href="#terms-of-service" onclick="showSeoPage('terms')">Terms of Service</a>
-                <a href="#about-tool" onclick="showSeoPage('about')">About This Tool</a>
-                <a href="index.html">All Tools</a>
-                <a href="index.html#calculators">Calculators</a>
-                <a href="index.html#contact">Contact Us</a>
-            </div>
-            <div class="copyright">
-                <p>© 2024 Area Converter Tool | Toolvexa | All calculations happen locally in your browser. No data is uploaded to any server.</p>
-                <p style="margin-top: 10px;">Made with <i class="fas fa-heart" style="color: #e63946;"></i> for everyone</p>
-            </div>
-        </footer>
+      </div>
     </div>
 
-    <script>
-        // Navigation functionality
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const navLinks = document.getElementById('navLinks');
+    <!-- Information Section -->
+    <div class="info-section">
+      <h3>About Area Conversion</h3>
+      <div class="info-grid">
+        <div class="info-card">
+          <h4><i class="fas fa-ruler-combined"></i> What is Area?</h4>
+          <p>Area is the amount of space inside the boundary of a flat object or surface. It's measured in square units like square meters (m²), square feet (ft²), acres, and hectares.</p>
+        </div>
         
+        <div class="info-card">
+          <h4><i class="fas fa-calculator"></i> How to Use This Tool</h4>
+          <p>Enter a value, select the unit you're converting from, choose the unit you want to convert to, and get instant results. You can also use the quick conversion buttons for common conversions.</p>
+        </div>
+        
+        <div class="info-card">
+          <h4><i class="fas fa-history"></i> Common Uses</h4>
+          <p>Area conversion is essential for real estate, construction, agriculture, land measurement, interior design, and any field that involves measuring surfaces or land areas.</p>
+        </div>
+      </div>
+
+      <!-- Area Units Table -->
+      <div class="unit-table-container">
+        <table class="unit-table">
+          <thead>
+            <tr>
+              <th>Unit Name</th>
+              <th>Symbol</th>
+              <th>Equivalent in Square Meters</th>
+              <th>Common Usage</th>
+            </tr>
+          </thead>
+          <tbody id="unitTableBody">
+            <!-- Unit table will be populated by JavaScript -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Related Tools -->
+    <div class="related-tools">
+      <h3>Related Conversion Tools</h3>
+      <div class="tools-grid">
+        <a href="length-converter.html" class="tool-card">
+          <h4><i class="fas fa-ruler"></i> Length Converter</h4>
+          <p>Convert between meters, feet, inches, yards, miles, and other length units.</p>
+        </a>
+        
+        <a href="weight-converter.html" class="tool-card">
+          <h4><i class="fas fa-balance-scale"></i> Weight Converter</h4>
+          <p>Convert between kilograms, pounds, ounces, grams, stones, and other weight units.</p>
+        </a>
+        
+        <a href="temperature-converter.html" class="tool-card">
+          <h4><i class="fas fa-temperature-high"></i> Temperature Converter</h4>
+          <p>Convert between Celsius, Fahrenheit, Kelvin, and other temperature scales.</p>
+        </a>
+        
+        <a href="unit-converter.html" class="tool-card">
+          <h4><i class="fas fa-exchange-alt"></i> Unit Converter</h4>
+          <p>All-in-one converter for length, weight, volume, temperature, and more.</p>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-about">
+        <h3 class="footer-logo">Toolsedito</h3>
+        <p class="footer-description">Toolsedito provides smart online tools for everyday productivity. Our tools are fast, free, and easy to use, helping you accomplish tasks efficiently.</p>
+        <div class="social-links">
+          <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="area-converter.html">Area Converter</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Tool Categories</h4>
+        <ul>
+          <li><a href="index.html#image-tools">Image Tools</a></li>
+          <li><a href="index.html#pdf-tools">PDF Tools</a></li>
+          <li><a href="index.html#calculators">Calculators</a></li>
+          <li><a href="index.html#ai-tools">AI Tools</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms-of-service.html">Terms of Service</a></li>
+          <li><a href="disclaimer.html">Disclaimer</a></li>
+          <li><a href="cookie-policy.html">Cookie Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2026 Toolsedito. All rights reserved. | Designed for productivity</p>
+    </div>
+  </footer>
+
+  <script>
+    // Area Conversion Data (base unit: square meter)
+    const areaUnits = {
+      sq_meter: { name: "Square Meter", symbol: "m²", toMeter: 1, commonUse: "International standard" },
+      sq_kilometer: { name: "Square Kilometer", symbol: "km²", toMeter: 1000000, commonUse: "Large land areas" },
+      sq_centimeter: { name: "Square Centimeter", symbol: "cm²", toMeter: 0.0001, commonUse: "Small surfaces" },
+      sq_millimeter: { name: "Square Millimeter", symbol: "mm²", toMeter: 0.000001, commonUse: "Very small surfaces" },
+      sq_mile: { name: "Square Mile", symbol: "mi²", toMeter: 2589988.110336, commonUse: "US land measurement" },
+      sq_yard: { name: "Square Yard", symbol: "yd²", toMeter: 0.83612736, commonUse: "UK/US real estate" },
+      sq_foot: { name: "Square Foot", symbol: "ft²", toMeter: 0.09290304, commonUse: "Real estate worldwide" },
+      sq_inch: { name: "Square Inch", symbol: "in²", toMeter: 0.00064516, commonUse: "Small measurements" },
+      acre: { name: "Acre", symbol: "ac", toMeter: 4046.8564224, commonUse: "Land area (US/UK)" },
+      hectare: { name: "Hectare", symbol: "ha", toMeter: 10000, commonUse: "Agriculture, land plots" },
+      are: { name: "Are", symbol: "a", toMeter: 100, commonUse: "Old metric system" },
+      barn: { name: "Barn", symbol: "b", toMeter: 1e-28, commonUse: "Nuclear physics" },
+      square: { name: "Square", symbol: "sq", toMeter: 9.290304, commonUse: "Construction (100 sq ft)" }
+    };
+
+    // Quick Conversions Data
+    const quickConversions = [
+      { from: "sq_foot", to: "sq_meter", label: "ft² to m²" },
+      { from: "sq_meter", to: "sq_foot", label: "m² to ft²" },
+      { from: "acre", to: "hectare", label: "Acres to Hectares" },
+      { from: "hectare", to: "acre", label: "Hectares to Acres" },
+      { from: "sq_mile", to: "sq_kilometer", label: "mi² to km²" },
+      { from: "sq_kilometer", to: "sq_mile", label: "km² to mi²" },
+      { from: "sq_yard", to: "sq_meter", label: "yd² to m²" }
+    ];
+
+    // DOM Elements
+    const fromValueInput = document.getElementById('fromValue');
+    const fromUnitSelect = document.getElementById('fromUnit');
+    const toValueInput = document.getElementById('toValue');
+    const toUnitSelect = document.getElementById('toUnit');
+    const swapButton = document.getElementById('swapButton');
+    const quickButtonsContainer = document.getElementById('quickButtons');
+    const unitTableBody = document.getElementById('unitTableBody');
+
+    // Initialize the page
+    function initPage() {
+      // Populate quick conversion buttons
+      populateQuickButtons();
+      
+      // Populate unit table
+      populateUnitTable();
+      
+      // Set up event listeners
+      setupEventListeners();
+      
+      // Perform initial conversion
+      convertArea();
+      
+      // Initialize theme
+      initTheme();
+      
+      // Initialize mobile menu
+      initMobileMenu();
+    }
+
+    // Populate quick conversion buttons
+    function populateQuickButtons() {
+      quickConversions.forEach(conversion => {
+        const button = document.createElement('button');
+        button.className = 'quick-btn';
+        button.textContent = conversion.label;
+        button.dataset.from = conversion.from;
+        button.dataset.to = conversion.to;
+        
+        button.addEventListener('click', function() {
+          // Set the from and to units
+          fromUnitSelect.value = this.dataset.from;
+          toUnitSelect.value = this.dataset.to;
+          
+          // Update quick button states
+          document.querySelectorAll('.quick-btn').forEach(btn => {
+            btn.classList.remove('active');
+          });
+          this.classList.add('active');
+          
+          // Perform conversion
+          convertArea();
+        });
+        
+        quickButtonsContainer.appendChild(button);
+      });
+    }
+
+    // Populate unit table
+    function populateUnitTable() {
+      for (const unitId in areaUnits) {
+        const unit = areaUnits[unitId];
+        const row = document.createElement('tr');
+        
+        row.innerHTML = `
+          <td class="unit-name">${unit.name}</td>
+          <td class="unit-symbol">${unit.symbol}</td>
+          <td>1 ${unit.symbol} = ${unit.toMeter.toLocaleString()} m²</td>
+          <td>${unit.commonUse}</td>
+        `;
+        
+        unitTableBody.appendChild(row);
+      }
+    }
+
+    // Set up event listeners
+    function setupEventListeners() {
+      // Conversion triggers
+      fromValueInput.addEventListener('input', convertArea);
+      fromUnitSelect.addEventListener('change', convertArea);
+      toUnitSelect.addEventListener('change', convertArea);
+      
+      // Swap button
+      swapButton.addEventListener('click', swapUnits);
+      
+      // Theme toggle
+      const themeToggle = document.getElementById('themeToggle');
+      const sidebarThemeToggle = document.getElementById('sidebarThemeToggle');
+      
+      if (themeToggle) {
+        themeToggle.addEventListener('click', toggleTheme);
+      }
+      
+      if (sidebarThemeToggle) {
+        sidebarThemeToggle.addEventListener('click', function(e) {
+          e.preventDefault();
+          toggleTheme();
+        });
+      }
+    }
+
+    // Area conversion function
+    function convertArea() {
+      // Get input values
+      const fromValue = parseFloat(fromValueInput.value) || 0;
+      const fromUnit = fromUnitSelect.value;
+      const toUnit = toUnitSelect.value;
+      
+      // Convert to square meters (base unit)
+      const valueInMeters = fromValue * areaUnits[fromUnit].toMeter;
+      
+      // Convert from square meters to target unit
+      const convertedValue = valueInMeters / areaUnits[toUnit].toMeter;
+      
+      // Display result with appropriate formatting
+      if (Math.abs(convertedValue) >= 1000000 || (Math.abs(convertedValue) < 0.001 && convertedValue !== 0)) {
+        // Use scientific notation for very large or very small numbers
+        toValueInput.value = convertedValue.toExponential(6);
+      } else {
+        // Format with appropriate decimal places
+        const decimalPlaces = Math.abs(convertedValue) < 10 ? 6 : 
+                             Math.abs(convertedValue) < 1000 ? 4 : 2;
+        toValueInput.value = parseFloat(convertedValue.toFixed(decimalPlaces)).toLocaleString();
+      }
+    }
+
+    // Swap units function
+    function swapUnits() {
+      // Store current values
+      const tempUnit = fromUnitSelect.value;
+      const tempValue = fromValueInput.value;
+      const toValue = toValueInput.value;
+      
+      // Swap units
+      fromUnitSelect.value = toUnitSelect.value;
+      toUnitSelect.value = tempUnit;
+      
+      // Swap values
+      fromValueInput.value = toValue;
+      
+      // Convert after swap
+      convertArea();
+      
+      // Add animation effect
+      swapButton.style.transform = 'rotate(180deg)';
+      setTimeout(() => {
+        swapButton.style.transform = '';
+      }, 300);
+    }
+
+    // Theme functionality
+    function initTheme() {
+      const body = document.body;
+      const themeToggle = document.getElementById('themeToggle');
+      const themeStatus = document.getElementById('themeStatus');
+      
+      // Check for saved theme preference
+      const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+      const savedTheme = localStorage.getItem('theme');
+      
+      // Set initial theme
+      if (savedTheme === 'dark' || (!savedTheme && prefersDarkScheme.matches)) {
+        body.classList.add('dark-theme');
+        updateThemeStatus(true);
+      } else {
+        updateThemeStatus(false);
+      }
+      
+      // Update theme status text
+      function updateThemeStatus(isDark) {
+        if (themeStatus) {
+          themeStatus.textContent = isDark ? 'ON' : 'OFF';
+        }
+      }
+      
+      // Toggle theme function
+      window.toggleTheme = function() {
+        const isDark = body.classList.toggle('dark-theme');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        updateThemeStatus(isDark);
+        
+        // Add animation to the toggle button
+        if (themeToggle) {
+          themeToggle.style.transform = 'rotate(360deg)';
+          setTimeout(() => {
+            themeToggle.style.transform = '';
+          }, 300);
+        }
+      };
+    }
+
+    // Mobile menu functionality
+    function initMobileMenu() {
+      const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+      const sidebar = document.getElementById('sidebar');
+      const sidebarClose = document.getElementById('sidebarClose');
+      const sidebarOverlay = document.getElementById('sidebarOverlay');
+      
+      // Open sidebar
+      if (mobileMenuBtn) {
         mobileMenuBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
+          sidebar.classList.add('active');
+          sidebarOverlay.classList.add('active');
+          document.body.style.overflow = 'hidden';
         });
-        
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-                navLinks.classList.remove('active');
-            }
+      }
+      
+      // Close sidebar
+      function closeSidebar() {
+        sidebar.classList.remove('active');
+        sidebarOverlay.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      }
+      
+      if (sidebarClose) {
+        sidebarClose.addEventListener('click', closeSidebar);
+      }
+      
+      if (sidebarOverlay) {
+        sidebarOverlay.addEventListener('click', closeSidebar);
+      }
+      
+      // Close sidebar when clicking on a link
+      document.querySelectorAll('.sidebar-links a').forEach(link => {
+        link.addEventListener('click', function(e) {
+          if (!this.id.includes('Theme')) {
+            closeSidebar();
+          }
         });
-        
-        // SEO pages functionality
-        function showSeoPage(page) {
-            // Hide all seo sections first
-            document.querySelectorAll('.seo-section').forEach(section => {
-                section.classList.remove('active');
-            });
-            
-            // Show the requested section
-            let sectionId = '';
-            switch(page) {
-                case 'privacy':
-                    sectionId = 'privacy-policy';
-                    break;
-                case 'terms':
-                    sectionId = 'terms-of-service';
-                    break;
-                case 'about':
-                    sectionId = 'about-tool';
-                    break;
-            }
-            
-            document.getElementById(sectionId).classList.add('active');
-            
-            // Close mobile menu if open
-            navLinks.classList.remove('active');
-            
-            // Scroll to the section
-            setTimeout(() => {
-                document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
-            }, 100);
+      });
+      
+      // Handle window resize
+      window.addEventListener('resize', function() {
+        if (window.innerWidth >= 1024) {
+          closeSidebar();
         }
-        
-        function hideSeoPage() {
-            document.querySelectorAll('.seo-section').forEach(section => {
-                section.classList.remove('active');
-            });
-        }
-        
-        // Close SEO section when clicking outside
-        document.addEventListener('click', (e) => {
-            if (e.target.classList.contains('seo-section')) {
-                hideSeoPage();
-            }
-        });
+      });
+    }
 
-        // FAQ functionality
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', () => {
-                const item = question.parentElement;
-                item.classList.toggle('active');
-            });
-        });
-
-        // Unit category tabs
-        document.querySelectorAll('.category-tab').forEach(tab => {
-            tab.addEventListener('click', () => {
-                const category = tab.getAttribute('data-category');
-                
-                // Update active tab
-                document.querySelectorAll('.category-tab').forEach(t => {
-                    t.classList.remove('active');
-                });
-                tab.classList.add('active');
-                
-                // Show corresponding content
-                document.querySelectorAll('.category-content').forEach(content => {
-                    content.classList.remove('active');
-                });
-                document.getElementById(`${category}Content`).classList.add('active');
-            });
-        });
-
-        // Area Converter Logic
-        const fromValueInput = document.getElementById('fromValue');
-        const fromUnitSelect = document.getElementById('fromUnit');
-        const toValueInput = document.getElementById('toValue');
-        const toUnitSelect = document.getElementById('toUnit');
-        const swapBtn = document.getElementById('swapBtn');
-        const precisionSelect = document.getElementById('precision');
-        const quickConversionsDiv = document.getElementById('quickConversions');
-        const toggleHistoryBtn = document.getElementById('toggleHistory');
-        const historySection = document.getElementById('historySection');
-        const historyList = document.getElementById('historyList');
-        const clearHistoryBtn = document.getElementById('clearHistory');
-
-        // Conversion factors to square meters (base unit)
-        const conversionFactors = {
-            // Metric units
-            m2: 1,           // Square meter
-            km2: 1000000,    // Square kilometer
-            cm2: 0.0001,     // Square centimeter
-            mm2: 0.000001,   // Square millimeter
-            ha: 10000,       // Hectare
-            are: 100,        // Are (not in dropdown but used internally)
-            
-            // Imperial/US units
-            acre: 4046.8564224,   // Acre
-            mile2: 2589988.110336, // Square mile
-            yard2: 0.83612736,    // Square yard
-            foot2: 0.09290304,    // Square foot
-            inch2: 0.00064516     // Square inch
-        };
-
-        // Unit labels for display
-        const unitLabels = {
-            m2: "Square Meter (m²)",
-            km2: "Square Kilometer (km²)",
-            cm2: "Square Centimeter (cm²)",
-            mm2: "Square Millimeter (mm²)",
-            ha: "Hectare (ha)",
-            acre: "Acre",
-            mile2: "Square Mile (mi²)",
-            yard2: "Square Yard (yd²)",
-            foot2: "Square Foot (ft²)",
-            inch2: "Square Inch (in²)"
-        };
-
-        // Quick conversions
-        const quickConversions = [
-            { from: "acre", to: "ha", label: "Acres to Hectares" },
-            { from: "ha", to: "acre", label: "Hectares to Acres" },
-            { from: "m2", to: "foot2", label: "m² to ft²" },
-            { from: "foot2", to: "m2", label: "ft² to m²" },
-            { from: "km2", to: "mile2", label: "km² to mi²" },
-            { from: "mile2", to: "km2", label: "mi² to km²" },
-            { from: "yard2", to: "m2", label: "yd² to m²" },
-            { from: "acre", to: "m2", label: "Acres to m²" }
-        ];
-
-        // Conversion history
-        let conversionHistory = JSON.parse(localStorage.getItem('areaConverterHistory')) || [];
-
-        // Initialize
-        function init() {
-            generateQuickConversionButtons();
-            updateConversion();
-            loadConversionHistory();
-            
-            // Event listeners
-            fromValueInput.addEventListener('input', updateConversion);
-            fromUnitSelect.addEventListener('change', updateConversion);
-            toUnitSelect.addEventListener('change', updateConversion);
-            swapBtn.addEventListener('click', swapUnits);
-            precisionSelect.addEventListener('change', updateConversion);
-            toggleHistoryBtn.addEventListener('click', toggleHistory);
-            clearHistoryBtn.addEventListener('click', clearHistory);
-            
-            // Enable input on toValue for manual editing
-            toValueInput.removeAttribute('readonly');
-        }
-
-        // Generate quick conversion buttons
-        function generateQuickConversionButtons() {
-            quickConversionsDiv.innerHTML = '';
-            quickConversions.forEach(conversion => {
-                const button = document.createElement('button');
-                button.className = 'conversion-btn';
-                button.innerHTML = conversion.label;
-                button.addEventListener('click', () => {
-                    fromUnitSelect.value = conversion.from;
-                    toUnitSelect.value = conversion.to;
-                    updateConversion();
-                });
-                quickConversionsDiv.appendChild(button);
-            });
-        }
-
-        // Convert area
-        function convertArea(value, fromUnit, toUnit) {
-            // Convert to square meters first
-            const valueInSquareMeters = value * conversionFactors[fromUnit];
-            
-            // Convert from square meters to target unit
-            return valueInSquareMeters / conversionFactors[toUnit];
-        }
-
-        // Update conversion result
-        function updateConversion() {
-            const fromValue = parseFloat(fromValueInput.value) || 0;
-            const fromUnit = fromUnitSelect.value;
-            const toUnit = toUnitSelect.value;
-            const precision = parseInt(precisionSelect.value);
-            
-            // Perform conversion
-            const result = convertArea(fromValue, fromUnit, toUnit);
-            
-            // Format result
-            const formattedResult = result.toFixed(precision);
-            
-            // Update output
-            toValueInput.value = formattedResult;
-            
-            // Add to history
-            addToHistory(fromValue, fromUnit, formattedResult, toUnit);
-        }
-
-        // Swap units
-        function swapUnits() {
-            const tempUnit = fromUnitSelect.value;
-            const tempValue = fromValueInput.value;
-            
-            // Swap units
-            fromUnitSelect.value = toUnitSelect.value;
-            toUnitSelect.value = tempUnit;
-            
-            // Swap values
-            fromValueInput.value = toValueInput.value;
-            
-            // Update conversion
-            updateConversion();
-        }
-
-        // Add conversion to history
-        function addToHistory(fromValue, fromUnit, toValue, toUnit) {
-            const historyItem = {
-                timestamp: new Date().toLocaleString(),
-                fromValue: parseFloat(fromValue),
-                fromUnit: fromUnit,
-                toValue: parseFloat(toValue),
-                toUnit: toUnit
-            };
-            
-            // Add to beginning of array
-            conversionHistory.unshift(historyItem);
-            
-            // Keep only last 20 items
-            if (conversionHistory.length > 20) {
-                conversionHistory = conversionHistory.slice(0, 20);
-            }
-            
-            // Save to localStorage
-            localStorage.setItem('areaConverterHistory', JSON.stringify(conversionHistory));
-            
-            // Update history display
-            loadConversionHistory();
-        }
-
-        // Load conversion history
-        function loadConversionHistory() {
-            historyList.innerHTML = '';
-            
-            if (conversionHistory.length === 0) {
-                historyList.innerHTML = '<div style="text-align: center; color: #666; padding: 20px;">No conversion history yet</div>';
-                return;
-            }
-            
-            conversionHistory.forEach(item => {
-                const historyItem = document.createElement('div');
-                historyItem.className = 'history-item';
-                historyItem.innerHTML = `
-                    <div>
-                        <span class="history-from">${item.fromValue} ${unitLabels[item.fromUnit]}</span>
-                        <i class="fas fa-arrow-right" style="margin: 0 10px; color: #666;"></i>
-                        <span class="history-to">${item.toValue} ${unitLabels[item.toUnit]}</span>
-                    </div>
-                    <div>
-                        <span class="history-value">${item.toValue}</span>
-                        <div class="history-date">${item.timestamp}</div>
-                    </div>
-                `;
-                historyList.appendChild(historyItem);
-            });
-        }
-
-        // Toggle history visibility
-        function toggleHistory() {
-            const isVisible = historySection.classList.contains('active');
-            historySection.classList.toggle('active');
-            toggleHistoryBtn.innerHTML = isVisible 
-                ? '<i class="fas fa-history"></i> Show Conversion History'
-                : '<i class="fas fa-history"></i> Hide Conversion History';
-        }
-
-        // Clear history
-        function clearHistory() {
-            if (confirm('Are you sure you want to clear all conversion history?')) {
-                conversionHistory = [];
-                localStorage.removeItem('areaConverterHistory');
-                loadConversionHistory();
-            }
-        }
-
-        // Initialize the converter when page loads
-        document.addEventListener('DOMContentLoaded', init);
-    </script>
+    // Initialize the page when DOM is loaded
+    document.addEventListener('DOMContentLoaded', initPage);
+  </script>
 </body>
 </html>
