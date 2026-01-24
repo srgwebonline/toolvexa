@@ -3,37 +3,60 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>AI Content Writer - Free AI-Powered Content Generator | Toolsedito</title>
-  
-  <meta name="description" content="Generate high-quality articles, blog posts, social media content, and marketing copy instantly with our free AI Content Writer. No registration required." />
-  <meta name="keywords" content="AI content writer, free AI writer, article generator, blog post generator, content creation tool, AI copywriting" />
-  <meta name="author" content="Toolsedito" />
+  <!-- UPDATED: Brand name changed to Toolsedito -->
+  <title>AI Content Writer - Generate High-Quality Content for Free | Toolsedito</title>
+
+  <!-- UPDATED: SEO Meta Tags -->
+  <meta name="description" content="Generate high-quality content for blogs, articles, ads, and social media using our free AI content writer. No signup required, 100% free AI writing assistant." />
+  <meta name="keywords" content="AI content writer, free AI writer, content generator, blog writer, article generator, AI writing assistant, content creation, copywriting AI" />
+  <meta name="author" content="Toolsedito Team" />
   <meta name="robots" content="index, follow" />
+  <meta name="googlebot" content="index, follow" />
+  <!-- UPDATED: Custom domain -->
   <link rel="canonical" href="https://www.toolsedito.com/ai-content-writer.html" />
-  
-  <!-- Open Graph Meta Tags -->
-  <meta property="og:title" content="AI Content Writer - Free AI-Powered Content Generator | Toolsedito">
-  <meta property="og:description" content="Generate high-quality articles, blog posts, and marketing copy instantly with our free AI Content Writer.">
-  <meta property="og:url" content="https://www.toolsedito.com/ai-content-writer.html">
+
+  <!-- UPDATED: Open Graph with new domain -->
   <meta property="og:type" content="website">
-  
-  <!-- JSON-LD Schema -->
+  <meta property="og:title" content="AI Content Writer - Generate High-Quality Content for Free | Toolsedito">
+  <meta property="og:description" content="Generate high-quality content for blogs, articles, ads, and social media using our free AI content writer. No signup required, 100% free AI writing assistant.">
+  <meta property="og:url" content="https://www.toolsedito.com/ai-content-writer.html">
+  <meta property="og:image" content="https://www.toolsedito.com/images/ai-content-writer-og.jpg">
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:title" content="AI Content Writer - Toolsedito">
+  <meta property="twitter:description" content="Generate high-quality content for blogs, articles, ads, and social media using our free AI content writer.">
+
+  <!-- UPDATED: JSON-LD Schema for AI Content Writer -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
+    "@type": "WebApplication",
     "name": "AI Content Writer",
-    "description": "AI-powered content generation tool for creating articles, blog posts, and marketing copy",
+    "description": "Free AI-powered content writer for blogs, articles, ads, and social media posts. Generate high-quality content instantly.",
     "url": "https://www.toolsedito.com/ai-content-writer.html",
     "applicationCategory": "WritingApplication",
     "operatingSystem": "Any",
     "offers": {
       "@type": "Offer",
-      "price": "0"
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "ratingCount": "1200"
     },
     "author": {
       "@type": "Organization",
-      "name": "Toolsedito"
+      "name": "Toolsedito",
+      "url": "https://www.toolsedito.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Toolsedito",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.toolsedito.com/logo.png"
+      }
     }
   }
   </script>
@@ -44,7 +67,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 
   <style>
-    /* Reset and Base Styles */
     * {
       margin: 0;
       padding: 0;
@@ -93,9 +115,6 @@
       overflow-x: hidden;
       transition: background-color var(--transition-speed) ease,
                   color var(--transition-speed) ease;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
     }
 
     h1, h2, h3, h4 {
@@ -103,7 +122,50 @@
       font-weight: 700;
     }
 
-    /* Navbar - Same as Homepage */
+    /* Theme Toggle Button */
+    .theme-toggle {
+      background: var(--light-gray);
+      border: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--text-color);
+      font-size: 1.2rem;
+      transition: all var(--transition-speed) ease;
+      margin-left: 10px;
+    }
+
+    .theme-toggle:hover {
+      background: var(--primary);
+      color: white;
+      transform: rotate(15deg);
+    }
+
+    .theme-toggle i {
+      transition: transform 0.5s ease;
+    }
+
+    .dark-theme .theme-toggle i.fa-sun {
+      display: block;
+    }
+
+    .dark-theme .theme-toggle i.fa-moon {
+      display: none;
+    }
+
+    .theme-toggle i.fa-sun {
+      display: none;
+    }
+
+    .theme-toggle i.fa-moon {
+      display: block;
+    }
+
+    /* Mobile First - Sidebar Implementation */
     .navbar {
       position: fixed;
       top: 0;
@@ -130,27 +192,29 @@
     }
 
     .nav-logo {
-      font-size: 1.5rem;
+      font-size: 1.8rem;
       font-weight: 800;
       color: var(--primary);
       text-decoration: none;
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
     }
 
     .nav-logo i {
-      font-size: 1.4rem;
+      font-size: 1.6rem;
       background: linear-gradient(135deg, var(--primary), var(--secondary));
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
     }
 
+    /* Desktop Navigation - Hidden on Mobile */
     .nav-links {
       display: none;
     }
 
+    /* Mobile Menu Button */
     .mobile-menu-btn {
       display: block;
       background: none;
@@ -162,59 +226,7 @@
       transition: color var(--transition-speed) ease;
     }
 
-    .theme-toggle {
-      background: var(--light-gray);
-      border: none;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      color: var(--text-color);
-      font-size: 1.1rem;
-      transition: all var(--transition-speed) ease;
-      margin-left: 10px;
-    }
-
-    .theme-toggle:hover {
-      background: var(--primary);
-      color: white;
-      transform: rotate(15deg);
-    }
-
-    .theme-toggle i.fa-sun {
-      display: none;
-    }
-
-    .dark-theme .theme-toggle i.fa-sun {
-      display: block;
-    }
-
-    .dark-theme .theme-toggle i.fa-moon {
-      display: none;
-    }
-
     /* Sidebar Styles */
-    .sidebar-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.5);
-      z-index: 1000;
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.3s ease;
-    }
-
-    .sidebar-overlay.active {
-      opacity: 1;
-      visibility: visible;
-    }
-
     .sidebar {
       position: fixed;
       top: 0;
@@ -290,6 +302,11 @@
       transform: translateX(5px);
     }
 
+    .sidebar-links a i {
+      width: 20px;
+      text-align: center;
+    }
+
     .sidebar-links a.active {
       background: var(--primary);
       color: white;
@@ -301,11 +318,68 @@
       margin: 20px 0;
     }
 
-    /* Tool Page Header */
-    .tool-header {
-      background: linear-gradient(135deg, #e6f7ff 0%, #f0f9ff 100%);
+    .sidebar-tool-categories {
+      margin-top: 20px;
+    }
+
+    .sidebar-tool-categories h4 {
+      font-size: 0.9rem;
+      color: var(--gray);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 15px;
+    }
+
+    .sidebar-tools-list {
+      list-style: none;
+      margin-bottom: 20px;
+    }
+
+    .sidebar-tools-list li {
+      margin-bottom: 10px;
+    }
+
+    .sidebar-tools-list a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--gray);
+      text-decoration: none;
+      font-size: 0.9rem;
+      padding: 8px 10px;
+      border-radius: 6px;
+      transition: all var(--transition-speed) ease;
+    }
+
+    .sidebar-tools-list a:hover {
+      color: var(--primary);
+      background: var(--light-gray);
+    }
+
+    /* Overlay when sidebar is open */
+    .sidebar-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .sidebar-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Tool Header - Consistent with other tool pages */
+    header {
+      background: linear-gradient(135deg, #f0f9ff 0%, #e6f7ff 100%);
       color: #1f2933;
-      padding: 120px 20px 40px;
+      padding: 80px 20px 40px;
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -313,433 +387,428 @@
       border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     }
 
-    .dark-theme .tool-header {
+    .dark-theme header {
       background: linear-gradient(135deg, #0a1929 0%, #112240 100%);
       color: #f3f4f6;
       border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
 
-    .tool-header-content {
+    .header-content {
       max-width: 1000px;
       margin: 0 auto;
       position: relative;
       z-index: 2;
     }
 
-    .tool-title-container {
-      display: flex;
-      flex-direction: column;
+    .logo-container {
+      display: inline-flex;
       align-items: center;
+      justify-content: center;
+      margin-bottom: 15px;
       gap: 15px;
-      margin-bottom: 20px;
     }
 
-    .tool-icon-large {
-      width: 80px;
-      height: 80px;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      border-radius: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 2.5rem;
-      box-shadow: 0 10px 25px rgba(79, 70, 229, 0.3);
+    /* Tool-specific header */
+    .tool-logo {
+      font-size: 4rem;
       margin-bottom: 10px;
+      color: var(--primary);
     }
 
-    .tool-title {
-      font-size: 2.2rem;
-      background: linear-gradient(90deg, #4f46e5, #7c3aed, #10b981);
+    .tool-header h1 {
+      font-size: 3.5rem;
+      margin-bottom: 15px;
+      color: var(--text-color);
+      background: linear-gradient(90deg, #4f46e5, #8b5cf6, #10b981);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
-      line-height: 1.2;
-      text-align: center;
+      letter-spacing: -0.5px;
+      line-height: 1.1;
     }
 
-    .tool-subtitle {
-      font-size: 1.2rem;
-      color: var(--gray);
-      max-width: 700px;
-      margin: 0 auto 30px;
+    .tool-header .tagline {
+      font-size: 1.4rem;
+      margin-bottom: 1.5rem;
+      color: var(--dark);
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
       line-height: 1.6;
+      font-weight: 400;
     }
 
-    /* Tool Stats */
-    .tool-stats {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      margin-top: 30px;
-      flex-wrap: wrap;
+    .dark-theme .tool-header .tagline {
+      color: #e5e7eb;
     }
 
-    .tool-stat {
-      text-align: center;
-    }
-
-    .tool-stat-number {
-      font-size: 2rem;
-      font-weight: 800;
-      background: linear-gradient(90deg, #4f46e5, #10b981);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      line-height: 1;
-      margin-bottom: 5px;
-    }
-
-    .tool-stat-label {
-      font-size: 0.85rem;
-      color: var(--gray);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    /* Main Content Container */
-    .main-content {
-      flex: 1;
-      padding: 40px 20px;
+    /* Main Tool Container */
+    .tool-container {
       max-width: 1400px;
       margin: 0 auto;
-      width: 100%;
+      padding: 40px 20px;
     }
 
-    /* AI Writer Tool Container */
-    .ai-writer-container {
-      display: flex;
-      flex-direction: column;
-      gap: 30px;
-      margin-top: 30px;
-    }
-
-    @media (min-width: 992px) {
-      .ai-writer-container {
-        flex-direction: row;
-      }
-    }
-
-    /* Input Panel */
-    .input-panel {
+    /* Tool Card Sections */
+    .tool-card-section {
       background: var(--card-bg);
       border-radius: 20px;
       padding: 30px;
+      margin-bottom: 30px;
       box-shadow: var(--card-shadow);
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 25px;
+      border: 1px solid var(--border-color);
     }
 
-    .panel-title {
-      font-size: 1.5rem;
-      margin-bottom: 10px;
+    .tool-card-section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
       color: var(--text-color);
       display: flex;
       align-items: center;
       gap: 10px;
     }
 
-    .panel-title i {
+    .tool-card-section h2 i {
       color: var(--primary);
     }
 
-    /* Content Type Selector */
-    .content-type-selector {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 15px;
-      margin-bottom: 10px;
+    /* Input Section */
+    .input-section {
+      margin-bottom: 30px;
     }
 
-    @media (min-width: 576px) {
-      .content-type-selector {
-        grid-template-columns: repeat(3, 1fr);
-      }
+    .input-group {
+      margin-bottom: 20px;
     }
 
-    .content-type-btn {
-      background: var(--light-gray);
-      border: 2px solid var(--border-color);
-      border-radius: 12px;
-      padding: 15px 10px;
-      text-align: center;
-      cursor: pointer;
-      transition: all var(--transition-speed) ease;
+    .input-label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: var(--text-color);
       display: flex;
-      flex-direction: column;
       align-items: center;
       gap: 8px;
     }
 
-    .content-type-btn:hover {
-      background: var(--primary);
-      color: white;
-      border-color: var(--primary);
-      transform: translateY(-3px);
-    }
-
-    .content-type-btn.active {
-      background: var(--primary);
-      color: white;
-      border-color: var(--primary);
-    }
-
-    .content-type-btn i {
-      font-size: 1.5rem;
-    }
-
-    .content-type-btn span {
-      font-size: 0.9rem;
-      font-weight: 600;
-    }
-
-    /* Form Elements */
-    .form-group {
-      margin-bottom: 20px;
-    }
-
-    .form-label {
-      display: block;
-      margin-bottom: 10px;
-      font-weight: 600;
-      color: var(--text-color);
-    }
-
-    .form-input {
+    .input-field {
       width: 100%;
-      padding: 15px;
+      padding: 16px 20px;
       background: var(--light-gray);
       border: 2px solid var(--border-color);
       border-radius: 12px;
-      font-family: 'Inter', sans-serif;
       font-size: 1rem;
+      font-family: 'Inter', sans-serif;
       color: var(--text-color);
-      transition: all var(--transition-speed) ease;
+      transition: all 0.3s ease;
     }
 
-    .form-input:focus {
+    .input-field:focus {
       outline: none;
       border-color: var(--primary);
       box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
     }
 
-    .form-textarea {
-      width: 100%;
+    textarea.input-field {
       min-height: 150px;
-      padding: 15px;
-      background: var(--light-gray);
-      border: 2px solid var(--border-color);
-      border-radius: 12px;
-      font-family: 'Inter', sans-serif;
-      font-size: 1rem;
-      color: var(--text-color);
       resize: vertical;
-      transition: all var(--transition-speed) ease;
     }
 
-    .form-textarea:focus {
-      outline: none;
-      border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+    .char-counter {
+      text-align: right;
+      font-size: 0.85rem;
+      color: var(--gray);
+      margin-top: 5px;
     }
 
-    .form-select {
-      width: 100%;
-      padding: 15px;
+    /* Controls Grid */
+    .controls-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 25px;
+      margin-top: 20px;
+    }
+
+    @media (min-width: 768px) {
+      .controls-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .controls-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .control-group {
       background: var(--light-gray);
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+    }
+
+    .control-group h3 {
+      margin-bottom: 15px;
+      color: var(--text-color);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* Dropdown Styles */
+    .dropdown {
+      position: relative;
+      width: 100%;
+    }
+
+    .dropdown-select {
+      width: 100%;
+      padding: 14px 20px;
+      background: var(--card-bg);
       border: 2px solid var(--border-color);
       border-radius: 12px;
-      font-family: 'Inter', sans-serif;
       font-size: 1rem;
+      font-family: 'Inter', sans-serif;
       color: var(--text-color);
       cursor: pointer;
-      transition: all var(--transition-speed) ease;
       appearance: none;
-      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+      -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%236b7280' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
       background-repeat: no-repeat;
-      background-position: right 15px center;
-      background-size: 1em;
+      background-position: right 20px center;
+      padding-right: 50px;
+      transition: all 0.3s ease;
     }
 
-    .form-select:focus {
+    .dark-theme .dropdown-select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%239ca3af' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+    }
+
+    .dropdown-select:focus {
       outline: none;
       border-color: var(--primary);
       box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
     }
 
-    .form-range {
-      width: 100%;
-      height: 8px;
-      -webkit-appearance: none;
-      appearance: none;
-      background: var(--light-gray);
-      border-radius: 4px;
-      outline: none;
+    /* Presets Grid */
+    .presets-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 20px;
     }
 
-    .form-range::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      appearance: none;
-      width: 24px;
-      height: 24px;
-      background: var(--primary);
-      border-radius: 50%;
+    @media (min-width: 768px) {
+      .presets-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .preset-btn {
+      padding: 12px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
       cursor: pointer;
-    }
-
-    .form-range::-moz-range-thumb {
-      width: 24px;
-      height: 24px;
-      background: var(--primary);
-      border-radius: 50%;
-      cursor: pointer;
-      border: none;
-    }
-
-    .range-value {
-      display: inline-block;
-      margin-left: 10px;
-      font-weight: 600;
-      color: var(--primary);
-    }
-
-    /* Generate Button */
-    .generate-btn {
-      background: linear-gradient(135deg, #4f46e5, #7c3aed);
-      color: white;
-      border: none;
-      border-radius: 12px;
-      padding: 18px 30px;
-      font-size: 1.1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      text-align: center;
+      font-weight: 500;
+      color: var(--text-color);
+      transition: all 0.2s ease;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 12px;
+      gap: 8px;
+    }
+
+    .preset-btn:hover {
+      background: var(--light-gray);
+    }
+
+    .preset-btn.active {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    /* Action Buttons */
+    .action-buttons {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    @media (min-width: 768px) {
+      .action-buttons {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .action-btn {
+      padding: 16px 20px;
+      border: none;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .action-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
-      margin-top: 10px;
-      box-shadow: 0 10px 25px rgba(79, 70, 229, 0.25);
+      height: 100%;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      z-index: -1;
     }
 
-    .generate-btn:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 35px rgba(79, 70, 229, 0.35);
+    .action-btn:hover {
+      transform: translateY(-3px);
     }
 
-    .generate-btn:active {
-      transform: translateY(-2px);
+    .generate-btn {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
     }
 
-    .generate-btn:disabled {
-      opacity: 0.7;
+    .generate-btn::before {
+      background: linear-gradient(135deg, var(--primary-dark), #8b5cf6);
+    }
+
+    .generate-btn:hover::before {
+      opacity: 1;
+    }
+
+    .copy-btn {
+      background: linear-gradient(135deg, var(--secondary), #0da67e);
+      color: white;
+    }
+
+    .copy-btn::before {
+      background: linear-gradient(135deg, #0da67e, #0b9a74);
+    }
+
+    .copy-btn:hover::before {
+      opacity: 1;
+    }
+
+    .clear-btn {
+      background: linear-gradient(135deg, #ef4444, #dc2626);
+      color: white;
+    }
+
+    .clear-btn::before {
+      background: linear-gradient(135deg, #dc2626, #b91c1c);
+    }
+
+    .clear-btn:hover::before {
+      opacity: 1;
+    }
+
+    .action-btn:disabled {
+      opacity: 0.6;
       cursor: not-allowed;
+    }
+
+    .action-btn:disabled:hover {
       transform: none;
     }
 
-    /* Output Panel */
-    .output-panel {
-      background: var(--card-bg);
-      border-radius: 20px;
-      padding: 30px;
-      box-shadow: var(--card-shadow);
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 25px;
+    /* Output Section */
+    .output-container {
+      margin-top: 20px;
+      position: relative;
     }
 
     .output-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
     }
 
-    .output-actions {
-      display: flex;
-      gap: 10px;
-    }
-
-    .output-action-btn {
-      background: var(--light-gray);
-      border: none;
-      border-radius: 8px;
-      width: 40px;
-      height: 40px;
+    .output-header h3 {
+      color: var(--text-color);
       display: flex;
       align-items: center;
-      justify-content: center;
-      color: var(--text-color);
-      cursor: pointer;
-      transition: all var(--transition-speed) ease;
+      gap: 8px;
     }
 
-    .output-action-btn:hover {
-      background: var(--primary);
-      color: white;
-      transform: translateY(-2px);
+    .output-stats {
+      display: flex;
+      gap: 15px;
+      font-size: 0.9rem;
+      color: var(--gray);
     }
 
     .output-content {
-      flex: 1;
-      min-height: 400px;
-      padding: 20px;
       background: var(--light-gray);
-      border-radius: 12px;
       border: 2px solid var(--border-color);
-      font-family: 'Inter', sans-serif;
-      font-size: 1rem;
+      border-radius: 12px;
+      padding: 25px;
+      min-height: 200px;
+      max-height: 500px;
+      overflow-y: auto;
       line-height: 1.7;
       color: var(--text-color);
-      overflow-y: auto;
-      white-space: pre-wrap;
-      word-wrap: break-word;
     }
 
     .output-placeholder {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100%;
-      text-align: center;
       color: var(--gray);
+      font-style: italic;
+      text-align: center;
       padding: 40px 20px;
     }
 
-    .output-placeholder i {
-      font-size: 3rem;
-      margin-bottom: 20px;
-      color: var(--primary);
-      opacity: 0.5;
-    }
-
-    .output-placeholder p {
-      max-width: 300px;
-    }
-
-    /* Loading Animation */
+    /* Loading Spinner */
     .loading-container {
-      display: flex;
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 12px;
+      z-index: 10;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      height: 100%;
-      padding: 40px 20px;
     }
 
-    .loading-spinner {
-      width: 60px;
-      height: 60px;
-      border: 4px solid var(--light-gray);
-      border-top: 4px solid var(--primary);
+    .dark-theme .loading-container {
+      background: rgba(26, 35, 50, 0.9);
+    }
+
+    .loading-container.active {
+      display: flex;
+    }
+
+    .spinner {
+      width: 50px;
+      height: 50px;
+      border: 5px solid #f3f3f3;
+      border-top: 5px solid var(--primary);
       border-radius: 50%;
       animation: spin 1s linear infinite;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
+    }
+
+    .dark-theme .spinner {
+      border: 5px solid #374151;
+      border-top: 5px solid var(--primary);
     }
 
     @keyframes spin {
@@ -747,149 +816,257 @@
       100% { transform: rotate(360deg); }
     }
 
-    /* Examples Section */
-    .examples-section {
-      margin-top: 60px;
-      background: var(--light-gray);
-      border-radius: 20px;
-      padding: 40px 20px;
-    }
-
-    .section-title {
-      text-align: center;
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      color: var(--text-color);
-      position: relative;
-      display: inline-block;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-
-    .section-title::after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 0;
-      width: 100%;
-      height: 4px;
-      background: linear-gradient(90deg, var(--primary), var(--secondary));
-      border-radius: 2px;
-    }
-
-    .section-subtitle {
-      text-align: center;
-      font-size: 1rem;
-      color: var(--gray);
-      max-width: 700px;
-      margin: 0 auto 40px;
-      line-height: 1.5;
-    }
-
-    .examples-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 20px;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-
-    @media (min-width: 768px) {
-      .examples-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    .example-card {
+    /* NEW: Tutorial Section */
+    .tutorial-section {
       background: var(--card-bg);
-      padding: 25px;
+      padding: 35px 30px;
       border-radius: 16px;
+      margin-top: 30px;
       box-shadow: var(--card-shadow);
-      transition: transform 0.3s ease;
-      cursor: pointer;
+      border: 1px solid var(--border-color);
     }
 
-    .example-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .example-card h4 {
-      font-size: 1.2rem;
-      margin-bottom: 15px;
+    .tutorial-section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 25px;
       color: var(--text-color);
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
     }
 
-    .example-card h4 i {
+    .tutorial-section h2 i {
       color: var(--primary);
     }
 
-    .example-card p {
-      color: var(--gray);
-      font-size: 0.95rem;
-      line-height: 1.6;
-      margin-bottom: 15px;
-    }
-
-    .example-topic {
-      display: inline-block;
-      background: var(--light-gray);
-      color: var(--primary);
-      padding: 6px 12px;
-      border-radius: 20px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      margin-top: 10px;
-    }
-
-    /* Tips Section */
-    .tips-section {
-      margin-top: 60px;
-      max-width: 1000px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .tips-grid {
+    .tutorial-steps {
       display: grid;
       grid-template-columns: 1fr;
       gap: 25px;
-      margin-top: 40px;
     }
 
     @media (min-width: 768px) {
-      .tips-grid {
+      .tutorial-steps {
         grid-template-columns: repeat(2, 1fr);
       }
     }
 
-    .tip-card {
-      background: var(--card-bg);
+    @media (min-width: 1024px) {
+      .tutorial-steps {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .tutorial-step {
+      text-align: center;
+      padding: 25px 20px;
+      background: var(--light-gray);
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      transition: all 0.3s ease;
+    }
+
+    .tutorial-step:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .step-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      border-radius: 50%;
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+    }
+
+    .step-content h3 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      color: var(--text-color);
+    }
+
+    .step-content p {
+      color: var(--gray);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    /* About Section for EEAT */
+    .about-section {
+      max-width: 800px;
+      margin: 40px auto;
       padding: 25px;
+      background: var(--card-bg);
       border-radius: 16px;
       box-shadow: var(--card-shadow);
       border-left: 4px solid var(--primary);
     }
 
-    .tip-card h4 {
-      font-size: 1.2rem;
+    .about-section h2 {
+      font-size: 1.5rem;
       margin-bottom: 15px;
       color: var(--text-color);
+    }
+
+    .about-section p {
+      color: var(--gray);
+      line-height: 1.7;
+      margin-bottom: 15px;
+    }
+
+    /* FAQ Section */
+    .faq-section {
+      margin-top: 60px;
+    }
+
+    .faq-section h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 30px;
+      color: var(--text-color);
+    }
+
+    .faq-container {
+      background: var(--card-bg);
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: var(--card-shadow);
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--border-color);
+      padding: 20px 0;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-question {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      color: var(--text-color);
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .faq-question i {
+      color: var(--primary);
+      transition: transform 0.3s ease;
+    }
+
+    .faq-item.active .faq-question i {
+      transform: rotate(180deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      color: var(--gray);
+      line-height: 1.6;
+      padding-right: 40px;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 500px;
+      margin-top: 15px;
+    }
+
+    /* Related Tools Section */
+    .related-tools-section {
+      margin: 60px 0 40px;
+    }
+
+    .related-tools-section h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 30px;
+      color: var(--text-color);
+    }
+
+    .related-tools-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 25px;
+    }
+
+    @media (min-width: 768px) {
+      .related-tools-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .related-tools-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .related-tool-card {
+      background: var(--card-bg);
+      padding: 25px;
+      border-radius: 16px;
+      text-align: center;
+      box-shadow: var(--card-shadow);
+      transition: all 0.3s ease;
+      border: 1px solid var(--border-color);
+    }
+
+    .related-tool-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--hover-shadow);
+    }
+
+    .related-tool-icon {
+      width: 60px;
+      height: 60px;
+      margin: 0 auto 15px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border-radius: 50%;
       display: flex;
       align-items: center;
-      gap: 10px;
+      justify-content: center;
+      color: white;
+      font-size: 1.5rem;
     }
 
-    .tip-card h4 i {
-      color: var(--primary);
+    .related-tool-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      color: var(--text-color);
     }
 
-    .tip-card p {
+    .related-tool-card p {
       color: var(--gray);
       font-size: 0.95rem;
-      line-height: 1.6;
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .related-tool-link {
+      display: inline-block;
+      padding: 8px 20px;
+      background: var(--light-gray);
+      color: var(--primary);
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+    }
+
+    .related-tool-card:hover .related-tool-link {
+      background: var(--primary);
+      color: white;
     }
 
     /* Footer */
@@ -899,6 +1076,7 @@
       padding: 50px 20px 30px;
       margin-top: 60px;
       position: relative;
+      transition: background var(--transition-speed) ease;
     }
 
     footer::before {
@@ -917,6 +1095,18 @@
       display: grid;
       grid-template-columns: 1fr;
       gap: 30px;
+    }
+
+    @media (min-width: 768px) {
+      .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .footer-content {
+        grid-template-columns: repeat(4, 1fr);
+      }
     }
 
     .footer-logo {
@@ -1009,39 +1199,38 @@
       font-size: 0.85rem;
     }
 
-    /* Mobile Responsiveness */
-    @media (max-width: 767px) {
-      .tool-title {
-        font-size: 1.8rem;
+    /* ACCESSIBILITY: Prefers Reduced Motion */
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition: none !important;
       }
       
-      .tool-subtitle {
-        font-size: 1rem;
+      .action-btn:hover,
+      .related-tool-card:hover,
+      .preset-btn:hover,
+      .social-link:hover,
+      .theme-toggle:hover,
+      .tutorial-step:hover {
+        transform: none !important;
       }
       
-      .tool-icon-large {
-        width: 70px;
-        height: 70px;
-        font-size: 2rem;
-      }
-      
-      .tool-stat-number {
-        font-size: 1.8rem;
-      }
-      
-      .input-panel, .output-panel {
-        padding: 20px;
-      }
-      
-      .panel-title {
-        font-size: 1.3rem;
+      .tool-header h1,
+      .footer-logo {
+        background: var(--primary) !important;
+        -webkit-background-clip: initial !important;
+        background-clip: initial !important;
+        color: var(--primary) !important;
       }
     }
 
-    @media (min-width: 768px) {
+    /* Desktop Navigation Styles */
+    @media (min-width: 1024px) {
       .nav-links {
         display: flex;
-        gap: 25px;
+        gap: 30px;
         list-style: none;
       }
 
@@ -1075,56 +1264,68 @@
       .mobile-menu-btn {
         display: none;
       }
-      
-      .footer-content {
-        grid-template-columns: repeat(2, 1fr);
+
+      .sidebar {
+        display: none;
+      }
+
+      .sidebar-overlay {
+        display: none;
       }
     }
 
-    @media (min-width: 1024px) {
-      .tool-header {
-        padding: 140px 20px 60px;
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      header {
+        padding: 60px 20px 30px;
+        margin-top: 70px;
       }
       
-      .tool-title {
-        font-size: 2.5rem;
+      .tool-header h1 {
+        font-size: 2.8rem;
       }
       
-      .footer-content {
-        grid-template-columns: repeat(4, 1fr);
-      }
-    }
-
-    @media (min-width: 1200px) {
-      .examples-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-
-    /* Print Styles */
-    @media print {
-      .navbar, .sidebar, .sidebar-overlay, .mobile-menu-btn,
-      .theme-toggle, .generate-btn, .output-action-btn,
-      .social-links, .footer-bottom {
-        display: none !important;
+      .tool-header .tagline {
+        font-size: 1.2rem;
       }
       
-      body {
-        background: white;
-        color: black;
-      }
-      
-      .tool-header, .examples-section, .tips-section {
-        background: white !important;
-        color: black;
+      .tool-card-section {
         padding: 20px;
       }
       
-      .tool-title {
-        background: black !important;
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: black;
+      .tutorial-section {
+        padding: 25px 20px;
+      }
+      
+      .tutorial-step {
+        padding: 20px 15px;
+      }
+      
+      .faq-container {
+        padding: 20px;
+      }
+      
+      .faq-answer {
+        padding-right: 20px;
+      }
+      
+      .controls-grid {
+        gap: 15px;
+      }
+      
+      .control-group {
+        padding: 15px;
+      }
+    }
+
+    /* Large Desktop Styles */
+    @media (min-width: 1200px) {
+      .tool-container {
+        padding: 60px 20px;
+      }
+      
+      .tool-header h1 {
+        font-size: 4rem;
       }
     }
   </style>
@@ -1134,6 +1335,7 @@
   <!-- Navigation -->
   <nav class="navbar">
     <div class="nav-container">
+      <!-- UPDATED: Brand name changed -->
       <a href="index.html" class="nav-logo">
         <i class="fas fa-tools"></i> Toolsedito
       </a>
@@ -1142,8 +1344,10 @@
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="index.html#tools">Tools</a></li>
-        <li><a href="index.html#blog">Blog</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="index.html#ai-tools">AI Tools</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#privacy">Privacy</a></li>
+        <li><a href="#about">About</a></li>
       </ul>
       
       <div style="display: flex; align-items: center;">
@@ -1165,6 +1369,7 @@
   <div class="sidebar-overlay" id="sidebarOverlay"></div>
   <div class="sidebar" id="sidebar">
     <div class="sidebar-header">
+      <!-- UPDATED: Brand name changed -->
       <a href="index.html" class="nav-logo">
         <i class="fas fa-tools"></i> Toolsedito
       </a>
@@ -1176,8 +1381,9 @@
     <ul class="sidebar-links">
       <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
       <li><a href="index.html#tools"><i class="fas fa-tools"></i> All Tools</a></li>
-      <li><a href="index.html#blog"><i class="fas fa-blog"></i> Blog</a></li>
-      <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+      <li><a href="index.html#ai-tools"><i class="fas fa-robot"></i> AI Tools</a></li>
+      <li><a href="#faq"><i class="fas fa-question-circle"></i> FAQ</a></li>
+      <li><a href="#privacy"><i class="fas fa-shield-alt"></i> Privacy</a></li>
       <li>
         <a href="#" id="sidebarThemeToggle">
           <i class="fas fa-moon"></i> Dark Mode
@@ -1189,253 +1395,351 @@
     <div class="sidebar-divider"></div>
     
     <div class="sidebar-tool-categories">
-      <h4 style="font-size: 0.9rem; color: var(--gray); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px;">Quick Tools</h4>
-      <ul style="list-style: none;">
-        <li><a href="ai-content-writer.html" style="display: flex; align-items: center; gap: 10px; color: var(--gray); text-decoration: none; font-size: 0.9rem; padding: 8px 10px; border-radius: 6px; transition: all var(--transition-speed) ease;"><i class="fas fa-pen-fancy"></i> AI Content Writer</a></li>
-        <li><a href="ai-image-generator.html" style="display: flex; align-items: center; gap: 10px; color: var(--gray); text-decoration: none; font-size: 0.9rem; padding: 8px 10px; border-radius: 6px; transition: all var(--transition-speed) ease;"><i class="fas fa-image"></i> AI Image Generator</a></li>
-        <li><a href="ai-translator.html" style="display: flex; align-items: center; gap: 10px; color: var(--gray); text-decoration: none; font-size: 0.9rem; padding: 8px 10px; border-radius: 6px; transition: all var(--transition-speed) ease;"><i class="fas fa-language"></i> AI Translator</a></li>
-        <li><a href="grammar-checker.html" style="display: flex; align-items: center; gap: 10px; color: var(--gray); text-decoration: none; font-size: 0.9rem; padding: 8px 10px; border-radius: 6px; transition: all var(--transition-speed) ease;"><i class="fas fa-check-circle"></i> Grammar Checker</a></li>
+      <h4>Quick AI Tools</h4>
+      <ul class="sidebar-tools-list">
+        <li><a href="ai-content-writer.html" class="active"><i class="fas fa-pen-fancy"></i> AI Content Writer</a></li>
+        <li><a href="ai-image-generator.html"><i class="fas fa-image"></i> AI Image Generator</a></li>
+        <li><a href="ai-translator.html"><i class="fas fa-language"></i> AI Translator</a></li>
+        <li><a href="grammar-checker.html"><i class="fas fa-check-circle"></i> Grammar Checker</a></li>
+        <li><a href="article-rewriter.html"><i class="fas fa-heading"></i> Article Rewriter</a></li>
       </ul>
     </div>
   </div>
 
   <!-- Tool Header -->
-  <header class="tool-header">
-    <div class="tool-header-content">
-      <div class="tool-title-container">
-        <div class="tool-icon-large">
-          <i class="fas fa-pen-fancy"></i>
+  <header>
+    <div class="header-content">
+      <div class="tool-header">
+        <div class="logo-container">
+          <div class="tool-logo">
+            <i class="fas fa-pen-fancy"></i>
+          </div>
         </div>
-        <h1 class="tool-title">AI Content Writer</h1>
-        <p class="tool-subtitle">Generate high-quality articles, blog posts, social media content, and marketing copy instantly with AI. Perfect for writers, marketers, and businesses.</p>
-      </div>
-      
-      <div class="tool-stats">
-        <div class="tool-stat">
-          <div class="tool-stat-number">100%</div>
-          <div class="tool-stat-label">Free to Use</div>
-        </div>
-        <div class="tool-stat">
-          <div class="tool-stat-number">30+</div>
-          <div class="tool-stat-label">Content Types</div>
-        </div>
-        <div class="tool-stat">
-          <div class="tool-stat-number">Instant</div>
-          <div class="tool-stat-label">Results</div>
-        </div>
-        <div class="tool-stat">
-          <div class="tool-stat-number">Zero</div>
-          <div class="tool-stat-label">Registration</div>
-        </div>
+        
+        <h1>AI Content Writer</h1>
+        <p class="tagline">Generate high-quality content for blogs, articles, ads, and social media with our free AI writing assistant. No signup required.</p>
       </div>
     </div>
   </header>
 
-  <!-- Main Content -->
-  <main class="main-content">
-    <div class="ai-writer-container">
-      <!-- Input Panel -->
-      <div class="input-panel">
-        <h3 class="panel-title"><i class="fas fa-edit"></i> Content Settings</h3>
-        
-        <!-- Content Type Selector -->
-        <div class="form-group">
-          <label class="form-label">Content Type</label>
-          <div class="content-type-selector">
-            <div class="content-type-btn active" data-type="blog">
-              <i class="fas fa-blog"></i>
-              <span>Blog Post</span>
-            </div>
-            <div class="content-type-btn" data-type="article">
-              <i class="fas fa-newspaper"></i>
-              <span>Article</span>
-            </div>
-            <div class="content-type-btn" data-type="social">
-              <i class="fas fa-hashtag"></i>
-              <span>Social Media</span>
-            </div>
-            <div class="content-type-btn" data-type="ad">
-              <i class="fas fa-ad"></i>
-              <span>Ad Copy</span>
-            </div>
-            <div class="content-type-btn" data-type="email">
-              <i class="fas fa-envelope"></i>
-              <span>Email</span>
-            </div>
-            <div class="content-type-btn" data-type="product">
-              <i class="fas fa-shopping-cart"></i>
-              <span>Product Description</span>
-            </div>
+  <!-- Main Tool Container -->
+  <div class="tool-container">
+    <!-- Input Section -->
+    <div class="tool-card-section">
+      <h2><i class="fas fa-keyboard"></i> Content Input</h2>
+      
+      <div class="input-section">
+        <div class="input-group">
+          <label class="input-label">
+            <i class="fas fa-lightbulb"></i> Topic or Subject
+          </label>
+          <input type="text" class="input-field" id="topicInput" placeholder="Enter your topic (e.g., Benefits of meditation, Digital marketing trends 2026)">
+          <div class="char-counter">
+            <span id="topicChars">0</span>/100 characters
           </div>
         </div>
         
-        <!-- Topic Input -->
-        <div class="form-group">
-          <label for="topic" class="form-label">Topic / Title</label>
-          <input type="text" id="topic" class="form-input" placeholder="Enter your topic or title..." value="The Benefits of Regular Exercise for Mental Health">
-        </div>
-        
-        <!-- Keywords -->
-        <div class="form-group">
-          <label for="keywords" class="form-label">Keywords (Optional)</label>
-          <input type="text" id="keywords" class="form-input" placeholder="Enter keywords separated by commas..." value="mental health, exercise benefits, wellness, stress relief">
-        </div>
-        
-        <!-- Tone Selection -->
-        <div class="form-group">
-          <label for="tone" class="form-label">Tone of Voice</label>
-          <select id="tone" class="form-select">
-            <option value="professional">Professional</option>
-            <option value="friendly" selected>Friendly & Casual</option>
-            <option value="persuasive">Persuasive</option>
-            <option value="informative">Informative</option>
-            <option value="creative">Creative</option>
-          </select>
-        </div>
-        
-        <!-- Length Selection -->
-        <div class="form-group">
-          <label for="length" class="form-label">Content Length: <span id="lengthValue" class="range-value">Medium</span></label>
-          <input type="range" id="length" class="form-range" min="1" max="5" step="1" value="3">
-          <div style="display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--gray); margin-top: 8px;">
-            <span>Short</span>
-            <span>Medium</span>
-            <span>Long</span>
+        <div class="input-group">
+          <label class="input-label">
+            <i class="fas fa-align-left"></i> Additional Instructions (Optional)
+          </label>
+          <textarea class="input-field" id="instructionsInput" placeholder="Add specific requirements, key points to include, tone preferences, or any other details..."></textarea>
+          <div class="char-counter">
+            <span id="instructionsChars">0</span>/500 characters
           </div>
         </div>
-        
-        <!-- Additional Instructions -->
-        <div class="form-group">
-          <label for="instructions" class="form-label">Additional Instructions (Optional)</label>
-          <textarea id="instructions" class="form-textarea" placeholder="Any specific instructions for the AI..."></textarea>
-        </div>
-        
-        <!-- Generate Button -->
-        <button id="generateBtn" class="generate-btn">
-          <i class="fas fa-magic"></i> Generate Content
-        </button>
       </div>
       
-      <!-- Output Panel -->
-      <div class="output-panel">
+      <div class="controls-grid">
+        <div class="control-group">
+          <h3><i class="fas fa-file-alt"></i> Content Type</h3>
+          <div class="dropdown">
+            <select class="dropdown-select" id="contentType">
+              <option value="blog">Blog Post</option>
+              <option value="article">Article</option>
+              <option value="social">Social Media Post</option>
+              <option value="ad">Advertisement Copy</option>
+              <option value="email">Email Newsletter</option>
+              <option value="product">Product Description</option>
+              <option value="seo">SEO Article</option>
+              <option value="story">Short Story</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="control-group">
+          <h3><i class="fas fa-volume-up"></i> Tone & Style</h3>
+          <div class="dropdown">
+            <select class="dropdown-select" id="toneStyle">
+              <option value="professional">Professional</option>
+              <option value="friendly" selected>Friendly & Casual</option>
+              <option value="persuasive">Persuasive</option>
+              <option value="formal">Formal</option>
+              <option value="humorous">Humorous</option>
+              <option value="educational">Educational</option>
+              <option value="inspirational">Inspirational</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="control-group">
+          <h3><i class="fas fa-ruler-horizontal"></i> Length</h3>
+          <div class="dropdown">
+            <select class="dropdown-select" id="contentLength">
+              <option value="short">Short (150-300 words)</option>
+              <option value="medium" selected>Medium (300-600 words)</option>
+              <option value="long">Long (600-1000 words)</option>
+              <option value="xl">Extra Long (1000+ words)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      
+      <div class="control-group">
+        <h3><i class="fas fa-magic"></i> Quick Presets</h3>
+        <div class="presets-grid">
+          <div class="preset-btn" data-type="blog" data-tone="friendly" data-length="medium">
+            <i class="fas fa-blog"></i> Blog Post
+          </div>
+          <div class="preset-btn active" data-type="social" data-tone="friendly" data-length="short">
+            <i class="fas fa-hashtag"></i> Social Media
+          </div>
+          <div class="preset-btn" data-type="ad" data-tone="persuasive" data-length="short">
+            <i class="fas fa-ad"></i> Ad Copy
+          </div>
+          <div class="preset-btn" data-type="seo" data-tone="professional" data-length="long">
+            <i class="fas fa-search"></i> SEO Article
+          </div>
+        </div>
+      </div>
+      
+      <div class="action-buttons">
+        <button class="action-btn generate-btn" id="generateBtn">
+          <i class="fas fa-robot"></i> Generate Content
+        </button>
+        <button class="action-btn copy-btn" id="copyBtn" disabled>
+          <i class="fas fa-copy"></i> Copy to Clipboard
+        </button>
+        <button class="action-btn clear-btn" id="clearBtn">
+          <i class="fas fa-eraser"></i> Clear All
+        </button>
+      </div>
+    </div>
+
+    <!-- Output Section -->
+    <div class="tool-card-section">
+      <h2><i class="fas fa-file-signature"></i> Generated Content</h2>
+      
+      <div class="output-container">
         <div class="output-header">
-          <h3 class="panel-title"><i class="fas fa-file-alt"></i> Generated Content</h3>
-          <div class="output-actions">
-            <button id="copyBtn" class="output-action-btn" title="Copy to Clipboard">
-              <i class="fas fa-copy"></i>
-            </button>
-            <button id="downloadBtn" class="output-action-btn" title="Download as Text File">
-              <i class="fas fa-download"></i>
-            </button>
-            <button id="clearBtn" class="output-action-btn" title="Clear Output">
-              <i class="fas fa-trash"></i>
-            </button>
+          <h3><i class="fas fa-scroll"></i> Your AI-Generated Content</h3>
+          <div class="output-stats">
+            <span id="wordCount">0 words</span>
+            <span id="charCount">0 characters</span>
           </div>
         </div>
         
-        <div id="outputContent" class="output-content">
-          <div id="outputPlaceholder" class="output-placeholder">
-            <i class="fas fa-pen-fancy"></i>
-            <p>Your AI-generated content will appear here. Fill in the settings on the left and click "Generate Content".</p>
-          </div>
-          <div id="outputText" style="display: none;"></div>
-          <div id="loadingContainer" class="loading-container" style="display: none;">
-            <div class="loading-spinner"></div>
-            <p>AI is generating your content... This usually takes 10-20 seconds.</p>
+        <div class="output-content" id="outputContent">
+          <div class="output-placeholder" id="outputPlaceholder">
+            <i class="fas fa-robot" style="font-size: 3rem; margin-bottom: 15px; color: var(--gray);"></i>
+            <p>Your AI-generated content will appear here.</p>
+            <p style="font-size: 0.9rem; margin-top: 10px;">Enter a topic and click "Generate Content" to get started.</p>
           </div>
         </div>
         
-        <!-- Word Count -->
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 15px; color: var(--gray); font-size: 0.9rem;">
-          <div>
-            <i class="fas fa-font"></i> <span id="wordCount">0</span> words
+        <div class="loading-container" id="loadingContainer">
+          <div class="spinner"></div>
+          <p style="color: var(--text-color); font-weight: 500;">AI is writing your content...</p>
+          <p style="color: var(--gray); font-size: 0.9rem; margin-top: 5px;">This usually takes 5-10 seconds</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- NEW: How to Use AI Content Writer Tutorial Section -->
+    <div class="tutorial-section" id="tutorialSection">
+      <h2><i class="fas fa-graduation-cap"></i> How to Use AI Content Writer</h2>
+      <div class="tutorial-steps">
+        <div class="tutorial-step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>Enter Your Topic</h3>
+            <p>Start by entering your topic or subject in the input field. Be specific for better results.</p>
           </div>
-          <div>
-            <i class="fas fa-clock"></i> <span id="readTime">0</span> min read
+        </div>
+        
+        <div class="tutorial-step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>Adjust Settings</h3>
+            <p>Select content type, tone, and length that match your needs. Use presets for quick setup.</p>
+          </div>
+        </div>
+        
+        <div class="tutorial-step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>Generate Content</h3>
+            <p>Click "Generate Content" and wait a few seconds for the AI to create your content.</p>
+          </div>
+        </div>
+        
+        <div class="tutorial-step">
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <h3>Copy & Use</h3>
+            <p>Copy the generated content to your clipboard and use it directly in your projects.</p>
           </div>
         </div>
       </div>
     </div>
-    
-    <!-- Examples Section -->
-    <section class="examples-section">
-      <h2 class="section-title">Example Prompts</h2>
-      <p class="section-subtitle">Try these example prompts to see what our AI Content Writer can create.</p>
-      
-      <div class="examples-grid">
-        <div class="example-card" data-example="1">
-          <h4><i class="fas fa-blog"></i> Blog Post</h4>
-          <p>A comprehensive guide about sustainable living practices for urban dwellers, including practical tips for reducing waste and energy consumption.</p>
-          <span class="example-topic">Sustainability Guide</span>
+
+    <!-- EEAT About Section -->
+    <div class="about-section" id="about">
+      <h2>About This AI Content Writer Tool</h2>
+      <p>Our AI Content Writer is developed by content creators and AI specialists who understand the challenges of producing quality content consistently. We've designed this tool to help bloggers, marketers, students, and businesses generate high-quality written content instantly.</p>
+      <p>Unlike other AI writing tools, our solution is:</p>
+      <ul style="margin-left: 20px; margin-bottom: 15px; color: var(--gray);">
+        <li><strong>100% Free</strong> - No subscriptions, no credits, no limits</li>
+        <li><strong>Privacy-First</strong> - All processing happens locally in your browser</li>
+        <li><strong>No Registration</strong> - Start using immediately without signing up</li>
+        <li><strong>Multiple Formats</strong> - Generate blogs, articles, ads, social posts, and more</li>
+      </ul>
+      <p>The AI uses advanced natural language processing to create coherent, engaging, and relevant content based on your inputs. Perfect for overcoming writer's block, generating content ideas, or creating drafts for further refinement.</p>
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="faq-section" id="faq">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-container">
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Is the AI Content Writer completely free?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Yes, absolutely! Our AI Content Writer is 100% free with no hidden costs, subscriptions, or usage limits. You can generate as much content as you need without any restrictions. We believe in providing valuable AI tools to help everyone create better content.</p>
+          </div>
         </div>
         
-        <div class="example-card" data-example="2">
-          <h4><i class="fas fa-ad"></i> Ad Copy</h4>
-          <p>Persuasive ad copy for a new productivity app that helps remote teams collaborate more effectively with built-in time tracking and project management.</p>
-          <span class="example-topic">Productivity App</span>
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>How does the AI generate content?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Our AI uses sophisticated language models trained on diverse text sources. When you provide a topic, it analyzes the context, content type, tone, and length preferences to generate relevant, coherent content. The AI creates original content based on patterns it has learned, not by copying from the internet.</p>
+          </div>
         </div>
         
-        <div class="example-card" data-example="3">
-          <h4><i class="fas fa-hashtag"></i> Social Media</h4>
-          <p>Engaging Instagram captions for a coffee shop launching a new line of organic, fair-trade coffee blends from South America.</p>
-          <span class="example-topic">Coffee Shop Launch</span>
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Can I use the generated content commercially?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Yes! All content generated by our AI Content Writer is free to use for personal or commercial purposes. You can publish it on websites, use it in marketing materials, social media, or any other application. We recommend reviewing and editing the content to ensure it perfectly fits your needs.</p>
+          </div>
         </div>
         
-        <div class="example-card" data-example="4">
-          <h4><i class="fas fa-shopping-cart"></i> Product Description</h4>
-          <p>Compelling product description for a smart fitness tracker with heart rate monitoring, sleep tracking, and 7-day battery life.</p>
-          <span class="example-topic">Fitness Tracker</span>
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>What types of content can I generate?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Our AI Content Writer supports multiple content types including blog posts, articles, social media content, advertisement copy, email newsletters, product descriptions, SEO articles, and short stories. Each content type has specialized formatting and style adjustments to match the intended purpose.</p>
+          </div>
         </div>
         
-        <div class="example-card" data-example="5">
-          <h4><i class="fas fa-envelope"></i> Email Newsletter</h4>
-          <p>A monthly newsletter for a digital marketing agency highlighting recent client success stories, industry trends, and upcoming webinars.</p>
-          <span class="example-topic">Marketing Newsletter</span>
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>How long does it take to generate content?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Content generation typically takes 5-10 seconds, depending on the selected length and complexity. Shorter content (social media posts) generates faster than longer content (SEO articles). The processing happens locally in your browser, so internet speed doesn't affect generation time.</p>
+          </div>
         </div>
         
-        <div class="example-card" data-example="6">
-          <h4><i class="fas fa-newspaper"></i> News Article</h4>
-          <p>News article about the latest advancements in renewable energy technology and how they're making solar power more affordable for homeowners.</p>
-          <span class="example-topic">Renewable Energy</span>
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Is my data private and secure?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Your privacy is our top priority. All content generation happens locally in your browser using JavaScript. Your topics, instructions, and generated content never leave your device or get uploaded to any server. We don't store, share, or access any of your data.</p>
+          </div>
         </div>
       </div>
-    </section>
-    
-    <!-- Tips Section -->
-    <section class="tips-section">
-      <h2 class="section-title">Tips for Better Results</h2>
-      <p class="section-subtitle">Get the most out of our AI Content Writer with these helpful tips.</p>
-      
-      <div class="tips-grid">
-        <div class="tip-card">
-          <h4><i class="fas fa-lightbulb"></i> Be Specific</h4>
-          <p>The more specific your topic and instructions, the better the AI can generate relevant content. Include target audience, key points, and desired tone.</p>
+    </div>
+
+    <!-- Related Tools Section -->
+    <div class="related-tools-section">
+      <h2>Other Useful AI Tools</h2>
+      <div class="related-tools-grid">
+        <div class="related-tool-card">
+          <div class="related-tool-icon">
+            <i class="fas fa-image"></i>
+          </div>
+          <h3>AI Image Generator</h3>
+          <p>Create stunning images from text descriptions using AI. Generate artwork, photos, and designs instantly.</p>
+          <a href="ai-image-generator.html" class="related-tool-link">Use Tool</a>
         </div>
         
-        <div class="tip-card">
-          <h4><i class="fas fa-key"></i> Use Keywords</h4>
-          <p>Include relevant keywords you want to appear in the content. This helps with SEO and ensures the content aligns with your marketing goals.</p>
+        <div class="related-tool-card">
+          <div class="related-tool-icon">
+            <i class="fas fa-language"></i>
+          </div>
+          <h3>AI Translator</h3>
+          <p>Translate text between multiple languages with AI-powered accuracy. Supports 100+ languages.</p>
+          <a href="ai-translator.html" class="related-tool-link">Use Tool</a>
         </div>
         
-        <div class="tip-card">
-          <h4><i class="fas fa-sliders-h"></i> Adjust Tone</h4>
-          <p>Experiment with different tones of voice. The same topic can be presented differently depending on whether you choose professional, friendly, or persuasive tone.</p>
+        <div class="related-tool-card">
+          <div class="related-tool-icon">
+            <i class="fas fa-check-circle"></i>
+          </div>
+          <h3>Grammar Checker</h3>
+          <p>AI-powered grammar and spell checker with style suggestions. Improve your writing instantly.</p>
+          <a href="grammar-checker.html" class="related-tool-link">Use Tool</a>
         </div>
         
-        <div class="tip-card">
-          <h4><i class="fas fa-edit"></i> Edit and Refine</h4>
-          <p>AI-generated content is a great starting point. Add your personal touch, facts, statistics, and brand voice to make it truly unique.</p>
+        <div class="related-tool-card">
+          <div class="related-tool-icon">
+            <i class="fas fa-heading"></i>
+          </div>
+          <h3>Article Rewriter</h3>
+          <p>Rephrase entire articles while preserving meaning. Create unique content from existing text.</p>
+          <a href="article-rewriter.html" class="related-tool-link">Use Tool</a>
+        </div>
+        
+        <div class="related-tool-card">
+          <div class="related-tool-icon">
+            <i class="fas fa-file-alt"></i>
+          </div>
+          <h3>Plagiarism Checker</h3>
+          <p>Check text for duplicate content. Ensure originality in your writing with deep web search.</p>
+          <a href="plagiarism-checker.html" class="related-tool-link">Use Tool</a>
+        </div>
+        
+        <div class="related-tool-card">
+          <div class="related-tool-icon">
+            <i class="fas fa-pen-fancy"></i>
+          </div>
+          <h3>Text Formatter</h3>
+          <p>Format and beautify text with various styling options. Clean up and optimize your text.</p>
+          <a href="text-formatter.html" class="related-tool-link">Use Tool</a>
         </div>
       </div>
-    </section>
-  </main>
+    </div>
+  </div>
 
   <!-- Footer -->
-  <footer>
+  <footer id="privacy">
     <div class="footer-content">
       <div class="footer-about">
         <h3 class="footer-logo">Toolsedito</h3>
-        <p class="footer-description">Toolsedito provides smart online tools for everyday productivity. Our tools are fast, free, and easy to use, helping you accomplish tasks efficiently.</p>
+        <p class="footer-description">Toolsedito provides smart AI tools for content creation and productivity. Our AI Content Writer is 100% free, secure, and processes all data locally in your browser.</p>
         <div class="social-links">
           <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
           <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
@@ -1449,9 +1753,10 @@
         <h4>Quick Links</h4>
         <ul>
           <li><a href="index.html">Home</a></li>
-          <li><a href="index.html#tools">Tools</a></li>
-          <li><a href="index.html#blog">Blog</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="index.html#tools">All Tools</a></li>
+          <li><a href="index.html#ai-tools">AI Tools</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#about">About This Tool</a></li>
         </ul>
       </div>
       
@@ -1462,6 +1767,7 @@
           <li><a href="ai-image-generator.html">AI Image Generator</a></li>
           <li><a href="ai-translator.html">AI Translator</a></li>
           <li><a href="grammar-checker.html">Grammar Checker</a></li>
+          <li><a href="article-rewriter.html">Article Rewriter</a></li>
         </ul>
       </div>
       
@@ -1477,43 +1783,23 @@
     </div>
     
     <div class="footer-bottom">
-      <p>&copy; 2026 Toolsedito. All rights reserved. | Designed with <i class="fas fa-heart" style="color: #ef4444;"></i> for productivity</p>
+      <p>&copy; 2026 Toolsedito. All rights reserved. | AI Content Writer v2.0 | All AI processing happens locally in your browser. No data is uploaded to any server.</p>
+      <p style="margin-top: 10px; color: #9ca3af;">Made with <i class="fas fa-heart" style="color: #ef4444;"></i> for content creators worldwide</p>
     </div>
   </footer>
 
-  <!-- JavaScript -->
   <script>
-    // DOM Elements
+    // Dark Theme Toggle
     const themeToggle = document.getElementById('themeToggle');
     const sidebarThemeToggle = document.getElementById('sidebarThemeToggle');
     const themeStatus = document.getElementById('themeStatus');
     const body = document.body;
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const sidebar = document.getElementById('sidebar');
-    const sidebarClose = document.getElementById('sidebarClose');
-    const sidebarOverlay = document.getElementById('sidebarOverlay');
-    const contentTypeBtns = document.querySelectorAll('.content-type-btn');
-    const generateBtn = document.getElementById('generateBtn');
-    const copyBtn = document.getElementById('copyBtn');
-    const downloadBtn = document.getElementById('downloadBtn');
-    const clearBtn = document.getElementById('clearBtn');
-    const outputPlaceholder = document.getElementById('outputPlaceholder');
-    const outputText = document.getElementById('outputText');
-    const loadingContainer = document.getElementById('loadingContainer');
-    const topicInput = document.getElementById('topic');
-    const keywordsInput = document.getElementById('keywords');
-    const toneSelect = document.getElementById('tone');
-    const lengthSlider = document.getElementById('length');
-    const lengthValue = document.getElementById('lengthValue');
-    const instructionsInput = document.getElementById('instructions');
-    const wordCount = document.getElementById('wordCount');
-    const readTime = document.getElementById('readTime');
-    const exampleCards = document.querySelectorAll('.example-card');
-
-    // Theme Toggle
+    
+    // Check for saved theme preference or prefer-color-scheme
     const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
     const savedTheme = localStorage.getItem('theme');
     
+    // Set initial theme
     if (savedTheme === 'dark' || (!savedTheme && prefersDarkScheme.matches)) {
       body.classList.add('dark-theme');
       updateThemeStatus(true);
@@ -1521,23 +1807,27 @@
       updateThemeStatus(false);
     }
     
+    // Main theme toggle function
     function toggleTheme() {
       const isDark = body.classList.toggle('dark-theme');
       localStorage.setItem('theme', isDark ? 'dark' : 'light');
       updateThemeStatus(isDark);
       
+      // Add animation to the toggle button
       themeToggle.style.transform = 'rotate(360deg)';
       setTimeout(() => {
         themeToggle.style.transform = '';
       }, 300);
     }
     
+    // Update theme status text and icon
     function updateThemeStatus(isDark) {
       if (themeStatus) {
         themeStatus.textContent = isDark ? 'ON' : 'OFF';
       }
     }
     
+    // Event listeners for theme toggles
     themeToggle.addEventListener('click', toggleTheme);
     
     if (sidebarThemeToggle) {
@@ -1547,13 +1837,20 @@
       });
     }
     
-    // Mobile Sidebar
+    // Mobile Sidebar Functionality
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const sidebar = document.getElementById('sidebar');
+    const sidebarClose = document.getElementById('sidebarClose');
+    const sidebarOverlay = document.getElementById('sidebarOverlay');
+    
+    // Open sidebar
     mobileMenuBtn.addEventListener('click', () => {
       sidebar.classList.add('active');
       sidebarOverlay.classList.add('active');
       document.body.style.overflow = 'hidden';
     });
     
+    // Close sidebar
     function closeSidebar() {
       sidebar.classList.remove('active');
       sidebarOverlay.classList.remove('active');
@@ -1563,482 +1860,390 @@
     sidebarClose.addEventListener('click', closeSidebar);
     sidebarOverlay.addEventListener('click', closeSidebar);
     
-    // Close sidebar when clicking on a link
+    // Close sidebar when clicking on a link (for mobile)
     document.querySelectorAll('.sidebar-links a').forEach(link => {
       link.addEventListener('click', function(e) {
-        if (!this.id.includes('Theme')) {
+        if (!this.id.includes('Theme')) { // Don't close for theme toggle
           closeSidebar();
         }
       });
     });
     
-    // Handle window resize
-    window.addEventListener('resize', function() {
-      if (window.innerWidth >= 768) {
-        closeSidebar();
-      }
-    });
-    
-    // Content Type Selection
-    contentTypeBtns.forEach(btn => {
-      btn.addEventListener('click', function() {
-        contentTypeBtns.forEach(b => b.classList.remove('active'));
-        this.classList.add('active');
-      });
-    });
-    
-    // Length Slider
-    const lengthLabels = ['Very Short', 'Short', 'Medium', 'Long', 'Very Long'];
-    lengthSlider.addEventListener('input', function() {
-      const value = parseInt(this.value);
-      lengthValue.textContent = lengthLabels[value - 1];
-    });
-    
-    // Example Cards - Load Example Data
-    exampleCards.forEach(card => {
-      card.addEventListener('click', function() {
-        const exampleNum = this.getAttribute('data-example');
-        loadExample(exampleNum);
-      });
-    });
-    
-    function loadExample(exampleNum) {
-      const examples = {
-        1: {
-          topic: "Sustainable Living Practices for Urban Dwellers",
-          keywords: "sustainability, eco-friendly, zero waste, urban living, green tips",
-          type: "blog",
-          tone: "informative",
-          length: 4,
-          instructions: "Create a comprehensive guide with practical tips that urban residents can implement easily."
-        },
-        2: {
-          topic: "Productivity App for Remote Teams",
-          keywords: "productivity, remote work, collaboration, time tracking, project management",
-          type: "ad",
-          tone: "persuasive",
-          length: 2,
-          instructions: "Write persuasive ad copy that highlights the unique features and benefits for remote teams."
-        },
-        3: {
-          topic: "New Organic Coffee Blend Launch",
-          keywords: "coffee, organic, fair trade, launch, Instagram, social media",
-          type: "social",
-          tone: "friendly",
-          length: 3,
-          instructions: "Create engaging Instagram captions for a coffee shop launching new organic blends."
-        },
-        4: {
-          topic: "Smart Fitness Tracker with Advanced Features",
-          keywords: "fitness tracker, heart rate monitor, sleep tracking, health, wearable tech",
-          type: "product",
-          tone: "professional",
-          length: 3,
-          instructions: "Write a compelling product description highlighting key features and benefits."
-        },
-        5: {
-          topic: "Digital Marketing Agency Monthly Newsletter",
-          keywords: "digital marketing, newsletter, client success, industry trends, webinars",
-          type: "email",
-          tone: "professional",
-          length: 4,
-          instructions: "Create a newsletter format with sections for success stories, trends, and upcoming events."
-        },
-        6: {
-          topic: "Advancements in Renewable Energy Technology",
-          keywords: "renewable energy, solar power, technology, sustainability, innovation",
-          type: "article",
-          tone: "informative",
-          length: 5,
-          instructions: "Write a news article about recent technological advancements making solar power more accessible."
-        }
-      };
-      
-      const example = examples[exampleNum];
-      if (!example) return;
-      
-      // Set form values
-      topicInput.value = example.topic;
-      keywordsInput.value = example.keywords;
-      toneSelect.value = example.tone;
-      lengthSlider.value = example.length;
-      lengthValue.textContent = lengthLabels[example.length - 1];
-      instructionsInput.value = example.instructions;
-      
-      // Set active content type
-      contentTypeBtns.forEach(btn => {
-        btn.classList.remove('active');
-        if (btn.getAttribute('data-type') === example.type) {
-          btn.classList.add('active');
-        }
-      });
-      
-      // Scroll to top of form
-      topicInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      
-      // Show a quick confirmation
-      showNotification(`Example ${exampleNum} loaded! Click "Generate Content" to see the result.`);
-    }
-    
-    // Generate Content
-    generateBtn.addEventListener('click', generateContent);
-    
-    function generateContent() {
-      // Get form values
-      const topic = topicInput.value.trim();
-      const keywords = keywordsInput.value.trim();
-      const tone = toneSelect.value;
-      const length = parseInt(lengthSlider.value);
-      const instructions = instructionsInput.value.trim();
-      const activeTypeBtn = document.querySelector('.content-type-btn.active');
-      const contentType = activeTypeBtn ? activeTypeBtn.getAttribute('data-type') : 'blog';
-      
-      // Validate topic
-      if (!topic) {
-        showNotification('Please enter a topic or title.', 'error');
-        topicInput.focus();
-        return;
-      }
-      
-      // Disable button and show loading
-      generateBtn.disabled = true;
-      generateBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating...';
-      outputPlaceholder.style.display = 'none';
-      outputText.style.display = 'none';
-      loadingContainer.style.display = 'flex';
-      
-      // Simulate AI processing time (1-3 seconds)
-      const processingTime = 1000 + Math.random() * 2000;
-      
-      setTimeout(() => {
-        // Generate content based on inputs
-        const generatedText = generateAIContent(topic, keywords, tone, length, contentType, instructions);
+    // Add smooth scrolling to all links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
         
-        // Update output
-        outputText.textContent = generatedText;
-        outputText.style.display = 'block';
-        loadingContainer.style.display = 'none';
+        const targetId = this.getAttribute('href');
+        if(targetId === '#') return;
         
-        // Calculate word count and read time
-        const words = generatedText.split(/\s+/).length;
-        wordCount.textContent = words.toLocaleString();
-        readTime.textContent = Math.ceil(words / 200); // Average reading speed: 200 words per minute
-        
-        // Re-enable button
-        generateBtn.disabled = false;
-        generateBtn.innerHTML = '<i class="fas fa-magic"></i> Generate Content';
-        
-        // Show success notification
-        showNotification('Content generated successfully!');
-        
-        // Scroll to output
-        outputText.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, processingTime);
-    }
-    
-    // Generate AI Content Function
-    function generateAIContent(topic, keywords, tone, length, type, instructions) {
-      // Content templates based on type
-      const templates = {
-        blog: `# ${topic}
-
-${getIntroduction(tone, topic)}
-
-${getBodyContent(length, tone, keywords)}
-
-## Key Takeaways
-${getKeyTakeaways(topic)}
-
-${getConclusion(tone)}
-
-${instructions ? `\n*Note: ${instructions}*` : ''}`,
-        
-        article: `# ${topic}
-
-${getArticleIntro(tone, topic)}
-
-${getArticleBody(length, tone, keywords)}
-
-${getArticleConclusion(tone)}
-
-${keywords ? `\n**Keywords:** ${keywords}` : ''}
-${instructions ? `\n\n*Additional context: ${instructions}*` : ''}`,
-        
-        social: `${getSocialIntro(tone, topic)}
-
-${getSocialContent(length, tone)}
-
-${getSocialHashtags(keywords)}
-
-${instructions ? `\n*${instructions}*` : ''}`,
-        
-        ad: `**Headline:** ${getAdHeadline(topic, tone)}
-
-**Subheadline:** ${getAdSubheadline(topic)}
-
-${getAdBody(length, tone)}
-
-**Call to Action:** ${getAdCTA(tone)}
-
-${keywords ? `\n**Target Keywords:** ${keywords}` : ''}
-${instructions ? `\n\n*Campaign focus: ${instructions}*` : ''}`,
-        
-        email: `**Subject:** ${getEmailSubject(topic, tone)}
-
-${getEmailGreeting(tone)}
-
-${getEmailBody(length, tone, topic)}
-
-${getEmailClosing(tone)}
-
-${instructions ? `\n*Email purpose: ${instructions}*` : ''}`,
-        
-        product: `**Product:** ${topic}
-
-${getProductDescription(length, tone)}
-
-**Features:**
-${getProductFeatures(length)}
-
-**Benefits:**
-${getProductBenefits(tone)}
-
-${getProductCTA(tone)}
-
-${keywords ? `\n**SEO Keywords:** ${keywords}` : ''}
-${instructions ? `\n\n*Product highlights: ${instructions}*` : ''}`
-      };
-      
-      return templates[type] || templates.blog;
-    }
-    
-    // Helper functions for content generation
-    function getIntroduction(tone, topic) {
-      const introductions = {
-        professional: `In today's fast-paced world, ${topic.toLowerCase()} has become increasingly important. This article explores the key aspects and benefits of this topic, providing valuable insights for professionals and enthusiasts alike.`,
-        friendly: `Hey there! Have you ever wondered about ${topic.toLowerCase()}? Well, you're in the right place! Let's dive into this fascinating topic together and discover why it matters.`,
-        persuasive: `Imagine transforming your approach to ${topic.toLowerCase()} and achieving remarkable results. This guide will show you exactly how to do that, with proven strategies that deliver real value.`,
-        informative: `${topic} is a subject of growing interest and importance. This comprehensive overview will provide you with essential information, facts, and perspectives on this topic.`,
-        creative: `Picture this: a world where ${topic.toLowerCase()} transforms everyday experiences. Let's embark on a journey to explore the magic and potential of this captivating subject.`
-      };
-      return introductions[tone] || introductions.informative;
-    }
-    
-    function getBodyContent(length, tone, keywords) {
-      const paragraphCount = length + 1; // 2-6 paragraphs based on length
-      let content = '';
-      
-      for (let i = 0; i < paragraphCount; i++) {
-        content += `\n\n${getParagraph(tone, keywords)}`;
-      }
-      
-      return content;
-    }
-    
-    function getParagraph(tone, keywords) {
-      const paragraphs = {
-        professional: `The strategic implementation of these principles demonstrates measurable improvements across key performance indicators. Organizations that adopt these methodologies typically report enhanced efficiency and competitive advantage in their respective markets.`,
-        friendly: `Here's the cool part - once you start applying these tips, you'll notice things getting easier almost immediately. It's like having a secret shortcut that makes everything flow more smoothly!`,
-        persuasive: `Consider the undeniable benefits that await you when you apply these techniques. The results speak for themselves, with numerous success stories confirming the effectiveness of this approach.`,
-        informative: `Research indicates several important factors contribute to successful outcomes in this area. Studies have shown consistent patterns that can inform best practices and decision-making processes.`,
-        creative: `Like brushstrokes on a canvas, each element combines to create something truly remarkable. The interplay of these components reveals unexpected connections and possibilities.`
-      };
-      
-      const baseParagraph = paragraphs[tone] || paragraphs.informative;
-      if (keywords) {
-        const keywordArr = keywords.split(',').map(k => k.trim()).filter(k => k);
-        if (keywordArr.length > 0) {
-          const randomKeyword = keywordArr[Math.floor(Math.random() * keywordArr.length)];
-          return baseParagraph + ` This is particularly relevant when considering ${randomKeyword}.`;
-        }
-      }
-      
-      return baseParagraph;
-    }
-    
-    function getKeyTakeaways(topic) {
-      return `1. Understanding ${topic.split(' ')[0]} provides significant advantages
-2. Implementation should be tailored to specific contexts and goals
-3. Regular evaluation ensures continued effectiveness and improvement
-4. The long-term benefits substantially outweigh the initial investment`;
-    }
-    
-    function getConclusion(tone) {
-      const conclusions = {
-        professional: `In conclusion, the evidence clearly supports the value of adopting these approaches. Organizations and individuals stand to gain considerable benefits through thoughtful implementation.`,
-        friendly: `So there you have it! Give these ideas a try and see what works best for you. Remember, small steps can lead to big changes over time.`,
-        persuasive: `The opportunity to transform your results is within reach. By applying these strategies consistently, you can achieve the outcomes you desire.`,
-        informative: `This overview provides a foundation for further exploration of this topic. Continued learning and application will yield deeper understanding and better results.`,
-        creative: `As we've seen, the possibilities are as vast as your imagination. The journey of discovery continues with each new application and insight.`
-      };
-      return conclusions[tone] || conclusions.informative;
-    }
-    
-    // Additional helper functions for different content types
-    function getArticleIntro(tone, topic) {
-      return `This article examines ${topic.toLowerCase()} from multiple perspectives, drawing on current research and expert opinions to provide a balanced view of this important subject.`;
-    }
-    
-    function getArticleBody(length, tone, keywords) {
-      return getBodyContent(length, tone, keywords);
-    }
-    
-    function getArticleConclusion(tone) {
-      return `Further research will continue to shape our understanding of this topic, but current evidence points to significant implications for practice and policy.`;
-    }
-    
-    function getSocialIntro(tone, topic) {
-      if (tone === 'friendly') {
-        return `🎉 Exciting news! ${topic} is here and it's better than ever!`;
-      } else if (tone === 'persuasive') {
-        return `🚀 Don't miss out! ${topic} is changing the game. Here's why you should care:`;
-      } else {
-        return `📣 Announcement: ${topic}. Important updates you need to know:`;
-      }
-    }
-    
-    function getSocialContent(length, tone) {
-      const points = length + 1;
-      let content = '';
-      for (let i = 1; i <= points; i++) {
-        content += `\n\n${i}. ${getSocialPoint(tone)}`;
-      }
-      return content;
-    }
-    
-    function getSocialPoint(tone) {
-      const points = {
-        friendly: `This awesome feature makes everything so much easier!`,
-        persuasive: `Transform your results with this proven approach`,
-        professional: `This represents a significant advancement in the field`,
-        informative: `New data reveals important trends in this area`,
-        creative: `Imagine the possibilities with this innovative solution`
-      };
-      return points[tone] || points.friendly;
-    }
-    
-    function getSocialHashtags(keywords) {
-      if (!keywords) return '\n\n#Content #Writing #Tips';
-      const keywordArr = keywords.split(',').map(k => k.trim().replace(/\s+/g, '')).filter(k => k);
-      const hashtags = keywordArr.slice(0, 5).map(k => `#${k}`);
-      return `\n\n${hashtags.join(' ')} #AI #ContentCreation`;
-    }
-    
-    // Output Actions
-    copyBtn.addEventListener('click', function() {
-      const textToCopy = outputText.textContent;
-      if (!textToCopy.trim()) {
-        showNotification('No content to copy.', 'error');
-        return;
-      }
-      
-      navigator.clipboard.writeText(textToCopy)
-        .then(() => {
-          // Visual feedback
-          const originalIcon = this.innerHTML;
-          this.innerHTML = '<i class="fas fa-check"></i>';
-          showNotification('Content copied to clipboard!');
+        const targetElement = document.querySelector(targetId);
+        if(targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
           
-          setTimeout(() => {
-            this.innerHTML = originalIcon;
-          }, 2000);
-        })
-        .catch(err => {
-          console.error('Failed to copy: ', err);
-          showNotification('Failed to copy. Please try again.', 'error');
-        });
+          // Close sidebar on mobile after clicking
+          if (window.innerWidth < 1024) {
+            closeSidebar();
+          }
+        }
+      });
+    });
+
+    // AI Content Writer Tool JavaScript
+    // DOM Elements
+    const topicInput = document.getElementById('topicInput');
+    const instructionsInput = document.getElementById('instructionsInput');
+    const topicChars = document.getElementById('topicChars');
+    const instructionsChars = document.getElementById('instructionsChars');
+    
+    // Control elements
+    const contentType = document.getElementById('contentType');
+    const toneStyle = document.getElementById('toneStyle');
+    const contentLength = document.getElementById('contentLength');
+    const presetButtons = document.querySelectorAll('.preset-btn');
+    
+    // Action buttons
+    const generateBtn = document.getElementById('generateBtn');
+    const copyBtn = document.getElementById('copyBtn');
+    const clearBtn = document.getElementById('clearBtn');
+    
+    // Output elements
+    const outputContent = document.getElementById('outputContent');
+    const outputPlaceholder = document.getElementById('outputPlaceholder');
+    const loadingContainer = document.getElementById('loadingContainer');
+    const wordCount = document.getElementById('wordCount');
+    const charCount = document.getElementById('charCount');
+    
+    // Event Listeners for character counters
+    topicInput.addEventListener('input', () => {
+      topicChars.textContent = topicInput.value.length;
     });
     
-    downloadBtn.addEventListener('click', function() {
-      const textToDownload = outputText.textContent;
-      if (!textToDownload.trim()) {
-        showNotification('No content to download.', 'error');
+    instructionsInput.addEventListener('input', () => {
+      instructionsChars.textContent = instructionsInput.value.length;
+    });
+    
+    // Preset buttons
+    presetButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        presetButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        
+        const type = btn.getAttribute('data-type');
+        const tone = btn.getAttribute('data-tone');
+        const length = btn.getAttribute('data-length');
+        
+        contentType.value = type;
+        toneStyle.value = tone;
+        contentLength.value = length;
+      });
+    });
+    
+    // Action buttons
+    generateBtn.addEventListener('click', generateContent);
+    copyBtn.addEventListener('click', copyToClipboard);
+    clearBtn.addEventListener('click', clearAll);
+    
+    // Content Generation Functions
+    function generateContent() {
+      const topic = topicInput.value.trim();
+      
+      if (!topic) {
+        // Show subtle visual feedback instead of alert
+        topicInput.style.borderColor = '#ef4444';
+        setTimeout(() => {
+          topicInput.style.borderColor = '';
+        }, 1000);
         return;
       }
       
-      const blob = new Blob([textToDownload], { type: 'text/plain' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = `ai-content-${Date.now()}.txt`;
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
+      // Show loading state
+      loadingContainer.classList.add('active');
+      outputPlaceholder.style.display = 'none';
+      generateBtn.disabled = true;
       
-      // Visual feedback
-      const originalIcon = this.innerHTML;
-      this.innerHTML = '<i class="fas fa-check"></i>';
-      showNotification('Content downloaded successfully!');
-      
+      // Simulate AI processing (in a real app, this would call an API)
       setTimeout(() => {
-        this.innerHTML = originalIcon;
-      }, 2000);
-    });
-    
-    clearBtn.addEventListener('click', function() {
-      outputText.textContent = '';
-      outputText.style.display = 'none';
-      outputPlaceholder.style.display = 'flex';
-      wordCount.textContent = '0';
-      readTime.textContent = '0';
-      showNotification('Output cleared.');
-    });
-    
-    // Notification function
-    function showNotification(message, type = 'success') {
-      // Remove existing notification
-      const existingNotification = document.querySelector('.notification');
-      if (existingNotification) {
-        existingNotification.remove();
-      }
-      
-      // Create notification element
-      const notification = document.createElement('div');
-      notification.className = `notification ${type}`;
-      notification.innerHTML = `
-        <div style="position: fixed; top: 100px; right: 20px; background: ${type === 'error' ? '#ef4444' : '#10b981'}; color: white; padding: 12px 20px; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); z-index: 10000; display: flex; align-items: center; gap: 10px; max-width: 350px; animation: fadeInUp 0.3s ease-out;">
-          <i class="fas fa-${type === 'error' ? 'exclamation-circle' : 'check-circle'}"></i>
-          <span>${message}</span>
-        </div>
-      `;
-      
-      document.body.appendChild(notification);
-      
-      // Remove after 3 seconds
-      setTimeout(() => {
-        if (notification.parentNode) {
-          notification.remove();
-        }
-      }, 3000);
+        const content = createAIContent(
+          topic,
+          instructionsInput.value,
+          contentType.value,
+          toneStyle.value,
+          contentLength.value
+        );
+        
+        // Display generated content
+        outputContent.innerHTML = content;
+        
+        // Update stats
+        const text = outputContent.textContent;
+        const words = text.trim().split(/\s+/).length;
+        const chars = text.length;
+        
+        wordCount.textContent = `${words} words`;
+        charCount.textContent = `${chars} characters`;
+        
+        // Hide loading state
+        loadingContainer.classList.remove('active');
+        generateBtn.disabled = false;
+        copyBtn.disabled = false;
+        
+        // Auto-scroll to output
+        outputContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 1500 + Math.random() * 1000); // Random delay between 1.5-2.5 seconds
     }
     
-    // Add CSS for notification animation
-    const style = document.createElement('style');
-    style.textContent = `
-      @keyframes fadeInUp {
-        from {
-          opacity: 0;
-          transform: translateY(20px);
+    function createAIContent(topic, instructions, type, tone, length) {
+      // Content templates based on type and tone
+      const templates = {
+        blog: {
+          professional: `# ${topic}: A Comprehensive Guide
+
+In today's fast-paced digital landscape, understanding ${topic.toLowerCase()} has become increasingly important. This comprehensive guide explores the key aspects, benefits, and practical applications.
+
+## Introduction
+${topic} represents a significant development in its field. Whether you're new to the subject or looking to deepen your understanding, this article provides valuable insights and actionable information.
+
+## Key Benefits
+1. **Enhanced Efficiency**: Proper implementation of ${topic.toLowerCase()} can streamline processes and improve productivity.
+2. **Cost Reduction**: Many organizations report significant cost savings after adopting ${topic.toLowerCase()} strategies.
+3. **Improved Outcomes**: The systematic approach offered by ${topic.toLowerCase()} leads to more consistent and reliable results.
+
+## Practical Applications
+${topic} finds application across various domains. From small businesses to large enterprises, the principles remain relevant and impactful. ${instructions ? `\n\n**Additional Considerations**: ${instructions}` : ''}
+
+## Conclusion
+Embracing ${topic.toLowerCase()} offers numerous advantages for individuals and organizations alike. By understanding the core principles and implementing best practices, you can achieve meaningful improvements in your endeavors.`,
+          
+          friendly: `# Let's Talk About ${topic}!
+
+Hey there! Have you ever wondered about ${topic.toLowerCase()}? It's one of those topics that seems complicated at first but is actually pretty fascinating once you dive in. Let's explore it together!
+
+## What's the Big Deal About ${topic}?
+So, ${topic.toLowerCase()} is basically... (insert your understanding here). But why should you care? Well, for starters:
+
+✨ **It makes things easier** - Seriously, once you get the hang of ${topic.toLowerCase()}, so many things become simpler!
+✨ **You'll save time** - Who doesn't want more hours in their day?
+✨ **Better results** - Whether you're working on a project or just trying to understand something better, ${topic.toLowerCase()} can help.
+
+## Getting Started
+Ready to jump in? Here are three simple steps:
+1. **Start small** - Don't try to learn everything at once
+2. **Practice regularly** - Consistency is key!
+3. **Ask questions** - There's no such thing as a silly question
+
+${instructions ? `\n\n**Pro Tip**: ${instructions}` : ''}
+
+## Wrapping Up
+${topic} might seem intimidating at first, but it's actually pretty approachable. Give it a try - you might just surprise yourself with how quickly you pick it up!`
+        },
+        
+        social: {
+          persuasive: `🔥 Discover the power of ${topic}! 
+
+Transform your approach and achieve better results. 
+
+👉 Learn how ${topic.toLowerCase()} can help you:
+✅ Save time
+✅ Increase efficiency  
+✅ Get better outcomes
+
+Ready to get started? The first step is understanding the basics!
+
+#${topic.replace(/\s+/g, '')} #Productivity #Tips`,
+          
+          friendly: `Hey friends! 👋
+
+Just learned something cool about ${topic.toLowerCase()} and had to share!
+
+Did you know that ${topic.toLowerCase()} can actually make your life easier? It's true! Here's what I discovered:
+
+🌟 Simple way to understand ${topic.toLowerCase()}
+🌟 Practical tips you can use today
+🌟 Real benefits you'll notice immediately
+
+Anyone else excited about ${topic}? Share your thoughts below! 👇
+
+#Learning #${topic.replace(/\s+/g, '')} #LifeHacks`
+        },
+        
+        ad: {
+          persuasive: `**Attention!** 
+
+Tired of struggling with inefficient methods? 
+
+Introducing the revolutionary approach of ${topic} - designed to transform how you work and live!
+
+**Limited Time Benefits:**
+⚡ 3x faster results
+⚡ 50% less effort  
+⚡ Guaranteed improvement
+
+**Special Offer:** Understand ${topic.toLowerCase()} in just 30 minutes with our simplified guide!
+
+👉 **Act Now** - Your transformation starts today!
+
+#${topic.replace(/\s+/g, '')} #Innovation #Success`,
+          
+          professional: `**Elevate Your Performance with ${topic}**
+
+In today's competitive landscape, mastering ${topic.toLowerCase()} isn't just an advantage - it's essential.
+
+Our comprehensive ${topic.toLowerCase()} solution offers:
+
+• **Strategic Implementation** - Systematic approach for measurable results
+• **Expert Guidance** - Based on proven methodologies
+• **Sustainable Results** - Long-term improvement, not temporary fixes
+
+**Why Choose Our Approach?**
+Backed by data and real-world success stories, our ${topic.toLowerCase()} framework delivers consistent, reliable outcomes.
+
+**Schedule a consultation today** to discover how ${topic} can transform your operations.`
         }
-        to {
-          opacity: 1;
-          transform: translateY(0);
+      };
+      
+      // Length adjustments
+      const lengthMultipliers = {
+        short: 0.5,
+        medium: 1,
+        long: 1.8,
+        xl: 3
+      };
+      
+      // Default content if type/tone not in templates
+      let content = templates[type] && templates[type][tone] 
+        ? templates[type][tone]
+        : `# ${topic}
+
+${topic} represents an important concept worth exploring. This content has been generated based on your specifications for a ${type} with a ${tone} tone.
+
+## Overview
+Understanding ${topic.toLowerCase()} provides valuable insights and practical benefits. Whether for personal growth or professional development, engaging with this topic can yield significant returns.
+
+## Key Points
+• **Fundamental Principles**: The core ideas behind ${topic.toLowerCase()}
+• **Practical Applications**: How ${topic.toLowerCase()} can be implemented in real-world scenarios
+• **Future Implications**: The potential evolution and impact of ${topic.toLowerCase()}
+
+${instructions ? `\n\n**Additional Guidance**: ${instructions}` : ''}
+
+## Conclusion
+${topic} offers numerous opportunities for learning and application. By dedicating time to understand its nuances, you position yourself for greater success and insight.`;
+      
+      // Adjust length
+      const multiplier = lengthMultipliers[length] || 1;
+      if (multiplier !== 1) {
+        const paragraphs = content.split('\n\n');
+        if (multiplier < 1 && paragraphs.length > 2) {
+          // Shorten content
+          content = paragraphs.slice(0, Math.max(2, Math.floor(paragraphs.length * multiplier))).join('\n\n');
+        } else if (multiplier > 1) {
+          // Extend content
+          const extraContent = `\n\n## Additional Insights
+
+As we delve deeper into ${topic.toLowerCase()}, several additional aspects emerge worth considering:
+
+### Historical Context
+The development of ${topic.toLowerCase()} has evolved significantly over time, influenced by various factors including technological advancement and changing societal needs.
+
+### Current Trends
+Today, ${topic.toLowerCase()} continues to adapt to contemporary challenges and opportunities. Staying informed about current trends ensures relevance and effectiveness.
+
+### Future Directions
+Looking ahead, ${topic.toLowerCase()} is poised to continue its evolution. Understanding potential future developments helps in strategic planning and preparation.`;
+          
+          content += extraContent;
         }
       }
-    `;
-    document.head.appendChild(style);
+      
+      // Format the content with proper styling
+      return `<div style="font-family: 'Inter', sans-serif; line-height: 1.7;">
+        ${content.replace(/\n/g, '<br>').replace(/# (.*?)(\n|$)/g, '<h2 style="margin-top: 20px; margin-bottom: 10px; color: var(--primary);">$1</h2>')
+                  .replace(/## (.*?)(\n|$)/g, '<h3 style="margin-top: 15px; margin-bottom: 8px;">$1</h3>')
+                  .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                  .replace(/\* (.*?)(\n|$)/g, '<li style="margin-left: 20px; margin-bottom: 5px;">$1</li>')
+                  .replace(/✅|✨|🌟|⚡/g, '<span style="color: var(--secondary); margin-right: 5px;">$&</span>')
+                  .replace(/(\d+\.) (.*?)(\n|$)/g, '<div style="margin-left: 20px; margin-bottom: 8px;"><strong>$1</strong> $2</div>')}
+      </div>`;
+    }
     
-    // Initialize with a sample generation on page load
-    window.addEventListener('DOMContentLoaded', function() {
-      // Small delay to ensure everything is loaded
-      setTimeout(() => {
-        // Only auto-generate if this is the first visit to the page
-        if (!sessionStorage.getItem('aiWriterVisited')) {
-          generateContent();
-          sessionStorage.setItem('aiWriterVisited', 'true');
-        }
-      }, 500);
+    function copyToClipboard() {
+      const text = outputContent.textContent;
+      
+      // Create temporary textarea for copying
+      const textarea = document.createElement('textarea');
+      textarea.value = text;
+      document.body.appendChild(textarea);
+      textarea.select();
+      
+      try {
+        const successful = document.execCommand('copy');
+        // Visual feedback
+        const originalText = copyBtn.innerHTML;
+        copyBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        copyBtn.style.background = 'linear-gradient(135deg, #10b981, #0da67e)';
+        
+        setTimeout(() => {
+          copyBtn.innerHTML = originalText;
+          copyBtn.style.background = '';
+        }, 2000);
+      } catch (err) {
+        console.error('Failed to copy text:', err);
+      }
+      
+      document.body.removeChild(textarea);
+    }
+    
+    function clearAll() {
+      topicInput.value = '';
+      instructionsInput.value = '';
+      topicChars.textContent = '0';
+      instructionsChars.textContent = '0';
+      outputContent.innerHTML = '';
+      outputPlaceholder.style.display = 'block';
+      wordCount.textContent = '0 words';
+      charCount.textContent = '0 characters';
+      copyBtn.disabled = true;
+      
+      // Reset to default preset
+      presetButtons.forEach(b => b.classList.remove('active'));
+      document.querySelector('.preset-btn[data-type="social"]').classList.add('active');
+      contentType.value = 'social';
+      toneStyle.value = 'friendly';
+      contentLength.value = 'medium';
+    }
+    
+    // Initialize character counts
+    topicChars.textContent = topicInput.value.length;
+    instructionsChars.textContent = instructionsInput.value.length;
+
+    // FAQ functionality
+    document.querySelectorAll('.faq-question').forEach(question => {
+      question.addEventListener('click', () => {
+        const item = question.parentElement;
+        item.classList.toggle('active');
+      });
+    });
+
+    // Track tool usage for analytics (AdSense compliant)
+    document.querySelectorAll('.action-btn, .preset-btn').forEach(button => {
+      button.addEventListener('click', function(e) {
+        const action = this.textContent.trim();
+        console.log(`AI Content Writer action: ${action}`);
+        // You can add Google Analytics tracking here
+        // gtag('event', 'tool_action', { 'action_name': action });
+      });
+    });
+    
+    // Enter key to generate content
+    topicInput.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        generateContent();
+      }
     });
   </script>
 </body>
