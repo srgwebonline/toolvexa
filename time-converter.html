@@ -1,2020 +1,2143 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Time Converter - Convert Time Units Online | Toolvexa</title>
-    
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Free online time converter tool. Convert between seconds, minutes, hours, days, weeks, months, and years instantly. Accurate and easy to use.">
-    <meta name="keywords" content="time converter, convert time, seconds to minutes, hours to days, time calculator, time unit converter, online time converter">
-    <meta name="author" content="Toolvexa">
-    <meta name="robots" content="index, follow">
-    
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Time Converter - Convert Time Units Online | Toolvexa">
-    <meta property="og:description" content="Free online time converter tool. Convert between seconds, minutes, hours, days, weeks, months, and years instantly.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://toolvexa.com/time-converter">
-    <meta property="og:image" content="https://toolvexa.com/images/time-converter-og.jpg">
-    
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://toolvexa.com/time-converter">
-    
-    <!-- Structured Data for SEO -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebApplication",
-        "name": "Time Converter",
-        "url": "https://toolvexa.com/time-converter",
-        "applicationCategory": "UtilityApplication",
-        "operatingSystem": "Any",
-        "description": "Free online tool to convert between different time units like seconds, minutes, hours, days, weeks, months, and years",
-        "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "USD"
-        },
-        "creator": {
-            "@type": "Organization",
-            "name": "Toolvexa",
-            "url": "https://toolvexa.com"
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <!-- UPDATED: Brand name changed to Toolsedito -->
+  <title>Time Converter - Convert Time Units Online | Toolsedito</title>
+
+  <!-- UPDATED: SEO Meta Tags -->
+  <meta name="description" content="Free online Time Converter tool. Convert between seconds, minutes, hours, days, weeks, months, and years instantly. No registration required." />
+  <meta name="keywords" content="time converter, time calculator, seconds to minutes, hours to days, weeks to months, time conversion, date calculator, free time converter" />
+  <meta name="author" content="Toolsedito Team" />
+  <meta name="robots" content="index, follow" />
+  <meta name="googlebot" content="index, follow" />
+  <!-- UPDATED: Custom domain -->
+  <link rel="canonical" href="https://www.toolsedito.com/time-converter.html" />
+
+  <!-- UPDATED: Open Graph with new domain -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Time Converter - Convert Time Units Online | Toolsedito">
+  <meta property="og:description" content="Free online Time Converter tool. Convert between seconds, minutes, hours, days, weeks, months, and years instantly. No registration required.">
+  <meta property="og:url" content="https://www.toolsedito.com/time-converter.html">
+  <meta property="og:image" content="https://www.toolsedito.com/images/time-converter-og.jpg">
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:title" content="Time Converter - Toolsedito">
+  <meta property="twitter:description" content="Convert between seconds, minutes, hours, days, weeks, months, and years instantly.">
+
+  <!-- UPDATED: JSON-LD Schema for Time Converter -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Time Converter",
+    "description": "Free online tool to convert between different time units including seconds, minutes, hours, days, weeks, months, and years.",
+    "url": "https://www.toolsedito.com/time-converter.html",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "ratingCount": "920"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "Toolsedito",
+      "url": "https://www.toolsedito.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Toolsedito",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.toolsedito.com/logo.png"
+      }
     }
-    </script>
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
-    <style>
-        /* Reset & Base Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', system-ui, sans-serif;
-        }
-
-        :root {
-            --primary: #4361ee;
-            --primary-light: #e6f0ff;
-            --secondary: #7209b7;
-            --success: #2ec4b6;
-            --danger: #e63946;
-            --warning: #ff9e00;
-            --light: #f8f9fa;
-            --dark: #212529;
-            --border: #dee2e6;
-            --shadow: rgba(0, 0, 0, 0.1);
-            --radius: 12px;
-        }
-
-        body {
-            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
-            min-height: 100vh;
-            color: var(--dark);
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Navigation Bar */
-        .tool-navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 15px 0;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-            border-bottom: 3px solid #4361ee;
-        }
-        
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 20px;
-        }
-        
-        .nav-brand {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-            color: #4361ee;
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
-        
-        .nav-brand i {
-            font-size: 1.8rem;
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 25px;
-            list-style: none;
-        }
-        
-        .nav-links a {
-            color: #333;
-            text-decoration: none;
-            font-weight: 500;
-            padding: 8px 15px;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-        }
-        
-        .nav-links a:hover {
-            background: #4361ee;
-            color: white;
-        }
-        
-        .back-to-home {
-            background: #4361ee;
-            color: white !important;
-            padding: 8px 20px !important;
-            border-radius: 25px;
-        }
-        
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: #333;
-            cursor: pointer;
-        }
-        
-        /* Adjust body padding for fixed navbar */
-        body {
-            padding-top: 80px;
-        }
-
-        /* Breadcrumb */
-        .breadcrumb {
-            margin: 20px 0 30px;
-            font-size: 0.9rem;
-            color: #666;
-        }
-        
-        .breadcrumb a {
-            color: #4361ee;
-            text-decoration: none;
-        }
-        
-        .breadcrumb span {
-            margin: 0 5px;
-        }
-
-        /* Tool Header */
-        header {
-            text-align: center;
-            margin-bottom: 40px;
-            padding: 30px 20px;
-            background: white;
-            border-radius: var(--radius);
-            box-shadow: 0 5px 20px var(--shadow);
-        }
-
-        .logo {
-            font-size: 3rem;
-            color: var(--primary);
-            margin-bottom: 15px;
-        }
-
-        header h1 {
-            color: var(--primary);
-            font-size: 2.8rem;
-            margin-bottom: 15px;
-            font-weight: 800;
-        }
-
-        header p {
-            color: #666;
-            font-size: 1.1rem;
-            max-width: 700px;
-            margin: 0 auto 20px;
-        }
-
-        .features {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-            margin-top: 20px;
-        }
-
-        .feature {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 0.95rem;
-            color: var(--dark);
-            background: var(--light);
-            padding: 8px 15px;
-            border-radius: 50px;
-        }
-
-        .feature i {
-            color: var(--success);
-        }
-
-        /* Converter Container */
-        .converter-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-
-        @media (max-width: 1100px) {
-            .converter-container {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .input-section, .results-section {
-            background: white;
-            border-radius: var(--radius);
-            padding: 30px;
-            box-shadow: 0 5px 20px var(--shadow);
-        }
-
-        /* Input Section Styles */
-        .converter-input-group {
-            margin-bottom: 30px;
-        }
-
-        .converter-input-group h3 {
-            color: var(--primary);
-            margin-bottom: 20px;
-            font-size: 1.3rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .converter-input-group h3 i {
-            font-size: 1.2rem;
-        }
-
-        .input-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-
-        @media (max-width: 768px) {
-            .input-row {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .input-field {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .input-field label {
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: var(--dark);
-            font-size: 0.95rem;
-        }
-
-        .input-field input,
-        .input-field select {
-            padding: 14px;
-            border: 2px solid var(--border);
-            border-radius: 8px;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            background: white;
-            width: 100%;
-        }
-
-        .input-field input:focus,
-        .input-field select:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.1);
-        }
-
-        .input-field input[type="number"] {
-            font-size: 1.5rem;
-            font-weight: 600;
-            text-align: center;
-        }
-
-        /* Quick Conversions */
-        .quick-conversions {
-            margin: 25px 0;
-        }
-
-        .quick-conversions h4 {
-            margin-bottom: 15px;
-            color: var(--dark);
-            font-size: 1.1rem;
-        }
-
-        .conversion-buttons {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
-        }
-
-        @media (max-width: 768px) {
-            .conversion-buttons {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        .conversion-btn {
-            padding: 12px 15px;
-            background: var(--primary-light);
-            border: 2px solid var(--border);
-            border-radius: 8px;
-            cursor: pointer;
-            text-align: center;
-            font-weight: 500;
-            color: var(--primary);
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            border: none;
-            font-size: 0.9rem;
-        }
-
-        .conversion-btn:hover {
-            background: var(--primary);
-            color: white;
-            border-color: var(--primary);
-            transform: translateY(-2px);
-        }
-
-        .conversion-btn.active {
-            background: var(--primary);
-            color: white;
-            border-color: var(--primary);
-        }
-
-        /* Convert Button */
-        .convert-btn {
-            width: 100%;
-            padding: 18px;
-            background: var(--primary);
-            color: white;
-            border: none;
-            border-radius: var(--radius);
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            margin-top: 20px;
-        }
-
-        .convert-btn:hover {
-            background: #3a56d4;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
-        }
-
-        .convert-btn:active {
-            transform: translateY(0);
-        }
-
-        /* Results Section Styles */
-        .results-section h2 {
-            color: var(--primary);
-            margin-bottom: 30px;
-            font-size: 1.8rem;
-            text-align: center;
-        }
-
-        .conversion-display {
-            text-align: center;
-            margin-bottom: 30px;
-            padding: 20px;
-            background: linear-gradient(135deg, #4361ee 0%, #3a56d4 100%);
-            border-radius: var(--radius);
-            color: white;
-        }
-
-        .main-conversion {
-            font-size: 3rem;
-            font-weight: 800;
-            margin-bottom: 10px;
-            line-height: 1;
-        }
-
-        .main-conversion-label {
-            font-size: 1.2rem;
-            opacity: 0.9;
-        }
-
-        /* Conversion Breakdown */
-        .conversion-breakdown {
-            margin-bottom: 30px;
-        }
-
-        .conversion-breakdown h3 {
-            color: var(--primary);
-            margin-bottom: 20px;
-            font-size: 1.3rem;
-            text-align: center;
-        }
-
-        .breakdown-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-        }
-
-        @media (max-width: 768px) {
-            .breakdown-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 480px) {
-            .breakdown-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .breakdown-item {
-            background: var(--light);
-            padding: 20px;
-            border-radius: var(--radius);
-            text-align: center;
-            border: 1px solid var(--border);
-        }
-
-        .breakdown-value {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 5px;
-            line-height: 1;
-        }
-
-        .breakdown-label {
-            font-size: 0.9rem;
-            color: #666;
-        }
-
-        /* Detailed Results */
-        .detailed-results {
-            margin-top: 30px;
-        }
-
-        .detailed-results h3 {
-            color: var(--primary);
-            margin-bottom: 20px;
-            font-size: 1.3rem;
-            text-align: center;
-        }
-
-        .results-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-        }
-
-        @media (max-width: 768px) {
-            .results-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .result-item {
-            background: white;
-            padding: 18px;
-            border-radius: var(--radius);
-            border: 2px solid var(--border);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .result-label {
-            font-weight: 600;
-            color: var(--dark);
-        }
-
-        .result-value {
-            font-weight: 700;
-            color: var(--primary);
-            font-size: 1.1rem;
-        }
-
-        /* Time Equivalents Section */
-        .time-equivalents {
-            margin-top: 30px;
-            padding: 25px;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            border-radius: var(--radius);
-            border: 2px solid var(--border);
-            text-align: center;
-        }
-
-        .time-equivalents h3 {
-            color: var(--primary);
-            margin-bottom: 15px;
-            font-size: 1.3rem;
-        }
-
-        .equivalents-info {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .equivalent-example {
-            font-size: 2rem;
-            color: var(--primary);
-        }
-
-        .equivalent-details {
-            text-align: left;
-        }
-
-        .equivalent-name {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 5px;
-        }
-
-        .equivalent-desc {
-            color: #666;
-            font-size: 0.95rem;
-        }
-
-        /* Real World Examples */
-        .real-world-examples {
-            margin-top: 30px;
-            padding: 25px;
-            background: linear-gradient(135deg, #fff9db 0%, #ffec99 100%);
-            border-radius: var(--radius);
-            border: 2px solid #ffd43b;
-        }
-
-        .real-world-examples h3 {
-            color: #e67700;
-            margin-bottom: 15px;
-            font-size: 1.3rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .real-world-examples p {
-            color: #5c3c00;
-            line-height: 1.6;
-            margin-bottom: 10px;
-        }
-
-        /* FAQ Section */
-        .faq-section {
-            margin: 60px 0 40px;
-        }
-
-        .faq-section h2 {
-            color: var(--primary);
-            font-size: 2rem;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
-        .faq-container {
-            background: white;
-            border-radius: var(--radius);
-            padding: 30px;
-            box-shadow: 0 5px 20px var(--shadow);
-        }
-
-        .faq-item {
-            border-bottom: 1px solid var(--border);
-            padding: 20px 0;
-        }
-
-        .faq-item:last-child {
-            border-bottom: none;
-        }
-
-        .faq-question {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-            color: var(--dark);
-            font-size: 1.1rem;
-            font-weight: 600;
-        }
-
-        .faq-question i {
-            color: var(--primary);
-            transition: transform 0.3s ease;
-        }
-
-        .faq-item.active .faq-question i {
-            transform: rotate(180deg);
-        }
-
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-            color: #666;
-            line-height: 1.6;
-            padding-right: 40px;
-        }
-
-        .faq-item.active .faq-answer {
-            max-height: 500px;
-            margin-top: 15px;
-        }
-
-        /* Related Tools Section */
-        .related-tools-section {
-            margin: 60px 0 40px;
-        }
-
-        .related-tools-section h2 {
-            color: var(--primary);
-            font-size: 2rem;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
-        .tools-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-        }
-
-        .tool-card {
-            background: white;
-            border-radius: var(--radius);
-            padding: 25px;
-            text-align: center;
-            box-shadow: 0 5px 15px var(--shadow);
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-        }
-
-        .tool-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary);
-            box-shadow: 0 10px 25px rgba(67, 97, 238, 0.15);
-        }
-
-        .tool-icon {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 15px;
-        }
-
-        .tool-card h3 {
-            color: var(--dark);
-            margin-bottom: 10px;
-            font-size: 1.3rem;
-        }
-
-        .tool-card p {
-            color: #666;
-            font-size: 0.95rem;
-            margin-bottom: 20px;
-            line-height: 1.5;
-        }
-
-        .tool-link {
-            display: inline-block;
-            background: var(--primary-light);
-            color: var(--primary);
-            padding: 10px 20px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .tool-link:hover {
-            background: var(--primary);
-            color: white;
-        }
-
-        /* SEO Pages Styles */
-        .seo-section {
-            max-width: 1000px;
-            margin: 40px auto;
-            padding: 30px;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            display: none;
-            position: relative;
-        }
-        
-        .seo-section.active {
-            display: block;
-            animation: fadeIn 0.5s ease;
-        }
-        
-        .seo-section h1 {
-            color: #4361ee;
-            margin-bottom: 20px;
-            font-size: 2.2rem;
-        }
-        
-        .seo-section h2 {
-            color: #333;
-            margin: 25px 0 15px;
-            font-size: 1.5rem;
-        }
-        
-        .seo-section h3 {
-            color: #555;
-            margin: 20px 0 10px;
-            font-size: 1.2rem;
-        }
-        
-        .seo-content {
-            line-height: 1.8;
-            color: #444;
-        }
-        
-        .seo-content p {
-            margin-bottom: 15px;
-        }
-        
-        .seo-content ul, .seo-content ol {
-            margin-left: 20px;
-            margin-bottom: 20px;
-        }
-        
-        .seo-content li {
-            margin-bottom: 10px;
-        }
-        
-        .close-seo {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: #4361ee;
-            color: white;
-            border: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 1.2rem;
-            z-index: 10;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            margin-top: 50px;
-            padding: 30px 20px;
-            color: #666;
-            font-size: 0.9rem;
-            border-top: 1px solid var(--border);
-            background: white;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-            margin-bottom: 20px;
-        }
-
-        .footer-links a {
-            color: #4361ee;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: var(--secondary);
-            text-decoration: underline;
-        }
-
-        .copyright {
-            margin-top: 20px;
-            color: #888;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: white;
-                flex-direction: column;
-                padding: 20px;
-                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            }
-            
-            .nav-links.active {
-                display: flex;
-            }
-            
-            .mobile-menu-btn {
-                display: block;
-            }
-            
-            .converter-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .conversion-buttons {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .breakdown-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .results-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .tools-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .seo-section {
-                padding: 20px;
-                margin: 20px;
-            }
-            
-            .faq-container {
-                padding: 20px;
-            }
-            
-            .faq-answer {
-                padding-right: 20px;
-            }
-            
-            .main-conversion {
-                font-size: 2.5rem;
-            }
-            
-            .breakdown-value {
-                font-size: 1.5rem;
-            }
-            
-            .equivalents-info {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .equivalent-details {
-                text-align: center;
-            }
-        }
-
-        /* Loading Animation */
-        .loading {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.9);
-            z-index: 2000;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
-
-        .loading.active {
-            display: flex;
-        }
-
-        .spinner {
-            width: 50px;
-            height: 50px;
-            border: 5px solid #f3f3f3;
-            border-top: 5px solid var(--primary);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin-bottom: 20px;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        /* Additional Styles for Time Converter */
-        .unit-description {
-            font-size: 0.85rem;
-            color: #666;
-            margin-top: 5px;
-            font-style: italic;
-        }
-
-        .swap-button {
-            background: var(--primary-light);
-            color: var(--primary);
-            border: none;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 10px auto;
-        }
-
-        .swap-button:hover {
-            background: var(--primary);
-            color: white;
-            transform: rotate(180deg);
-        }
-
-        .time-history {
-            margin-top: 20px;
-            padding: 15px;
-            background: var(--light);
-            border-radius: var(--radius);
-            border: 1px solid var(--border);
-        }
-
-        .time-history h4 {
-            margin-bottom: 10px;
-            color: var(--dark);
-            font-size: 1rem;
-        }
-
-        .history-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 8px 0;
-            border-bottom: 1px dashed var(--border);
-            font-size: 0.9rem;
-        }
-
-        .history-item:last-child {
-            border-bottom: none;
-        }
-    </style>
+  }
+  </script>
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #4f46e5;
+      --primary-dark: #4338ca;
+      --secondary: #10b981;
+      --accent: #f59e0b;
+      --light: #f8fafc;
+      --dark: #1f2933;
+      --gray: #6b7280;
+      --light-gray: #f3f4f6;
+      --card-bg: #ffffff;
+      --card-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+      --hover-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      --body-bg: var(--light);
+      --text-color: var(--dark);
+      --border-color: rgba(0, 0, 0, 0.05);
+      --footer-bg: linear-gradient(135deg, #111827, #1f2937);
+      --transition-speed: 0.3s;
+    }
+
+    /* Dark Theme Variables */
+    .dark-theme {
+      --light: #121826;
+      --dark: #f3f4f6;
+      --gray: #9ca3af;
+      --light-gray: #1f2937;
+      --card-bg: #1a2332;
+      --body-bg: #0f172a;
+      --text-color: #f3f4f6;
+      --border-color: rgba(255, 255, 255, 0.05);
+      --card-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      --hover-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      --footer-bg: linear-gradient(135deg, #0f172a, #1e293b);
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--body-bg);
+      color: var(--text-color);
+      line-height: 1.6;
+      overflow-x: hidden;
+      transition: background-color var(--transition-speed) ease,
+                  color var(--transition-speed) ease;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+    }
+
+    /* Theme Toggle Button */
+    .theme-toggle {
+      background: var(--light-gray);
+      border: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--text-color);
+      font-size: 1.2rem;
+      transition: all var(--transition-speed) ease;
+      margin-left: 10px;
+    }
+
+    .theme-toggle:hover {
+      background: var(--primary);
+      color: white;
+      transform: rotate(15deg);
+    }
+
+    .theme-toggle i {
+      transition: transform 0.5s ease;
+    }
+
+    .dark-theme .theme-toggle i.fa-sun {
+      display: block;
+    }
+
+    .dark-theme .theme-toggle i.fa-moon {
+      display: none;
+    }
+
+    .theme-toggle i.fa-sun {
+      display: none;
+    }
+
+    .theme-toggle i.fa-moon {
+      display: block;
+    }
+
+    /* Mobile First - Sidebar Implementation */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      padding: 18px 0;
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+      transition: all var(--transition-speed) ease;
+    }
+
+    .dark-theme .navbar {
+      background: rgba(26, 35, 50, 0.98);
+    }
+
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+    }
+
+    .nav-logo {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--primary);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-logo i {
+      font-size: 1.6rem;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    /* Desktop Navigation - Hidden on Mobile */
+    .nav-links {
+      display: none;
+    }
+
+    /* Mobile Menu Button */
+    .mobile-menu-btn {
+      display: block;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--text-color);
+      cursor: pointer;
+      z-index: 1002;
+      transition: color var(--transition-speed) ease;
+    }
+
+    /* Sidebar Styles */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      right: -300px;
+      width: 280px;
+      height: 100vh;
+      background: var(--card-bg);
+      box-shadow: -5px 0 25px rgba(0, 0, 0, 0.1);
+      z-index: 1001;
+      transition: right 0.3s ease-in-out;
+      padding: 80px 25px 30px;
+      overflow-y: auto;
+    }
+
+    .dark-theme .sidebar {
+      box-shadow: -5px 0 25px rgba(0, 0, 0, 0.3);
+    }
+
+    .sidebar.active {
+      right: 0;
+    }
+
+    .sidebar-header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px;
+      background: var(--primary);
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .sidebar-header .nav-logo {
+      color: white;
+      font-size: 1.3rem;
+    }
+
+    .sidebar-close {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .sidebar-links {
+      list-style: none;
+      margin-top: 20px;
+    }
+
+    .sidebar-links li {
+      margin-bottom: 15px;
+    }
+
+    .sidebar-links a {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--text-color);
+      text-decoration: none;
+      font-weight: 500;
+      padding: 12px 15px;
+      border-radius: 8px;
+      transition: all var(--transition-speed) ease;
+    }
+
+    .sidebar-links a:hover {
+      background: var(--light-gray);
+      color: var(--primary);
+      transform: translateX(5px);
+    }
+
+    .sidebar-links a i {
+      width: 20px;
+      text-align: center;
+    }
+
+    .sidebar-links a.active {
+      background: var(--primary);
+      color: white;
+    }
+
+    .sidebar-divider {
+      height: 1px;
+      background: var(--border-color);
+      margin: 20px 0;
+    }
+
+    .sidebar-tool-categories {
+      margin-top: 20px;
+    }
+
+    .sidebar-tool-categories h4 {
+      font-size: 0.9rem;
+      color: var(--gray);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 15px;
+    }
+
+    .sidebar-tools-list {
+      list-style: none;
+      margin-bottom: 20px;
+    }
+
+    .sidebar-tools-list li {
+      margin-bottom: 10px;
+    }
+
+    .sidebar-tools-list a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--gray);
+      text-decoration: none;
+      font-size: 0.9rem;
+      padding: 8px 10px;
+      border-radius: 6px;
+      transition: all var(--transition-speed) ease;
+    }
+
+    .sidebar-tools-list a:hover {
+      color: var(--primary);
+      background: var(--light-gray);
+    }
+
+    /* Overlay when sidebar is open */
+    .sidebar-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .sidebar-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Tool Header - MODIFIED: Reduced top padding to move title higher */
+    header {
+      background: linear-gradient(135deg, #e6f7ff 0%, #f0f9ff 100%);
+      color: #1f2933;
+      padding: 80px 20px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      margin-top: 75px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .dark-theme header {
+      background: linear-gradient(135deg, #0a1929 0%, #112240 100%);
+      color: #f3f4f6;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .header-content {
+      max-width: 1000px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .logo-container {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 15px;
+      gap: 15px;
+    }
+
+    /* Tool-specific header */
+    .tool-logo {
+      font-size: 4rem;
+      margin-bottom: 10px;
+      color: var(--primary);
+    }
+
+    .tool-header h1 {
+      font-size: 3.5rem;
+      margin-bottom: 15px;
+      color: var(--text-color);
+      background: linear-gradient(90deg, #4f46e5, #7c3aed, #10b981);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: -0.5px;
+      line-height: 1.1;
+    }
+
+    .tool-header .tagline {
+      font-size: 1.4rem;
+      margin-bottom: 1.5rem;
+      color: var(--dark);
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+      font-weight: 400;
+    }
+
+    .dark-theme .tool-header .tagline {
+      color: #e5e7eb;
+    }
+
+    /* Main Tool Container */
+    .tool-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    /* Tool Card Sections */
+    .tool-card-section {
+      background: var(--card-bg);
+      border-radius: 20px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: var(--card-shadow);
+      border: 1px solid var(--border-color);
+    }
+
+    .tool-card-section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      color: var(--text-color);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .tool-card-section h2 i {
+      color: var(--primary);
+    }
+
+    /* Converter Section */
+    .converter-container {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    @media (min-width: 768px) {
+      .converter-container {
+        flex-direction: row;
+        align-items: center;
+      }
+    }
+
+    .input-section {
+      flex: 1;
+      background: var(--light-gray);
+      border-radius: 16px;
+      padding: 25px;
+      border: 1px solid var(--border-color);
+    }
+
+    .output-section {
+      flex: 1;
+      background: var(--light-gray);
+      border-radius: 16px;
+      padding: 25px;
+      border: 1px solid var(--border-color);
+    }
+
+    .input-group {
+      margin-bottom: 20px;
+    }
+
+    .input-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: var(--text-color);
+    }
+
+    .input-with-unit {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .input-with-unit input {
+      flex: 1;
+    }
+
+    .unit-display {
+      min-width: 80px;
+      padding: 12px 15px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      font-weight: 600;
+      color: var(--primary);
+      text-align: center;
+    }
+
+    input[type="number"] {
+      width: 100%;
+      padding: 14px 16px;
+      border: 2px solid var(--border-color);
+      border-radius: 10px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text-color);
+      background: var(--card-bg);
+      transition: all 0.3s ease;
+    }
+
+    input[type="number"]:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+    }
+
+    select {
+      width: 100%;
+      padding: 14px 16px;
+      border: 2px solid var(--border-color);
+      border-radius: 10px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text-color);
+      background: var(--card-bg);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    select:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+    }
+
+    /* Conversion Controls */
+    .conversion-controls {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .convert-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 35px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .convert-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, var(--primary-dark), #8b5cf6);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      z-index: -1;
+    }
+
+    .convert-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(79, 70, 229, 0.3);
+    }
+
+    .convert-btn:hover::before {
+      opacity: 1;
+    }
+
+    /* Result Display */
+    .result-display {
+      background: linear-gradient(135deg, rgba(79, 70, 229, 0.05), rgba(16, 185, 129, 0.05));
+      border-radius: 16px;
+      padding: 30px;
+      text-align: center;
+      border: 2px solid rgba(79, 70, 229, 0.1);
+      margin-top: 20px;
+    }
+
+    .result-value {
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 10px;
+      line-height: 1;
+    }
+
+    .result-unit {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--secondary);
+      margin-bottom: 20px;
+    }
+
+    .result-label {
+      font-size: 1rem;
+      color: var(--gray);
+      margin-top: 15px;
+    }
+
+    /* Quick Conversions */
+    .quick-conversions {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    @media (min-width: 768px) {
+      .quick-conversions {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .quick-conversions {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .quick-conversion {
+      background: var(--card-bg);
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: var(--card-shadow);
+      border: 1px solid var(--border-color);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .quick-conversion:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--hover-shadow);
+      border-color: var(--primary);
+    }
+
+    .quick-value {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 5px;
+    }
+
+    .quick-label {
+      font-size: 0.9rem;
+      color: var(--gray);
+    }
+
+    /* Time Units Table */
+    .time-units-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      background: var(--card-bg);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--card-shadow);
+    }
+
+    .time-units-table th {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      padding: 15px;
+      text-align: left;
+      font-weight: 600;
+    }
+
+    .time-units-table td {
+      padding: 12px 15px;
+      border-bottom: 1px solid var(--border-color);
+      color: var(--text-color);
+    }
+
+    .time-units-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .time-units-table tr:nth-child(even) {
+      background: var(--light-gray);
+    }
+
+    /* Action Buttons */
+    .action-buttons {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    @media (min-width: 768px) {
+      .action-buttons {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .action-btn {
+      padding: 16px 20px;
+      border: none;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .action-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      z-index: -1;
+    }
+
+    .action-btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .reset-btn {
+      background: linear-gradient(135deg, var(--secondary), #0da67e);
+      color: white;
+    }
+
+    .reset-btn::before {
+      background: linear-gradient(135deg, #0da67e, #0b9a74);
+    }
+
+    .reset-btn:hover::before {
+      opacity: 1;
+    }
+
+    .swap-btn {
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+      color: white;
+    }
+
+    .swap-btn::before {
+      background: linear-gradient(135deg, #d97706, #b45309);
+    }
+
+    .swap-btn:hover::before {
+      opacity: 1;
+    }
+
+    .copy-btn {
+      background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+      color: white;
+    }
+
+    .copy-btn::before {
+      background: linear-gradient(135deg, #7c3aed, #6d28d9);
+    }
+
+    .copy-btn:hover::before {
+      opacity: 1;
+    }
+
+    /* NEW: Tutorial Section */
+    .tutorial-section {
+      background: var(--card-bg);
+      padding: 35px 30px;
+      border-radius: 16px;
+      margin-top: 30px;
+      box-shadow: var(--card-shadow);
+      border: 1px solid var(--border-color);
+    }
+
+    .tutorial-section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 25px;
+      color: var(--text-color);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .tutorial-section h2 i {
+      color: var(--primary);
+    }
+
+    .tutorial-steps {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 25px;
+    }
+
+    @media (min-width: 768px) {
+      .tutorial-steps {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .tutorial-steps {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .tutorial-step {
+      text-align: center;
+      padding: 25px 20px;
+      background: var(--light-gray);
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      transition: all 0.3s ease;
+    }
+
+    .tutorial-step:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .step-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      border-radius: 50%;
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+    }
+
+    .step-content h3 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      color: var(--text-color);
+    }
+
+    .step-content p {
+      color: var(--gray);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    /* About Section for EEAT */
+    .about-section {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 25px;
+      background: var(--card-bg);
+      border-radius: 16px;
+      box-shadow: var(--card-shadow);
+      border-left: 4px solid var(--primary);
+    }
+
+    .about-section h2 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      color: var(--text-color);
+    }
+
+    .about-section p {
+      color: var(--gray);
+      line-height: 1.7;
+      margin-bottom: 15px;
+    }
+
+    /* FAQ Section */
+    .faq-section {
+      margin-top: 60px;
+    }
+
+    .faq-section h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 30px;
+      color: var(--text-color);
+    }
+
+    .faq-container {
+      background: var(--card-bg);
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: var(--card-shadow);
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--border-color);
+      padding: 20px 0;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-question {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      color: var(--text-color);
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .faq-question i {
+      color: var(--primary);
+      transition: transform 0.3s ease;
+    }
+
+    .faq-item.active .faq-question i {
+      transform: rotate(180deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      color: var(--gray);
+      line-height: 1.6;
+      padding-right: 40px;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 500px;
+      margin-top: 15px;
+    }
+
+    /* Related Tools Section */
+    .related-tools-section {
+      margin: 60px 0 40px;
+    }
+
+    .related-tools-section h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 30px;
+      color: var(--text-color);
+    }
+
+    .related-tools-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 25px;
+    }
+
+    @media (min-width: 768px) {
+      .related-tools-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .related-tools-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .related-tool-card {
+      background: var(--card-bg);
+      padding: 25px;
+      border-radius: 16px;
+      text-align: center;
+      box-shadow: var(--card-shadow);
+      transition: all 0.3s ease;
+      border: 1px solid var(--border-color);
+    }
+
+    .related-tool-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--hover-shadow);
+    }
+
+    .related-tool-icon {
+      width: 60px;
+      height: 60px;
+      margin: 0 auto 15px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.5rem;
+    }
+
+    .related-tool-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      color: var(--text-color);
+    }
+
+    .related-tool-card p {
+      color: var(--gray);
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .related-tool-link {
+      display: inline-block;
+      padding: 8px 20px;
+      background: var(--light-gray);
+      color: var(--primary);
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+    }
+
+    .related-tool-card:hover .related-tool-link {
+      background: var(--primary);
+      color: white;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--footer-bg);
+      color: #9ca3af;
+      padding: 50px 20px 30px;
+      margin-top: 60px;
+      position: relative;
+      transition: background var(--transition-speed) ease;
+    }
+
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+
+    @media (min-width: 768px) {
+      .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .footer-content {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .footer-logo {
+      font-size: 2rem;
+      font-weight: 800;
+      color: white;
+      margin-bottom: 15px;
+      display: inline-block;
+      background: linear-gradient(90deg, #fff, #c7d2fe);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .footer-description {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 12px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .social-link:hover {
+      background: var(--primary);
+      transform: translateY(-5px);
+    }
+
+    .footer-links h4 {
+      color: white;
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    .footer-links h4::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 40px;
+      height: 3px;
+      background: var(--primary);
+    }
+
+    .footer-links ul {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+
+    .footer-links a {
+      color: #9ca3af;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: inline-block;
+      font-size: 0.95rem;
+    }
+
+    .footer-links a:hover {
+      color: white;
+      transform: translateX(5px);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.85rem;
+    }
+
+    /* ACCESSIBILITY: Prefers Reduced Motion */
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+      
+      .action-btn:hover,
+      .related-tool-card:hover,
+      .tutorial-step:hover,
+      .quick-conversion:hover,
+      .social-link:hover,
+      .theme-toggle:hover,
+      .convert-btn:hover {
+        transform: none !important;
+      }
+      
+      .tool-header h1,
+      .footer-logo {
+        background: var(--primary) !important;
+        -webkit-background-clip: initial !important;
+        background-clip: initial !important;
+        color: var(--primary) !important;
+      }
+    }
+
+    /* Desktop Navigation Styles */
+    @media (min-width: 1024px) {
+      .nav-links {
+        display: flex;
+        gap: 30px;
+        list-style: none;
+      }
+
+      .nav-links a {
+        color: var(--text-color);
+        text-decoration: none;
+        font-weight: 500;
+        transition: color var(--transition-speed) ease;
+        position: relative;
+      }
+
+      .nav-links a:hover {
+        color: var(--primary);
+      }
+
+      .nav-links a::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--primary);
+        transition: width 0.3s;
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      .mobile-menu-btn {
+        display: none;
+      }
+
+      .sidebar {
+        display: none;
+      }
+
+      .sidebar-overlay {
+        display: none;
+      }
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      header {
+        padding: 60px 20px 30px;
+        margin-top: 70px;
+      }
+      
+      .tool-header h1 {
+        font-size: 2.8rem;
+      }
+      
+      .tool-header .tagline {
+        font-size: 1.2rem;
+      }
+      
+      .tool-card-section {
+        padding: 20px;
+      }
+      
+      .input-section,
+      .output-section {
+        padding: 20px;
+      }
+      
+      .result-value {
+        font-size: 2.5rem;
+      }
+      
+      .tutorial-section {
+        padding: 25px 20px;
+      }
+      
+      .tutorial-step {
+        padding: 20px 15px;
+      }
+      
+      .faq-container {
+        padding: 20px;
+      }
+      
+      .faq-answer {
+        padding-right: 20px;
+      }
+      
+      .time-units-table {
+        display: block;
+        overflow-x: auto;
+      }
+    }
+
+    /* Large Desktop Styles */
+    @media (min-width: 1200px) {
+      .tool-container {
+        padding: 60px 20px;
+      }
+      
+      .tool-header h1 {
+        font-size: 4rem;
+      }
+      
+      .result-value {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
 </head>
 
 <body>
-    <!-- Loading Overlay -->
-    <div class="loading" id="loadingOverlay">
-        <div class="spinner"></div>
-        <p>Converting Time...</p>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <!-- UPDATED: Brand name changed -->
+      <a href="index.html" class="nav-logo">
+        <i class="fas fa-tools"></i> Toolsedito
+      </a>
+      
+      <!-- Desktop Navigation -->
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#tools">Tools</a></li>
+        <li><a href="index.html#calculators">Calculators</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#privacy">Privacy</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+      
+      <div style="display: flex; align-items: center;">
+        <!-- Theme Toggle Button -->
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+          <i class="fas fa-moon"></i>
+          <i class="fas fa-sun"></i>
+        </button>
+        
+        <!-- Mobile Menu Button -->
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
     </div>
+  </nav>
 
-    <!-- Navigation Bar -->
-    <nav class="tool-navbar">
-        <div class="nav-container">
-            <a href="index.html" class="nav-brand">
-                <i class="fas fa-tools"></i> Toolvexa
-            </a>
-            
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
-                <i class="fas fa-bars"></i>
-            </button>
-            
-            <ul class="nav-links" id="navLinks">
-                <li><a href="index.html#home">Home</a></li>
-                <li><a href="index.html#tools">All Tools</a></li>
-                <li><a href="index.html#calculators">Calculators</a></li>
-                <li><a href="#privacy-policy" onclick="showSeoPage('privacy')">Privacy Policy</a></li>
-                <li><a href="#terms-of-service" onclick="showSeoPage('terms')">Terms of Service</a></li>
-                <li><a href="#about-tool" onclick="showSeoPage('about')">About This Tool</a></li>
-                <li><a href="index.html" class="back-to-home">Back to Home</a></li>
-            </ul>
-        </div>
-    </nav>
+  <!-- Mobile Sidebar -->
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <!-- UPDATED: Brand name changed -->
+      <a href="index.html" class="nav-logo">
+        <i class="fas fa-tools"></i> Toolsedito
+      </a>
+      <button class="sidebar-close" id="sidebarClose">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
     
-    <!-- Main Content -->
-    <div class="container">
-        <!-- Breadcrumb -->
-        <div class="breadcrumb">
-            <a href="index.html">Home</a> 
-            <span>></span>
-            <a href="index.html#calculators">Calculators</a>
-            <span>></span>
-            <span>Time Converter</span>
+    <ul class="sidebar-links">
+      <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="index.html#tools"><i class="fas fa-tools"></i> All Tools</a></li>
+      <li><a href="index.html#calculators"><i class="fas fa-calculator"></i> Calculators</a></li>
+      <li><a href="#faq"><i class="fas fa-question-circle"></i> FAQ</a></li>
+      <li><a href="#privacy"><i class="fas fa-shield-alt"></i> Privacy</a></li>
+      <li>
+        <a href="#" id="sidebarThemeToggle">
+          <i class="fas fa-moon"></i> Dark Mode
+          <span id="themeStatus" style="margin-left: auto; font-size: 0.8rem; opacity: 0.7;">OFF</span>
+        </a>
+      </li>
+    </ul>
+    
+    <div class="sidebar-divider"></div>
+    
+    <div class="sidebar-tool-categories">
+      <h4>Quick Calculator Tools</h4>
+      <ul class="sidebar-tools-list">
+        <li><a href="time-converter.html" class="active"><i class="fas fa-clock"></i> Time Converter</a></li>
+        <li><a href="currency-converter.html"><i class="fas fa-exchange-alt"></i> Currency Converter</a></li>
+        <li><a href="unit-converter.html"><i class="fas fa-ruler"></i> Unit Converter</a></li>
+        <li><a href="gst-calculator.html"><i class="fas fa-percentage"></i> GST Calculator</a></li>
+        <li><a href="emi-calculator.html"><i class="fas fa-home"></i> EMI Calculator</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Tool Header -->
+  <header>
+    <div class="header-content">
+      <div class="tool-header">
+        <div class="logo-container">
+          <div class="tool-logo">
+            <i class="fas fa-clock"></i>
+          </div>
         </div>
+        
+        <h1>Time Converter</h1>
+        <p class="tagline">Convert between seconds, minutes, hours, days, weeks, months, and years instantly. Perfect for calculations, planning, and time management.</p>
+      </div>
+    </div>
+  </header>
 
-        <!-- Tool Header -->
-        <header>
-            <div class="logo">
-                <i class="fas fa-clock"></i>
+  <!-- Main Tool Container -->
+  <div class="tool-container">
+    <!-- Converter Section -->
+    <div class="tool-card-section">
+      <h2><i class="fas fa-exchange-alt"></i> Convert Time</h2>
+      
+      <div class="converter-container">
+        <div class="input-section">
+          <div class="input-group">
+            <label for="inputValue"><i class="fas fa-keyboard"></i> Enter Time Value</label>
+            <div class="input-with-unit">
+              <input type="number" id="inputValue" value="1" min="0" step="0.01" placeholder="Enter time value">
+              <div class="unit-display" id="inputUnitDisplay">seconds</div>
             </div>
-            <h1>Time Converter</h1>
-            <p>Convert between different time units instantly. Convert seconds, minutes, hours, days, weeks, months, and years with precision.</p>
-            <div class="features">
-                <div class="feature">
-                    <i class="fas fa-shield-alt"></i>
-                    <span>100% Private</span>
-                </div>
-                <div class="feature">
-                    <i class="fas fa-bolt"></i>
-                    <span>Instant Results</span>
-                </div>
-                <div class="feature">
-                    <i class="fas fa-calculator"></i>
-                    <span>Accurate Calculations</span>
-                </div>
-                <div class="feature">
-                    <i class="fas fa-mobile-alt"></i>
-                    <span>Mobile Friendly</span>
-                </div>
-            </div>
-        </header>
-
-        <!-- Converter Container -->
-        <div class="converter-container">
-            <!-- Input Section -->
-            <div class="input-section">
-                <div class="converter-input-group">
-                    <h3><i class="fas fa-clock"></i> Convert From</h3>
-                    <div class="input-row">
-                        <div class="input-field">
-                            <label for="inputValue">Value</label>
-                            <input type="number" id="inputValue" value="1" min="0" step="any">
-                        </div>
-                        <div class="input-field">
-                            <label for="inputUnit">From Unit</label>
-                            <select id="inputUnit">
-                                <!-- Units will be populated by JavaScript -->
-                            </select>
-                            <div class="unit-description" id="inputUnitDesc">Select a time unit</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="converter-input-group">
-                    <h3><i class="fas fa-exchange-alt"></i> Convert To</h3>
-                    <div class="input-row">
-                        <div class="input-field">
-                            <label for="outputValue">Result</label>
-                            <input type="number" id="outputValue" readonly>
-                        </div>
-                        <div class="input-field">
-                            <label for="outputUnit">To Unit</label>
-                            <select id="outputUnit">
-                                <!-- Units will be populated by JavaScript -->
-                            </select>
-                            <div class="unit-description" id="outputUnitDesc">Select a time unit</div>
-                        </div>
-                    </div>
-                    <button class="swap-button" id="swapButton" onclick="swapUnits()">
-                        <i class="fas fa-sync-alt"></i>
-                    </button>
-                </div>
-
-                <!-- Quick Conversions -->
-                <div class="quick-conversions">
-                    <h4>Quick Conversions:</h4>
-                    <div class="conversion-buttons" id="quickConversions">
-                        <!-- Quick conversion buttons will be populated by JavaScript -->
-                    </div>
-                </div>
-
-                <!-- Convert Button -->
-                <button class="convert-btn" id="convertBtn" onclick="convertTime()">
-                    <i class="fas fa-exchange-alt"></i> Convert Time
-                </button>
-
-                <!-- Time History -->
-                <div class="time-history" id="timeHistory" style="display: none;">
-                    <h4>Recent Conversions:</h4>
-                    <div id="historyList"></div>
-                </div>
-            </div>
-
-            <!-- Results Section -->
-            <div class="results-section">
-                <h2>Conversion Results</h2>
-                
-                <div class="conversion-display" id="conversionDisplay">
-                    <div class="main-conversion" id="mainConversion">1</div>
-                    <div class="main-conversion-label" id="mainConversionLabel">Second = 0.0166667 Minutes</div>
-                </div>
-
-                <div class="conversion-breakdown">
-                    <h3>All Time Units</h3>
-                    <div class="breakdown-grid" id="allUnitsGrid">
-                        <!-- All unit conversions will be populated by JavaScript -->
-                    </div>
-                </div>
-
-                <div class="detailed-results">
-                    <h3>Detailed Information</h3>
-                    <div class="results-grid">
-                        <div class="result-item">
-                            <span class="result-label">Exact Conversion:</span>
-                            <span class="result-value" id="exactConversion">1 second</span>
-                        </div>
-                        <div class="result-item">
-                            <span class="result-label">Scientific Notation:</span>
-                            <span class="result-value" id="scientificNotation">1.00e+0</span>
-                        </div>
-                        <div class="result-item">
-                            <span class="result-label">Precision:</span>
-                            <span class="result-value" id="precisionValue">6 decimal places</span>
-                        </div>
-                        <div class="result-item">
-                            <span class="result-label">Calculation Method:</span>
-                            <span class="result-value" id="calculationMethod">Direct Conversion</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Time Equivalents Section -->
-                <div class="time-equivalents" id="timeEquivalents">
-                    <h3>Time Equivalent</h3>
-                    <div class="equivalents-info">
-                        <div class="equivalent-example" id="equivalentIcon">⏱️</div>
-                        <div class="equivalent-details">
-                            <div class="equivalent-name" id="equivalentName">1 Second</div>
-                            <div class="equivalent-desc" id="equivalentDesc">The time it takes to blink your eyes</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Real World Examples -->
-                <div class="real-world-examples" id="realWorldExamples">
-                    <h3><i class="fas fa-lightbulb"></i> Real World Examples</h3>
-                    <p id="realWorldExample">1 second is approximately the time it takes for light to travel 299,792 kilometers in a vacuum.</p>
-                </div>
-            </div>
+          </div>
+          
+          <div class="input-group">
+            <label for="fromUnit"><i class="fas fa-arrow-down"></i> Convert From</label>
+            <select id="fromUnit">
+              <option value="seconds">Seconds</option>
+              <option value="minutes">Minutes</option>
+              <option value="hours">Hours</option>
+              <option value="days" selected>Days</option>
+              <option value="weeks">Weeks</option>
+              <option value="months">Months (30 days)</option>
+              <option value="years">Years (365 days)</option>
+              <option value="milliseconds">Milliseconds</option>
+              <option value="microseconds">Microseconds</option>
+              <option value="nanoseconds">Nanoseconds</option>
+            </select>
+          </div>
         </div>
-
-        <!-- FAQ Section -->
-        <div class="faq-section">
-            <h2>Frequently Asked Questions</h2>
-            <div class="faq-container">
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>How accurate is the time converter?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Our time converter is 100% accurate for standard time units. It uses precise conversion factors: 1 minute = 60 seconds, 1 hour = 3600 seconds, 1 day = 86400 seconds, etc. For months and years, we use average values (30.44 days per month, 365.25 days per year) to account for variations.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Can I convert between very large time values?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Yes! Our converter can handle extremely large values (up to 1e+308) and extremely small values (down to 1e-308). You can convert nanoseconds to years, millennia to seconds, or any combination you need.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>How do you handle leap years?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>For standard conversions, we use the average year length of 365.25 days (accounting for leap years). For precise astronomical or calendar calculations, you may need specialized tools, but for everyday use, our conversions are perfectly accurate.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>What's the smallest time unit you support?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>We support nanoseconds (1 billionth of a second) as the smallest unit. You can convert from nanoseconds all the way up to millennia and beyond. The converter maintains precision up to 15 decimal places for most calculations.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Is my conversion data stored?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>No! All conversions happen locally in your browser. We don't store, transmit, or collect any of your data. Your privacy is completely protected, and you can use the tool offline once loaded.</p>
-                    </div>
-                </div>
-            </div>
+        
+        <div class="conversion-controls">
+          <button class="convert-btn" id="convertBtn">
+            <i class="fas fa-sync-alt"></i> Convert
+          </button>
         </div>
-
-        <!-- Related Tools Section -->
-        <div class="related-tools-section">
-            <h2>Other Useful Calculator Tools</h2>
-            <div class="tools-grid">
-                <div class="tool-card">
-                    <div class="tool-icon">
-                        <i class="fas fa-birthday-cake"></i>
-                    </div>
-                    <h3>Age Calculator</h3>
-                    <p>Calculate exact age in years, months, days, and hours. Find age difference between dates.</p>
-                    <a href="age-calculator.html" class="tool-link">Use Tool</a>
-                </div>
-                
-                <div class="tool-card">
-                    <div class="tool-icon">
-                        <i class="fas fa-calculator"></i>
-                    </div>
-                    <h3>Date Calculator</h3>
-                    <p>Add or subtract days from dates. Calculate days between dates and find future/past dates.</p>
-                    <a href="date-calculator.html" class="tool-link">Use Tool</a>
-                </div>
-                
-                <div class="tool-card">
-                    <div class="tool-icon">
-                        <i class="fas fa-money-bill-wave"></i>
-                    </div>
-                    <h3>Currency Converter</h3>
-                    <p>Convert between world currencies with live exchange rates and historical data.</p>
-                    <a href="currency-converter.html" class="tool-link">Use Tool</a>
-                </div>
-                
-                <div class="tool-card">
-                    <div class="tool-icon">
-                        <i class="fas fa-exchange-alt"></i>
-                    </div>
-                    <h3>Unit Converter</h3>
-                    <p>Convert between different units of length, weight, temperature, volume, and more.</p>
-                    <a href="unit-converter.html" class="tool-link">Use Tool</a>
-                </div>
-                
-                <div class="tool-card">
-                    <div class="tool-icon">
-                        <i class="fas fa-percentage"></i>
-                    </div>
-                    <h3>Percentage Calculator</h3>
-                    <p>Calculate percentages, percentage increase/decrease, and percentage of numbers.</p>
-                    <a href="percentage-calculator.html" class="tool-link">Use Tool</a>
-                </div>
-                
-                <div class="tool-card">
-                    <div class="tool-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3>Investment Calculator</h3>
-                    <p>Calculate compound interest, investment growth, and future value of investments.</p>
-                    <a href="investment-calculator.html" class="tool-link">Use Tool</a>
-                </div>
-            </div>
+        
+        <div class="output-section">
+          <div class="input-group">
+            <label for="toUnit"><i class="fas fa-arrow-up"></i> Convert To</label>
+            <select id="toUnit">
+              <option value="seconds">Seconds</option>
+              <option value="minutes">Minutes</option>
+              <option value="hours" selected>Hours</option>
+              <option value="days">Days</option>
+              <option value="weeks">Weeks</option>
+              <option value="months">Months (30 days)</option>
+              <option value="years">Years (365 days)</option>
+              <option value="milliseconds">Milliseconds</option>
+              <option value="microseconds">Microseconds</option>
+              <option value="nanoseconds">Nanoseconds</option>
+            </select>
+          </div>
+          
+          <div class="result-display">
+            <div class="result-value" id="resultValue">24</div>
+            <div class="result-unit" id="resultUnit">hours</div>
+            <div class="result-label" id="resultLabel">1 day = 24 hours</div>
+          </div>
         </div>
-
-        <!-- SEO Pages Section -->
-        <div class="seo-section" id="privacy-policy">
-            <button class="close-seo" onclick="hideSeoPage()">×</button>
-            <h1>Privacy Policy</h1>
-            <div class="seo-content">
-                <p><strong>Last Updated: January 2024</strong></p>
-                
-                <h2>1. Introduction</h2>
-                <p>Welcome to Toolvexa Time Converter. Your privacy is critically important to us. This privacy policy document outlines the types of personal information that is received and collected by our tool and how it is used.</p>
-                
-                <h2>2. Information We Collect</h2>
-                <h3>2.1 No Personal Data Collection</h3>
-                <p>Our Time Converter tool operates entirely in your browser. We do not:</p>
-                <ul>
-                    <li>Collect any personal information</li>
-                    <li>Store your conversion data</li>
-                    <li>Track your usage patterns</li>
-                    <li>Use cookies for tracking purposes</li>
-                </ul>
-                
-                <h3>2.2 Local Processing</h3>
-                <p>All time conversions happen locally on your device using JavaScript. Your conversion data never leaves your computer or mobile device.</p>
-                
-                <h2>3. How We Use Information</h2>
-                <p>Since we don't collect any personal data, there's no information to use or share. The tool functions completely offline once loaded in your browser.</p>
-                
-                <h2>4. Third-Party Services</h2>
-                <p>We only use Font Awesome for icons. This service may collect limited data as per their own privacy policies, but no personal information is shared.</p>
-                
-                <h2>5. Security</h2>
-                <p>Your security is guaranteed because:</p>
-                <ul>
-                    <li>No data transmission occurs</li>
-                    <li>All processing is done client-side</li>
-                    <li>No server-side storage exists</li>
-                </ul>
-                
-                <h2>6. Changes to This Policy</h2>
-                <p>We may update this privacy policy from time to time. We will notify you of any changes by posting the new privacy policy on this page.</p>
-                
-                <h2>7. Contact Us</h2>
-                <p>If you have any questions about this Privacy Policy, please contact us at: privacy@toolvexa.com</p>
-            </div>
+      </div>
+      
+      <!-- Quick Conversions -->
+      <div class="quick-conversions">
+        <div class="quick-conversion" data-from="hours" data-to="minutes" data-value="1">
+          <div class="quick-value">60</div>
+          <div class="quick-label">1 hour = 60 minutes</div>
         </div>
-
-        <div class="seo-section" id="terms-of-service">
-            <button class="close-seo" onclick="hideSeoPage()">×</button>
-            <h1>Terms of Service</h1>
-            <div class="seo-content">
-                <p><strong>Last Updated: January 2024</strong></p>
-                
-                <h2>1. Acceptance of Terms</h2>
-                <p>By accessing and using the Toolvexa Time Converter tool, you accept and agree to be bound by the terms and provision of this agreement.</p>
-                
-                <h2>2. Description of Service</h2>
-                <p>Toolvexa Time Converter provides a free online tool for converting between different time units. The service includes:</p>
-                <ul>
-                    <li>Conversion between seconds, minutes, hours, days, weeks, months, years</li>
-                    <li>Quick conversion presets</li>
-                    <li>Detailed breakdowns and equivalents</li>
-                    <li>Local processing (no server uploads)</li>
-                </ul>
-                
-                <h2>3. User Responsibilities</h2>
-                <p>You agree to:</p>
-                <ul>
-                    <li>Use the tool only for lawful purposes</li>
-                    <li>Verify critical time conversions independently when needed</li>
-                    <li>Not misuse the tool for harassment or illegal activities</li>
-                    <li>Not attempt to reverse engineer or hack the tool</li>
-                </ul>
-                
-                <h2>4. Service Limitations</h2>
-                <p>The service is provided "as is" without warranties of any kind. We do not guarantee:</p>
-                <ul>
-                    <li>Uninterrupted service availability</li>
-                    <li>100% accuracy for astronomical or scientific calculations</li>
-                    <li>Compatibility with all browsers or devices</li>
-                    <li>Support for time units beyond those listed</li>
-                </ul>
-                
-                <h2>5. Intellectual Property</h2>
-                <p>All code and design elements are property of Toolvexa. You may not copy, modify, or distribute the tool without permission.</p>
-                
-                <h2>6. Limitation of Liability</h2>
-                <p>Toolvexa shall not be liable for any decisions made based on time conversions from this tool. For critical applications, always verify with multiple sources.</p>
-                
-                <h2>7. Changes to Terms</h2>
-                <p>We reserve the right to modify these terms at any time. Continued use of the tool constitutes acceptance of modified terms.</p>
-                
-                <h2>8. Contact Information</h2>
-                <p>For any questions regarding these Terms of Service, please contact: legal@toolvexa.com</p>
-            </div>
+        
+        <div class="quick-conversion" data-from="days" data-to="hours" data-value="1">
+          <div class="quick-value">24</div>
+          <div class="quick-label">1 day = 24 hours</div>
         </div>
-
-        <div class="seo-section" id="about-tool">
-            <button class="close-seo" onclick="hideSeoPage()">×</button>
-            <h1>About Time Converter Tool</h1>
-            <div class="seo-content">
-                <h2>What is Toolvexa Time Converter?</h2>
-                <p>Toolvexa Time Converter is a free online tool that helps you convert between different time units instantly and accurately. Whether you need to convert seconds to minutes for cooking, hours to days for project planning, or years to seconds for scientific calculations, this tool has you covered.</p>
-                
-                <h2>Key Features</h2>
-                <ul>
-                    <li><strong>Comprehensive Units:</strong> Convert between nanoseconds, microseconds, milliseconds, seconds, minutes, hours, days, weeks, months, years, decades, centuries, and millennia</li>
-                    <li><strong>High Precision:</strong> Calculations with up to 15 decimal places for maximum accuracy</li>
-                    <li><strong>Quick Conversions:</strong> One-click presets for common time conversions</li>
-                    <li><strong>Real World Examples:</strong> Understand time scales with practical examples</li>
-                    <li><strong>Privacy Protected:</strong> All conversions happen locally in your browser</li>
-                    <li><strong>Mobile Optimized:</strong> Works perfectly on all devices and screen sizes</li>
-                </ul>
-                
-                <h2>How It Works</h2>
-                <p>Our tool uses precise mathematical formulas to convert between time units:</p>
-                <ol>
-                    <li>Enter the value you want to convert</li>
-                    <li>Select the unit you're converting from</li>
-                    <li>Select the unit you want to convert to</li>
-                    <li>Click "Convert Time" for instant results</li>
-                    <li>View detailed breakdown across all time units</li>
-                </ol>
-                
-                <h2>Use Cases</h2>
-                <ul>
-                    <li><strong>Cooking & Baking:</strong> Convert recipe times between minutes and seconds</li>
-                    <li><strong>Project Management:</strong> Convert hours to days for project timelines</li>
-                    <li><strong>Scientific Research:</strong> Convert between nanoseconds and seconds for precise measurements</li>
-                    <li><strong>Education:</strong> Teach students about time units and conversions</li>
-                    <li><strong>Travel Planning:</strong> Convert time zones and flight durations</li>
-                </ul>
-                
-                <h2>Technical Information</h2>
-                <p>The tool uses precise conversion factors:</p>
-                <ul>
-                    <li>1 minute = 60 seconds</li>
-                    <li>1 hour = 3600 seconds</li>
-                    <li>1 day = 86400 seconds</li>
-                    <li>1 week = 604800 seconds</li>
-                    <li>1 month = 30.44 days (average)</li>
-                    <li>1 year = 365.25 days (average, accounting for leap years)</li>
-                </ul>
-            </div>
+        
+        <div class="quick-conversion" data-from="weeks" data-to="days" data-value="1">
+          <div class="quick-value">7</div>
+          <div class="quick-label">1 week = 7 days</div>
         </div>
-
-        <!-- Footer -->
-        <footer>
-            <div class="footer-links">
-                <a href="#privacy-policy" onclick="showSeoPage('privacy')">Privacy Policy</a>
-                <a href="#terms-of-service" onclick="showSeoPage('terms')">Terms of Service</a>
-                <a href="#about-tool" onclick="showSeoPage('about')">About This Tool</a>
-                <a href="index.html">All Tools</a>
-                <a href="index.html#calculators">Calculators</a>
-                <a href="index.html#contact">Contact Us</a>
-            </div>
-            <div class="copyright">
-                <p>© 2024 Time Converter Tool | Toolvexa | All conversions happen locally in your browser. No data is uploaded to any server.</p>
-                <p style="margin-top: 10px;">Made with <i class="fas fa-heart" style="color: #e63946;"></i> for everyone</p>
-            </div>
-        </footer>
+        
+        <div class="quick-conversion" data-from="years" data-to="days" data-value="1">
+          <div class="quick-value">365</div>
+          <div class="quick-label">1 year = 365 days</div>
+        </div>
+      </div>
+      
+      <!-- Action Buttons -->
+      <div class="action-buttons">
+        <button class="action-btn reset-btn" id="resetBtn">
+          <i class="fas fa-redo"></i> Reset
+        </button>
+        <button class="action-btn swap-btn" id="swapBtn">
+          <i class="fas fa-exchange-alt"></i> Swap Units
+        </button>
+        <button class="action-btn copy-btn" id="copyBtn">
+          <i class="fas fa-copy"></i> Copy Result
+        </button>
+      </div>
     </div>
 
-    <script>
-        // ========== GLOBAL VARIABLES ==========
-        let conversionHistory = [];
-        let isInitialLoad = true;
-        let timeUnits = [];
+    <!-- Time Units Table -->
+    <div class="tool-card-section">
+      <h2><i class="fas fa-table"></i> Time Conversion Table</h2>
+      <p style="color: var(--gray); margin-bottom: 20px;">Reference table showing common time unit conversions (1 unit to other units):</p>
+      
+      <div style="overflow-x: auto;">
+        <table class="time-units-table">
+          <thead>
+            <tr>
+              <th>Unit</th>
+              <th>Seconds</th>
+              <th>Minutes</th>
+              <th>Hours</th>
+              <th>Days</th>
+              <th>Weeks</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>1 Second</strong></td>
+              <td>1</td>
+              <td>0.01667</td>
+              <td>0.0002778</td>
+              <td>0.00001157</td>
+              <td>0.000001653</td>
+            </tr>
+            <tr>
+              <td><strong>1 Minute</strong></td>
+              <td>60</td>
+              <td>1</td>
+              <td>0.01667</td>
+              <td>0.0006944</td>
+              <td>0.00009921</td>
+            </tr>
+            <tr>
+              <td><strong>1 Hour</strong></td>
+              <td>3,600</td>
+              <td>60</td>
+              <td>1</td>
+              <td>0.04167</td>
+              <td>0.005952</td>
+            </tr>
+            <tr>
+              <td><strong>1 Day</strong></td>
+              <td>86,400</td>
+              <td>1,440</td>
+              <td>24</td>
+              <td>1</td>
+              <td>0.1429</td>
+            </tr>
+            <tr>
+              <td><strong>1 Week</strong></td>
+              <td>604,800</td>
+              <td>10,080</td>
+              <td>168</td>
+              <td>7</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td><strong>1 Month (30 days)</strong></td>
+              <td>2,592,000</td>
+              <td>43,200</td>
+              <td>720</td>
+              <td>30</td>
+              <td>4.286</td>
+            </tr>
+            <tr>
+              <td><strong>1 Year (365 days)</strong></td>
+              <td>31,536,000</td>
+              <td>525,600</td>
+              <td>8,760</td>
+              <td>365</td>
+              <td>52.14</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
 
-        // ========== NAVIGATION FUNCTIONALITY ==========
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const navLinks = document.getElementById('navLinks');
+    <!-- NEW: How to Use Time Converter Tutorial Section -->
+    <div class="tutorial-section" id="tutorialSection">
+      <h2><i class="fas fa-graduation-cap"></i> How to Use Time Converter</h2>
+      <div class="tutorial-steps">
+        <div class="tutorial-step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>Enter Time Value</h3>
+            <p>Type the time value you want to convert in the input field. You can use decimal numbers like 1.5 or 0.25.</p>
+          </div>
+        </div>
+        
+        <div class="tutorial-step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>Select From Unit</h3>
+            <p>Choose the unit you're converting from (e.g., seconds, minutes, hours, days, weeks, months, years).</p>
+          </div>
+        </div>
+        
+        <div class="tutorial-step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>Select To Unit</h3>
+            <p>Choose the unit you want to convert to. This can be any time unit from the dropdown list.</p>
+          </div>
+        </div>
+        
+        <div class="tutorial-step">
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <h3>Convert & Copy</h3>
+            <p>Click "Convert" to see the result. Use "Copy Result" to save it or "Swap Units" to reverse the conversion.</p>
+          </div>
+        </div>
+      </div>
+    </div>
 
-        mobileMenuBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            navLinks.classList.toggle('active');
+    <!-- EEAT About Section -->
+    <div class="about-section" id="about">
+      <h2>About This Time Converter Tool</h2>
+      <p>Our Time Converter is designed by developers and project managers who understand the importance of accurate time calculations. Whether you're planning projects, scheduling events, or working with international teams, this tool provides precise time conversions instantly.</p>
+      <p>Unlike other online converters, our tool offers:</p>
+      <ul style="margin-left: 20px; margin-bottom: 15px; color: var(--gray);">
+        <li>Precise calculations with up to 10 decimal places</li>
+        <li>Support for scientific time units (microseconds, nanoseconds)</li>
+        <li>Real-time conversion without page reloads</li>
+        <li>Clean, intuitive interface optimized for all devices</li>
+        <li>Complete privacy - all calculations happen in your browser</li>
+      </ul>
+      <p>The tool uses standardized conversion factors and accounts for different time measurement systems. Perfect for students, professionals, developers, and anyone needing accurate time conversions for work, study, or personal use.</p>
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="faq-section" id="faq">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-container">
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>How accurate is the Time Converter?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Our Time Converter is highly accurate, using standardized conversion factors. For months, we use 30 days as a standard month (not calendar months) and 365 days for a standard year (not accounting for leap years). This provides consistent results suitable for most calculations.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Can I convert between very large time units?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Yes! You can convert between any time units from nanoseconds to years. The tool handles very large and very small values efficiently. For extremely large values (like centuries), we recommend converting to years first for optimal precision.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>What time units are supported?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>We support: nanoseconds, microseconds, milliseconds, seconds, minutes, hours, days, weeks, months (30-day standard), and years (365-day standard). You can convert between any of these units instantly.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>How does the month conversion work?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>We use a standard 30-day month for consistent calculations. This is a common practice in time conversion tools. If you need calendar month accuracy (28-31 days), we recommend using days as your base unit instead.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Can I use decimal values?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Absolutely! You can use decimal values like 1.5 hours, 0.25 days, or 3.75 weeks. The converter handles decimal inputs precisely, giving you accurate decimal results for your conversions.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Is there a limit to how many conversions I can do?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>No limits at all! Our Time Converter is 100% free with unlimited usage. You can convert as many values as you need, as often as you need. All calculations happen locally in your browser, so there are no server limitations.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Related Tools Section -->
+    <div class="related-tools-section">
+      <h2>Other Useful Calculator Tools</h2>
+      <div class="related-tools-grid">
+        <div class="related-tool-card">
+          <div class="related-tool-icon">
+            <i class="fas fa-exchange-alt"></i>
+          </div>
+          <h3>Currency Converter</h3>
+          <p>Convert between world currencies with real-time exchange rates. Perfect for travelers and international transactions.</p>
+          <a href="currency-converter.html" class="related-tool-link">Use Tool</a>
+        </div>
+        
+        <div class="related-tool-card">
+          <div class="related-tool-icon">
+            <i class="fas fa-ruler"></i>
+          </div>
+          <h3>Unit Converter</h3>
+          <p>Convert between different units of length, weight, volume, temperature, and more. Comprehensive measurement tool.</p>
+          <a href="unit-converter.html" class="related-tool-link">Use Tool</a>
+        </div>
+        
+        <div class="related-tool-card">
+          <div class="related-tool-icon">
+            <i class="fas fa-percentage"></i>
+          </div>
+          <h3>Percentage Calculator</h3>
+          <p>Calculate percentages, discounts, and percentage changes easily. Essential for shopping and financial calculations.</p>
+          <a href="percentage-calculator.html" class="related-tool-link">Use Tool</a>
+        </div>
+        
+        <div class="related-tool-card">
+          <div class="related-tool-icon">
+            <i class="fas fa-calculator"></i>
+          </div>
+          <h3>Compound Interest Calculator</h3>
+          <p>Calculate compound interest for investments and savings. See how your money grows over time with compounding.</p>
+          <a href="compound-interest.html" class="related-tool-link">Use Tool</a>
+        </div>
+        
+        <div class="related-tool-card">
+          <div class="related-tool-icon">
+            <i class="fas fa-birthday-cake"></i>
+          </div>
+          <h3>Age Calculator</h3>
+          <p>Calculate exact age in years, months, and days from birth date. Countdown to next birthday included.</p>
+          <a href="age-calculator.html" class="related-tool-link">Use Tool</a>
+        </div>
+        
+        <div class="related-tool-card">
+          <div class="related-tool-icon">
+            <i class="fas fa-balance-scale"></i>
+          </div>
+          <h3>Weight Converter</h3>
+          <p>Convert between kilograms, pounds, ounces, grams, and other weight units instantly. Perfect for cooking and fitness.</p>
+          <a href="weight-converter.html" class="related-tool-link">Use Tool</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer id="privacy">
+    <div class="footer-content">
+      <div class="footer-about">
+        <h3 class="footer-logo">Toolsedito</h3>
+        <p class="footer-description">Toolsedito provides smart online tools for everyday productivity. Our Time Converter is 100% free, accurate, and processes all calculations locally in your browser for complete privacy.</p>
+        <div class="social-links">
+          <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#tools">All Tools</a></li>
+          <li><a href="index.html#calculators">Calculators</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#about">About This Tool</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Calculator Tools</h4>
+        <ul>
+          <li><a href="time-converter.html">Time Converter</a></li>
+          <li><a href="currency-converter.html">Currency Converter</a></li>
+          <li><a href="unit-converter.html">Unit Converter</a></li>
+          <li><a href="gst-calculator.html">GST Calculator</a></li>
+          <li><a href="emi-calculator.html">EMI Calculator</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms-of-service.html">Terms of Service</a></li>
+          <li><a href="disclaimer.html">Disclaimer</a></li>
+          <li><a href="cookie-policy.html">Cookie Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2026 Toolsedito. All rights reserved. | Time Converter Tool v2.0 | All calculations happen locally in your browser. No data is uploaded to any server.</p>
+      <p style="margin-top: 10px; color: #9ca3af;">Made with <i class="fas fa-heart" style="color: #ef4444;"></i> for accurate time management worldwide</p>
+    </div>
+  </footer>
+
+  <script>
+    // Dark Theme Toggle
+    const themeToggle = document.getElementById('themeToggle');
+    const sidebarThemeToggle = document.getElementById('sidebarThemeToggle');
+    const themeStatus = document.getElementById('themeStatus');
+    const body = document.body;
+    
+    // Check for saved theme preference or prefer-color-scheme
+    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    const savedTheme = localStorage.getItem('theme');
+    
+    // Set initial theme
+    if (savedTheme === 'dark' || (!savedTheme && prefersDarkScheme.matches)) {
+      body.classList.add('dark-theme');
+      updateThemeStatus(true);
+    } else {
+      updateThemeStatus(false);
+    }
+    
+    // Main theme toggle function
+    function toggleTheme() {
+      const isDark = body.classList.toggle('dark-theme');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      updateThemeStatus(isDark);
+      
+      // Add animation to the toggle button
+      themeToggle.style.transform = 'rotate(360deg)';
+      setTimeout(() => {
+        themeToggle.style.transform = '';
+      }, 300);
+    }
+    
+    // Update theme status text and icon
+    function updateThemeStatus(isDark) {
+      if (themeStatus) {
+        themeStatus.textContent = isDark ? 'ON' : 'OFF';
+      }
+    }
+    
+    // Event listeners for theme toggles
+    themeToggle.addEventListener('click', toggleTheme);
+    
+    if (sidebarThemeToggle) {
+      sidebarThemeToggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        toggleTheme();
+      });
+    }
+    
+    // Mobile Sidebar Functionality
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const sidebar = document.getElementById('sidebar');
+    const sidebarClose = document.getElementById('sidebarClose');
+    const sidebarOverlay = document.getElementById('sidebarOverlay');
+    
+    // Open sidebar
+    mobileMenuBtn.addEventListener('click', () => {
+      sidebar.classList.add('active');
+      sidebarOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+    
+    // Close sidebar
+    function closeSidebar() {
+      sidebar.classList.remove('active');
+      sidebarOverlay.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+    
+    sidebarClose.addEventListener('click', closeSidebar);
+    sidebarOverlay.addEventListener('click', closeSidebar);
+    
+    // Close sidebar when clicking on a link (for mobile)
+    document.querySelectorAll('.sidebar-links a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        if (!this.id.includes('Theme')) { // Don't close for theme toggle
+          closeSidebar();
+        }
+      });
+    });
+    
+    // Add smooth scrolling to all links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if(targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if(targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+          
+          // Close sidebar on mobile after clicking
+          if (window.innerWidth < 1024) {
+            closeSidebar();
+          }
+        }
+      });
+    });
+
+    // Time Converter Tool JavaScript
+    // DOM Elements
+    const inputValue = document.getElementById('inputValue');
+    const fromUnit = document.getElementById('fromUnit');
+    const toUnit = document.getElementById('toUnit');
+    const convertBtn = document.getElementById('convertBtn');
+    const resetBtn = document.getElementById('resetBtn');
+    const swapBtn = document.getElementById('swapBtn');
+    const copyBtn = document.getElementById('copyBtn');
+    const inputUnitDisplay = document.getElementById('inputUnitDisplay');
+    const resultValue = document.getElementById('resultValue');
+    const resultUnit = document.getElementById('resultUnit');
+    const resultLabel = document.getElementById('resultLabel');
+    const quickConversions = document.querySelectorAll('.quick-conversion');
+    
+    // Conversion factors relative to seconds
+    const conversionFactors = {
+      nanoseconds: 1e-9,
+      microseconds: 1e-6,
+      milliseconds: 0.001,
+      seconds: 1,
+      minutes: 60,
+      hours: 3600,
+      days: 86400,
+      weeks: 604800,
+      months: 2592000, // 30 days
+      years: 31536000 // 365 days
+    };
+    
+    // Unit display names
+    const unitNames = {
+      nanoseconds: "nanoseconds",
+      microseconds: "microseconds",
+      milliseconds: "milliseconds",
+      seconds: "seconds",
+      minutes: "minutes",
+      hours: "hours",
+      days: "days",
+      weeks: "weeks",
+      months: "months",
+      years: "years"
+    };
+    
+    // Initialize
+    updateInputUnitDisplay();
+    convertTime();
+    
+    // Event Listeners
+    inputValue.addEventListener('input', convertTime);
+    fromUnit.addEventListener('change', () => {
+      updateInputUnitDisplay();
+      convertTime();
+    });
+    toUnit.addEventListener('change', convertTime);
+    convertBtn.addEventListener('click', convertTime);
+    resetBtn.addEventListener('click', resetConverter);
+    swapBtn.addEventListener('click', swapUnits);
+    copyBtn.addEventListener('click', copyResult);
+    
+    // Quick conversion buttons
+    quickConversions.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const from = btn.getAttribute('data-from');
+        const to = btn.getAttribute('data-to');
+        const value = btn.getAttribute('data-value');
+        
+        inputValue.value = value;
+        fromUnit.value = from;
+        toUnit.value = to;
+        
+        updateInputUnitDisplay();
+        convertTime();
+      });
+    });
+    
+    // FAQ functionality
+    document.querySelectorAll('.faq-question').forEach(question => {
+      question.addEventListener('click', () => {
+        const item = question.parentElement;
+        item.classList.toggle('active');
+      });
+    });
+    
+    // Functions
+    function updateInputUnitDisplay() {
+      inputUnitDisplay.textContent = fromUnit.value;
+    }
+    
+    function convertTime() {
+      const value = parseFloat(inputValue.value) || 0;
+      const from = fromUnit.value;
+      const to = toUnit.value;
+      
+      // Convert to seconds first
+      const valueInSeconds = value * conversionFactors[from];
+      
+      // Convert from seconds to target unit
+      const result = valueInSeconds / conversionFactors[to];
+      
+      // Format result
+      let formattedResult;
+      if (Math.abs(result) >= 1000000) {
+        formattedResult = result.toExponential(4);
+      } else if (Math.abs(result) < 0.000001) {
+        formattedResult = result.toExponential(6);
+      } else if (Math.abs(result) < 0.01) {
+        formattedResult = result.toFixed(8);
+      } else if (Math.abs(result) < 1) {
+        formattedResult = result.toFixed(6);
+      } else if (Math.abs(result) < 10) {
+        formattedResult = result.toFixed(4);
+      } else if (Math.abs(result) < 1000) {
+        formattedResult = result.toFixed(2);
+      } else {
+        formattedResult = result.toLocaleString(undefined, {
+          minimumFractionDigits: 0,
+          maximumFractionDigits: 2
         });
+      }
+      
+      // Update display
+      resultValue.textContent = formattedResult;
+      resultUnit.textContent = unitNames[to];
+      resultLabel.textContent = `${value} ${from} = ${formattedResult} ${to}`;
+    }
+    
+    function resetConverter() {
+      inputValue.value = "1";
+      fromUnit.value = "days";
+      toUnit.value = "hours";
+      updateInputUnitDisplay();
+      convertTime();
+    }
+    
+    function swapUnits() {
+      const currentFrom = fromUnit.value;
+      const currentTo = toUnit.value;
+      
+      fromUnit.value = currentTo;
+      toUnit.value = currentFrom;
+      
+      updateInputUnitDisplay();
+      convertTime();
+    }
+    
+    function copyResult() {
+      const resultText = `${resultValue.textContent} ${resultUnit.textContent}`;
+      
+      // Create a temporary textarea element
+      const textarea = document.createElement('textarea');
+      textarea.value = resultText;
+      textarea.style.position = 'fixed';
+      textarea.style.opacity = '0';
+      document.body.appendChild(textarea);
+      
+      // Select and copy the text
+      textarea.select();
+      textarea.setSelectionRange(0, 99999); // For mobile devices
+      
+      try {
+        const successful = document.execCommand('copy');
+        // Visual feedback
+        const originalText = copyBtn.innerHTML;
+        copyBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        copyBtn.style.background = 'linear-gradient(135deg, #10b981, #0da67e)';
+        
+        setTimeout(() => {
+          copyBtn.innerHTML = originalText;
+          copyBtn.style.background = 'linear-gradient(135deg, #8b5cf6, #7c3aed)';
+        }, 2000);
+      } catch (err) {
+        console.error('Failed to copy text: ', err);
+      }
+      
+      // Clean up
+      document.body.removeChild(textarea);
+    }
 
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-                navLinks.classList.remove('active');
-            }
-        });
-
-        // Close mobile menu when clicking a link
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-            });
-        });
-
-        // ========== SEO PAGES FUNCTIONALITY ==========
-        function showSeoPage(page) {
-            // Hide all seo sections first
-            document.querySelectorAll('.seo-section').forEach(section => {
-                section.classList.remove('active');
-            });
-            
-            // Show the requested section
-            let sectionId = '';
-            switch(page) {
-                case 'privacy':
-                    sectionId = 'privacy-policy';
-                    break;
-                case 'terms':
-                    sectionId = 'terms-of-service';
-                    break;
-                case 'about':
-                    sectionId = 'about-tool';
-                    break;
-            }
-            
-            document.getElementById(sectionId).classList.add('active');
-            
-            // Close mobile menu if open
-            navLinks.classList.remove('active');
-        }
-
-        function hideSeoPage() {
-            document.querySelectorAll('.seo-section').forEach(section => {
-                section.classList.remove('active');
-            });
-        }
-
-        // Close SEO section when clicking outside
-        document.addEventListener('click', (e) => {
-            if (e.target.classList.contains('seo-section')) {
-                hideSeoPage();
-            }
-        });
-
-        // ========== FAQ FUNCTIONALITY ==========
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', () => {
-                const item = question.parentElement;
-                item.classList.toggle('active');
-            });
-        });
-
-        // ========== TIME CONVERTER CORE FUNCTIONALITY ==========
-        document.addEventListener('DOMContentLoaded', function() {
-            initializeTimeUnits();
-            initializeUI();
-            setupEventListeners();
-            
-            // Set default values and perform initial conversion
-            setDefaultValues();
-            displayInitialResults();
-        });
-
-        function initializeTimeUnits() {
-            timeUnits = [
-                { id: 'nanosecond', name: 'Nanosecond', symbol: 'ns', toSeconds: 1e-9, description: 'One billionth of a second' },
-                { id: 'microsecond', name: 'Microsecond', symbol: 'μs', toSeconds: 1e-6, description: 'One millionth of a second' },
-                { id: 'millisecond', name: 'Millisecond', symbol: 'ms', toSeconds: 0.001, description: 'One thousandth of a second' },
-                { id: 'second', name: 'Second', symbol: 's', toSeconds: 1, description: 'Base SI unit of time' },
-                { id: 'minute', name: 'Minute', symbol: 'min', toSeconds: 60, description: '60 seconds' },
-                { id: 'hour', name: 'Hour', symbol: 'hr', toSeconds: 3600, description: '60 minutes' },
-                { id: 'day', name: 'Day', symbol: 'day', toSeconds: 86400, description: '24 hours' },
-                { id: 'week', name: 'Week', symbol: 'wk', toSeconds: 604800, description: '7 days' },
-                { id: 'month', name: 'Month', symbol: 'mo', toSeconds: 2592000, description: '30 days (average)' },
-                { id: 'year', name: 'Year', symbol: 'yr', toSeconds: 31536000, description: '365 days' },
-                { id: 'decade', name: 'Decade', symbol: 'dec', toSeconds: 315360000, description: '10 years' },
-                { id: 'century', name: 'Century', symbol: 'cent', toSeconds: 3153600000, description: '100 years' },
-                { id: 'millennium', name: 'Millennium', symbol: 'mill', toSeconds: 31536000000, description: '1000 years' }
-            ];
-        }
-
-        function initializeUI() {
-            // Initialize unit dropdowns
-            const unitSelects = ['inputUnit', 'outputUnit'];
-            unitSelects.forEach(selectId => {
-                const select = document.getElementById(selectId);
-                select.innerHTML = '';
-                timeUnits.forEach(unit => {
-                    const option = document.createElement('option');
-                    option.value = unit.id;
-                    option.textContent = `${unit.name} (${unit.symbol})`;
-                    select.appendChild(option);
-                });
-            });
-
-            // Initialize quick conversions
-            const quickConversions = [
-                { from: 'second', to: 'minute', label: 'Sec → Min' },
-                { from: 'minute', to: 'hour', label: 'Min → Hr' },
-                { from: 'hour', to: 'day', label: 'Hr → Day' },
-                { from: 'day', to: 'week', label: 'Day → Wk' },
-                { from: 'week', to: 'month', label: 'Wk → Mo' },
-                { from: 'month', to: 'year', label: 'Mo → Yr' }
-            ];
-
-            const quickConvContainer = document.getElementById('quickConversions');
-            quickConvContainer.innerHTML = '';
-            
-            quickConversions.forEach(conv => {
-                const button = document.createElement('button');
-                button.className = 'conversion-btn';
-                button.innerHTML = `<i class="fas fa-exchange-alt"></i> ${conv.label}`;
-                button.onclick = () => setQuickConversion(conv.from, conv.to);
-                quickConvContainer.appendChild(button);
-            });
-        }
-
-        function setupEventListeners() {
-            // Add change listeners to input fields
-            document.getElementById('inputValue').addEventListener('input', () => {
-                if (!isInitialLoad) {
-                    convertTime();
-                }
-            });
-
-            document.getElementById('inputUnit').addEventListener('change', () => {
-                updateUnitDescription('inputUnit', 'inputUnitDesc');
-                if (!isInitialLoad) {
-                    convertTime();
-                }
-            });
-
-            document.getElementById('outputUnit').addEventListener('change', () => {
-                updateUnitDescription('outputUnit', 'outputUnitDesc');
-                if (!isInitialLoad) {
-                    convertTime();
-                }
-            });
-
-            // Add click listener to convert button
-            document.getElementById('convertBtn').addEventListener('click', () => {
-                isInitialLoad = false;
-                convertTime();
-            });
-
-            // Add keyboard shortcuts
-            document.addEventListener('keydown', (e) => {
-                if (e.ctrlKey && e.key === 'Enter') {
-                    convertTime();
-                }
-                if (e.key === 'Escape') {
-                    document.getElementById('inputValue').focus();
-                }
-            });
-        }
-
-        function setDefaultValues() {
-            document.getElementById('inputValue').value = '1';
-            document.getElementById('inputUnit').value = 'second';
-            document.getElementById('outputUnit').value = 'minute';
-            
-            updateUnitDescription('inputUnit', 'inputUnitDesc');
-            updateUnitDescription('outputUnit', 'outputUnitDesc');
-        }
-
-        function updateUnitDescription(selectId, descId) {
-            const select = document.getElementById(selectId);
-            const unit = timeUnits.find(u => u.id === select.value);
-            if (unit) {
-                document.getElementById(descId).textContent = unit.description;
-            }
-        }
-
-        function displayInitialResults() {
-            // Display initial results without loading animation
-            const inputValue = parseFloat(document.getElementById('inputValue').value);
-            const inputUnit = document.getElementById('inputUnit').value;
-            const outputUnit = document.getElementById('outputUnit').value;
-            
-            const result = convertTimeValue(inputValue, inputUnit, outputUnit);
-            
-            // Update UI with results
-            updateResultsDisplay(inputValue, inputUnit, outputUnit, result);
-            updateAllUnitsGrid(inputValue, inputUnit);
-            updateTimeEquivalents(inputValue, inputUnit);
-            updateRealWorldExamples(inputValue, inputUnit);
-            
-            isInitialLoad = false;
-        }
-
-        function showLoading() {
-            document.getElementById('loadingOverlay').classList.add('active');
-        }
-
-        function hideLoading() {
-            document.getElementById('loadingOverlay').classList.remove('active');
-        }
-
-        // ========== CONVERSION FUNCTIONS ==========
-        function convertTime() {
-            if (isInitialLoad) {
-                isInitialLoad = false;
-                // Don't show loading on initial calculation
-                performConversion();
-            } else {
-                showLoading();
-                
-                // Small delay for better UX
-                setTimeout(() => {
-                    performConversion();
-                    hideLoading();
-                }, 100);
-            }
-        }
-
-        function performConversion() {
-            try {
-                const inputValue = parseFloat(document.getElementById('inputValue').value);
-                const inputUnit = document.getElementById('inputUnit').value;
-                const outputUnit = document.getElementById('outputUnit').value;
-                
-                if (isNaN(inputValue) || inputValue < 0) {
-                    alert('Please enter a valid positive number.');
-                    return;
-                }
-
-                const result = convertTimeValue(inputValue, inputUnit, outputUnit);
-                
-                // Update UI with results
-                updateResultsDisplay(inputValue, inputUnit, outputUnit, result);
-                updateAllUnitsGrid(inputValue, inputUnit);
-                updateTimeEquivalents(inputValue, inputUnit);
-                updateRealWorldExamples(inputValue, inputUnit);
-                
-                // Add to history
-                addToHistory(inputValue, inputUnit, outputUnit, result);
-                
-            } catch (error) {
-                console.error('Error converting time:', error);
-                alert('An error occurred while converting time. Please check your values and try again.');
-            }
-        }
-
-        function convertTimeValue(value, fromUnit, toUnit) {
-            const fromUnitData = timeUnits.find(u => u.id === fromUnit);
-            const toUnitData = timeUnits.find(u => u.id === toUnit);
-            
-            if (!fromUnitData || !toUnitData) {
-                throw new Error('Invalid time unit');
-            }
-
-            // Convert to seconds first, then to target unit
-            const valueInSeconds = value * fromUnitData.toSeconds;
-            const result = valueInSeconds / toUnitData.toSeconds;
-            
-            return result;
-        }
-
-        function updateResultsDisplay(inputValue, inputUnit, outputUnit, result) {
-            const inputUnitData = timeUnits.find(u => u.id === inputUnit);
-            const outputUnitData = timeUnits.find(u => u.id === outputUnit);
-            
-            // Update output value
-            document.getElementById('outputValue').value = formatNumber(result);
-            
-            // Update main conversion display
-            document.getElementById('mainConversion').textContent = formatNumber(inputValue);
-            document.getElementById('mainConversionLabel').textContent = 
-                `${inputUnitData.name} = ${formatNumber(result)} ${outputUnitData.name}`;
-            
-            // Update detailed information
-            document.getElementById('exactConversion').textContent = 
-                `${formatNumber(inputValue)} ${inputUnitData.symbol} = ${formatNumber(result)} ${outputUnitData.symbol}`;
-            
-            document.getElementById('scientificNotation').textContent = 
-                result.toExponential(2);
-            
-            document.getElementById('precisionValue').textContent = 
-                `${Math.max(0, 6 - Math.floor(Math.log10(Math.abs(result))))} decimal places`;
-            
-            document.getElementById('calculationMethod').textContent = 
-                inputUnitData.toSeconds === 1 ? 'Direct Conversion' : 'Through Seconds';
-        }
-
-        function updateAllUnitsGrid(inputValue, inputUnit) {
-            const grid = document.getElementById('allUnitsGrid');
-            grid.innerHTML = '';
-            
-            timeUnits.forEach(unit => {
-                const result = convertTimeValue(inputValue, inputUnit, unit.id);
-                
-                const item = document.createElement('div');
-                item.className = 'breakdown-item';
-                item.innerHTML = `
-                    <div class="breakdown-value">${formatNumber(result)}</div>
-                    <div class="breakdown-label">${unit.name}</div>
-                `;
-                grid.appendChild(item);
-            });
-        }
-
-        function updateTimeEquivalents(inputValue, inputUnit) {
-            const seconds = convertTimeValue(inputValue, inputUnit, 'second');
-            
-            let equivalentName = '';
-            let equivalentDesc = '';
-            let equivalentIcon = '⏱️';
-            
-            if (seconds < 1) {
-                equivalentName = 'Less than 1 second';
-                equivalentDesc = 'Faster than a camera flash';
-                equivalentIcon = '⚡';
-            } else if (seconds < 60) {
-                equivalentName = `${Math.round(seconds)} second${seconds !== 1 ? 's' : ''}`;
-                equivalentDesc = 'Time for a deep breath';
-                equivalentIcon = '⏱️';
-            } else if (seconds < 3600) {
-                const minutes = seconds / 60;
-                equivalentName = `${Math.round(minutes)} minute${minutes !== 1 ? 's' : ''}`;
-                equivalentDesc = 'Time to brew a cup of tea';
-                equivalentIcon = '☕';
-            } else if (seconds < 86400) {
-                const hours = seconds / 3600;
-                equivalentName = `${hours.toFixed(1)} hour${hours !== 1 ? 's' : ''}`;
-                equivalentDesc = 'A typical work meeting';
-                equivalentIcon = '💼';
-            } else if (seconds < 604800) {
-                const days = seconds / 86400;
-                equivalentName = `${days.toFixed(1)} day${days !== 1 ? 's' : ''}`;
-                equivalentDesc = 'Weekend getaway duration';
-                equivalentIcon = '🏖️';
-            } else if (seconds < 2592000) {
-                const weeks = seconds / 604800;
-                equivalentName = `${weeks.toFixed(1)} week${weeks !== 1 ? 's' : ''}`;
-                equivalentDesc = 'Typical vacation length';
-                equivalentIcon = '✈️';
-            } else if (seconds < 31536000) {
-                const months = seconds / 2592000;
-                equivalentName = `${months.toFixed(1)} month${months !== 1 ? 's' : ''}`;
-                equivalentDesc = 'Season change duration';
-                equivalentIcon = '🍂';
-            } else {
-                const years = seconds / 31536000;
-                equivalentName = `${years.toFixed(1)} year${years !== 1 ? 's' : ''}`;
-                equivalentDesc = 'Major life milestone';
-                equivalentIcon = '🎂';
-            }
-            
-            document.getElementById('equivalentIcon').textContent = equivalentIcon;
-            document.getElementById('equivalentName').textContent = equivalentName;
-            document.getElementById('equivalentDesc').textContent = equivalentDesc;
-        }
-
-        function updateRealWorldExamples(inputValue, inputUnit) {
-            const seconds = convertTimeValue(inputValue, inputUnit, 'second');
-            
-            let example = '';
-            
-            if (seconds < 0.001) {
-                example = 'This is less than a millisecond - faster than a computer processor cycle.';
-            } else if (seconds < 1) {
-                example = 'This is faster than a hummingbird flaps its wings (about 50 times per second).';
-            } else if (seconds < 60) {
-                example = `In ${Math.round(seconds)} seconds, light travels approximately ${Math.round(seconds * 299792)} kilometers in a vacuum.`;
-            } else if (seconds < 3600) {
-                const minutes = seconds / 60;
-                example = `${minutes.toFixed(1)} minutes is about the time it takes to walk 1 kilometer at average pace.`;
-            } else if (seconds < 86400) {
-                const hours = seconds / 3600;
-                example = `${hours.toFixed(1)} hours is a typical feature-length movie runtime.`;
-            } else if (seconds < 604800) {
-                const days = seconds / 86400;
-                example = `${days.toFixed(1)} days is how long it takes the Moon to orbit the Earth.`;
-            } else if (seconds < 31536000) {
-                const months = seconds / 2592000;
-                example = `${months.toFixed(1)} months is a typical human pregnancy duration (9 months).`;
-            } else {
-                const years = seconds / 31536000;
-                example = `${years.toFixed(1)} years is longer than the average smartphone lifespan (2-3 years).`;
-            }
-            
-            document.getElementById('realWorldExample').textContent = example;
-        }
-
-        function addToHistory(inputValue, inputUnit, outputUnit, result) {
-            const inputUnitData = timeUnits.find(u => u.id === inputUnit);
-            const outputUnitData = timeUnits.find(u => u.id === outputUnit);
-            
-            const historyItem = {
-                timestamp: new Date(),
-                input: `${formatNumber(inputValue)} ${inputUnitData.symbol}`,
-                output: `${formatNumber(result)} ${outputUnitData.symbol}`,
-                conversion: `${inputUnit}→${outputUnit}`
-            };
-            
-            conversionHistory.unshift(historyItem);
-            
-            // Keep only last 5 items
-            if (conversionHistory.length > 5) {
-                conversionHistory = conversionHistory.slice(0, 5);
-            }
-            
-            updateHistoryDisplay();
-        }
-
-        function updateHistoryDisplay() {
-            const historyList = document.getElementById('historyList');
-            const timeHistory = document.getElementById('timeHistory');
-            
-            if (conversionHistory.length === 0) {
-                timeHistory.style.display = 'none';
-                return;
-            }
-            
-            timeHistory.style.display = 'block';
-            historyList.innerHTML = '';
-            
-            conversionHistory.forEach(item => {
-                const historyItem = document.createElement('div');
-                historyItem.className = 'history-item';
-                
-                const timeAgo = getTimeAgo(item.timestamp);
-                
-                historyItem.innerHTML = `
-                    <span>${item.input} → ${item.output}</span>
-                    <span style="color: #666; font-size: 0.8rem;">${timeAgo}</span>
-                `;
-                historyList.appendChild(historyItem);
-            });
-        }
-
-        function getTimeAgo(timestamp) {
-            const now = new Date();
-            const diffMs = now - timestamp;
-            const diffMins = Math.floor(diffMs / 60000);
-            
-            if (diffMins < 1) return 'Just now';
-            if (diffMins === 1) return '1 min ago';
-            if (diffMins < 60) return `${diffMins} mins ago`;
-            
-            const diffHours = Math.floor(diffMins / 60);
-            if (diffHours === 1) return '1 hour ago';
-            if (diffHours < 24) return `${diffHours} hours ago`;
-            
-            const diffDays = Math.floor(diffHours / 24);
-            if (diffDays === 1) return '1 day ago';
-            return `${diffDays} days ago`;
-        }
-
-        function formatNumber(num) {
-            if (num === 0) return '0';
-            
-            // For very large or very small numbers, use scientific notation
-            if (Math.abs(num) >= 1e9 || (Math.abs(num) < 1e-6 && num !== 0)) {
-                return num.toExponential(4);
-            }
-            
-            // For regular numbers, format with appropriate decimal places
-            const absNum = Math.abs(num);
-            let decimalPlaces;
-            
-            if (absNum >= 1000) {
-                decimalPlaces = 0;
-            } else if (absNum >= 100) {
-                decimalPlaces = 1;
-            } else if (absNum >= 10) {
-                decimalPlaces = 2;
-            } else if (absNum >= 1) {
-                decimalPlaces = 3;
-            } else if (absNum >= 0.1) {
-                decimalPlaces = 4;
-            } else if (absNum >= 0.01) {
-                decimalPlaces = 5;
-            } else {
-                decimalPlaces = 6;
-            }
-            
-            // Format with commas for thousands
-            return num.toLocaleString('en-US', {
-                minimumFractionDigits: 0,
-                maximumFractionDigits: decimalPlaces
-            });
-        }
-
-        // ========== UTILITY FUNCTIONS ==========
-        function setQuickConversion(fromUnit, toUnit) {
-            document.getElementById('inputUnit').value = fromUnit;
-            document.getElementById('outputUnit').value = toUnit;
-            
-            updateUnitDescription('inputUnit', 'inputUnitDesc');
-            updateUnitDescription('outputUnit', 'outputUnitDesc');
-            
-            convertTime();
-        }
-
-        function swapUnits() {
-            const inputUnit = document.getElementById('inputUnit').value;
-            const outputUnit = document.getElementById('outputUnit').value;
-            
-            document.getElementById('inputUnit').value = outputUnit;
-            document.getElementById('outputUnit').value = inputUnit;
-            
-            updateUnitDescription('inputUnit', 'inputUnitDesc');
-            updateUnitDescription('outputUnit', 'outputUnitDesc');
-            
-            convertTime();
-        }
-
-        function clearAll() {
-            document.getElementById('inputValue').value = '1';
-            document.getElementById('inputUnit').value = 'second';
-            document.getElementById('outputUnit').value = 'minute';
-            
-            updateUnitDescription('inputUnit', 'inputUnitDesc');
-            updateUnitDescription('outputUnit', 'outputUnitDesc');
-            
-            conversionHistory = [];
-            updateHistoryDisplay();
-            
-            convertTime();
-        }
-
-        // ========== EXPORT FUNCTIONS TO GLOBAL SCOPE ==========
-        window.swapUnits = swapUnits;
-        window.clearAll = clearAll;
-        window.convertTime = convertTime;
-        window.showSeoPage = showSeoPage;
-        window.hideSeoPage = hideSeoPage;
-        window.setQuickConversion = setQuickConversion;
-    </script>
+    // Track tool usage for analytics (AdSense compliant)
+    document.querySelectorAll('.convert-btn, .action-btn').forEach(button => {
+      button.addEventListener('click', function(e) {
+        const action = this.textContent.trim();
+        console.log(`Time Converter action: ${action}`);
+        // You can add Google Analytics tracking here
+        // gtag('event', 'tool_action', { 'action_name': action });
+      });
+    });
+  </script>
 </body>
 </html>
