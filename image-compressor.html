@@ -375,11 +375,11 @@
       visibility: visible;
     }
 
-    /* Tool Header - MODIFIED: Reduced top padding to move title higher */
+    /* Tool Header */
     header {
       background: linear-gradient(135deg, #e6f7ff 0%, #f0f9ff 100%);
       color: #1f2933;
-      padding: 80px 20px 40px; /* CHANGED FROM: padding: 120px 20px 60px; */
+      padding: 80px 20px 40px;
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -404,19 +404,19 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 15px; /* CHANGED FROM: 25px */
+      margin-bottom: 15px;
       gap: 15px;
     }
 
     /* Tool-specific header */
     .tool-logo {
       font-size: 4rem;
-      margin-bottom: 10px; /* CHANGED FROM: 15px */
+      margin-bottom: 10px;
       color: var(--primary);
     }
 
     .tool-header h1 {
-      font-size: 3.5rem; /* CHANGED FROM 2.8rem to 3.5rem */
+      font-size: 3.5rem;
       margin-bottom: 15px;
       color: var(--text-color);
       background: linear-gradient(90deg, #4f46e5, #7c3aed, #10b981);
@@ -440,32 +440,6 @@
 
     .dark-theme .tool-header .tagline {
       color: #e5e7eb;
-    }
-
-    /* REMOVED: Tool stats section */
-    .tool-stats {
-      display: none; /* CHANGED FROM: display: flex; */
-    }
-
-    .tool-stat {
-      text-align: center;
-      background: var(--card-bg);
-      padding: 15px 25px;
-      border-radius: 12px;
-      box-shadow: var(--card-shadow);
-      min-width: 150px;
-    }
-
-    .tool-stat-number {
-      font-size: 2rem;
-      font-weight: 800;
-      color: var(--primary);
-      margin-bottom: 5px;
-    }
-
-    .tool-stat-label {
-      font-size: 0.9rem;
-      color: var(--gray);
     }
 
     /* Main Tool Container */
@@ -986,7 +960,7 @@
       color: var(--text-color);
     }
 
-    /* NEW: Tutorial Section (Replaces Stats Bar) */
+    /* NEW: How to Compress Images Online Section */
     .tutorial-section {
       background: var(--card-bg);
       padding: 35px 30px;
@@ -1067,27 +1041,118 @@
       line-height: 1.5;
     }
 
-    /* About Section for EEAT */
-    .about-section {
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 25px;
+    /* Info Grid Section */
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 25px;
+      margin-top: 40px;
+    }
+
+    @media (min-width: 768px) {
+      .info-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .info-card {
       background: var(--card-bg);
+      padding: 25px;
       border-radius: 16px;
       box-shadow: var(--card-shadow);
       border-left: 4px solid var(--primary);
+      transition: all 0.3s ease;
+    }
+
+    .info-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--hover-shadow);
+    }
+
+    .info-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+      color: var(--text-color);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .info-card h3 i {
+      color: var(--primary);
+    }
+
+    .info-card ul {
+      list-style: none;
+      margin-left: 10px;
+    }
+
+    .info-card li {
+      margin-bottom: 10px;
+      color: var(--gray);
+      position: relative;
+      padding-left: 20px;
+    }
+
+    .info-card li:before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--secondary);
+      font-weight: bold;
+    }
+
+    /* About Section */
+    .about-section {
+      background: var(--card-bg);
+      padding: 30px;
+      border-radius: 16px;
+      margin-top: 30px;
+      box-shadow: var(--card-shadow);
+      border-top: 5px solid var(--primary);
     }
 
     .about-section h2 {
-      font-size: 1.5rem;
-      margin-bottom: 15px;
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      color: var(--text-color);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .about-section h2 i {
+      color: var(--primary);
+    }
+
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 25px;
+      margin-top: 20px;
+    }
+
+    @media (min-width: 768px) {
+      .about-content {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .about-item {
+      padding: 20px;
+      background: var(--light-gray);
+      border-radius: 12px;
+    }
+
+    .about-item h3 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
       color: var(--text-color);
     }
 
-    .about-section p {
+    .about-item p {
       color: var(--gray);
-      line-height: 1.7;
-      margin-bottom: 15px;
+      line-height: 1.6;
     }
 
     /* FAQ Section */
@@ -1420,7 +1485,8 @@
       .social-link:hover,
       .theme-toggle:hover,
       .browse-btn:hover,
-      .tutorial-step:hover {
+      .tutorial-step:hover,
+      .info-card:hover {
         transform: none !important;
       }
       
@@ -1484,29 +1550,16 @@
     /* Mobile Responsive */
     @media (max-width: 768px) {
       header {
-        padding: 60px 20px 30px; /* CHANGED FROM: 100px 20px 40px */
+        padding: 60px 20px 30px;
         margin-top: 70px;
       }
       
       .tool-header h1 {
-        font-size: 2.8rem; /* CHANGED FROM 2.2rem to 2.8rem */
+        font-size: 2.8rem;
       }
       
       .tool-header .tagline {
         font-size: 1.2rem;
-      }
-      
-      .tool-stats {
-        gap: 15px;
-      }
-      
-      .tool-stat {
-        min-width: 120px;
-        padding: 12px 15px;
-      }
-      
-      .tool-stat-number {
-        font-size: 1.5rem;
       }
       
       .tool-card-section {
@@ -1536,6 +1589,14 @@
       .faq-answer {
         padding-right: 20px;
       }
+      
+      .info-card {
+        padding: 20px;
+      }
+      
+      .about-section {
+        padding: 20px;
+      }
     }
 
     /* Large Desktop Styles */
@@ -1545,7 +1606,7 @@
       }
       
       .tool-header h1 {
-        font-size: 4rem; /* CHANGED FROM 3.2rem to 4rem */
+        font-size: 4rem;
       }
     }
   </style>
@@ -1636,10 +1697,8 @@
           </div>
         </div>
         
-        <h1>Image Compressor</h1>
-        <p class="tagline">Reduce image file sizes by up to 80% without losing quality. Compress JPG, PNG, GIF, and WebP images for free.</p>
-        
-        <!-- REMOVED: Tool stats section -->
+        <h1>Image Compressor Online</h1>
+        <p class="tagline">Large image files can slow down websites, take more storage, and become difficult to share. Our image compressor helps you reduce image size without losing quality, making your images faster to upload, download, and share. This tool works directly in your browser and requires no registration.</p>
       </div>
     </div>
   </header>
@@ -1660,7 +1719,7 @@
           <i class="fas fa-folder-open"></i> Browse Files
         </button>
         <p style="margin-top: 15px; font-size: 0.9rem; color: var(--gray);">
-          Supports JPG, PNG, GIF, WebP (Max 20 images, 10MB each)
+          Supports JPG, PNG, WebP (Max 20 images, 10MB each)
         </p>
         <input type="file" id="fileInput" multiple accept="image/*" style="display: none;">
       </div>
@@ -1706,7 +1765,7 @@
         <div class="control-group">
           <h3><i class="fas fa-prescription-bottle"></i> Quick Presets</h3>
           <div class="presets-grid">
-            <div class="preset-btn" data-quality="20" data-size="5"> <!-- CHANGED: High compression to 5KB -->
+            <div class="preset-btn" data-quality="20" data-size="5">
               <i class="fas fa-rocket"></i> High Compression
             </div>
             <div class="preset-btn active" data-quality="80" data-size="500">
@@ -1758,122 +1817,184 @@
       </div>
     </div>
 
-    <!-- NEW: How to Compress Images Tutorial Section (Replaces Stats Bar) -->
+    <!-- How to Compress Images Online Section -->
     <div class="tutorial-section" id="tutorialSection">
-      <h2><i class="fas fa-graduation-cap"></i> How to Compress Images</h2>
+      <h2><i class="fas fa-graduation-cap"></i> How to Compress Images Online</h2>
+      <p style="color: var(--gray); margin-bottom: 25px; font-size: 1.1rem;">Using our image compression tool is simple and beginner-friendly. Follow these 4 easy steps:</p>
       <div class="tutorial-steps">
         <div class="tutorial-step">
           <div class="step-number">1</div>
           <div class="step-content">
-            <h3>Upload Your Images</h3>
-            <p>Drag and drop your images into the upload area or click "Browse Files" to select them from your device.</p>
+            <h3>Upload Your Image</h3>
+            <p>Upload your image in JPG, PNG, or WebP format. You can drag and drop or click to select from your device.</p>
           </div>
         </div>
         
         <div class="tutorial-step">
           <div class="step-number">2</div>
           <div class="step-content">
-            <h3>Adjust Compression Settings</h3>
-            <p>Use the quality slider or choose a preset to set your desired compression level and maximum file size.</p>
+            <h3>Choose Compression Level</h3>
+            <p>Adjust the quality slider or select a preset to set your desired compression level and file size.</p>
           </div>
         </div>
         
         <div class="tutorial-step">
           <div class="step-number">3</div>
           <div class="step-content">
-            <h3>Compress Images</h3>
-            <p>Click "Compress All Images" to start the compression process. Watch as your images are optimized.</p>
+            <h3>Click Compress Button</h3>
+            <p>Click the "Compress All Images" button to start the compression process. Your images are processed locally in your browser.</p>
           </div>
         </div>
         
         <div class="tutorial-step">
           <div class="step-number">4</div>
           <div class="step-content">
-            <h3>Download Optimized Images</h3>
-            <p>Download individual compressed images or use "Download All" to save all your optimized files at once.</p>
+            <h3>Download Optimized Image</h3>
+            <p>Download your compressed image instantly. Save it to your device with reduced file size and maintained quality.</p>
           </div>
         </div>
       </div>
+      <p style="text-align: center; margin-top: 25px; color: var(--gray); font-style: italic;">No technical skills are required, and the entire process happens securely in your browser.</p>
     </div>
 
-    <!-- EEAT About Section -->
+    <!-- Why Image Compression Is Important -->
+    <div class="info-grid">
+      <div class="info-card">
+        <h3><i class="fas fa-bolt"></i> Why Image Compression Is Important</h3>
+        <p style="margin-bottom: 15px; color: var(--gray);">Image compression helps improve performance and usability in many ways:</p>
+        <ul>
+          <li>Faster website loading speed</li>
+          <li>Reduced bandwidth usage</li>
+          <li>Smaller file sizes for emails and uploads</li>
+          <li>Better SEO performance</li>
+          <li>Improved user experience on mobile devices</li>
+        </ul>
+        <p style="margin-top: 15px; color: var(--gray); font-size: 0.9rem;">Search engines prefer fast-loading pages, and compressed images play a big role in that.</p>
+      </div>
+      
+      <div class="info-card">
+        <h3><i class="fas fa-images"></i> Supported Image Formats</h3>
+        <p style="margin-bottom: 15px; color: var(--gray);">Our image compressor supports popular image formats, including:</p>
+        <ul>
+          <li>JPG / JPEG</li>
+          <li>PNG</li>
+          <li>WebP</li>
+        </ul>
+        <p style="margin-top: 15px; color: var(--gray); font-size: 0.9rem;">You can compress high-quality images while maintaining visual clarity and transparency when needed.</p>
+      </div>
+    </div>
+
+    <!-- About Section -->
     <div class="about-section" id="about">
-      <h2>About This Image Compressor Tool</h2>
-      <p>Our Image Compressor is built by web performance experts who understand the importance of fast-loading websites. We've developed this tool specifically to help developers, designers, and content creators optimize their images without sacrificing quality.</p>
-      <p>Unlike other online compressors, our tool processes everything locally in your browser. This means:</p>
-      <ul style="margin-left: 20px; margin-bottom: 15px; color: var(--gray);">
-        <li>Your images never leave your device</li>
-        <li>No file size limits or watermarks</li>
-        <li>Complete privacy and security</li>
-        <li>Instant processing without waiting for uploads</li>
-      </ul>
-      <p>The tool uses advanced compression algorithms that intelligently reduce file sizes while maintaining visual quality. Perfect for optimizing images for websites, email campaigns, social media, and storage savings.</p>
+      <h2><i class="fas fa-info-circle"></i> About This Tool</h2>
+      <div class="about-content">
+        <div class="about-item">
+          <h3><i class="fas fa-shield-alt"></i> Safe & Secure Image Compression</h3>
+          <p>Your privacy matters. Images uploaded to this tool are processed automatically in your browser and are not stored permanently on our servers. Once compression is complete, your files are removed automatically from memory.</p>
+        </div>
+        
+        <div class="about-item">
+          <h3><i class="fas fa-mobile-alt"></i> Works on All Devices</h3>
+          <p>This image compression tool is fully responsive and works smoothly on mobile phones, tablets, laptops, and desktop computers. You can compress images anytime, anywhere with an internet connection.</p>
+        </div>
+        
+        <div class="about-item">
+          <h3><i class="fas fa-users"></i> Who Can Use This Tool?</h3>
+          <p>This tool is useful for bloggers, content creators, website owners, developers, students submitting assignments, designers optimizing images, social media users, and anyone who wants smaller image sizes without quality loss.</p>
+        </div>
+        
+        <div class="about-item">
+          <h3><i class="fas fa-star"></i> Benefits of Using Our Image Compressor</h3>
+          <p>100% free to use, no login or signup required, fast and lightweight, beginner-friendly interface, high-quality compression, and works directly in your browser without uploading to servers.</p>
+        </div>
+      </div>
     </div>
 
     <!-- FAQ Section -->
     <div class="faq-section" id="faq">
-      <h2>Frequently Asked Questions</h2>
+      <h2>Frequently Asked Questions (FAQs)</h2>
       <div class="faq-container">
         <div class="faq-item">
           <div class="faq-question">
-            <span>Is the Image Compressor really free to use?</span>
+            <span>Is this image compressor free?</span>
             <i class="fas fa-chevron-down"></i>
           </div>
           <div class="faq-answer">
-            <p>Yes, absolutely! Our Image Compressor is 100% free with no hidden costs, watermarks, or limitations. You can compress as many images as you need without any restrictions. We believe in providing valuable tools to help everyone improve their digital content.</p>
+            <p>Yes, this image compressor is completely free to use with no hidden charges. You can compress unlimited images without any registration or payment.</p>
           </div>
         </div>
         
         <div class="faq-item">
           <div class="faq-question">
-            <span>Are my images safe and private?</span>
+            <span>Can I compress images without losing quality?</span>
             <i class="fas fa-chevron-down"></i>
           </div>
           <div class="faq-answer">
-            <p>Your privacy is our top priority. All image processing happens locally in your browser using JavaScript. Your images never leave your device or get uploaded to any server. This ensures complete privacy and security - we don't store, share, or access any of your files.</p>
+            <p>Yes, the tool is designed to reduce file size while maintaining image quality. You can adjust the compression level to find the perfect balance between file size and visual quality.</p>
           </div>
         </div>
         
         <div class="faq-item">
           <div class="faq-question">
-            <span>What image formats do you support?</span>
+            <span>Are my images stored on your server?</span>
             <i class="fas fa-chevron-down"></i>
           </div>
           <div class="faq-answer">
-            <p>We support all popular image formats including JPG, PNG, GIF, WebP, BMP, and TIFF. The compressed images are typically saved as JPG for optimal compression rates, but you can also maintain the original format in some cases.</p>
+            <p>No. Images are processed securely in your browser and deleted automatically after compression. We don't store any of your images on our servers.</p>
           </div>
         </div>
         
         <div class="faq-item">
           <div class="faq-question">
-            <span>How much can I compress my images?</span>
+            <span>Which image formats are supported?</span>
             <i class="fas fa-chevron-down"></i>
           </div>
           <div class="faq-answer">
-            <p>Compression depends on the original image quality and format. Typically, you can reduce file size by 50-80% without noticeable quality loss. The exact amount varies by image - high-quality photos compress better than graphics with solid colors. Use the quality slider to find the perfect balance for your needs.</p>
+            <p>You can compress JPG, PNG, and WebP image formats. Most standard image files from cameras, phones, and screenshots are supported.</p>
           </div>
         </div>
         
         <div class="faq-item">
           <div class="faq-question">
-            <span>Can I compress multiple images at once?</span>
+            <span>Does this tool work on mobile devices?</span>
             <i class="fas fa-chevron-down"></i>
           </div>
           <div class="faq-answer">
-            <p>Yes! You can upload and compress up to 20 images simultaneously. Our batch processing feature saves you time when working with multiple images. Each image is processed individually with your selected settings, and you can download them all together or individually.</p>
+            <p>Yes, the image compressor works perfectly on mobile, tablet, and desktop devices. The interface is fully responsive and optimized for touch screens.</p>
           </div>
         </div>
         
         <div class="faq-item">
           <div class="faq-question">
-            <span>Will compression affect image quality?</span>
+            <span>Is there a limit on image size?</span>
             <i class="fas fa-chevron-down"></i>
           </div>
           <div class="faq-answer">
-            <p>Our compression algorithm is designed to reduce file size while maintaining visual quality. At higher compression levels (80-100%), the quality loss is usually imperceptible to the human eye. We recommend using the preview feature to check results before downloading.</p>
+            <p>You can compress most standard image sizes without any issues. We recommend images under 10MB for optimal performance, but the tool can handle larger files as well.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Do I need to install any software?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>No installation is required. Everything works online in your browser. Just visit our website and start compressing images immediately.</p>
           </div>
         </div>
       </div>
+    </div>
+
+    <!-- Conclusion -->
+    <div class="tool-card-section" style="background: linear-gradient(135deg, rgba(79, 70, 229, 0.05), rgba(16, 185, 129, 0.05)); border-left: 5px solid var(--primary);">
+      <h2><i class="fas fa-check-circle"></i> Conclusion</h2>
+      <p style="color: var(--text-color); font-size: 1.1rem; line-height: 1.7; margin-bottom: 15px;">
+        If you're looking for a fast, secure, and easy way to reduce image size, this image compressor online is the perfect solution. It helps optimize images for websites, emails, and social media while keeping quality intact.
+      </p>
+      <p style="color: var(--gray); font-size: 1rem; line-height: 1.6;">
+        Whether you are a blogger, student, designer, or website owner, you can compress images online in seconds using this free tool. Start optimizing your images today for faster websites, easier sharing, and better digital experiences.
+      </p>
     </div>
 
     <!-- Related Tools Section -->
@@ -2104,7 +2225,6 @@
     const fileList = document.getElementById('fileList');
     const imagesContainer = document.getElementById('imagesContainer');
     const emptyState = document.getElementById('emptyState');
-    const tutorialSection = document.getElementById('tutorialSection');
     
     // Control elements
     const qualitySlider = document.getElementById('qualitySlider');
@@ -2120,7 +2240,6 @@
     
     // Data storage
     let images = [];
-    let compressedImages = [];
     
     // Event Listeners
     browseBtn.addEventListener('click', () => fileInput.click());
@@ -2175,9 +2294,6 @@
     downloadAllBtn.addEventListener('click', downloadAllImages);
     deleteAllBtn.addEventListener('click', deleteAllImages);
     
-    // Initialize
-    updateStats();
-    
     // Functions
     function handleFiles(files) {
       const fileArray = Array.from(files).slice(0, 20); // Limit to 20 files
@@ -2215,7 +2331,6 @@
           images.push(imageData);
           updateFileList();
           updateImageCards();
-          updateStats();
         };
         reader.readAsDataURL(file);
       });
@@ -2333,7 +2448,6 @@
           
           hideLoading(index);
           updateImageCards();
-          updateStats();
         });
       }, 300);
     }
@@ -2365,7 +2479,6 @@
             
             if (processed === images.length) {
               updateImageCards();
-              updateStats();
               alert(`Successfully compressed ${images.length} images! You can now download them.`);
             }
           });
@@ -2557,7 +2670,6 @@
       images.splice(index, 1);
       updateFileList();
       updateImageCards();
-      updateStats();
     }
     
     function deleteAllImages() {
@@ -2568,16 +2680,9 @@
       
       if (confirm(`Are you sure you want to delete all ${images.length} images?`)) {
         images = [];
-        compressedImages = [];
         updateFileList();
         updateImageCards();
-        updateStats();
       }
-    }
-    
-    function updateStats() {
-      // This function is kept for compatibility but doesn't update anything now
-      // The tutorial section is always visible
     }
     
     function formatFileSize(bytes) {
