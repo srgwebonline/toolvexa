@@ -697,22 +697,12 @@
       transition: transform 0.3s ease;
     }
 
-    .faq-item.active .faq-question i {
-      transform: rotate(45deg);
-    }
-
     .faq-answer {
-      padding: 0 25px;
-      max-height: 0;
-      overflow: hidden;
-      transition: all 0.4s ease;
-      color: var(--gray);
-      line-height: 1.7;
-    }
-
-    .faq-item.active .faq-answer {
       padding: 0 25px 25px;
       max-height: 500px;
+      overflow: hidden;
+      color: var(--gray);
+      line-height: 1.7;
     }
 
     .faq-answer p {
@@ -1592,7 +1582,7 @@
     @media (min-width: 1024px) {
       .nav-links {
         display: flex;
-        gap: 30px;
+        gap: 25px;
         list-style: none;
       }
 
@@ -1602,6 +1592,8 @@
         font-weight: 500;
         transition: color var(--transition-speed) ease;
         position: relative;
+        font-size: 0.95rem;
+        padding: 8px 0;
       }
 
       .nav-links a:hover {
@@ -1621,6 +1613,20 @@
 
       .nav-links a:hover::after {
         width: 100%;
+      }
+
+      /* Style for the search icon in desktop nav */
+      .nav-search-icon {
+        display: flex;
+        align-items: center;
+        color: var(--text-color);
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: color var(--transition-speed) ease;
+      }
+
+      .nav-search-icon:hover {
+        color: var(--primary);
       }
 
       .mobile-menu-btn {
@@ -1782,10 +1788,17 @@
       <ul class="nav-links">
         <li><a href="#home">Home</a></li>
         <li><a href="#tools">Tools</a></li>
-        <li><a href="about.html">About</a></li>
+        <li><a href="#image-tools">Image</a></li>
+        <li><a href="#pdf-tools">PDF</a></li>
+        <li><a href="#seo-tools">SEO</a></li>
+        <li><a href="#ai-tools">AI</a></li>
         <li><a href="#blog">Blog</a></li>
-        <li><a href="sitemap.html">Sitemap</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <!-- Search Icon -->
+        <li>
+          <a href="#search" class="nav-search-icon" id="desktopSearchBtn">
+            <i class="fas fa-search"></i>
+          </a>
+        </li>
       </ul>
       
       <div style="display: flex; align-items: center;">
@@ -1817,10 +1830,12 @@
     
     <ul class="sidebar-links">
       <li><a href="#home" class="active"><i class="fas fa-home"></i> Home</a></li>
-      <li><a href="#tools"><i class="fas fa-tools"></i> All Tools</a></li>
-      <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+      <li><a href="#tools"><i class="fas fa-tools"></i> Tools</a></li>
+      <li><a href="#image-tools"><i class="fas fa-image"></i> Image</a></li>
+      <li><a href="#pdf-tools"><i class="fas fa-file-pdf"></i> PDF</a></li>
+      <li><a href="#seo-tools"><i class="fas fa-search"></i> SEO</a></li>
+      <li><a href="#ai-tools"><i class="fas fa-robot"></i> AI</a></li>
       <li><a href="#blog"><i class="fas fa-blog"></i> Blog</a></li>
-      <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
       <li>
         <a href="#" id="sidebarThemeToggle">
           <i class="fas fa-moon"></i> Dark Mode
@@ -1834,11 +1849,11 @@
     <div class="sidebar-tool-categories">
       <h4>Quick Tools Access</h4>
       <ul class="sidebar-tools-list">
-        <li><a href="#image-tools"><i class="fas fa-image"></i> Image Tools</a></li>
-        <li><a href="#pdf-tools"><i class="fas fa-file-pdf"></i> PDF Tools</a></li>
-        <li><a href="#seo-tools"><i class="fas fa-search"></i> SEO Tools</a></li>
-        <li><a href="#calculators"><i class="fas fa-calculator"></i> Calculators</a></li>
-        <li><a href="#ai-tools"><i class="fas fa-robot"></i> AI Tools</a></li>
+        <li><a href="#image-tools"><i class="fas fa-exchange-alt"></i> Image Converter</a></li>
+        <li><a href="#pdf-tools"><i class="fas fa-file-word"></i> PDF to Word</a></li>
+        <li><a href="#seo-tools"><i class="fas fa-key"></i> Keyword Research</a></li>
+        <li><a href="#calculators"><i class="fas fa-rupee-sign"></i> GST Calculator</a></li>
+        <li><a href="#ai-tools"><i class="fas fa-pen-fancy"></i> AI Content Writer</a></li>
       </ul>
     </div>
   </div>
@@ -2452,10 +2467,11 @@
     <p class="section-subtitle">Find answers to common questions about Toolsedito and our online tools</p>
     
     <div class="faq-container">
+      <!-- FAQ 1 -->
       <div class="faq-item">
         <div class="faq-question">
           <span>Is Toolsedito completely free to use?</span>
-          <i class="fas fa-plus"></i>
+          <i class="fas fa-minus"></i>
         </div>
         <div class="faq-answer">
           <p>Yes, Toolsedito is 100% free to use with no hidden charges, subscriptions, or premium tiers. All 50+ tools are available at no cost, and we don't require registration or sign-up to access any features. We believe in providing valuable tools without barriers.</p>
@@ -2465,10 +2481,11 @@
         </div>
       </div>
       
+      <!-- FAQ 2 -->
       <div class="faq-item">
         <div class="faq-question">
           <span>How does Toolsedito protect my privacy and data?</span>
-          <i class="fas fa-plus"></i>
+          <i class="fas fa-minus"></i>
         </div>
         <div class="faq-answer">
           <p>Toolsedito implements a strict privacy-first approach:</p>
@@ -2482,10 +2499,11 @@
         </div>
       </div>
       
+      <!-- FAQ 3 -->
       <div class="faq-item">
         <div class="faq-question">
           <span>What file formats are supported by your tools?</span>
-          <i class="fas fa-plus"></i>
+          <i class="fas fa-minus"></i>
         </div>
         <div class="faq-answer">
           <p>Toolsedito supports a wide range of file formats across different tool categories:</p>
@@ -2499,10 +2517,11 @@
         </div>
       </div>
       
+      <!-- FAQ 4 -->
       <div class="faq-item">
         <div class="faq-question">
           <span>Are there any usage limits or file size restrictions?</span>
-          <i class="fas fa-plus"></i>
+          <i class="fas fa-minus"></i>
         </div>
         <div class="faq-answer">
           <p>We maintain reasonable limits to ensure platform stability for all users:</p>
@@ -2516,10 +2535,11 @@
         </div>
       </div>
       
+      <!-- FAQ 5 -->
       <div class="faq-item">
         <div class="faq-question">
           <span>How accurate are your calculators and conversion tools?</span>
-          <i class="fas fa-plus"></i>
+          <i class="fas fa-minus"></i>
         </div>
         <div class="faq-answer">
           <p>All Toolsedito calculators and conversion tools are rigorously tested for accuracy:</p>
@@ -2533,10 +2553,11 @@
         </div>
       </div>
       
+      <!-- FAQ 6 -->
       <div class="faq-item">
         <div class="faq-question">
           <span>Can I use Toolsedito on mobile devices?</span>
-          <i class="fas fa-plus"></i>
+          <i class="fas fa-minus"></i>
         </div>
         <div class="faq-answer">
           <p>Absolutely! Toolsedito is fully responsive and optimized for all devices:</p>
@@ -2547,40 +2568,6 @@
             <li><strong>Browsers:</strong> Compatible with Chrome, Firefox, Safari, Edge, and Opera</li>
           </ul>
           <p>Our mobile interface simplifies complex tools for touchscreen use without sacrificing functionality.</p>
-        </div>
-      </div>
-      
-      <div class="faq-item">
-        <div class="faq-question">
-          <span>How often are new tools added to Toolsedito?</span>
-          <i class="fas fa-plus"></i>
-        </div>
-        <div class="faq-answer">
-          <p>We continuously expand our tool collection based on:</p>
-          <ul>
-            <li><strong>User Requests:</strong> We prioritize tools requested by our community</li>
-            <li><strong>Technology Trends:</strong> Adding tools for emerging needs (AI, new file formats)</li>
-            <li><strong>Monthly Updates:</strong> Typically 1-3 new tools added each month</li>
-            <li><strong>Existing Tool Improvements:</strong> Regular updates to existing tools based on feedback</li>
-          </ul>
-          <p>You can suggest new tools through our contact page or feedback system within each tool.</p>
-        </div>
-      </div>
-      
-      <div class="faq-item">
-        <div class="faq-question">
-          <span>Do I need to install any software or plugins?</span>
-          <i class="fas fa-plus"></i>
-        </div>
-        <div class="faq-answer">
-          <p>No installation required! Toolsedito works entirely in your web browser:</p>
-          <ul>
-            <li><strong>Zero Downloads:</strong> No software to install or update</li>
-            <li><strong>No Plugins:</strong> Works with standard browser features (no Flash, Java, etc.)</li>
-            <li><strong>Browser-Based:</strong> All processing happens in your browser or our secure cloud</li>
-            <li><strong>Automatic Updates:</strong> You always get the latest version automatically</li>
-          </ul>
-          <p>Some advanced features might require modern browsers, but we support all major browsers released in the last 3 years.</p>
         </div>
       </div>
     </div>
@@ -2681,19 +2668,19 @@
         <ul>
           <li><a href="#home">Home</a></li>
           <li><a href="#tools">All Tools</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="#blog">Blog & Tutorials</a></li>
-          <li><a href="sitemap.html">Sitemap</a></li>
-          <li><a href="contact.html">Contact Support</a></li>
+          <li><a href="#image-tools">Image Tools</a></li>
+          <li><a href="#pdf-tools">PDF Tools</a></li>
+          <li><a href="#seo-tools">SEO Tools</a></li>
+          <li><a href="#ai-tools">AI Tools</a></li>
         </ul>
       </div>
       
       <div class="footer-links">
         <h4>Popular Tool Categories</h4>
         <ul>
-          <li><a href="#image-tools">Image Tools</a></li>
-          <li><a href="#pdf-tools">PDF Tools</a></li>
-          <li><a href="#seo-tools">SEO Tools</a></li>
+          <li><a href="#image-tools">Image Processing</a></li>
+          <li><a href="#pdf-tools">PDF Documents</a></li>
+          <li><a href="#seo-tools">SEO Optimization</a></li>
           <li><a href="#calculators">Calculators</a></li>
           <li><a href="#ai-tools">AI Tools</a></li>
           <li><a href="#text-tools">Text Tools</a></li>
@@ -2708,7 +2695,7 @@
           <li><a href="disclaimer.html">Disclaimer</a></li>
           <li><a href="cookie-policy.html">Cookie Policy</a></li>
           <li><a href="help-centre.html">Help Center</a></li>
-          <li><a href="contact.html">Report an Issue</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
         </ul>
       </div>
     </div>
@@ -2720,7 +2707,7 @@
   </footer>
 
   <script>
-    // FAQ Schema for SEO
+    // FAQ Schema for SEO (updated with 6 questions only)
     const faqSchema = {
       "@context": "https://schema.org",
       "@type": "FAQPage",
@@ -2763,6 +2750,14 @@
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "All Toolsedito calculators use standard formulas verified by professionals, unit converters use international measurement standards, currency converters update daily with real-time rates, and tax calculators are updated for current regulations."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use Toolsedito on mobile devices?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, Toolsedito is fully responsive and optimized for all devices including mobile phones, tablets, and desktop computers. All tools work perfectly on iOS and Android devices with touch-optimized interfaces."
           }
         }
       ]
@@ -2896,29 +2891,23 @@
       observer.observe(el);
     });
     
-    // FAQ Toggle Functionality
-    const faqQuestions = document.querySelectorAll('.faq-question');
+    // Desktop search icon functionality
+    const desktopSearchBtn = document.getElementById('desktopSearchBtn');
+    const searchInput = document.querySelector('.search-input');
     
-    faqQuestions.forEach(question => {
-      question.addEventListener('click', () => {
-        const faqItem = question.parentElement;
-        const isActive = faqItem.classList.contains('active');
-        
-        // Close all FAQ items
-        document.querySelectorAll('.faq-item').forEach(item => {
-          item.classList.remove('active');
+    if (desktopSearchBtn) {
+      desktopSearchBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        // Scroll to search bar
+        document.querySelector('.search-container').scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'center'
         });
-        
-        // If clicked item wasn't active, open it
-        if (!isActive) {
-          faqItem.classList.add('active');
-        }
+        // Focus on search input
+        setTimeout(() => {
+          searchInput.focus();
+        }, 500);
       });
-    });
-    
-    // Open first FAQ by default
-    if (faqQuestions.length > 0) {
-      faqQuestions[0].parentElement.classList.add('active');
     }
     
     // Navbar scroll effect
@@ -2943,7 +2932,7 @@
     // Add active state to sidebar links based on scroll position
     window.addEventListener('scroll', function() {
       const sections = document.querySelectorAll('section, .faq-section');
-      const navLinks = document.querySelectorAll('.sidebar-links a');
+      const navLinks = document.querySelectorAll('.sidebar-links a, .nav-links a');
       
       let current = '';
       sections.forEach(section => {
@@ -2975,7 +2964,6 @@
     themeObserver.observe(body, { attributes: true });
 
     // Search functionality
-    const searchInput = document.querySelector('.search-input');
     const searchButton = document.querySelector('.search-button');
     
     // Create search results dropdown
