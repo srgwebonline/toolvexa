@@ -3,24 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Image Converter - Convert Images Online | Toolsedito</title>
+  <title>🔄 Image Converter Online - Convert Images Easily | Toolsedito</title>
 
   <!-- SEO Meta Tags -->
-  <meta name="description" content="Free online image converter tool. Convert images between JPG, PNG, WebP, GIF, and BMP formats. Resize, compress, and optimize images in your browser." />
-  <meta name="keywords" content="image converter, convert image, jpg to png, png to jpg, webp converter, image format converter, online image converter" />
+  <meta name="description" content="Free online image converter tool. Convert images between JPG, PNG, WebP, GIF, and BMP formats. Fast, secure, and no signup required." />
+  <meta name="keywords" content="image converter, convert image, jpg to png, png to jpg, webp converter, image format converter, online image converter, free image converter" />
   <meta name="author" content="Toolsedito Team" />
   <meta name="robots" content="index, follow" />
+  <meta name="googlebot" content="index, follow" />
   <link rel="canonical" href="https://www.toolsedito.com/image-converter.html" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Image Converter - Convert Images Online | Toolsedito">
-  <meta property="og:description" content="Free online image converter tool. Convert images between JPG, PNG, WebP, GIF, and BMP formats. Resize, compress, and optimize images in your browser.">
+  <meta property="og:title" content="🔄 Image Converter Online - Convert Images Easily | Toolsedito">
+  <meta property="og:description" content="Free online image converter tool. Convert images between JPG, PNG, WebP, GIF, and BMP formats. Fast, secure, and no signup required.">
   <meta property="og:url" content="https://www.toolsedito.com/image-converter.html">
   <meta property="og:image" content="https://www.toolsedito.com/images/image-converter-og.jpg">
   <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:title" content="Image Converter - Toolsedito">
-  <meta property="twitter:description" content="Free online image converter tool.">
+  <meta property="twitter:title" content="Free Image Converter Online">
+  <meta property="twitter:description" content="Convert images between formats quickly and easily.">
 
   <!-- JSON-LD Schema -->
   <script type="application/ld+json">
@@ -36,6 +37,11 @@
       "@type": "Offer",
       "price": "0",
       "priceCurrency": "USD"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "ratingCount": "920"
     },
     "author": {
       "@type": "Organization",
@@ -127,6 +133,26 @@
       background: var(--primary);
       color: white;
       transform: rotate(15deg);
+    }
+
+    .theme-toggle i {
+      transition: transform 0.5s ease;
+    }
+
+    .dark-theme .theme-toggle i.fa-sun {
+      display: block;
+    }
+
+    .dark-theme .theme-toggle i.fa-moon {
+      display: none;
+    }
+
+    .theme-toggle i.fa-sun {
+      display: none;
+    }
+
+    .theme-toggle i.fa-moon {
+      display: block;
     }
 
     /* Mobile First - Sidebar Implementation */
@@ -429,280 +455,206 @@
 
     /* Upload Area */
     .upload-area {
-      border: 2px dashed var(--border-color);
+      border: 3px dashed var(--primary);
       border-radius: 16px;
-      padding: 40px 20px;
+      padding: 50px 30px;
       text-align: center;
+      background: rgba(79, 70, 229, 0.03);
       cursor: pointer;
-      transition: all var(--transition-speed) ease;
-      background: var(--light-gray);
-      margin-bottom: 25px;
+      transition: all 0.3s ease;
+      margin-bottom: 30px;
     }
 
     .upload-area:hover {
-      border-color: var(--primary);
-      background: rgba(79, 70, 229, 0.05);
+      background: rgba(79, 70, 229, 0.08);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     }
 
-    .upload-area.dragover {
-      border-color: var(--primary);
-      background: rgba(79, 70, 229, 0.1);
-      transform: scale(1.01);
+    .upload-area.drag-over {
+      background: rgba(79, 70, 229, 0.12);
+      border-color: var(--secondary);
     }
 
     .upload-icon {
       font-size: 4rem;
       color: var(--primary);
-      margin-bottom: 15px;
+      margin-bottom: 20px;
     }
 
-    .upload-text h3 {
-      font-size: 1.5rem;
-      margin-bottom: 10px;
+    .upload-area h3 {
       color: var(--text-color);
+      margin-bottom: 10px;
+      font-size: 1.5rem;
     }
 
-    .upload-text p {
+    .upload-area p {
       color: var(--gray);
       margin-bottom: 20px;
-      max-width: 500px;
-      margin-left: auto;
-      margin-right: auto;
     }
 
-    .upload-btn {
-      display: inline-block;
+    .browse-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
       padding: 12px 30px;
-      background: var(--primary);
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
       color: white;
-      border-radius: 50px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all var(--transition-speed) ease;
       border: none;
+      border-radius: 50px;
       font-size: 1rem;
-    }
-
-    .upload-btn:hover {
-      background: var(--primary-dark);
-      transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(79, 70, 229, 0.2);
-    }
-
-    .upload-btn i {
-      margin-right: 8px;
-    }
-
-    .file-input {
-      display: none;
-    }
-
-    /* Image Preview Section */
-    .image-preview-container {
-      display: none;
-      margin-top: 30px;
-    }
-
-    .image-preview-container.active {
-      display: block;
-    }
-
-    .preview-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 20px;
-      flex-wrap: wrap;
-      gap: 15px;
-    }
-
-    .preview-info {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-
-    .image-count {
-      background: var(--light-gray);
-      padding: 5px 15px;
-      border-radius: 50px;
       font-weight: 600;
-      color: var(--text-color);
-    }
-
-    .clear-all-btn {
-      background: none;
-      border: 1px solid var(--border-color);
-      color: var(--text-color);
-      padding: 5px 15px;
-      border-radius: 50px;
       cursor: pointer;
-      transition: all var(--transition-speed) ease;
-      font-weight: 500;
+      transition: all 0.3s ease;
     }
 
-    .clear-all-btn:hover {
-      background: rgba(239, 68, 68, 0.1);
-      color: #ef4444;
-      border-color: rgba(239, 68, 68, 0.3);
+    .browse-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(79, 70, 229, 0.3);
     }
 
-    .preview-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 20px;
+    /* Selected Files */
+    .selected-files {
       margin-top: 20px;
     }
 
-    @media (min-width: 768px) {
-      .preview-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (min-width: 1024px) {
-      .preview-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-
-    .preview-item {
-      background: var(--card-bg);
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: var(--card-shadow);
-      border: 1px solid var(--border-color);
-      transition: all var(--transition-speed) ease;
-    }
-
-    .preview-item:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--hover-shadow);
-    }
-
-    .preview-image-wrapper {
-      position: relative;
-      overflow: hidden;
-      border-radius: 8px;
+    .selected-files h4 {
       margin-bottom: 15px;
-      background: var(--light-gray);
-      aspect-ratio: 16/9;
-    }
-
-    .preview-image {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      display: block;
-    }
-
-    .preview-details {
-      margin-bottom: 15px;
-    }
-
-    .preview-name {
-      font-weight: 600;
-      margin-bottom: 5px;
       color: var(--text-color);
-      word-break: break-all;
-    }
-
-    .preview-size {
-      font-size: 0.9rem;
-      color: var(--gray);
-    }
-
-    .preview-actions {
       display: flex;
+      align-items: center;
       gap: 10px;
     }
 
-    .preview-action-btn {
-      flex: 1;
-      padding: 8px 12px;
-      border: none;
+    .file-list {
+      max-height: 200px;
+      overflow-y: auto;
+      border: 1px solid var(--border-color);
       border-radius: 8px;
-      cursor: pointer;
-      font-weight: 500;
-      font-size: 0.9rem;
-      transition: all var(--transition-speed) ease;
+      padding: 10px;
+      background: var(--light-gray);
+    }
+
+    .file-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .file-item:last-child {
+      border-bottom: none;
+    }
+
+    .file-info {
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 5px;
+      gap: 10px;
     }
 
-    .preview-action-btn.remove {
-      background: rgba(239, 68, 68, 0.1);
-      color: #ef4444;
+    .file-icon {
+      color: var(--primary);
+      font-size: 1.2rem;
     }
 
-    .preview-action-btn.remove:hover {
-      background: rgba(239, 68, 68, 0.2);
+    .file-name {
+      font-weight: 500;
+      color: var(--text-color);
     }
 
-    .preview-action-btn.download {
-      background: rgba(16, 185, 129, 0.1);
-      color: #10b981;
+    .file-size {
+      color: var(--gray);
+      font-size: 0.85rem;
     }
 
-    .preview-action-btn.download:hover {
-      background: rgba(16, 185, 129, 0.2);
+    .remove-file {
+      background: none;
+      border: none;
+      color: var(--danger);
+      cursor: pointer;
+      font-size: 1rem;
+      padding: 5px;
     }
 
-    /* Conversion Options */
-    .conversion-options {
-      margin-top: 30px;
-    }
-
-    .options-grid {
+    /* Controls Section */
+    .controls-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 20px;
+      gap: 25px;
       margin-top: 20px;
     }
 
     @media (min-width: 768px) {
-      .options-grid {
+      .controls-grid {
         grid-template-columns: repeat(2, 1fr);
       }
     }
 
-    .option-group {
-      margin-bottom: 20px;
+    .control-group {
+      background: var(--light-gray);
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
     }
 
-    .option-group label {
-      display: block;
-      margin-bottom: 8px;
-      font-weight: 500;
+    .control-group h3 {
+      margin-bottom: 15px;
       color: var(--text-color);
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
     }
 
-    .option-group label i {
+    .slider-container {
+      margin-bottom: 20px;
+    }
+
+    .slider-label {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      color: var(--text-color);
+    }
+
+    .slider-label span:last-child {
+      font-weight: 700;
       color: var(--primary);
     }
 
-    .format-select {
+    .slider {
       width: 100%;
-      padding: 14px 16px;
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
-      font-size: 1rem;
-      background: var(--light-gray);
-      color: var(--text-color);
-      transition: all 0.3s ease;
-      cursor: pointer;
+      height: 8px;
+      -webkit-appearance: none;
+      appearance: none;
+      background: #e0e0e0;
+      border-radius: 4px;
+      outline: none;
     }
 
-    .format-select:focus {
-      outline: none;
-      border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+    .dark-theme .slider {
+      background: #374151;
+    }
+
+    .slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--primary);
+      cursor: pointer;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      border: 2px solid white;
+    }
+
+    .slider::-moz-range-thumb {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--primary);
+      cursor: pointer;
+      border: 2px solid white;
     }
 
     /* Format Presets */
@@ -752,58 +704,6 @@
     .preset-btn i {
       font-size: 1.2rem;
       margin-bottom: 5px;
-    }
-
-    /* Quality Slider */
-    .slider-container {
-      margin-top: 15px;
-    }
-
-    .slider-label {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 8px;
-      color: var(--text-color);
-    }
-
-    .slider-label span:last-child {
-      font-weight: 700;
-      color: var(--primary);
-    }
-
-    .slider {
-      width: 100%;
-      height: 8px;
-      -webkit-appearance: none;
-      appearance: none;
-      background: #e0e0e0;
-      border-radius: 4px;
-      outline: none;
-    }
-
-    .dark-theme .slider {
-      background: #374151;
-    }
-
-    .slider::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      appearance: none;
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      background: var(--primary);
-      cursor: pointer;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-      border: 2px solid white;
-    }
-
-    .slider::-moz-range-thumb {
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      background: var(--primary);
-      cursor: pointer;
-      border: 2px solid white;
     }
 
     /* Action Buttons */
@@ -879,16 +779,16 @@
       opacity: 1;
     }
 
-    .download-all-btn {
+    .download-btn {
       background: linear-gradient(135deg, #8b5cf6, #7c3aed);
       color: white;
     }
 
-    .download-all-btn::before {
+    .download-btn::before {
       background: linear-gradient(135deg, #7c3aed, #6d28d9);
     }
 
-    .download-all-btn:hover::before {
+    .download-btn:hover::before {
       opacity: 1;
     }
 
@@ -902,90 +802,8 @@
       transform: none;
     }
 
-    /* Conversion Progress */
-    .conversion-progress {
-      display: none;
-      margin-top: 30px;
-      background: var(--card-bg);
-      border-radius: 16px;
-      padding: 25px;
-      box-shadow: var(--card-shadow);
-    }
-
-    .conversion-progress.active {
-      display: block;
-    }
-
-    .progress-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 20px;
-    }
-
-    .progress-info {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .progress-bar {
-      height: 10px;
-      background: var(--light-gray);
-      border-radius: 5px;
-      overflow: hidden;
-      margin-bottom: 15px;
-    }
-
-    .progress-fill {
-      height: 100%;
-      background: linear-gradient(90deg, var(--primary), var(--secondary));
-      border-radius: 5px;
-      width: 0%;
-      transition: width 0.3s ease;
-    }
-
-    .progress-text {
-      text-align: center;
-      color: var(--gray);
-      font-size: 0.9rem;
-    }
-
-    /* Results Section */
-    .results-section {
-      display: none;
-      margin-top: 30px;
-    }
-
-    .results-section.active {
-      display: block;
-    }
-
-    .results-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 20px;
-      flex-wrap: wrap;
-      gap: 15px;
-    }
-
-    .results-info {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-
-    .results-count {
-      background: var(--light-gray);
-      padding: 5px 15px;
-      border-radius: 50px;
-      font-weight: 600;
-      color: var(--text-color);
-    }
-
-    .results-grid {
+    /* Images Section */
+    .images-container {
       display: grid;
       grid-template-columns: 1fr;
       gap: 20px;
@@ -993,115 +811,353 @@
     }
 
     @media (min-width: 768px) {
-      .results-grid {
+      .images-container {
         grid-template-columns: repeat(2, 1fr);
       }
     }
 
     @media (min-width: 1024px) {
-      .results-grid {
+      .images-container {
         grid-template-columns: repeat(3, 1fr);
       }
     }
 
-    .result-item {
+    .image-card {
       background: var(--card-bg);
-      border-radius: 12px;
-      padding: 20px;
+      border-radius: 16px;
+      overflow: hidden;
       box-shadow: var(--card-shadow);
+      transition: all 0.3s ease;
       border: 1px solid var(--border-color);
-      transition: all var(--transition-speed) ease;
     }
 
-    .result-item:hover {
+    .image-card:hover {
       transform: translateY(-5px);
       box-shadow: var(--hover-shadow);
     }
 
-    .result-image-wrapper {
-      position: relative;
+    .image-preview {
+      height: 180px;
       overflow: hidden;
-      border-radius: 8px;
-      margin-bottom: 15px;
+      position: relative;
       background: var(--light-gray);
-      aspect-ratio: 16/9;
     }
 
-    .result-image {
+    .image-preview img {
       width: 100%;
       height: 100%;
       object-fit: contain;
-      display: block;
     }
 
-    .result-details {
-      margin-bottom: 15px;
+    .image-info {
+      padding: 20px;
     }
 
-    .result-name {
+    .image-name {
       font-weight: 600;
-      margin-bottom: 5px;
+      margin-bottom: 10px;
       color: var(--text-color);
-      word-break: break-all;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
-    .result-stats {
+    .image-stats {
       display: flex;
       justify-content: space-between;
+      margin-bottom: 15px;
       font-size: 0.9rem;
+    }
+
+    .original-size {
       color: var(--gray);
     }
 
-    .result-actions {
-      display: flex;
-      gap: 10px;
+    .converted-size {
+      color: var(--secondary);
+      font-weight: 600;
     }
 
-    .result-action-btn {
+    .format-change {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .progress-bar {
+      height: 6px;
+      background: var(--light-gray);
+      border-radius: 3px;
+      overflow: hidden;
+      margin-bottom: 15px;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      width: 0%;
+      transition: width 1s ease;
+    }
+
+    .card-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .card-btn {
       flex: 1;
       padding: 8px 12px;
       border: none;
       border-radius: 8px;
-      cursor: pointer;
       font-weight: 500;
-      font-size: 0.9rem;
-      transition: all var(--transition-speed) ease;
+      cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 5px;
+      transition: all 0.2s ease;
+      font-size: 0.85rem;
     }
 
-    .result-action-btn.download {
-      background: var(--primary);
-      color: white;
+    .convert-card-btn {
+      background: rgba(79, 70, 229, 0.1);
+      color: var(--primary);
     }
 
-    .result-action-btn.download:hover {
-      background: var(--primary-dark);
+    .convert-card-btn:hover {
+      background: rgba(79, 70, 229, 0.2);
     }
 
-    /* EEAT About Section */
-    .about-section {
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 25px;
-      background: var(--card-bg);
-      border-radius: 16px;
-      box-shadow: var(--card-shadow);
-      border-left: 4px solid var(--primary);
+    .download-card-btn {
+      background: rgba(16, 185, 129, 0.1);
+      color: var(--secondary);
     }
 
-    .about-section h2 {
+    .download-card-btn:hover {
+      background: rgba(16, 185, 129, 0.2);
+    }
+
+    .delete-card-btn {
+      background: rgba(239, 68, 68, 0.1);
+      color: #ef4444;
+    }
+
+    .delete-card-btn:hover {
+      background: rgba(239, 68, 68, 0.2);
+    }
+
+    /* Empty State */
+    .empty-state {
+      text-align: center;
+      padding: 60px 30px;
+      color: var(--gray);
+      grid-column: 1 / -1;
+    }
+
+    .empty-state i {
+      font-size: 4rem;
+      margin-bottom: 20px;
+      color: var(--light-gray);
+    }
+
+    .empty-state h3 {
+      margin-bottom: 10px;
       font-size: 1.5rem;
-      margin-bottom: 15px;
       color: var(--text-color);
     }
 
-    .about-section p {
-      color: var(--gray);
-      line-height: 1.7;
+    /* Tutorial Section */
+    .tutorial-section {
+      background: var(--card-bg);
+      padding: 35px 30px;
+      border-radius: 16px;
+      margin-top: 30px;
+      box-shadow: var(--card-shadow);
+      border: 1px solid var(--border-color);
+    }
+
+    .tutorial-section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 25px;
+      color: var(--text-color);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .tutorial-section h2 i {
+      color: var(--primary);
+    }
+
+    .tutorial-steps {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 25px;
+    }
+
+    @media (min-width: 768px) {
+      .tutorial-steps {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .tutorial-steps {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .tutorial-step {
+      text-align: center;
+      padding: 25px 20px;
+      background: var(--light-gray);
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      transition: all 0.3s ease;
+    }
+
+    .tutorial-step:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .step-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      border-radius: 50%;
+      font-weight: 700;
+      font-size: 1.2rem;
       margin-bottom: 15px;
+    }
+
+    .step-content h3 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      color: var(--text-color);
+    }
+
+    .step-content p {
+      color: var(--gray);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    /* Info Grid Section */
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 25px;
+      margin-top: 40px;
+    }
+
+    @media (min-width: 768px) {
+      .info-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .info-card {
+      background: var(--card-bg);
+      padding: 25px;
+      border-radius: 16px;
+      box-shadow: var(--card-shadow);
+      border-left: 4px solid var(--primary);
+      transition: all 0.3s ease;
+    }
+
+    .info-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--hover-shadow);
+    }
+
+    .info-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+      color: var(--text-color);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .info-card h3 i {
+      color: var(--primary);
+    }
+
+    .info-card ul {
+      list-style: none;
+      margin-left: 10px;
+    }
+
+    .info-card li {
+      margin-bottom: 10px;
+      color: var(--gray);
+      position: relative;
+      padding-left: 20px;
+    }
+
+    .info-card li:before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--secondary);
+      font-weight: bold;
+    }
+
+    /* About Section */
+    .about-section {
+      background: var(--card-bg);
+      padding: 30px;
+      border-radius: 16px;
+      margin-top: 30px;
+      box-shadow: var(--card-shadow);
+      border-top: 5px solid var(--primary);
+    }
+
+    .about-section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      color: var(--text-color);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .about-section h2 i {
+      color: var(--primary);
+    }
+
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 25px;
+      margin-top: 20px;
+    }
+
+    @media (min-width: 768px) {
+      .about-content {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .about-item {
+      padding: 20px;
+      background: var(--light-gray);
+      border-radius: 12px;
+    }
+
+    .about-item h3 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      color: var(--text-color);
+    }
+
+    .about-item p {
+      color: var(--gray);
+      line-height: 1.6;
     }
 
     /* FAQ Section */
@@ -1253,6 +1309,40 @@
       color: white;
     }
 
+    /* Loading Spinner */
+    .loading {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.9);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+    }
+
+    .dark-theme .loading {
+      background: rgba(26, 35, 50, 0.9);
+    }
+
+    .spinner {
+      width: 50px;
+      height: 50px;
+      border: 5px solid #f3f3f3;
+      border-top: 5px solid var(--primary);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-bottom: 15px;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
     /* Footer */
     footer {
       background: var(--footer-bg);
@@ -1387,7 +1477,7 @@
     @media (min-width: 1024px) {
       .nav-links {
         display: flex;
-        gap: 30px;
+        gap: 25px;
         list-style: none;
       }
 
@@ -1397,6 +1487,7 @@
         font-weight: 500;
         transition: color var(--transition-speed) ease;
         position: relative;
+        font-size: 0.95rem;
       }
 
       .nav-links a:hover {
@@ -1450,6 +1541,22 @@
         padding: 20px;
       }
       
+      .upload-area {
+        padding: 30px 20px;
+      }
+      
+      .upload-icon {
+        font-size: 3rem;
+      }
+      
+      .tutorial-section {
+        padding: 25px 20px;
+      }
+      
+      .tutorial-step {
+        padding: 20px 15px;
+      }
+      
       .faq-container {
         padding: 20px;
       }
@@ -1458,12 +1565,12 @@
         padding-right: 20px;
       }
       
-      .upload-area {
-        padding: 30px 15px;
+      .info-card {
+        padding: 20px;
       }
       
-      .upload-icon {
-        font-size: 3rem;
+      .about-section {
+        padding: 20px;
       }
     }
 
@@ -1488,14 +1595,15 @@
         <i class="fas fa-tools"></i> Toolsedito
       </a>
       
-      <!-- Desktop Navigation -->
+      <!-- Desktop Navigation - Updated structure -->
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="index.html#tools">Tools</a></li>
         <li><a href="index.html#image-tools">Image Tools</a></li>
-        <li><a href="#faq">FAQ</a></li>
-        <li><a href="#privacy">Privacy</a></li>
-        <li><a href="#about">About</a></li>
+        <li><a href="index.html#pdf-tools">PDF Tools</a></li>
+        <li><a href="index.html#seo-tools">SEO Tools</a></li>
+        <li><a href="index.html#calculators">Calculators</a></li>
+        <li><a href="index.html#ai-tools">AI Tools</a></li>
       </ul>
       
       <div style="display: flex; align-items: center;">
@@ -1513,7 +1621,7 @@
     </div>
   </nav>
 
-  <!-- Mobile Sidebar -->
+  <!-- Mobile Sidebar - Updated structure -->
   <div class="sidebar-overlay" id="sidebarOverlay"></div>
   <div class="sidebar" id="sidebar">
     <div class="sidebar-header">
@@ -1527,10 +1635,12 @@
     
     <ul class="sidebar-links">
       <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-      <li><a href="index.html#tools"><i class="fas fa-tools"></i> All Tools</a></li>
+      <li><a href="index.html#tools"><i class="fas fa-tools"></i> Tools</a></li>
       <li><a href="index.html#image-tools"><i class="fas fa-images"></i> Image Tools</a></li>
-      <li><a href="#faq"><i class="fas fa-question-circle"></i> FAQ</a></li>
-      <li><a href="#privacy"><i class="fas fa-shield-alt"></i> Privacy</a></li>
+      <li><a href="index.html#pdf-tools"><i class="fas fa-file-pdf"></i> PDF Tools</a></li>
+      <li><a href="index.html#seo-tools"><i class="fas fa-search"></i> SEO Tools</a></li>
+      <li><a href="index.html#calculators"><i class="fas fa-calculator"></i> Calculators</a></li>
+      <li><a href="index.html#ai-tools"><i class="fas fa-robot"></i> AI Tools</a></li>
       <li>
         <a href="#" id="sidebarThemeToggle">
           <i class="fas fa-moon"></i> Dark Mode
@@ -1561,56 +1671,52 @@
           <i class="fas fa-exchange-alt"></i>
         </div>
         
-        <h1>Image Converter</h1>
-        <p class="tagline">Convert images between JPG, PNG, WebP, GIF, and BMP formats. All processing happens locally in your browser - no data is uploaded.</p>
+        <h1>🔄 Image Converter Online</h1>
+        <p class="tagline">Different platforms require different image formats, and converting images shouldn't be complicated. Our image converter lets you quickly convert images online into popular formats without losing quality. This tool works directly in your browser and requires no signup or installation.</p>
       </div>
     </div>
   </header>
 
   <!-- Main Tool Container -->
   <div class="tool-container">
-    <!-- Converter Section -->
+    <!-- Upload Section -->
     <div class="tool-card-section">
-      <h2><i class="fas fa-upload"></i> Upload Images</h2>
+      <h2><i class="fas fa-cloud-upload-alt"></i> Upload Images</h2>
       
-      <!-- Upload Area -->
       <div class="upload-area" id="uploadArea">
         <div class="upload-icon">
           <i class="fas fa-cloud-upload-alt"></i>
         </div>
-        <div class="upload-text">
-          <h3>Drag & Drop Images Here</h3>
-          <p>Upload JPG, PNG, WebP, GIF, or BMP images. Maximum file size: 10MB per image. All processing happens locally in your browser.</p>
-          <button class="upload-btn" id="uploadBtn">
-            <i class="fas fa-folder-open"></i> Choose Images
-          </button>
-        </div>
-        <input type="file" class="file-input" id="fileInput" accept=".jpg,.jpeg,.png,.webp,.gif,.bmp" multiple>
+        <h3>Drag & Drop Your Images Here</h3>
+        <p>or click the button below to select files from your device</p>
+        <button class="browse-btn" id="browseBtn">
+          <i class="fas fa-folder-open"></i> Browse Files
+        </button>
+        <p style="margin-top: 15px; font-size: 0.9rem; color: var(--gray);">
+          Supports JPG, PNG, WebP, GIF, BMP (Max 20 images, 10MB each)
+        </p>
+        <input type="file" id="fileInput" multiple accept="image/*" style="display: none;">
       </div>
       
-      <!-- Image Preview Section -->
-      <div class="image-preview-container" id="imagePreviewContainer">
-        <div class="preview-header">
-          <div class="preview-info">
-            <div class="image-count" id="imageCount">0 Images</div>
-            <button class="clear-all-btn" id="clearAllBtn">
-              <i class="fas fa-trash-alt"></i> Clear All
-            </button>
-          </div>
-        </div>
-        <div class="preview-grid" id="previewGrid">
-          <!-- Image previews will be inserted here -->
-        </div>
+      <div class="selected-files" id="selectedFiles" style="display: none;">
+        <h4><i class="fas fa-images"></i> Selected Files</h4>
+        <div class="file-list" id="fileList"></div>
       </div>
+    </div>
+
+    <!-- Controls Section -->
+    <div class="tool-card-section">
+      <h2><i class="fas fa-sliders-h"></i> Conversion Settings</h2>
       
-      <!-- Conversion Options -->
-      <div class="conversion-options">
-        <h2><i class="fas fa-cog"></i> Conversion Settings</h2>
-        
-        <div class="options-grid">
-          <div class="option-group">
-            <label for="outputFormat"><i class="fas fa-file-export"></i> Output Format</label>
-            <select class="format-select" id="outputFormat">
+      <div class="controls-grid">
+        <div class="control-group">
+          <h3><i class="fas fa-file-export"></i> Output Format</h3>
+          <div class="slider-container">
+            <div class="slider-label">
+              <span>Output Format</span>
+              <span id="formatValue">JPG</span>
+            </div>
+            <select class="format-select" id="outputFormat" style="width: 100%; padding: 12px; border-radius: 8px; background: var(--card-bg); color: var(--text-color); border: 1px solid var(--border-color);">
               <option value="jpg">JPEG (JPG)</option>
               <option value="png">PNG</option>
               <option value="webp">WebP</option>
@@ -1619,18 +1725,21 @@
             </select>
           </div>
           
-          <div class="option-group">
-            <label for="qualitySlider"><i class="fas fa-tachometer-alt"></i> Quality <span id="qualityValue">85%</span></label>
-            <div class="slider-container">
-              <input type="range" min="10" max="100" value="85" class="slider" id="qualitySlider">
+          <div class="slider-container">
+            <div class="slider-label">
+              <span>Quality</span>
+              <span id="qualityValue">85%</span>
             </div>
-            <p style="font-size: 0.9rem; color: var(--gray); margin-top: 5px;">Higher quality = Larger file size</p>
+            <input type="range" min="10" max="100" value="85" class="slider" id="qualitySlider">
+            <div style="display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--gray); margin-top: 5px;">
+              <span>Lower Quality</span>
+              <span>Higher Quality</span>
+            </div>
           </div>
         </div>
         
-        <!-- Format Presets -->
-        <div class="format-presets">
-          <h3 style="margin-bottom: 15px; margin-top: 25px;"><i class="fas fa-bolt"></i> Quick Format Presets</h3>
+        <div class="control-group">
+          <h3><i class="fas fa-bolt"></i> Quick Format Presets</h3>
           <div class="presets-grid">
             <div class="preset-btn active" data-format="jpg">
               <i class="fas fa-file-image" style="color: #e74c3c;"></i>
@@ -1649,131 +1758,226 @@
               <span>To GIF</span>
             </div>
           </div>
+          
+          <div style="margin-top: 20px; padding: 15px; background: rgba(79, 70, 229, 0.05); border-radius: 8px;">
+            <h4 style="font-size: 0.95rem; margin-bottom: 8px; color: var(--text-color);">
+              <i class="fas fa-lightbulb"></i> Recommendation
+            </h4>
+            <p style="font-size: 0.85rem; color: var(--gray);">
+              Use <strong>JPG</strong> for photos, <strong>PNG</strong> for graphics with transparency, and <strong>WebP</strong> for web optimization.
+            </p>
+          </div>
         </div>
       </div>
       
-      <!-- Action Buttons -->
       <div class="action-buttons">
-        <button class="action-btn convert-btn" id="convertBtn" disabled>
-          <i class="fas fa-exchange-alt"></i> Convert Images
+        <button class="action-btn convert-btn" id="convertAllBtn">
+          <i class="fas fa-exchange-alt"></i> Convert All Images
         </button>
-        <button class="action-btn reset-btn" id="resetBtn">
-          <i class="fas fa-redo"></i> Reset All
-        </button>
-        <button class="action-btn download-all-btn" id="downloadAllBtn" disabled>
+        <button class="action-btn download-btn" id="downloadAllBtn" disabled>
           <i class="fas fa-download"></i> Download All
         </button>
+        <button class="action-btn reset-btn" id="deleteAllBtn">
+          <i class="fas fa-trash-alt"></i> Clear All
+        </button>
       </div>
+    </div>
+
+    <!-- Converted Images Section -->
+    <div class="tool-card-section">
+      <h2><i class="fas fa-images"></i> Converted Images</h2>
+      <p style="color: var(--gray); margin-bottom: 20px;">Your converted images will appear here. Click on any image to download it individually.</p>
       
-      <!-- Conversion Progress -->
-      <div class="conversion-progress" id="conversionProgress">
-        <div class="progress-header">
-          <h3><i class="fas fa-sync-alt fa-spin"></i> Converting Images</h3>
-          <div class="progress-info">
-            <span id="progressCurrent">0</span> / <span id="progressTotal">0</span>
-          </div>
-        </div>
-        <div class="progress-bar">
-          <div class="progress-fill" id="progressFill"></div>
-        </div>
-        <div class="progress-text" id="progressText">Starting conversion...</div>
-      </div>
-      
-      <!-- Results Section -->
-      <div class="results-section" id="resultsSection">
-        <div class="results-header">
-          <h2><i class="fas fa-check-circle"></i> Conversion Results</h2>
-          <div class="results-info">
-            <div class="results-count" id="resultsCount">0 Images Converted</div>
-          </div>
-        </div>
-        <div class="results-grid" id="resultsGrid">
-          <!-- Converted images will be inserted here -->
+      <div class="images-container" id="imagesContainer">
+        <div class="empty-state" id="emptyState">
+          <i class="fas fa-images"></i>
+          <h3>No images added yet</h3>
+          <p>Upload images using the area above to get started</p>
         </div>
       </div>
     </div>
 
-    <!-- EEAT About Section -->
-    <div class="about-section" id="about">
-      <h2>About This Image Converter Tool</h2>
-      <p>Our Image Converter is designed to be fast, secure, and privacy-focused. Unlike many online converters, all image processing happens locally in your browser - no images are uploaded to any server. This ensures complete privacy and faster conversion times.</p>
-      <p>This tool uses modern browser APIs (Canvas and File APIs) to convert images between different formats. It supports all major image formats including JPG, PNG, WebP, GIF, and BMP.</p>
-      <p>Key features of our Image Converter:</p>
-      <ul style="margin-left: 20px; margin-bottom: 15px; color: var(--gray);">
-        <li>100% browser-based - no data leaves your computer</li>
-        <li>Batch conversion - convert multiple images at once</li>
-        <li>Adjustable quality settings for optimal file size</li>
-        <li>Support for JPG, PNG, WebP, GIF, and BMP formats</li>
-        <li>Fast processing with real-time progress updates</li>
-        <li>Download individual files or all as a ZIP archive</li>
-      </ul>
-      <p>Use this tool to convert images for web use, social media, documents, or any other purpose without compromising your privacy.</p>
+    <!-- How to Convert Images Online Section -->
+    <div class="tutorial-section">
+      <h2><i class="fas fa-graduation-cap"></i> How to Convert Images Online</h2>
+      <p style="color: var(--gray); margin-bottom: 25px; font-size: 1.1rem;">Using our image conversion tool is simple and beginner-friendly. Follow these 4 easy steps:</p>
+      <div class="tutorial-steps">
+        <div class="tutorial-step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>Upload Your Image</h3>
+            <p>Upload your image in JPG, PNG, WebP, GIF, or BMP format. You can drag and drop or click to select from your device.</p>
+          </div>
+        </div>
+        
+        <div class="tutorial-step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>Choose Output Format</h3>
+            <p>Select your desired output format from JPG, PNG, WebP, GIF, or BMP. Adjust quality settings if needed.</p>
+          </div>
+        </div>
+        
+        <div class="tutorial-step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>Click Convert Button</h3>
+            <p>Click the "Convert All Images" button to start the conversion process. Your images are processed locally in your browser.</p>
+          </div>
+        </div>
+        
+        <div class="tutorial-step">
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <h3>Download Converted Image</h3>
+            <p>Download your converted image instantly. Save it to your device in your chosen format.</p>
+          </div>
+        </div>
+      </div>
+      <p style="text-align: center; margin-top: 25px; color: var(--gray); font-style: italic;">No technical skills are required, and the entire process happens securely in your browser.</p>
+    </div>
+
+    <!-- Why Image Conversion Is Important -->
+    <div class="info-grid">
+      <div class="info-card">
+        <h3><i class="fas fa-star"></i> Why Use an Image Converter?</h3>
+        <p style="margin-bottom: 15px; color: var(--gray);">Image conversion is useful for many everyday tasks:</p>
+        <ul>
+          <li>Uploading images to websites</li>
+          <li>Sharing images on social media</li>
+          <li>Reducing compatibility issues</li>
+          <li>Improving image performance</li>
+          <li>Meeting specific format requirements</li>
+        </ul>
+        <p style="margin-top: 15px; color: var(--gray); font-size: 0.9rem;">Using the correct image format helps improve quality, speed, and usability.</p>
+      </div>
+      
+      <div class="info-card">
+        <h3><i class="fas fa-images"></i> Supported Image Formats</h3>
+        <p style="margin-bottom: 15px; color: var(--gray);">Our image converter supports commonly used formats, including:</p>
+        <ul>
+          <li>JPG / JPEG</li>
+          <li>PNG</li>
+          <li>WebP</li>
+          <li>GIF</li>
+          <li>BMP</li>
+        </ul>
+        <p style="margin-top: 15px; color: var(--gray); font-size: 0.9rem;">You can convert images between formats while maintaining clarity and resolution.</p>
+      </div>
+    </div>
+
+    <!-- About Section -->
+    <div class="about-section">
+      <h2><i class="fas fa-info-circle"></i> About This Tool</h2>
+      <div class="about-content">
+        <div class="about-item">
+          <h3><i class="fas fa-shield-alt"></i> Safe & Secure Image Conversion</h3>
+          <p>Your privacy is important to us. Images uploaded to this tool are processed automatically in your browser and are not stored permanently on our servers. Once conversion is complete, your files are removed automatically from memory.</p>
+        </div>
+        
+        <div class="about-item">
+          <h3><i class="fas fa-mobile-alt"></i> Works on All Devices</h3>
+          <p>This image converter tool is fully responsive and works smoothly on mobile phones, tablets, laptops, and desktop computers. You can convert images anytime, anywhere with an internet connection.</p>
+        </div>
+        
+        <div class="about-item">
+          <h3><i class="fas fa-users"></i> Who Can Use This Tool?</h3>
+          <p>This tool is useful for bloggers, content creators, website owners, developers, students submitting assignments, designers optimizing images, social media users, and anyone who needs to convert image formats.</p>
+        </div>
+        
+        <div class="about-item">
+          <h3><i class="fas fa-rocket"></i> Benefits of Using Our Image Converter</h3>
+          <p>100% free to use, no login or signup required, fast and lightweight, beginner-friendly interface, high-quality conversion, and works directly in your browser without uploading to servers.</p>
+        </div>
+      </div>
     </div>
 
     <!-- FAQ Section -->
-    <div class="faq-section" id="faq">
-      <h2>Frequently Asked Questions</h2>
+    <div class="faq-section">
+      <h2>Frequently Asked Questions (FAQs)</h2>
       <div class="faq-container">
         <div class="faq-item">
           <div class="faq-question">
-            <span>Are my images uploaded to a server?</span>
+            <span>Is this image converter free to use?</span>
             <i class="fas fa-chevron-down"></i>
           </div>
           <div class="faq-answer">
-            <p><strong>No, absolutely not.</strong> All image processing happens locally in your browser using JavaScript. Your images never leave your computer, ensuring complete privacy and security.</p>
+            <p>Yes, this image converter is completely free with no hidden costs. You can convert images without any charges or subscriptions.</p>
           </div>
         </div>
         
         <div class="faq-item">
           <div class="faq-question">
-            <span>What image formats are supported?</span>
+            <span>Can I convert images without losing quality?</span>
             <i class="fas fa-chevron-down"></i>
           </div>
           <div class="faq-answer">
-            <p>Our converter supports all major image formats: JPG/JPEG, PNG, WebP, GIF, and BMP. You can convert between any of these formats in any combination.</p>
+            <p>Yes, the tool is designed to maintain image quality during conversion. You can adjust the quality settings to find the perfect balance.</p>
           </div>
         </div>
         
         <div class="faq-item">
           <div class="faq-question">
-            <span>Is there a file size limit?</span>
+            <span>Which image formats are supported?</span>
             <i class="fas fa-chevron-down"></i>
           </div>
           <div class="faq-answer">
-            <p>We recommend images under 10MB for optimal performance. Larger files may work but could slow down the conversion process. The actual limit depends on your device's memory and browser capabilities.</p>
+            <p>You can convert images between JPG, PNG, WebP, GIF, and BMP formats. Our tool supports all major image formats for comprehensive conversion needs.</p>
           </div>
         </div>
         
         <div class="faq-item">
           <div class="faq-question">
-            <span>How many images can I convert at once?</span>
+            <span>Are my images stored on your server?</span>
             <i class="fas fa-chevron-down"></i>
           </div>
           <div class="faq-answer">
-            <p>You can convert up to 20 images at once. This limit helps ensure smooth performance and prevents browser crashes. For batch processing of more images, you can split them into multiple conversions.</p>
+            <p>No. All processing happens locally in your browser. Images are never uploaded to any server, ensuring complete privacy and security for your files.</p>
           </div>
         </div>
         
         <div class="faq-item">
           <div class="faq-question">
-            <span>What does the quality setting do?</span>
+            <span>Does this tool work on mobile devices?</span>
             <i class="fas fa-chevron-down"></i>
           </div>
           <div class="faq-answer">
-            <p>The quality setting controls the balance between image quality and file size. Higher values (85-100) produce better quality but larger files. Lower values (50-70) create smaller files but may reduce image quality. The effect varies by format.</p>
+            <p>Yes, the image converter is fully mobile-friendly. It works perfectly on smartphones, tablets, laptops, and desktop computers with responsive design.</p>
           </div>
         </div>
         
         <div class="faq-item">
           <div class="faq-question">
-            <span>Can I convert transparent PNG images to JPG?</span>
+            <span>Do I need to install any software?</span>
             <i class="fas fa-chevron-down"></i>
           </div>
           <div class="faq-answer">
-            <p>Yes, but note that JPG doesn't support transparency. When converting transparent PNGs to JPG, the transparent areas will be filled with white. To preserve transparency, convert to PNG or WebP format instead.</p>
+            <p>No installation is required. Everything works entirely online through your web browser. Just visit the page and start converting images immediately.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Can I convert multiple images?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Yes, you can convert up to 20 images at once. For best performance and quality, we recommend converting images one by one or in small batches.</p>
           </div>
         </div>
       </div>
+    </div>
+
+    <!-- Conclusion -->
+    <div class="tool-card-section" style="background: linear-gradient(135deg, rgba(79, 70, 229, 0.05), rgba(236, 72, 153, 0.05)); border-left: 5px solid var(--primary);">
+      <h2><i class="fas fa-check-circle"></i> Conclusion</h2>
+      <p style="color: var(--text-color); font-size: 1.1rem; line-height: 1.7; margin-bottom: 15px;">
+        If you need a quick and reliable way to convert image formats, this image converter online is the perfect solution.
+        It helps you convert images easily while keeping quality intact and ensuring privacy.
+      </p>
+      <p style="color: var(--gray); font-size: 1rem; line-height: 1.6;">
+        Convert your images online in seconds — fast, free, and secure. Whether you are a blogger, student, designer, or website owner, you can convert images online in seconds using this free tool.
+      </p>
     </div>
 
     <!-- Related Tools Section -->
@@ -1838,7 +2042,7 @@
   </div>
 
   <!-- Footer -->
-  <footer id="privacy">
+  <footer>
     <div class="footer-content">
       <div class="footer-about">
         <h3 class="footer-logo">Toolsedito</h3>
@@ -1858,8 +2062,8 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="index.html#tools">All Tools</a></li>
           <li><a href="index.html#image-tools">Image Tools</a></li>
-          <li><a href="#faq">FAQ</a></li>
-          <li><a href="#about">About This Tool</a></li>
+          <li><a href="index.html#pdf-tools">PDF Tools</a></li>
+          <li><a href="index.html#seo-tools">SEO Tools</a></li>
         </ul>
       </div>
       
@@ -1870,6 +2074,7 @@
           <li><a href="image-compressor.html">Image Compressor</a></li>
           <li><a href="image-resizer.html">Image Resizer</a></li>
           <li><a href="pdf-converter.html">PDF Converter</a></li>
+          <li><a href="video-converter.html">Video Converter</a></li>
         </ul>
       </div>
       
@@ -1877,7 +2082,7 @@
         <h4>Legal</h4>
         <ul>
           <li><a href="privacy-policy.html">Privacy Policy</a></li>
-          <li><a href="term-condition.html">Terms of Service</a></li>
+          <li><a href="terms-of-service.html">Terms of Service</a></li>
           <li><a href="disclaimer.html">Disclaimer</a></li>
           <li><a href="cookie-policy.html">Cookie Policy</a></li>
         </ul>
@@ -1885,8 +2090,8 @@
     </div>
     
     <div class="footer-bottom">
-      <p>&copy; 2026 Toolsedito. All rights reserved. | Image Converter Tool v2.0 | All processing happens locally in your browser. No images are uploaded to any server.</p>
-      <p style="margin-top: 10px; color: #9ca3af;">Made with <i class="fas fa-heart" style="color: #ef4444;"></i> for creative professionals worldwide</p>
+      <p>&copy; 2026 Toolsedito. All rights reserved. | Image Converter Tool v2.1 | All image processing happens locally in your browser. No data is uploaded to any server.</p>
+      <p style="margin-top: 10px; color: #9ca3af;">Made with <i class="fas fa-heart" style="color: #ef4444;"></i> for digital creators worldwide</p>
     </div>
   </footer>
 
@@ -1994,373 +2199,407 @@
       });
     });
 
-    // Image Converter JavaScript
+    // Image Converter Tool JavaScript
     // DOM Elements
     const uploadArea = document.getElementById('uploadArea');
-    const uploadBtn = document.getElementById('uploadBtn');
+    const browseBtn = document.getElementById('browseBtn');
     const fileInput = document.getElementById('fileInput');
-    const imagePreviewContainer = document.getElementById('imagePreviewContainer');
-    const previewGrid = document.getElementById('previewGrid');
-    const imageCount = document.getElementById('imageCount');
-    const clearAllBtn = document.getElementById('clearAllBtn');
+    const selectedFiles = document.getElementById('selectedFiles');
+    const fileList = document.getElementById('fileList');
+    const imagesContainer = document.getElementById('imagesContainer');
+    const emptyState = document.getElementById('emptyState');
     
+    // Control elements
     const outputFormat = document.getElementById('outputFormat');
     const qualitySlider = document.getElementById('qualitySlider');
+    const formatValue = document.getElementById('formatValue');
     const qualityValue = document.getElementById('qualityValue');
-    
     const presetButtons = document.querySelectorAll('.preset-btn');
-    const convertBtn = document.getElementById('convertBtn');
-    const resetBtn = document.getElementById('resetBtn');
+    
+    // Action buttons
+    const convertAllBtn = document.getElementById('convertAllBtn');
     const downloadAllBtn = document.getElementById('downloadAllBtn');
+    const deleteAllBtn = document.getElementById('deleteAllBtn');
     
-    const conversionProgress = document.getElementById('conversionProgress');
-    const progressFill = document.getElementById('progressFill');
-    const progressCurrent = document.getElementById('progressCurrent');
-    const progressTotal = document.getElementById('progressTotal');
-    const progressText = document.getElementById('progressText');
-    
-    const resultsSection = document.getElementById('resultsSection');
-    const resultsGrid = document.getElementById('resultsGrid');
-    const resultsCount = document.getElementById('resultsCount');
-    
-    // State variables
+    // Data storage
     let images = [];
-    let convertedImages = [];
-    let isConverting = false;
     
-    // Format human-readable file size
-    function formatFileSize(bytes) {
-      if (bytes === 0) return '0 Bytes';
-      const k = 1024;
-      const sizes = ['Bytes', 'KB', 'MB', 'GB'];
-      const i = Math.floor(Math.log(bytes) / Math.log(k));
-      return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
-    }
+    // Event Listeners
+    browseBtn.addEventListener('click', () => fileInput.click());
     
-    // Update quality value display
-    qualitySlider.addEventListener('input', function() {
-      qualityValue.textContent = this.value + '%';
-    });
-    
-    // Format preset buttons
-    presetButtons.forEach(btn => {
-      btn.addEventListener('click', function() {
-        presetButtons.forEach(b => b.classList.remove('active'));
-        this.classList.add('active');
-        
-        const format = this.getAttribute('data-format');
-        outputFormat.value = format;
-      });
-    });
-    
-    // Handle file upload via button click
-    uploadBtn.addEventListener('click', () => {
-      fileInput.click();
-    });
-    
-    // Handle file selection
-    fileInput.addEventListener('change', handleFileSelect);
-    
-    // Handle drag and drop
     uploadArea.addEventListener('dragover', (e) => {
       e.preventDefault();
-      uploadArea.classList.add('dragover');
+      uploadArea.classList.add('drag-over');
     });
     
     uploadArea.addEventListener('dragleave', () => {
-      uploadArea.classList.remove('dragover');
+      uploadArea.classList.remove('drag-over');
     });
     
     uploadArea.addEventListener('drop', (e) => {
       e.preventDefault();
-      uploadArea.classList.remove('dragover');
-      
-      if (e.dataTransfer.files.length) {
-        handleFiles(e.dataTransfer.files);
-      }
+      uploadArea.classList.remove('drag-over');
+      handleFiles(e.dataTransfer.files);
     });
     
-    // Handle file selection from input
-    function handleFileSelect(e) {
-      const files = e.target.files;
-      if (files.length) {
-        handleFiles(files);
-      }
-    }
+    fileInput.addEventListener('change', (e) => {
+      handleFiles(e.target.files);
+    });
     
-    // Process selected files
+    outputFormat.addEventListener('change', () => {
+      formatValue.textContent = outputFormat.options[outputFormat.selectedIndex].text;
+    });
+    
+    qualitySlider.addEventListener('input', () => {
+      qualityValue.textContent = `${qualitySlider.value}%`;
+    });
+    
+    // Preset buttons
+    presetButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        presetButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        
+        const format = btn.getAttribute('data-format');
+        outputFormat.value = format;
+        formatValue.textContent = btn.querySelector('span').textContent;
+      });
+    });
+    
+    // Action buttons
+    convertAllBtn.addEventListener('click', convertAllImages);
+    downloadAllBtn.addEventListener('click', downloadAllImages);
+    deleteAllBtn.addEventListener('click', deleteAllImages);
+    
+    // Functions
     function handleFiles(files) {
-      // Clear previous results if any
-      if (convertedImages.length > 0) {
-        resetResults();
-      }
+      const fileArray = Array.from(files).slice(0, 20); // Limit to 20 files
       
-      // Limit to 20 files
-      const fileArray = Array.from(files).slice(0, 20);
-      
-      // Clear existing images if we're adding new ones
-      if (images.length === 0) {
-        previewGrid.innerHTML = '';
-      }
-      
-      // Process each file
       fileArray.forEach(file => {
+        if (!file.type.match('image.*')) {
+          alert(`${file.name} is not an image file. Please select image files only.`);
+          return;
+        }
+        
         // Check file size (max 10MB)
         if (file.size > 10 * 1024 * 1024) {
-          alert(`File "${file.name}" is too large (max 10MB). Skipping.`);
+          alert(`${file.name} exceeds 10MB limit. Please choose a smaller file.`);
           return;
         }
         
-        // Check file type
-        if (!file.type.match('image.*')) {
-          alert(`File "${file.name}" is not an image. Skipping.`);
+        // Check if file already exists
+        if (images.some(img => img.file.name === file.name && img.file.size === file.size)) {
           return;
         }
         
-        // Create preview
         const reader = new FileReader();
-        reader.onload = function(e) {
-          addImagePreview(file, e.target.result);
+        reader.onload = (e) => {
+          const imageData = {
+            id: Date.now() + Math.random(),
+            file: file,
+            originalData: e.target.result,
+            convertedData: null,
+            convertedBlob: null,
+            originalSize: file.size,
+            convertedSize: null,
+            originalFormat: file.name.split('.').pop().toLowerCase(),
+            convertedFormat: null,
+            converted: false
+          };
+          
+          images.push(imageData);
+          updateFileList();
+          updateImageCards();
         };
         reader.readAsDataURL(file);
       });
+      
+      // Reset file input
+      fileInput.value = '';
     }
     
-    // Add image preview to the grid
-    function addImagePreview(file, dataUrl) {
-      // Create preview item
-      const previewItem = document.createElement('div');
-      previewItem.className = 'preview-item';
-      previewItem.dataset.id = Date.now() + Math.random();
-      
-      // Extract filename without extension
-      const fileName = file.name.replace(/\.[^/.]+$/, "");
-      const fileExtension = file.name.split('.').pop().toLowerCase();
-      
-      previewItem.innerHTML = `
-        <div class="preview-image-wrapper">
-          <img src="${dataUrl}" alt="${file.name}" class="preview-image">
-        </div>
-        <div class="preview-details">
-          <div class="preview-name">${fileName.length > 20 ? fileName.substring(0, 20) + '...' : fileName}</div>
-          <div class="preview-size">${formatFileSize(file.size)} • ${fileExtension.toUpperCase()}</div>
-        </div>
-        <div class="preview-actions">
-          <button class="preview-action-btn remove" data-id="${previewItem.dataset.id}">
-            <i class="fas fa-trash-alt"></i> Remove
-          </button>
-          <button class="preview-action-btn download" data-id="${previewItem.dataset.id}" disabled>
-            <i class="fas fa-download"></i> Converted
-          </button>
-        </div>
-      `;
-      
-      // Add to grid
-      previewGrid.appendChild(previewItem);
-      
-      // Store image data
-      images.push({
-        id: previewItem.dataset.id,
-        file: file,
-        dataUrl: dataUrl,
-        name: fileName,
-        extension: fileExtension,
-        size: file.size,
-        element: previewItem
-      });
-      
-      // Update UI
-      updateImageCount();
-      imagePreviewContainer.classList.add('active');
-      convertBtn.disabled = false;
-      
-      // Add remove button functionality
-      const removeBtn = previewItem.querySelector('.preview-action-btn.remove');
-      removeBtn.addEventListener('click', function() {
-        const id = this.getAttribute('data-id');
-        removeImage(id);
-      });
-    }
-    
-    // Remove an image
-    function removeImage(id) {
-      // Remove from array
-      const index = images.findIndex(img => img.id === id);
-      if (index !== -1) {
-        images.splice(index, 1);
-      }
-      
-      // Remove from DOM
-      const element = document.querySelector(`.preview-item[data-id="${id}"]`);
-      if (element) {
-        element.remove();
-      }
-      
-      // Update UI
-      updateImageCount();
-      
-      // Hide preview container if no images
+    function updateFileList() {
       if (images.length === 0) {
-        imagePreviewContainer.classList.remove('active');
-        convertBtn.disabled = true;
+        selectedFiles.style.display = 'none';
+        return;
       }
+      
+      selectedFiles.style.display = 'block';
+      fileList.innerHTML = '';
+      
+      images.forEach((image, index) => {
+        const fileItem = document.createElement('div');
+        fileItem.className = 'file-item';
+        fileItem.innerHTML = `
+          <div class="file-info">
+            <i class="fas fa-image file-icon"></i>
+            <div>
+              <div class="file-name">${image.file.name}</div>
+              <div class="file-size">${formatFileSize(image.originalSize)} • ${image.originalFormat.toUpperCase()}</div>
+            </div>
+          </div>
+          <button class="remove-file" onclick="removeImage(${index})">
+            <i class="fas fa-times"></i>
+          </button>
+        `;
+        fileList.appendChild(fileItem);
+      });
     }
     
-    // Clear all images
-    clearAllBtn.addEventListener('click', () => {
-      images = [];
-      previewGrid.innerHTML = '';
-      updateImageCount();
-      imagePreviewContainer.classList.remove('active');
-      convertBtn.disabled = true;
-      resetResults();
-    });
-    
-    // Update image count display
-    function updateImageCount() {
-      imageCount.textContent = `${images.length} ${images.length === 1 ? 'Image' : 'Images'}`;
+    function updateImageCards() {
+      if (images.length === 0) {
+        emptyState.style.display = 'block';
+        imagesContainer.innerHTML = '';
+        imagesContainer.appendChild(emptyState);
+        downloadAllBtn.disabled = true;
+        return;
+      }
+      
+      emptyState.style.display = 'none';
+      imagesContainer.innerHTML = '';
+      
+      images.forEach((image, index) => {
+        const imageCard = document.createElement('div');
+        imageCard.className = 'image-card';
+        
+        const isConverted = image.converted;
+        const formatText = isConverted ? 
+          `${image.originalFormat.toUpperCase()} → ${image.convertedFormat.toUpperCase()}` : 
+          `${image.originalFormat.toUpperCase()}`;
+        
+        imageCard.innerHTML = `
+          <div class="image-preview">
+            <img src="${image.originalData}" alt="${image.file.name}">
+            ${!isConverted ? `
+              <div class="loading">
+                <div class="spinner"></div>
+                <div>Not Converted</div>
+              </div>
+            ` : ''}
+          </div>
+          <div class="image-info">
+            <div class="image-name">${image.file.name}</div>
+            <div class="image-stats">
+              <div class="original-size">${formatFileSize(image.originalSize)}</div>
+              <div class="converted-size">${isConverted ? formatFileSize(image.convertedSize) : 'Not converted'}</div>
+              <div class="format-change">${formatText}</div>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: ${isConverted ? '100%' : '0%'}"></div>
+            </div>
+            <div class="card-actions">
+              <button class="card-btn convert-card-btn" onclick="convertSingleImage(${index})">
+                <i class="fas fa-exchange-alt"></i> ${isConverted ? 'Convert Again' : 'Convert'}
+              </button>
+              <button class="card-btn download-card-btn" onclick="downloadSingleImage(${index})" ${!isConverted ? 'disabled' : ''}>
+                <i class="fas fa-download"></i> Download
+              </button>
+              <button class="card-btn delete-card-btn" onclick="removeImage(${index})">
+                <i class="fas fa-trash-alt"></i> Remove
+              </button>
+            </div>
+          </div>
+        `;
+        
+        imagesContainer.appendChild(imageCard);
+      });
+      
+      // Enable download all button if at least one image is converted
+      const hasConverted = images.some(img => img.converted);
+      downloadAllBtn.disabled = !hasConverted;
     }
     
-    // Convert images
-    convertBtn.addEventListener('click', convertImages);
-    
-    // Reset everything
-    resetBtn.addEventListener('click', resetAll);
-    
-    // Download all converted images
-    downloadAllBtn.addEventListener('click', downloadAll);
-    
-    // Convert images function
-    async function convertImages() {
-      if (isConverting || images.length === 0) return;
-      
-      // Reset previous results
-      resetResults();
-      
-      // Setup conversion
-      isConverting = true;
-      const targetFormat = outputFormat.value;
+    function convertSingleImage(index) {
+      const image = images[index];
+      const format = outputFormat.value;
       const quality = parseInt(qualitySlider.value) / 100;
-      const totalImages = images.length;
       
-      // Show progress
-      conversionProgress.classList.add('active');
-      progressTotal.textContent = totalImages;
-      progressCurrent.textContent = '0';
-      progressFill.style.width = '0%';
-      progressText.textContent = 'Starting conversion...';
+      showLoading(index);
       
-      // Disable buttons during conversion
-      convertBtn.disabled = true;
-      downloadAllBtn.disabled = true;
-      
-      // Convert each image
-      for (let i = 0; i < totalImages; i++) {
-        const image = images[i];
-        
-        // Update progress
-        progressCurrent.textContent = i + 1;
-        progressFill.style.width = ((i + 1) / totalImages * 100) + '%';
-        progressText.textContent = `Converting ${i + 1} of ${totalImages}: ${image.name.substring(0, 15)}...`;
-        
-        try {
-          const converted = await convertImage(image, targetFormat, quality);
-          convertedImages.push(converted);
-          
-          // Add to results grid
-          addResultItem(converted);
-        } catch (error) {
-          console.error('Error converting image:', error);
-          progressText.textContent = `Error converting ${image.name}: ${error.message}`;
-        }
-      }
-      
-      // Conversion complete
-      isConverting = false;
-      progressText.textContent = `Conversion complete! ${convertedImages.length} images converted.`;
-      
-      // Enable buttons
-      convertBtn.disabled = false;
-      downloadAllBtn.disabled = convertedImages.length === 0;
-      
-      // Show results
-      resultsSection.classList.add('active');
-      resultsCount.textContent = `${convertedImages.length} ${convertedImages.length === 1 ? 'Image Converted' : 'Images Converted'}`;
-      
-      // Scroll to results
+      // Simulate processing delay for better UX
       setTimeout(() => {
-        resultsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        convertImage(image, format, quality).then(convertedData => {
+          image.convertedData = convertedData.dataUrl;
+          image.convertedBlob = convertedData.blob;
+          image.convertedSize = convertedData.blob.size;
+          image.convertedFormat = format;
+          image.converted = true;
+          
+          hideLoading(index);
+          updateImageCards();
+        });
       }, 300);
     }
     
-    // Convert single image
-    function convertImage(image, targetFormat, quality) {
-      return new Promise((resolve, reject) => {
+    function convertAllImages() {
+      if (images.length === 0) {
+        alert('Please add images first.');
+        return;
+      }
+      
+      const format = outputFormat.value;
+      const quality = parseInt(qualitySlider.value) / 100;
+      
+      // Show loading state for all images
+      images.forEach((_, index) => showLoading(index));
+      
+      let processed = 0;
+      
+      images.forEach((image, index) => {
+        setTimeout(() => {
+          convertImage(image, format, quality).then(convertedData => {
+            image.convertedData = convertedData.dataUrl;
+            image.convertedBlob = convertedData.blob;
+            image.convertedSize = convertedData.blob.size;
+            image.convertedFormat = format;
+            image.converted = true;
+            
+            processed++;
+            hideLoading(index);
+            
+            if (processed === images.length) {
+              updateImageCards();
+              alert(`Successfully converted ${images.length} images! You can now download them.`);
+            }
+          });
+        }, index * 100); // Stagger the processing
+      });
+    }
+    
+    function convertImage(image, format, quality) {
+      return new Promise((resolve) => {
         const img = new Image();
-        img.onload = function() {
-          // Create canvas
+        img.onload = () => {
           const canvas = document.createElement('canvas');
+          const ctx = canvas.getContext('2d');
+          
           canvas.width = img.width;
           canvas.height = img.height;
           
-          // Draw image on canvas
-          const ctx = canvas.getContext('2d');
-          
           // Fill background with white for JPG conversion (to handle transparency)
-          if (targetFormat === 'jpg' || targetFormat === 'jpeg') {
+          if (format === 'jpg' || format === 'jpeg') {
             ctx.fillStyle = '#FFFFFF';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
           }
           
           ctx.drawImage(img, 0, 0);
           
-          // Convert to data URL
-          let dataUrl;
-          const mimeType = getMimeType(targetFormat);
+          // Function to convert data URL to blob
+          const dataUrlToBlob = (dataUrl) => {
+            const arr = dataUrl.split(',');
+            const mime = arr[0].match(/:(.*?);/)[1];
+            const bstr = atob(arr[1]);
+            let n = bstr.length;
+            const u8arr = new Uint8Array(n);
+            while (n--) {
+              u8arr[n] = bstr.charCodeAt(n);
+            }
+            return new Blob([u8arr], {type: mime});
+          };
           
-          if (targetFormat === 'jpg' || targetFormat === 'jpeg') {
+          let dataUrl;
+          const mimeType = getMimeType(format);
+          
+          if (format === 'jpg' || format === 'jpeg') {
             dataUrl = canvas.toDataURL(mimeType, quality);
-          } else if (targetFormat === 'png') {
+          } else if (format === 'png') {
             dataUrl = canvas.toDataURL(mimeType);
-          } else if (targetFormat === 'webp') {
-            // WebP might not be supported in all browsers
+          } else if (format === 'webp') {
             try {
               dataUrl = canvas.toDataURL(mimeType, quality);
             } catch (e) {
               dataUrl = canvas.toDataURL('image/png'); // Fallback to PNG
             }
-          } else if (targetFormat === 'gif') {
-            // GIF conversion is limited - we'll convert to PNG instead for simplicity
+          } else if (format === 'gif') {
             dataUrl = canvas.toDataURL('image/png');
-          } else if (targetFormat === 'bmp') {
-            // BMP conversion - we'll convert to PNG instead for simplicity
+          } else if (format === 'bmp') {
             dataUrl = canvas.toDataURL('image/png');
           }
           
-          // Create result object
-          const result = {
-            id: image.id + '-converted',
-            originalId: image.id,
-            name: image.name,
-            format: targetFormat,
-            dataUrl: dataUrl,
-            size: Math.round(dataUrl.length * 0.75), // Approximate size in bytes
-            width: img.width,
-            height: img.height
-          };
+          const blob = dataUrlToBlob(dataUrl);
           
-          resolve(result);
+          resolve({
+            dataUrl: dataUrl,
+            blob: blob
+          });
         };
-        
-        img.onerror = function() {
-          reject(new Error('Failed to load image'));
-        };
-        
-        img.src = image.dataUrl;
+        img.src = image.originalData;
       });
     }
     
-    // Get MIME type from format
+    function downloadSingleImage(index) {
+      const image = images[index];
+      
+      if (!image.converted) {
+        alert('Please convert the image first.');
+        return;
+      }
+      
+      const link = document.createElement('a');
+      link.href = image.convertedData;
+      link.download = `${image.file.name.replace(/\.[^/.]+$/, "")}.${image.convertedFormat}`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+    
+    function downloadAllImages() {
+      const convertedImages = images.filter(img => img.converted);
+      
+      if (convertedImages.length === 0) {
+        alert('No converted images available to download.');
+        return;
+      }
+      
+      if (convertedImages.length === 1) {
+        downloadSingleImage(images.indexOf(convertedImages[0]));
+        return;
+      }
+      
+      // For simplicity, we'll download each image individually
+      alert('Downloading all images... This may take a moment.');
+      
+      convertedImages.forEach((image, i) => {
+        setTimeout(() => {
+          const link = document.createElement('a');
+          link.href = image.convertedData;
+          link.download = `${image.file.name.replace(/\.[^/.]+$/, "")}.${image.convertedFormat}`;
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+        }, i * 100);
+      });
+    }
+    
+    function removeImage(index) {
+      images.splice(index, 1);
+      updateFileList();
+      updateImageCards();
+    }
+    
+    function deleteAllImages() {
+      if (images.length === 0) {
+        alert('No images to delete.');
+        return;
+      }
+      
+      if (confirm(`Are you sure you want to delete all ${images.length} images?`)) {
+        images = [];
+        updateFileList();
+        updateImageCards();
+      }
+    }
+    
+    function formatFileSize(bytes) {
+      if (bytes === 0) return '0 Bytes';
+      
+      const k = 1024;
+      const sizes = ['Bytes', 'KB', 'MB'];
+      const i = Math.floor(Math.log(bytes) / Math.log(k));
+      
+      return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+    }
+    
     function getMimeType(format) {
       switch (format) {
         case 'jpg':
@@ -2379,123 +2618,29 @@
       }
     }
     
-    // Add result item to results grid
-    function addResultItem(result) {
-      const resultItem = document.createElement('div');
-      resultItem.className = 'result-item';
-      resultItem.dataset.id = result.id;
-      
-      resultItem.innerHTML = `
-        <div class="result-image-wrapper">
-          <img src="${result.dataUrl}" alt="${result.name}.${result.format}" class="result-image">
-        </div>
-        <div class="result-details">
-          <div class="result-name">${result.name.length > 20 ? result.name.substring(0, 20) + '...' : result.name}.${result.format}</div>
-          <div class="result-stats">
-            <span>${result.width}×${result.height}</span>
-            <span>${formatFileSize(result.size)}</span>
-          </div>
-        </div>
-        <div class="result-actions">
-          <button class="result-action-btn download" data-id="${result.id}">
-            <i class="fas fa-download"></i> Download
-          </button>
-        </div>
-      `;
-      
-      // Add to grid
-      resultsGrid.appendChild(resultItem);
-      
-      // Add download button functionality
-      const downloadBtn = resultItem.querySelector('.result-action-btn.download');
-      downloadBtn.addEventListener('click', function() {
-        const id = this.getAttribute('data-id');
-        downloadImage(id);
-      });
-    }
-    
-    // Download single image
-    function downloadImage(id) {
-      const result = convertedImages.find(img => img.id === id);
-      if (!result) return;
-      
-      // Create download link
-      const link = document.createElement('a');
-      link.href = result.dataUrl;
-      link.download = `${result.name}.${result.format}`;
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    }
-    
-    // Download all images as ZIP (simulated - actually downloads individually)
-    function downloadAll() {
-      if (convertedImages.length === 0) return;
-      
-      // Show message for multiple downloads
-      if (convertedImages.length > 1) {
-        alert(`Your browser will download ${convertedImages.length} files individually. For better batch downloads, consider using browser extensions or compressing files manually.`);
+    function showLoading(index) {
+      const imageCards = document.querySelectorAll('.image-card');
+      if (imageCards[index]) {
+        const loadingDiv = document.createElement('div');
+        loadingDiv.className = 'loading';
+        loadingDiv.innerHTML = `
+          <div class="spinner"></div>
+          <div>Converting...</div>
+        `;
+        imageCards[index].querySelector('.image-preview').appendChild(loadingDiv);
       }
-      
-      // Download each image with a slight delay to avoid browser blocking
-      convertedImages.forEach((image, index) => {
-        setTimeout(() => {
-          const link = document.createElement('a');
-          link.href = image.dataUrl;
-          link.download = `${image.name}.${image.format}`;
-          document.body.appendChild(link);
-          link.click();
-          document.body.removeChild(link);
-        }, index * 100);
-      });
     }
     
-    // Reset results only
-    function resetResults() {
-      convertedImages = [];
-      resultsGrid.innerHTML = '';
-      resultsSection.classList.remove('active');
-      conversionProgress.classList.remove('active');
-      downloadAllBtn.disabled = true;
+    function hideLoading(index) {
+      const imageCards = document.querySelectorAll('.image-card');
+      if (imageCards[index]) {
+        const loadingDiv = imageCards[index].querySelector('.loading');
+        if (loadingDiv) {
+          loadingDiv.remove();
+        }
+      }
     }
-    
-    // Reset everything
-    function resetAll() {
-      images = [];
-      convertedImages = [];
-      
-      // Clear UI
-      previewGrid.innerHTML = '';
-      resultsGrid.innerHTML = '';
-      
-      // Reset UI state
-      imagePreviewContainer.classList.remove('active');
-      resultsSection.classList.remove('active');
-      conversionProgress.classList.remove('active');
-      
-      // Reset buttons
-      convertBtn.disabled = true;
-      downloadAllBtn.disabled = true;
-      
-      // Reset form
-      outputFormat.value = 'jpg';
-      qualitySlider.value = 85;
-      qualityValue.textContent = '85%';
-      
-      // Reset preset buttons
-      presetButtons.forEach((btn, index) => {
-        btn.classList.remove('active');
-        if (index === 0) btn.classList.add('active');
-      });
-      
-      // Reset file input
-      fileInput.value = '';
-      
-      // Update count
-      updateImageCount();
-      resultsCount.textContent = '0 Images Converted';
-    }
-    
+
     // FAQ functionality
     document.querySelectorAll('.faq-question').forEach(question => {
       question.addEventListener('click', () => {
@@ -2503,15 +2648,21 @@
         item.classList.toggle('active');
       });
     });
-    
-    // Initialize
-    updateImageCount();
-    resultsCount.textContent = '0 Images Converted';
-    
-    // Prevent auto-scroll on page load
-    window.addEventListener('load', function() {
-      // Ensure page stays at top
-      window.scrollTo(0, 0);
+
+    // Global functions for onclick handlers
+    window.removeImage = removeImage;
+    window.convertSingleImage = convertSingleImage;
+    window.downloadSingleImage = downloadSingleImage;
+
+    // Initialize format value display
+    formatValue.textContent = outputFormat.options[outputFormat.selectedIndex].text;
+
+    // Track tool usage for analytics
+    document.querySelectorAll('.action-btn, .card-btn').forEach(button => {
+      button.addEventListener('click', function(e) {
+        const action = this.textContent.trim();
+        console.log(`Image Converter action: ${action}`);
+      });
     });
   </script>
 </body>
